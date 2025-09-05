@@ -1,0 +1,56 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Node modules
+node_modules/
+
+# Build output
+.nuxt/
+dist/
+build/
+
+# Nuxt generate output
+.output/
+.nitro/
+
+# Coverage
+coverage/
+*.lcov
+
+# Local env files
+.env
+.env.*.local
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+
+# Optional cache
+.cache/
+.eslintcache
+.stylelintcache
+.husky/_
+
+# Lock files (optional – ignore if using one lock manager across the team)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
