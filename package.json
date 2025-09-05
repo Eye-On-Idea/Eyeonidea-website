@@ -1,0 +1,20 @@
+{
+  "name": "eoi-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxt/image": "^1.10.0",
+    "@nuxtjs/seo": "^3.0.3",
+    "nuxt": "^4.0.3",
+    "sass": "^1.89.1",
+    "vue": "^3.5.16",
+    "vue-router": "^4.5.1"
+  }
+}

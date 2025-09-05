@@ -1,0 +1,89 @@
+/* variables */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: transparent;
+}
+
+@font-face {
+  font-family: ;
+  src: url();
+}
+
+:root {
+  --prim-colour: #ffeddf;
+  --sec-colour: #dfaf85;
+  --tert-colour: #7d3412;
+  --quart-colour: #1f1f1f;
+  --shadow-bg: #00000025;
+  --box-glow: #dfaf8571;
+  --hover-normal: #ffffff72;
+  --transition-normal: all 0.3s ease-in-out;
+  --border-radius: 6px;
+}
+
+body {
+  max-width: 1920px;
+  margin: 0 auto;
+  background-color: var(--quart-colour);
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 100%;
+  min-width: 320px;
+  min-height: 99lvh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+button,
+a,
+li {
+  color: var(--prim-colour);
+}
+
+ul,
+li,
+a,
+button {
+  text-decoration: none;
+  list-style-type: none;
+}
+/* Classes */
+.flex {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.justify {
+  justify-content: center;
+}
+
+.align {
+  align-items: center;
+}
+
+.transition {
+  transition: var(--transition-normal);
+}
+
+.card {
+  max-width: 7px;
+}
