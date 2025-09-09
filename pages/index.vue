@@ -17,12 +17,17 @@
 #hero {
   width: 100%;
   height: 80lvh;
+
   .sec-col {
     color: var(--sec-colour);
   }
   .hero-left {
     width: 45%;
     height: 100%;
+    h1 {
+      font-size: 48px;
+      width: 80%;
+    }
   }
   .dec-line {
     height: 100%;

@@ -202,13 +202,13 @@
   --color-brand-50: #ffeddf; /* prim-colour (very light) */
   --color-brand-200: #dfaf85; /* sec-colour  */
   --color-brand-600: #7d3412; /* tert-colour (main) */
-
   /* Neutral (text/background) */
   --color-neutral-900: #1f1f1f; /* quart-colour */
-
   /* Optional: radii & durations as tokens */
   --radius-md: 6px;
   --duration-normal: 300ms;
+  --font-sans: Quicksand, ui-sans-serif, system-ui, sans-serif; /* default body */
+  --font-heading: Kanit, ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
@@ -235,6 +235,11 @@ main {
   width: 100%;
   min-width: 320px;
   min-height: 99lvh;
+}
+
+h1 {
+  font-family: var(--font-heading);
+  font-weight: 400;
 }
 
 h1,
