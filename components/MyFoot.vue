@@ -6,5 +6,7 @@
 
 <style lang="scss" scoped>
 footer {
+  min-height: 25lvh;
+  background-color: var(--color-red-50);
 }
 </style>
