@@ -9,6 +9,9 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxt/ui",
   ],
+  image: {
+    provider: "ipx",
+  },
 
   css: ["~/assets/css/main.css"],
 
