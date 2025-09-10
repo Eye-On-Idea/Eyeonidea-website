@@ -232,7 +232,7 @@ body {
 main {
   margin: 0 auto;
   width: 100%;
-  min-width: 320px;
+  min-width: 550px;
   min-height: 99lvh;
 }
 
@@ -259,16 +259,14 @@ a,
 button {
   text-decoration: none;
   list-style-type: none;
+  border: transparent;
+  font-family: kanit;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: 0.09em;
 }
 /* Classes */
-.justify {
-  justify-content: center;
-}
-
-.align {
-  align-items: center;
-}
-
 .transition {
   transition: var(--transition-normal);
 }
@@ -277,10 +275,21 @@ button {
   max-width: 7px;
 }
 
+.button {
+  min-width: 100px;
+  height: 35px;
+  padding: 10px 14px 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius);
+  outline: auto;
+  border: transparent;
+}
 .glass-effect {
-  background: rgba(255, 255, 255, 0.32);
+  background: #1f1f1f50;
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px #0000001a;
   backdrop-filter: blur(0.9px);
   -webkit-backdrop-filter: blur(0.9px);
   border: 1px solid rgba(255, 255, 255, 0.36);
