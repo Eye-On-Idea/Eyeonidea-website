@@ -31,7 +31,9 @@
           to="/services"
           variant="outline"
           class="border-brand-50 bg-brand-200 ring-brand-50 hover:bg-brand-300 focus-visible:ring-brand-50 font-bold"
-          ><span class="text-neutral-900">See services provided</span>
+          ><span class="text-neutral-900 font-medium"
+            >See services provided</span
+          >
         </UButton>
       </div>
       <div class="some flex flex-row">
@@ -157,10 +159,14 @@ import x from "/public/images/some/x_logo.svg";
   }
 }
 @media (max-width: 1290px) {
+  .scroll {
+    display: none;
+  }
   #hero {
     flex-direction: column;
     .left {
       width: 70%;
+
       p {
         &:nth-child(3) {
           width: 66%;

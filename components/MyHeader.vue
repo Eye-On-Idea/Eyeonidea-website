@@ -65,7 +65,7 @@ header {
   background-color: #1f1f1f50;
   backdrop-filter: blur(2.4px);
   -webkit-backdrop-filter: blur(5.4px);
-  box-shadow: 0px 19.7px 9px 0px #1f1f1fa0;
+  box-shadow: 0px 20px 9px 0px #1f1f1fa0;
   nav {
     display: flex;
     justify-content: center;
@@ -75,6 +75,7 @@ header {
 
     ul {
       gap: 25px;
+      letter-spacing: 0.09em;
       li {
         margin-top: auto;
         text-transform: uppercase;
