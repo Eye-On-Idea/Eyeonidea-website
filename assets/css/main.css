@@ -1,3 +1,7 @@
+/* variables */
+@import "tailwindcss";
+@import "@nuxt/ui";
+
 /* kanit-100 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -183,32 +187,27 @@
   src: url("/fonts/quicksand/quicksand-v37-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* variables */
-@import "tailwindcss";
-@import "@nuxt/ui";
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
   border: transparent;
 }
 
-/* Tailwind v4 design tokens */
-@theme {
-  /* Brand color scale (pick the stops you need) */
-  --color-brand-50: #ffeddf; /* prim-colour (very light) */
-  --color-brand-200: #dfaf85; /* sec-colour  */
-  --color-brand-600: #7d3412; /* tert-colour (main) */
-  /* Neutral (text/background) */
-  --color-neutral-900: #1f1f1f; /* quart-colour */
-  /* Optional: radii & durations as tokens */
+@theme static {
+  --color-brand-50: #ffeddf;
+  --color-brand-100: #ffe4cf;
+  --color-brand-200: #dfaf85;
+  --color-brand-300: #d39a69;
+  --color-brand-400: #b87343;
+  --color-brand-500: #995226; /* base (solid buttons) */
+  --color-brand-600: #7d3412; /* main (hover/active) */
+  --color-brand-700: #67280e;
+  --color-neutral-900: #1f1f1f;
+  --font-sans: Quicksand, ui-sans-serif, system-ui, sans-serif;
+  --font-heading: Kanit, ui-sans-serif, system-ui, sans-serif;
   --radius-md: 6px;
   --duration-normal: 300ms;
-  --font-sans: Quicksand, ui-sans-serif, system-ui, sans-serif; /* default body */
-  --font-heading: Kanit, ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
@@ -218,6 +217,7 @@
   --quart-colour: #1f1f1f;
   --shadow-bg: #00000025;
   --box-glow: #dfaf8571;
+  --color-lime: #18f018;
   --hover-normal: #ffffff72;
   --transition-normal: all 0.3s ease-in-out;
   --border-radius: 6px;
@@ -255,14 +255,10 @@ li {
 
 ul,
 li,
-a,
-button {
+a {
   text-decoration: none;
   list-style-type: none;
   border: transparent;
-  font-family: kanit;
-  font-weight: 700;
-  font-size: 18px;
   line-height: 27px;
   letter-spacing: 0.09em;
 }
@@ -275,17 +271,6 @@ button {
   max-width: 7px;
 }
 
-.button {
-  min-width: 100px;
-  height: 35px;
-  padding: 10px 14px 10px 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--border-radius);
-  outline: auto;
-  border: transparent;
-}
 .glass-effect {
   background: #1f1f1f50;
   border-radius: 16px;

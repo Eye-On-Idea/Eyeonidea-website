@@ -19,11 +19,20 @@
         building digital experiences that are reliable, accessible, and built to
         last.
       </p>
-      <div class="button-cont">
-        <a type="button" href="#contact" class="button">Get in touch</a>
-        <a type="button" href="/services" class="button"
-          >See services provided
-        </a>
+      <div class="button-cont flex-row flex gap-6">
+        <UButton
+          to="#contact"
+          variant="outline"
+          class="border-brand-50 text-brand-50 bg-transparent hover:bg-neutral-900/75 focus-visible:ring-brand-50 text-[0.75rem] font-sans ring-brand-50"
+          >Get in touch
+        </UButton>
+
+        <UButton
+          to="/services"
+          variant="outline"
+          class="border-brand-50 bg-brand-200 ring-brand-50 hover:bg-brand-300 focus-visible:ring-brand-50 font-bold"
+          ><span class="text-neutral-900">See services provided</span>
+        </UButton>
       </div>
       <div class="some flex flex-row">
         <index-my-somecard
@@ -98,60 +107,45 @@ import x from "/public/images/some/x_logo.svg";
       padding: 10px 14px 10px 14px;
       width: fit-content;
       border-radius: 100px;
-      outline: auto;
+      border-color: var(--color-lime);
+      border-style: solid;
+      border-width: 1px;
       align-items: center;
-      outline-color: var(--color-lime-500);
-
       display: flex;
       gap: 6px;
+
       .circle-status {
         border-radius: 20px;
-        background-color: var(--color-lime-600);
-
+        background-color: var(--color-lime);
         width: 15px;
         height: 15px;
       }
       p {
-        color: var(--color-lime-500);
+        color: var(--color-lime);
       }
     }
-    .button-cont {
-      display: flex;
-      flex-direction: row;
-      gap: 16px;
-      a {
-        outline-color: var(--prim-colour);
-        font-family: quicksand;
-        font-size: 12px;
-
-        &:nth-child(2) {
-          background-color: var(--sec-colour);
-          color: var(--quart-colour);
-        }
-      }
-    }
-    .some {
-      gap: 25px;
-      height: fit-content;
-      padding-top: 25%;
-    }
   }
-
-  .right {
-    width: 45%;
-    height: 100%;
+  .some {
+    gap: 25px;
+    height: fit-content;
+    padding-top: 25%;
   }
-  .scroll {
-    align-items: center;
-    position: absolute;
-    bottom: 3%;
-    right: 47%;
-    p {
-      font-size: 12px;
-    }
-    img {
-      width: 24px;
-    }
+}
+
+.right {
+  width: 45%;
+  height: 100%;
+}
+.scroll {
+  align-items: center;
+  position: absolute;
+  bottom: 3%;
+  right: 46.5%;
+  p {
+    font-size: 12px;
+  }
+  img {
+    width: 24px;
   }
 }
 
