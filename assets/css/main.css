@@ -232,7 +232,7 @@ body {
 main {
   margin: 0 auto;
   width: 100%;
-  min-width: 550px;
+  min-width: 390px;
   min-height: 99lvh;
 }
 
@@ -241,6 +241,14 @@ h1 {
   font-weight: 400;
 }
 
+h2 {
+  font-family: kanit;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--color-brand-200);
+}
 h1,
 h2,
 h3,

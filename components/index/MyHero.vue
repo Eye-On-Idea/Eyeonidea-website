@@ -117,7 +117,7 @@ onUnmounted(() => {
     height: 100%;
     row-gap: 40px;
     h1 {
-      font-size: 49px;
+      font-size: 3.2rem;
     }
     .project-status {
       padding: 10px 14px 10px 14px;
@@ -206,14 +206,38 @@ onUnmounted(() => {
     }
   }
 }
-@media (max-width: 550px) {
+@media (max-width: 590px) {
+  #hero {
+    padding-top: 25%;
+    min-height: 50lvh;
+    .left {
+      row-gap: 20px;
+    }
+    h1 {
+      font-size: 3rem !important;
+    }
+    p {
+      width: 100% !important;
+    }
+    .project-status {
+      padding: 5px 10px 5px 10px !important;
+      gap: 6px;
+      font-size: 0.9rem;
+      .circle-status {
+        width: 10px !important;
+        height: 10px !important;
+      }
+    }
+  }
+}
+@media (max-width: 390px) {
   #hero {
     padding-top: 25%;
     h1 {
-      font-size: 36px;
+      font-size: 2rem !important;
     }
     p {
-      width: 90%;
+      width: 100% !important;
     }
   }
 }

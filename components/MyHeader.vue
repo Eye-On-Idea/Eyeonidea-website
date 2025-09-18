@@ -139,4 +139,13 @@ header {
     }
   }
 }
+@media (max-width: 390px) {
+  a {
+    font-size: 0.7rem;
+  }
+  button {
+    font-size: 0.7rem;
+    padding: 3px !important;
+  }
+}
 </style>
