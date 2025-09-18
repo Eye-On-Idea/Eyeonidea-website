@@ -192,6 +192,7 @@
 *::after {
   box-sizing: border-box;
   border: transparent;
+  scroll-behavior: smooth;
 }
 
 @theme static {

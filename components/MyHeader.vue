@@ -91,7 +91,7 @@ const onToggleLang = async () => {
             :aria-label="`Skift sprog til ${
               lang === 'en' ? 'dansk' : 'engelsk'
             }`"
-            class="cursor-pointer hover:bg-neutral-900/75 focus-visible:ring-brand-50 text-[0.75rem] font-sans"
+            class="cursor-pointer ring-1 ring-brand-50/0 hover:bg-neutral-900/75 hover:ring-brand-50/50 focus-visible:ring-brand-50 text-[0.75rem] font-sans transition-normal"
             @click="onToggleLang"
           >
             {{ lang === "en" ? "DA" : "EN" }}
