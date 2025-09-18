@@ -2,9 +2,16 @@
   <div class="main-bg fixed w-full h-screen overflow-hidden"></div>
   <index-my-hero />
   <index-my-about />
+  <index-my-services />
 </template>
 
-<script setup></script>
+<script setup lang="ts">
+onMounted(() => {
+  const { lang } = useLang();
+  const other = lang.value === "en" ? "da" : "en";
+  import(/* @vite-ignore */ `~/content/${other}/index.json`).catch(() => {});
+});
+</script>
 
 <style lang="scss" scoped>
 .main-bg {
@@ -13,6 +20,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  max-width: 1920px;
 }
 
 @media (max-width: 1440px) {

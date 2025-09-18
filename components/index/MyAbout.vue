@@ -1,39 +1,32 @@
+<script lang="ts" setup>
+// IMG Carousel
+const aboutItems = [
+  { src: "/images/desk/rune_desk1.png", alt: "Alt text 1" },
+  { src: "/images/desk/rune_desk2.png", alt: "Alt text 2" },
+];
+
+// Language Toggle
+const { page } = usePageContent();
+const about = computed(() => page.value?.about);
+</script>
+
 <template>
-  <div class="bg flex bg-neutral-900/50 backdrop-blur-xs" id="about">
+  <div
+    v-if="about"
+    :id="about.id"
+    aria-labelledby="about-title"
+    class="bg flex bg-neutral-900/50 backdrop-blur-xs"
+  >
     <div class="cont flex flex-row">
       <section class="flex flex-col gap-1">
-        <h2 class="!text-brand-200" id="about-title">Eye On Idea</h2>
-        <p><strong>Human-centered QA for better digital Products</strong></p>
-        <section class="flex flex-col gap-4 mt-3">
-          <h3>EOI Areas</h3>
+        <h2 id="about-title" class="!text-brand-200">{{ about.title }}</h2>
+        <p v-html="about.tagline" />
+        <section class="flex flex-col gap-4 mt-3" aria-labelledby="areas-title">
+          <h3 id="areas-title">EOI Areas</h3>
           <p>
-            <small>
-              UX · UI · Accessibility · Usability · Responsiveness ·
-              Mobile/Tablet · Cross-Browser · Compatibility · Screen Readers ·
-              Performance · Design · Testing · Front-End
-            </small>
+            <small>{{ about.areas }}</small>
           </p>
-          <p>
-            EOI is a quality assurance partner that
-            <strong>helps businesses</strong> across Europe build digital
-            products that are reliable, accessible, and
-            <strong>easy to use</strong>. We combine usability, accessibility,
-            and front-end QA expertise to make sure your digital presence
-            <strong> works for every user </strong>.
-          </p>
-          <p>
-            We work closely with your team to review, test, and improve digital
-            services. Every audit or project is tailored to your needs, with
-            clear and practical steps that can be acted on right away. Our
-            process is flexible, human-centered, and designed to fit into your
-            workflow.
-          </p>
-          <p>
-            With a focus on detail and measurable results, we help you deliver
-            products that perform better and create smoother experiences for
-            your users. Our goal is simple: to raise the quality of your digital
-            solutions and support your long-term success.
-          </p>
+          <p v-for="(para, i) in about.paragraphs" :key="i" v-html="para" />
         </section>
       </section>
       <div
@@ -44,6 +37,8 @@
         <UCarousel
           :items="aboutItems"
           dots
+          loop
+          :autoplay="{ delay: 10000 }"
           v-slot="{ item }"
           class="w-full mx-auto"
           aria-describedby="about-carousel-status"
@@ -54,13 +49,6 @@
     </div>
   </div>
 </template>
-
-<script lang="ts" setup>
-const aboutItems = [
-  { src: "/images/desk/rune_desk1.png", alt: "Alt text 1" },
-  { src: "/images/desk/rune_desk2.png", alt: "Alt text 2" },
-];
-</script>
 
 <style lang="scss" scoped>
 .bg {

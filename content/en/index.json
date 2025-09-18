@@ -1,0 +1,79 @@
+{
+  "hero": {
+    "status": {
+      "text": "Open for projects"
+    },
+    "heading": {
+      "parts": [
+        { "type": "strong", "text": "Transform" },
+        { "type": "span", "class": "text-brand-200", "text": " good" },
+        { "text": " ideas" },
+        { "break": true },
+        { "text": "into " },
+        { "type": "span", "class": "text-brand-200", "text": "great" },
+        { "type": "strong", "text": " experiences" }
+      ]
+    },
+    "paragraph": "Your users expect products that work well and feel easy to use. <br /> Here at <strong>Eye On Idea</strong>, we test, guide, and support you in building digital experiences that are reliable, accessible, and built to last.",
+    "buttons": [
+      {
+        "label": "Get in touch",
+        "to": "#contact",
+        "variant": "outline",
+        "style": "primary-outline"
+      },
+      {
+        "label": "See services provided",
+        "to": "#services",
+        "variant": "outline",
+        "style": "accent-solid"
+      }
+    ],
+    "scroll": {
+      "text": "Scroll to explore",
+      "alt": "icon to indicate scroll possible, depicting a computer mouse with highlighted scroll wheel."
+    }
+  },
+  "about": {
+    "id": "about",
+    "title": "Eye On Idea",
+    "tagline": "<strong>Human-centered QA for better digital Products</strong>",
+    "areas": "UX · UI · Accessibility · Usability · Responsiveness · Mobile/Tablet · Cross-Browser · Compatibility · Screen Readers · Performance · Design · Testing · Front-End",
+    "paragraphs": [
+      "EOI is a quality assurance partner that <strong>helps businesses</strong> across Europe build digital products that are reliable, accessible, and <strong>easy to use</strong>. We combine usability, accessibility, and front-end QA expertise to make sure your digital presence <strong>works for every user</strong>.",
+      "We work closely with your team to review, test, and improve digital services. Every audit or project is tailored to your needs, with clear and practical steps that can be acted on right away. Our process is flexible, human-centered, and designed to fit into your workflow.",
+      "With a focus on detail and measurable results, we help you deliver products that perform better and create smoother experiences for your users. Our goal is simple: to raise the quality of your digital solutions and support your long-term success."
+    ]
+  },
+  "services": {
+    "id": "services",
+    "titleFirst": "Eye On Idea",
+    "titleAccent": "Services",
+    "paragraphs": [
+      "At <strong>Eye On Idea</strong>, we keep quality assurance <strong>clear</strong> and <strong>practical</strong>. Our services are flexible and adapt to the way your business works. Whether you need a quick review, structured project support, or a long-term QA partner, we focus on giving you <strong>actionable improvements</strong> that <strong>strengthen your product</strong> without slowing your team down.",
+      "From short audits to ongoing support, the outcome is <strong>reduce friction</strong>: digital products that work better for your users and reduce friction for your team. Each service is designed to <strong>improve accessibility, usability, and reliability.</strong> Explore our service options to see which setup fits your needs best."
+    ],
+    "buttons": [
+      {
+        "label": "Get in touch for more information",
+        "to": "#contact",
+        "variant": "outline",
+        "style": "primary-outline"
+      },
+      {
+        "label": "Compare the services provided",
+        "to": "/services",
+        "variant": "outline",
+        "style": "accent-solid"
+      }
+    ]
+  },
+  "header": {
+    "nav": [
+      { "key": "home", "label": "Home", "to": "/" },
+      { "key": "services", "label": "Services", "to": "/services" },
+      { "key": "about", "label": "About", "to": "/about" }
+    ],
+    "skipLink": "Skip to main content"
+  }
+}

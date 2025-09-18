@@ -100,9 +100,9 @@ const mailto = computed(() => {
                 <span class="block"
                   >Email:
                   <a
-                    href="mailto:rune-ceo@eyeonidea.com"
+                    href="mailto:support@eyeonidea.com"
                     class="underline decoration-dotted"
-                    >rune-ceo@eyeonidea.com</a
+                    >support@eyeonidea.com</a
                   ></span
                 >
               </div>

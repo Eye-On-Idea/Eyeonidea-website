@@ -1,3 +1,39 @@
+<script lang="ts" setup>
+//Import SOME Logos
+import linkedinLogo from "/public/images/some/LinkedIn_Logo.svg";
+import bluesky from "/public/images/some/Bluesky_logo.svg";
+import instagram from "/public/images/some/instagram-brands-solid-full.svg";
+import x from "/public/images/some/x_logo.svg";
+//Scroll toggle
+import { onMounted, onUnmounted, ref } from "vue";
+const isAtTop = ref(true);
+const handleScroll = () => {
+  isAtTop.value = window.scrollY < 50;
+};
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
+// Language Toggle
+const { page } = usePageContent();
+const hero = computed(() => page.value?.hero);
+
+function renderHeading(parts?: Array<any>) {
+  if (!parts) return "";
+  return parts
+    .map((p) => {
+      if (p.break) return "<br />";
+      if (p.type === "strong") return `<strong>${p.text}</strong>`;
+      if (p.type === "span")
+        return `<span class="${p.class || ""}">${p.text}</span>`;
+      return p.text ?? "";
+    })
+    .join("");
+}
+</script>
+
 <template>
   <div
     id="hero"
@@ -6,34 +42,30 @@
     <section class="left flex-col flex">
       <div class="project-status">
         <div class="circle-status"></div>
-        <p>Open for projects</p>
+        <p>{{ hero.status.text }}</p>
       </div>
-      <h1>
-        <strong>Transform</strong> <span class="sec-col">good</span> ideas
-        <br />
-        into <span class="sec-col">great</span> <strong>experiences</strong>
-      </h1>
-      <p>
-        Your users expect products that work well and feel easy to use. <br />
-        Here at <strong>Eye On Idea</strong>, we test, guide, and support you in
-        building digital experiences that are reliable, accessible, and built to
-        last.
-      </p>
+      <h1 v-html="renderHeading(hero.heading.parts)"></h1>
+      <p v-html="hero.paragraph"></p>
       <div class="button-cont flex-row flex gap-6">
         <UButton
-          to="#contact"
+          v-for="(b, i) in hero.buttons"
+          :key="i"
+          :to="b.to"
           variant="outline"
-          class="border-brand-50 text-brand-50 bg-transparent hover:bg-neutral-900/75 focus-visible:ring-brand-50 text-[0.75rem] font-sans ring-brand-50"
-          >Get in touch
-        </UButton>
-
-        <UButton
-          to="/services"
-          variant="outline"
-          class="border-brand-50 bg-brand-200 ring-brand-50 hover:bg-brand-300 focus-visible:ring-brand-50 font-bold"
-          ><span class="text-neutral-900 font-medium"
-            >See services provided</span
+          :class="[
+            b.style === 'primary-outline' &&
+              'border-brand-50 text-brand-50 bg-transparent hover:bg-neutral-900/75 focus-visible:ring-brand-50 text-[0.75rem] font-sans ring-brand-50',
+            b.style === 'accent-solid' &&
+              'border-brand-50 bg-brand-200 ring-brand-50 hover:bg-brand-300 focus-visible:ring-brand-50 font-bold',
+          ]"
+        >
+          <span
+            :class="
+              b.style === 'accent-solid' ? 'text-neutral-900 font-medium' : ''
+            "
           >
+            {{ b.label }}
+          </span>
         </UButton>
       </div>
       <div class="some flex flex-row">
@@ -72,7 +104,7 @@
       :class="{ hidden: !isAtTop }"
       aria-hidden="true"
     >
-      <p>Scroll to explore</p>
+      <p>{{ hero?.scroll.text }}</p>
       <img
         src="../../assets/icons/scroll-mouse.svg"
         alt="icon to indicate scroll possible, depicting a computer mouse with highlighted scroll wheel."
@@ -81,37 +113,14 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-//Import SOME Logos
-import linkedinLogo from "/public/images/some/LinkedIn_Logo.svg";
-import bluesky from "/public/images/some/Bluesky_logo.svg";
-import instagram from "/public/images/some/instagram-brands-solid-full.svg";
-import x from "/public/images/some/x_logo.svg";
-//Scroll toggle
-import { onMounted, onUnmounted, ref } from "vue";
-const isAtTop = ref(true);
-const handleScroll = () => {
-  isAtTop.value = window.scrollY < 50;
-};
-onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
-});
-onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
-});
-</script>
-
 <style lang="scss" scoped>
 #hero {
   margin: 0 auto;
   width: 100%;
-  min-height: 100lvh;
   max-width: 1440px;
   padding-top: 10%;
+  padding-bottom: 5%;
   z-index: 2;
-  .sec-col {
-    color: var(--sec-colour);
-  }
   .left {
     width: 40%;
     height: 100%;
@@ -154,7 +163,7 @@ onUnmounted(() => {
 .scroll {
   align-items: center;
   position: absolute;
-  bottom: 3%;
+  bottom: 12%;
   right: 46.5%;
   transition: opacity 0.3s ease, visibility 0.3s ease;
   p {
@@ -230,7 +239,7 @@ onUnmounted(() => {
     }
   }
 }
-@media (max-width: 390px) {
+@media (max-width: 420px) {
   #hero {
     padding-top: 25%;
     h1 {

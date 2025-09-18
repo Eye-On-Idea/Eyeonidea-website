@@ -1,3 +1,42 @@
+<script lang="ts" setup>
+const route = useRoute();
+const { page } = usePageContent();
+
+// Helper to fetch a single nav item by key (no foreach in template)
+const navItem = (k: "home" | "services" | "about") =>
+  page.value?.header?.nav?.find?.((i: any) => i.key === k) ?? {
+    label: "",
+    to: "#",
+  };
+
+// Individual items
+const home = computed(() => navItem("home"));
+const services = computed(() => navItem("services"));
+const about = computed(() => navItem("about"));
+
+// Active checks
+const isExact = (to: string) => route.path === to;
+const isSection = (to: string) =>
+  route.path === to || route.path.startsWith(to + "/");
+
+// Skip link text
+const skipLink = computed(
+  () => page.value?.header?.skipLink || "Skip to main content"
+);
+
+// Lang toggle
+const { lang, toggleLang } = useLang();
+const { announce } = useSrAnnounce();
+
+const onToggleLang = async () => {
+  toggleLang();
+  await nextTick();
+  announce(
+    lang.value === "en" ? "Language set to English" : "Sprog ændret til dansk"
+  );
+};
+</script>
+
 <template>
   <a
     href="#hero"
@@ -10,22 +49,20 @@
       <ul class="flex flex-row">
         <li>
           <NuxtLink
-            to="/"
-            :aria-current="$route.path === '/' ? 'page' : undefined"
+            :to="home.to"
             class="nav-link"
+            :aria-current="isExact(home.to) ? 'page' : undefined"
           >
-            home
+            {{ home.label }}
           </NuxtLink>
         </li>
         <li>
           <NuxtLink
-            to="/services"
-            :aria-current="
-              $route.path.startsWith('/services') ? 'page' : undefined
-            "
+            :to="services.to"
             class="nav-link"
+            :aria-current="isSection(services.to) ? 'page' : undefined"
           >
-            Services
+            {{ services.label }}
           </NuxtLink>
         </li>
         <li>
@@ -38,22 +75,27 @@
         </li>
         <li>
           <NuxtLink
-            to="/about"
-            :aria-current="
-              $route.path.startsWith('/about') ? 'page' : undefined
-            "
+            :to="about.to"
             class="nav-link"
+            :aria-current="isSection(about.to) ? 'page' : undefined"
           >
-            About
+            {{ about.label }}
           </NuxtLink>
         </li>
         <li>
-          <button
-            type="button"
-            aria-label="Switch language to/from Danish/English"
+          <UButton
+            variant="solid"
+            color="brand"
+            size="sm"
+            icon="i-heroicons-globe-alt"
+            :aria-label="`Skift sprog til ${
+              lang === 'en' ? 'dansk' : 'engelsk'
+            }`"
+            class="cursor-pointer hover:bg-neutral-900/75 focus-visible:ring-brand-50 text-[0.75rem] font-sans"
+            @click="onToggleLang"
           >
-            DA/EN
-          </button>
+            {{ lang === "en" ? "DA" : "EN" }}
+          </UButton>
         </li>
       </ul>
     </nav>
@@ -117,29 +159,13 @@ header {
           min-width: 50px;
         }
       }
-      button {
-        border-radius: var(--border-radius);
-        background-color: var(--quart-colour);
-        padding: 6px;
-        outline: solid;
-        outline-width: 1px;
-        outline-offset: 1px;
-        outline-color: var(--sec-colour);
-        transition: var(--transition-normal);
-        width: 100%;
-        cursor: pointer;
-        &:hover {
-          width: 120%;
-          outline: auto;
-        }
-      }
     }
     .nav-link[aria-current="page"] {
       font-weight: 700; // bold
     }
   }
 }
-@media (max-width: 390px) {
+@media (max-width: 420px) {
   a {
     font-size: 0.7rem;
   }
