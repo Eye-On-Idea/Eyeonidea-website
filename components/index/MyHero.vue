@@ -1,7 +1,7 @@
 <template>
   <div
     id="hero"
-    class="flex-row h-full w-full relative justify-center align-middle"
+    class="flex-row h-full w-full relative justify-center align-middle bg-neutral-900/10"
   >
     <section class="left flex-col flex">
       <div class="project-status">
@@ -67,7 +67,11 @@
         />
       </div>
     </section>
-    <div class="scroll flex flex-col" aria-hidden="true">
+    <div
+      class="scroll flex flex-col"
+      :class="{ hidden: !isAtTop }"
+      aria-hidden="true"
+    >
       <p>Scroll to explore</p>
       <img
         src="../../assets/icons/scroll-mouse.svg"
@@ -78,10 +82,23 @@
 </template>
 
 <script lang="ts" setup>
+//Import SOME Logos
 import linkedinLogo from "/public/images/some/LinkedIn_Logo.svg";
 import bluesky from "/public/images/some/Bluesky_logo.svg";
 import instagram from "/public/images/some/instagram-brands-solid-full.svg";
 import x from "/public/images/some/x_logo.svg";
+//Scroll toggle
+import { onMounted, onUnmounted, ref } from "vue";
+const isAtTop = ref(true);
+const handleScroll = () => {
+  isAtTop.value = window.scrollY < 50;
+};
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
 
 <style lang="scss" scoped>
@@ -92,16 +109,13 @@ import x from "/public/images/some/x_logo.svg";
   max-width: 1440px;
   padding-top: 10%;
   z-index: 2;
-
   .sec-col {
     color: var(--sec-colour);
   }
-
   .left {
     width: 40%;
     height: 100%;
     row-gap: 40px;
-
     h1 {
       font-size: 49px;
     }
@@ -133,7 +147,6 @@ import x from "/public/images/some/x_logo.svg";
     padding-top: 25%;
   }
 }
-
 .right {
   width: 45%;
   height: 100%;
@@ -143,11 +156,16 @@ import x from "/public/images/some/x_logo.svg";
   position: absolute;
   bottom: 3%;
   right: 46.5%;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   p {
     font-size: 12px;
   }
   img {
     width: 24px;
+  }
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
   }
 }
 

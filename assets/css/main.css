@@ -278,3 +278,9 @@ a {
   -webkit-backdrop-filter: blur(0.9px);
   border: 1px solid rgba(255, 255, 255, 0.36);
 }
+
+.outline-hover {
+  outline: solid;
+  outline-width: 1px;
+  outline-color: var(--color-brand-50);
+}
