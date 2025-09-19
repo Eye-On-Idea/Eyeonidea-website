@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxt/ui",
     "nuxt-gtag",
+    "@zadigetvoltaire/nuxt-gtm",
     "@dargmuesli/nuxt-cookie-control",
   ],
 
@@ -69,15 +70,13 @@ export default defineNuxtConfig({
   ogImage: { enabled: true },
 
   runtimeConfig: {
-    SMTP_HOST: process.env.SMTP_HOST,
-    SMTP_PORT: process.env.SMTP_PORT,
-    SMTP_USER: process.env.SMTP_USER,
-    SMTP_PASS: process.env.SMTP_PASS,
+    RESEND_API_KEY: process.env.RESEND_API_KEY,
     CONTACT_TO: process.env.CONTACT_TO,
     CONTACT_FROM: process.env.CONTACT_FROM,
     public: {
       // keep if other code reads it; nuxt-gtag uses `gtag.id` below
       gtag: { id: "G-WY6NJ5BYTJ" },
+      gtmId: "GTM-MHZ76SX2",
     },
   },
 
@@ -138,6 +137,15 @@ export default defineNuxtConfig({
           name: { en: "Google Analytics 4" },
           description: { en: "Helps us improve the site. Off by default." },
           targetCookieIds: ["_ga", "_ga_*", "_gid"],
+          isPreselected: false,
+        },
+        {
+          id: "google-tag-manager",
+          name: { en: "Google Tag Manager" },
+          description: {
+            en: "Loads marketing/analytics tags configured in GTM.",
+          },
+          targetCookieIds: [], // GTM may set various cookies via tags
           isPreselected: false,
         },
       ],

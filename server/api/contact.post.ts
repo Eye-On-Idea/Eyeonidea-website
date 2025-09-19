@@ -1,86 +1,78 @@
 // server/api/contact.post.ts
-import nodemailer from "nodemailer";
-import { z } from "zod";
-
-const schema = z.object({
-  name: z.string().min(1, "Please enter your name"),
-  email: z.string().email("Please enter a valid email"),
-  subject: z.string().min(1, "Please enter a subject"),
-  message: z.string().min(10, "Please write a longer message"),
-  company: z.string().optional().default(""), // honeypot
-});
-
-// tiny in-memory rate limit: 5 requests per 5 minutes per IP
-const bucket = new Map<string, { count: number; resetAt: number }>();
-function rateLimit(ip: string, max = 5, windowMs = 5 * 60 * 1000) {
-  const now = Date.now();
-  const item = bucket.get(ip);
-  if (!item || now > item.resetAt) {
-    bucket.set(ip, { count: 1, resetAt: now + windowMs });
-    return true;
-  }
-  if (item.count >= max) return false;
-  item.count += 1;
-  return true;
-}
-
 export default defineEventHandler(async (event) => {
-  // basic rate limit
-  const ip =
-    getRequestHeader(event, "x-forwarded-for")?.split(",")[0].trim() ||
-    getRequestIP(event) ||
-    "unknown";
-  if (!rateLimit(ip)) {
-    throw createError({ statusCode: 429, statusMessage: "Too many requests" });
+  const body = await readBody<{
+    name?: string;
+    email?: string;
+    subject?: string;
+    message?: string;
+    company?: string; // honeypot
+  }>(event);
+
+  // Honeypot: if filled, pretend it's fine (don’t tip bots)
+  if (body.company?.trim()) return { ok: true };
+
+  if (!body.name?.trim() || !body.email?.trim() || !body.message?.trim()) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: "Please fill in name, email and message.",
+      data: { error: "Missing required fields" },
+    });
   }
 
-  const body = await readBody(event);
-  const parsed = schema.safeParse(body);
-  if (!parsed.success) {
-    throw createError({ statusCode: 400, statusMessage: "Invalid input" });
+  const rc = useRuntimeConfig();
+
+  // primary source: runtimeConfig (env from Cloudflare Secrets)
+  let API_KEY = rc.RESEND_API_KEY as string | undefined;
+  let TO = rc.CONTACT_TO as string | undefined;
+  let FROM = rc.CONTACT_FROM as string | undefined;
+
+  // optional fallback: Cloudflare bindings if you ever add them
+  const cfEnv = (event as any).context?.cloudflare?.env;
+  API_KEY ??= cfEnv?.RESEND_API_KEY;
+  TO ??= cfEnv?.CONTACT_TO;
+  FROM ??= cfEnv?.CONTACT_FROM;
+
+  if (!API_KEY || !TO || !FROM) {
+    throw createError({
+      statusCode: 500,
+      statusMessage: "Email service is not fully configured.",
+      data: { error: "Missing RESEND_API_KEY/CONTACT_TO/CONTACT_FROM" },
+    });
   }
 
-  // Honeypot: if filled, pretend success but drop it
-  if (parsed.data.company) {
-    return { ok: true };
-  }
+  const subject = body.subject?.trim() || "New contact form submission";
+  const text = [
+    `Name: ${body.name}`,
+    `Email: ${body.email}`,
+    `Subject: ${body.subject || "-"}`,
+    "",
+    body.message,
+  ].join("\n");
 
-  const { name, email, subject, message } = parsed.data;
-
-  // Guard lengths
-  const safeSubject = subject.slice(0, 200);
-  const safeMessage = message.slice(0, 5000);
-
-  const config = useRuntimeConfig();
-  const transporter = nodemailer.createTransport({
-    host: config.SMTP_HOST,
-    port: Number(config.SMTP_PORT || 587),
-    secure: false, // STARTTLS on 587
-    auth: {
-      user: config.SMTP_USER,
-      pass: config.SMTP_PASS,
+  const resp = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${API_KEY}`,
+      "Content-Type": "application/json",
     },
+    body: JSON.stringify({
+      from: "no-reply@eyeonidea.com", // e.g. "EOI <no-reply@eyeonidea.com>"
+      to: "hello@eyeonidea.com",
+      reply_to: body.email,
+      subject,
+      text,
+      html: text.replace(/\n/g, "<br>"),
+    }),
   });
 
-  const text = `New contact form message
-
-From: ${name} <${email}>
-Subject: ${safeSubject}
-
-${safeMessage}
-`;
-
-  try {
-    await transporter.sendMail({
-      from: `"Website Contact" <${config.CONTACT_FROM}>`,
-      to: config.CONTACT_TO,
-      replyTo: email,
-      subject: `Contact form: ${safeSubject}`,
-      text,
+  if (!resp.ok) {
+    const details = await resp.json().catch(() => ({}));
+    throw createError({
+      statusCode: 502,
+      statusMessage: "Failed to send email via Resend.",
+      data: { error: details?.error || `HTTP ${resp.status}` },
     });
-    return { ok: true };
-  } catch (err) {
-    console.error("Mailer error:", err);
-    throw createError({ statusCode: 500, statusMessage: "Failed to send" });
   }
+
+  return { ok: true };
 });
