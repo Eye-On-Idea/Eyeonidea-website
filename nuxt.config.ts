@@ -1,10 +1,17 @@
 // nuxt.config.ts
 import tailwindcss from "@tailwindcss/vite";
+
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
   devtools: { enabled: true },
 
-  modules: ["@nuxtjs/seo", "@nuxt/image", "@nuxt/ui"],
+  modules: [
+    "@nuxtjs/seo",
+    "@nuxt/image",
+    "@nuxt/ui",
+    "nuxt-gtag",
+    "@dargmuesli/nuxt-cookie-control",
+  ],
 
   css: ["~/assets/css/main.css"],
   vite: { plugins: [tailwindcss()] },
@@ -60,6 +67,7 @@ export default defineNuxtConfig({
     },
   },
   ogImage: { enabled: true },
+
   runtimeConfig: {
     SMTP_HOST: process.env.SMTP_HOST,
     SMTP_PORT: process.env.SMTP_PORT,
@@ -67,13 +75,76 @@ export default defineNuxtConfig({
     SMTP_PASS: process.env.SMTP_PASS,
     CONTACT_TO: process.env.CONTACT_TO,
     CONTACT_FROM: process.env.CONTACT_FROM,
-    public: {},
+    public: {
+      // keep if other code reads it; nuxt-gtag uses `gtag.id` below
+      gtag: { id: "G-WY6NJ5BYTJ" },
+    },
   },
-  // Make a fully static build for Pages
-  nitro: { preset: "cloudflare-pages" },
 
-  // Prerender everything (so .output/public gets produced)
-  routeRules: {
-    "/**": { prerender: true },
+  // ---------- Google Analytics 4 (nuxt-gtag) ----------
+  gtag: {
+    enabled: process.env.NODE_ENV === "production",
+    id: process.env.NUXT_PUBLIC_GA4_ID || "G-WY6NJ5BYTJ",
+    config: { send_page_view: true },
+    initCommands: [
+      [
+        "consent",
+        "default",
+        {
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+          ad_storage: "denied",
+          analytics_storage: "denied",
+          wait_for_update: 500,
+        },
+      ],
+    ],
+    // OPTIONAL hard-block: uncomment to prevent loading until consent, then call initialize() in plugin
+    // initMode: "manual",
   },
+
+  // ---------- Cookie banner ----------
+  cookieControl: {
+    barPosition: "bottom-full",
+    isControlButtonEnabled: true,
+    isAcceptNecessaryButtonEnabled: true,
+    isModalForced: false,
+    declineAllAcceptsNecessary: true,
+
+    // Keep locales minimal; only override *known* keys
+    locales: ["en"],
+    localeTexts: {
+      en: {
+        // Example of a known key:
+        save: "Save choices",
+        // (Avoid untyped keys like `settings`, `acceptNecessary`, `bannerTitle`, etc.)
+      },
+    },
+
+    cookies: {
+      necessary: [
+        {
+          id: "essential",
+          name: { en: "Essential" },
+          description: {
+            en: "Required for core features (navigation, forms).",
+          },
+          targetCookieIds: ["ncc_c", "ncc_e"],
+        },
+      ],
+      optional: [
+        {
+          id: "google-analytics",
+          name: { en: "Google Analytics 4" },
+          description: { en: "Helps us improve the site. Off by default." },
+          targetCookieIds: ["_ga", "_ga_*", "_gid"],
+          isPreselected: false,
+        },
+      ],
+    },
+  },
+
+  // Cloudflare Pages static build
+  nitro: { preset: "cloudflare-pages" },
+  routeRules: { "/**": { prerender: true } },
 });
