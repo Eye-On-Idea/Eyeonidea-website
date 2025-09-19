@@ -56,8 +56,8 @@ export default defineEventHandler(async (event) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "no-reply@eyeonidea.com", // e.g. "EOI <no-reply@eyeonidea.com>"
-      to: "hello@eyeonidea.com",
+      from: "EOI <no-reply@eyeonidea.com>", // e.g. "EOI <no-reply@eyeonidea.com>"
+      to: ["hello@eyeonidea.com"],
       reply_to: body.email,
       subject,
       text,
