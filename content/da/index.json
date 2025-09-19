@@ -76,5 +76,23 @@
       { "key": "about", "label": "Om", "to": "/about" }
     ],
     "skipLink": "Spring til hovedindhold"
+  },
+  "contact": {
+    "title": "Kontaktformular",
+    "intro": "Send os en besked, så ser vi, om vi kan hjælpe hinanden",
+    "fields": {
+      "name": { "label": "Navn", "placeholder": "Dit navn" },
+      "email": { "label": "E-mail", "placeholder": "dig@eksempel.dk" },
+      "subject": { "label": "Emne", "placeholder": "Hvad drejer det sig om?" },
+      "message": { "label": "Besked", "placeholder": "Skriv din besked her..." }
+    },
+    "honeypotLabel": "Virksomhed",
+    "submit": { "label": "Send besked" },
+    "status": { "genericError": "Noget gik galt. Prøv igen." },
+    "modal": {
+      "title": "Tak",
+      "body": "Din besked er sendt. Jeg vender snart tilbage.",
+      "close": "Luk"
+    }
   }
 }

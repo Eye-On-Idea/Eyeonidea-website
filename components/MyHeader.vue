@@ -35,6 +35,42 @@ const onToggleLang = async () => {
     lang.value === "en" ? "Language set to English" : "Sprog ændret til dansk"
   );
 };
+//header transition
+const hdrAlpha = ref(0.31); // start ~50 hex / 255
+const START_ALPHA = 0.31;
+const END_ALPHA = 1.0;
+const FADE_PORTION = 0.4; // fade over first 60% of hero height
+
+onMounted(() => {
+  const hero = document.getElementById("hero");
+  const headerEl = document.querySelector(".site-header") as HTMLElement | null;
+
+  if (!hero) {
+    hdrAlpha.value = END_ALPHA;
+    return;
+  }
+
+  const headerH = headerEl?.offsetHeight ?? 80;
+
+  const update = () => {
+    const heroH = hero.offsetHeight || 1;
+    // progress: 0 at top, 1 when we've scrolled past FADE_PORTION of hero (account for fixed header)
+    const y = window.scrollY + headerH;
+    const fadeEnd = heroH * FADE_PORTION;
+    const progress = Math.min(1, Math.max(0, y / fadeEnd));
+
+    // linear interpolate alpha
+    hdrAlpha.value = START_ALPHA + (END_ALPHA - START_ALPHA) * progress;
+  };
+
+  update(); // set initial value
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  onUnmounted(() => {
+    window.removeEventListener("scroll", update);
+    window.removeEventListener("resize", update);
+  });
+});
 </script>
 
 <template>
@@ -44,7 +80,10 @@ const onToggleLang = async () => {
   >
     Skip to main content
   </a>
-  <header class="fixed top-0 z-10 mx-auto flex h-20 w-full min-w-[320px">
+  <header
+    class="site-header fixed top-0 z-10 mx-auto flex h-20 w-full min-w-[320px]"
+    :style="{ '--hdr-alpha': hdrAlpha.toString() }"
+  >
     <nav class="w-full max-w-[1440px]">
       <ul class="flex flex-row">
         <li>
@@ -103,6 +142,20 @@ const onToggleLang = async () => {
 </template>
 
 <style lang="scss" scoped>
+.site-header {
+  --hdr-alpha: 0.31; /* ≈ #1f1f1f50 */
+  background-color: rgba(31, 31, 31, var(--hdr-alpha));
+  backdrop-filter: blur(2.4px);
+  -webkit-backdrop-filter: blur(5.4px);
+  box-shadow: 0 6px 12px 2px #1f1f1fa0;
+  transition: background-color 120ms linear; /* small smoothing */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header {
+    transition: none;
+  }
+}
 header {
   background-color: #1f1f1f50;
   backdrop-filter: blur(2.4px);

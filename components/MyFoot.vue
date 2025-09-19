@@ -1,5 +1,5 @@
 <template>
-  <footer class="flex row"></footer>
+  <footer class="flex row bg-neutral-900"></footer>
 </template>
 
 <script></script>
@@ -7,6 +7,8 @@
 <style lang="scss" scoped>
 footer {
   min-height: 25lvh;
-  background-color: var(--color-red-50);
+  width: 100%;
+  position: relative;
+  margin-top: 50px;
 }
 </style>

@@ -75,5 +75,26 @@
       { "key": "about", "label": "About", "to": "/about" }
     ],
     "skipLink": "Skip to main content"
+  },
+  "contact": {
+    "title": "Contact form",
+    "intro": "Send us a message, and let's see if we can help each other",
+    "fields": {
+      "name": { "label": "Name", "placeholder": "Your name" },
+      "email": { "label": "Email", "placeholder": "you@example.com" },
+      "subject": { "label": "Subject", "placeholder": "What is this about?" },
+      "message": {
+        "label": "Message",
+        "placeholder": "Write your message here..."
+      }
+    },
+    "honeypotLabel": "Company",
+    "submit": { "label": "Send message" },
+    "status": { "genericError": "Something went wrong. Please try again." },
+    "modal": {
+      "title": "Thank you",
+      "body": "Your message has been sent. I’ll get back to you soon.",
+      "close": "Close"
+    }
   }
 }
