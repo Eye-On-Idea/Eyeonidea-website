@@ -24,32 +24,30 @@ async function onSubmit() {
   status.value = "loading";
   errorMsg.value = "";
   try {
-    const res = await $fetch("/api/contact", {
+    await $fetch<{ ok: boolean }>("/api/contact", {
       method: "POST",
       body: {
         name: name.value.trim(),
         email: email.value.trim(),
         subject: subject.value.trim(),
         message: message.value.trim(),
-        company: company.value,
+        company: company.value, // honeypot
       },
     });
-    if ((res as any)?.ok) {
-      // reset
-      name.value =
-        email.value =
-        subject.value =
-        message.value =
-        company.value =
-          "";
-      status.value = "idle";
-      isSuccessOpen.value = true; // open modal
-    } else {
-      throw new Error("Send failed");
-    }
+
+    // success
+    name.value =
+      email.value =
+      subject.value =
+      message.value =
+      company.value =
+        "";
+    status.value = "idle";
+    isSuccessOpen.value = true;
   } catch (e: any) {
     status.value = "error";
     errorMsg.value =
+      e?.data?.error || // from our function below
       e?.data?.statusMessage ||
       e?.message ||
       contact.value?.status?.genericError ||

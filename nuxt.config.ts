@@ -11,6 +11,7 @@ export default defineNuxtConfig({
   image: { provider: "ipx" },
 
   app: {
+    baseURL: "/",
     head: {
       link: [
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -67,5 +68,12 @@ export default defineNuxtConfig({
     CONTACT_TO: process.env.CONTACT_TO,
     CONTACT_FROM: process.env.CONTACT_FROM,
     public: {},
+  },
+  // Make a fully static build for Pages
+  nitro: { preset: "cloudflare-pages" },
+
+  // Prerender everything (so .output/public gets produced)
+  routeRules: {
+    "/**": { prerender: true },
   },
 });

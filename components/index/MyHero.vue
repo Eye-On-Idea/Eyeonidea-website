@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 //Import SOME Logos
-import linkedinLogo from "/public/images/some/LinkedIn_Logo.svg";
-import bluesky from "/public/images/some/Bluesky_logo.svg";
-import instagram from "/public/images/some/instagram-brands-solid-full.svg";
-import x from "/public/images/some/x_logo.svg";
+import linkedinLogo from "/images/some/LinkedIn_Logo.svg";
+import bluesky from "/images/some/Bluesky_logo.svg";
+import instagram from "/images/some/instagram-brands-solid-full.svg";
+import x from "/images/some/x_logo.svg";
 //Scroll toggle
 import { onMounted, onUnmounted, ref } from "vue";
 const isAtTop = ref(true);
@@ -106,7 +106,7 @@ function renderHeading(parts?: Array<any>) {
     >
       <p>{{ hero?.scroll.text }}</p>
       <img
-        src="../../assets/icons/scroll-mouse.svg"
+        src="/public-material/icons/scroll-mouse.svg"
         alt="icon to indicate scroll possible, depicting a computer mouse with highlighted scroll wheel."
       />
     </div>

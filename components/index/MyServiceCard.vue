@@ -6,7 +6,7 @@
         <p>{{ text1 }}</p>
       </section>
       <img
-        src="../../assets/img/logo-nobg.png"
+        src="/public-material/img/logo-nobg.png"
         alt="Eye On Idea logo"
         class="w-25"
       />
