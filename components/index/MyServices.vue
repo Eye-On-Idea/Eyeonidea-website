@@ -50,11 +50,26 @@ function innerSpanClass(b: any) {
           </UButton>
         </div>
       </section>
-      <div
-        class="service-cont flex flex-col justify-center"
-        role="region"
-        aria-labelledby="about-carousel-title"
-      ></div>
+      <div class="service-cont flex flex-col">
+        <IndexMyServiceCard
+          h3="Time-Based QA"
+          text1="Flexible Hours"
+          text2="Time-Based QA"
+          href="/services#timebased"
+        />
+        <IndexMyServiceCard
+          h3="Project QA"
+          text1="Fixed Scope, Flexible Hours"
+          text2="Project QA"
+          href="/services#fixed"
+        />
+        <IndexMyServiceCard
+          h3="Retainer QA"
+          text1="Continuous Collaboration"
+          text2="Retainer QA"
+          href="/services#retainer"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -85,8 +100,8 @@ function innerSpanClass(b: any) {
   .service-cont {
     width: 100%;
     z-index: 2;
-    max-width: fit-content;
-    max-width: 590px;
+    max-width: 600px;
+    min-width: 320px;
   }
 }
 
@@ -110,6 +125,10 @@ function innerSpanClass(b: any) {
         padding: 0;
       }
     }
+  }
+  .service-cont {
+    flex-wrap: wrap;
+    flex-direction: row;
   }
 }
 @media (max-width: 769px) {

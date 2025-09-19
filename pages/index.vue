@@ -3,6 +3,7 @@
   <index-my-hero />
   <index-my-about />
   <index-my-services />
+  <index-my-contact-faq />
 </template>
 
 <script setup lang="ts">
