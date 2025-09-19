@@ -122,8 +122,10 @@ async function onSubmit() {
           <input
             v-model="company"
             type="text"
+            name="hp_token"
+            inputmode="none"
+            autocomplete="new-password"
             tabindex="-1"
-            autocomplete="off"
           />
         </label>
       </div>
