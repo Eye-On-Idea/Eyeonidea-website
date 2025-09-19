@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 //Import SOME Logos
 import linkedinLogo from "/images/some/LinkedIn_Logo.svg";
-import bluesky from "/images/some/Bluesky_logo.svg";
+import bluesky from "/images/some/bluesky.svg";
 import instagram from "/images/some/instagram-brands-solid-full.svg";
 import x from "/images/some/x_logo.svg";
 //Scroll toggle
