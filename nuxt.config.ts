@@ -10,7 +10,6 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxt/ui",
     "nuxt-gtag",
-    "@zadigetvoltaire/nuxt-gtm",
     "@dargmuesli/nuxt-cookie-control",
   ],
 
