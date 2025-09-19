@@ -1,6 +1,6 @@
 <template>
   <UCard class="bg-white dark:bg-neutral-900 border border-brand-200/40">
-    <div class="px-2 sm:px-4">
+    <div class="px-2 sm:px-4" id="services">
       <h2
         class="text-xl font-semibold text-neutral-900 dark:text-brand-100 mb-4"
       >
@@ -146,78 +146,177 @@ type Row = {
 };
 
 const rows: Row[] = [
+  // ===== Time-based TRUE (grouped first) =====
   {
-    key: "discovery",
-    label: "Discovery Call",
-    hint: "Understand goals & scope",
+    key: "xdev-xbrowser",
+    label: "Cross-device & cross-browser testing",
+    hint: "Major engines + responsive breakpoints",
     time: true,
     project: true,
     retainer: true,
   },
   {
-    key: "workshop",
-    label: "Requirements Workshop",
-    time: false,
-    project: true,
-    retainer: true,
-  },
-  {
-    key: "ux-audit",
-    label: "UX & Heuristic Review",
-    time: false,
-    project: true,
-    retainer: true,
-  },
-  {
-    key: "a11y",
-    label: "Accessibility QA (WCAG 2.1 AA)",
-    time: false,
-    project: true,
-    retainer: true,
-  },
-  {
-    key: "design-system",
-    label: "Design Tokens / System Setup",
-    time: false,
-    project: true,
-    retainer: true,
-  },
-  {
-    key: "impl",
-    label: "Implementation Support",
-    hint: "Pairing, PR reviews",
+    key: "ui-defects",
+    label: "UI defect hunting & regression checks",
     time: true,
     project: true,
     retainer: true,
   },
   {
-    key: "analytics",
-    label: "Analytics & Event Setup",
+    key: "content-microcopy",
+    label: "Content & microcopy clarity",
+    hint: "Spelling, tone, error messages",
+    time: true,
+    project: true,
+    retainer: true,
+  },
+  {
+    key: "ideation",
+    label: "Idea generation & value write-ups",
+    hint: "Rationale, effort, predicted outcomes",
+    time: true,
+    project: true,
+    retainer: true,
+  },
+  {
+    key: "workshops",
+    label: "Workshops & onboarding meetings",
+    time: true,
+    project: true,
+    retainer: true,
+  },
+
+  // ===== Time-based FALSE (rest) =====
+  // QA & Reliability
+  {
+    key: "a11y-screen",
+    label: "Accessibility screening (WCAG 2.1 AA)",
+    hint: "Pragmatic fixes & guidance",
     time: false,
     project: true,
     retainer: true,
   },
   {
-    key: "opt",
-    label: "Ongoing Optimization",
+    key: "acceptance",
+    label: "Acceptance criteria & smoke tests",
+    time: false,
+    project: true,
+    retainer: true,
+  },
+
+  // UX Quality & Content
+  {
+    key: "heuristic",
+    label: "Heuristic/UX review",
+    hint: "Flows, friction, clarity, affordances",
+    time: true,
+    project: true,
+    retainer: true,
+  },
+  {
+    key: "info-structure",
+    label: "Information architecture & hierarchy",
+    time: false,
+    project: true,
+    retainer: true,
+  },
+  {
+    key: "tokens-audit",
+    label: "UI system & tokens audit",
+    hint: "Consistency, naming, usage",
+    time: false,
+    project: true,
+    retainer: true,
+  },
+
+  // Concept & Product Shaping
+  {
+    key: "opportunity",
+    label: "Opportunity mapping & quick wins",
+    time: false,
+    project: true,
+    retainer: true,
+  },
+  {
+    key: "prototype",
+    label: "Clickable prototypes (alignment)",
+    time: false,
+    project: true,
+    retainer: true,
+  },
+
+  // Collaboration & Enablement
+  {
+    key: "stakeholders",
+    label: "Stakeholder interviews (lightweight)",
+    time: false,
+    project: true,
+    retainer: true,
+  },
+  {
+    key: "onsite",
+    label: "On-site support (EU)",
+    hint: "Short stays; travel pre-agreed & expensed",
+    time: false,
+    project: true,
+    retainer: true,
+  },
+
+  // ===== Retainer-only differentiators =====
+  {
+    key: "pm-assist",
+    label: "PM assist (roadmap, scope shaping)",
     time: false,
     project: false,
     retainer: true,
   },
   {
-    key: "priority",
-    label: "Priority Support SLA",
+    key: "ongoing-opt",
+    label: "Ongoing optimization",
+    hint: "Iterative UX/QA improvements over time",
     time: false,
     project: false,
     retainer: true,
   },
   {
-    key: "report",
-    label: "Monthly Report & Roadmap",
+    key: "priority-sla",
+    label: "Priority support SLA",
     time: false,
     project: false,
     retainer: true,
   },
+  {
+    key: "monthly-report",
+    label: "Monthly report & roadmap suggestions",
+    time: false,
+    project: false,
+    retainer: true,
+  },
+  {
+    key: "playbooks",
+    label: "QA/UX checklists & playbooks",
+    hint: "Team enablement & repeatable processes",
+    time: false,
+    project: false,
+    retainer: true,
+  },
+
+  // Analytics & Experiments (lightweight)
+  {
+    key: "events",
+    label: "Event/telemetry suggestions",
+    hint: "What to track for decisions",
+    time: false,
+    project: true,
+    retainer: true,
+  },
+  {
+    key: "experiments",
+    label: "Simple A/B or smoke test proposals",
+    time: false,
+    project: false,
+    retainer: true,
+  }, // moved to retainer-only
 ];
 
 // Brand-aware icon styling (checks vs. grayed X)

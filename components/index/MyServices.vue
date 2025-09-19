@@ -55,19 +55,19 @@ function innerSpanClass(b: any) {
           h3="Time-Based QA"
           text1="Flexible Hours"
           text2="Time-Based QA"
-          href="/services#timebased"
+          href="/services#services"
         />
         <IndexMyServiceCard
           h3="Project QA"
           text1="Fixed Scope, Flexible Hours"
           text2="Project QA"
-          href="/services#fixed"
+          href="/services#services"
         />
         <IndexMyServiceCard
           h3="Retainer QA"
           text1="Continuous Collaboration"
           text2="Retainer QA"
-          href="/services#retainer"
+          href="/services#services"
         />
       </div>
     </div>
