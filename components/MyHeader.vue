@@ -124,7 +124,6 @@ onMounted(() => {
         <li>
           <UButton
             variant="solid"
-            color="brand"
             size="sm"
             icon="i-heroicons-globe-alt"
             :aria-label="`Skift sprog til ${
