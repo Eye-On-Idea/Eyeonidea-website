@@ -1,45 +1,27 @@
 <script lang="ts" setup>
+import { computed, onMounted, onUnmounted, ref, nextTick } from "vue";
+import { useRoute } from "vue-router";
+
 const route = useRoute();
-const { page } = usePageContent();
-
-// Helper to fetch a single nav item by key (no foreach in template)
-const navItem = (k: "home" | "services" | "about") =>
-  page.value?.header?.nav?.find?.((i: any) => i.key === k) ?? {
-    label: "",
-    to: "#",
-  };
-
-// Individual items
-const home = computed(() => navItem("home"));
-const services = computed(() => navItem("services"));
-const about = computed(() => navItem("about"));
 
 // Active checks
 const isExact = (to: string) => route.path === to;
 const isSection = (to: string) =>
   route.path === to || route.path.startsWith(to + "/");
 
-// Skip link text
-const skipLink = computed(
-  () => page.value?.header?.skipLink || "Skip to main content"
+//
+const langLink = computed(() => {
+  return route.path.startsWith("/da") ? "/" : "/da";
+});
+
+const langLabel = computed(() =>
+  route.path.startsWith("/da") ? "Switch to English" : "Switch to Danish"
 );
-
-// Lang toggle
-const { lang, toggleLang } = useLang();
-const { announce } = useSrAnnounce();
-
-const onToggleLang = async () => {
-  toggleLang();
-  await nextTick();
-  announce(
-    lang.value === "en" ? "Language set to English" : "Sprog ændret til dansk"
-  );
-};
-//header transition
-const hdrAlpha = ref(0.31); // start ~50 hex / 255
+// header transition
+const hdrAlpha = ref(0.31);
 const START_ALPHA = 0.31;
 const END_ALPHA = 1.0;
-const FADE_PORTION = 0.4; // fade over first 60% of hero height
+const FADE_PORTION = 0.4;
 
 onMounted(() => {
   const hero = document.getElementById("hero");
@@ -54,16 +36,13 @@ onMounted(() => {
 
   const update = () => {
     const heroH = hero.offsetHeight || 1;
-    // progress: 0 at top, 1 when we've scrolled past FADE_PORTION of hero (account for fixed header)
     const y = window.scrollY + headerH;
     const fadeEnd = heroH * FADE_PORTION;
     const progress = Math.min(1, Math.max(0, y / fadeEnd));
-
-    // linear interpolate alpha
     hdrAlpha.value = START_ALPHA + (END_ALPHA - START_ALPHA) * progress;
   };
 
-  update(); // set initial value
+  update();
   window.addEventListener("scroll", update, { passive: true });
   window.addEventListener("resize", update);
   onUnmounted(() => {
@@ -80,6 +59,7 @@ onMounted(() => {
   >
     Skip to main content
   </a>
+
   <header
     class="site-header fixed top-0 z-10 mx-auto flex h-20 w-full min-w-[320px]"
     :style="{ '--hdr-alpha': hdrAlpha.toString() }"
@@ -88,52 +68,53 @@ onMounted(() => {
       <ul class="flex flex-row">
         <li>
           <NuxtLink
-            :to="home.to"
+            to="/"
             class="nav-link"
-            :aria-current="isExact(home.to) ? 'page' : undefined"
+            :aria-current="isExact('/') ? 'page' : undefined"
           >
-            {{ home.label }}
+            Home
           </NuxtLink>
         </li>
+
         <li>
           <NuxtLink
-            :to="services.to"
+            to="/services"
             class="nav-link"
-            :aria-current="isSection(services.to) ? 'page' : undefined"
+            :aria-current="isSection('/services') ? 'page' : undefined"
           >
-            {{ services.label }}
+            Services
           </NuxtLink>
         </li>
+
         <li>
-          <a href="/"
-            ><img
+          <NuxtLink to="/">
+            <img
               class="logo"
               src="/public-material/logo-center-shadow.svg"
               alt="EOI logo with shadow effect on lettering"
-          /></a>
-        </li>
-        <li>
-          <NuxtLink
-            :to="about.to"
-            class="nav-link"
-            :aria-current="isSection(about.to) ? 'page' : undefined"
-          >
-            {{ about.label }}
+            />
           </NuxtLink>
         </li>
+
         <li>
-          <UButton
-            variant="solid"
-            size="sm"
-            icon="i-heroicons-globe-alt"
-            :aria-label="`Skift sprog til ${
-              lang === 'en' ? 'dansk' : 'engelsk'
-            }`"
-            class="cursor-pointer ring-1 ring-brand-50/0 hover:bg-neutral-900/75 hover:ring-brand-50/50 focus-visible:ring-brand-50 text-[0.75rem] font-sans transition-normal"
-            @click="onToggleLang"
+          <NuxtLink
+            to="/about"
+            class="nav-link"
+            :aria-current="isSection('/about') ? 'page' : undefined"
           >
-            {{ lang === "en" ? "DA" : "EN" }}
-          </UButton>
+            About
+          </NuxtLink>
+        </li>
+
+        <li>
+          <NuxtLink
+            :to="langLink"
+            class="inline-flex gap-1 items-center rounded-md px-3 py-1 text-[0.75rem] font-sans ring-1 ring-brand-50/0 hover:bg-neutral-900/75 hover:ring-brand-50/50 focus-visible:ring-brand-50 transition-normal"
+            :aria-label="langLabel"
+          >
+            <UIcon name="heroicons:globe-alt" class="size-5" />
+            EN/DA
+          </NuxtLink>
         </li>
       </ul>
     </nav>
@@ -142,12 +123,12 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .site-header {
-  --hdr-alpha: 0.31; /* ≈ #1f1f1f50 */
+  --hdr-alpha: 0.31;
   background-color: rgba(31, 31, 31, var(--hdr-alpha));
   backdrop-filter: blur(2.4px);
   -webkit-backdrop-filter: blur(5.4px);
   box-shadow: 0 6px 12px 2px #1f1f1fa0;
-  transition: background-color 120ms linear; /* small smoothing */
+  transition: background-color 120ms linear;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -155,6 +136,7 @@ onMounted(() => {
     transition: none;
   }
 }
+
 header {
   background-color: #1f1f1f50;
   backdrop-filter: blur(2.4px);
@@ -181,9 +163,7 @@ header {
         }
         &:hover {
           a {
-            outline: solid;
-            outline-width: 1px;
-            outline-color: var(--color-brand-50);
+            outline: solid 1px var(--color-brand-50);
             padding: 8px;
             border-radius: 6px;
           }
@@ -213,15 +193,16 @@ header {
       }
     }
     .nav-link[aria-current="page"] {
-      font-weight: 700; // bold
+      font-weight: 700;
     }
   }
 }
+
 @media (max-width: 420px) {
   a {
     font-size: 0.7rem;
   }
-  button {
+  .inline-flex {
     font-size: 0.7rem;
     padding: 3px !important;
   }

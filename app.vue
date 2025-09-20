@@ -1,9 +1,12 @@
+<script setup lang="ts">
+import SRAnnouncer from "./SRAnnouncer.vue";
+</script>
+
 <template>
   <UApp>
     <NuxtLayout>
       <NuxtPage />
-      <a11y-s-r-announcer />
-      <CookieControl locale="en" />
+      <SRAnnouncer />
     </NuxtLayout>
   </UApp>
 </template>

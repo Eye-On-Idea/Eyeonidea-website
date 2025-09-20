@@ -8,35 +8,40 @@
       <section class="flex flex-col gap-1">
         <h2 id="services-title" class="!text-brand-200">
           Services
-          <span class="!text-brand-50"> built for your workflow</span>
+          <span class="!text-brand-50"> bygget til din arbejdsgang</span>
         </h2>
 
         <p>
-          At <strong>Eye On Idea</strong>, we keep quality assurance
-          <strong>clear</strong> and <strong>practical</strong>. Our services
-          are flexible and adapt to the way your business works. Whether you
-          need a quick review, structured project support, or a long-term QA
-          partner, we focus on giving you
-          <strong>actionable improvements</strong> that
-          <strong>strengthen your product</strong> without slowing your team
-          down
+          Hos <strong>Eye On Idea</strong> holder vi kvalitetssikring
+          <strong>klar</strong> og <strong>praktisk</strong>. Vores services er
+          fleksible og tilpasser sig den måde, din virksomhed arbejder på.
+          Uanset om du har brug for et hurtigt review, struktureret
+          projektstøtte eller en langsigtet QA-partner, fokuserer vi på at give
+          dig <strong>handlingsorienterede forbedringer</strong>, der
+          <strong>styrker dit produkt</strong> uden at bremse dit team.
         </p>
+
         <p>
-          From short audits to ongoing support, the outcome is
-          <strong>reduce friction</strong>: digital products that work better
-          for your users and reduce friction for your team. Each service is
-          designed to
-          <strong>improve accessibility, usability, and reliability.</strong>
-          Explore our service options to see which setup fits your needs best.
+          Fra korte audits til løbende support er målet at
+          <strong>reducere friktion</strong>: digitale produkter, der fungerer
+          bedre for dine brugere og reducerer friktion for dit team. Hver
+          service er designet til at
+          <strong
+            >forbedre tilgængelighed, brugervenlighed og pålidelighed.</strong
+          >
+          Udforsk vores service-muligheder for at se, hvilken løsning der passer
+          bedst til dine behov.
         </p>
 
         <div class="button-cont flex-row flex gap-6">
           <UButton
-            href="/services#services"
+            href="/services_da#services"
             variant="outline"
             class="border-brand-50 bg-brand-200 ring-brand-50 hover:bg-brand-300 focus-visible:ring-brand-50 font-bold"
           >
-            <span class="text-neutral-900 font-medium">Compare options</span>
+            <span class="text-neutral-900 font-medium"
+              >Sammenlign muligheder</span
+            >
           </UButton>
 
           <UButton
@@ -44,12 +49,14 @@
             variant="outline"
             class="border-brand-50 text-brand-50 bg-transparent hover:bg-neutral-900/75 focus-visible:ring-brand-50 text-[0.75rem] font-sans ring-brand-50"
           >
-            <span>Contact us</span>
+            <span>Kontakt os</span>
           </UButton>
         </div>
       </section>
 
-      <div class="service-cont flex flex-col"><IndexMyServiceCard /></div>
+      <div class="service-cont flex flex-col">
+        <IndexMyServiceCardDa />
+      </div>
     </div>
   </div>
 </template>

@@ -10,7 +10,7 @@
         <div>
           <h3 class="text-brand-100 text-lg font-semibold">Time-Based QA</h3>
           <p class="text-sm text-brand-200/90">
-            Flexible hours for quick checks
+            Fleksible timer for hurtige tjeks
           </p>
         </div>
         <img
@@ -23,7 +23,7 @@
       </div>
 
       <div class="mt-3 text-sm text-brand-200/90">
-        <p class="font-medium">From €60/hour</p>
+        <p class="font-medium">Fra €60/time</p>
         <ul class="mt-2 space-y-1">
           <li class="flex items-center gap-2">
             <UIcon
@@ -37,7 +37,7 @@
               name="i-heroicons-check-circle"
               class="h-4 w-4 text-brand-500"
             />
-            Clear, reproducible bug reports
+            Klare, genskabelige fejl rapporter
           </li>
         </ul>
       </div>
@@ -56,7 +56,7 @@
       <div class="flex items-start justify-between gap-4">
         <div>
           <h3 class="text-brand-100 text-lg font-semibold">Project QA</h3>
-          <p class="text-sm text-brand-200/90">Fixed scope, flexible hours</p>
+          <p class="text-sm text-brand-200/90">Fixed scope, fleksible timer</p>
         </div>
         <img
           src="/public-material/logo-center-shadow.svg"
@@ -69,7 +69,7 @@
 
       <div class="mt-3 text-sm text-brand-200/90">
         <p class="font-medium">
-          Tailored quote • Small projects from €1,500–€3,500
+          Skræddersyet tilbud - små projekter fra €1,500–€3,500
         </p>
         <ul class="mt-2 space-y-1">
           <li class="flex items-center gap-2">
@@ -103,7 +103,7 @@
       <div class="side-c flex items-start justify-between gap-4">
         <div>
           <h3 class="text-brand-100 text-lg font-semibold">Retainer QA</h3>
-          <p class="text-sm text-brand-200/90">Continuous collaboration</p>
+          <p class="text-sm text-brand-200/90">Fortsat Samarbejde</p>
         </div>
         <img
           src="/public-material/logo-center-shadow.svg"
@@ -115,21 +115,21 @@
       </div>
 
       <div class="mt-3 text-sm text-brand-200/90">
-        <p class="font-medium">From €400/month</p>
+        <p class="font-medium">Fra €400/Måned</p>
         <ul class="mt-2 space-y-1">
           <li class="flex items-center gap-2">
             <UIcon
               name="i-heroicons-check-circle"
               class="h-4 w-4 text-brand-500"
             />
-            Ongoing optimization & triage
+            Løbende optimeringer & forbedringer
           </li>
           <li class="flex items-center gap-2">
             <UIcon
               name="i-heroicons-check-circle"
               class="h-4 w-4 text-brand-500"
             />
-            Priority response window
+            Prioriteret respons & support vindue
           </li>
         </ul>
       </div>

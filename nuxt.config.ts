@@ -69,9 +69,6 @@ export default defineNuxtConfig({
   ogImage: { enabled: true },
 
   runtimeConfig: {
-    RESEND_API_KEY: process.env.RESEND_API_KEY,
-    CONTACT_TO: process.env.CONTACT_TO,
-    CONTACT_FROM: process.env.CONTACT_FROM,
     public: {
       // keep if other code reads it; nuxt-gtag uses `gtag.id` below
       gtag: { id: "G-WY6NJ5BYTJ" },

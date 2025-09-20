@@ -26,20 +26,21 @@ onUnmounted(() => {
     <section class="left flex-col flex">
       <div class="project-status">
         <div class="circle-status"></div>
-        <p>Open for projects</p>
+        <p>Åben for projekter</p>
       </div>
 
       <h1>
-        <strong>Transform</strong>
-        <span class="text-brand-200"> good</span> ideas<br />
-        into <span class="text-brand-200">great</span>
-        <strong> experiences</strong>
+        <strong>Forvandl</strong>
+        <span class="text-brand-200"> gode</span> idéer<br />
+        til <span class="text-brand-200">fantastiske</span>
+        <strong> oplevelser</strong>
       </h1>
 
       <p>
-        Your users expect products that just work - accessible, reliable, and
-        built to last. EOI helps you ship better digital experiences with clear,
-        actionable QA focused on accessibility and usability.
+        Dine brugere forventer løsninger, der fungerer - tilgængelige,
+        pålidelige og skabt til at holde. EOI hjælper dig med at levere bedre
+        digitale oplevelser med klar, handlingsorienteret QA med fokus på
+        tilgængelighed og brugervenlighed.
       </p>
 
       <div class="button-cont flex-row flex gap-6">
@@ -48,7 +49,7 @@ onUnmounted(() => {
           variant="outline"
           class="border-brand-50 text-brand-50 bg-transparent hover:bg-neutral-900/75 focus-visible:ring-brand-50 text-[0.75rem] font-sans ring-brand-50"
         >
-          <span>Get in touch</span>
+          <span>Kontakt os</span>
         </UButton>
 
         <UButton
@@ -56,7 +57,9 @@ onUnmounted(() => {
           variant="outline"
           class="border-brand-50 bg-brand-200 ring-brand-50 hover:bg-brand-300 focus-visible:ring-brand-50 font-bold"
         >
-          <span class="text-neutral-900 font-medium">See our services</span>
+          <span class="text-neutral-900 font-medium"
+            >Se de ydelser vi tilbyder</span
+          >
         </UButton>
       </div>
 
@@ -89,10 +92,10 @@ onUnmounted(() => {
     </section>
 
     <div class="scroll flex flex-col" aria-hidden="true">
-      <p>Scroll to explore</p>
+      <p>Scroll for at udforske</p>
       <img
         src="/public-material/icons/scroll-mouse.svg"
-        alt="icon to indicate scrolling is possible, depicting a computer mouse with a highlighted scroll wheel."
+        alt="ikon der indikerer at der kan scrolles, forestiller en computermus med markeret scrollhjul."
       />
     </div>
   </div>

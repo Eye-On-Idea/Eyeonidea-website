@@ -1,13 +1,7 @@
-<template>
+<template locale="en">
   <services-myhero />
   <services-my-services-table />
+  <CookieControl locale="en" />
 </template>
-<script setup lang="ts">
-onMounted(() => {
-  const { lang } = useLang();
-  const other = lang.value === "en" ? "da" : "en";
-  import(/* @vite-ignore */ `~/content/${other}/index.json`).catch(() => {});
-});
-</script>
 
 <style lang="scss" scoped></style>

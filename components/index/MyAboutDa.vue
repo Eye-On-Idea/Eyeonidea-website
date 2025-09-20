@@ -8,39 +8,37 @@
       <section class="flex flex-col gap-1">
         <h2 id="about-title" class="!text-brand-200">Eye On Idea</h2>
         <p>
-          <strong>Human-centered QA for better digital Products</strong>
+          <strong>Menneskecentreret QA til bedre digitale produkter</strong>
         </p>
 
         <section class="flex flex-col gap-4 mt-3" aria-labelledby="areas-title">
-          <h3 id="areas-title">EOI Areas</h3>
+          <h3 id="areas-title">EOI-områder</h3>
           <p>
-            <small
-              >UX · UI · Accessibility · Usability · Responsiveness ·
-              Mobile/Tablet · Cross-Browser · Compatibility · Screen Readers ·
-              Performance · Design · Testing · Front-End</small
-            >
+            UX · UI · Tilgængelighed · Brugervenlighed · Responsivitet ·
+            Mobil/Tablet · Cross-Browser · Kompatibilitet · Skærmlæsere · Ydelse
+            · Design · Test · Front-End
           </p>
 
           <p>
-            EOI is a quality assurance partner that
-            <strong>helps businesses</strong> across Europe build digital
-            products that are reliable, accessible, and
-            <strong>easy to use</strong>. We combine usability, accessibility,
-            and front-end QA expertise to make sure your digital presence
-            <strong>works for every user</strong>.
+            EOI er en kvalitetskontrolpartner, der
+            <strong>hjælper virksomheder</strong> i hele Europa med at bygge
+            digitale produkter, der er pålidelige, tilgængelige og
+            <strong>nemme at bruge</strong>. Vi kombinerer brugervenlighed,
+            tilgængelighed og front-end QA-ekspertise for at sikre, at din
+            digitale tilstedeværelse <strong>fungerer for alle brugere</strong>.
           </p>
           <p>
-            We work closely with your team to review, test, and improve digital
-            services. Every audit or project is tailored to your needs, with
-            clear and practical steps that can be acted on right away. Our
-            process is flexible, human-centered, and designed to fit into your
-            workflow.
+            Vi arbejder tæt sammen med dit team for at gennemgå, teste og
+            forbedre digitale tjenester. Hvert review eller projekt tilpasses
+            dine behov, med klare og praktiske trin, der kan handles på med det
+            samme. Vores proces er fleksibel, menneskecentreret og designet til
+            at passe ind i dit workflow.
           </p>
           <p>
-            With a focus on detail and measurable results, we help you deliver
-            products that perform better and create smoother experiences for
-            your users. Our goal is simple: to raise the quality of your digital
-            solutions and support your long-term success.
+            Med fokus på detaljer og målbare resultater hjælper vi dig med at
+            levere produkter, der fungerer bedre og skaber mere gnidningsfri
+            oplevelser for dine brugere. Vores mål er enkelt: at hæve kvaliteten
+            af dine digitale løsninger og støtte din langsigtede succes.
           </p>
         </section>
       </section>
@@ -54,11 +52,11 @@
           :items="[
             {
               src: '/images/desk/rune_desk1.png',
-              alt: 'Rune working at desk with monitor',
+              alt: 'Rune arbejder ved skrivebord med skærm',
             },
             {
               src: '/images/desk/rune_desk2.png',
-              alt: 'Rune at desk, focused on QA testing',
+              alt: 'Rune ved skrivebord, fokuseret på QA-test',
             },
           ]"
           dots

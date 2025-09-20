@@ -1,7 +1,5 @@
 <template>
-  <div class="flex flex-row cont bg-brand-500">
-    <index-contact-form />
-  </div>
+  <div class="flex flex-row cont bg-brand-500"></div>
 </template>
 
 <script lang="ts" setup></script>
