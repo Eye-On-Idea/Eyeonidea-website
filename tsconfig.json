@@ -1,4 +1,15 @@
 {
-  // https://nuxt.com/docs/guide/concepts/typescript
-  "extends": "./.nuxt/tsconfig.json"
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./*"],
+      "@/*": ["./*"]
+    },
+    "types": ["vitest/globals", "vite/client", "node"],
+    "moduleResolution": "bundler" // TS 5-friendly in Vite/Nuxt
+  },
+  "vueCompilerOptions": {
+    "globalTypesPath": "./.nuxt/nuxt.d.ts"
+  }
 }

@@ -29,7 +29,7 @@
           >
             <!-- Headline -->
             <h3 class="text-lg font-semibold text-brand-600 mb-3">
-              Eye On Idea <span>contact</span>
+              tegetec <span>contact</span>
             </h3>
 
             <!-- Contact items (hover = ring outline only; text doesn't change) -->

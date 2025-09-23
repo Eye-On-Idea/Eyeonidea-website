@@ -11,12 +11,27 @@ export default defineNuxtConfig({
     "@nuxt/ui",
     "nuxt-gtag",
     "@dargmuesli/nuxt-cookie-control",
+    "@nuxtjs/i18n",
   ],
 
   css: ["~/assets/css/main.css"],
   vite: { plugins: [tailwindcss()] },
   image: { provider: "ipx" },
+  i18n: {
+    // Your available locales
+    locales: [
+      { code: "en", iso: "en-US", name: "English" },
+      { code: "da", iso: "da-DK", name: "Dansk" },
+    ],
+    defaultLocale: "en",
 
+    strategy: "prefix_except_default",
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "i18n_redirected",
+      fallbackLocale: "en",
+    },
+  },
   app: {
     baseURL: "/",
     head: {
@@ -46,10 +61,10 @@ export default defineNuxtConfig({
   },
 
   site: {
-    url: "https://eyeonidea.com",
-    name: "Eye on Idea",
+    url: "tegetec.com",
+    name: "tegetec",
     description:
-      "EOI helps businesses across Europe deliver reliable, accessible, and user-friendly digital products with actionable QA in accessibility, usability, and front-end testing.",
+      "tegetec will gladly assist you in all your equipment and optimizing needs. Through our broad experience, we are able to help you achieve your goal: Reliable, cost effective and easy to use packaging.",
     defaultLocale: "en",
   },
 
@@ -147,8 +162,4 @@ export default defineNuxtConfig({
       ],
     },
   },
-
-  // Cloudflare Pages static build
-  nitro: { preset: "cloudflare-pages" },
-  routeRules: { "/**": { prerender: true } },
 });

@@ -1,83 +1,242 @@
 <template>
-  <footer class="bg-neutral-900 text-brand-100 z-20 mt-12">
-    <!-- top border accent -->
-    <div class="h-1 w-full bg-brand-500/60"></div>
+  <footer class="bg-gray-900 text-[var(--color-text)] mt-16 flex-1 flex-wrap">
+    <!-- Top: Logo + Contacts + Site nav -->
+    <UContainer class="max-w-[1920px] py-12">
+      <div class="grid gap-10 lg:grid-cols-[320px_1fr_320px] items-start">
+        <!-- Brand / intro -->
+        <div class="space-y-4">
+          <NuxtLink
+            to="/"
+            class="inline-flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)] focus-visible:ring-offset-2 ring-offset-[var(--ring-offset)]"
+          >
+            <img
+              src="../public/assets/img/tegetec.svg"
+              alt="Tegetec logo"
+              class="h-10 w-auto"
+            />
+            <span class="sr-only">Go to homepage</span>
+          </NuxtLink>
+          <p class="text-amber-50">
+            <i
+              >Food processing & packaging equipment across the Nordics and
+              Europe—backed by service and spare parts.</i
+            >
+          </p>
+        </div>
 
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8">
-      <div
-        class="flex flex-col items-center gap-8 md:flex-row md:justify-center md:gap-16"
-      >
-        <!-- Left: navigation -->
-        <nav aria-label="Footer" class="text-left">
-          <ul class="flex flex-col gap-2 text-sm font-medium">
+        <!-- Contacts (3 cards) -->
+        <div class="flex flex-row flex-wrap gap-2 justify-center">
+          <UCard class="text-amber-50 w-[360px]">
+            <template #header>
+              <h3 class="text-xl font-semibold">tegetec Denmark</h3>
+            </template>
+            <address class="not-italic space-y-3">
+              <p>Holmensvej 38, 3600 Frederikssund, Denmark</p>
+              <p class="flex items-center gap-2">
+                <Icon
+                  name="i-heroicons-phone"
+                  aria-hidden="true"
+                  class="size-6"
+                />
+                <a
+                  class="underline underline-offset-2 text-amber-50!"
+                  href="tel:+4570252420"
+                  >+45 70 25 24 20</a
+                >
+              </p>
+              <p class="flex items-center gap-2">
+                <Icon
+                  name="i-heroicons-envelope"
+                  aria-hidden="true"
+                  class="size-6"
+                />
+                <a
+                  class="underline underline-offset-2 text-amber-50!"
+                  href="mailto:mail@tegetec.com"
+                  >mail@tegetec.com</a
+                >
+              </p>
+              <p class="flex items-center gap-2">
+                <Icon
+                  name="i-heroicons-identification"
+                  aria-hidden="true"
+                  class="size-6"
+                />
+                CVR: 28847920
+              </p>
+              <p class="flex items-center gap-2">
+                <Icon
+                  name="i-heroicons-link"
+                  aria-hidden="true"
+                  class="size-6"
+                />
+                <a
+                  class="underline underline-offset-2 text-amber-50!"
+                  href="https://dk.linkedin.com/company/tegetec-aps"
+                  target="_blank"
+                  rel="noopener"
+                  >Visit our LinkedIn</a
+                >
+              </p>
+            </address>
+          </UCard>
+
+          <UCard class="text-amber-50 w-[360px]">
+            <template #header>
+              <h3 class="text-xl font-semibold">tegetec Spain</h3>
+            </template>
+            <address class="not-italic space-y-3">
+              <p>C/ Montpao 19, Tarragona, 43820 Calafell, Spain</p>
+              <p class="flex items-center gap-2">
+                <Icon
+                  name="i-heroicons-phone"
+                  aria-hidden="true"
+                  class="size-6"
+                />
+                <a
+                  class="underline underline-offset-2 text-amber-50!"
+                  href="tel:+34646713427"
+                  >+34 646 713 427</a
+                >
+              </p>
+              <p class="flex items-center gap-2">
+                <Icon
+                  name="i-heroicons-envelope"
+                  aria-hidden="true"
+                  class="size-6"
+                />
+                <a
+                  class="underline underline-offset-2 text-amber-50!"
+                  href="mailto:jose@tegetec.com"
+                  >jose@tegetec.com</a
+                >
+              </p>
+            </address>
+          </UCard>
+
+          <UCard class="text-amber-50 w-[360px]">
+            <template #header>
+              <h3 class="text-xl font-semibold">tegetec Finland</h3>
+            </template>
+            <address class="not-italic space-y-3">
+              <p>Fladabrinken 7A, 00840 Helsinki, Finland</p>
+              <p class="flex items-center gap-2">
+                <Icon
+                  name="i-heroicons-phone"
+                  aria-hidden="true"
+                  class="size-6"
+                />
+                <a
+                  class="underline underline-offset-2 text-amber-50!"
+                  href="tel:+358405555863"
+                  >+358 40 5555 863</a
+                >
+              </p>
+              <p class="flex items-center gap-2">
+                <Icon
+                  name="i-heroicons-envelope"
+                  aria-hidden="true"
+                  class="size-6"
+                />
+                <a
+                  class="underline underline-offset-2 text-amber-50!"
+                  href="mailto:kalevi.enberg@omaco.fi"
+                  >kalevi.enberg@omaco.fi</a
+                >
+              </p>
+            </address>
+          </UCard>
+        </div>
+
+        <!-- Site nav (full) -->
+        <nav class="lg:justify-self-end" aria-label="footer-nav">
+          <h3 class="text-xl font-semibold mb-4 text-primary-50">Site</h3>
+          <ul class="grid gap-2 text-[var(--color-text-muted)] min-w-[240px]">
             <li>
-              <NuxtLink
-                to="/"
-                class="hover:underline underline-offset-4 decoration-brand-200"
+              <NuxtLink class="hover:underline underline-offset-2" to="/"
+                >Home</NuxtLink
               >
-                Home
-              </NuxtLink>
             </li>
             <li>
               <NuxtLink
-                to="/services"
-                class="hover:underline underline-offset-4 decoration-brand-200"
+                class="hover:underline underline-offset-2"
+                to="/equipment-and-solutions"
+                >Equipment &amp; Solutions</NuxtLink
               >
-                Services
-              </NuxtLink>
             </li>
             <li>
               <NuxtLink
-                to="/about"
-                class="hover:underline underline-offset-4 decoration-brand-200"
+                class="hover:underline underline-offset-2"
+                to="/collaborators"
+                >Collaborators</NuxtLink
               >
-                About
-              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink
+                class="hover:underline underline-offset-2"
+                to="/about-and-contact"
+                >About &amp; Contact</NuxtLink
+              >
+            </li>
+            <li class="mt-2">
+              <NuxtLink
+                class="hover:underline underline-offset-2"
+                to="/about/public-material-and-downloads"
+                >Public Material &amp; Downloads</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink
+                class="hover:underline underline-offset-2"
+                to="/about/privacy-policy"
+                >Privacy Policy</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink
+                class="hover:underline underline-offset-2"
+                to="/about/cookie-policy"
+                >Cookie Policy</NuxtLink
+              >
             </li>
           </ul>
         </nav>
-
-        <!-- Middle: logo -->
-        <div>
-          <img
-            src="/public-material/logo-center-shadow.svg"
-            alt="Eye On Idea logo"
-            class="h-14 w-auto select-none"
-            draggable="false"
-          />
-        </div>
-
-        <!-- Right: contact -->
-        <div class="text-left">
-          <h3 class="text-sm font-semibold text-brand-200 mb-2">Contact</h3>
-          <ul class="flex flex-col gap-2 text-sm">
-            <li>
-              <a
-                href="mailto:hello@eyeonidea.com"
-                class="rounded-lg px-2 py-1 hover:ring-2 hover:ring-brand-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900"
-              >
-                hello@eyeonidea.com
-              </a>
-            </li>
-            <li>
-              <a
-                href="tel:+4540233267"
-                class="rounded-lg px-2 py-1 hover:ring-2 hover:ring-brand-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900"
-              >
-                +45 40 23 32 67
-              </a>
-            </li>
-          </ul>
-        </div>
       </div>
+    </UContainer>
 
-      <!-- Divider -->
-      <div class="mt-8 border-t border-brand-700/40 pt-4">
-        <p class="text-xs text-brand-200/80 text-center">
-          © <strong>Copyright</strong> Rune M. P. Pjetursson | Eye On Idea
-          <small class="ml-1">2025</small>
-        </p>
-      </div>
+    <!-- Bottom: copyright -->
+    <div class="border-t border-[var(--color-border)] bg-primary-900">
+      <UContainer
+        class="max-w-[1440px] py-4 text-sm text-amber-100 flex items-center justify-center gap-4"
+      >
+        <p>Copyright © {{ new Date().getFullYear() }} Tegetec ApS</p>
+      </UContainer>
     </div>
   </footer>
 </template>
+
+<script setup lang="ts">
+// No script needed for static footer; NuxtLink auto-imported
+</script>
+
+<style scoped>
+/* Accessibility & polish */
+a {
+  color: var(--link);
+}
+a:hover {
+  color: var(--link-hover);
+}
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+address {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  row-gap: 10px;
+  min-height: 200px;
+}
+</style>
