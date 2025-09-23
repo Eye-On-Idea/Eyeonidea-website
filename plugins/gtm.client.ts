@@ -1,47 +1,64 @@
-import { createGtm } from "@gtm-support/vue-gtm";
+export default defineNuxtPlugin(() => {
+  const { public: pub } = useRuntimeConfig();
+  const GTM_ID = pub.GTM_ID;
+  if (!GTM_ID) return;
 
-export default defineNuxtPlugin((nuxtApp) => {
-  const router = useRouter();
-  const { cookiesEnabledIds } = useCookieControl();
-  const runtimeConfig = useRuntimeConfig();
+  const { cookiesEnabledIds, isConsentGiven } = useCookieControl();
 
-  // Get GTM ID from runtime config (public.gtmId in nuxt.config.ts)
-  const gtmId = runtimeConfig.public.gtmId as string;
+  const hasGTM = () => cookiesEnabledIds.value.includes("google-tag-manager");
+  const hasGA = () => cookiesEnabledIds.value.includes("google-analytics");
 
-  // Hard block: only load if consent already given
-  const initialEnabled = (cookiesEnabledIds.value ?? []).includes(
-    "google-tag-manager"
-  );
+  let loaded = false;
+  const loadGtmOnce = () => {
+    if (loaded) return;
+    loaded = true;
+    // @ts-expect-error
+    window.dataLayer = window.dataLayer || [];
+    // Default denied BEFORE GTM loads
+    // @ts-expect-error
+    window.dataLayer.push({
+      event: "default_consent",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+      ad_storage: "denied",
+      analytics_storage: "denied",
+    });
+    // Inject GTM
+    const s = document.createElement("script");
+    s.async = true;
+    s.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(
+      GTM_ID
+    )}`;
+    document.head.appendChild(s);
+  };
 
-  // Register Vue GTM plugin
-  nuxtApp.vueApp.use(
-    createGtm({
-      id: gtmId,
-      defer: true,
-      enabled: initialEnabled,
-      vueRouter: router, // auto pageview on route changes
-      trackOnNextTick: false,
-      compatibility: true, // avoids SSR hydration issues
-    })
-  );
+  const updateConsent = () => {
+    const allowContainer = hasGTM();
+    const allowAnalytics = hasGA();
+    // Update Consent Mode
+    // @ts-expect-error
+    window.dataLayer?.push({
+      event: "consent_update",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+      ad_storage: allowContainer ? "granted" : "denied",
+      analytics_storage: allowAnalytics ? "granted" : "denied",
+    });
+    // Optional: custom event for GTM triggers
+    // @ts-expect-error
+    window.dataLayer?.push({
+      event: "cookie_preferences_changed",
+      cookiesEnabledIds: [...cookiesEnabledIds.value],
+    });
+  };
 
-  // Access the injected GTM instance ($gtm)
-  const gtm = nuxtApp.vueApp.config.globalProperties.$gtm as any;
+  if (process.client) {
+    loadGtmOnce();
+    if (isConsentGiven.value) updateConsent();
+  }
 
-  // React to cookie consent changes
-  const isGtmOn = computed(() =>
-    (cookiesEnabledIds.value ?? []).includes("google-tag-manager")
-  );
-
-  watch(
-    isGtmOn,
-    (enabled) => {
-      if (enabled) {
-        gtm?.enable(true); // injects gtm.js if not already
-      } else {
-        gtm?.disable();
-      }
-    },
-    { immediate: false }
-  );
+  watch(cookiesEnabledIds, () => {
+    loadGtmOnce();
+    updateConsent();
+  });
 });

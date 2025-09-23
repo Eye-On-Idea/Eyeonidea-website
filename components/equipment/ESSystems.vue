@@ -33,7 +33,9 @@
           </ul>
           <template #footer>
             <div class="flex gap-3">
-              <UButton variant="solid" to="#contact">Request info</UButton>
+              <UButton variant="solid" to="/about-and-contact#contact"
+                >Request info</UButton
+              >
               <UButton variant="solid" to="#chubmaker-details"
                 >Learn More</UButton
               >
@@ -62,7 +64,9 @@
           </ul>
           <template #footer>
             <div class="flex gap-3">
-              <UButton variant="solid" to="#contact">Request info</UButton>
+              <UButton variant="solid" to="/about-and-contact#contact"
+                >Request info</UButton
+              >
               <UButton variant="solid" to="/collaborators">See brand</UButton>
             </div>
           </template>
@@ -89,7 +93,9 @@
           </ul>
           <template #footer>
             <div class="flex gap-3">
-              <UButton variant="solid" to="#contact">Request info</UButton>
+              <UButton variant="solid" to="/about-and-contact#contact"
+                >Request info</UButton
+              >
               <UButton variant="solid" to="/collaborators">See brand</UButton>
             </div>
           </template>
@@ -116,7 +122,9 @@
           </ul>
           <template #footer>
             <div class="flex gap-3">
-              <UButton variant="solid" to="#contact">Request info</UButton>
+              <UButton variant="solid" to="/about-and-contact#contact"
+                >Request info</UButton
+              >
               <UButton variant="solid" to="/collaborators">See brand</UButton>
             </div>
           </template>
@@ -143,7 +151,9 @@
           </ul>
           <template #footer>
             <div class="flex gap-3">
-              <UButton variant="solid" to="#contact">Request info</UButton>
+              <UButton variant="solid" to="/about-and-contact#contact"
+                >Request info</UButton
+              >
               <UButton variant="solid" to="/collaborators">See brand</UButton>
             </div>
           </template>

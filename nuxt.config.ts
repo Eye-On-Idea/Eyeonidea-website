@@ -9,7 +9,6 @@ export default defineNuxtConfig({
     "@nuxtjs/seo",
     "@nuxt/image",
     "@nuxt/ui",
-    "nuxt-gtag",
     "@dargmuesli/nuxt-cookie-control",
     "@nuxtjs/i18n",
   ],
@@ -56,7 +55,7 @@ export default defineNuxtConfig({
         },
         { rel: "manifest", href: "/site.webmanifest" },
       ],
-      meta: [{ name: "theme-color", content: "#7d3412" }],
+      meta: [{ name: "theme-color", content: "#184996" }],
     },
   },
 
@@ -76,90 +75,113 @@ export default defineNuxtConfig({
   schemaOrg: {
     identity: {
       type: "Organization",
-      name: "EOI – Eye on Idea",
-      url: "https://eyeonidea.com",
-      logo: "https://eyeonidea.com/public-material/profile-picture.png",
+      name: "Tegetec",
+      url: "https://tegetec.com",
+      logo: "https://tegetec.com/assets/img/tegetec.svg",
+      sameAs: ["https://dk.linkedin.com/company/tegetec-aps"],
     },
   },
   ogImage: { enabled: true },
 
   runtimeConfig: {
     public: {
-      // keep if other code reads it; nuxt-gtag uses `gtag.id` below
-      gtag: { id: "G-WY6NJ5BYTJ" },
-      gtmId: "GTM-MHZ76SX2",
+      GTM_ID: process.env.NUXT_PUBLIC_GTM_ID || "",
     },
-  },
-
-  // ---------- Google Analytics 4 (nuxt-gtag) ----------
-  gtag: {
-    enabled: process.env.NODE_ENV === "production",
-    id: process.env.NUXT_PUBLIC_GA4_ID || "G-WY6NJ5BYTJ",
-    config: { send_page_view: true },
-    initCommands: [
-      [
-        "consent",
-        "default",
-        {
-          ad_user_data: "denied",
-          ad_personalization: "denied",
-          ad_storage: "denied",
-          analytics_storage: "denied",
-          wait_for_update: 500,
-        },
-      ],
-    ],
-    // OPTIONAL hard-block: uncomment to prevent loading until consent, then call initialize() in plugin
-    // initMode: "manual",
   },
 
   // ---------- Cookie banner ----------
   cookieControl: {
     barPosition: "bottom-full",
-    isControlButtonEnabled: true,
     isAcceptNecessaryButtonEnabled: true,
-    isModalForced: false,
     declineAllAcceptsNecessary: true,
+    isControlButtonEnabled: true,
+    closeModalOnClickOutside: true,
+    isIframeBlocked: true,
+    cookieExpiryOffsetMs: 1000 * 60 * 60 * 24 * 365,
+    cookieNameIsConsentGiven: "ncc_c",
+    cookieNameCookiesEnabledIds: "ncc_e",
+    cookieOptions: { path: "/", sameSite: "strict" },
 
-    // Keep locales minimal; only override *known* keys
+    // your theme tokens
+    colors: {
+      barBackground: "var(--color-surface-1)",
+      barTextColor: "var(--color-text)",
+      barButtonBackground: "var(--btn-primary-bg)",
+      barButtonColor: "var(--btn-primary-text)",
+      barButtonHoverBackground: "var(--btn-primary-hover)",
+      barButtonHoverColor: "var(--btn-primary-text)",
+      controlButtonBackground: "var(--btn-ghost-hover)",
+      controlButtonHoverBackground: "var(--btn-primary-bg)",
+      controlButtonIconColor: "var(--color-primary-700)",
+      controlButtonIconHoverColor: "var(--btn-primary-text)",
+      modalBackground: "var(--color-bg)",
+      modalTextColor: "var(--color-text)",
+      modalButtonBackground: "var(--btn-primary-bg)",
+      modalButtonColor: "var(--btn-primary-text)",
+      modalButtonHoverBackground: "var(--btn-primary-hover)",
+      modalButtonHoverColor: "var(--btn-primary-text)",
+      checkboxActiveBackground: "var(--color-primary-700)",
+      checkboxInactiveBackground: "var(--color-primary-200)",
+      checkboxDisabledBackground: "var(--color-primary-100)",
+      focusRingColor: "var(--focus-ring)",
+      modalOverlay: "var(--color-primary-900)",
+      modalOverlayOpacity: 0.5,
+      modalUnsavedColor: "var(--color-primary-600)",
+    },
+
+    // English strings only (supported keys)
     locales: ["en"],
     localeTexts: {
       en: {
-        // Example of a known key:
-        save: "Save choices",
-        // (Avoid untyped keys like `settings`, `acceptNecessary`, `bannerTitle`, etc.)
+        bannerDescription:
+          "We use cookies for essential site functions and analytics. Choose “Only necessary” or manage your preferences.",
+        acceptAll: "Accept all",
+        declineAll: "Reject all",
+        save: "Save preferences",
+        close: "Close",
+        manageCookies: "Cookie settings",
       },
     },
 
+    // Toggles users can enable
     cookies: {
       necessary: [
         {
-          id: "essential",
-          name: { en: "Essential" },
+          id: "ncc-essential",
+          name: { en: "Core functionality" },
           description: {
-            en: "Required for core features (navigation, forms).",
+            en: "Remembers your cookie choices and powers basic site operation.",
           },
-          targetCookieIds: ["ncc_c", "ncc_e"],
+          targetCookieIds: [],
         },
       ],
       optional: [
         {
           id: "google-analytics",
           name: { en: "Google Analytics 4" },
-          description: { en: "Helps us improve the site. Off by default." },
+          description: {
+            en: "Traffic measurement and usage statistics. Only enabled with consent.",
+          },
           targetCookieIds: ["_ga", "_ga_*", "_gid"],
-          isPreselected: false,
         },
         {
           id: "google-tag-manager",
           name: { en: "Google Tag Manager" },
           description: {
-            en: "Loads marketing/analytics tags configured in GTM.",
+            en: "Tag orchestration based on your consent preferences.",
           },
-          targetCookieIds: [], // GTM may set various cookies via tags
-          isPreselected: false,
+          targetCookieIds: [],
         },
       ],
     },
   },
+  /*
+  nitro: {
+    routeRules: {
+      // redirect http://tegetec.com/* -> https://www.tegetec.com/*
+      "/**": {
+        redirect: { to: "https://www.tegetec.com/**", statusCode: 308 },
+      },
+    },
+  },*/
 });

@@ -11,6 +11,7 @@ import MyHeader from "~/components/MyHeader.vue";
       <NuxtPage />
       <SRAnnouncer />
       <MyFoot />
+      <CookieControl locale="en" />
     </NuxtLayout>
   </UApp>
 </template>
