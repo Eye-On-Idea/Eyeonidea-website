@@ -41,7 +41,7 @@
                 aria-hidden="true"
               /><span
                 ><strong>Lifecycle support</strong>—spare parts, upgrades and
-                field service across the Nordics and Europe.</span
+                field service across the Nordics.</span
               >
             </li>
           </ul>

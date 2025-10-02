@@ -8,14 +8,5 @@
 import CollaboratorsGrid from "~/components/collab/CollaboratorsGrid.vue";
 import CollaboratorsHero from "~/components/collab/CollaboratorsHero.vue";
 
-useHead({
-  title: "Collaborators",
-  meta: [
-    {
-      name: "description",
-      content:
-        "RA Jones, Lyco, Elmoprint, Mepaco — proven OEMs we represent in the region.",
-    },
-  ],
-});
+useHead({ title: "Collaborators — Tegetec" });
 </script>

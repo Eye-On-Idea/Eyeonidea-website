@@ -5,6 +5,9 @@
         <h2 class="text-3xl md:text-4xl font-semibold text-primary-900">
           Typical process flow
         </h2>
+        <p class="mt-2 md:mt-3 text-lg md:text-xl text-primary-900">
+          Scroll to move through each stage. The current step eases into focus.
+        </p>
       </header>
 
       <!-- Smooth, eased emphasis per section; tighter rhythm -->

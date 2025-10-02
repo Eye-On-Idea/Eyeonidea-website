@@ -25,57 +25,57 @@
         >
           <!-- Top padding leaves space under the overlapping button -->
           <div
-            class="w-72 rounded-2xl border border-primary-200 bg-white dark:bg-neutral-900 shadow-xl p-4 pt-14 pr-4"
+            class="w-72 rounded-2xl border border-brand-200 bg-white dark:bg-neutral-900 shadow-xl p-4 pt-14 pr-4"
           >
             <!-- Headline -->
-            <h3 class="text-lg font-semibold text-primary-600 mb-3">
+            <h3 class="text-lg font-semibold text-brand-600 mb-3">
               tegetec <span>contact</span>
             </h3>
 
             <!-- Contact items (hover = ring outline only; text doesn't change) -->
             <div class="flex flex-col gap-2">
               <a
-                href="mailto:mail@tegetec.com"
-                class="flex items-center gap-3 p-2 rounded-xl border border-transparent hover:ring-2 hover:ring-primary-50 hover:ring-offset-0 dark:hover:ring-primary-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+                href="mailto:hello@eyeonidea.com"
+                class="flex items-center gap-3 p-2 rounded-xl border border-transparent hover:ring-2 hover:ring-brand-50 hover:ring-offset-0 dark:hover:ring-brand-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
               >
                 <UIcon
                   name="i-heroicons-envelope"
-                  class="w-5 h-5 shrink-0 text-primary-400"
+                  class="w-5 h-5 shrink-0 text-brand-400"
                   aria-hidden="true"
                 />
                 <div class="min-w-0">
                   <div
-                    class="text-sm font-medium text-neutral-900 dark:text-primary-100"
+                    class="text-sm font-medium text-neutral-900 dark:text-brand-100"
                   >
                     Email
                   </div>
                   <div
-                    class="email-text text-sm text-neutral-700 dark:text-primary-200 truncate"
+                    class="email-text text-sm text-neutral-700 dark:text-brand-200 truncate"
                   >
-                    mail@tegetec.com
+                    hello@eyeonidea.com
                   </div>
                 </div>
               </a>
 
               <a
-                href="tel:+4570252420"
-                class="flex items-center gap-3 p-2 rounded-xl border border-transparent hover:ring-2 hover:ring-primary-50 hover:ring-offset-0 dark:hover:ring-primary-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+                href="tel:+4540233267"
+                class="flex items-center gap-3 p-2 rounded-xl border border-transparent hover:ring-2 hover:ring-brand-50 hover:ring-offset-0 dark:hover:ring-brand-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
               >
                 <UIcon
                   name="i-heroicons-phone"
-                  class="w-5 h-5 shrink-0 text-primary-400"
+                  class="w-5 h-5 shrink-0 text-brand-400"
                   aria-hidden="true"
                 />
                 <div class="min-w-0">
                   <div
-                    class="text-sm font-medium text-neutral-900 dark:text-primary-100"
+                    class="text-sm font-medium text-neutral-900 dark:text-brand-100"
                   >
                     Phone
                   </div>
                   <div
-                    class="text-sm text-neutral-700 dark:text-primary-200 truncate"
+                    class="text-sm text-neutral-700 dark:text-brand-200 truncate"
                   >
-                    +45 70 25 24 20
+                    +45 40 23 32 67
                   </div>
                 </div>
               </a>
@@ -89,7 +89,7 @@
         @click.stop="toggle"
         :aria-expanded="open ? 'true' : 'false'"
         :aria-controls="panelId"
-        class="absolute top-0 right-0 z-50 inline-flex items-center justify-center w-12 h-12 rounded-full shadow-lg bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
+        class="absolute top-0 right-0 z-50 inline-flex items-center justify-center w-12 h-12 rounded-full shadow-lg bg-brand-500 text-white hover:bg-brand-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
         :title="open ? 'Close contact panel' : 'Open contact panel'"
       >
         <UIcon
@@ -149,7 +149,7 @@ h3 {
   position: absolute;
   top: 20px;
   span {
-    color: var(--color-primary-200);
+    color: var(--color-brand-200);
   }
 }
 .email-text {

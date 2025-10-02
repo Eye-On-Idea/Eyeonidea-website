@@ -10,14 +10,5 @@ import AboutExpertise from "~/components/about/AboutExpertise.vue";
 import AboutIntro from "~/components/about/AboutIntro.vue";
 import ContactOffice from "~/components/about/ContactOffice.vue";
 
-useHead({
-  title: "About & Contact",
-  meta: [
-    {
-      name: "description",
-      content:
-        "Who we are, what we do, and how to reach Tegetec’s Denmark, Spain and Finland offices.",
-    },
-  ],
-});
+useHead({ title: "About & Contact — Tegetec" });
 </script>

@@ -1,10 +1,10 @@
 <template>
   <section id="expertise" class="relative">
     <UContainer class="max-w-[1440px] py-10 md:py-14">
-      <!-- Grid with 2 rows: (1) full-width header, (2) tiles + right card -->
-      <div class="grid gap-6 md:grid-cols-3">
-        <!-- Row 1: header spans all columns -->
-        <div class="md:col-span-3">
+      <!-- 3-col grid on md+, stacked on mobile; items stretch to equal height -->
+      <div class="grid gap-6 md:grid-cols-3 items-stretch">
+        <!-- LEFT: intro + 2x2 tiles (spans 2 cols on md+) -->
+        <div class="md:col-span-2 flex flex-col">
           <h2 class="text-2xl md:text-3xl font-semibold text-primary-900">
             What we do
           </h2>
@@ -14,12 +14,9 @@
             and sanitation. From trials and FAT/SAT to commissioning and
             training, we stay involved through the full lifecycle.
           </p>
-        </div>
 
-        <!-- Row 2: left group (2 cols) + right card (1 col) -->
-        <div class="md:col-span-2">
-          <!-- 2×2 tiles; equal heights; min-width guards -->
-          <div class="grid gap-6 sm:grid-cols-2 auto-rows-fr">
+          <!-- 2x2 grid; auto-rows-fr equalizes tile heights; min-w keeps tiles from getting too narrow -->
+          <div class="mt-6 grid gap-6 sm:grid-cols-2 auto-rows-fr">
             <UCard
               class="bg-[var(--color-surface-1)] text-primary-900 h-full min-w-[260px]"
             >
@@ -72,47 +69,45 @@
           </div>
         </div>
 
-        <!-- Right card: same row, stretches to same height as the 2×2 group -->
-        <div class="flex">
-          <UCard
-            class="bg-[var(--color-surface-1)] text-primary-900 h-full min-w-[280px] flex flex-col grow"
-          >
-            <h3 class="text-lg font-semibold text-primary-900">
-              Why producers choose Tegetec
-            </h3>
-            <ul class="mt-2 space-y-2">
-              <li class="pl-4 relative">
-                <span
-                  class="absolute left-0 top-[0.72em] h-1.5 w-1.5 rounded-full bg-[var(--color-primary-600)]"
-                ></span
-                >Integrated projects with a single point of contact
-              </li>
-              <li class="pl-4 relative">
-                <span
-                  class="absolute left-0 top-[0.72em] h-1.5 w-1.5 rounded-full bg-[var(--color-primary-600)]"
-                ></span
-                >Proven OEMs with strong install base and service
-              </li>
-              <li class="pl-4 relative">
-                <span
-                  class="absolute left-0 top-[0.72em] h-1.5 w-1.5 rounded-full bg-[var(--color-primary-600)]"
-                ></span
-                >Focus on ROI: throughput, yield, utilities and uptime
-              </li>
-              <li class="pl-4 relative">
-                <span
-                  class="absolute left-0 top-[0.72em] h-1.5 w-1.5 rounded-full bg-[var(--color-primary-600)]"
-                ></span
-                >Clear documentation, training and lifecycle support
-              </li>
-            </ul>
-            <div class="md:mt-auto mt-9">
-              <UButton variant="solid" to="/equipment-and-solutions"
-                >Explore equipment</UButton
-              >
-            </div>
-          </UCard>
-        </div>
+        <!-- RIGHT: stretches to match left group's total height -->
+        <UCard
+          class="bg-[var(--color-surface-1)] text-primary-900 h-full min-w-[280px] flex flex-col"
+        >
+          <h3 class="text-lg font-semibold text-primary-900">
+            Why producers choose Tegetec
+          </h3>
+          <ul class="mt-2 space-y-2">
+            <li class="pl-4 relative">
+              <span
+                class="absolute left-0 top-[0.72em] h-1.5 w-1.5 rounded-full bg-[var(--color-primary-600)]"
+              ></span>
+              Integrated projects with a single point of contact
+            </li>
+            <li class="pl-4 relative">
+              <span
+                class="absolute left-0 top-[0.72em] h-1.5 w-1.5 rounded-full bg-[var(--color-primary-600)]"
+              ></span>
+              Proven OEMs with strong install base and service
+            </li>
+            <li class="pl-4 relative">
+              <span
+                class="absolute left-0 top-[0.72em] h-1.5 w-1.5 rounded-full bg-[var(--color-primary-600)]"
+              ></span>
+              Focus on ROI: throughput, yield, utilities and uptime
+            </li>
+            <li class="pl-4 relative">
+              <span
+                class="absolute left-0 top-[0.72em] h-1.5 w-1.5 rounded-full bg-[var(--color-primary-600)]"
+              ></span>
+              Clear documentation, training and lifecycle support
+            </li>
+          </ul>
+          <div class="mt-4 md:mt-auto">
+            <UButton color="brand" variant="solid" to="/equipment-and-solutions"
+              >Explore equipment</UButton
+            >
+          </div>
+        </UCard>
       </div>
     </UContainer>
   </section>

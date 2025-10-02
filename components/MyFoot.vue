@@ -181,21 +181,21 @@
             <li class="mt-2">
               <NuxtLink
                 class="hover:underline underline-offset-2"
-                to="/about-and-contact/public-material-and-downloads"
+                to="/about/public-material-and-downloads"
                 >Public Material &amp; Downloads</NuxtLink
               >
             </li>
             <li>
               <NuxtLink
                 class="hover:underline underline-offset-2"
-                to="/about-and-contact/privacy-policy"
+                to="/about/privacy-policy"
                 >Privacy Policy</NuxtLink
               >
             </li>
             <li>
               <NuxtLink
                 class="hover:underline underline-offset-2"
-                to="/about-and-contact/cookie-policy"
+                to="/about/cookie-policy"
                 >Cookie Policy</NuxtLink
               >
             </li>
