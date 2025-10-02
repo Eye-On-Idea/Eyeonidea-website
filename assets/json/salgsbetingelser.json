@@ -1,0 +1,99 @@
+{
+  "title": "Salgs- og leveringsbetingelser for EOI (Eye On Idea)",
+  "sections": [
+    {
+      "number": 1,
+      "title": "Anvendelse",
+      "points": [
+        "Disse salgs- og leveringsbetingelser gælder for enhver leverance fra EOI (Eye On Idea), herunder, men ikke begrænset til, kvalitetskontrol og QA-ydelser, audits, rådgivnings- og konsulentydelser, udvikling og levering af websites, domæne- og hostingadministration samt service- og supportaftaler, medmindre andet skriftligt er aftalt mellem parterne.",
+        "EOI er berettiget til at anvende underleverandører, eksempelvis i forbindelse med hosting, domæneregistrering eller softwareydelser. Kunden accepterer, at sådanne leverancer er underlagt de pågældende underleverandørers betingelser og eventuelle begrænsninger."
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Tilbud, accept og betalingsvilkår",
+      "points": [
+        "Ordrer er først bindende, når skriftlig bekræftelse er modtaget fra EOI. Ændringer i en ordre kræver skriftlig accept fra EOI.",
+        "Alle priser er ekskl. moms og eventuelle afgifter. Tilbud er gældende i 30 dage, medmindre andet er angivet.",
+        "Betaling skal ske senest 14 dage efter fakturadato. For abonnementsaftaler sker betaling forud d. 1. i hver måned for den aftalte periode.",
+        "Ved forsinket betaling beregnes morarente med 2% pr. påbegyndt måned samt evt. rykkergebyr i henhold til gældende regler."
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Ejerskab og immaterielle rettigheder",
+      "points": [
+        "EOI bevarer ejendoms- og ophavsretten til udviklet kode, design og metoder. Kunden erhverver en tidsubegrænset, ikke-eksklusiv brugsret til det færdige produkt til kommercielt brug i egen virksomhed. Kundens egne aktiver (logo, billeder, tekstmateriale m.m.) forbliver kundens ejendom.",
+        "Ændrer kunden selv i leveret kode eller design uden aftale med EOI, bortfalder EOI’s ansvar for eventuelle fejl, driftsforstyrrelser eller manglende funktionalitet, der måtte opstå."
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Levering og forsinkelse",
+      "points": [
+        "Leveringstider angivet af EOI er vejledende, medmindre andet er udtrykkeligt aftalt.",
+        "Ved lancering af nye websites eller e-mailservices må der forventes nedetid på 1-3 timer. Dette betragtes ikke som misligholdelse.",
+        "EOI er ikke ansvarlig for indirekte tab som følge af forsinkelse, herunder driftstab, tab af data eller følgeskader.",
+        "Ansvar for direkte tab er maksimeret til et beløb svarende til det fakturerede vederlag for den pågældende ydelse."
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Reklamation og returret",
+      "points": [
+        "Kunden har 14 dages returret efter levering. Ved benyttelse af returret fradrages 25% af det samlede fakturerede beløb som kompensation for udviklings- og opstartsomkostninger.",
+        "Kunden skal reklamere over fejl eller mangler senest 1 måned efter levering. EOI er berettiget til at afhjælpe sådanne fejl uden yderligere vederlag, forudsat at de ikke skyldes kundens egne ændringer eller forhold."
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Hosting og underleverandører",
+      "points": [
+        "Ved hosting- og domæneyderlser fungerer EOI som formidler af underleverandørers tjenester. Kunden accepterer, at driftsforstyrrelser, nedetid eller tekniske problemer hos underleverandører ligger uden for EOI’s kontrol og ansvar.",
+        "EOI bistår kunden med support i rimeligt omfang, men kan videregive kundens henvendelser direkte til underleverandørens support."
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Ansvar",
+      "points": [
+        "EOI’s ansvar for fejl eller mangler er begrænset til direkte tab og kan aldrig overstige fakturabeløbet for den pågældende leverance.",
+        "EOI er ikke ansvarlig for indirekte tab, herunder driftstab, tabt fortjeneste, tab af data eller andre følgeomkostninger."
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Force majeure",
+      "points": [
+        "EOI er ikke ansvarlig for manglende eller forsinket levering, hvis dette skyldes forhold uden for EOI’s rimelige kontrol, herunder, men ikke begrænset til, brand, sygdom, strejke, nedbrud i tredjepartssystemer, pandemier eller lignende forhold."
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Databehandling og GDPR",
+      "points": [
+        "EOI behandler personoplysninger i overensstemmelse med gældende databeskyttelseslovgivning (GDPR).",
+        "Databehandleraftale (DPA) indgås ved opstart af samarbejde, hvor dette er påkrævet.",
+        "Ved samarbejdets ophør aftales særskilt, om kundedata skal slettes eller returneres. Kunden kan kræve dokumentation for destruktion af data."
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Varighed af service- og supportaftaler",
+      "points": [
+        "Abonnementsaftaler løber for en på forhånd aftalt periode (typisk 12 måneder). Ved udløb indgås en ny aftale. Der sker ingen automatisk forlængelse.",
+        "Prisjusteringer kan foretages ved indgåelse af en ny aftale, i overensstemmelse med markedsvilkår og leverandørpriser."
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Lovvalg og værneting",
+      "points": [
+        "Alle tvister afgøres efter dansk ret.",
+        "Værneting er byretten i den retskreds, hvor EOI har sit forretningssted."
+      ]
+    }
+  ],
+  "last_updated": "Last Updated:",
+  "date": "02-09-2025"
+}
