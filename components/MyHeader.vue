@@ -50,6 +50,15 @@ onMounted(() => {
     window.removeEventListener("resize", update);
   });
 });
+
+// Menu Drop down
+const aboutDropdownItems = [
+  [
+    { label: "About", to: "/about" },
+    { label: "Policies", icon: "i-lucide-book-text", to: "/about/policies" },
+    { label: "Legal", icon: "i-lucide-info", to: "/about/legal" },
+  ],
+];
 </script>
 
 <template>
@@ -61,7 +70,7 @@ onMounted(() => {
   </a>
 
   <header
-    class="site-header fixed top-0 z-10 mx-auto flex h-20 w-full min-w-[320px]"
+    class="site-header sticky top-0 z-10 mx-auto flex h-20 w-full min-w-[320px] w-max[1920px] align-middle"
     :style="{ '--hdr-alpha': hdrAlpha.toString() }"
   >
     <nav class="w-full max-w-[1440px]">
@@ -95,25 +104,40 @@ onMounted(() => {
             />
           </NuxtLink>
         </li>
-
-        <li>
-          <NuxtLink
-            to="/about"
-            class="nav-link"
-            :aria-current="isSection('/about') ? 'page' : undefined"
+        <li class="flex items-center">
+          <UDropdownMenu
+            :items="aboutDropdownItems"
+            :content="{ side: 'bottom', align: 'start', sideOffset: 6 }"
+            :ui="{
+              content: 'bg-brand-200 text-neutral-900 ',
+              itemLabel:
+                'text-[15px] font-sans text-neutral-900 hover:text-amber-50',
+              itemLeadingIcon: 'size-4 text-neutral-900',
+            }"
           >
-            About
-          </NuxtLink>
+            <!-- Trigger -->
+            <UButton
+              color="gray"
+              variant="ghost"
+              class="flex items-center gap-1 font-sans text-[15px] md:text-[16px] leading-none h-10 px-3 rounded-[var(--radius-md)] text-[var(--color-neutral-900)] cursor-pointer hover:bg-brand-300/20"
+              aria-label="About menu"
+            >
+              <span class="uppercase">about</span>
+              <UIcon
+                name="i-lucide-chevron-down"
+                class="size-4"
+                aria-hidden="true"
+              />
+            </UButton>
+          </UDropdownMenu>
         </li>
-
         <li>
           <NuxtLink
-            :to="langLink"
-            class="inline-flex gap-1 items-center rounded-md px-3 py-1 text-[0.75rem] font-sans ring-1 ring-brand-50/0 hover:bg-neutral-900/75 hover:ring-brand-50/50 focus-visible:ring-brand-50 transition-normal"
-            :aria-label="langLabel"
+            to="/contact"
+            class="nav-link"
+            :aria-current="isSection('/contact') ? 'page' : undefined"
           >
-            <UIcon name="heroicons:globe-alt" class="size-5" />
-            EN/DA
+            contact
           </NuxtLink>
         </li>
       </ul>
@@ -166,23 +190,6 @@ header {
             outline: solid 1px var(--color-brand-50);
             padding: 8px;
             border-radius: 6px;
-          }
-        }
-        &:nth-child(3) {
-          transition: all 1.2s ease-out;
-          &:hover {
-            background-color: var(--quart-colour);
-            padding: 12px;
-            transition: var(--transition-normal);
-            border-radius: var(--border-radius);
-            a {
-              outline: none;
-            }
-          }
-        }
-        &:nth-child(5) {
-          &:hover {
-            outline: none;
           }
         }
         img {

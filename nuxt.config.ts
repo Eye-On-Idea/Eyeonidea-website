@@ -19,7 +19,13 @@ export default defineNuxtConfig({
 
   app: {
     baseURL: "/",
+    buildAssetsDir: "/_nuxt/",
     head: {
+      htmlAttrs: {
+        lang: "en",
+      },
+      title: "Eye On Idea - Transform good ideas in to great experiences",
+      titleTemplate: "%s | Eye On Idea",
       link: [
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
         {
@@ -40,8 +46,61 @@ export default defineNuxtConfig({
           href: "/apple-touch-icon.png",
         },
         { rel: "manifest", href: "/site.webmanifest" },
+        { rel: "dns-prefetch", href: "//fonts.googleapis.com" },
+        {
+          rel: "preconnect",
+          href: "https://fonts.googleapis.com",
+          crossorigin: "",
+        },
       ],
-      meta: [{ name: "theme-color", content: "#7d3412" }],
+      meta: [
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "theme-color", content: "#7d3412" },
+        { name: "msapplication-TileColor", content: "#7d3412" },
+        { name: "format-detection", content: "telephone=no" },
+        { name: "mobile-web-app-capable", content: "yes" },
+        { name: "apple-mobile-web-app-capable", content: "yes" },
+        { name: "apple-mobile-web-app-status-bar-style", content: "default" },
+        // Global SEO defaults (can be overridden by individual pages)
+        { name: "author", content: "Eye On Idea" },
+        { name: "robots", content: "index, follow" },
+        { property: "og:site_name", content: "Eye On Idea" },
+        { property: "og:type", content: "website" },
+        { property: "og:locale", content: "en_US" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:creator", content: "@eyeonidea" },
+      ],
+      script: [
+        {
+          type: "application/ld+json",
+          innerHTML: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Eye On Idea",
+            url: "https://eyeonidea.com",
+            description:
+              "Helping businesses across Europe, build digital products that are reliable, accessible, and easy to use",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: {
+                "@type": "EntryPoint",
+                urlTemplate:
+                  "https://eyeonidea.com/search?q={search_term_string}",
+              },
+              "query-input": "required name=search_term_string",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Eye On Idea",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://eyeonidea.com/public-material/profile-picture.png",
+              },
+            },
+          }),
+        },
+      ],
     },
   },
 
@@ -70,9 +129,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      // keep if other code reads it; nuxt-gtag uses `gtag.id` below
-      gtag: { id: "G-WY6NJ5BYTJ" },
-      gtmId: "GTM-MHZ76SX2",
+      GTM_ID: "GTM-MHZ76SX2",
     },
   },
 
