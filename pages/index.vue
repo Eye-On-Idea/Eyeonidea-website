@@ -1,4 +1,4 @@
-<template locale="en">
+<template>
   <div class="main-bg fixed w-full h-screen overflow-hidden"></div>
   <index-my-hero />
   <index-my-about />
