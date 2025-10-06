@@ -133,28 +133,6 @@ export default defineNuxtConfig({
     },
   },
 
-  // ---------- Google Analytics 4 (nuxt-gtag) ----------
-  gtag: {
-    enabled: process.env.NODE_ENV === "production",
-    id: process.env.NUXT_PUBLIC_GA4_ID || "G-WY6NJ5BYTJ",
-    config: { send_page_view: true },
-    initCommands: [
-      [
-        "consent",
-        "default",
-        {
-          ad_user_data: "denied",
-          ad_personalization: "denied",
-          ad_storage: "denied",
-          analytics_storage: "denied",
-          wait_for_update: 500,
-        },
-      ],
-    ],
-    // OPTIONAL hard-block: uncomment to prevent loading until consent, then call initialize() in plugin
-    // initMode: "manual",
-  },
-
   // ---------- Cookie banner ----------
   cookieControl: {
     barPosition: "bottom-full",

@@ -76,29 +76,31 @@ const aboutDropdownItems = [
     <nav class="w-full max-w-[1440px]">
       <ul class="flex flex-row">
         <li>
-          <NuxtLink
+          <UButton
+            variant="ghost"
             to="/"
             class="nav-link"
             :aria-current="isExact('/') ? 'page' : undefined"
           >
             Home
-          </NuxtLink>
+          </UButton>
         </li>
 
         <li>
-          <NuxtLink
+          <UButton
+            variant="ghost"
             to="/services"
             class="nav-link"
             :aria-current="isSection('/services') ? 'page' : undefined"
           >
             Services
-          </NuxtLink>
+          </UButton>
         </li>
 
         <li>
           <NuxtLink to="/">
             <img
-              class="logo"
+              class="logo size-15 hover:ring hover:ring-amber-50 transition hover:p-2 hover:rounded-2xl"
               src="/public-material/logo-center-shadow.svg"
               alt="EOI logo with shadow effect on lettering"
             />
@@ -109,15 +111,14 @@ const aboutDropdownItems = [
             :items="aboutDropdownItems"
             :content="{ side: 'bottom', align: 'start', sideOffset: 6 }"
             :ui="{
-              content: 'bg-brand-200 text-neutral-900 ',
+              content: 'bg-brand-500 text-neutral-900 ',
               itemLabel:
-                'text-[15px] font-sans text-neutral-900 hover:text-amber-50',
-              itemLeadingIcon: 'size-4 text-neutral-900',
+                'text-[15px] font-sans text-brand-900 hover:text-amber-50',
+              itemLeadingIcon: 'size-4 text-brand-900',
             }"
           >
             <!-- Trigger -->
             <UButton
-              color="gray"
               variant="ghost"
               class="flex items-center gap-1 font-sans text-[15px] md:text-[16px] leading-none h-10 px-3 rounded-[var(--radius-md)] text-[var(--color-neutral-900)] cursor-pointer hover:bg-brand-300/20"
               aria-label="About menu"
@@ -132,13 +133,14 @@ const aboutDropdownItems = [
           </UDropdownMenu>
         </li>
         <li>
-          <NuxtLink
+          <UButton
+            variant="ghost"
             to="/contact"
             class="nav-link"
             :aria-current="isSection('/contact') ? 'page' : undefined"
           >
             contact
-          </NuxtLink>
+          </UButton>
         </li>
       </ul>
     </nav>
@@ -182,21 +184,6 @@ header {
         padding: 0;
         cursor: pointer;
         transition: var(--transition-normal);
-        a {
-          transition: var(--transition-normal);
-        }
-        &:hover {
-          a {
-            outline: solid 1px var(--color-brand-50);
-            padding: 8px;
-            border-radius: 6px;
-          }
-        }
-        img {
-          width: 100%;
-          max-width: 150px;
-          min-width: 50px;
-        }
       }
     }
     .nav-link[aria-current="page"] {
