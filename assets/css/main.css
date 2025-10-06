@@ -204,7 +204,7 @@
   --color-brand-500: #995226; /* base (solid buttons) */
   --color-brand-600: #7d3412; /* main (hover/active) */
   --color-brand-700: #67280e;
-  --color-neutral-900: #1f1f1f;
+  --color-neutral-900: #1f1f1f; /* Used mainly for text on light backgrounds or as background for sections with light content*/
   --font-sans: Quicksand, ui-sans-serif, system-ui, sans-serif;
   --font-heading: Kanit, ui-sans-serif, system-ui, sans-serif;
   --radius-md: 6px;

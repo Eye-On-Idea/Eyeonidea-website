@@ -1,57 +1,17 @@
+// Burger menu logic and integration with header // This version activates the
+mobile menu below 769px width
+
 <script lang="ts" setup>
-import { computed, onMounted, onUnmounted, ref, nextTick } from "vue";
+import { ref } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
+const isMenuOpen = ref(false);
 
-// Active checks
 const isExact = (to: string) => route.path === to;
 const isSection = (to: string) =>
   route.path === to || route.path.startsWith(to + "/");
 
-//
-const langLink = computed(() => {
-  return route.path.startsWith("/da") ? "/" : "/da";
-});
-
-const langLabel = computed(() =>
-  route.path.startsWith("/da") ? "Switch to English" : "Switch to Danish"
-);
-// header transition
-const hdrAlpha = ref(0.31);
-const START_ALPHA = 0.31;
-const END_ALPHA = 1.0;
-const FADE_PORTION = 0.4;
-
-onMounted(() => {
-  const hero = document.getElementById("hero");
-  const headerEl = document.querySelector(".site-header") as HTMLElement | null;
-
-  if (!hero) {
-    hdrAlpha.value = END_ALPHA;
-    return;
-  }
-
-  const headerH = headerEl?.offsetHeight ?? 80;
-
-  const update = () => {
-    const heroH = hero.offsetHeight || 1;
-    const y = window.scrollY + headerH;
-    const fadeEnd = heroH * FADE_PORTION;
-    const progress = Math.min(1, Math.max(0, y / fadeEnd));
-    hdrAlpha.value = START_ALPHA + (END_ALPHA - START_ALPHA) * progress;
-  };
-
-  update();
-  window.addEventListener("scroll", update, { passive: true });
-  window.addEventListener("resize", update);
-  onUnmounted(() => {
-    window.removeEventListener("scroll", update);
-    window.removeEventListener("resize", update);
-  });
-});
-
-// Menu Drop down
 const aboutDropdownItems = [
   [
     { label: "About", to: "/about" },
@@ -62,143 +22,141 @@ const aboutDropdownItems = [
 </script>
 
 <template>
-  <a
-    href="#hero"
-    class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:rounded-xl focus:bg-[var(--quart-colour)] focus:px-3 focus:py-2 focus:text-[var(--prim-colour)]"
-  >
-    Skip to main content
-  </a>
-
   <header
-    class="site-header sticky top-0 z-10 mx-auto flex h-20 w-full min-w-[320px] w-max[1920px] align-middle"
-    :style="{ '--hdr-alpha': hdrAlpha.toString() }"
+    class="site-header fixed top-0 z-10 w-full min-w-[320px] bg-neutral-900/90"
   >
-    <nav class="w-full max-w-[1440px]">
-      <ul class="flex flex-row">
-        <li>
-          <UButton
-            variant="ghost"
-            to="/"
-            class="nav-link"
-            :aria-current="isExact('/') ? 'page' : undefined"
-          >
-            Home
-          </UButton>
-        </li>
+    <nav class="w-full max-w-[1440px] mx-auto px-4 md:px-6">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <NuxtLink to="/">
+          <img
+            class="logo max-w-[75px] hover:ring hover:ring-amber-50 transition hover:p-2 hover:rounded-2xl"
+            src="/public-material/logo-center-shadow.svg"
+            alt="EOI logo with shadow effect on lettering"
+          />
+        </NuxtLink>
 
-        <li>
-          <UButton
-            variant="ghost"
-            to="/services"
-            class="nav-link"
-            :aria-current="isSection('/services') ? 'page' : undefined"
-          >
-            Services
-          </UButton>
-        </li>
-
-        <li>
-          <NuxtLink to="/">
-            <img
-              class="logo size-15 hover:ring hover:ring-amber-50 transition hover:p-2 hover:rounded-2xl"
-              src="/public-material/logo-center-shadow.svg"
-              alt="EOI logo with shadow effect on lettering"
-            />
-          </NuxtLink>
-        </li>
-        <li class="flex items-center">
-          <UDropdownMenu
-            :items="aboutDropdownItems"
-            :content="{ side: 'bottom', align: 'start', sideOffset: 6 }"
-            :ui="{
-              content: 'bg-brand-500 text-neutral-900 ',
-              itemLabel:
-                'text-[15px] font-sans text-brand-900 hover:text-amber-50',
-              itemLeadingIcon: 'size-4 text-brand-900',
-            }"
-          >
-            <!-- Trigger -->
+        <!-- Desktop Nav -->
+        <ul class="hidden md:flex items-center gap-6">
+          <li>
             <UButton
               variant="ghost"
-              class="flex items-center gap-1 font-sans text-[15px] md:text-[16px] leading-none h-10 px-3 rounded-[var(--radius-md)] text-[var(--color-neutral-900)] cursor-pointer hover:bg-brand-300/20"
-              aria-label="About menu"
+              to="/"
+              class="nav-link"
+              :aria-current="isExact('/') ? 'page' : undefined"
+              >Home</UButton
             >
-              <span class="uppercase">about</span>
-              <UIcon
-                name="i-lucide-chevron-down"
-                class="size-4"
-                aria-hidden="true"
-              />
-            </UButton>
-          </UDropdownMenu>
-        </li>
-        <li>
-          <UButton
-            variant="ghost"
-            to="/contact"
-            class="nav-link"
-            :aria-current="isSection('/contact') ? 'page' : undefined"
+          </li>
+          <li>
+            <UButton
+              variant="ghost"
+              to="/services"
+              class="nav-link"
+              :aria-current="isSection('/services') ? 'page' : undefined"
+              >Services</UButton
+            >
+          </li>
+          <li>
+            <UDropdownMenu :items="aboutDropdownItems">
+              <UButton variant="ghost" class="flex items-center gap-1"
+                >About <UIcon name="i-lucide-chevron-down"
+              /></UButton>
+            </UDropdownMenu>
+          </li>
+          <li>
+            <UButton
+              variant="ghost"
+              to="/contact"
+              class="nav-link"
+              :aria-current="isSection('/contact') ? 'page' : undefined"
+              >Contact</UButton
+            >
+          </li>
+        </ul>
+
+        <!-- Burger Menu Button -->
+        <button
+          class="md:hidden inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+          @click="isMenuOpen = !isMenuOpen"
+          :aria-expanded="isMenuOpen.toString()"
+          aria-label="Toggle navigation menu"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           >
-            contact
-          </UButton>
-        </li>
-      </ul>
+            <path v-if="!isMenuOpen" d="M4 6h16M4 12h16M4 18h16" />
+            <path v-else d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <transition name="fade">
+        <ul
+          v-if="isMenuOpen"
+          class="md:hidden flex flex-col gap-4 mt-4 bg-[--color-neutral-900] text-white p-4 rounded-lg shadow-md"
+        >
+          <li>
+            <NuxtLink to="/" class="block" @click="isMenuOpen = false"
+              >Home</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink to="/services" class="block" @click="isMenuOpen = false"
+              >Services</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink to="/about" class="block" @click="isMenuOpen = false"
+              >About</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink
+              to="/about/policies"
+              class="block"
+              @click="isMenuOpen = false"
+              >Policies</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink
+              to="/about/legal"
+              class="block"
+              @click="isMenuOpen = false"
+              >Legal</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink to="/contact" class="block" @click="isMenuOpen = false"
+              >Contact</NuxtLink
+            >
+          </li>
+        </ul>
+      </transition>
     </nav>
   </header>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 .site-header {
-  --hdr-alpha: 0.31;
-  background-color: rgba(31, 31, 31, var(--hdr-alpha));
   backdrop-filter: blur(2.4px);
   -webkit-backdrop-filter: blur(5.4px);
   box-shadow: 0 6px 12px 2px #1f1f1fa0;
   transition: background-color 120ms linear;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .site-header {
-    transition: none;
-  }
-}
-
-header {
-  background-color: #1f1f1f50;
-  backdrop-filter: blur(2.4px);
-  -webkit-backdrop-filter: blur(5.4px);
-  box-shadow: 0px 6px 12px 2px #1f1f1fa0;
-  nav {
-    display: flex;
-    justify-content: center;
-    margin-top: auto;
-    padding: 15px;
-    margin: 0 auto;
-    position: relative;
-    ul {
-      gap: 25px;
-      letter-spacing: 0.09em;
-      li {
-        margin-top: auto;
-        text-transform: uppercase;
-        padding: 0;
-        cursor: pointer;
-        transition: var(--transition-normal);
-      }
-    }
-    .nav-link[aria-current="page"] {
-      font-weight: 700;
-    }
-  }
-}
-
-@media (max-width: 420px) {
-  a {
-    font-size: 0.7rem;
-  }
-  .inline-flex {
-    font-size: 0.7rem;
-    padding: 3px !important;
-  }
 }
 </style>

@@ -1,9 +1,14 @@
+<script setup lang="ts">
+import ContactForm from "~/components/contact/ContactForm.vue";
+</script>
+
 <template>
   <div class="main-bg fixed w-full h-screen overflow-hidden"></div>
   <index-my-hero />
   <index-my-about />
   <index-my-services />
   <index-my-contact-faq />
+  <ContactForm />
   <CookieControl locale="en" />
 </template>
 
