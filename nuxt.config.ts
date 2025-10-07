@@ -11,11 +11,13 @@ export default defineNuxtConfig({
     "nuxt-gtag",
     "@dargmuesli/nuxt-cookie-control",
   ],
-
   // Static Site Generation (SSG) configuration
   ssr: true,
   nitro: {
     preset: "static",
+    output: {
+      publicDir: "eoi",
+    },
     prerender: {
       routes: [
         "/",
