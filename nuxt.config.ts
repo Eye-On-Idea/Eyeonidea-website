@@ -15,9 +15,6 @@ export default defineNuxtConfig({
   ssr: true,
   nitro: {
     preset: "static",
-    output: {
-      publicDir: "/",
-    },
     prerender: {
       routes: [
         "/",
