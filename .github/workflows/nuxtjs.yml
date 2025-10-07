@@ -1,4 +1,4 @@
-name: Build and Deploy Nuxt Static Site to OVH
+name: Build and Deploy Nuxt Static Site to OVH (deploy branch)
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -23,21 +23,20 @@ jobs:
       - name: Generate static site with Nuxt
         run: npm run generate
 
-      - name: Deploy to OVH (via deploy branch)
+      - name: Deploy /eoi folder to deploy branch
         run: |
           git config --global user.email "github-actions@github.com"
           git config --global user.name "GitHub Actions"
-          
-          # Switch to a temporary branch
-          git checkout --orphan temp-deploy
 
-          # Remove everything except the /eoi output
-          git --work-tree eoi add --all
-          git --work-tree eoi commit -m "Deploy static site to OVH"
+          # Create a temporary directory for deploy
+          mkdir deploy-temp
+          cp -r eoi/* deploy-temp/
+          cd deploy-temp
 
-          # Push to deploy branch
-          git push origin HEAD:deploy --force
-
-          # Cleanup
-          git checkout main
-          git branch -D temp-deploy
+          # Initialize a new git repo and push to deploy branch
+          git init
+          git add .
+          git commit -m "Deploy static site to OVH (via deploy branch)"
+          git branch -M deploy
+          git remote add origin https://github.com/${{ github.repository }}.git
+          git push --force origin deploy
