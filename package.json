@@ -15,7 +15,6 @@
     "@iconify-json/mdi-light": "^1.2.2",
     "@nuxt/image": "^1.10.0",
     "@nuxt/ui": "^3.3.3",
-    "@nuxtjs/seo": "^3.0.3",
     "nodemailer": "^7.0.6",
     "nuxt": "^4.0.3",
     "nuxt-gtag": "^4.0.0",

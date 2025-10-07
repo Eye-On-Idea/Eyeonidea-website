@@ -6,7 +6,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   modules: [
-    "@nuxtjs/seo",
     "@nuxt/image",
     "@nuxt/ui",
     "nuxt-gtag",
@@ -51,7 +50,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "en",
       },
-      title: "Eye On Idea - Transform good ideas in to great experiences",
+      title: "Eye On Idea",
       titleTemplate: "%s | Eye On Idea",
       link: [
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -89,14 +88,10 @@ export default defineNuxtConfig({
         { name: "mobile-web-app-capable", content: "yes" },
         { name: "apple-mobile-web-app-capable", content: "yes" },
         { name: "apple-mobile-web-app-status-bar-style", content: "default" },
-        // Global SEO defaults (can be overridden by individual pages)
+        // Global SEO defaults
         { name: "author", content: "Eye On Idea" },
-        { name: "robots", content: "index, follow" },
         { property: "og:site_name", content: "Eye On Idea" },
-        { property: "og:type", content: "website" },
         { property: "og:locale", content: "en_US" },
-        { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:creator", content: "@eyeonidea" },
       ],
       script: [
         {
@@ -131,29 +126,6 @@ export default defineNuxtConfig({
     },
   },
 
-  site: {
-    url: "https://eyeonidea.com",
-    name: "Eye on Idea",
-    description:
-      "EOI helps businesses across Europe deliver reliable, accessible, and user-friendly digital products with actionable QA in accessibility, usability, and front-end testing.",
-    defaultLocale: "en",
-  },
-
-  robots: {
-    groups: [{ userAgent: "*", allow: "/" }],
-    sitemap: ["/sitemap.xml"],
-  },
-  sitemap: {},
-  schemaOrg: {
-    identity: {
-      type: "Organization",
-      name: "EOI – Eye on Idea",
-      url: "https://eyeonidea.com",
-      logo: "https://eyeonidea.com/public-material/profile-picture.png",
-    },
-  },
-  ogImage: { enabled: true },
-
   runtimeConfig: {
     public: {
       GTM_ID: "GTM-MHZ76SX2",
@@ -175,43 +147,48 @@ export default defineNuxtConfig({
     cookieOptions: { path: "/", sameSite: "strict", secure: true },
 
     colors: {
-      barBackground: "var(--color-surface-1)",
-      barTextColor: "var(--color-text)",
-      // Primary button (Accept All) - less prominent
-      barButtonBackground: "var(--color-primary-200)",
-      barButtonColor: "var(--color-brand-700)",
-      barButtonHoverBackground: "var(--color-primary-300)",
-      barButtonHoverColor: "var(--color-brand-700)",
-      // Decline All button - more prominent (EU requirement)
-      barButtonDeclineBackground: "var(--btn-primary-bg)",
-      barButtonDeclineColor: "var(--btn-primary-text)",
-      barButtonDeclineHoverBackground: "var(--btn-primary-hover)",
-      barButtonDeclineHoverColor: "var(--btn-primary-text)",
-      // Only necessary button styling
+      // Cookie bar styling - dark background with brand colors
+      barBackground: "rgba(31, 31, 31, 0.95)", // --color-neutral-900 with transparency
+      barTextColor: "#ffeddf", // --color-brand-50 (light cream)
+      // Accept All button - brand colors, less prominent
+      barButtonBackground: "#dfaf85", // --color-brand-200 (warm tan)
+      barButtonColor: "#1f1f1f", // --color-neutral-900 (dark text)
+      barButtonHoverBackground: "#d39a69", // --color-brand-300
+      barButtonHoverColor: "#1f1f1f",
+      // Decline All button - more prominent with primary brand color (EU requirement)
+      barButtonDeclineBackground: "#995226", // --color-brand-500 (base brand)
+      barButtonDeclineColor: "#ffeddf", // --color-brand-50 (light text)
+      barButtonDeclineHoverBackground: "#7d3412", // --color-brand-600
+      barButtonDeclineHoverColor: "#ffeddf",
+      // Only necessary button - transparent with brand text
       barButtonNecessaryBackground: "transparent",
-      barButtonNecessaryColor: "var(--color-primary-700)",
-      barButtonNecessaryHoverBackground: "var(--color-brand-100)",
-      barButtonNecessaryHoverColor: "var(--color-brand-700)",
-      // Control button
-      controlButtonBackground: "var(--btn-ghost-hover)",
-      controlButtonHoverBackground: "var(--btn-primary-bg)",
-      controlButtonIconColor: "var(--color-brand-700)",
-      controlButtonIconHoverColor: "var(--btn-primary-text)",
-      // Modal colors
-      modalBackground: "var(--color-bg)",
-      modalTextColor: "var(--color-text)",
-      modalButtonBackground: "var(--btn-primary-bg)",
-      modalButtonColor: "var(--btn-primary-text)",
-      modalButtonHoverBackground: "var(--btn-primary-hover)",
-      modalButtonHoverColor: "var(--btn-primary-text)",
-      // Checkbox colors (unchecked by default for EU compliance)
-      checkboxActiveBackground: "var(--color-brand-700)",
-      checkboxInactiveBackground: "var(--color-border)",
-      checkboxDisabledBackground: "var(--color-primary-100)",
-      focusRingColor: "var(--focus-ring)",
-      modalOverlay: "var(--color-primary-900)",
-      modalOverlayOpacity: 0.6,
-      modalUnsavedColor: "var(--color-primary-600)",
+      barButtonNecessaryColor: "#dfaf85", // --color-brand-200
+      barButtonNecessaryHoverBackground: "rgba(223, 175, 133, 0.1)", // brand-200 with transparency
+      barButtonNecessaryHoverColor: "#ffe4cf", // --color-brand-100
+      // Control button (floating button)
+      controlButtonBackground: "rgba(153, 82, 38, 0.9)", // --color-brand-500 with transparency
+      controlButtonHoverBackground: "#7d3412", // --color-brand-600
+      controlButtonIconColor: "#ffeddf", // --color-brand-50
+      controlButtonIconHoverColor: "#ffe4cf", // --color-brand-100
+      // Modal styling - consistent with bar
+      modalBackground: "#1f1f1f", // --color-neutral-900
+      modalTextColor: "#ffeddf", // --color-brand-50
+      modalButtonBackground: "#995226", // --color-brand-500
+      modalButtonColor: "#ffeddf", // --color-brand-50
+      modalButtonHoverBackground: "#7d3412", // --color-brand-600
+      modalButtonHoverColor: "#ffe4cf", // --color-brand-100
+      // Checkbox colors for cookie selections
+      checkboxActiveBackground: "#995226", // --color-brand-500
+      checkboxActiveCircleBackground: "#ffeddf", // --color-brand-50
+      checkboxInactiveBackground: "#67280e", // --color-brand-700
+      checkboxInactiveCircleBackground: "#ffeddf", // --color-brand-50
+      checkboxDisabledBackground: "#441a08", // --color-brand-900
+      checkboxDisabledCircleBackground: "#dfaf85", // --color-brand-200
+      // Focus and overlay
+      focusRingColor: "#dfaf85", // --color-brand-200 for focus rings
+      modalOverlay: "#1f1f1f", // --color-neutral-900
+      modalOverlayOpacity: 0.8,
+      modalUnsavedColor: "#d39a69", // --color-brand-300 for unsaved indicator
     },
     // Keep locales minimal; only override *known* keys
     locales: ["en"],

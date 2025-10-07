@@ -1,5 +1,5 @@
 <template>
-  <UCard class="bg-white dark:bg-neutral-900 border border-brand-200/40">
+  <UCard class="bg-brand-950 dark:bg-neutral-900 ring-0">
     <div class="px-2 sm:px-4" id="services">
       <h2
         class="text-xl font-semibold text-neutral-900 dark:text-brand-100 mb-4"
@@ -68,7 +68,7 @@
             <tr v-for="row in rows" :key="row.key">
               <th
                 scope="row"
-                class="text-left text-sm font-medium text-neutral-900 dark:text-brand-100 px-4 py-3"
+                class="text-left text-sm font-medium text-brand-50 px-4 py-3"
               >
                 {{ row.label }}
                 <p
@@ -118,10 +118,7 @@
           <!-- Footnote -->
           <tfoot>
             <tr>
-              <td
-                colspan="4"
-                class="px-4 py-3 text-xs text-neutral-700/80 dark:text-brand-200/80"
-              >
+              <td colspan="4" class="px-4 py-3 text-xs text-brand-200">
                 * Time Based = hourly blocks. Project Based = scoped
                 deliverables with a fixed quote. Retainer Based = ongoing
                 partnership with reserved hours, monthly insights, and priority
