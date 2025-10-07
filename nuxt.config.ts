@@ -16,7 +16,7 @@ export default defineNuxtConfig({
   nitro: {
     preset: "static",
     output: {
-      publicDir: "eoi",
+      publicDir: "/",
     },
     prerender: {
       routes: [
