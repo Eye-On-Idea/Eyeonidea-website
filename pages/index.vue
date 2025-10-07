@@ -155,6 +155,7 @@ useHead({
 </script>
 
 <template>
+  <!-- Background image provided from https://www.pexels.com/photo/black-and-white-photography-of-sand-2387819/ -->
   <div class="main-bg fixed w-full h-screen overflow-hidden"></div>
   <index-my-hero />
   <index-my-about />
