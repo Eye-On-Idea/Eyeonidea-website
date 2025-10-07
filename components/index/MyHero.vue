@@ -37,9 +37,9 @@ onUnmounted(() => {
       </h1>
 
       <p>
-        Your users expect products that just work - accessible, reliable, and
+        Your users expect products that just work accessible, reliable, and
         built to last. EOI helps you ship better digital experiences with clear,
-        actionable QA focused on accessibility and usability.
+        actionable quality assessment and idea development.
       </p>
 
       <div class="button-cont flex-row flex gap-6">
