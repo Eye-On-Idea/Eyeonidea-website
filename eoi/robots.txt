@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow pages under construction or private content
+Disallow: /about/legal
+Disallow: /about/policies
+
+# Sitemap
+Sitemap: https://eyeonidea.com/sitemap.xml
