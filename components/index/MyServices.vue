@@ -47,7 +47,7 @@
 
       <div class="service-cont flex flex-col">
         <IndexMyServiceCard
-          h3="hello"
+          h3="Digital Tool Consulting"
           img="/images/userconfusion.png"
           alt="alt is working"
           p1="paragraph 1 here"
