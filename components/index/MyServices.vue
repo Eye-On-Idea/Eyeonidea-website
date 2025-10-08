@@ -1,9 +1,5 @@
 <template>
-  <div
-    id="services"
-    aria-labelledby="services-title"
-    class="bg flex bg-neutral-900"
-  >
+  <div id="services" aria-labelledby="services-title" class="bg flex">
     <div class="cont flex flex-row">
       <section class="flex flex-col gap-1">
         <h2 id="services-title" class="!text-brand-200">
@@ -32,7 +28,7 @@
 
         <div class="button-cont flex-row flex gap-6">
           <UButton
-            href="/services#services"
+            to="/services#services"
             variant="outline"
             class="border-brand-50 bg-brand-200 ring-brand-50 hover:bg-brand-300 focus-visible:ring-brand-50 font-bold"
           >
@@ -40,7 +36,7 @@
           </UButton>
 
           <UButton
-            href="#contact"
+            to="#contact"
             variant="outline"
             class="border-brand-50 text-brand-50 bg-transparent hover:bg-neutral-900/75 focus-visible:ring-brand-50 text-[0.75rem] font-sans ring-brand-50"
           >
@@ -49,7 +45,18 @@
         </div>
       </section>
 
-      <div class="service-cont flex flex-col"><IndexMyServiceCard /></div>
+      <div class="service-cont flex flex-col">
+        <IndexMyServiceCard
+          h3="hello"
+          img="/images/userconfusion.png"
+          alt="alt is working"
+          p1="paragraph 1 here"
+          p2="paragraph 2 is here ooyo"
+          footTxt="from 60€ "
+          VAT="VAT not included"
+          butTxt="Detailed Information"
+        />
+      </div>
     </div>
   </div>
 </template>

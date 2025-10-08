@@ -160,7 +160,6 @@ useHead({
   <index-my-hero />
   <index-my-about />
   <index-my-services />
-  <index-my-contact-faq />
   <ContactForm />
   <CookieControl locale="en" />
 </template>

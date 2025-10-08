@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import MyServices from "./MyServices.vue";
+</script>
+
 <template>
   <div
     id="about"
@@ -7,42 +11,45 @@
     <div class="cont flex flex-row">
       <section class="flex flex-col gap-1">
         <h2 id="about-title" class="!text-brand-200">Eye On Idea</h2>
-        <p>
-          <strong>Human-centered QA for better digital Products</strong>
+        <p class="w-[95%]">
+          <strong
+            >Your digital consultant to improve, refine and grow digital
+            products.</strong
+          >
         </p>
 
         <section class="flex flex-col gap-4 mt-3" aria-labelledby="areas-title">
-          <h3 id="areas-title">EOI Areas</h3>
-          <p>
-            <small
-              >UX · UI · Accessibility · Usability · Responsiveness ·
-              Mobile/Tablet · Cross-Browser · Compatibility · Screen Readers ·
-              Performance · Design · Testing · Front-End</small
-            >
-          </p>
-
-          <p>
-            EOI is a quality assurance partner that
-            <strong>helps businesses</strong> across Europe build digital
-            products that are reliable, accessible, and
-            <strong>easy to use</strong>. We combine usability, accessibility,
-            and front-end QA expertise to make sure your digital presence
-            <strong>works for every user</strong>.
-          </p>
-          <p>
-            We work closely with your team to review, test, and improve digital
-            services. Every audit or project is tailored to your needs, with
-            clear and practical steps that can be acted on right away. Our
-            process is flexible, human-centered, and designed to fit into your
-            workflow.
-          </p>
-          <p>
-            With a focus on detail and measurable results, we help you deliver
-            products that perform better and create smoother experiences for
-            your users. Our goal is simple: to raise the quality of your digital
-            solutions and support your long-term success.
-          </p>
+          <ul class="flex flex-col gap-2 list-inside">
+            <li class="list-disc!">
+              Spot issues early (UX, UI, or conceptual gaps).
+            </li>
+            <li class="list-disc!">
+              Provide ideas and direction for product development.
+            </li>
+            <li class="list-disc!">
+              Web development and visual identity creation, for smaller and new
+              business.
+            </li>
+            <li class="list-disc!">
+              Deliver practical, tailored advice and solutions.
+            </li>
+          </ul>
         </section>
+        <p class="w-[90%] mt-2">
+          At <strong>Eye On Idea</strong> we help businesses shape smarter, more
+          user-friendly digital products by combining concept development,
+          usability insight, and practical tech know-how. Your consulting
+          partner, bringing clarity to ideas, spotting UX and UI issues, and
+          offering straightforward human-centered solutions.
+        </p>
+        <p class="w-[90%] mt-2">
+          We also guide companies in choosing digital tools that fit their
+          needs, with a focus on privacy-friendly, EU-based services. For those
+          who need a solid web presence, we build modern, accessible websites
+          tailored to smaller teams and budgets. Whether you’re building
+          something new or improving what’s already there, we help turn ideas
+          into digital experiences that work better for real people.
+        </p>
       </section>
 
       <div

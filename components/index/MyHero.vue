@@ -37,9 +37,10 @@ onUnmounted(() => {
       </h1>
 
       <p>
-        Your users expect products that just work accessible, reliable, and
-        built to last. EOI helps you ship better digital experiences with clear,
-        actionable quality assessment and idea development.
+        Your users expect products that just work. Reliably and built to last.
+        <br /><strong>Eye On Idea</strong> helps you ship better digital
+        experiences with clear, actionable quality assessment and idea
+        development.
       </p>
 
       <div class="button-cont flex-row flex gap-6">
@@ -56,7 +57,9 @@ onUnmounted(() => {
           variant="outline"
           class="border-brand-50 bg-brand-200 ring-brand-50 hover:bg-brand-300 focus-visible:ring-brand-50 font-bold"
         >
-          <span class="text-neutral-900 font-medium">See our services</span>
+          <span class="text-neutral-900 font-medium"
+            >What we can do for you</span
+          >
         </UButton>
       </div>
 
