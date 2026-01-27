@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "title": "Contact - Eye On Idea",
+    "description": "Get in touch with Eye On Idea. Let's discuss your digital project needs - websites, visual identity, CMS solutions, or ongoing support."
+  },
+  "hero": {
+    "badge": "Get In Touch",
+    "title": "Let's Build Something Together",
+    "subtitle": "Have a project in mind? Questions about our services? We're here to help you find the right digital solution for your business."
+  },
+  "form": {
+    "heading": "Send Us a Message",
+    "name": {
+      "label": "Name",
+      "placeholder": "Your full name"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "your@email.com"
+    },
+    "phone": {
+      "label": "Phone (optional)",
+      "placeholder": "+45 00 00 00 00"
+    },
+    "company": {
+      "label": "Company (optional)",
+      "placeholder": "Your company name"
+    },
+    "subject": {
+      "label": "Subject",
+      "placeholder": "What's this about?"
+    },
+    "interest": {
+      "label": "I'm interested in",
+      "placeholder": "Select a service",
+      "options": {
+        "website": "Website Development",
+        "identity": "Visual Identity",
+        "cms": "CMS Solutions",
+        "support": "Support Plans",
+        "consulting": "Consulting",
+        "other": "Something else"
+      }
+    },
+    "message": {
+      "label": "Message",
+      "placeholder": "Tell us about your project or question..."
+    },
+    "submit": "Send Message",
+    "submitting": "Sending...",
+    "gdprNotice": "By contacting Eye On Idea, you consent to be contacted via the information provided regarding your inquiry. Under the EU's GDPR regulation, your data will only be used for communication related to your inquiry and will never be shared with third parties."
+  },
+  "info": {
+    "heading": "Other Ways to Reach Us",
+    "directContact": {
+      "title": "Direct Contact",
+      "description": "Prefer a direct conversation? Reach out via email or phone."
+    },
+    "email": {
+      "label": "Email",
+      "value": "hello@eyeonidea.com"
+    },
+    "phone": {
+      "label": "Phone",
+      "value": "+45 29 93 05 83"
+    },
+    "location": {
+      "title": "Location",
+      "address": "Copenhagen, Denmark",
+      "description": "Serving clients across Denmark, the Nordics, and the European Union."
+    },
+    "hours": {
+      "title": "Business Hours",
+      "weekdays": "Monday - Friday: 9:00 - 17:00 CET",
+      "response": "We typically respond within 24 hours."
+    },
+    "social": {
+      "title": "Connect Online",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "cta": {
+    "title": "Not Sure Where to Start?",
+    "description": "Browse our services to learn more about what we offer, or check out our latest news and insights.",
+    "services": "View Services",
+    "news": "Read Our News"
+  }
+}

@@ -1,0 +1,402 @@
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from "vue";
+
+const { t } = useI18n();
+
+const sectionRef = ref<HTMLElement | null>(null);
+const isVisible = ref(false);
+
+onMounted(() => {
+  if (!sectionRef.value) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          isVisible.value = true;
+          observer.disconnect();
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  observer.observe(sectionRef.value);
+
+  onUnmounted(() => {
+    observer.disconnect();
+  });
+});
+</script>
+
+<template>
+  <section
+    ref="sectionRef"
+    class="contact-info"
+    aria-labelledby="contact-info-heading"
+  >
+    <div class="section-container">
+      <h2 id="contact-info-heading" class="section-heading" :class="{ 'animate-in': isVisible }">
+        {{ t("contact.info.heading") }}
+      </h2>
+
+      <div class="info-grid" :class="{ 'animate-in': isVisible }">
+        <!-- Direct Contact Card -->
+        <div class="info-card stagger-1">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+            </svg>
+          </div>
+          <h3 class="card-title">{{ t("contact.info.directContact.title") }}</h3>
+          <p class="card-description">{{ t("contact.info.directContact.description") }}</p>
+
+          <div class="contact-methods">
+            <a href="mailto:hello@eyeonidea.com" class="contact-link">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="M22 6l-10 7L2 6" />
+              </svg>
+              <span>{{ t("contact.info.email.value") }}</span>
+            </a>
+            <a href="tel:+4529930583" class="contact-link">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+              </svg>
+              <span>{{ t("contact.info.phone.value") }}</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Location Card -->
+        <div class="info-card stagger-2">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </div>
+          <h3 class="card-title">{{ t("contact.info.location.title") }}</h3>
+          <p class="card-address">{{ t("contact.info.location.address") }}</p>
+          <p class="card-description">{{ t("contact.info.location.description") }}</p>
+        </div>
+
+        <!-- Business Hours Card -->
+        <div class="info-card stagger-3">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+          </div>
+          <h3 class="card-title">{{ t("contact.info.hours.title") }}</h3>
+          <p class="card-hours">{{ t("contact.info.hours.weekdays") }}</p>
+          <p class="card-description">{{ t("contact.info.hours.response") }}</p>
+        </div>
+
+        <!-- Social Card -->
+        <div class="info-card stagger-4">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3" />
+              <circle cx="6" cy="12" r="3" />
+              <circle cx="18" cy="19" r="3" />
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+            </svg>
+          </div>
+          <h3 class="card-title">{{ t("contact.info.social.title") }}</h3>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/company/eye-on-idea/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label="LinkedIn"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              <span>{{ t("contact.info.social.linkedin") }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom CTA -->
+      <div class="bottom-cta" :class="{ 'animate-in': isVisible }">
+        <h3 class="cta-title">{{ t("contact.cta.title") }}</h3>
+        <p class="cta-description">{{ t("contact.cta.description") }}</p>
+        <div class="cta-buttons">
+          <NuxtLink to="/services" class="btn-primary">
+            {{ t("contact.cta.services") }}
+          </NuxtLink>
+          <NuxtLink to="/news" class="btn-secondary">
+            {{ t("contact.cta.news") }}
+          </NuxtLink>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<style lang="scss" scoped>
+.contact-info {
+  padding: 4rem 1.5rem 6rem;
+  background: var(--color-hero-bg-gradient);
+
+  @media (min-width: 768px) {
+    padding: 6rem 2rem 8rem;
+  }
+}
+
+.section-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section-heading {
+  text-align: center;
+  font-size: var(--text-2xl);
+  color: var(--color-hero-text);
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (min-width: 768px) {
+    font-size: var(--text-3xl);
+  }
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &.animate-in .info-card {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.info-card {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+
+  &.stagger-1 { transition-delay: 100ms; }
+  &.stagger-2 { transition-delay: 150ms; }
+  &.stagger-3 { transition-delay: 200ms; }
+  &.stagger-4 { transition-delay: 250ms; }
+
+  @media (min-width: 768px) {
+    padding: 2rem;
+  }
+}
+
+.card-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-accent-400);
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.card-title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-hero-text);
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-hero-text-muted);
+}
+
+.card-address {
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--color-hero-text);
+  margin-bottom: 0.5rem;
+}
+
+.card-hours {
+  font-size: var(--text-sm);
+  color: var(--color-hero-text);
+  margin-bottom: 0.5rem;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 0.875rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  color: var(--color-hero-text);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  transition: background 0.2s var(--ease-smooth);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+    color: var(--color-accent-400);
+  }
+}
+
+.social-links {
+  margin-top: 1rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  color: var(--color-hero-text);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  transition: background 0.2s var(--ease-smooth);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+.bottom-cta {
+  text-align: center;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-xl);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s var(--ease-smooth) 0.3s, transform 0.6s var(--ease-smooth) 0.3s;
+
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cta-title {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-hero-text);
+  margin-bottom: 0.75rem;
+
+  @media (min-width: 768px) {
+    font-size: var(--text-2xl);
+  }
+}
+
+.cta-description {
+  font-size: var(--text-base);
+  color: var(--color-hero-text-muted);
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+
+  @media (min-width: 480px) {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.875rem 1.75rem;
+  background: var(--color-accent-500);
+  color: white;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: background 0.2s var(--ease-smooth), transform 0.2s var(--ease-smooth);
+
+  &:hover {
+    background: var(--color-accent-600);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.875rem 1.75rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--color-hero-text);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: background 0.2s var(--ease-smooth), border-color 0.2s var(--ease-smooth);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-heading,
+  .info-card,
+  .bottom-cta {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+</style>

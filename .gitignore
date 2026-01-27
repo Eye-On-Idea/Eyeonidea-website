@@ -21,6 +21,7 @@ node_modules/
 dist/
 build/
 
+
 # Nuxt generate output
 .output/
 .nitro/
@@ -43,12 +44,15 @@ coverage/
 *.sw?
 .DS_Store
 Thumbs.db
+.claude
 
 # Optional cache
 .cache/
 .eslintcache
 .stylelintcache
 .husky/_
+
+content/
 
 # Lock files (optional – ignore if using one lock manager across the team)
 # package-lock.json

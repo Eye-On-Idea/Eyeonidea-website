@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "title": "Eye On Idea - Digital Agency for B2B Websites",
+    "description": "Eye On Idea helps companies across Europe establish a clear, professional digital presence. Website creation, visual identity, and ongoing support."
+  },
+  "hero": {
+    "headline": "Your digital presence,",
+    "headlineAccent": "built for growth",
+    "subheadline": "We help B2B companies across Europe establish professional, accessible websites that grow with their business.",
+    "cta": {
+      "primary": "Start Your Project",
+      "secondary": "Explore Services"
+    },
+    "scrollIndicator": "Scroll to explore"
+  },
+  "about": {
+    "badge": "Who We Are",
+    "title": "A Partner, Not Just a Supplier",
+    "description": "Eye On Idea is a Danish digital consultancy focused on helping companies establish and grow a clear, professional digital presence. We work with businesses that need more than 'just a website' - companies that want clarity, structure, and a solution they can rely on over time.",
+    "values": {
+      "clarity": {
+        "title": "Clarity First",
+        "description": "No overcomplicated solutions. We build what you actually need."
+      },
+      "partnership": {
+        "title": "True Partnership",
+        "description": "We support you before, during, and after delivery."
+      },
+      "quality": {
+        "title": "Built to Last",
+        "description": "Technology choices made for durability, not trends."
+      }
+    },
+    "cta": "Learn About Us"
+  },
+  "services": {
+    "badge": "What We Offer",
+    "title": "Website Packages",
+    "subtitle": "Tailored solutions for every stage of your business",
+    "packages": {
+      "launch": {
+        "name": "Launch",
+        "tagline": "Get started right",
+        "description": "A professional website that gives your company a credible, trustworthy presence from day one.",
+        "idealFor": "New companies, solo founders, or businesses establishing their online presence.",
+        "features": [
+          "Clear, structured website design",
+          "Mobile-responsive across all devices",
+          "1 custom domain with 1-year license",
+          "Foundation for future growth"
+        ]
+      },
+      "growth": {
+        "name": "Growth",
+        "tagline": "Scale with confidence",
+        "description": "A flexible website designed to support content, updates, and visibility as your business grows.",
+        "idealFor": "Companies that actively update content and want a website that evolves.",
+        "features": [
+          "Content management system",
+          "Blog or news section support",
+          "SEO-optimized structure",
+          "Clear content-design separation"
+        ],
+        "popular": "Most Popular"
+      },
+      "platform": {
+        "name": "Platform",
+        "tagline": "Built for the long term",
+        "description": "A long-term digital platform built to support structured content, multiple audiences, and future growth.",
+        "idealFor": "Companies viewing their website as a core business tool.",
+        "features": [
+          "Modular, scalable architecture",
+          "Multi-section content support",
+          "Multilingual foundations",
+          "Long-term platform strategy"
+        ]
+      }
+    },
+    "additionalServices": {
+      "title": "Additional Services",
+      "identity": {
+        "title": "Visual Identity",
+        "description": "Logo, colors, typography, and brand direction for digital platforms."
+      },
+      "cms": {
+        "title": "CMS Solutions",
+        "description": "Custom Sanity CMS setup for independent content management."
+      },
+      "support": {
+        "title": "Ongoing Support",
+        "description": "Maintenance, updates, and advisory for your digital presence."
+      }
+    },
+    "cta": {
+      "viewAll": "View All Services",
+      "getQuote": "Get a Quote"
+    }
+  },
+  "process": {
+    "badge": "How We Work",
+    "title": "A Clear Path Forward",
+    "steps": {
+      "discover": {
+        "title": "Discover",
+        "description": "We start by understanding your business, goals, and what success looks like."
+      },
+      "design": {
+        "title": "Design",
+        "description": "We create a solution tailored to your needs - no templates, no one-size-fits-all."
+      },
+      "develop": {
+        "title": "Develop",
+        "description": "We build with quality, accessibility, and long-term maintainability in mind."
+      },
+      "support": {
+        "title": "Support",
+        "description": "We're here after launch - for updates, improvements, and ongoing partnership."
+      }
+    }
+  },
+  "cta": {
+    "badge": "Ready to Start?",
+    "title": "Let's Build Something Great Together",
+    "description": "Whether you're starting something new, improving what you have, or need a second opinion - we're here to help.",
+    "primary": "Start a Conversation",
+    "secondary": "View Our Work"
+  },
+  "stats": {
+    "clients": {
+      "value": "50+",
+      "label": "Clients Served"
+    },
+    "countries": {
+      "value": "12",
+      "label": "EU Countries"
+    },
+    "years": {
+      "value": "8+",
+      "label": "Years Experience"
+    }
+  }
+}

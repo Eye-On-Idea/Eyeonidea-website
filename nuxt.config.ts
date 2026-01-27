@@ -8,8 +8,13 @@ export default defineNuxtConfig({
   modules: [
     "@nuxt/image",
     "@nuxt/ui",
-    "nuxt-gtag",
     "@dargmuesli/nuxt-cookie-control",
+    "@nuxt/fonts",
+    "@tresjs/nuxt",
+    "@pinia/nuxt",
+    "@nuxtjs/i18n",
+    "@vueuse/motion/nuxt",
+    "@nuxtjs/sanity",
   ],
   // Static Site Generation (SSG) configuration
   ssr: true,
@@ -27,6 +32,71 @@ export default defineNuxtConfig({
       failOnError: false,
       crawlLinks: true,
     },
+  },
+  icon: {
+    serverBundle: "local",
+    clientBundle: {
+      scan: true,
+      sizeLimitKb: 0, // Include all icons in SSR bundle
+    },
+  },
+
+  sanity: {
+    projectId: process.env.SANITY_APP_PROJECT_ID,
+    dataset: process.env.SANITY_APP_DATASET,
+  },
+
+  i18n: {
+    locales: [
+      {
+        code: "en",
+        iso: "en-US",
+        language: "en-US",
+        name: "English",
+        file: "en/index.ts",
+        isCatchallLocale: true,
+      },
+      {
+        code: "de",
+        iso: "de-DE",
+        language: "de-DE",
+        name: "Deutsch",
+        file: "en/index.ts",
+        isCatchallLocale: true,
+      },
+      {
+        code: "fr",
+        iso: "fr-FR",
+        language: "fr-FR",
+        name: "Français",
+        file: "fr/index.ts",
+      },
+      {
+        code: "es",
+        iso: "es-ES",
+        language: "es-ES",
+        name: "Español",
+        file: "es/index.ts",
+      },
+    ],
+    langDir: "locales",
+    defaultLocale: "en",
+    strategy: "no_prefix",
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "i18n_locale",
+      redirectOn: "root",
+      alwaysRedirect: false,
+      fallbackLocale: "en",
+      cookieCrossOrigin: false,
+      cookieSecure: true,
+    },
+    compilation: {
+      strictMessage: false,
+      escapeHtml: false,
+    },
+    // SEO: Enable automatic alternate links for better multilingual SEO
+    baseUrl: "https://eyeonidea.com",
   },
 
   css: ["~/assets/css/main.css"],

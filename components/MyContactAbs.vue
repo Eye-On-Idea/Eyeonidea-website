@@ -2,7 +2,7 @@
   <div
     id="contact-abs"
     ref="root"
-    class="fixed right-[10px] top-1/2 -translate-y-1/2 z-50"
+    class="fixed right-2.5 top-1/2 -translate-y-1/2 z-60"
   >
     <!-- Stable anchor so the icon never jumps -->
     <div class="relative w-12 h-12 overflow-visible">
@@ -20,37 +20,39 @@
           :id="panelId"
           role="dialog"
           aria-modal="true"
-          class="absolute top-0 right-0 origin-top-right z-40"
+          :aria-labelledby="titleId"
+          ref="panelRef"
+          tabindex="-1"
+          class="absolute top-0 right-0 origin-top-right z-[60]"
           style="transform-origin: top right"
         >
           <!-- Top padding leaves space under the overlapping button -->
-          <div
-            class="w-72 rounded-2xl border border-brand-200 bg-white dark:bg-neutral-900 shadow-xl p-4 pt-14 pr-4"
-          >
+          <div class="w-72 rounded-2xl border p-4 pt-14 pr-4 cont">
             <!-- Headline -->
-            <h3 class="text-lg font-semibold text-brand-600 mb-3">
-              Eye On Idea <span>contact</span>
+            <h3 :id="titleId" class="text-lg font-semibold text-neutral-900 mb-3">
+              {{ t("common.contact.title") }}
+              <span>{{ t("common.contact.titleHighlight") }}</span>
             </h3>
 
             <!-- Contact items (hover = ring outline only; text doesn't change) -->
             <div class="flex flex-col gap-2">
               <a
                 href="mailto:hello@eyeonidea.com"
-                class="flex items-center gap-3 p-2 rounded-xl border border-transparent hover:ring-2 hover:ring-brand-50 hover:ring-offset-0 dark:hover:ring-brand-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+                class="flex items-center gap-3 p-2 rounded-xl border border-transparent hover:ring-2 hover:ring-primary-50 hover:ring-offset-0 dark:hover:ring-primary-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 bg-primary-100/25 hover:bg-primary-100/75"
               >
                 <UIcon
                   name="i-heroicons-envelope"
-                  class="w-5 h-5 shrink-0 text-brand-400"
+                  class="w-5 h-5 shrink-0 text-neutral-900"
                   aria-hidden="true"
                 />
                 <div class="min-w-0">
                   <div
-                    class="text-sm font-medium text-neutral-900 dark:text-brand-100"
+                    class="text-sm font-medium text-neutral-900 dark:text-primary-100"
                   >
-                    Email
+                    {{ t("common.contact.email") }}
                   </div>
                   <div
-                    class="email-text text-sm text-neutral-700 dark:text-brand-200 truncate"
+                    class="email-text text-sm text-neutral-700 dark:text-primary-200 truncate"
                   >
                     hello@eyeonidea.com
                   </div>
@@ -58,24 +60,24 @@
               </a>
 
               <a
-                href="tel:+4540233267"
-                class="flex items-center gap-3 p-2 rounded-xl border border-transparent hover:ring-2 hover:ring-brand-50 hover:ring-offset-0 dark:hover:ring-brand-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+                href="tel:+4529930583"
+                class="flex items-center gap-3 p-2 rounded-xl border border-transparent hover:ring-2 hover:ring-primary-50 hover:ring-offset-0 dark:hover:ring-primary-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 bg-primary-100/25 hover:bg-primary-100/75"
               >
                 <UIcon
                   name="i-heroicons-phone"
-                  class="w-5 h-5 shrink-0 text-brand-400"
+                  class="w-5 h-5 shrink-0 text-neutral-900"
                   aria-hidden="true"
                 />
                 <div class="min-w-0">
                   <div
-                    class="text-sm font-medium text-neutral-900 dark:text-brand-100"
+                    class="text-sm font-medium text-neutral-900 dark:text-primary-100"
                   >
-                    Phone
+                    {{ t("common.contact.phone") }}
                   </div>
                   <div
-                    class="text-sm text-neutral-700 dark:text-brand-200 truncate"
+                    class="text-sm text-neutral-700 dark:text-primary-200 truncate"
                   >
-                    +45 40 23 32 67
+                    +45 29 93 05 83
                   </div>
                 </div>
               </a>
@@ -86,11 +88,15 @@
 
       <!-- Single toggle button stays above the panel -->
       <button
+        ref="triggerRef"
         @click.stop="toggle"
         :aria-expanded="open ? 'true' : 'false'"
         :aria-controls="panelId"
-        class="absolute top-0 right-0 z-50 inline-flex items-center justify-center w-12 h-12 rounded-full shadow-lg bg-brand-500 text-white hover:bg-brand-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
-        :title="open ? 'Close contact panel' : 'Open contact panel'"
+        class="touch-target absolute top-0 right-0 z-[60] inline-flex items-center justify-center w-12 h-12 rounded-full shadow-lg bg-primary-500 text-white hover:bg-primary-600 hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 transition-all duration-300"
+        :class="{ 'animate-pulse-subtle': !open }"
+        :title="
+          open ? t('common.contact.closePanel') : t('common.contact.openPanel')
+        "
       >
         <UIcon
           :name="
@@ -102,7 +108,7 @@
           aria-hidden="true"
         />
         <span class="sr-only">{{
-          open ? "Close contact panel" : "Open contact panel"
+          open ? t("common.contact.closePanel") : t("common.contact.openPanel")
         }}</span>
       </button>
     </div>
@@ -110,11 +116,34 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, nextTick, watch } from "vue";
 
+const { t } = useI18n();
 const open = ref(false);
 const root = ref<HTMLElement | null>(null);
+const panelRef = ref<HTMLElement | null>(null);
+const triggerRef = ref<HTMLButtonElement | null>(null);
+const lastFocusedElement = ref<HTMLElement | null>(null);
 const panelId = "floating-contact-panel";
+const titleId = "contact-dialog-title";
+
+const focusableSelector =
+  'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+
+const getFocusableElements = (container: HTMLElement | null) => {
+  if (!container) return [];
+  return Array.from(container.querySelectorAll<HTMLElement>(focusableSelector));
+};
+
+const focusFirstElement = () => {
+  const focusable = getFocusableElements(panelRef.value);
+  const first = focusable[0];
+  if (first) {
+    first.focus();
+    return;
+  }
+  panelRef.value?.focus();
+};
 
 const toggle = () => {
   open.value = !open.value;
@@ -126,8 +155,51 @@ const onDocClick = (e: MouseEvent) => {
   if (!el.contains(e.target as Node)) open.value = false;
 };
 
+const trapTabKey = (event: KeyboardEvent) => {
+  if (!open.value || event.key !== "Tab") return;
+  const container = root.value;
+  if (!container) return;
+
+  const focusable = getFocusableElements(container);
+  if (focusable.length === 0) {
+    event.preventDefault();
+    panelRef.value?.focus();
+    return;
+  }
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (!first || !last) {
+    event.preventDefault();
+    panelRef.value?.focus();
+    return;
+  }
+  const activeElement = document.activeElement as HTMLElement | null;
+
+  if (!container.contains(activeElement)) {
+    event.preventDefault();
+    first.focus();
+    return;
+  }
+
+  if (event.shiftKey && activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+};
+
 const onKey = (e: KeyboardEvent) => {
-  if (e.key === "Escape") open.value = false;
+  if (!open.value) return;
+  if (e.key === "Escape") {
+    open.value = false;
+    return;
+  }
+  if (e.key === "Tab") {
+    trapTabKey(e);
+  }
 };
 
 onMounted(() => {
@@ -139,6 +211,19 @@ onBeforeUnmount(() => {
   document.removeEventListener("click", onDocClick, true);
   document.removeEventListener("keydown", onKey);
 });
+
+watch(open, async (isOpen) => {
+  if (isOpen) {
+    lastFocusedElement.value = document.activeElement as HTMLElement | null;
+    await nextTick();
+    focusFirstElement();
+  } else {
+    await nextTick();
+    const returnTarget = triggerRef.value || lastFocusedElement.value;
+    returnTarget?.focus();
+    lastFocusedElement.value = null;
+  }
+});
 </script>
 
 <style lang="scss" scoped>
@@ -147,18 +232,25 @@ button {
 }
 h3 {
   position: absolute;
-  top: 20px;
+  top: 15px;
+  font-family: "Times New Roman", Times, serif;
   span {
-    color: var(--color-brand-200);
+    color: var(--color-primary-200);
+    font-family: "Kanit", sans-serif;
   }
 }
 .email-text {
   letter-spacing: 1.5px;
 }
 
-@media (max-width: 769px) {
-  #contact-abs {
-    display: none;
-  }
+.cont {
+  background: var(--glass-tint-medium);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+  -webkit-backdrop-filter: blur(var(--glass-blur))
+    saturate(var(--glass-saturation));
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+
+  box-shadow: var(--glass-shadow-elevated);
 }
 </style>

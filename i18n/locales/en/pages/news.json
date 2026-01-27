@@ -1,0 +1,54 @@
+{
+  "title": "News & Insights",
+  "seo": {
+    "title": "News & Insights - Eye On Idea",
+    "description": "Stay updated with the latest news, insights, and updates from Eye On Idea. Web development trends, digital agency news, and industry insights."
+  },
+  "hero": {
+    "title": "News & Insights",
+    "subtitle": "Stay updated with the latest from Eye On Idea"
+  },
+  "filters": {
+    "search": "Search articles...",
+    "searchLabel": "Search",
+    "allTypes": "All Types",
+    "news": "News",
+    "article": "Article",
+    "announcement": "Announcement",
+    "caseStudy": "Case Study",
+    "clear": "Clear filters",
+    "resultsCount": "{count} article(s) found"
+  },
+  "posts": {
+    "readMore": "Read more",
+    "readingTime": "{minutes} min read",
+    "noResults": "No articles found",
+    "noResultsText": "Try adjusting your search or filters",
+    "loadMore": "Load more articles",
+    "loading": "Loading articles...",
+    "featured": "Featured"
+  },
+  "article": {
+    "loading": "Loading article...",
+    "notFound": "Article not found",
+    "notFoundText": "The article you're looking for doesn't exist or has been removed.",
+    "backToNews": "Back to News",
+    "defaultTitle": "Article",
+    "share": "Share this article",
+    "shareLinkedIn": "Share on LinkedIn",
+    "shareTwitter": "Share on X (Twitter)",
+    "shareEmail": "Share via email",
+    "allArticles": "All Articles",
+    "checkOut": "Check out this article:"
+  },
+  "related": {
+    "title": "Related Articles",
+    "viewAll": "View all articles"
+  },
+  "categories": {
+    "news": "News",
+    "article": "Article",
+    "announcement": "Announcement",
+    "caseStudy": "Case Study"
+  }
+}

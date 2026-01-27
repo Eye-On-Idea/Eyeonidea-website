@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "title": "Privacy & Cookies - Eye On Idea",
+    "description": "Privacy policy and cookie policy for Eye On Idea. Learn how we collect, use, and protect your data."
+  },
+  "hero": {
+    "badge": "Policies",
+    "title": "Privacy & Cookies",
+    "subtitle": "How we collect, use, and protect your information when you visit our website or use our services."
+  },
+  "lastUpdated": "Last updated: January 2025",
+  "privacy": {
+    "title": "Privacy Policy",
+    "sections": {
+      "introduction": {
+        "title": "1. Introduction",
+        "content": [
+          "Eye On Idea (CVR: 45356175) is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal data in compliance with the EU General Data Protection Regulation (GDPR).",
+          "By using our website or engaging our services, you acknowledge that you have read and understood this privacy policy."
+        ]
+      },
+      "dataController": {
+        "title": "2. Data Controller",
+        "content": [
+          "Eye On Idea is the data controller for personal data collected through this website and our services.",
+          "Contact: hello@eyeonidea.com"
+        ]
+      },
+      "dataCollected": {
+        "title": "3. Data We Collect",
+        "content": [
+          "Contact form submissions: Name, email address, phone number (optional), company name (optional), and message content.",
+          "Project engagements: Business contact details, project requirements, and communication history necessary for service delivery.",
+          "Website analytics: Anonymous usage data such as pages visited, time on site, and general geographic location (country level).",
+          "We do not collect sensitive personal data or data about minors."
+        ]
+      },
+      "purpose": {
+        "title": "4. How We Use Your Data",
+        "content": [
+          "To respond to your inquiries and provide requested information.",
+          "To deliver contracted services and manage client relationships.",
+          "To improve our website and services based on usage patterns.",
+          "To comply with legal obligations.",
+          "We will never sell your personal data to third parties or use it for purposes beyond those stated here without your explicit consent."
+        ]
+      },
+      "legalBasis": {
+        "title": "5. Legal Basis for Processing",
+        "content": [
+          "Consent: For contact form submissions and marketing communications.",
+          "Contract: For processing necessary to deliver services you have engaged.",
+          "Legitimate interest: For website analytics and service improvement.",
+          "Legal obligation: Where required by law."
+        ]
+      },
+      "retention": {
+        "title": "6. Data Retention",
+        "content": [
+          "Contact form data: Retained for up to 2 years unless you become a client.",
+          "Client data: Retained for the duration of our business relationship plus 5 years for legal and accounting purposes.",
+          "Analytics data: Anonymized and retained for up to 26 months."
+        ]
+      },
+      "sharing": {
+        "title": "7. Data Sharing",
+        "content": [
+          "We may share data with trusted service providers who assist in operating our business (hosting, email services, analytics). These providers are bound by data processing agreements.",
+          "We do not transfer data outside the EU/EEA unless adequate safeguards are in place.",
+          "We may disclose data if required by law or to protect our legal rights."
+        ]
+      },
+      "rights": {
+        "title": "8. Your Rights",
+        "content": [
+          "Under GDPR, you have the right to:",
+          "Access: Request a copy of your personal data.",
+          "Rectification: Request correction of inaccurate data.",
+          "Erasure: Request deletion of your data ('right to be forgotten').",
+          "Restriction: Request limitation of processing.",
+          "Portability: Receive your data in a portable format.",
+          "Objection: Object to processing based on legitimate interest.",
+          "To exercise these rights, contact us at hello@eyeonidea.com. We will respond within 30 days."
+        ]
+      },
+      "security": {
+        "title": "9. Data Security",
+        "content": [
+          "We implement appropriate technical and organizational measures to protect your data, including encryption, secure hosting, and access controls.",
+          "While we strive to protect your data, no method of transmission over the internet is 100% secure."
+        ]
+      }
+    }
+  },
+  "cookies": {
+    "title": "Cookie Policy",
+    "sections": {
+      "what": {
+        "title": "1. What Are Cookies",
+        "content": [
+          "Cookies are small text files stored on your device when you visit a website. They help websites function properly and provide information to site owners."
+        ]
+      },
+      "types": {
+        "title": "2. Cookies We Use",
+        "content": [
+          "Essential cookies: Required for the website to function. These cannot be disabled.",
+          "Analytics cookies: Help us understand how visitors use our site (e.g., Google Analytics). These are only set with your consent.",
+          "Preference cookies: Remember your settings such as language and theme preferences."
+        ]
+      },
+      "specific": {
+        "title": "3. Specific Cookies",
+        "items": [
+          {
+            "name": "cookie_consent",
+            "purpose": "Stores your cookie preferences",
+            "duration": "1 year",
+            "type": "Essential"
+          },
+          {
+            "name": "theme",
+            "purpose": "Remembers your light/dark mode preference",
+            "duration": "1 year",
+            "type": "Preference"
+          },
+          {
+            "name": "locale",
+            "purpose": "Stores your language preference",
+            "duration": "1 year",
+            "type": "Preference"
+          },
+          {
+            "name": "_ga, _gid",
+            "purpose": "Google Analytics - anonymous usage statistics",
+            "duration": "Up to 2 years",
+            "type": "Analytics"
+          }
+        ]
+      },
+      "manage": {
+        "title": "4. Managing Cookies",
+        "content": [
+          "You can manage cookie preferences through our cookie consent banner when you first visit the site.",
+          "You can also control cookies through your browser settings. Note that disabling certain cookies may affect website functionality.",
+          "To opt out of Google Analytics across all websites, you can install the Google Analytics Opt-out Browser Add-on."
+        ]
+      },
+      "thirdParty": {
+        "title": "5. Third-Party Cookies",
+        "content": [
+          "We may embed content from third parties (e.g., LinkedIn) that set their own cookies. These are governed by the respective third party's privacy policy.",
+          "We recommend reviewing the privacy policies of any third-party services."
+        ]
+      }
+    }
+  },
+  "changes": {
+    "title": "Policy Updates",
+    "content": "We may update these policies periodically. Significant changes will be communicated through our website. The 'last updated' date indicates when the policy was last revised."
+  },
+  "contact": {
+    "title": "Questions?",
+    "content": "If you have questions about our privacy practices or wish to exercise your data rights, please contact us at hello@eyeonidea.com.",
+    "complaints": "You also have the right to lodge a complaint with the Danish Data Protection Agency (Datatilsynet) if you believe your data rights have been violated."
+  }
+}

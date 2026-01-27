@@ -1,29 +1,27 @@
 <script setup lang="ts">
-import ContactForm from "~/components/contact/ContactForm.vue";
+const { t } = useI18n();
 
 // SEO Meta Tags using useHead
 useHead({
-  title: "Eye On Idea - Transform good ideas into great experiences",
+  title: t("landing.meta.title"),
   meta: [
     {
       name: "description",
-      content:
-        "EOI helps businesses across Europe deliver reliable, accessible, and user-friendly digital products with actionable QA in accessibility, usability, and front-end testing.",
+      content: t("landing.meta.description"),
     },
     {
       name: "keywords",
       content:
-        "QA testing, accessibility testing, usability testing, front-end testing, WCAG compliance, digital product quality, Europe",
+        "digital agency, website creation, B2B websites, visual identity, CMS solutions, Sanity CMS, web development Denmark, EU web agency, professional website, business website",
     },
     // Open Graph
     {
       property: "og:title",
-      content: "Eye On Idea - Transform good ideas into great experiences",
+      content: t("landing.meta.title"),
     },
     {
       property: "og:description",
-      content:
-        "EOI helps businesses across Europe deliver reliable, accessible, and user-friendly digital products with actionable QA in accessibility, usability, and front-end testing.",
+      content: t("landing.meta.description"),
     },
     {
       property: "og:image",
@@ -37,12 +35,11 @@ useHead({
     { name: "twitter:card", content: "summary_large_image" },
     {
       name: "twitter:title",
-      content: "Eye On Idea - Transform good ideas into great experiences",
+      content: t("landing.meta.title"),
     },
     {
       name: "twitter:description",
-      content:
-        "EOI helps businesses across Europe deliver reliable, accessible, and user-friendly digital products with actionable QA in accessibility, usability, and front-end testing.",
+      content: t("landing.meta.description"),
     },
     {
       name: "twitter:image",
@@ -64,10 +61,12 @@ useHead({
         logo: "https://eyeonidea.com/public-material/profile-picture.png",
         image: "https://eyeonidea.com/public-material/Company Page Banner.png",
         description:
-          "EOI helps businesses across Europe deliver reliable, accessible, and user-friendly digital products with actionable QA in accessibility, usability, and front-end testing.",
+          "Eye On Idea helps companies across Europe establish a clear, professional digital presence. Website creation, visual identity, and ongoing support.",
         contactPoint: {
           "@type": "ContactPoint",
+          telephone: "+45-29-93-05-83",
           contactType: "Customer Service",
+          email: "hello@eyeonidea.com",
           availableLanguage: ["English", "Danish"],
           areaServed: "EU",
         },
@@ -80,6 +79,10 @@ useHead({
           addressCountry: "DK",
           addressRegion: "Capital Region",
         },
+        founder: {
+          "@type": "Person",
+          name: "Rune M. P. Pjetursson",
+        },
       }),
     },
     {
@@ -88,10 +91,10 @@ useHead({
         "@context": "https://schema.org",
         "@type": "WebPage",
         "@id": "https://eyeonidea.com/#webpage",
-        name: "Eye On Idea - Home",
+        name: "Eye On Idea - Digital Agency for B2B Websites",
         url: "https://eyeonidea.com/",
         description:
-          "EOI helps businesses across Europe deliver reliable, accessible, and user-friendly digital products with actionable QA in accessibility, usability, and front-end testing.",
+          "Eye On Idea helps companies across Europe establish a clear, professional digital presence. Website creation, visual identity, and ongoing support.",
         isPartOf: {
           "@type": "WebSite",
           "@id": "https://eyeonidea.com/#website",
@@ -111,7 +114,7 @@ useHead({
         "@type": "ProfessionalService",
         name: "Eye On Idea",
         description:
-          "Quality Assurance and Testing Services for Digital Products",
+          "Digital consultancy helping B2B companies establish professional web presence",
         priceRange: "$$",
         url: "https://eyeonidea.com",
         areaServed: {
@@ -120,30 +123,42 @@ useHead({
         },
         hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: "QA Services",
+          name: "Website Services",
           itemListElement: [
             {
               "@type": "Offer",
               itemOffered: {
                 "@type": "Service",
-                name: "Accessibility Testing",
-                description: "WCAG compliance and accessibility audits",
+                name: "Website Launch",
+                description:
+                  "Professional website for companies establishing their online presence",
               },
             },
             {
               "@type": "Offer",
               itemOffered: {
                 "@type": "Service",
-                name: "Usability Testing",
-                description: "User experience testing and optimization",
+                name: "Website Growth",
+                description:
+                  "Flexible website designed for content updates and business growth",
               },
             },
             {
               "@type": "Offer",
               itemOffered: {
                 "@type": "Service",
-                name: "Front-end Testing",
-                description: "Cross-browser and responsive design testing",
+                name: "Website Platform",
+                description:
+                  "Long-term digital platform for structured content and multiple audiences",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Visual Identity",
+                description:
+                  "Logo, colors, typography, and brand direction for digital platforms",
               },
             },
           ],
@@ -155,40 +170,27 @@ useHead({
 </script>
 
 <template>
-  <!-- Background image provided from https://www.pexels.com/photo/black-and-white-photography-of-sand-2387819/ -->
-  <div class="main-bg fixed w-full h-screen overflow-hidden"></div>
-  <index-my-hero />
-  <index-my-about />
-  <index-my-services />
-  <ContactForm />
-  <CookieControl locale="en" />
+  <div class="homepage">
+    <!-- Hero Section -->
+    <HomeHeroSection />
+
+    <!-- About Section -->
+    <HomeAboutSection />
+
+    <!-- Services Section -->
+    <HomeServicesSection />
+
+    <!-- CTA Section -->
+    <HomeCTASection />
+
+    <!-- Cookie Control -->
+    <CookieControl locale="en" />
+  </div>
 </template>
 
 <style lang="scss" scoped>
-.main-bg {
-  background-color: var(--quart-colour);
-  background-image: url("/images/pexels-large.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  max-width: 1920px;
-}
-
-@media (min-width: 1940px) {
-  .main-bg {
-    background-image: url("/images/pexels-large.jpg");
-    background-size: cover;
-    width: 1920px;
-  }
-}
-@media (max-width: 1440px) {
-  .main-bg {
-    background-image: url("/images/pexels-medium.jpg");
-  }
-}
-@media (max-width: 768px) {
-  .main-bg {
-    background-image: url("/images/pexels-small.jpg");
-  }
+.homepage {
+  position: relative;
+  overflow-x: hidden;
 }
 </style>

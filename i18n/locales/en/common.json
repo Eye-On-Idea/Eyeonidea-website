@@ -1,0 +1,38 @@
+{
+  "brand": {
+    "name": "Eye On Idea",
+    "shortName": "EOI",
+    "tagline": "Transform ideas into digital reality"
+  },
+  "cta": {
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us",
+    "viewServices": "View Services",
+    "startProject": "Start a Project",
+    "bookConsultation": "Book a Consultation",
+    "readMore": "Read More",
+    "seeAll": "See All",
+    "goBack": "Go Back"
+  },
+  "contact": {
+    "title": "Get in",
+    "titleHighlight": "Touch",
+    "email": "Email",
+    "phone": "Phone",
+    "openPanel": "Open contact panel",
+    "closePanel": "Close contact panel"
+  },
+  "aria": {
+    "menu": "Navigation menu",
+    "close": "Close",
+    "open": "Open",
+    "loading": "Loading",
+    "scrollToTop": "Scroll to top",
+    "externalLink": "Opens in new tab"
+  },
+  "accessibility": {
+    "scrollProgress": "Page scroll progress",
+    "selectLanguage": "Select language"
+  }
+}
