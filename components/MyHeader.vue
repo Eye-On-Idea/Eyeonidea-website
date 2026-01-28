@@ -213,7 +213,7 @@ onBeforeUnmount(() => {
     <template #title>
       <NuxtLink
         to="/"
-        class="flex items-center gap-3 group logo-container bg-primary-950"
+        class="flex items-center gap-3 group logo-container"
       >
         <img
           src="/public-material/logo-center-shadow.svg"
@@ -230,14 +230,10 @@ onBeforeUnmount(() => {
         <NuxtLink
           v-if="!link.children"
           :to="link.to"
-          class="relative px-4 py-2.5 text-sm font-bold transition-all duration-300 flex items-center gap-2 rounded-lg overflow-hidden group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-400 focus-visible:ring-offset-neutral-900"
-          :class="
-            isActiveLink(link)
-              ? 'text-neutral-600 bg-primary-50/80'
-              : 'text-neutral-600 hover:text-white hover:bg-(--color-text)/10'
-          "
+          class="header-nav-link relative px-4 py-2.5 text-sm font-bold transition-all duration-300 flex items-center gap-2 rounded-lg group"
+          :class="{ 'header-nav-link-active': isActiveLink(link) }"
         >
-          <span class="relative z-10 text-primary-900!">{{ link.label }}</span>
+          <span class="relative z-10">{{ link.label }}</span>
           <Transition
             enter-active-class="transition-all duration-300 ease-out"
             leave-active-class="transition-all duration-200 ease-in"
@@ -248,7 +244,7 @@ onBeforeUnmount(() => {
           >
             <div
               v-if="isActiveLink(link)"
-              class="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-primary-400 to-accent-400 origin-left"
+              class="header-nav-underline absolute bottom-0 left-0 right-0 h-0.5 origin-left"
             ></div>
           </Transition>
         </NuxtLink>
@@ -270,19 +266,13 @@ onBeforeUnmount(() => {
             :aria-expanded="openDropdown === link.to"
             :aria-controls="getDropdownId(index)"
             @keydown="handleDropdownKeydown($event, link, index)"
-            class="relative px-4 py-2.5 text-sm font-bold transition-all duration-300 flex items-center gap-2 rounded-lg overflow-hidden group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-400 focus-visible:ring-offset-neutral-900"
-            :class="
-              isActiveLink(link)
-                ? 'text-primary-600 bg-primary-50/80'
-                : 'text-neutral-600 hover:text-white hover:bg-(--color-text)/10'
-            "
+            class="header-nav-link relative px-4 py-2.5 text-sm font-bold transition-all duration-300 flex items-center gap-2 rounded-lg group"
+            :class="{ 'header-nav-link-active': isActiveLink(link) }"
           >
-            <span class="relative z-10 text-primary-900!">{{
-              link.label
-            }}</span>
+            <span class="relative z-10">{{ link.label }}</span>
             <Icon
               name="i-heroicons-chevron-down-20-solid"
-              class="w-4 h-4 text-primary-900 transition-transform duration-200"
+              class="header-nav-icon w-4 h-4 transition-transform duration-200"
               :class="{ 'rotate-180': openDropdown === link.to }"
             />
             <Transition
@@ -295,7 +285,7 @@ onBeforeUnmount(() => {
             >
               <div
                 v-if="isActiveLink(link)"
-                class="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-primary-400 to-accent-400 origin-left"
+                class="header-nav-underline absolute bottom-0 left-0 right-0 h-0.5 origin-left"
               ></div>
             </Transition>
           </NuxtLink>
@@ -313,7 +303,7 @@ onBeforeUnmount(() => {
               v-if="openDropdown === link.to"
               :id="getDropdownId(index)"
               role="menu"
-              class="dropdown-menu absolute top-full left-0 mt-1 min-w-55 rounded-xl overflow-hidden z-50 bg-white/95"
+              class="dropdown-menu absolute top-full left-0 mt-1 min-w-55 rounded-xl overflow-hidden z-50"
             >
               <NuxtLink
                 v-for="child in link.children"
@@ -337,7 +327,7 @@ onBeforeUnmount(() => {
     </nav>
 
     <template #right>
-      <div class="flex items-center gap-2 flex-row">
+      <div class="flex items-center gap-2">
         <ColorModeToggle />
         <LanguageSwitcher />
       </div>
@@ -352,14 +342,10 @@ onBeforeUnmount(() => {
             <NuxtLink
               v-if="!link.children"
               :to="link.to"
-              class="px-4 py-3 rounded-xl text-base font-bold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-400 focus-visible:ring-offset-neutral-900"
-              :class="
-                isActiveLink(link)
-                  ? 'bg-primary-500/10 border border-primary-500/20'
-                  : ' hover:bg-(--color-text)/10'
-              "
+              class="header-mobile-link px-4 py-3 rounded-xl text-base font-bold transition-all duration-300"
+              :class="{ 'header-mobile-link-active': isActiveLink(link) }"
             >
-              <span class="text-primary-700!">{{ link.label }}</span>
+              <span>{{ link.label }}</span>
             </NuxtLink>
 
             <!-- Links with children (expandable) -->
@@ -367,18 +353,14 @@ onBeforeUnmount(() => {
               <div class="flex items-center gap-2">
                 <NuxtLink
                   :to="link.to"
-                  class="flex-1 px-4 py-3 rounded-xl text-base font-bold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-400 focus-visible:ring-offset-neutral-900"
-                  :class="
-                    isActiveLink(link)
-                      ? 'bg-primary-500/10 border border-primary-500/20'
-                      : ' hover:bg-(--color-text)/10'
-                  "
+                  class="header-mobile-link flex-1 px-4 py-3 rounded-xl text-base font-bold transition-all duration-300"
+                  :class="{ 'header-mobile-link-active': isActiveLink(link) }"
                 >
-                  <span class="text-primary-700!">{{ link.label }}</span>
+                  <span>{{ link.label }}</span>
                 </NuxtLink>
                 <button
                   type="button"
-                  class="touch-target p-3 rounded-xl text-accent-50 hover:bg-(--color-text)/10 transition-colors duration-200"
+                  class="header-mobile-toggle touch-target p-3 rounded-xl transition-colors duration-200"
                   :aria-expanded="expandedMobile === link.to"
                   :aria-label="
                     expandedMobile === link.to
@@ -412,14 +394,12 @@ onBeforeUnmount(() => {
                     v-for="child in link.children"
                     :key="child.to"
                     :to="child.to"
-                    class="px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
-                    :class="
-                      route.path === child.to
-                        ? 'bg-primary-500/10 border-l-2 border-primary-400'
-                        : ' hover:bg-(--color-text)/5'
-                    "
+                    class="header-mobile-child-link px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200"
+                    :class="{
+                      'header-mobile-child-active': route.path === child.to,
+                    }"
                   >
-                    <span class="text-primary-700!">{{ child.label }}</span>
+                    <span>{{ child.label }}</span>
                   </NuxtLink>
                 </div>
               </Transition>
@@ -434,7 +414,7 @@ onBeforeUnmount(() => {
 <style lang="scss" scoped>
 /* Header base styles */
 .header-main {
-  background: color-mix(in srgb, var(--color-primary-950) 75%, transparent);
+  background: color-mix(in srgb, var(--color-hero-bg) 75%, transparent);
   backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
   -webkit-backdrop-filter: blur(var(--glass-blur))
     saturate(var(--glass-saturation));
@@ -445,79 +425,15 @@ onBeforeUnmount(() => {
 
 /* Enhanced glass effect when scrolled */
 .header-scrolled {
-  background: rgba(248, 250, 252, 0.92);
+  background: color-mix(in srgb, var(--ui-bg) 92%, transparent);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-}
-
-/* Dark mode header */
-:global(.dark) .header-main {
-  background: rgba(15, 23, 42, 0.85);
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-}
-
-:global(.dark) .header-scrolled {
-  background: rgba(15, 23, 42, 0.95);
-}
-
-/* Dropdown menu with glass effect */
-.dropdown-menu {
-  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
-  -webkit-backdrop-filter: blur(var(--glass-blur))
-    saturate(var(--glass-saturation));
-  border: 1px solid var(--color-border);
-  box-shadow: var(--glass-shadow-elevated);
-}
-
-:global(.dark) .dropdown-menu {
-  background: rgba(30, 41, 59, 0.95);
-  border-color: var(--color-border);
-}
-
-.dropdown-item {
-  color: var(--color-text);
-
-  &:hover {
-    background: var(--color-primary-100);
-  }
-}
-
-.dropdown-item-active {
-  background: var(--color-primary-100);
-  color: var(--color-primary-700);
-}
-
-:global(.dark) .dropdown-item {
-  color: var(--color-text);
-
-  &:hover {
-    background: var(--color-surface-3);
-  }
-}
-
-:global(.dark) .dropdown-item-active {
-  background: var(--color-surface-3);
-  color: var(--color-primary-300);
-}
-
-svg {
-  path,
-  circle {
-    fill: var(--color-primary-500);
-    transition: fill 0.3s ease;
-  }
-}
-
-a:hover svg {
-  path,
-  circle {
-    fill: var(--color-primary-400);
-  }
 }
 
 /* Logo container with dark background for visibility */
 .logo-container {
   border-radius: 8px;
   padding: 0.5rem 0.75rem;
+  background: color-mix(in srgb, var(--color-hero-bg) 70%, transparent);
 }
 
 // Progress bar background (the empty track)
@@ -561,7 +477,7 @@ progress::-moz-progress-bar {
   }
 
   .dropdown-menu {
-    background: var(--color-surface-1);
+    background: var(--nav-dropdown-bg, var(--color-surface-1));
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }

@@ -44,10 +44,7 @@ const plans = [
   >
     <div class="section-container">
       <!-- Header -->
-      <div
-        class="section-header"
-        :class="{ 'animate-in': isVisible }"
-      >
+      <div class="section-header" :class="{ 'animate-in': isVisible }">
         <span class="section-badge">{{ t("services.support.badge") }}</span>
         <h2 id="support-heading" class="section-title">
           {{ t("services.support.title") }}
@@ -59,61 +56,79 @@ const plans = [
 
       <!-- Plans Grid -->
       <div class="plans-grid" :class="{ 'animate-in': isVisible }">
-        <div
+        <article
           v-for="(plan, index) in plans"
           :key="plan.key"
           class="plan-card"
-          :class="[
-            `stagger-${index + 1}`,
-            { featured: plan.featured }
-          ]"
+          :class="[`stagger-${index + 1}`, { 'plan-card--featured': plan.featured }]"
         >
           <div v-if="plan.featured" class="featured-badge">
-            {{ t("services.packages.growth.popular") }}
+            <UIcon name="i-heroicons-sparkles-solid" class="badge-icon" />
+            <span>{{ t("services.packages.growth.popular") }}</span>
           </div>
 
-          <div class="plan-header">
+          <header class="plan-header">
             <h3 class="plan-name">
               {{ t(`services.support.plans.${plan.key}.name`) }}
             </h3>
             <p class="plan-description">
               {{ t(`services.support.plans.${plan.key}.description`) }}
             </p>
+          </header>
+
+          <!-- Pricing -->
+          <div class="plan-pricing">
+            <div class="price-main">
+              <span class="price-currency">{{
+                t(`services.support.plans.${plan.key}.price.currency`)
+              }}</span>
+              <span class="price-amount">{{
+                t(`services.support.plans.${plan.key}.price.amount`)
+              }}</span>
+              <span class="price-unit">{{
+                t(`services.support.plans.${plan.key}.price.unit`)
+              }}</span>
+            </div>
+            <span class="price-vat">{{
+              t(`services.support.plans.${plan.key}.price.vatNote`)
+            }}</span>
           </div>
 
           <div class="plan-best-for">
-            <span class="best-for-label">Best for:</span>
-            <span class="best-for-value">{{ t(`services.support.plans.${plan.key}.bestFor`) }}</span>
+            <UIcon name="i-heroicons-user-group" class="best-for-icon" />
+            <span class="best-for-value">{{
+              t(`services.support.plans.${plan.key}.bestFor`)
+            }}</span>
           </div>
 
-          <ul class="plan-includes">
+          <ul class="plan-includes" role="list">
             <li
               v-for="(item, itemIndex) in (tm(`services.support.plans.${plan.key}.includes`) as string[])"
               :key="itemIndex"
               class="include-item"
             >
-              <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-              </svg>
+              <span class="check-wrapper">
+                <UIcon name="i-heroicons-check" class="check-icon" />
+              </span>
               <span>{{ item }}</span>
             </li>
           </ul>
 
-          <NuxtLink
-            to="/contact"
-            class="plan-cta"
-            :class="{ 'cta-featured': plan.featured }"
-          >
-            {{ t("services.support.cta") }}
-          </NuxtLink>
-        </div>
+          <div class="plan-cta-wrapper">
+            <NuxtLink
+              to="/contact"
+              class="plan-cta"
+              :class="plan.featured ? 'plan-cta--featured' : 'plan-cta--default'"
+            >
+              <span>{{ t("services.support.cta") }}</span>
+              <UIcon name="i-heroicons-arrow-right" class="cta-icon" />
+            </NuxtLink>
+          </div>
+        </article>
       </div>
 
       <!-- Billing Note -->
-      <p
-        class="billing-note"
-        :class="{ 'animate-in': isVisible }"
-      >
+      <p class="billing-note" :class="{ 'animate-in': isVisible }">
         {{ t("services.support.billing") }}
       </p>
     </div>
@@ -128,10 +143,6 @@ const plans = [
   @media (min-width: 768px) {
     padding: 8rem 2rem;
   }
-
-  @media (min-width: 1024px) {
-    padding: 10rem 2rem;
-  }
 }
 
 .section-container {
@@ -145,7 +156,9 @@ const plans = [
   margin: 0 auto 4rem;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  transition:
+    opacity 0.6s var(--ease-smooth),
+    transform 0.6s var(--ease-smooth);
 
   &.animate-in {
     opacity: 1;
@@ -156,8 +169,8 @@ const plans = [
 .section-badge {
   display: inline-block;
   padding: 0.375rem 1rem;
-  background: var(--color-primary-100);
-  color: var(--color-primary-700);
+  background: var(--badge-primary-bg);
+  color: var(--badge-primary-text);
   font-size: var(--text-xs);
   font-weight: 600;
   text-transform: uppercase;
@@ -212,64 +225,93 @@ const plans = [
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-xl);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
+  transition:
+    opacity 0.6s var(--ease-smooth),
+    transform 0.6s var(--ease-smooth),
+    box-shadow 0.3s var(--ease-smooth);
 
-  &.stagger-1 { transition-delay: 100ms; }
-  &.stagger-2 { transition-delay: 200ms; }
-  &.stagger-3 { transition-delay: 300ms; }
-
-  &:hover {
-    box-shadow: var(--shadow-lg);
+  &.stagger-1 {
+    transition-delay: 100ms;
+  }
+  &.stagger-2 {
+    transition-delay: 200ms;
+  }
+  &.stagger-3 {
+    transition-delay: 300ms;
   }
 
-  &.featured {
-    border-color: var(--color-primary-400);
+  &:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  &--featured {
+    border: 2px solid var(--color-accent-500);
     background: linear-gradient(
-      135deg,
-      var(--color-bg-card) 0%,
-      var(--color-primary-50) 100%
+      180deg,
+      var(--card-bg) 0%,
+      color-mix(in srgb, var(--color-accent-50) 30%, var(--card-bg)) 100%
     );
 
-    @media (min-width: 1024px) {
-      transform: translateY(40px) scale(1.02);
+    .plan-name {
+      color: var(--color-accent-600);
+    }
 
-      &.animate-in {
-        transform: translateY(0) scale(1.02);
-      }
+    .check-wrapper {
+      background: var(--color-accent-500);
+    }
+
+    .price-amount {
+      color: var(--color-accent-600);
     }
   }
 }
 
 .featured-badge {
   position: absolute;
-  top: -0.75rem;
+  top: 0;
   left: 50%;
-  transform: translateX(-50%);
-  padding: 0.25rem 1rem;
-  background: var(--color-primary-500);
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-500) 0%,
+    var(--color-accent-600) 100%
+  );
   color: white;
   font-size: var(--text-xs);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   border-radius: 9999px;
+  box-shadow: 0 4px 16px rgba(42, 147, 134, 0.35);
   white-space: nowrap;
 }
 
+.badge-icon {
+  width: 14px;
+  height: 14px;
+}
+
 .plan-header {
+  text-align: center;
   margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .plan-name {
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   font-weight: 700;
-  color: var(--color-text);
-  margin-bottom: 0.75rem;
+  color: var(--color-primary-600);
+  margin-bottom: 0.5rem;
 }
 
 .plan-description {
@@ -278,34 +320,76 @@ const plans = [
   color: var(--color-text-muted);
 }
 
-.plan-best-for {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  padding: 1rem;
-  background: var(--color-bg-subtle);
-  border-radius: var(--radius-md);
+.plan-pricing {
+  text-align: center;
   margin-bottom: 1.5rem;
 }
 
-.best-for-label {
-  font-size: var(--text-xs);
+.price-main {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.125rem;
+  line-height: 1;
+}
+
+.price-currency {
+  font-size: var(--text-xl);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  color: var(--color-text);
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+.price-amount {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--color-primary-600);
+  letter-spacing: -0.02em;
+}
+
+.price-unit {
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.price-vat {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: var(--text-xs);
   color: var(--color-text-subtle);
+}
+
+.plan-best-for {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--color-surface-2);
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.best-for-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--icon-accent);
+  margin-top: 2px;
 }
 
 .best-for-value {
   font-size: var(--text-sm);
+  line-height: 1.5;
   color: var(--color-text);
 }
 
 .plan-includes {
   list-style: none;
   padding: 0;
-  margin: 0 0 2rem;
-  flex: 1;
+  margin: 0 0 auto;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -314,47 +398,93 @@ const plans = [
 .include-item {
   display: flex;
   align-items: flex-start;
-  gap: 0.625rem;
+  gap: 0.75rem;
   font-size: var(--text-sm);
-  color: var(--color-text-muted);
-  line-height: 1.4;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.check-wrapper {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-500);
+  border-radius: 50%;
+  margin-top: 1px;
 }
 
 .check-icon {
-  width: 1.125rem;
-  height: 1.125rem;
-  flex-shrink: 0;
-  color: var(--color-primary-500);
-  margin-top: 0.0625rem;
+  width: 14px;
+  height: 14px;
+  color: white;
+}
+
+.plan-cta-wrapper {
+  margin-top: 2rem;
 }
 
 .plan-cta {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   width: 100%;
-  padding: 0.875rem 1.5rem;
-  background: transparent;
-  border: 2px solid var(--color-primary-400);
-  border-radius: var(--radius-md);
-  color: var(--color-primary-600);
-  font-size: var(--text-sm);
+  padding: 1rem 1.5rem;
   font-weight: 600;
-  text-align: center;
+  font-size: var(--text-sm);
   text-decoration: none;
-  transition: background 0.2s var(--ease-smooth), color 0.2s var(--ease-smooth);
+  border-radius: 12px;
+  transition: all var(--duration-normal) var(--ease-smooth);
 
-  &:hover {
-    background: var(--color-primary-50);
-  }
-
-  &.cta-featured {
-    background: var(--color-primary-500);
-    border-color: var(--color-primary-500);
-    color: white;
+  &--default {
+    background: transparent;
+    color: var(--color-primary-600);
+    border: 2px solid var(--color-primary-400);
 
     &:hover {
-      background: var(--color-primary-600);
-      border-color: var(--color-primary-600);
+      background: var(--color-primary-50);
+      border-color: var(--color-primary-500);
+      transform: translateY(-2px);
     }
+  }
+
+  &--featured {
+    background: linear-gradient(
+      135deg,
+      var(--color-accent-500) 0%,
+      var(--color-accent-600) 100%
+    );
+    color: white;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 16px rgba(42, 147, 134, 0.25);
+
+    &:hover {
+      background: linear-gradient(
+        135deg,
+        var(--color-accent-600) 0%,
+        var(--color-accent-700) 100%
+      );
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(42, 147, 134, 0.35);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 4px;
+  }
+}
+
+.cta-icon {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--duration-fast) var(--ease-smooth);
+
+  .plan-cta:hover & {
+    transform: translateX(4px);
   }
 }
 
@@ -364,7 +494,9 @@ const plans = [
   color: var(--color-text-subtle);
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s var(--ease-smooth) 0.4s, transform 0.6s var(--ease-smooth) 0.4s;
+  transition:
+    opacity 0.6s var(--ease-smooth) 0.4s,
+    transform 0.6s var(--ease-smooth) 0.4s;
 
   &.animate-in {
     opacity: 1;
@@ -384,39 +516,73 @@ const plans = [
   }
 
   .plan-card {
-    background: var(--color-bg-card);
-    border-color: var(--color-border);
+    background: var(--card-bg);
+    border-color: var(--card-border);
 
-    &.featured {
-      background: linear-gradient(
-        135deg,
-        var(--color-bg-card) 0%,
-        var(--color-primary-900) 100%
-      );
-      border-color: var(--color-primary-600);
+    &:hover {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
     }
+
+    &--featured {
+      border-color: var(--color-accent-400);
+      background: linear-gradient(
+        180deg,
+        var(--card-bg) 0%,
+        color-mix(in srgb, var(--color-accent-900) 40%, var(--card-bg)) 100%
+      );
+
+      .plan-name {
+        color: var(--color-accent-400);
+      }
+
+      .check-wrapper {
+        background: var(--color-accent-400);
+      }
+
+      .price-amount {
+        color: var(--color-accent-400);
+      }
+    }
+  }
+
+  .plan-name {
+    color: var(--color-primary-300);
   }
 
   .plan-best-for {
-    background: var(--color-bg-elevated);
+    background: var(--color-surface-3);
   }
 
-  .plan-cta {
+  .check-wrapper {
+    background: var(--color-primary-400);
+  }
+
+  .price-amount {
+    color: var(--color-primary-300);
+  }
+
+  .plan-cta--default {
+    color: var(--color-primary-300);
     border-color: var(--color-primary-500);
-    color: var(--color-primary-400);
 
     &:hover {
-      background: var(--color-primary-900);
+      background: rgba(211, 154, 105, 0.1);
     }
+  }
 
-    &.cta-featured {
-      background: var(--color-primary-600);
-      border-color: var(--color-primary-600);
+  .plan-cta--featured {
+    background: linear-gradient(
+      135deg,
+      var(--color-accent-400) 0%,
+      var(--color-accent-500) 100%
+    );
 
-      &:hover {
-        background: var(--color-primary-500);
-        border-color: var(--color-primary-500);
-      }
+    &:hover {
+      background: linear-gradient(
+        135deg,
+        var(--color-accent-500) 0%,
+        var(--color-accent-600) 100%
+      );
     }
   }
 }
@@ -430,8 +596,9 @@ const plans = [
     transition: none;
   }
 
-  .plan-card.featured {
-    transform: scale(1.02);
+  .plan-cta:hover,
+  .plan-cta:hover .cta-icon {
+    transform: none;
   }
 }
 </style>

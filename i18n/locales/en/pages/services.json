@@ -24,13 +24,12 @@
         "Foundation for future growth",
         "Basic SEO setup"
       ],
-      "excludes": [
-        "Visual identity work",
-        "Content production",
-        "Ongoing maintenance",
-        "Advanced integrations"
-      ],
-      "pricing": "Starting from fixed base price"
+      "price": {
+        "amount": "1,500",
+        "currency": "€",
+        "prefix": "From",
+        "vatNote": "excl. VAT"
+      }
     },
     "growth": {
       "name": "Growth",
@@ -46,12 +45,12 @@
         "Clear content-design separation",
         "Editorial workflow support"
       ],
-      "excludes": [
-        "Visual identity work",
-        "Content writing",
-        "Marketing activities"
-      ],
-      "pricing": "Starting from fixed base price"
+      "price": {
+        "amount": "3,000",
+        "currency": "€",
+        "prefix": "From",
+        "vatNote": "excl. VAT"
+      }
     },
     "platform": {
       "name": "Platform",
@@ -66,15 +65,342 @@
         "Long-term platform strategy",
         "Advanced CMS capabilities"
       ],
-      "excludes": [
-        "Content production unless agreed",
-        "Marketing campaigns",
-        "Ranking guarantees"
-      ],
-      "pricing": "Starting from fixed base price"
+      "price": {
+        "amount": "5,000",
+        "currency": "€",
+        "prefix": "From",
+        "vatNote": "excl. VAT"
+      }
     },
     "cta": "Get a Quote",
     "pricingNote": "All prices excl. VAT. Final pricing depends on scope and requirements."
+  },
+  "comparison": {
+    "badge": "Compare Packages",
+    "title": "What's Included",
+    "subtitle": "A detailed breakdown of features across all website packages",
+    "packages": ["Launch", "Growth", "Platform"],
+    "categories": {
+      "core": {
+        "title": "Core Features",
+        "features": [
+          {
+            "name": "Custom website design",
+            "tooltip": "Professionally designed, unique to your brand",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Mobile-responsive",
+            "tooltip": "Optimized for all devices and screen sizes",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Custom domain (1 year)",
+            "tooltip": "One domain registration included for first year",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "SSL certificate",
+            "tooltip": "Secure HTTPS connection included",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Basic SEO setup",
+            "tooltip": "Meta tags, sitemap, and search engine indexing",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          }
+        ]
+      },
+      "content": {
+        "title": "Content Management",
+        "features": [
+          {
+            "name": "Content management system",
+            "tooltip": "Sanity CMS for independent content editing",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Blog / News section",
+            "tooltip": "Publish articles, news, and updates",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Editorial workflow",
+            "tooltip": "Draft, review, and publish content efficiently",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Multi-section content",
+            "tooltip": "Complex content structures across multiple areas",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          },
+          {
+            "name": "Advanced CMS capabilities",
+            "tooltip": "Custom content types and advanced editing features",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          }
+        ]
+      },
+      "structure": {
+        "title": "Architecture & Scale",
+        "features": [
+          {
+            "name": "Scalable foundation",
+            "tooltip": "Built to grow with your business",
+            "launch": "basic",
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Modular architecture",
+            "tooltip": "Reusable components for flexible expansion",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          },
+          {
+            "name": "Multilingual foundations",
+            "tooltip": "Infrastructure for multiple language versions",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          },
+          {
+            "name": "Platform strategy",
+            "tooltip": "Long-term roadmap and evolution planning",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          }
+        ]
+      },
+      "seo": {
+        "title": "SEO & Visibility",
+        "features": [
+          {
+            "name": "Basic SEO structure",
+            "tooltip": "Essential meta tags and indexing",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "SEO-optimized structure",
+            "tooltip": "Semantic HTML and performance optimization",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Content hierarchy guidance",
+            "tooltip": "Strategic content organization for search",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          }
+        ]
+      }
+    },
+    "legend": {
+      "included": "Included",
+      "notIncluded": "Not included",
+      "basic": "Basic"
+    }
+  },
+  "addons": {
+    "badge": "Add-ons & Extras",
+    "title": "Extend Your Package",
+    "subtitle": "Optional services to enhance your website project",
+    "categories": {
+      "identity": {
+        "title": "Visual Identity",
+        "icon": "i-heroicons-paint-brush",
+        "items": [
+          {
+            "name": "Logo design (primary + variations)",
+            "price": "500",
+            "unit": "one-time"
+          },
+          {
+            "name": "Extended logo variations",
+            "price": "200",
+            "unit": "one-time"
+          },
+          {
+            "name": "Color palette & typography",
+            "price": "250",
+            "unit": "one-time"
+          },
+          {
+            "name": "Business card design",
+            "price": "150",
+            "unit": "one-time"
+          },
+          {
+            "name": "Letterhead templates",
+            "price": "150",
+            "unit": "one-time"
+          },
+          {
+            "name": "Presentation templates",
+            "price": "300",
+            "unit": "one-time"
+          },
+          {
+            "name": "Social media brand assets",
+            "price": "200",
+            "unit": "one-time"
+          },
+          {
+            "name": "Brand guidelines document",
+            "price": "400",
+            "unit": "one-time"
+          }
+        ]
+      },
+      "content": {
+        "title": "Content & Language",
+        "icon": "i-heroicons-document-text",
+        "items": [
+          {
+            "name": "Website copywriting (per page)",
+            "price": "100",
+            "unit": "per page"
+          },
+          {
+            "name": "Content editing & refinement",
+            "price": "75",
+            "unit": "per hour"
+          },
+          {
+            "name": "AI-assisted translation",
+            "price": "50",
+            "unit": "per page"
+          },
+          {
+            "name": "Additional language version",
+            "price": "500",
+            "unit": "per language"
+          }
+        ]
+      },
+      "domain": {
+        "title": "Domain & Email",
+        "icon": "i-heroicons-globe-alt",
+        "items": [
+          {
+            "name": "Additional domain registration",
+            "price": "15-50",
+            "unit": "per year"
+          },
+          {
+            "name": "Domain transfer assistance",
+            "price": "50",
+            "unit": "one-time"
+          },
+          {
+            "name": "Email Starter (15 GB)",
+            "price": "1",
+            "unit": "per account/month"
+          },
+          {
+            "name": "Email Pro (50 GB)",
+            "price": "4",
+            "unit": "per account/month"
+          }
+        ]
+      },
+      "seo": {
+        "title": "SEO & Visibility",
+        "icon": "i-heroicons-magnifying-glass",
+        "items": [
+          {
+            "name": "SEO structure review",
+            "price": "200",
+            "unit": "one-time"
+          },
+          {
+            "name": "Metadata optimization",
+            "price": "150",
+            "unit": "one-time"
+          },
+          {
+            "name": "Internal linking strategy",
+            "price": "150",
+            "unit": "one-time"
+          }
+        ]
+      },
+      "hosting": {
+        "title": "Hosting & Infrastructure",
+        "icon": "i-heroicons-server",
+        "items": [
+          {
+            "name": "EU-based website hosting",
+            "price": "20",
+            "unit": "per month"
+          },
+          {
+            "name": "CDN & performance optimization",
+            "price": "15",
+            "unit": "per month"
+          },
+          {
+            "name": "Deployment & monitoring",
+            "price": "25",
+            "unit": "per month"
+          }
+        ]
+      },
+      "consulting": {
+        "title": "Consulting & QA",
+        "icon": "i-heroicons-chat-bubble-left-right",
+        "items": [
+          {
+            "name": "Advisory session (1 hour)",
+            "price": "100",
+            "unit": "per session"
+          },
+          {
+            "name": "Technical audit",
+            "price": "300",
+            "unit": "one-time"
+          },
+          {
+            "name": "Pre-launch QA review",
+            "price": "200",
+            "unit": "one-time"
+          },
+          {
+            "name": "Second-opinion review",
+            "price": "150",
+            "unit": "one-time"
+          }
+        ]
+      }
+    },
+    "currency": "€",
+    "vatNote": "All prices excl. VAT"
   },
   "identity": {
     "badge": "Visual Identity",
@@ -86,16 +412,11 @@
       "Typography selection and guidance",
       "Visual direction for digital platforms"
     ],
-    "addons": {
-      "title": "Available Add-ons",
-      "items": [
-        "Extended logo variations",
-        "Business card design",
-        "Letterhead templates",
-        "Presentation templates",
-        "Social media brand assets",
-        "Extended brand guidelines"
-      ]
+    "price": {
+      "amount": "800",
+      "currency": "€",
+      "prefix": "From",
+      "vatNote": "excl. VAT"
     },
     "cta": "Discuss Your Brand"
   },
@@ -137,7 +458,13 @@
           "Minor fixes and adjustments",
           "Error handling",
           "Advisory support"
-        ]
+        ],
+        "price": {
+          "amount": "99",
+          "currency": "€",
+          "unit": "/month",
+          "vatNote": "excl. VAT"
+        }
       },
       "growth": {
         "name": "Growth",
@@ -149,7 +476,13 @@
           "Iterative improvements",
           "CMS guidance",
           "Performance adjustments"
-        ]
+        ],
+        "price": {
+          "amount": "249",
+          "currency": "€",
+          "unit": "/month",
+          "vatNote": "excl. VAT"
+        }
       },
       "partner": {
         "name": "Partner",
@@ -161,71 +494,17 @@
           "Strategic advisory",
           "Priority handling",
           "Ongoing optimization"
-        ]
+        ],
+        "price": {
+          "amount": "499",
+          "currency": "€",
+          "unit": "/month",
+          "vatNote": "excl. VAT"
+        }
       }
     },
     "billing": "Subscription-based, monthly recurring",
     "cta": "Find Your Plan"
-  },
-  "secondary": {
-    "badge": "Additional Services",
-    "title": "Extend Your Capabilities",
-    "categories": {
-      "consulting": {
-        "title": "Consulting & QA",
-        "items": [
-          "Second-opinion reviews",
-          "Pre-launch quality assurance",
-          "Technical or structural audits",
-          "Advisory sessions",
-          "Ongoing consulting support"
-        ]
-      },
-      "domain": {
-        "title": "Domain Services",
-        "items": [
-          "Domain registration and management",
-          "Domain transfers",
-          "DNS configuration",
-          "Renewal management"
-        ]
-      },
-      "email": {
-        "title": "Email Services",
-        "description": "Custom domain email (hello{'@'}yourdomain)",
-        "plans": {
-          "starter": "15 GB - €1/account/month",
-          "pro": "50 GB - €4/account/month"
-        }
-      },
-      "content": {
-        "title": "Content & Language",
-        "items": [
-          "Content writing",
-          "Content editing",
-          "AI-assisted translations",
-          "Additional language versions"
-        ]
-      },
-      "seo": {
-        "title": "SEO & Visibility",
-        "items": [
-          "SEO structure review",
-          "Metadata optimization",
-          "Internal linking strategy",
-          "Content hierarchy guidance"
-        ]
-      },
-      "hosting": {
-        "title": "Hosting & Infrastructure",
-        "items": [
-          "EU-based website hosting",
-          "Domain management",
-          "Email hosting",
-          "Deployment and monitoring"
-        ]
-      }
-    }
   },
   "cta": {
     "badge": "Ready to Start?",

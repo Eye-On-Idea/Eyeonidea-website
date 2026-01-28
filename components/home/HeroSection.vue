@@ -41,16 +41,6 @@ const scrollToContent = () => {
       <ThreeHeroBackground />
     </ClientOnly>
 
-    <!-- Logo Watermark -->
-    <div class="logo-watermark" aria-hidden="true">
-      <img
-        src="/public-material/logo-center-shadow.svg"
-        alt=""
-        class="logo-image"
-        loading="eager"
-      />
-    </div>
-
     <!-- Content Container -->
     <div class="hero-content">
       <div
@@ -60,6 +50,15 @@ const scrollToContent = () => {
           'no-animation': prefersReducedMotion,
         }"
       >
+        <!-- Logo Watermark -->
+        <div class="w-3xs ml-auto mr-auto mb-2 p-4" aria-hidden="true">
+          <img
+            src="/public-material/logo-center-shadow.svg"
+            alt="logo for eye on idea"
+            class="w-full"
+            loading="eager"
+          />
+        </div>
         <!-- Main Heading -->
         <h1 id="hero-heading" class="hero-heading">
           <span class="headline-primary">{{ t("landing.hero.headline") }}</span>
@@ -105,17 +104,16 @@ const scrollToContent = () => {
 <style lang="scss" scoped>
 .hero-section {
   position: relative;
-  min-height: 100vh;
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  padding: 6rem 1.5rem 4rem;
+  padding: rem 1.5rem 4rem;
 
   @media (min-width: 768px) {
-    padding: 8rem 2rem 4rem;
+    padding: 2rem;
   }
 }
 
@@ -140,25 +138,6 @@ const scrollToContent = () => {
         rgba(42, 147, 134, 0.1) 0%,
         transparent 50%
       );
-  }
-}
-
-.logo-watermark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(80vw, 600px);
-  height: min(80vw, 600px);
-  opacity: 0.03;
-  z-index: 0;
-  pointer-events: none;
-
-  .logo-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    filter: blur(2px);
   }
 }
 

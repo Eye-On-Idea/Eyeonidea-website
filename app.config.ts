@@ -3,11 +3,11 @@ export default defineAppConfig({
   ui: {
     /**
      * Semantic color aliases used by Nuxt UI components.
-     * primary -> your @theme "brand" scale
+     * primary -> your @theme "primary" scale
      * neutral -> your @theme "neutral" scale (if registered), otherwise keep "zinc"
      */
     colors: {
-      primary: "brand",
+      primary: "primary",
       neutral: "neutral", // <-- if you did NOT register a `neutral` scale in @theme, use "zinc"
       // Optional but recommended: map your accent scale to secondary
       secondary: "accent",

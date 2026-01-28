@@ -19,7 +19,7 @@ onMounted(() => {
         }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.15 },
   );
 
   observer.observe(sectionRef.value);
@@ -79,11 +79,7 @@ const additionalServices = [
 
     <div class="services-container">
       <!-- Section Header -->
-      <div
-        class="section-header"
-        :class="{ 'animate-in': isVisible }"
-      >
-        <span class="section-badge">{{ t("landing.services.badge") }}</span>
+      <div class="section-header" :class="{ 'animate-in': isVisible }">
         <h2 id="services-heading" class="section-title">
           {{ t("landing.services.title") }}
         </h2>
@@ -92,37 +88,48 @@ const additionalServices = [
         </p>
       </div>
 
-      <!-- Package Cards Grid -->
+      <!-- Package Cards Grid - Uses centralized services.packages locale -->
       <div class="packages-grid" :class="{ 'animate-in': isVisible }">
         <HomePackageCard
           v-for="(pkg, index) in packages"
           :key="pkg.key"
-          :name="t(`landing.services.packages.${pkg.key}.name`)"
-          :tagline="t(`landing.services.packages.${pkg.key}.tagline`)"
-          :description="t(`landing.services.packages.${pkg.key}.description`)"
-          :ideal-for="t(`landing.services.packages.${pkg.key}.idealFor`)"
-          :features="tm(`landing.services.packages.${pkg.key}.features`) as string[]"
+          :name="t(`services.packages.${pkg.key}.name`)"
+          :tagline="t(`services.packages.${pkg.key}.tagline`)"
+          :description="t(`services.packages.${pkg.key}.description`)"
+          :ideal-for="t(`services.packages.${pkg.key}.idealFor`)"
+          :features="tm(`services.packages.${pkg.key}.includes`) as string[]"
+          :price="{
+            amount: t(`services.packages.${pkg.key}.price.amount`),
+            currency: t(`services.packages.${pkg.key}.price.currency`),
+            prefix: t(`services.packages.${pkg.key}.price.prefix`),
+            vatNote: t(`services.packages.${pkg.key}.price.vatNote`),
+          }"
           :variant="pkg.variant"
-          :popular-label="pkg.popular ? t(`landing.services.packages.${pkg.key}.popular`) : undefined"
+          :popular-label="
+            pkg.popular ? t(`services.packages.${pkg.key}.popular`) : undefined
+          "
           class="package-item"
           :class="`stagger-${index + 1}`"
         >
           <template #cta>
             <NuxtLink
               to="/contact"
-              :class="pkg.variant === 'featured' ? 'btn-accent' : 'btn-outline'"
+              class="cta-button"
+              :class="
+                pkg.variant === 'featured'
+                  ? 'cta-button--featured'
+                  : 'cta-button--default'
+              "
             >
-              {{ t("landing.services.cta.getQuote") }}
+              <span>{{ t("services.packages.cta") }}</span>
+              <UIcon name="i-heroicons-arrow-right" class="cta-arrow" />
             </NuxtLink>
           </template>
         </HomePackageCard>
       </div>
 
       <!-- Additional Services -->
-      <div
-        class="additional-services"
-        :class="{ 'animate-in': isVisible }"
-      >
+      <div class="additional-services" :class="{ 'animate-in': isVisible }">
         <h3 class="additional-title">
           {{ t("landing.services.additionalServices.title") }}
         </h3>
@@ -140,10 +147,16 @@ const additionalServices = [
               <UIcon :name="service.icon" class="service-icon" />
             </div>
             <h4 class="service-title">
-              {{ t(`landing.services.additionalServices.${service.key}.title`) }}
+              {{
+                t(`landing.services.additionalServices.${service.key}.title`)
+              }}
             </h4>
             <p class="service-description">
-              {{ t(`landing.services.additionalServices.${service.key}.description`) }}
+              {{
+                t(
+                  `landing.services.additionalServices.${service.key}.description`,
+                )
+              }}
             </p>
           </GlassCard>
         </div>
@@ -211,25 +224,14 @@ const additionalServices = [
   margin: 0 auto 4rem;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  transition:
+    opacity 0.6s var(--ease-smooth),
+    transform 0.6s var(--ease-smooth);
 
   &.animate-in {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.section-badge {
-  display: inline-block;
-  padding: 0.375rem 1rem;
-  background: rgba(223, 175, 133, 0.15);
-  color: var(--color-primary-200);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border-radius: 9999px;
-  margin-bottom: 1rem;
 }
 
 .section-title {
@@ -276,57 +278,56 @@ const additionalServices = [
 .package-item {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  transition:
+    opacity 0.6s var(--ease-smooth),
+    transform 0.6s var(--ease-smooth);
 
-  &.stagger-1 { transition-delay: 100ms; }
-  &.stagger-2 { transition-delay: 200ms; }
-  &.stagger-3 { transition-delay: 300ms; }
+  &.stagger-1 {
+    transition-delay: 100ms;
+  }
+  &.stagger-2 {
+    transition-delay: 200ms;
+  }
+  &.stagger-3 {
+    transition-delay: 300ms;
+  }
 }
 
 // Button styles for package cards
-:deep(.btn-accent) {
-  display: block;
+:deep(.cta-button) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   width: 100%;
-  padding: 0.875rem 1.5rem;
-  background: var(--color-accent-500);
-  color: white;
+  padding: 1rem 1.5rem;
   font-weight: 600;
   font-size: var(--text-sm);
-  text-align: center;
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: 12px;
   transition: all var(--duration-normal) var(--ease-smooth);
 
-  &:hover {
-    background: var(--color-accent-600);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(42, 147, 134, 0.3);
+  .cta-arrow {
+    width: 18px;
+    height: 18px;
+    transition: transform var(--duration-fast) var(--ease-smooth);
   }
 
-  &:focus-visible {
-    outline: 2px solid var(--color-accent-400);
-    outline-offset: 4px;
+  &:hover .cta-arrow {
+    transform: translateX(4px);
   }
 }
 
-:deep(.btn-outline) {
-  display: block;
-  width: 100%;
-  padding: 0.875rem 1.5rem;
+:deep(.cta-button--default) {
   background: transparent;
-  color: var(--color-primary-200); /* Light text on dark bg for contrast */
-  font-weight: 600;
-  font-size: var(--text-sm);
-  text-align: center;
-  text-decoration: none;
-  border: 1px solid var(--color-primary-300);
-  border-radius: 10px;
-  transition: all var(--duration-normal) var(--ease-smooth);
+  color: var(--color-primary-200);
+  border: 2px solid var(--color-primary-400);
 
   &:hover {
-    background: rgba(255, 237, 223, 0.1); /* primary-50 with transparency */
-    border-color: var(--color-primary-200);
+    background: rgba(255, 237, 223, 0.1);
+    border-color: var(--color-primary-300);
     color: var(--color-primary-100);
+    transform: translateY(-2px);
   }
 
   &:focus-visible {
@@ -335,11 +336,39 @@ const additionalServices = [
   }
 }
 
+:deep(.cta-button--featured) {
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-500) 0%,
+    var(--color-accent-600) 100%
+  );
+  color: white;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 16px rgba(42, 147, 134, 0.25);
+
+  &:hover {
+    background: linear-gradient(
+      135deg,
+      var(--color-accent-600) 0%,
+      var(--color-accent-700) 100%
+    );
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(42, 147, 134, 0.35);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-400);
+    outline-offset: 4px;
+  }
+}
+
 .additional-services {
   margin-bottom: 3rem;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s var(--ease-smooth) 0.4s, transform 0.6s var(--ease-smooth) 0.4s;
+  transition:
+    opacity 0.6s var(--ease-smooth) 0.4s,
+    transform 0.6s var(--ease-smooth) 0.4s;
 
   &.animate-in {
     opacity: 1;
@@ -372,16 +401,24 @@ const additionalServices = [
   text-align: center;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s var(--ease-smooth), transform 0.5s var(--ease-smooth);
+  transition:
+    opacity 0.5s var(--ease-smooth),
+    transform 0.5s var(--ease-smooth);
 
   .animate-in & {
     opacity: 1;
     transform: translateY(0);
   }
 
-  &.stagger-4 { transition-delay: 500ms; }
-  &.stagger-5 { transition-delay: 600ms; }
-  &.stagger-6 { transition-delay: 700ms; }
+  &.stagger-4 {
+    transition-delay: 500ms;
+  }
+  &.stagger-5 {
+    transition-delay: 600ms;
+  }
+  &.stagger-6 {
+    transition-delay: 700ms;
+  }
 }
 
 .service-icon-wrapper {
@@ -418,7 +455,9 @@ const additionalServices = [
   text-align: center;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s var(--ease-smooth) 0.6s, transform 0.6s var(--ease-smooth) 0.6s;
+  transition:
+    opacity 0.6s var(--ease-smooth) 0.6s,
+    transform 0.6s var(--ease-smooth) 0.6s;
 
   &.animate-in {
     opacity: 1;

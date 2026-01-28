@@ -17,23 +17,20 @@
 ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
+  /* Prevent any default transition behavior */
+  animation-fill-mode: both;
 }
 
+/* Old view on top - will be clipped away to reveal new view */
 ::view-transition-old(root) {
-  z-index: 1;
+  z-index: 9999;
+  /* Ensure it stays visible until animation completes */
+  animation-duration: 0s;
 }
 
 ::view-transition-new(root) {
-  z-index: 9999;
-}
-
-/* Ensure dark mode class is properly transitioned */
-.dark::view-transition-old(root) {
-  z-index: 9999;
-}
-
-.dark::view-transition-new(root) {
   z-index: 1;
+  animation-duration: 0s;
 }
 
 @theme static {
@@ -590,6 +587,250 @@ td {
 .touch-target {
   min-width: 44px;
   min-height: 44px;
+}
+
+/* =========================
+   Header Navigation
+   ========================= */
+.header-main {
+  --nav-link-text: var(--ui-text-inverted);
+  --nav-link-hover: var(--ui-text-inverted);
+  --nav-link-active: var(--ui-text-inverted);
+  --nav-link-bg-hover: color-mix(
+    in srgb,
+    var(--ui-text-inverted) 14%,
+    transparent
+  );
+  --nav-link-bg-active: color-mix(in srgb, var(--ui-primary) 18%, transparent);
+  --nav-icon: var(--ui-text-inverted);
+  --nav-dropdown-bg: color-mix(in srgb, var(--ui-bg) 94%, transparent);
+  --nav-dropdown-border: var(--ui-border);
+  --nav-dropdown-item-text: var(--ui-text);
+  --nav-dropdown-item-hover: var(--ui-bg-accented);
+  --nav-dropdown-item-active-bg: color-mix(
+    in srgb,
+    var(--ui-primary) 18%,
+    transparent
+  );
+  --nav-dropdown-item-active-text: var(--ui-text-highlighted);
+  --nav-mobile-text: var(--ui-text-inverted);
+  --nav-mobile-bg-hover: color-mix(
+    in srgb,
+    var(--ui-text-inverted) 10%,
+    transparent
+  );
+  --nav-mobile-bg-active: color-mix(
+    in srgb,
+    var(--ui-primary) 18%,
+    transparent
+  );
+  --nav-mobile-border: color-mix(in srgb, var(--ui-primary) 35%, transparent);
+  --nav-mobile-child-hover: color-mix(
+    in srgb,
+    var(--ui-text-inverted) 8%,
+    transparent
+  );
+  --nav-mobile-child-active-bg: color-mix(
+    in srgb,
+    var(--ui-primary) 16%,
+    transparent
+  );
+  --nav-mobile-child-active-border: var(--ui-primary);
+  --nav-mobile-toggle-text: var(--ui-text-inverted);
+  --nav-mobile-toggle-hover: color-mix(
+    in srgb,
+    var(--ui-text-inverted) 12%,
+    transparent
+  );
+}
+
+/* Light mode header - dark text for visibility */
+html:not(.dark) .header-main {
+  --nav-link-text: var(--ui-text);
+  --nav-link-hover: var(--ui-text-highlighted);
+  --nav-link-active: var(--ui-text-highlighted);
+  --nav-link-bg-hover: color-mix(in srgb, var(--ui-text) 8%, transparent);
+  --nav-icon: var(--ui-text-highlighted);
+  --nav-mobile-text: var(--ui-text);
+  --nav-mobile-bg-hover: color-mix(in srgb, var(--ui-text) 8%, transparent);
+  --nav-mobile-toggle-text: var(--ui-text-highlighted);
+  --nav-mobile-toggle-hover: color-mix(in srgb, var(--ui-text) 10%, transparent);
+  --nav-mobile-child-hover: color-mix(in srgb, var(--ui-text) 6%, transparent);
+}
+
+/* Note: Light mode scrolled header inherits from html:not(.dark) .header-main above */
+
+html.dark .header-main {
+  --nav-link-text: var(--ui-text);
+  --nav-link-hover: var(--ui-text-highlighted);
+  --nav-link-active: var(--ui-text-highlighted);
+  --nav-link-bg-hover: color-mix(in srgb, var(--ui-text) 12%, transparent);
+  --nav-link-bg-active: color-mix(in srgb, var(--ui-primary) 22%, transparent);
+  --nav-icon: var(--ui-text);
+  --nav-dropdown-bg: color-mix(in srgb, var(--ui-bg) 94%, transparent);
+  --nav-dropdown-border: var(--ui-border);
+  --nav-dropdown-item-text: var(--ui-text);
+  --nav-dropdown-item-hover: var(--ui-bg-accented);
+  --nav-dropdown-item-active-bg: color-mix(
+    in srgb,
+    var(--ui-primary) 20%,
+    transparent
+  );
+  --nav-dropdown-item-active-text: var(--ui-text-highlighted);
+  --nav-mobile-text: var(--ui-text);
+  --nav-mobile-bg-hover: color-mix(in srgb, var(--ui-text) 10%, transparent);
+  --nav-mobile-bg-active: color-mix(in srgb, var(--ui-primary) 20%, transparent);
+  --nav-mobile-border: color-mix(in srgb, var(--ui-primary) 40%, transparent);
+  --nav-mobile-child-hover: color-mix(in srgb, var(--ui-text) 8%, transparent);
+  --nav-mobile-child-active-bg: color-mix(
+    in srgb,
+    var(--ui-primary) 18%,
+    transparent
+  );
+  --nav-mobile-child-active-border: var(--ui-primary);
+  --nav-mobile-toggle-text: var(--ui-text);
+  --nav-mobile-toggle-hover: color-mix(in srgb, var(--ui-text) 12%, transparent);
+}
+
+.header-nav-link {
+  color: var(--nav-link-text, var(--ui-text));
+  background: transparent;
+  transition:
+    color var(--duration-normal) var(--ease-smooth),
+    background var(--duration-normal) var(--ease-smooth),
+    box-shadow var(--duration-normal) var(--ease-smooth);
+}
+
+.header-nav-link:hover {
+  color: var(--nav-link-hover, var(--ui-text-highlighted));
+  background: var(--nav-link-bg-hover, transparent);
+}
+
+.header-nav-link-active {
+  color: var(--nav-link-active, var(--ui-text-highlighted));
+  background: var(--nav-link-bg-active, transparent);
+}
+
+.header-nav-link:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--focus-ring),
+    0 0 0 4px var(--ring-offset);
+}
+
+.header-nav-icon {
+  color: var(--nav-icon, currentColor);
+}
+
+.header-nav-underline {
+  background: var(--gradient-text-primary);
+}
+
+.dropdown-menu {
+  background: var(--nav-dropdown-bg, var(--color-surface-1));
+  border: 1px solid var(--nav-dropdown-border, var(--color-border));
+  box-shadow: var(--glass-shadow-elevated);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+  -webkit-backdrop-filter: blur(var(--glass-blur))
+    saturate(var(--glass-saturation));
+}
+
+.dropdown-item {
+  color: var(--nav-dropdown-item-text, var(--color-text));
+  transition:
+    color var(--duration-fast) var(--ease-smooth),
+    background var(--duration-fast) var(--ease-smooth),
+    box-shadow var(--duration-fast) var(--ease-smooth);
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus-visible {
+  background: var(--nav-dropdown-item-hover, var(--color-surface-3));
+}
+
+.dropdown-item:focus-visible {
+  outline: none;
+  box-shadow:
+    inset 0 0 0 2px var(--focus-ring),
+    inset 0 0 0 4px var(--ring-offset);
+}
+
+.dropdown-item-active {
+  background: var(--nav-dropdown-item-active-bg, var(--color-surface-3));
+  color: var(--nav-dropdown-item-active-text, var(--color-text));
+}
+
+.header-mobile-link {
+  color: var(--nav-mobile-text, var(--ui-text));
+  background: transparent;
+  transition:
+    color var(--duration-normal) var(--ease-smooth),
+    background var(--duration-normal) var(--ease-smooth),
+    box-shadow var(--duration-normal) var(--ease-smooth),
+    border-color var(--duration-normal) var(--ease-smooth);
+}
+
+.header-mobile-link:hover {
+  background: var(--nav-mobile-bg-hover, transparent);
+}
+
+.header-mobile-link-active {
+  background: var(--nav-mobile-bg-active, transparent);
+  border: 1px solid var(--nav-mobile-border, transparent);
+}
+
+.header-mobile-link:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--focus-ring),
+    0 0 0 4px var(--ring-offset);
+}
+
+.header-mobile-toggle {
+  color: var(--nav-mobile-toggle-text, var(--ui-text));
+  background: transparent;
+  transition:
+    color var(--duration-fast) var(--ease-smooth),
+    background var(--duration-fast) var(--ease-smooth),
+    box-shadow var(--duration-fast) var(--ease-smooth);
+}
+
+.header-mobile-toggle:hover {
+  background: var(--nav-mobile-toggle-hover, transparent);
+}
+
+.header-mobile-toggle:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--focus-ring),
+    0 0 0 4px var(--ring-offset);
+}
+
+.header-mobile-child-link {
+  color: var(--nav-mobile-text, var(--ui-text));
+  background: transparent;
+  transition:
+    color var(--duration-fast) var(--ease-smooth),
+    background var(--duration-fast) var(--ease-smooth),
+    box-shadow var(--duration-fast) var(--ease-smooth),
+    border-color var(--duration-fast) var(--ease-smooth);
+}
+
+.header-mobile-child-link:hover {
+  background: var(--nav-mobile-child-hover, transparent);
+}
+
+.header-mobile-child-active {
+  background: var(--nav-mobile-child-active-bg, transparent);
+  border-left: 2px solid
+    var(--nav-mobile-child-active-border, var(--ui-primary));
+}
+
+.header-mobile-child-link:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--focus-ring),
+    0 0 0 4px var(--ring-offset);
 }
 
 /* =========================

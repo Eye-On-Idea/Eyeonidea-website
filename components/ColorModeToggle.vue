@@ -20,9 +20,12 @@ const toggleColorMode = async (event: MouseEvent) => {
     "startViewTransition" in document &&
     !isReducedMotion;
 
+  // Capture the current state BEFORE toggling
+  const isCurrentlyDark = isDark.value;
+
   // Fallback for browsers without View Transitions API
   if (!supportsViewTransitions) {
-    colorMode.preference = isDark.value ? "light" : "dark";
+    colorMode.preference = isCurrentlyDark ? "light" : "dark";
     return;
   }
 
@@ -40,27 +43,31 @@ const toggleColorMode = async (event: MouseEvent) => {
 
   // Start the view transition
   const transition = (document as any).startViewTransition(async () => {
-    colorMode.preference = isDark.value ? "light" : "dark";
+    colorMode.preference = isCurrentlyDark ? "light" : "dark";
     await nextTick();
   });
 
   // Wait for the transition to be ready
   await transition.ready;
 
-  // Animate the clip-path from a small circle to full screen
-  document.documentElement.animate(
+  // Animate the old view shrinking to reveal the new view underneath
+  // This works for both directions since old is always on top (z-index: 9999)
+  const animation = document.documentElement.animate(
     {
       clipPath: [
-        `circle(0px at ${x}px ${y}px)`,
         `circle(${maxRadius}px at ${x}px ${y}px)`,
+        `circle(0px at ${x}px ${y}px)`,
       ],
     },
     {
       duration: 500,
       easing: "cubic-bezier(0.4, 0, 0.2, 1)",
-      pseudoElement: "::view-transition-new(root)",
+      pseudoElement: "::view-transition-old(root)",
     }
   );
+
+  // Wait for animation to complete to prevent flash at end
+  await animation.finished;
 };
 
 const currentIcon = computed(() =>

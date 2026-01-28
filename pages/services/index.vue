@@ -25,12 +25,28 @@ useHead({
 
 <template>
   <div class="services-page">
+    <!-- Hero Section -->
     <ServicesHero />
+
+    <!-- Website Packages Cards -->
     <ServicesPackagesSection />
+
+    <!-- Feature Comparison Table -->
+    <ServicesComparisonTable />
+
+    <!-- Add-ons & Extras -->
+    <ServicesAddonsSection />
+
+    <!-- Visual Identity -->
     <ServicesIdentitySection />
+
+    <!-- CMS Solutions -->
     <ServicesCMSSection />
+
+    <!-- Support Plans -->
     <ServicesSupportPlans />
-    <ServicesAdditionalServices />
+
+    <!-- CTA Section -->
     <ServicesCTA />
   </div>
 </template>

@@ -19,7 +19,7 @@ onMounted(() => {
         }
       });
     },
-    { threshold: 0.3 }
+    { threshold: 0.3 },
   );
 
   observer.observe(sectionRef.value);
@@ -97,16 +97,6 @@ onMounted(() => {
             </a>
           </div>
         </div>
-
-        <!-- Decorative Logo -->
-        <div class="cta-decoration" aria-hidden="true">
-          <img
-            src="/public-material/logo-center-shadow.svg"
-            alt=""
-            class="decoration-logo"
-            loading="lazy"
-          />
-        </div>
       </GlassCard>
     </div>
   </section>
@@ -169,7 +159,9 @@ onMounted(() => {
   background: var(--color-surface-1);
   opacity: 0;
   transform: translateY(40px) scale(0.98);
-  transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
+  transition:
+    opacity 0.7s var(--ease-smooth),
+    transform 0.7s var(--ease-smooth);
 
   &.animate-in {
     opacity: 1;
