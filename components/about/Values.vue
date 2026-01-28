@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
 
-const { t } = useI18n();
+const { t, tm } = useI18n();
 
 const sectionRef = ref<HTMLElement | null>(null);
 const isVisible = ref(false);
@@ -52,7 +52,7 @@ const valueIcons = ["lightbulb", "handshake", "chat", "shield"];
       <!-- Values Grid -->
       <div class="values-grid" :class="{ 'animate-in': isVisible }">
         <div
-          v-for="(value, index) in t('about.values.items')"
+          v-for="(value, index) in (tm('about.values.items') as Array<{title: string, description: string}>)"
           :key="index"
           class="value-card glass-subtle"
           :class="`stagger-${index + 1}`"

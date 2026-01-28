@@ -90,7 +90,7 @@
     "contact": {
       "title": "11. Contact",
       "content": [
-        "For questions about these terms or our services, please contact us at hello@eyeonidea.com."
+        "For questions about these terms or our services, please contact us at hello{'@'}eyeonidea.com."
       ]
     }
   }

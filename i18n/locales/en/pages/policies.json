@@ -23,7 +23,7 @@
         "title": "2. Data Controller",
         "content": [
           "Eye On Idea is the data controller for personal data collected through this website and our services.",
-          "Contact: hello@eyeonidea.com"
+          "Contact: hello{'@'}eyeonidea.com"
         ]
       },
       "dataCollected": {
@@ -80,7 +80,7 @@
           "Restriction: Request limitation of processing.",
           "Portability: Receive your data in a portable format.",
           "Objection: Object to processing based on legitimate interest.",
-          "To exercise these rights, contact us at hello@eyeonidea.com. We will respond within 30 days."
+          "To exercise these rights, contact us at hello{'@'}eyeonidea.com. We will respond within 30 days."
         ]
       },
       "security": {
@@ -161,7 +161,7 @@
   },
   "contact": {
     "title": "Questions?",
-    "content": "If you have questions about our privacy practices or wish to exercise your data rights, please contact us at hello@eyeonidea.com.",
+    "content": "If you have questions about our privacy practices or wish to exercise your data rights, please contact us at hello{'@'}eyeonidea.com.",
     "complaints": "You also have the right to lodge a complaint with the Danish Data Protection Agency (Datatilsynet) if you believe your data rights have been violated."
   }
 }

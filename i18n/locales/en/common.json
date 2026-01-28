@@ -33,6 +33,12 @@
   },
   "accessibility": {
     "scrollProgress": "Page scroll progress",
-    "selectLanguage": "Select language"
+    "selectLanguage": "Select language",
+    "toggleColorMode": "Toggle color mode"
+  },
+  "colorMode": {
+    "light": "Light mode",
+    "dark": "Dark mode",
+    "system": "System preference"
   }
 }

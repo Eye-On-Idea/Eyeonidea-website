@@ -9,7 +9,7 @@ const prefersReducedMotion = ref(false);
 
 onMounted(() => {
   prefersReducedMotion.value = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
+    "(prefers-reduced-motion: reduce)",
   ).matches;
 
   // Trigger entrance animation
@@ -55,17 +55,17 @@ const scrollToContent = () => {
     <div class="hero-content">
       <div
         class="content-wrapper"
-        :class="{ 'animate-in': isVisible, 'no-animation': prefersReducedMotion }"
+        :class="{
+          'animate-in': isVisible,
+          'no-animation': prefersReducedMotion,
+        }"
       >
-        <!-- Badge -->
-        <div class="hero-badge glass-brand">
-          <span>{{ t("common.brand.name") }}</span>
-        </div>
-
         <!-- Main Heading -->
         <h1 id="hero-heading" class="hero-heading">
           <span class="headline-primary">{{ t("landing.hero.headline") }}</span>
-          <span class="headline-accent text-gradient">{{ t("landing.hero.headlineAccent") }}</span>
+          <span class="headline-accent text-gradient">{{
+            t("landing.hero.headlineAccent")
+          }}</span>
         </h1>
 
         <!-- Subheadline -->
@@ -75,18 +75,12 @@ const scrollToContent = () => {
 
         <!-- CTA Buttons -->
         <div class="hero-cta">
-          <NuxtLink
-            to="/contact"
-            class="btn-primary"
-          >
+          <NuxtLink to="/contact" class="btn-primary">
             {{ t("landing.hero.cta.primary") }}
             <UIcon name="i-heroicons-arrow-right-20-solid" class="btn-icon" />
           </NuxtLink>
 
-          <NuxtLink
-            to="/services"
-            class="btn-secondary"
-          >
+          <NuxtLink to="/services" class="btn-secondary">
             {{ t("landing.hero.cta.secondary") }}
           </NuxtLink>
         </div>
@@ -96,7 +90,7 @@ const scrollToContent = () => {
     <!-- Scroll Indicator -->
     <button
       class="scroll-indicator"
-      :class="{ 'visible': isVisible }"
+      :class="{ visible: isVisible }"
       @click="scrollToContent"
       :aria-label="t('landing.hero.scrollIndicator')"
     >
@@ -135,16 +129,17 @@ const scrollToContent = () => {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(
-      ellipse at 30% 20%,
-      rgba(223, 175, 133, 0.15) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      ellipse at 70% 80%,
-      rgba(42, 147, 134, 0.1) 0%,
-      transparent 50%
-    );
+    background:
+      radial-gradient(
+        ellipse at 30% 20%,
+        rgba(223, 175, 133, 0.15) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 70% 80%,
+        rgba(42, 147, 134, 0.1) 0%,
+        transparent 50%
+      );
   }
 }
 
@@ -178,7 +173,9 @@ const scrollToContent = () => {
 .content-wrapper {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
+  transition:
+    opacity 0.8s var(--ease-smooth),
+    transform 0.8s var(--ease-smooth);
 
   &.animate-in {
     opacity: 1;
@@ -296,14 +293,14 @@ const scrollToContent = () => {
   color: var(--color-hero-text);
   font-weight: 600;
   font-size: var(--text-base);
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--color-primary-300); /* Improved visibility from glass-border */
   border-radius: 12px;
   text-decoration: none;
   transition: all var(--duration-normal) var(--ease-smooth);
   min-width: 180px;
 
   &:hover {
-    background: var(--glass-tint-light);
+    background: rgba(211, 154, 105, 0.15); /* primary-300 with transparency */
     border-color: var(--color-primary-200);
   }
 
@@ -356,7 +353,7 @@ const scrollToContent = () => {
 .scroll-mouse {
   width: 24px;
   height: 40px;
-  border: 2px solid var(--glass-border);
+  border: 2px solid var(--color-primary-300); /* Improved visibility */
   border-radius: 12px;
   display: flex;
   justify-content: center;
@@ -373,7 +370,8 @@ const scrollToContent = () => {
 }
 
 @keyframes scrollWheel {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: translateY(0);
   }

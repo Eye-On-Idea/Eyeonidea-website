@@ -16,6 +16,15 @@ export default defineNuxtConfig({
     "@vueuse/motion/nuxt",
     "@nuxtjs/sanity",
   ],
+
+  // Color mode configuration (included with @nuxt/ui)
+  colorMode: {
+    preference: "system", // Default to system preference
+    fallback: "light", // Fallback if no system preference detected
+    classSuffix: "", // Use '.dark' not '.dark-mode'
+    storage: "localStorage", // Persist user preference
+    storageKey: "color-mode",
+  },
   // Static Site Generation (SSG) configuration
   ssr: true,
   nitro: {

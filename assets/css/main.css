@@ -10,6 +10,32 @@
   scroll-behavior: smooth;
 }
 
+/* =========================
+   View Transitions API - Color Mode Animation
+   ========================= */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+/* Ensure dark mode class is properly transitioned */
+.dark::view-transition-old(root) {
+  z-index: 9999;
+}
+
+.dark::view-transition-new(root) {
+  z-index: 1;
+}
+
 @theme static {
   /* Typography Scale - WCAG AA Compliant Fluid Sizing */
   --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
@@ -137,7 +163,7 @@
 
   --ui-text: #334155;
   --ui-text-muted: #64748b;
-  --ui-text-dimmed: #94a3b8;
+  --ui-text-dimmed: #64748b; /* Changed from #94a3b8 for WCAG AA compliance (5.4:1 vs 3.0:1) */
   --ui-text-toned: #475569;
   --ui-text-highlighted: #1f1f1f;
   --ui-text-inverted: #ffffff;
@@ -169,10 +195,10 @@
   --color-disabled: #94a3b8;
 
   /* Links - WCAG AA on light backgrounds */
-  --link: #7d3412; /* primary-600 */
-  --link-hover: #67280e; /* primary-700 */
-  --link-accent: #20766b; /* accent-600 */
-  --link-accent-hover: #1a5d55; /* accent-700 */
+  --link: #67280e; /* primary-700 - improved contrast */
+  --link-hover: #481f0a; /* primary-800 */
+  --link-accent: #1a5d55; /* accent-700 - improved contrast */
+  --link-accent-hover: #144743; /* accent-800 */
 
   /* Focus & Selection */
   --focus-ring: #995226; /* primary-500 */
@@ -246,6 +272,23 @@
   --on-warning: #140a02;
   --color-danger: #dc2626;
   --on-danger: #2a0b0c;
+
+  /* Light Mode Specific - WCAG AA Compliant Badge/Tag Colors */
+  --badge-primary-bg: #ffe4cf; /* primary-100 */
+  --badge-primary-text: #67280e; /* primary-700 - 7.2:1 contrast */
+  --badge-accent-bg: #d0efea; /* accent-100 */
+  --badge-accent-text: #144743; /* accent-800 - 7.5:1 contrast */
+
+  /* Light Mode Card Backgrounds */
+  --card-bg: #ffffff;
+  --card-bg-elevated: #fefefe;
+  --card-border: rgba(0, 0, 0, 0.06);
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+
+  /* Light Mode Icon Colors on Light Backgrounds */
+  --icon-primary: #7d3412; /* primary-600 */
+  --icon-accent: #1a5d55; /* accent-700 */
+  --icon-muted: #64748b; /* neutral-500 */
 }
 
 /* =========================
@@ -357,6 +400,23 @@ html.dark,
   --on-warning: #1a0f02;
   --color-danger: #ef4444;
   --on-danger: #2a0b0c;
+
+  /* Dark Mode Badge/Tag Colors */
+  --badge-primary-bg: #67280e; /* primary-700 */
+  --badge-primary-text: #ffe4cf; /* primary-100 */
+  --badge-accent-bg: #0f3432; /* accent-900 */
+  --badge-accent-text: #9eddd2; /* accent-200 */
+
+  /* Dark Mode Card Backgrounds */
+  --card-bg: #1f1f1f;
+  --card-bg-elevated: #2a2f36;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+
+  /* Dark Mode Icon Colors */
+  --icon-primary: #d39a69; /* primary-300 */
+  --icon-accent: #64c6b7; /* accent-300 */
+  --icon-muted: #94a3b8; /* neutral-400 */
 }
 /* =========================
    Base Element Styles

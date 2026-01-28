@@ -211,7 +211,10 @@ onBeforeUnmount(() => {
       ></progress>
     </div>
     <template #title>
-      <NuxtLink to="/" class="flex items-center gap-3 group logo-container">
+      <NuxtLink
+        to="/"
+        class="flex items-center gap-3 group logo-container bg-primary-950"
+      >
         <img
           src="/public-material/logo-center-shadow.svg"
           alt="Eye On Idea"
@@ -230,7 +233,7 @@ onBeforeUnmount(() => {
           class="relative px-4 py-2.5 text-sm font-bold transition-all duration-300 flex items-center gap-2 rounded-lg overflow-hidden group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-400 focus-visible:ring-offset-neutral-900"
           :class="
             isActiveLink(link)
-              ? 'text-primary-600 bg-primary-50/80'
+              ? 'text-neutral-600 bg-primary-50/80'
               : 'text-neutral-600 hover:text-white hover:bg-(--color-text)/10'
           "
         >
@@ -334,7 +337,10 @@ onBeforeUnmount(() => {
     </nav>
 
     <template #right>
-      <LanguageSwitcher />
+      <div class="flex items-center gap-2 flex-row">
+        <ColorModeToggle />
+        <LanguageSwitcher />
+      </div>
     </template>
 
     <!-- Mobile Navigation -->
@@ -428,7 +434,7 @@ onBeforeUnmount(() => {
 <style lang="scss" scoped>
 /* Header base styles */
 .header-main {
-  background: color-mix(in srgb, var(--color-primary-50) 75%, transparent);
+  background: color-mix(in srgb, var(--color-primary-950) 75%, transparent);
   backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
   -webkit-backdrop-filter: blur(var(--glass-blur))
     saturate(var(--glass-saturation));
@@ -510,7 +516,6 @@ a:hover svg {
 
 /* Logo container with dark background for visibility */
 .logo-container {
-  background: rgba(31, 31, 31, 0.85);
   border-radius: 8px;
   padding: 0.5rem 0.75rem;
 }

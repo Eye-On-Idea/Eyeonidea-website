@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
 
-const { t } = useI18n();
+const { t, tm } = useI18n();
 
 const sectionRef = ref<HTMLElement | null>(null);
 const isVisible = ref(false);
@@ -50,7 +50,7 @@ onMounted(() => {
       <!-- Steps -->
       <div class="steps-grid" :class="{ 'animate-in': isVisible }">
         <div
-          v-for="(step, index) in t('about.approach.steps')"
+          v-for="(step, index) in (tm('about.approach.steps') as Array<{number: string, title: string, description: string}>)"
           :key="index"
           class="step-card"
           :class="`stagger-${index + 1}`"

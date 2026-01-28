@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
 
-const { t } = useI18n();
+const { t, tm } = useI18n();
 
 const sectionRef = ref<HTMLElement | null>(null);
 const isVisible = ref(false);
@@ -59,7 +59,7 @@ onMounted(() => {
 
           <div class="bio-content">
             <p
-              v-for="(paragraph, index) in t('about.founder.bio')"
+              v-for="(paragraph, index) in tm('about.founder.bio') as string[]"
               :key="index"
               class="bio-paragraph"
             >

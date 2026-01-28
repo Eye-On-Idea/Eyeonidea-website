@@ -314,22 +314,23 @@ const additionalServices = [
   width: 100%;
   padding: 0.875rem 1.5rem;
   background: transparent;
-  color: var(--color-primary-500);
+  color: var(--color-primary-200); /* Light text on dark bg for contrast */
   font-weight: 600;
   font-size: var(--text-sm);
   text-align: center;
   text-decoration: none;
-  border: 1px solid var(--color-primary-400);
+  border: 1px solid var(--color-primary-300);
   border-radius: 10px;
   transition: all var(--duration-normal) var(--ease-smooth);
 
   &:hover {
-    background: var(--color-primary-50);
-    border-color: var(--color-primary-500);
+    background: rgba(255, 237, 223, 0.1); /* primary-50 with transparency */
+    border-color: var(--color-primary-200);
+    color: var(--color-primary-100);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-primary-500);
+    outline: 2px solid var(--color-primary-300);
     outline-offset: 4px;
   }
 }

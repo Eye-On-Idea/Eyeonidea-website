@@ -4,9 +4,9 @@
     "description": "Eye On Idea helps companies across Europe establish a clear, professional digital presence. Website creation, visual identity, and ongoing support."
   },
   "hero": {
-    "headline": "Your digital presence,",
+    "headline": "Your digital presence",
     "headlineAccent": "built for growth",
-    "subheadline": "We help B2B companies across Europe establish professional, accessible websites that grow with their business.",
+    "subheadline": "We help companies across Europe establish professional, accessible websites that grow with their business.",
     "cta": {
       "primary": "Start Your Project",
       "secondary": "Explore Services"
@@ -20,15 +20,15 @@
     "values": {
       "clarity": {
         "title": "Clarity First",
-        "description": "No overcomplicated solutions. We build what you actually need."
+        "description": "No overcomplicated solutions. We build what you need to be present, and represent yourself."
       },
       "partnership": {
         "title": "True Partnership",
-        "description": "We support you before, during, and after delivery."
+        "description": "We support you before, during, and after delivery. Collaboration is the key to success."
       },
       "quality": {
         "title": "Built to Last",
-        "description": "Technology choices made for durability, not trends."
+        "description": "Technology choices made for durability, "
       }
     },
     "cta": "Learn About Us"

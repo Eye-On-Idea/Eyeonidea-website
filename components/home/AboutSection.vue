@@ -157,8 +157,8 @@ const values = [
 .section-badge {
   display: inline-block;
   padding: 0.375rem 1rem;
-  background: var(--color-accent-50);
-  color: var(--color-accent-600);
+  background: var(--badge-accent-bg);
+  color: var(--badge-accent-text);
   font-size: var(--text-xs);
   font-weight: 600;
   text-transform: uppercase;
@@ -237,7 +237,7 @@ const values = [
 .value-icon {
   width: 28px;
   height: 28px;
-  color: var(--color-accent-600);
+  color: var(--icon-accent);
 }
 
 .value-title {

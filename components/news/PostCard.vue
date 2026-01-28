@@ -225,7 +225,7 @@ function formatEventDate(dateString: string) {
   align-items: center;
   gap: 0.375rem;
   font-size: 0.8125rem;
-  color: var(--color-primary-500);
+  color: var(--color-primary-700); /* Improved from primary-500 for WCAG AA contrast */
 }
 
 .post-title {

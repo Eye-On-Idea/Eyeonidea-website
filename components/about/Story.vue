@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
 
-const { t } = useI18n();
+const { t, tm } = useI18n();
 
 const sectionRef = ref<HTMLElement | null>(null);
 const isVisible = ref(false);
@@ -47,7 +47,7 @@ onMounted(() => {
 
         <div class="story-content">
           <p
-            v-for="(paragraph, index) in t('about.story.paragraphs')"
+            v-for="(paragraph, index) in tm('about.story.paragraphs') as string[]"
             :key="index"
             class="story-paragraph"
           >

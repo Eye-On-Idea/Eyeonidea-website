@@ -16,7 +16,7 @@
     },
     "email": {
       "label": "Email",
-      "placeholder": "your@email.com"
+      "placeholder": "your{'@'}email.com"
     },
     "phone": {
       "label": "Phone (optional)",
@@ -58,7 +58,7 @@
     },
     "email": {
       "label": "Email",
-      "value": "hello@eyeonidea.com"
+      "value": "hello{'@'}eyeonidea.com"
     },
     "phone": {
       "label": "Phone",
