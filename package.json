@@ -26,6 +26,7 @@
     "@vueuse/motion": "^3.0.3",
     "@wxperia/liquid-glass-vue": "^1.0.9",
     "nuxt": "^4.3.0",
+    "nuxt-auth-utils": "^0.5.28",
     "pinia": "^3.0.4",
     "sass": "^1.89.1",
     "three": "^0.181.0",

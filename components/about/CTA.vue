@@ -1,37 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { animationPresets, withDelay } from "~/composables/useAccessibleMotion";
 
 const { t } = useI18n();
-
-const sectionRef = ref<HTMLElement | null>(null);
-const isVisible = ref(false);
-
-onMounted(() => {
-  if (!sectionRef.value) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true;
-          observer.disconnect();
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-
-  observer.observe(sectionRef.value);
-
-  onUnmounted(() => {
-    observer.disconnect();
-  });
-});
 </script>
 
 <template>
   <section
-    ref="sectionRef"
     class="about-cta"
     aria-labelledby="about-cta-heading"
   >
@@ -40,26 +14,47 @@ onMounted(() => {
       <div class="bg-pattern" />
     </div>
 
-    <div
-      class="cta-content"
-      :class="{ 'animate-in': isVisible }"
-    >
-      <span class="cta-badge glass-brand">{{ t("about.cta.badge") }}</span>
-      <h2 id="about-cta-heading" class="cta-title">
+    <div class="cta-content">
+      <span
+        class="cta-badge glass-brand"
+        v-motion
+        :initial="animationPresets.scaleIn.initial"
+        :visible-once="animationPresets.scaleIn.visible"
+      >
+        {{ t("about.cta.badge") }}
+      </span>
+
+      <h2
+        id="about-cta-heading"
+        class="cta-title"
+        style="text-wrap: balance"
+        v-motion
+        :initial="animationPresets.fadeInUpScale.initial"
+        :visible-once="withDelay('fadeInUpScale', 150).visible"
+      >
         {{ t("about.cta.title") }}
       </h2>
-      <p class="cta-description">
+
+      <p
+        class="cta-description"
+        v-motion
+        :initial="animationPresets.fadeInUp.initial"
+        :visible-once="withDelay('fadeInUp', 300).visible"
+      >
         {{ t("about.cta.description") }}
       </p>
 
-      <div class="cta-actions">
-        <NuxtLink to="/contact" class="btn-primary">
+      <div
+        class="cta-actions"
+        v-motion
+        :initial="animationPresets.fadeInUp.initial"
+        :visible-once="withDelay('fadeInUp', 450).visible"
+      >
+        <NuxtLink v-magnetic to="/contact" class="btn-primary btn-glow">
           {{ t("about.cta.primary") }}
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="btn-icon">
-            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-          </svg>
+          <UIcon name="i-heroicons-arrow-right" class="btn-icon" aria-hidden="true" />
         </NuxtLink>
-        <NuxtLink to="/services" class="btn-secondary">
+        <NuxtLink v-magnetic to="/services" class="btn-secondary">
           {{ t("about.cta.secondary") }}
         </NuxtLink>
       </div>
@@ -110,20 +105,26 @@ onMounted(() => {
     );
 }
 
+// Scroll-driven background effect (progressive enhancement)
+@supports (animation-timeline: view()) {
+  .bg-pattern {
+    animation: ctaPatternReveal linear;
+    animation-timeline: view();
+    animation-range: entry 0% entry 100%;
+  }
+
+  @keyframes ctaPatternReveal {
+    from { opacity: 0.4; transform: scale(1.1); }
+    to { opacity: 1; transform: scale(1); }
+  }
+}
+
 .cta-content {
   position: relative;
   z-index: 1;
   max-width: 700px;
   margin: 0 auto;
   text-align: center;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .cta-badge {
@@ -180,6 +181,7 @@ onMounted(() => {
   align-items: center;
   gap: 0.5rem;
   padding: 1rem 2rem;
+  min-height: 48px;
   background: var(--color-primary-500);
   color: white;
   font-size: var(--text-base);
@@ -191,6 +193,11 @@ onMounted(() => {
   &:hover {
     background: var(--color-primary-600);
     transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-300);
+    outline-offset: 2px;
   }
 }
 
@@ -208,6 +215,7 @@ onMounted(() => {
   display: inline-flex;
   align-items: center;
   padding: 1rem 2rem;
+  min-height: 48px;
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.3);
   color: var(--color-hero-text);
@@ -221,13 +229,10 @@ onMounted(() => {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.5);
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .cta-content {
-    opacity: 1;
-    transform: none;
-    transition: none;
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-300);
+    outline-offset: 2px;
   }
 }
 </style>

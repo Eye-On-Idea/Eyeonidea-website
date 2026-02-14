@@ -1,13 +1,23 @@
 <!-- components/MyHeader.vue -->
 <script lang="ts" setup>
-import { ref, onMounted, onBeforeUnmount, nextTick } from "vue";
+import { ref, watch, onMounted, onBeforeUnmount, nextTick } from "vue";
 
 const route = useRoute();
+const router = useRouter();
 const { t } = useI18n();
 
 const navLinks = computed(() => [
   { label: t("nav.home"), to: "/" },
-  { label: t("nav.services"), to: "/services" },
+  {
+    label: t("nav.services"),
+    to: "/services",
+    children: [
+      {
+        label: t("nav.process"),
+        to: "/services/process",
+      },
+    ],
+  },
   { label: t("nav.news"), to: "/news" },
   {
     label: t("nav.about"),
@@ -153,16 +163,22 @@ const toggleMobileExpand = (to: string) => {
   expandedMobile.value = expandedMobile.value === to ? null : to;
 };
 
+// Close dropdown and mobile menu on route change
+watch(() => route.path, () => {
+  openDropdown.value = null;
+  expandedMobile.value = null;
+});
+
 // Check if current route matches link or any of its children
 const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
-  if (route.path === link.to || route.path === link.to.replace("/#", "/")) {
-    return true;
-  }
-  if (link.children) {
-    return link.children.some(
-      (child) =>
-        route.path === child.to || route.path === child.to.replace("/#", "/"),
-    );
+  // Normalize trailing slashes for comparison
+  const path = route.path.replace(/\/$/, "") || "/";
+  const linkPath = link.to.replace(/\/$/, "") || "/";
+  // Exact match
+  if (path === linkPath) return true;
+  // For parent links with children, also match child routes
+  if (link.children && linkPath !== "/") {
+    return path.startsWith(linkPath + "/") || path === linkPath;
   }
   return false;
 };
@@ -194,7 +210,7 @@ onBeforeUnmount(() => {
 
 <template>
   <UHeader
-    class="header-main sticky top-0 z-50"
+    class="header-main sticky top-0 z-50 bg-primary-800 dark:bg-primary-950"
     :class="{ 'header-scrolled': scrollProgress > 100 }"
     ><div
       class="absolute -bottom-4.5 left-0 right-0 w-full h-auto z-49 bg-transparent"
@@ -211,10 +227,7 @@ onBeforeUnmount(() => {
       ></progress>
     </div>
     <template #title>
-      <NuxtLink
-        to="/"
-        class="flex items-center gap-3 group logo-container"
-      >
+      <NuxtLink to="/" class="flex items-center gap-3 group logo-container">
         <img
           src="/public-material/logo-center-shadow.svg"
           alt="Eye On Idea"
@@ -234,19 +247,10 @@ onBeforeUnmount(() => {
           :class="{ 'header-nav-link-active': isActiveLink(link) }"
         >
           <span class="relative z-10">{{ link.label }}</span>
-          <Transition
-            enter-active-class="transition-all duration-300 ease-out"
-            leave-active-class="transition-all duration-200 ease-in"
-            enter-from-class="opacity-0 scale-x-0"
-            enter-to-class="opacity-100 scale-x-100"
-            leave-from-class="opacity-100 scale-x-100"
-            leave-to-class="opacity-0 scale-x-0"
-          >
-            <div
-              v-if="isActiveLink(link)"
-              class="header-nav-underline absolute bottom-0 left-0 right-0 h-0.5 origin-left"
-            ></div>
-          </Transition>
+          <div
+            class="header-nav-underline absolute bottom-0 left-0 right-0 h-0.5 origin-left transition-all duration-300 ease-out"
+            :class="isActiveLink(link) ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'"
+          ></div>
         </NuxtLink>
 
         <!-- Links with children (dropdown) -->
@@ -275,19 +279,10 @@ onBeforeUnmount(() => {
               class="header-nav-icon w-4 h-4 transition-transform duration-200"
               :class="{ 'rotate-180': openDropdown === link.to }"
             />
-            <Transition
-              enter-active-class="transition-all duration-300 ease-out"
-              leave-active-class="transition-all duration-200 ease-in"
-              enter-from-class="opacity-0 scale-x-0"
-              enter-to-class="opacity-100 scale-x-100"
-              leave-from-class="opacity-100 scale-x-100"
-              leave-to-class="opacity-0 scale-x-0"
-            >
-              <div
-                v-if="isActiveLink(link)"
-                class="header-nav-underline absolute bottom-0 left-0 right-0 h-0.5 origin-left"
-              ></div>
-            </Transition>
+            <div
+              class="header-nav-underline absolute bottom-0 left-0 right-0 h-0.5 origin-left transition-all duration-300 ease-out"
+              :class="isActiveLink(link) ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'"
+            ></div>
           </NuxtLink>
 
           <!-- Dropdown menu -->
@@ -328,6 +323,14 @@ onBeforeUnmount(() => {
 
     <template #right>
       <div class="flex items-center gap-2">
+        <NuxtLink
+          to="/client-hub"
+          class="header-hub-link hidden sm:inline-flex items-center gap-1.5 px-3 py-2 min-h-9 text-sm font-bold rounded-lg transition-all duration-300"
+          :aria-label="t('nav.clientHub')"
+        >
+          <Icon name="i-heroicons-book-open" class="w-4 h-4" aria-hidden="true" />
+          <span>{{ t("nav.clientHub") }}</span>
+        </NuxtLink>
         <ColorModeToggle />
         <LanguageSwitcher />
       </div>
@@ -405,6 +408,17 @@ onBeforeUnmount(() => {
               </Transition>
             </div>
           </template>
+
+          <!-- Client Hub link (mobile) -->
+          <div class="mt-2 pt-2 border-t border-(--glass-border-subtle)">
+            <NuxtLink
+              to="/client-hub"
+              class="header-mobile-link flex items-center gap-2 px-4 py-3 rounded-xl text-base font-bold transition-all duration-300"
+            >
+              <Icon name="i-heroicons-book-open" class="w-5 h-5" aria-hidden="true" />
+              <span>{{ t("nav.clientHub") }}</span>
+            </NuxtLink>
+          </div>
         </div>
       </div>
     </template>
@@ -433,9 +447,30 @@ onBeforeUnmount(() => {
 .logo-container {
   border-radius: 8px;
   padding: 0.5rem 0.75rem;
-  background: color-mix(in srgb, var(--color-hero-bg) 70%, transparent);
 }
 
+span {
+  color: var(--color-primary-50);
+}
+
+/* Client Hub link - accent-tinted pill */
+.header-hub-link {
+  color: var(--nav-link-text, var(--ui-text));
+  background: color-mix(in srgb, var(--color-accent-500) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-accent-500) 20%, transparent);
+}
+
+.header-hub-link:hover {
+  background: color-mix(in srgb, var(--color-accent-500) 22%, transparent);
+  border-color: color-mix(in srgb, var(--color-accent-500) 35%, transparent);
+}
+
+.header-hub-link:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--focus-ring),
+    0 0 0 4px var(--ring-offset);
+}
 // Progress bar background (the empty track)
 progress {
   appearance: none;

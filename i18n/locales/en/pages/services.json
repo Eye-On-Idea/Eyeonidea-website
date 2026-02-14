@@ -506,11 +506,55 @@
     "billing": "Subscription-based, monthly recurring",
     "cta": "Find Your Plan"
   },
+  "howWeWork": {
+    "badge": "How We Work",
+    "title": "A Clear, Transparent Process",
+    "subtitle": "From first contact to launch and beyond, every project follows the same professional workflow.",
+    "steps": [
+      {
+        "icon": "i-heroicons-chat-bubble-left-right",
+        "title": "Discover",
+        "description": "We meet to understand your goals, audience, and existing assets."
+      },
+      {
+        "icon": "i-heroicons-document-check",
+        "title": "Propose",
+        "description": "You receive a detailed proposal with scope, timeline, and transparent pricing."
+      },
+      {
+        "icon": "i-heroicons-code-bracket",
+        "title": "Build",
+        "description": "We develop your project with optional check-ins and a pre-launch preview."
+      },
+      {
+        "icon": "i-heroicons-rocket-launch",
+        "title": "Launch",
+        "description": "Your site goes live with 2 weeks of post-launch support included."
+      }
+    ],
+    "cta": "See Full Process"
+  },
   "cta": {
     "badge": "Ready to Start?",
     "title": "Let's Find the Right Solution",
     "description": "Every project starts with understanding what your business actually needs. No predefined solutions - just a conversation about your goals.",
     "primary": "Start a Conversation",
     "secondary": "View Our Work"
+  },
+  "beforeAfter": {
+    "badge": "Real Results",
+    "title": "What Proper Web Development Looks Like",
+    "subtitle": "The difference between a template site and a professionally built digital presence, measured in the metrics that matter.",
+    "sliderLabel": "Drag to compare before and after metrics",
+    "beforeLabel": "Before",
+    "afterLabel": "After - with Eye On Idea",
+    "metrics": [
+      { "label": "Lighthouse Score", "before": "42", "after": "97", "unit": "", "improved": true },
+      { "label": "Load Time", "before": "6.8", "after": "1.2", "unit": "s", "improved": true },
+      { "label": "Accessibility", "before": "51", "after": "100", "unit": "", "improved": true },
+      { "label": "SEO Score", "before": "58", "after": "98", "unit": "", "improved": true },
+      { "label": "CLS Shift", "before": "0.42", "after": "0.01", "unit": "", "improved": true },
+      { "label": "Mobile Score", "before": "35", "after": "95", "unit": "", "improved": true }
+    ]
   }
 }

@@ -1,93 +1,113 @@
 {
   "meta": {
-    "title": "Privacy & Cookies - Eye On Idea",
-    "description": "Privacy policy and cookie policy for Eye On Idea. Learn how we collect, use, and protect your data."
+    "title": "Privacy & Cookie Policy - Eye On Idea",
+    "description": "Privacy policy and cookie policy for Eye On Idea. Learn how we collect, use, and protect your personal data under EU GDPR."
   },
   "hero": {
     "badge": "Policies",
-    "title": "Privacy & Cookies",
+    "title": "Privacy & Cookie Policy",
     "subtitle": "How we collect, use, and protect your information when you visit our website or use our services."
   },
-  "lastUpdated": "Last updated: January 2025",
+  "lastUpdated": "Last updated: February 2026",
   "privacy": {
     "title": "Privacy Policy",
     "sections": {
       "introduction": {
         "title": "1. Introduction",
         "content": [
-          "Eye On Idea (CVR: 45356175) is committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal data in compliance with the EU General Data Protection Regulation (GDPR).",
-          "By using our website or engaging our services, you acknowledge that you have read and understood this privacy policy."
+          "Eye On Idea (CVR: 45356175) is committed to protecting your privacy and handling your personal data responsibly. This Privacy Policy explains how we collect, process, store, and safeguard your personal data in compliance with the EU General Data Protection Regulation (GDPR, Regulation 2016/679) and the Danish Data Protection Act (Databeskyttelsesloven).",
+          "This policy applies to all personal data collected through our website (eyeonidea.com), our contact forms, and in connection with the services we provide."
         ]
       },
       "dataController": {
         "title": "2. Data Controller",
         "content": [
-          "Eye On Idea is the data controller for personal data collected through this website and our services.",
-          "Contact: hello{'@'}eyeonidea.com"
+          "The data controller responsible for the processing of your personal data is:",
+          "Eye On Idea, CVR: 45356175",
+          "Aalborg, Denmark",
+          "Email: hello{'@'}eyeonidea.com | Phone: +45 29 93 05 83",
+          "If you have any questions about how we process your personal data or wish to exercise your rights, please contact us using the details above."
         ]
       },
       "dataCollected": {
-        "title": "3. Data We Collect",
+        "title": "3. Personal Data We Collect",
         "content": [
-          "Contact form submissions: Name, email address, phone number (optional), company name (optional), and message content.",
-          "Project engagements: Business contact details, project requirements, and communication history necessary for service delivery.",
-          "Website analytics: Anonymous usage data such as pages visited, time on site, and general geographic location (country level).",
-          "We do not collect sensitive personal data or data about minors."
+          "Contact form submissions: Name, email address, phone number (optional), company name (optional), subject of inquiry, area of interest, and message content.",
+          "Project engagements: Business contact details, company information, project requirements, communication history, invoicing details, and any other information necessary for service delivery and contract administration.",
+          "Website usage data: Through analytics cookies (with your consent), we collect anonymized data such as pages visited, visit duration, referral source, browser type, and approximate geographic location (country/region level).",
+          "We do not collect special categories of personal data (sensitive data) as defined in GDPR Article 9, nor do we knowingly collect data from children under the age of 16."
         ]
       },
       "purpose": {
-        "title": "4. How We Use Your Data",
+        "title": "4. Purposes of Processing",
         "content": [
-          "To respond to your inquiries and provide requested information.",
-          "To deliver contracted services and manage client relationships.",
-          "To improve our website and services based on usage patterns.",
-          "To comply with legal obligations.",
-          "We will never sell your personal data to third parties or use it for purposes beyond those stated here without your explicit consent."
+          "We process your personal data for the following specific purposes:",
+          "To respond to your inquiries submitted through our contact form or by email.",
+          "To prepare project proposals and enter into service agreements.",
+          "To deliver contracted services, manage ongoing client relationships, and provide support.",
+          "To issue invoices and process payments in connection with our services.",
+          "To improve our website, services, and user experience based on aggregated, anonymized usage patterns.",
+          "To comply with applicable legal obligations, including Danish bookkeeping and tax legislation (Bogføringsloven).",
+          "We will never sell, rent, or trade your personal data to third parties. We will not use your data for purposes beyond those stated in this policy without obtaining your prior explicit consent."
         ]
       },
       "legalBasis": {
         "title": "5. Legal Basis for Processing",
         "content": [
-          "Consent: For contact form submissions and marketing communications.",
-          "Contract: For processing necessary to deliver services you have engaged.",
-          "Legitimate interest: For website analytics and service improvement.",
-          "Legal obligation: Where required by law."
+          "We process your personal data on the following legal bases as defined in GDPR Article 6(1):",
+          "Consent (Art. 6(1)(a)): For contact form submissions, newsletter subscriptions (if applicable), and the use of non-essential cookies such as analytics. You may withdraw your consent at any time without affecting the lawfulness of processing carried out prior to withdrawal.",
+          "Contract (Art. 6(1)(b)): For processing necessary to perform a contract to which you are a party, or to take steps at your request prior to entering into a contract, for example preparing a project proposal or delivering agreed services.",
+          "Legitimate interest (Art. 6(1)(f)): For website security, fraud prevention, and general service improvement. Our legitimate interest is balanced against your rights and will not override your fundamental freedoms.",
+          "Legal obligation (Art. 6(1)(c)): Where processing is necessary to comply with Danish law, including bookkeeping requirements under Bogføringsloven (5-year retention of financial records)."
         ]
       },
       "retention": {
         "title": "6. Data Retention",
         "content": [
-          "Contact form data: Retained for up to 2 years unless you become a client.",
-          "Client data: Retained for the duration of our business relationship plus 5 years for legal and accounting purposes.",
-          "Analytics data: Anonymized and retained for up to 26 months."
+          "We retain personal data only for as long as necessary to fulfill the purposes for which it was collected, or as required by law:",
+          "Contact form inquiries: Up to 2 years from the date of your last communication, unless you become a client or request earlier deletion.",
+          "Client project data: For the duration of our business relationship plus 5 years thereafter, in compliance with Danish bookkeeping legislation (Bogføringsloven §10).",
+          "Invoicing and financial records: 5 years from the end of the financial year, as required by Bogføringsloven.",
+          "Analytics data: Anonymized and retained for up to 14 months (in line with current analytics provider settings).",
+          "When the retention period expires, your data will be securely deleted or fully anonymized."
         ]
       },
       "sharing": {
-        "title": "7. Data Sharing",
+        "title": "7. Data Sharing and International Transfers",
         "content": [
-          "We may share data with trusted service providers who assist in operating our business (hosting, email services, analytics). These providers are bound by data processing agreements.",
-          "We do not transfer data outside the EU/EEA unless adequate safeguards are in place.",
-          "We may disclose data if required by law or to protect our legal rights."
+          "We may share your personal data with the following categories of trusted service providers who assist us in operating our business:",
+          "Hosting provider: Cloudflare (website hosting and CDN). Data is processed within the EU/EEA and in the US under EU-approved safeguards.",
+          "Form handling: FormSubmit.co (contact form processing).",
+          "Analytics: Google Analytics (anonymized website usage data, only with your consent).",
+          "Email and communication: Email service providers used for business correspondence.",
+          "All third-party processors are bound by Data Processing Agreements (DPAs) in compliance with GDPR Article 28. Where data is transferred outside the EU/EEA, we ensure that appropriate safeguards are in place, such as Standard Contractual Clauses (SCCs) approved by the European Commission or an adequacy decision.",
+          "We may also disclose personal data where required by law, court order, or to protect our legitimate legal interests."
         ]
       },
       "rights": {
-        "title": "8. Your Rights",
+        "title": "8. Your Rights Under GDPR",
         "content": [
-          "Under GDPR, you have the right to:",
-          "Access: Request a copy of your personal data.",
-          "Rectification: Request correction of inaccurate data.",
-          "Erasure: Request deletion of your data ('right to be forgotten').",
-          "Restriction: Request limitation of processing.",
-          "Portability: Receive your data in a portable format.",
-          "Objection: Object to processing based on legitimate interest.",
-          "To exercise these rights, contact us at hello{'@'}eyeonidea.com. We will respond within 30 days."
+          "Under the General Data Protection Regulation, you have the following rights regarding your personal data:",
+          "Right of access (Art. 15): Request a copy of the personal data we hold about you.",
+          "Right to rectification (Art. 16): Request correction of inaccurate or incomplete personal data.",
+          "Right to erasure (Art. 17): Request deletion of your personal data ('right to be forgotten'), subject to legal retention obligations.",
+          "Right to restriction (Art. 18): Request that we limit the processing of your data in certain circumstances.",
+          "Right to data portability (Art. 20): Receive your personal data in a structured, commonly used, machine-readable format.",
+          "Right to object (Art. 21): Object to processing based on our legitimate interests. We will cease processing unless we demonstrate compelling legitimate grounds.",
+          "Right to withdraw consent: Where processing is based on consent, you may withdraw it at any time without affecting the lawfulness of prior processing.",
+          "To exercise any of these rights, please contact us at hello{'@'}eyeonidea.com. We will respond to your request within 30 days. If we need more time (up to an additional 60 days for complex requests), we will inform you of the extension and the reasons for the delay.",
+          "We do not engage in automated individual decision-making or profiling as defined in GDPR Article 22."
         ]
       },
       "security": {
         "title": "9. Data Security",
         "content": [
-          "We implement appropriate technical and organizational measures to protect your data, including encryption, secure hosting, and access controls.",
-          "While we strive to protect your data, no method of transmission over the internet is 100% secure."
+          "We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction. These measures include:",
+          "Encryption of data in transit (TLS/SSL) and at rest where applicable.",
+          "Secure hosting infrastructure with regular security updates.",
+          "Access controls limiting data access to authorized personnel only.",
+          "Regular review of our data processing activities and security practices.",
+          "While we take all reasonable steps to protect your data, no method of transmission over the internet or electronic storage is completely secure. In the event of a data breach that poses a risk to your rights and freedoms, we will notify the Danish Data Protection Agency (Datatilsynet) within 72 hours and inform you without undue delay as required by GDPR Articles 33 and 34."
         ]
       }
     }
@@ -98,23 +118,24 @@
       "what": {
         "title": "1. What Are Cookies",
         "content": [
-          "Cookies are small text files stored on your device when you visit a website. They help websites function properly and provide information to site owners."
+          "Cookies are small text files that are placed on your device (computer, tablet, or phone) when you visit a website. They are widely used to make websites function properly, improve performance, and provide information to site owners.",
+          "This Cookie Policy explains what cookies we use, why we use them, and how you can manage your preferences in accordance with the Danish Executive Order on Cookies (Cookiebekendtgørelsen) and the ePrivacy Directive."
         ]
       },
       "types": {
-        "title": "2. Cookies We Use",
+        "title": "2. Types of Cookies We Use",
         "content": [
-          "Essential cookies: Required for the website to function. These cannot be disabled.",
-          "Analytics cookies: Help us understand how visitors use our site (e.g., Google Analytics). These are only set with your consent.",
-          "Preference cookies: Remember your settings such as language and theme preferences."
+          "Essential cookies: These are strictly necessary for the website to function and cannot be disabled. They do not require your consent under EU law.",
+          "Preference cookies: These remember your settings and choices (such as language and theme preferences) to provide a more personalized experience. Set only with your consent.",
+          "Analytics cookies: These help us understand how visitors interact with our website by collecting anonymized data (e.g., pages visited, visit duration). These cookies are only set with your explicit consent."
         ]
       },
       "specific": {
-        "title": "3. Specific Cookies",
+        "title": "3. Cookies Used on This Website",
         "items": [
           {
             "name": "cookie_consent",
-            "purpose": "Stores your cookie preferences",
+            "purpose": "Stores your cookie consent preferences",
             "duration": "1 year",
             "type": "Essential"
           },
@@ -126,42 +147,42 @@
           },
           {
             "name": "locale",
-            "purpose": "Stores your language preference",
+            "purpose": "Stores your preferred language setting",
             "duration": "1 year",
             "type": "Preference"
           },
           {
             "name": "_ga, _gid",
-            "purpose": "Google Analytics - anonymous usage statistics",
-            "duration": "Up to 2 years",
+            "purpose": "Google Analytics: anonymized visitor statistics and usage patterns",
+            "duration": "_ga: 2 years, _gid: 24 hours",
             "type": "Analytics"
           }
         ]
       },
       "manage": {
-        "title": "4. Managing Cookies",
+        "title": "4. Managing Your Cookie Preferences",
         "content": [
-          "You can manage cookie preferences through our cookie consent banner when you first visit the site.",
-          "You can also control cookies through your browser settings. Note that disabling certain cookies may affect website functionality.",
-          "To opt out of Google Analytics across all websites, you can install the Google Analytics Opt-out Browser Add-on."
+          "When you first visit our website, you will be presented with a cookie consent banner where you can accept or decline non-essential cookies. You can update your preferences at any time through our cookie settings.",
+          "You can also manage or delete cookies through your browser settings. Please note that disabling certain cookies may affect the functionality and user experience of our website.",
+          "To opt out of Google Analytics tracking across all websites, you can install the Google Analytics Opt-out Browser Add-on, available free from Google."
         ]
       },
       "thirdParty": {
         "title": "5. Third-Party Cookies",
         "content": [
-          "We may embed content from third parties (e.g., LinkedIn) that set their own cookies. These are governed by the respective third party's privacy policy.",
-          "We recommend reviewing the privacy policies of any third-party services."
+          "Our website may embed content or links from third-party services (such as LinkedIn or other social media platforms) that may set their own cookies when you interact with them. These cookies are governed by the respective third party's privacy and cookie policies and are not under our control.",
+          "We recommend reviewing the privacy policies of any third-party services you interact with through our website."
         ]
       }
     }
   },
   "changes": {
     "title": "Policy Updates",
-    "content": "We may update these policies periodically. Significant changes will be communicated through our website. The 'last updated' date indicates when the policy was last revised."
+    "content": "We may update these policies from time to time to reflect changes in our practices, technology, legal requirements, or other factors. When we make significant changes, we will update the 'last updated' date at the top of this page and, where appropriate, notify you via our website."
   },
   "contact": {
-    "title": "Questions?",
-    "content": "If you have questions about our privacy practices or wish to exercise your data rights, please contact us at hello{'@'}eyeonidea.com.",
-    "complaints": "You also have the right to lodge a complaint with the Danish Data Protection Agency (Datatilsynet) if you believe your data rights have been violated."
+    "title": "Questions or Complaints?",
+    "content": "If you have any questions about our privacy practices, cookie usage, or wish to exercise your data protection rights, please contact us at hello{'@'}eyeonidea.com or by phone at +45 29 93 05 83.",
+    "complaints": "You have the right to lodge a complaint with the Danish Data Protection Agency (Datatilsynet) if you believe your personal data rights have been violated. Datatilsynet can be contacted at: Carl Jacobsens Vej 35, 2500 Valby, Denmark. Phone: +45 33 19 32 00. Email: dt{'@'}datatilsynet.dk. Website: datatilsynet.dk."
   }
 }

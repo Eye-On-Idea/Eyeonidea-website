@@ -1,0 +1,326 @@
+{
+  "meta": {
+    "title": "Client Hub",
+    "description": "Guides and resources to help you manage your website"
+  },
+  "login": {
+    "title": "Client Hub",
+    "subtitle": "Enter your password to access guides and resources",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your access password",
+    "submitButton": "Access Hub",
+    "submitting": "Verifying...",
+    "errorInvalid": "Incorrect password. Please try again or contact your project manager.",
+    "errorRequired": "Please enter your password.",
+    "errorGeneric": "Something went wrong. Please try again.",
+    "helpText": "If you don't have a password, contact your Eye On Idea project manager."
+  },
+  "nav": {
+    "hubTitle": "Client Hub",
+    "backToSite": "Back to main site",
+    "logout": "Log out",
+    "home": "Hub Home",
+    "search": "Search guides...",
+    "noResults": "No guides found for \"{query}\"",
+    "allCategories": "All Categories"
+  },
+  "hub": {
+    "welcomeTitle": "Welcome to your Client Hub",
+    "welcomeDescription": "Find guides and resources to help you manage your website content. Choose a category below to get started.",
+    "categoriesTitle": "Browse by Category",
+    "gettingStartedHighlight": "New here? Start with the Getting Started guides."
+  },
+  "categories": {
+    "getting-started": {
+      "title": "Getting Started",
+      "description": "Set up your account, log in for the first time, and learn the basics of your content management system.",
+      "icon": "i-heroicons-rocket-launch"
+    },
+    "content-management": {
+      "title": "Managing Content",
+      "description": "Learn how to create, edit, and organize your website content.",
+      "icon": "i-heroicons-pencil-square"
+    },
+    "media": {
+      "title": "Media & Images",
+      "description": "Upload, manage, and optimize images and media files for your website.",
+      "icon": "i-heroicons-photo"
+    },
+    "publishing": {
+      "title": "Publishing & Workflow",
+      "description": "Understand how content moves from draft to published, and manage your publishing workflow.",
+      "icon": "i-heroicons-arrow-up-on-square"
+    },
+    "troubleshooting": {
+      "title": "Troubleshooting",
+      "description": "Solutions to common issues with logging in, viewing changes, and permissions.",
+      "icon": "i-heroicons-wrench-screwdriver"
+    },
+    "best-practices": {
+      "title": "Best Practices",
+      "description": "Tips and recommendations for managing your content effectively.",
+      "icon": "i-heroicons-light-bulb"
+    }
+  },
+  "articles": {
+    "accepting-invitation": {
+      "title": "Accepting Your Invitation",
+      "summary": "How to accept the invitation email and create your account."
+    },
+    "logging-in": {
+      "title": "Logging In",
+      "summary": "How to access your content management studio."
+    },
+    "studio-overview": {
+      "title": "Studio Overview",
+      "summary": "A quick orientation to the main areas of the studio interface."
+    },
+    "creating-content": {
+      "title": "Creating Content",
+      "summary": "How to create new content items in the studio."
+    },
+    "editing-content": {
+      "title": "Editing Content",
+      "summary": "How to find and edit existing content on your website."
+    },
+    "understanding-drafts": {
+      "title": "Understanding Drafts",
+      "summary": "The difference between draft and published content, and why it matters."
+    },
+    "uploading-media": {
+      "title": "Uploading Media",
+      "summary": "How to upload images and other media files to the studio."
+    },
+    "managing-media": {
+      "title": "Managing Your Media",
+      "summary": "How to find, organize, and replace media files."
+    },
+    "publishing-changes": {
+      "title": "Publishing Changes",
+      "summary": "How to publish your draft content so it appears on the live website."
+    },
+    "draft-publish-workflow": {
+      "title": "The Draft-to-Publish Workflow",
+      "summary": "An overview of how content flows from draft to live."
+    },
+    "cannot-login": {
+      "title": "Cannot Log In",
+      "summary": "What to do if you are unable to access the studio."
+    },
+    "changes-not-showing": {
+      "title": "Changes Not Appearing",
+      "summary": "What to check when your edits are not visible on the website."
+    },
+    "permission-issues": {
+      "title": "Permission Issues",
+      "summary": "Understanding and resolving access and permission problems."
+    },
+    "content-tips": {
+      "title": "Content Editing Tips",
+      "summary": "Practical tips for writing and formatting content effectively."
+    },
+    "image-guidelines": {
+      "title": "Image Guidelines",
+      "summary": "Recommended sizes, formats, and best practices for images."
+    }
+  },
+  "article": {
+    "lastUpdated": "Last updated",
+    "previousArticle": "Previous",
+    "nextArticle": "Next",
+    "backToCategory": "Back to {category}",
+    "screenshotPlaceholder": "Screenshot will be added here",
+    "studioMayDiffer": "Your studio may look slightly different depending on your project configuration.",
+    "tipLabel": "Tip",
+    "noteLabel": "Note",
+    "warningLabel": "Important",
+    "needHelp": "Need help?",
+    "needHelpText": "If you're stuck or something doesn't look right, contact your Eye On Idea project manager.",
+    "content": {
+      "acceptingInvitation": {
+        "whatToExpect": "What to expect",
+        "whatToExpectText": "When your account is set up, you will receive an invitation email from Sanity. This email contains a link to join your project's content studio. If you don't see the email, check your spam or junk folder.",
+        "steps": "How to accept your invitation",
+        "step1": "Open the invitation email. It will be from Sanity (typically from a sanity.io address).",
+        "step2": "Click the invitation link in the email. This will open a page where you can create your account or sign in.",
+        "step3": "Follow the on-screen prompts to create your account. You may be asked to sign up with Google, GitHub, or email and password - use whichever method was agreed with your project manager.",
+        "step4": "Once your account is created, you should be directed to your project's studio. Bookmark this URL for easy access later.",
+        "tip": "If the invitation link has expired, contact your Eye On Idea project manager to request a new one. Invitation links typically expire after a few days.",
+        "troubleTitle": "Having trouble?",
+        "trouble1": "If the link says it has expired, ask your project manager to resend the invitation.",
+        "trouble2": "If you already have a Sanity account with a different email, let your project manager know so the invitation can be sent to the correct address.",
+        "trouble3": "If you see an error after clicking the link, try opening it in a different browser or in a private/incognito window."
+      },
+      "loggingIn": {
+        "accessTitle": "Accessing your studio",
+        "accessText": "Your content studio is a web application - you access it through your browser. Your project manager will have provided you with the studio URL, or you can find it in your Sanity invitation email.",
+        "stepsTitle": "How to log in",
+        "step1": "Open your studio URL in your browser (e.g., Chrome, Firefox, Safari, or Edge).",
+        "step2": "You will see a login screen. Sign in using the same method you used when accepting your invitation (Google, GitHub, or email and password).",
+        "step3": "After signing in, you will be taken to the studio dashboard where you can manage your content.",
+        "note": "If you don't see the login screen, make sure you're using the correct URL. If you've lost it, contact your project manager.",
+        "bookmarkTitle": "Bookmark your studio",
+        "bookmarkText": "For quick access in the future, we recommend bookmarking your studio URL. This way, you can access it with a single click without needing to search for the link."
+      },
+      "studioOverview": {
+        "introTitle": "Getting oriented",
+        "introText": "When you first open the studio, you'll see the main dashboard. The studio is organized to help you find and manage your content. The exact layout may vary based on your project's configuration, but most studios share a similar structure.",
+        "areasTitle": "Main areas of the studio",
+        "area1Label": "Navigation / Sidebar",
+        "area1Desc": "Usually on the left side, this shows the different content types available in your project (e.g., Pages, Blog Posts, Settings). Click a content type to see all items of that type.",
+        "area2Label": "Content list",
+        "area2Desc": "When you select a content type, you'll see a list of existing items. You can search, filter, and sort this list.",
+        "area3Label": "Editor / Detail view",
+        "area3Desc": "When you click on a specific content item, the editor opens where you can view and modify the content fields.",
+        "tip": "If you don't see a navigation sidebar, look for a menu icon (often three horizontal lines) at the top of the screen, especially on smaller screens."
+      },
+      "creatingContent": {
+        "introTitle": "Creating new content",
+        "introText": "You can create new content items directly in the studio. The types of content you can create depend on how your project is configured - for example, you might have pages, blog posts, team members, or other content types.",
+        "stepsTitle": "How to create a new item",
+        "step1": "Navigate to the content type you want to create (e.g., \"Blog Posts\" or \"Pages\") using the sidebar navigation.",
+        "step2": "Look for a button to create a new item. This is typically a \"+\" icon, a \"Create\" button, or a \"New\" button near the top of the content list. If you don't see it, it may be named differently in your studio.",
+        "step3": "Fill in the fields in the editor. Required fields are typically marked with an indicator. Complete as many fields as you can.",
+        "step4": "Your changes are saved as a draft automatically. When you're ready, publish the item (see the Publishing guide for details).",
+        "note": "The available content types and fields are specific to your project. If you need a new content type or field that doesn't exist yet, contact your project manager.",
+        "fieldsTitle": "Understanding fields",
+        "fieldsText": "Each content type has a set of fields (e.g., title, body text, image, date). Some fields may be required, while others are optional. The studio will typically indicate which fields need to be completed before you can publish.",
+        "tip": "Start by filling in the most important fields first (usually title and main content). You can always come back to add more details later before publishing."
+      },
+      "editingContent": {
+        "findTitle": "Finding content to edit",
+        "findText": "To edit existing content, you first need to find it. Use the sidebar navigation to select the content type, then browse or search the list to find the specific item you want to edit.",
+        "stepsTitle": "How to edit an item",
+        "step1": "Navigate to the content type in the sidebar (e.g., \"Pages\" or \"Blog Posts\").",
+        "step2": "Find the item you want to edit. You can scroll through the list or use the search bar if available.",
+        "step3": "Click on the item to open it in the editor. Make your changes to the fields you want to update.",
+        "step4": "Your changes are saved as a draft automatically. When you're satisfied with the changes, publish them to make them live on the website.",
+        "tip": "If you can't find a specific item, try using the search functionality. You can also check if you're looking in the correct content type - some items may be categorized differently than you expect."
+      },
+      "understandingDrafts": {
+        "whatTitle": "What are drafts?",
+        "whatText": "In your studio, content exists in two states: draft and published. This system allows you to make changes and review them before they go live on your website. Think of it as a built-in safety net - you can edit freely without affecting what visitors see.",
+        "differenceTitle": "Draft vs. published",
+        "draftLabel": "Draft",
+        "draftDesc": "A work-in-progress version of your content. Drafts are only visible inside the studio, not on the live website. You can edit drafts as many times as you like.",
+        "publishedLabel": "Published",
+        "publishedDesc": "The live version of your content that visitors can see on your website. Once you publish a draft, it replaces the current live version.",
+        "warning": "Until you explicitly publish your changes, they will remain as drafts and will not appear on the live website. Don't forget to publish when your edits are ready.",
+        "howToTellTitle": "How to tell if content is a draft",
+        "howToTellText": "The studio typically shows a visual indicator next to each content item to show its status. This might be a colored dot, a label like \"Draft\" or \"Published\", or an icon. The exact appearance depends on your studio's configuration. If you're unsure, look for any status indicators near the item title."
+      },
+      "uploadingMedia": {
+        "introTitle": "Adding media to your content",
+        "introText": "Images and other media files can be uploaded directly through the studio. You can add them when editing a content item (by clicking on an image field) or through a dedicated media section if your studio has one.",
+        "stepsTitle": "How to upload media",
+        "step1": "Open the content item you want to add media to, or navigate to the media section of your studio.",
+        "step2": "Click on an image or file field. You should see an option to upload a new file - this may appear as an upload button, a drag-and-drop area, or a \"Browse\" option.",
+        "step3": "Select the file from your computer and wait for it to upload. Once uploaded, you should see a preview of the image or file name.",
+        "formatsTitle": "Supported formats",
+        "formatsText": "The studio typically supports common image formats such as JPEG, PNG, WebP, and GIF. For best results, use JPEG for photos and PNG for graphics with transparency. Check the Image Guidelines article for specific size recommendations.",
+        "tip": "Before uploading, make sure your images are appropriately sized. Very large image files can slow down your website. See the Image Guidelines article for recommended sizes."
+      },
+      "managingMedia": {
+        "findingTitle": "Finding your media",
+        "findingText": "Depending on your studio configuration, you may have a dedicated media library section where all uploaded files are listed. You can also find images attached to specific content items by opening those items in the editor.",
+        "replacingTitle": "Replacing media",
+        "replacingText": "To replace an existing image, open the content item containing the image, click on the image field, and upload a new file. The old file will be replaced. Note that in some configurations, the old file may remain in the media library even after replacement.",
+        "note": "Changes to media (like replacing an image) follow the same draft/publish workflow as other content. You'll need to publish the content item for the updated media to appear on the live website."
+      },
+      "publishingChanges": {
+        "introTitle": "Making your changes live",
+        "introText": "After editing content in the studio, your changes exist as drafts. To make them visible on your website, you need to publish them.",
+        "stepsTitle": "How to publish",
+        "step1": "Open the content item you want to publish. Review your changes to make sure everything looks correct.",
+        "step2": "Look for the \"Publish\" button. This is typically located in the bottom action bar or in the top-right area of the editor. If you don't see a \"Publish\" button, it may be labeled differently in your studio.",
+        "step3": "Click \"Publish\". The content will be updated on the live website.",
+        "warning": "Once published, changes are immediately live (or within a few minutes, depending on your website's caching configuration). Double-check your content before publishing.",
+        "delayTitle": "Changes might take a few minutes",
+        "delayText": "Depending on your website's configuration, there may be a short delay (typically a few minutes) between publishing in the studio and seeing the changes on the live website. This is normal and happens because of caching. If your changes don't appear after several minutes, see the Troubleshooting section."
+      },
+      "draftPublishWorkflow": {
+        "overviewTitle": "How the workflow works",
+        "overviewText": "Your content studio uses a draft-to-publish workflow. This means you can make changes freely without affecting the live website, then publish when you're ready. This gives you a safe space to experiment and review before going live.",
+        "flowTitle": "The typical workflow",
+        "flow1": "Create or edit content - your changes are automatically saved as a draft.",
+        "flow2": "Review your changes - take your time to check everything looks correct.",
+        "flow3": "Publish - click the Publish button to make your changes live on the website.",
+        "flow4": "Verify - check the live website to confirm your changes appear as expected.",
+        "tip": "You can make multiple rounds of edits to a draft before publishing. There's no rush - drafts are saved automatically, and you can come back to them at any time."
+      },
+      "cannotLogin": {
+        "commonTitle": "Common login issues",
+        "commonText": "If you're having trouble logging into the studio, here are the most common causes and solutions.",
+        "cause1Title": "Wrong login method",
+        "cause1Text": "Make sure you're using the same sign-in method you used when you first accepted the invitation (Google, GitHub, or email/password). Using a different method may create a separate account that doesn't have access to your project.",
+        "cause2Title": "Wrong email address",
+        "cause2Text": "Verify that you're signing in with the email address that received the original invitation. If you have multiple email accounts, make sure you're using the correct one.",
+        "cause3Title": "Expired invitation",
+        "cause3Text": "If you never completed the sign-up process and the invitation link has expired, contact your project manager to request a new invitation.",
+        "cause4Title": "Browser issues",
+        "cause4Text": "Try clearing your browser cache and cookies, or try logging in using a private/incognito window. If that works, the issue may be a stale session or conflicting cookies.",
+        "warning": "If none of these solutions work, contact your Eye On Idea project manager. Do not repeatedly attempt to log in, as this could temporarily lock your account."
+      },
+      "changesNotShowing": {
+        "introTitle": "When edits don't appear",
+        "introText": "If you've made changes in the studio but they're not visible on the live website, work through this checklist.",
+        "checklistTitle": "What to check",
+        "check1": "Did you publish? Changes remain as drafts until you click the Publish button. Open the content item and check its status.",
+        "check2": "Wait a few minutes. Depending on your website's caching configuration, there can be a short delay (typically 1–5 minutes) before published changes appear.",
+        "check3": "Clear your browser cache or try a hard refresh (Ctrl+Shift+R on Windows, Cmd+Shift+R on Mac). Your browser may be showing a cached version of the page.",
+        "check4": "Try viewing the page in a private/incognito window. If the changes appear there but not in your regular browser, it's a browser cache issue.",
+        "tip": "If changes still don't appear after checking all the above, contact your project manager. There may be a deployment or caching issue that needs attention."
+      },
+      "permissionIssues": {
+        "introTitle": "Understanding permissions",
+        "introText": "Your studio access level determines what you can see and do. Permissions are set by your project administrator. If you're experiencing restrictions, it may be by design based on your role.",
+        "symptomsTitle": "Common permission symptoms",
+        "symptom1": "You can view content but cannot edit or publish it.",
+        "symptom2": "Certain content types are not visible in the sidebar navigation.",
+        "symptom3": "You see an error message like \"Insufficient permissions\" when trying to perform an action.",
+        "whatToDoTitle": "What to do",
+        "whatToDoText": "If you believe you need additional permissions, contact your Eye On Idea project manager. Let them know what you're trying to do and what error or limitation you're experiencing. They can adjust your role in the project.",
+        "note": "Permissions are managed at the project level in Sanity. Your project manager can update your role without needing to create a new account."
+      },
+      "contentTips": {
+        "introTitle": "Writing effective content",
+        "introText": "Good content practices help keep your website professional and easy for visitors to read. Here are practical tips for working in the studio.",
+        "writingTitle": "Writing tips",
+        "writing1": "Write in clear, simple language. Avoid jargon unless your audience expects it.",
+        "writing2": "Use short paragraphs. Long blocks of text are harder to read online.",
+        "writing3": "Use descriptive headings to help readers scan the page and find what they need.",
+        "writing4": "Proofread before publishing. Check for spelling errors, broken links, and formatting issues.",
+        "formattingTitle": "Formatting tips",
+        "formatting1": "Use the built-in formatting tools (headings, bold, lists) rather than trying to format manually with spaces or special characters.",
+        "formatting2": "Use bullet points or numbered lists for items that work as a list - they're easier to scan than long paragraphs.",
+        "formatting3": "Avoid excessive use of bold, italic, or ALL CAPS. Use them sparingly for emphasis.",
+        "tip": "Preview your content before publishing if your studio supports it. What looks good in the editor may appear differently on the live website."
+      },
+      "imageGuidelines": {
+        "introTitle": "Image best practices",
+        "introText": "Using appropriately sized and formatted images keeps your website fast and looking professional. Here are guidelines to follow when preparing images for upload.",
+        "formatsTitle": "Recommended formats",
+        "format1": "JPEG (.jpg) - Best for photographs and images with many colors. Good balance of quality and file size.",
+        "format2": "PNG (.png) - Best for graphics, logos, and images that need transparency. Produces larger files than JPEG.",
+        "format3": "WebP (.webp) - Modern format with excellent compression. Supported by most modern browsers. Ideal if available.",
+        "sizesTitle": "Recommended sizes",
+        "sizesText": "As a general guideline, aim for images that are no wider than 2000 pixels and no larger than 500 KB in file size. Your specific project may have different recommendations - contact your project manager if you're unsure about the ideal dimensions for your website.",
+        "dosTitle": "Do",
+        "do1": "Resize images to appropriate dimensions before uploading. Don't upload a 5000px photo if it will only be displayed at 800px.",
+        "do2": "Use descriptive file names (e.g., 'team-meeting-2025.jpg' rather than 'IMG_4521.jpg'). This helps with organization and SEO.",
+        "do3": "Add alt text (alternative text) when the field is available. Alt text describes the image for screen readers and search engines.",
+        "dontsTitle": "Don't",
+        "dont1": "Don't upload very large files (over 5 MB). They slow down the website and take longer to load for visitors.",
+        "dont2": "Don't use images with text embedded in them as the primary content - the text won't be searchable or accessible.",
+        "dont3": "Don't stretch or distort images. If an image doesn't fit the required dimensions, crop or resize it proportionally."
+      }
+    }
+  },
+  "categoryCard": {
+    "guideCount": "{count} guides | {count} guide | {count} guides",
+    "browse": "Browse guides"
+  },
+  "breadcrumb": {
+    "hub": "Client Hub"
+  }
+}

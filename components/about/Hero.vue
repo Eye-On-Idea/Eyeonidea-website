@@ -1,15 +1,21 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { computed } from "vue";
+import { useWindowScroll, usePreferredReducedMotion } from "@vueuse/core";
+import { animationPresets, withDelay } from "~/composables/useAccessibleMotion";
 
 const { t } = useI18n();
 
-const isVisible = ref(false);
+// Parallax scroll
+const { y: scrollY } = useWindowScroll();
+const reducedMotion = usePreferredReducedMotion();
+const prefersReduced = computed(() => reducedMotion.value === "reduce");
 
-onMounted(() => {
-  setTimeout(() => {
-    isVisible.value = true;
-  }, 100);
-});
+const bgGradientStyle = computed(() =>
+  prefersReduced.value ? {} : { transform: `translateY(${scrollY.value * 0.3}px)` }
+);
+const bgPatternStyle = computed(() =>
+  prefersReduced.value ? {} : { transform: `translateY(${scrollY.value * 0.15}px)` }
+);
 </script>
 
 <template>
@@ -19,28 +25,49 @@ onMounted(() => {
   >
     <!-- Background -->
     <div class="hero-background" aria-hidden="true">
-      <div class="bg-gradient" />
-      <div class="bg-pattern" />
+      <div class="bg-gradient" :style="bgGradientStyle" />
+      <ClientOnly>
+        <ThreeParticleWaves
+          :particle-count="2000"
+          :wave-amplitude="0.5"
+          class="hero-particles"
+        />
+      </ClientOnly>
+      <div class="bg-pattern" :style="bgPatternStyle" />
     </div>
 
     <!-- Content -->
     <div class="hero-content">
-      <div
-        class="content-wrapper"
-        :class="{ 'animate-in': isVisible }"
+      <span
+        class="hero-badge glass-brand"
+        v-motion
+        :initial="animationPresets.fadeInUp.initial"
+        :visible-once="withDelay('fadeInUp', 100).visible"
       >
-        <span class="hero-badge glass-brand">
-          {{ t("about.hero.badge") }}
-        </span>
+        {{ t("about.hero.badge") }}
+      </span>
 
-        <h1 id="about-hero-heading" class="hero-title">
-          {{ t("about.hero.title") }}
-        </h1>
+      <h1
+        id="about-hero-heading"
+        class="hero-title"
+        style="text-wrap: balance"
+      >
+        <TextReveal
+          :text="t('about.hero.title')"
+          word-class="text-gradient"
+          :delay="250"
+          :stagger="70"
+        />
+      </h1>
 
-        <p class="hero-subtitle">
-          {{ t("about.hero.subtitle") }}
-        </p>
-      </div>
+      <p
+        class="hero-subtitle"
+        v-motion
+        :initial="animationPresets.fadeInUp.initial"
+        :visible-once="withDelay('fadeInUp', 400).visible"
+      >
+        {{ t("about.hero.subtitle") }}
+      </p>
     </div>
   </section>
 </template>
@@ -68,13 +95,14 @@ onMounted(() => {
 
 .bg-gradient {
   position: absolute;
-  inset: 0;
+  inset: -20% 0;
   background: var(--color-hero-bg-gradient);
+  will-change: transform;
 }
 
 .bg-pattern {
   position: absolute;
-  inset: 0;
+  inset: -10% 0;
   background:
     radial-gradient(
       ellipse at 25% 35%,
@@ -86,24 +114,21 @@ onMounted(() => {
       rgba(42, 147, 134, 0.08) 0%,
       transparent 50%
     );
+  will-change: transform;
+}
+
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.6;
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 800px;
   text-align: center;
-}
-
-.content-wrapper {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .hero-badge {
@@ -129,6 +154,11 @@ onMounted(() => {
   }
 }
 
+.hero-title :deep(.text-gradient) {
+  background-size: 200% auto;
+  animation: shimmer 6s ease-in-out infinite;
+}
+
 .hero-subtitle {
   font-size: var(--text-lg);
   line-height: 1.7;
@@ -142,10 +172,13 @@ onMounted(() => {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .content-wrapper {
-    opacity: 1;
-    transform: none;
-    transition: none;
+  .hero-title :deep(.text-gradient) {
+    animation: none;
+  }
+
+  .bg-gradient,
+  .bg-pattern {
+    will-change: auto;
   }
 }
 </style>

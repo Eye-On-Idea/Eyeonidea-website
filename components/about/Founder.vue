@@ -1,58 +1,55 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { animationPresets, withDelay } from "~/composables/useAccessibleMotion";
 
 const { t, tm } = useI18n();
-
-const sectionRef = ref<HTMLElement | null>(null);
-const isVisible = ref(false);
-
-onMounted(() => {
-  if (!sectionRef.value) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true;
-          observer.disconnect();
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  observer.observe(sectionRef.value);
-
-  onUnmounted(() => {
-    observer.disconnect();
-  });
-});
 </script>
 
 <template>
   <section
-    ref="sectionRef"
     class="about-founder"
     aria-labelledby="founder-heading"
   >
     <div class="section-container">
-      <div class="founder-grid" :class="{ 'animate-in': isVisible }">
+      <div class="founder-grid">
         <!-- Photo Side -->
-        <div class="photo-wrapper">
+        <div
+          class="photo-wrapper"
+          v-motion
+          :initial="animationPresets.slideInLeft.initial"
+          :visible-once="animationPresets.slideInLeft.visible"
+        >
           <div class="photo-container">
-            <img
-              src="/public-material/profile-picture.png"
-              :alt="t('about.founder.name')"
-              class="founder-photo"
-            />
+            <ClientOnly>
+              <LiquidGlass class="liquid-glass-photo">
+                <img
+                  src="/public-material/profile-picture.png"
+                  :alt="t('about.founder.name')"
+                  class="founder-photo"
+                  loading="lazy"
+                />
+              </LiquidGlass>
+              <template #fallback>
+                <img
+                  src="/public-material/profile-picture.png"
+                  :alt="t('about.founder.name')"
+                  class="founder-photo"
+                  loading="lazy"
+                />
+              </template>
+            </ClientOnly>
             <div class="photo-backdrop" aria-hidden="true" />
           </div>
         </div>
 
         <!-- Content Side -->
-        <div class="content-wrapper">
+        <div
+          class="content-wrapper"
+          v-motion
+          :initial="animationPresets.slideInRight.initial"
+          :visible-once="withDelay('slideInRight', 200).visible"
+        >
           <span class="section-badge">{{ t("about.founder.badge") }}</span>
-          <h2 id="founder-heading" class="founder-name">
+          <h2 id="founder-heading" class="founder-name" style="text-wrap: balance">
             {{ t("about.founder.name") }}
           </h2>
           <p class="founder-role">{{ t("about.founder.role") }}</p>
@@ -82,9 +79,7 @@ onMounted(() => {
             rel="noopener noreferrer"
             class="linkedin-link"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="linkedin-icon">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
+            <UIcon name="i-lucide-linkedin" class="linkedin-icon" aria-hidden="true" />
             {{ t("about.founder.connect") }}
           </a>
         </div>
@@ -113,14 +108,6 @@ onMounted(() => {
   grid-template-columns: 1fr;
   gap: 3rem;
   align-items: center;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
 
   @media (min-width: 768px) {
     grid-template-columns: 0.8fr 1.2fr;
@@ -148,6 +135,15 @@ onMounted(() => {
   }
 }
 
+.liquid-glass-photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
 .founder-photo {
   position: relative;
   z-index: 1;
@@ -169,6 +165,20 @@ onMounted(() => {
   border-radius: var(--radius-xl);
   transform: translate(12px, 12px);
   opacity: 0.3;
+}
+
+// Scroll-driven parallax on photo (progressive enhancement)
+@supports (animation-timeline: view()) {
+  .photo-container {
+    animation: founderFloat linear;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+
+  @keyframes founderFloat {
+    from { transform: translateY(20px); }
+    to { transform: translateY(-20px); }
+  }
 }
 
 .content-wrapper {
@@ -251,6 +261,7 @@ onMounted(() => {
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.25rem;
+  min-height: 48px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius-md);
@@ -264,18 +275,15 @@ onMounted(() => {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.25);
   }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-400);
+    outline-offset: 4px;
+  }
 }
 
 .linkedin-icon {
   width: 1.25rem;
   height: 1.25rem;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .founder-grid {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
 }
 </style>

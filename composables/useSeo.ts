@@ -361,8 +361,8 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
     organizationSchema.address = [
       {
         "@type": "PostalAddress",
-        addressLocality: "Copenhagen",
-        addressRegion: "Capital Region",
+        addressLocality: "Aalborg",
+        addressRegion: "North Jutland",
         addressCountry: "DK",
       },
     ];

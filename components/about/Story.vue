@@ -1,58 +1,48 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { animationPresets, withDelay } from "~/composables/useAccessibleMotion";
 
 const { t, tm } = useI18n();
-
-const sectionRef = ref<HTMLElement | null>(null);
-const isVisible = ref(false);
-
-onMounted(() => {
-  if (!sectionRef.value) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true;
-          observer.disconnect();
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  observer.observe(sectionRef.value);
-
-  onUnmounted(() => {
-    observer.disconnect();
-  });
-});
 </script>
 
 <template>
   <section
-    ref="sectionRef"
     class="about-story"
     aria-labelledby="story-heading"
   >
     <div class="section-container">
-      <div
-        class="content-wrapper"
-        :class="{ 'animate-in': isVisible }"
-      >
-        <span class="section-badge">{{ t("about.story.badge") }}</span>
-        <h2 id="story-heading" class="section-title">
-          {{ t("about.story.title") }}
-        </h2>
+      <div class="story-grid">
+        <!-- Left: Heading -->
+        <div
+          class="story-heading-col"
+          v-motion
+          :initial="animationPresets.slideInLeft.initial"
+          :visible-once="animationPresets.slideInLeft.visible"
+        >
+          <span class="section-badge">{{ t("about.story.badge") }}</span>
+          <h2 id="story-heading" class="section-title" style="text-wrap: balance">
+            {{ t("about.story.title") }}
+          </h2>
+        </div>
 
-        <div class="story-content">
-          <p
-            v-for="(paragraph, index) in tm('about.story.paragraphs') as string[]"
-            :key="index"
-            class="story-paragraph"
-          >
-            {{ paragraph }}
-          </p>
+        <!-- Right: Paragraphs -->
+        <div
+          class="story-content-col"
+          v-motion
+          :initial="animationPresets.slideInRight.initial"
+          :visible-once="withDelay('slideInRight', 200).visible"
+        >
+          <div class="story-content">
+            <p
+              v-for="(paragraph, index) in tm('about.story.paragraphs') as string[]"
+              :key="index"
+              class="story-paragraph"
+              v-motion
+              :initial="animationPresets.staggerItem.initial"
+              :visible-once="withDelay('staggerItem', 300 + index * 150).visible"
+            >
+              {{ paragraph }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -70,18 +60,26 @@ onMounted(() => {
 }
 
 .section-container {
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-.content-wrapper {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1.4fr;
+    gap: 4rem;
+    align-items: start;
+  }
+}
+
+.story-heading-col {
+  @media (min-width: 768px) {
+    position: sticky;
+    top: 8rem;
   }
 }
 
@@ -101,10 +99,29 @@ onMounted(() => {
 .section-title {
   font-size: var(--text-3xl);
   color: var(--color-text);
-  margin-bottom: 2rem;
+  line-height: 1.15;
 
   @media (min-width: 768px) {
     font-size: var(--text-4xl);
+  }
+}
+
+.story-content-col {
+  border-left: 3px solid var(--color-accent-200);
+  padding-left: 2rem;
+}
+
+// Scroll-driven border color shift (progressive enhancement)
+@supports (animation-timeline: view()) {
+  .story-content-col {
+    animation: borderColorShift linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
+  }
+
+  @keyframes borderColorShift {
+    from { border-left-color: var(--color-accent-200); }
+    to { border-left-color: var(--color-primary-500); }
   }
 }
 
@@ -134,13 +151,9 @@ onMounted(() => {
     background: var(--color-primary-900);
     color: var(--color-primary-300);
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .content-wrapper {
-    opacity: 1;
-    transform: none;
-    transition: none;
+  .story-content-col {
+    border-left-color: var(--color-accent-700);
   }
 }
 </style>

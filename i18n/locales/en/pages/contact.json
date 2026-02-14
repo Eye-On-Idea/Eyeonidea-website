@@ -48,6 +48,8 @@
     },
     "submit": "Send Message",
     "submitting": "Sending...",
+    "successMessage": "Thank you! Your message has been sent. We'll get back to you within 24 hours.",
+    "errorMessage": "Something went wrong. Please try again or contact us directly at hello@eyeonidea.com.",
     "gdprNotice": "By contacting Eye On Idea, you consent to be contacted via the information provided regarding your inquiry. Under the EU's GDPR regulation, your data will only be used for communication related to your inquiry and will never be shared with third parties."
   },
   "info": {
@@ -66,7 +68,7 @@
     },
     "location": {
       "title": "Location",
-      "address": "Copenhagen, Denmark",
+      "address": "Aalborg, Denmark",
       "description": "Serving clients across Denmark, the Nordics, and the European Union."
     },
     "hours": {

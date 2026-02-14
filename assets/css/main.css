@@ -191,6 +191,11 @@
   --color-text-inverse: #f8fafc;
   --color-disabled: #94a3b8;
 
+  /* Three-tier text aliases for component usage */
+  --color-text-primary: #1f1f1f;
+  --color-text-secondary: #475569;
+  --color-text-tertiary: #64748b;
+
   /* Links - WCAG AA on light backgrounds */
   --link: #67280e; /* primary-700 - improved contrast */
   --link-hover: #481f0a; /* primary-800 */
@@ -334,6 +339,11 @@ html.dark,
   --color-text-subtle: #94a3b8;
   --color-text-inverse: #161616;
   --color-disabled: #64748b;
+
+  /* Three-tier text aliases for component usage */
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #e2e8f0;
+  --color-text-tertiary: #94a3b8;
 
   /* Links - WCAG AA on dark backgrounds */
   --link: #dfaf85; /* primary-200 */
@@ -654,7 +664,11 @@ html:not(.dark) .header-main {
   --nav-mobile-text: var(--ui-text);
   --nav-mobile-bg-hover: color-mix(in srgb, var(--ui-text) 8%, transparent);
   --nav-mobile-toggle-text: var(--ui-text-highlighted);
-  --nav-mobile-toggle-hover: color-mix(in srgb, var(--ui-text) 10%, transparent);
+  --nav-mobile-toggle-hover: color-mix(
+    in srgb,
+    var(--ui-text) 10%,
+    transparent
+  );
   --nav-mobile-child-hover: color-mix(in srgb, var(--ui-text) 6%, transparent);
 }
 
@@ -679,7 +693,11 @@ html.dark .header-main {
   --nav-dropdown-item-active-text: var(--ui-text-highlighted);
   --nav-mobile-text: var(--ui-text);
   --nav-mobile-bg-hover: color-mix(in srgb, var(--ui-text) 10%, transparent);
-  --nav-mobile-bg-active: color-mix(in srgb, var(--ui-primary) 20%, transparent);
+  --nav-mobile-bg-active: color-mix(
+    in srgb,
+    var(--ui-primary) 20%,
+    transparent
+  );
   --nav-mobile-border: color-mix(in srgb, var(--ui-primary) 40%, transparent);
   --nav-mobile-child-hover: color-mix(in srgb, var(--ui-text) 8%, transparent);
   --nav-mobile-child-active-bg: color-mix(
@@ -689,7 +707,11 @@ html.dark .header-main {
   );
   --nav-mobile-child-active-border: var(--ui-primary);
   --nav-mobile-toggle-text: var(--ui-text);
-  --nav-mobile-toggle-hover: color-mix(in srgb, var(--ui-text) 12%, transparent);
+  --nav-mobile-toggle-hover: color-mix(
+    in srgb,
+    var(--ui-text) 12%,
+    transparent
+  );
 }
 
 .header-nav-link {
@@ -947,6 +969,26 @@ html.dark .header-main {
 
 .hover-glow:hover {
   box-shadow: 0 0 30px rgba(42, 147, 134, 0.3); /* accent-500 based */
+}
+
+/* =========================
+   Page Transitions (Nuxt route navigation)
+   ========================= */
+.page-enter-active,
+.page-leave-active {
+  transition:
+    opacity var(--duration-normal) var(--ease-smooth),
+    transform var(--duration-normal) var(--ease-smooth);
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
 }
 
 /* Keyframes */
@@ -1277,6 +1319,18 @@ html.dark .header-main {
 
   .link-underline::after {
     width: 100%;
+  }
+
+  /* Page transitions - instant swap, no motion */
+  .page-enter-active,
+  .page-leave-active {
+    transition: none;
+  }
+
+  .page-enter-from,
+  .page-leave-to {
+    opacity: 1;
+    transform: none;
   }
 }
 

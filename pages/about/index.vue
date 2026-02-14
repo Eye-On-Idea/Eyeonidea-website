@@ -29,7 +29,7 @@ useHead({
     <AboutStory />
     <AboutFounder />
     <AboutValues />
-    <AboutApproach />
+    <AboutLocation />
     <AboutCTA />
   </div>
 </template>

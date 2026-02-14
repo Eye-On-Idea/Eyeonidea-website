@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from "vue";
-import { TresCanvas, useRenderLoop } from "@tresjs/core";
+import { TresCanvas } from "@tresjs/core";
 import {
   BufferGeometry,
   Float32BufferAttribute,
@@ -9,7 +8,6 @@ import {
   Color,
 } from "three";
 
-// Props for customization
 const props = withDefaults(
   defineProps<{
     particleCount?: number;
@@ -22,37 +20,11 @@ const props = withDefaults(
     particleCount: 5000,
     waveSpeed: 0.5,
     waveAmplitude: 0.8,
-    primaryColor: "#dfaf85", // primary-200
-    secondaryColor: "#64c6b7", // accent-300
+    primaryColor: "#dfaf85",
+    secondaryColor: "#64c6b7",
   }
 );
 
-// Refs for Three.js objects
-const pointsRef = ref<THREE.Points | null>(null);
-const geometryRef = ref<BufferGeometry | null>(null);
-const time = ref(0);
-
-// Reduced motion preference
-const prefersReducedMotion = ref(false);
-
-onMounted(() => {
-  prefersReducedMotion.value = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-  // Listen for changes
-  const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const handleChange = (e: MediaQueryListEvent) => {
-    prefersReducedMotion.value = e.matches;
-  };
-  mediaQuery.addEventListener("change", handleChange);
-
-  onUnmounted(() => {
-    mediaQuery.removeEventListener("change", handleChange);
-  });
-});
-
-// Create particle geometry
 const createParticles = () => {
   const geometry = new BufferGeometry();
   const positions = new Float32Array(props.particleCount * 3);
@@ -63,7 +35,6 @@ const createParticles = () => {
   const secondaryCol = new Color(props.secondaryColor);
 
   for (let i = 0; i < props.particleCount; i++) {
-    // Distribute particles in a wide plane
     const x = (Math.random() - 0.5) * 20;
     const y = (Math.random() - 0.5) * 10;
     const z = (Math.random() - 0.5) * 10;
@@ -72,7 +43,6 @@ const createParticles = () => {
     positions[i * 3 + 1] = y;
     positions[i * 3 + 2] = z;
 
-    // Interpolate between primary and secondary colors
     const mixFactor = Math.random();
     const color = primaryCol.clone().lerp(secondaryCol, mixFactor);
 
@@ -90,7 +60,6 @@ const createParticles = () => {
   return geometry;
 };
 
-// Create material
 const createMaterial = () => {
   return new PointsMaterial({
     size: 0.05,
@@ -103,44 +72,8 @@ const createMaterial = () => {
   });
 };
 
-// Animation loop
-const { onLoop } = useRenderLoop();
-
-onLoop(({ delta }) => {
-  if (prefersReducedMotion.value) return;
-  if (!pointsRef.value || !geometryRef.value) return;
-
-  time.value += delta * props.waveSpeed;
-
-  const positions = geometryRef.value.attributes.position.array as Float32Array;
-  const originalPositions =
-    geometryRef.value.userData.originalPositions as Float32Array;
-
-  if (!originalPositions) {
-    // Store original positions on first run
-    geometryRef.value.userData.originalPositions = new Float32Array(positions);
-    return;
-  }
-
-  for (let i = 0; i < positions.length; i += 3) {
-    const x = originalPositions[i];
-    const z = originalPositions[i + 2];
-
-    // Create flowing wave effect
-    const waveX = Math.sin(x * 0.5 + time.value) * props.waveAmplitude;
-    const waveZ = Math.cos(z * 0.5 + time.value * 0.8) * props.waveAmplitude;
-
-    positions[i + 1] =
-      originalPositions[i + 1] + waveX * 0.5 + waveZ * 0.3;
-  }
-
-  geometryRef.value.attributes.position.needsUpdate = true;
-});
-
-// Initialize geometry and material
 const geometry = createParticles();
 const material = createMaterial();
-geometryRef.value = geometry;
 </script>
 
 <template>
@@ -155,9 +88,20 @@ geometryRef.value = geometry;
     <TresPerspectiveCamera :position="[0, 0, 8]" :fov="60" />
     <TresAmbientLight :intensity="0.5" />
 
-    <TresPoints ref="pointsRef" :geometry="geometry" :material="material">
-      <TresBufferGeometry ref="geometryRef" />
-    </TresPoints>
+    <ThreeParticleWaveAnimation
+      :wave-speed="waveSpeed"
+      :wave-amplitude="waveAmplitude"
+      :geometry="geometry"
+    >
+      <TresPointsMaterial
+        :size="0.05"
+        :vertex-colors="true"
+        :transparent="true"
+        :opacity="0.6"
+        :depth-write="false"
+        :size-attenuation="true"
+      />
+    </ThreeParticleWaveAnimation>
   </TresCanvas>
 </template>
 

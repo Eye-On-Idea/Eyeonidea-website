@@ -1,124 +1,141 @@
-Eye On Idea – Proprietary Website License
+Eye On Idea - Proprietary Website License
 
-Version 1.0
-Effective date: [14 January 2026]
+Version 1.1
+Effective date: 12 February 2026
 
 1. Parties
 
-This Website License (“License”) is entered into between:
+This Website License ("License") is entered into between:
 
 Licensor:
 Eye On Idea
 CVR: 45356175
-Denmark
-(“Licensor”)
+Aalborg, Denmark
+Email: hello@eyeonidea.com
+Phone: +45 29 93 05 83
+("Licensor")
 
 and
 
 Licensee:
-Eye On Idea
-CVR: 45356175
-Denmark
-(“Client” or “Licensee”).
+[Licensee Name]
+[CVR / Company Registration Number]
+[Address]
+("Client" or "Licensee").
 
 This License is intended exclusively for business-to-business (B2B) transactions.
+If the Licensee is a consumer, additional mandatory rights under Danish and EU consumer protection law may apply.
+
 2. Definitions
 
-“Website” means the complete digital solution delivered by Licensor, including source code, compiled code, markup, stylesheets, scripts, configuration files, design assets, layouts, animations, CMS schemas, and documentation.
+"Website" means the complete digital solution delivered by Licensor, including source code, compiled code, markup, stylesheets, scripts, configuration files, design assets, layouts, animations, CMS schemas, and documentation.
 
-“Deliverables” means the Website and any materials explicitly agreed in writing.
+"Deliverables" means the Website and any materials explicitly agreed in writing.
 
-“Underlying Components” means frameworks, libraries, design systems, reusable components, technical patterns, tooling, workflows, and methodologies developed or owned by Licensor prior to or independently of the Website.
+"Underlying Components" means frameworks, libraries, design systems, reusable components, technical patterns, tooling, workflows, and methodologies developed or owned by Licensor prior to or independently of the Website.
 
 3. Grant of License
 
 Subject to full payment and compliance with this License, Licensor grants Licensee a perpetual, non-exclusive, non-transferable license to:
 
-Use and operate the Website for Licensee’s own internal and commercial business purposes
-
-Modify the Website solely for Licensee’s own business needs
-
-Host the Website on infrastructure of Licensee’s choosing
+- Use and operate the Website for Licensee's own internal and commercial business purposes
+- Modify the Website solely for Licensee's own business needs
+- Host the Website on infrastructure of Licensee's choosing
 
 The license granted under this Section shall survive termination, provided that the Licensee is not in material breach at the time of termination.
 
 4. Ownership and Intellectual Property
+
 4.1 Licensor Rights
 
 Licensor retains all intellectual property rights to:
 
-Underlying Components
+- Underlying Components
+- Development architecture, structure, and technical solutions
+- Reusable code, layouts, design systems, and workflows
 
-Development architecture, structure, and technical solutions
-
-Reusable code, layouts, design systems, and workflows
-
-No rights are transferred by implication.
+No rights are transferred by implication. Transfer of intellectual property in custom work created specifically for the Licensee is effective only upon full and final payment, in accordance with Section 55 of the Danish Copyright Act (Ophavsretsloven).
 
 4.2 Licensee Rights
 
 Licensee retains ownership of:
 
-All content supplied by Licensee
-
-Licensee-specific content created exclusively for the Website, to the extent such content does not incorporate Underlying Components
+- All content supplied by Licensee
+- Licensee-specific content created exclusively for the Website, to the extent such content does not incorporate Underlying Components
 
 5. Restrictions
 
 Unless expressly agreed in writing, Licensee may not:
 
-Sell, sublicense, lease, or redistribute the Website or any substantial part thereof
-
-Reuse the Website, in whole or in substantial part, as a template, framework, or basis for other websites, digital products, or client projects
-
-Make the Website publicly available as open source
-
-Remove copyright or attribution notices
-
-Represent itself as the author of the Website’s technical or design implementation
+- Sell, sublicense, lease, or redistribute the Website or any substantial part thereof
+- Reuse the Website, in whole or in substantial part, as a template, framework, or basis for other websites, digital products, or client projects
+- Make the Website publicly available as open source
+- Remove copyright or attribution notices
+- Represent itself as the author of the Website's technical or design implementation
 
 6. Reuse by Licensor
 
 Licensor may reuse general ideas, technical solutions, components, layouts, and design patterns from the Website in other projects, provided that such reuse does not include Licensee-specific branding, business logic, or confidential information.
 
-Licensor may display the Website in portfolios and marketing material unless otherwise agreed.
+Licensor may display the Website in portfolios and marketing material unless otherwise agreed in writing.
 
 7. Third-Party Software
 
 The Website may include third-party software subject to separate license terms.
-Licensee agrees to comply with such third-party licenses.
+Licensee agrees to comply with such third-party licenses. Licensor will inform Licensee of any material third-party licensing obligations relevant to the Deliverables.
 
-8. Warranty Disclaimer
+8. Delivery and Defects
 
-The Website is provided “as is”, subject to any mandatory provisions of Danish law.
+A defect notification period of 30 days applies from the date of delivery. During this period, Licensor will remedy any material defects in the Deliverables at no additional cost, provided the defects are documented and reported in writing.
+
+After the defect notification period, any fixes or modifications are subject to separate agreement.
+
+9. Warranty Disclaimer
+
+The Website is provided "as is" after the defect notification period, subject to any mandatory provisions of Danish law.
 
 Licensor makes no warranties, express or implied, including fitness for a particular purpose or uninterrupted availability, unless otherwise agreed in writing.
 
-9. Limitation of Liability
+10. Limitation of Liability
 
-To the maximum extent permitted by Danish law, Licensor shall not be liable for indirect or consequential damages, including loss of profit, data, or business.
+To the maximum extent permitted by Danish law, Licensor shall not be liable for indirect or consequential damages, including loss of profit, data, or business opportunity.
 
-Licensor’s total liability shall not exceed the amount paid by Licensee for the Website.
+Licensor's total aggregate liability shall not exceed the total fees actually paid by Licensee for the Website.
 
-This limitation shall not apply in cases of intent (forsæt) or gross negligence (grov uagtsomhed).
+This limitation shall not apply in cases of intent (forsat) or gross negligence (grov uagtsomhed).
 
-10. Maintenance and Support
+11. Payment
+
+Payment terms are as specified in the project proposal. Unless otherwise agreed, invoices are payable within 14 days of the invoice date.
+
+Late payments are subject to interest in accordance with the Danish Interest Act (Renteloven), currently the Danish National Bank's reference rate plus 8 percentage points per annum, calculated from the due date.
+
+12. Confidentiality
+
+Both parties undertake to keep confidential any proprietary information shared during the engagement. This includes business strategies, technical specifications, login credentials, and any information that a reasonable person would consider confidential.
+
+Confidentiality obligations remain in effect for two (2) years after termination of this License.
+
+13. Maintenance and Support
 
 Maintenance, hosting, updates, and support are not included unless agreed in a separate written agreement.
 
-11. Termination
+14. Termination
 
-Licensor may terminate this License upon material breach, provided that Licensee has received written notice and a reasonable opportunity to remedy such breach, unless the breach is incapable of remedy.
+Licensor may terminate this License upon material breach, provided that Licensee has received written notice and a reasonable opportunity (minimum 14 days) to remedy such breach, unless the breach is incapable of remedy.
 
 Upon lawful termination, Licensee shall cease use of the Website.
 
-12. Governing Law and Jurisdiction
+15. Governing Law and Jurisdiction
 
 This License is governed by the laws of Denmark.
-Any dispute shall be subject to the exclusive jurisdiction of the Danish courts.
 
-13. Entire Agreement
+In the event of a dispute, the parties shall first attempt to resolve the matter through good-faith negotiation. If a resolution cannot be reached, disputes shall be submitted to the Aalborg City Court (Retten i Aalborg) as the court of first instance.
+
+16. Entire Agreement
 
 This License constitutes the entire agreement regarding the Website unless superseded by a written agreement signed by both parties.
 
-© Eye On Idea – All rights reserved
+If any provision of this License is found to be invalid or unenforceable, the remaining provisions shall continue in full force and effect.
+
+(c) Eye On Idea - All rights reserved

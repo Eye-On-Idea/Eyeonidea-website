@@ -1,96 +1,104 @@
 {
   "meta": {
-    "title": "Legal - Eye On Idea",
-    "description": "Legal information including terms of service for Eye On Idea digital consultancy services."
+    "title": "Terms of Service - Eye On Idea",
+    "description": "Terms of service for Eye On Idea digital consultancy. Legal terms governing our services, project engagements, and website use."
   },
   "hero": {
     "badge": "Legal",
     "title": "Terms of Service",
     "subtitle": "The terms and conditions governing our services and your use of this website."
   },
-  "lastUpdated": "Last updated: January 2025",
+  "lastUpdated": "Last updated: February 2026",
   "sections": {
     "introduction": {
       "title": "1. Introduction",
       "content": [
-        "Welcome to Eye On Idea. These Terms of Service govern your use of our website and services. By accessing our website or engaging our services, you agree to be bound by these terms.",
-        "Eye On Idea is a digital consultancy registered in Denmark (CVR: 45356175), providing website development, visual identity, CMS solutions, and related digital services."
+        "Welcome to Eye On Idea. These Terms of Service ('Terms') govern your use of our website (eyeonidea.com) and the digital services we provide. By accessing our website or engaging our services, you agree to be bound by these Terms.",
+        "Eye On Idea is a sole proprietorship (enkeltmandsvirksomhed) registered in Denmark under CVR: 45356175, with registered address in Aalborg, Denmark. You can reach us at hello{'@'}eyeonidea.com or by phone at +45 29 93 05 83.",
+        "These Terms are intended for business-to-business (B2B) engagements. If you are a consumer, additional statutory rights under Danish and EU consumer protection law may apply."
       ]
     },
     "services": {
       "title": "2. Services",
       "content": [
-        "Eye On Idea provides digital consultancy services including but not limited to: website design and development, visual identity creation, content management system implementation, and ongoing support services.",
-        "All services are provided on a project basis with individual scoping and pricing. Specific deliverables, timelines, and costs are agreed upon in writing before work commences."
+        "Eye On Idea provides digital consultancy services including but not limited to: website design and development, visual identity creation, content management system (CMS) implementation, and ongoing support and maintenance services.",
+        "All services are provided on a project basis with individual scoping and pricing. Specific deliverables, timelines, and costs are defined in a written project proposal or statement of work before any work commences."
       ]
     },
     "engagement": {
       "title": "3. Project Engagement",
       "content": [
-        "Projects begin upon written agreement (email or signed proposal) and receipt of any agreed deposit. Project scope, deliverables, and pricing are defined in project proposals.",
-        "Changes to project scope may affect pricing and timeline. All scope changes must be agreed upon in writing.",
-        "You agree to provide necessary materials, feedback, and approvals in a timely manner to facilitate project completion."
+        "A binding agreement is formed upon written acceptance of a project proposal (via email or signed document) and, where applicable, receipt of the agreed deposit.",
+        "The project scope, deliverables, timeline, and pricing are defined in the project proposal. Any changes to the agreed scope must be confirmed in writing by both parties and may result in adjusted pricing and delivery dates.",
+        "You agree to provide all necessary materials, content, feedback, and approvals in a timely manner to facilitate project completion. Delays caused by late delivery of materials or feedback may extend project timelines accordingly."
       ]
     },
     "payment": {
       "title": "4. Payment Terms",
       "content": [
-        "Payment terms are specified in individual project proposals. Standard terms require a deposit before work begins, with remaining balance due upon completion.",
-        "Invoices are payable within 14 days unless otherwise agreed. Late payments may incur interest in accordance with Danish law.",
-        "All prices are quoted in Danish Kroner (DKK) or Euros (EUR) and are exclusive of VAT unless otherwise stated."
+        "Payment terms are specified in individual project proposals. Unless otherwise agreed, standard terms require a deposit of 30-50% before work begins, with the remaining balance due upon project completion and delivery.",
+        "Invoices are payable within 14 days of the invoice date unless a different payment term is agreed in writing.",
+        "Late payments are subject to interest in accordance with the Danish Interest Act (Renteloven), currently the Danish National Bank's reference rate plus 8 percentage points per annum, calculated from the due date.",
+        "All prices are quoted in Danish Kroner (DKK) or Euros (EUR) as specified in the proposal. Prices are exclusive of VAT (moms) at the applicable rate (currently 25%) unless explicitly stated otherwise."
       ]
     },
     "intellectualProperty": {
       "title": "5. Intellectual Property",
       "content": [
-        "Upon full payment, you receive ownership of custom work created specifically for your project, including custom designs, code, and content created by Eye On Idea.",
-        "Eye On Idea retains rights to reusable code components, methodologies, and general knowledge gained during the project.",
-        "Third-party assets (stock images, fonts, plugins) remain subject to their respective licenses. Eye On Idea will advise on licensing requirements.",
-        "Eye On Idea reserves the right to showcase completed work in portfolios and case studies unless confidentiality is explicitly agreed."
+        "Upon receipt of full payment, all intellectual property rights in custom work created specifically for your project, including bespoke designs, custom code, and original content, are transferred to you. This transfer is effective only upon full and final payment in accordance with Section 55 of the Danish Copyright Act (Ophavsretsloven).",
+        "Eye On Idea retains ownership of pre-existing tools, reusable code libraries, development frameworks, general methodologies, and know-how that were not created specifically for your project or that existed prior to the engagement.",
+        "Third-party assets such as stock images, fonts, icons, and software plugins remain subject to their respective license terms. Eye On Idea will inform you of any third-party licensing obligations relevant to your project.",
+        "Eye On Idea reserves the right to reference and showcase completed work in portfolios, case studies, and marketing materials, unless a written confidentiality or non-disclosure agreement is in place."
       ]
     },
     "confidentiality": {
       "title": "6. Confidentiality",
       "content": [
-        "Both parties agree to keep confidential any proprietary information shared during the engagement.",
-        "This includes business strategies, technical specifications, and any information marked as confidential.",
-        "Confidentiality obligations survive the termination of our engagement."
+        "Both parties undertake to keep confidential any proprietary, commercial, or technical information disclosed during the engagement that is marked as confidential or that a reasonable person would consider confidential.",
+        "Confidential information includes, but is not limited to, business strategies, pricing structures, technical specifications, unpublished designs, and login credentials.",
+        "Confidentiality obligations survive the termination of our engagement and remain in effect for a period of two (2) years after termination, unless the information becomes publicly available through no fault of the receiving party."
       ]
     },
     "warranties": {
       "title": "7. Warranties and Liability",
       "content": [
-        "Eye On Idea warrants that services will be performed with reasonable skill and care consistent with industry standards.",
-        "Websites are tested on current versions of major browsers at the time of delivery. Ongoing browser compatibility is subject to maintenance agreements.",
-        "Eye On Idea is not liable for issues arising from client modifications, third-party integrations not managed by Eye On Idea, or circumstances beyond reasonable control.",
-        "Total liability is limited to the fees paid for the specific service giving rise to the claim."
+        "Eye On Idea warrants that all services will be performed with reasonable professional skill and care consistent with generally accepted industry standards.",
+        "Delivered websites and digital products are tested for functionality and compatibility on current versions of major browsers (Chrome, Firefox, Safari, Edge) at the time of delivery. Ongoing compatibility with future browser versions or third-party updates is not guaranteed and may be covered under a separate maintenance agreement.",
+        "A defect notification period of 30 days applies from the date of delivery. During this period, Eye On Idea will remedy any material defects in the delivered work at no additional cost, provided the defects are documented and reported in writing.",
+        "Eye On Idea is not liable for issues arising from: (a) modifications made by the client or third parties after delivery, (b) third-party integrations or services not managed by Eye On Idea, (c) failure to follow provided instructions or documentation, or (d) circumstances beyond our reasonable control (force majeure).",
+        "To the maximum extent permitted by law, Eye On Idea's total aggregate liability for any claim arising out of or in connection with a project shall not exceed the total fees actually paid by you for the specific project giving rise to the claim. Eye On Idea shall not be liable for indirect, consequential, or incidental damages, including loss of profit, data, or business opportunity."
       ]
     },
     "termination": {
       "title": "8. Termination",
       "content": [
-        "Either party may terminate a project engagement with written notice. Upon termination, payment is due for all work completed to date.",
-        "Eye On Idea will provide all completed work and necessary handover documentation upon receipt of outstanding payments."
+        "Either party may terminate a project engagement by providing 14 days' written notice to the other party. Upon termination, payment is due for all work completed up to the effective date of termination.",
+        "In the event of a material breach by either party that remains uncured for 14 days after written notice, the non-breaching party may terminate the agreement with immediate effect.",
+        "Upon termination and receipt of all outstanding payments, Eye On Idea will deliver all completed work, source files, and necessary handover documentation. Work-in-progress may be delivered in its current state."
       ]
     },
     "websiteUse": {
       "title": "9. Website Use",
       "content": [
-        "This website is provided for informational purposes. While we strive for accuracy, we do not guarantee that all information is current or error-free.",
-        "You may not use this website for any unlawful purpose or in any way that could damage, disable, or impair the website."
+        "This website is provided for informational purposes. While we make every effort to keep information accurate and up to date, we do not warrant that all content is current or free from errors.",
+        "You may not use this website for any unlawful purpose or in any manner that could damage, disable, overburden, or impair the website or interfere with other users' access."
       ]
     },
     "governing": {
-      "title": "10. Governing Law",
+      "title": "10. Governing Law and Disputes",
       "content": [
-        "These terms are governed by Danish law. Any disputes shall be resolved in the courts of Denmark.",
-        "If any provision of these terms is found unenforceable, the remaining provisions continue in effect."
+        "These Terms are governed by and construed in accordance with the laws of Denmark, without regard to its conflict of laws provisions.",
+        "In the event of a dispute, the parties shall first attempt to resolve the matter amicably through good-faith negotiation. If a resolution cannot be reached, disputes shall be submitted to the Aalborg City Court (Retten i Aalborg) as the court of first instance.",
+        "If any provision of these Terms is found to be invalid or unenforceable by a court of competent jurisdiction, the remaining provisions shall continue in full force and effect."
       ]
     },
     "contact": {
-      "title": "11. Contact",
+      "title": "11. Contact Information",
       "content": [
-        "For questions about these terms or our services, please contact us at hello{'@'}eyeonidea.com."
+        "For questions regarding these Terms or our services, please contact us:",
+        "Eye On Idea, CVR: 45356175",
+        "Email: hello{'@'}eyeonidea.com | Phone: +45 29 93 05 83",
+        "Aalborg, Denmark"
       ]
     }
   }

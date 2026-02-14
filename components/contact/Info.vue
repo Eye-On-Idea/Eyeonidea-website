@@ -1,9 +1,17 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
+import { useStrokeDraw } from "~/composables/useStrokeDraw";
 
 const { t } = useI18n();
 
 const sectionRef = ref<HTMLElement | null>(null);
+
+useStrokeDraw(sectionRef, {
+  delay: 200,
+  stagger: 120,
+  duration: 600,
+  selector: ".card-icon",
+});
 const isVisible = ref(false);
 
 onMounted(() => {
@@ -44,25 +52,18 @@ onMounted(() => {
         <!-- Direct Contact Card -->
         <div class="info-card stagger-1">
           <div class="card-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
-            </svg>
+            <UIcon name="i-heroicons-phone" aria-hidden="true" />
           </div>
           <h3 class="card-title">{{ t("contact.info.directContact.title") }}</h3>
           <p class="card-description">{{ t("contact.info.directContact.description") }}</p>
 
           <div class="contact-methods">
             <a href="mailto:hello@eyeonidea.com" class="contact-link">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="4" width="20" height="16" rx="2" />
-                <path d="M22 6l-10 7L2 6" />
-              </svg>
+              <UIcon name="i-heroicons-envelope" aria-hidden="true" />
               <span>{{ t("contact.info.email.value") }}</span>
             </a>
             <a href="tel:+4529930583" class="contact-link">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
-              </svg>
+              <UIcon name="i-heroicons-phone" aria-hidden="true" />
               <span>{{ t("contact.info.phone.value") }}</span>
             </a>
           </div>
@@ -71,10 +72,7 @@ onMounted(() => {
         <!-- Location Card -->
         <div class="info-card stagger-2">
           <div class="card-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
+            <UIcon name="i-heroicons-map-pin" aria-hidden="true" />
           </div>
           <h3 class="card-title">{{ t("contact.info.location.title") }}</h3>
           <p class="card-address">{{ t("contact.info.location.address") }}</p>
@@ -84,10 +82,7 @@ onMounted(() => {
         <!-- Business Hours Card -->
         <div class="info-card stagger-3">
           <div class="card-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg>
+            <UIcon name="i-heroicons-clock" aria-hidden="true" />
           </div>
           <h3 class="card-title">{{ t("contact.info.hours.title") }}</h3>
           <p class="card-hours">{{ t("contact.info.hours.weekdays") }}</p>
@@ -97,13 +92,7 @@ onMounted(() => {
         <!-- Social Card -->
         <div class="info-card stagger-4">
           <div class="card-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="18" cy="5" r="3" />
-              <circle cx="6" cy="12" r="3" />
-              <circle cx="18" cy="19" r="3" />
-              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-            </svg>
+            <UIcon name="i-heroicons-share" aria-hidden="true" />
           </div>
           <h3 class="card-title">{{ t("contact.info.social.title") }}</h3>
           <div class="social-links">
@@ -112,11 +101,9 @@ onMounted(() => {
               target="_blank"
               rel="noopener noreferrer"
               class="social-link"
-              aria-label="LinkedIn"
+              :aria-label="`${t('contact.info.social.linkedin')} (${t('common.accessibility.externalLink', 'opens in new tab')})`"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
+              <UIcon name="i-mdi-light-linkedin" aria-hidden="true" />
               <span>{{ t("contact.info.social.linkedin") }}</span>
             </a>
           </div>
@@ -214,9 +201,13 @@ onMounted(() => {
   width: 2.5rem;
   height: 2.5rem;
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--color-accent-400);
 
-  svg {
+  :deep(svg),
+  :deep(.iconify) {
     width: 100%;
     height: 100%;
   }
@@ -260,6 +251,7 @@ onMounted(() => {
   align-items: center;
   gap: 0.5rem;
   padding: 0.625rem 0.875rem;
+  min-height: 44px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-md);
   color: var(--color-hero-text);
@@ -271,10 +263,17 @@ onMounted(() => {
     background: rgba(255, 255, 255, 0.1);
   }
 
-  svg {
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+
+  :deep(svg),
+  :deep(.iconify) {
     width: 1rem;
     height: 1rem;
     color: var(--color-accent-400);
+    flex-shrink: 0;
   }
 }
 
@@ -287,6 +286,7 @@ onMounted(() => {
   align-items: center;
   gap: 0.5rem;
   padding: 0.625rem 1rem;
+  min-height: 44px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-md);
   color: var(--color-hero-text);
@@ -298,9 +298,16 @@ onMounted(() => {
     background: rgba(255, 255, 255, 0.1);
   }
 
-  svg {
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+
+  :deep(svg),
+  :deep(.iconify) {
     width: 1.25rem;
     height: 1.25rem;
+    flex-shrink: 0;
   }
 }
 
@@ -357,6 +364,7 @@ onMounted(() => {
   display: inline-flex;
   align-items: center;
   padding: 0.875rem 1.75rem;
+  min-height: 48px;
   background: var(--color-accent-500);
   color: white;
   font-size: var(--text-sm);
@@ -369,12 +377,18 @@ onMounted(() => {
     background: var(--color-accent-600);
     transform: translateY(-2px);
   }
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 4px;
+  }
 }
 
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   padding: 0.875rem 1.75rem;
+  min-height: 48px;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: var(--color-hero-text);
@@ -387,6 +401,11 @@ onMounted(() => {
   &:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 4px;
   }
 }
 

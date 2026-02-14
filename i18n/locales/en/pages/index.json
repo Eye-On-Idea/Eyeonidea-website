@@ -1,12 +1,12 @@
 {
   "meta": {
-    "title": "Eye On Idea - Digital Agency for B2B Websites",
-    "description": "Eye On Idea helps companies across Europe establish a clear, professional digital presence. Website creation, visual identity, and ongoing support."
+    "title": "Eye On Idea - Professional B2B Websites",
+    "description": "Eye On Idea helps companies across Europe build a clear and professional digital presence. Website development, visual identity, and long-term support."
   },
   "hero": {
     "headline": "Your digital presence",
     "headlineAccent": "built for growth",
-    "subheadline": "We help companies across Europe establish professional, accessible websites that grow with their business.",
+    "subheadline": "We help companies build professional websites that support growth and build trust.",
     "cta": {
       "primary": "Start Your Project",
       "secondary": "Explore Services"
@@ -16,19 +16,19 @@
   "about": {
     "badge": "Who We Are",
     "title": "A Partner, Not Just a Supplier",
-    "description": "Eye On Idea is a Danish digital consultancy focused on helping companies establish and grow a clear, professional digital presence. We work with businesses that need more than 'just a website' - companies that want clarity, structure, and a solution they can rely on over time.",
+    "description": "Eye On Idea is a Danish digital consultancy that helps companies build a clear and reliable online presence. We work with businesses that want more than a basic website. You gain structure, clarity, and a solution that supports long-term growth.",
     "values": {
       "clarity": {
         "title": "Clarity First",
-        "description": "No overcomplicated solutions. We build what you need to be present, and represent yourself."
+        "description": "We build what you need and explain it in a way that makes sense."
       },
       "partnership": {
-        "title": "True Partnership",
-        "description": "We support you before, during, and after delivery. Collaboration is the key to success."
+        "title": "Long-Term Collaboration",
+        "description": "We support you before, during, and after launch."
       },
       "quality": {
         "title": "Built to Last",
-        "description": "Technology choices made for durability, "
+        "description": "We choose reliable tools and build solutions designed for durability."
       }
     },
     "cta": "Learn About Us"

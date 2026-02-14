@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 
-const { t } = useI18n();
+const { t, tm } = useI18n();
 
 const isVisible = ref(false);
 
@@ -86,7 +86,7 @@ const cookieSectionKeys = ["what", "types", "specific", "manage", "thirdParty"];
           >
             <h3 class="section-title">{{ t(`policies.privacy.sections.${key}.title`) }}</h3>
             <p
-              v-for="(paragraph, index) in t(`policies.privacy.sections.${key}.content`)"
+              v-for="(paragraph, index) in (tm(`policies.privacy.sections.${key}.content`) as string[])"
               :key="index"
               class="section-paragraph"
             >
@@ -106,7 +106,7 @@ const cookieSectionKeys = ["what", "types", "specific", "manage", "thirdParty"];
               <!-- Regular content -->
               <template v-if="key !== 'specific'">
                 <p
-                  v-for="(paragraph, index) in t(`policies.cookies.sections.${key}.content`)"
+                  v-for="(paragraph, index) in (tm(`policies.cookies.sections.${key}.content`) as string[])"
                   :key="index"
                   class="section-paragraph"
                 >
@@ -128,7 +128,7 @@ const cookieSectionKeys = ["what", "types", "specific", "manage", "thirdParty"];
                     </thead>
                     <tbody>
                       <tr
-                        v-for="(cookie, index) in t('policies.cookies.sections.specific.items')"
+                        v-for="(cookie, index) in (tm('policies.cookies.sections.specific.items') as Array<{name: string, purpose: string, duration: string, type: string}>)"
                         :key="index"
                       >
                         <td><code>{{ cookie.name }}</code></td>
@@ -164,10 +164,8 @@ const cookieSectionKeys = ["what", "types", "specific", "manage", "thirdParty"];
         <!-- Back Link -->
         <div class="back-link-wrapper">
           <NuxtLink to="/about" class="back-link">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="back-icon">
-              <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" />
-            </svg>
-            Back to About
+            <UIcon name="i-heroicons-arrow-left" class="back-icon" aria-hidden="true" />
+            {{ t("common.cta.backToAbout") }}
           </NuxtLink>
         </div>
       </div>

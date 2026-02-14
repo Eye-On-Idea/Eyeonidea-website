@@ -1,33 +1,33 @@
 {
   "meta": {
     "title": "About - Eye On Idea",
-    "description": "Learn about Eye On Idea, a Danish digital consultancy founded by Rune M. P. Pjetursson. We help B2B companies build professional digital presence across Europe."
+    "description": "Learn about Eye On Idea, a Danish digital consultancy founded by Rune M. P. Pjetursson. We help B2B companies build a clear and professional digital presence across Europe."
   },
   "hero": {
     "badge": "About Us",
     "title": "Building Digital Foundations That Last",
-    "subtitle": "Eye On Idea is a Danish digital consultancy helping B2B companies establish and grow a clear, professional digital presence."
+    "subtitle": "Eye On Idea is a Danish digital consultancy that helps B2B companies build a strong and professional online presence."
   },
   "story": {
     "badge": "Our Story",
     "title": "From Idea to Reality",
     "paragraphs": [
-      "Eye On Idea was founded in 2024 with a simple belief: every business deserves a digital presence that truly represents who they are and what they do.",
-      "Too often, companies end up with websites built from templates that don't fit, overengineered solutions they can't maintain, or projects that drag on without clear direction.",
-      "We take a different approach. Every project starts with understanding your actual needs - not pushing predefined packages. We build digital foundations that make sense for where you are now and where you're heading."
+      "Eye On Idea was founded in 2025 with a simple belief. Every business deserves a digital presence that reflects who they are and what they offer.",
+      "Many companies end up with websites that do not fit their business, are difficult to update, or become expensive to maintain over time.",
+      "We take a different approach. Every project starts with understanding your goals and your situation. We build a solid digital foundation that supports your growth today and in the future."
     ]
   },
   "founder": {
     "badge": "The Founder",
     "name": "Rune M. P. Pjetursson",
-    "role": "CEO & Lead Developer",
+    "role": "Founder and Lead Consultant",
     "bio": [
-      "With a background spanning software development, digital strategy, and client collaboration, Rune founded Eye On Idea to bridge the gap between technical capability and real business needs.",
-      "Having worked with companies of all sizes across Europe, he brings a practical, results-focused approach to every project. No unnecessary complexity - just solutions that work."
+      "Rune founded Eye On Idea to connect technical expertise with real business needs. His focus is always on results, clarity, and long-term value.",
+      "He has worked with companies across Europe and understands how to translate complex ideas into practical and reliable digital solutions."
     ],
     "philosophy": {
       "title": "Working Philosophy",
-      "text": "I believe in building lasting relationships, not just delivering projects. When you work with Eye On Idea, you get a partner who understands your business and is invested in your success."
+      "text": "I believe in long-term partnerships, not one-time projects. When you work with Eye On Idea, you gain a partner who understands your business and works to support your success."
     },
     "connect": "Connect on LinkedIn"
   },
@@ -36,63 +36,67 @@
     "title": "Our Values",
     "items": [
       {
-        "title": "Clarity Over Complexity",
-        "description": "We believe the best solutions are the ones you can understand and maintain. No black boxes, no unnecessary technical debt."
+        "icon": "i-heroicons-light-bulb",
+        "title": "Clarity",
+        "description": "We build solutions that you understand and can manage. Clear structure leads to better results."
       },
       {
-        "title": "Partnership, Not Transactions",
-        "description": "We're not here to sell you a website and disappear. We build relationships and stay invested in your ongoing success."
+        "icon": "i-heroicons-hand-raised",
+        "title": "Partnership",
+        "description": "We stay involved beyond delivery. Your success is part of our responsibility."
       },
       {
+        "icon": "i-heroicons-chat-bubble-left-ellipsis",
         "title": "Honest Communication",
-        "description": "We'll tell you what you need to hear, not just what you want to hear. Clear expectations lead to better outcomes."
+        "description": "We give clear advice and realistic expectations so you can make informed decisions."
       },
       {
-        "title": "Quality Without Compromise",
-        "description": "Every project gets our full attention and expertise. We don't cut corners to meet deadlines or budgets."
-      }
-    ]
-  },
-  "approach": {
-    "badge": "How We Work",
-    "title": "Our Approach",
-    "steps": [
-      {
-        "number": "01",
-        "title": "Understand",
-        "description": "We start by listening. What does your business actually need? What are your goals? What constraints are we working with?"
-      },
-      {
-        "number": "02",
-        "title": "Plan",
-        "description": "Together, we define a clear scope and approach. No surprises, no scope creep - just a shared understanding of what we're building."
-      },
-      {
-        "number": "03",
-        "title": "Build",
-        "description": "We develop your solution with regular check-ins and transparent progress updates. You're never left wondering what's happening."
-      },
-      {
-        "number": "04",
-        "title": "Support",
-        "description": "Launch is just the beginning. We offer ongoing support to help your digital presence grow and evolve with your business."
+        "icon": "i-heroicons-shield-check",
+        "title": "Quality",
+        "description": "We focus on durability, performance, and professional standards in every project."
       }
     ]
   },
   "location": {
     "badge": "Where We Are",
     "title": "Based in Denmark, Serving Europe",
-    "description": "Eye On Idea is headquartered in Copenhagen, Denmark. We work with clients across the Nordic region and the European Union, providing remote-first collaboration with the option for in-person meetings when needed.",
+    "description": "Eye On Idea is based in Aalborg, Denmark. We work with clients across the Nordic region and the European Union. Meetings can be held online or in person when needed.",
     "details": {
-      "headquarters": "Copenhagen, Denmark",
+      "headquarters": "Aalborg, Denmark",
       "coverage": "Denmark, Nordics, European Union",
       "languages": "English, Danish"
-    }
+    },
+    "processLink": "See Our Process"
+  },
+  "quickFacts": {
+    "title": "At a Glance",
+    "items": [
+      {
+        "icon": "i-heroicons-calendar",
+        "label": "Founded",
+        "value": "2024"
+      },
+      {
+        "icon": "i-heroicons-building-office",
+        "label": "Focus",
+        "value": "B2B Digital Presence"
+      },
+      {
+        "icon": "i-heroicons-code-bracket",
+        "label": "Approach",
+        "value": "Modern and Reliable"
+      },
+      {
+        "icon": "i-heroicons-shield-check",
+        "label": "Compliance",
+        "value": "GDPR and EU Law"
+      }
+    ]
   },
   "cta": {
     "badge": "Ready to Start?",
-    "title": "Let's Talk About Your Project",
-    "description": "Whether you have a clear vision or just a rough idea, we're here to help you figure out the best path forward.",
+    "title": "Let Us Talk About Your Project",
+    "description": "Whether you have a clear plan or an early idea, we help you define the right next step.",
     "primary": "Get in Touch",
     "secondary": "View Our Services"
   }

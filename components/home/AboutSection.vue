@@ -1,10 +1,19 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
+import { useStrokeDraw } from "~/composables/useStrokeDraw";
 
 const { t } = useI18n();
 
 // Scroll animation
 const sectionRef = ref<HTMLElement | null>(null);
+const gridRef = ref<HTMLElement | null>(null);
+
+useStrokeDraw(gridRef, {
+  delay: 200,
+  stagger: 150,
+  duration: 700,
+  selector: ".value-icon-wrapper",
+});
 const isVisible = ref(false);
 
 onMounted(() => {
@@ -69,7 +78,7 @@ const values = [
       </div>
 
       <!-- Value Cards -->
-      <div class="values-grid" :class="{ 'animate-in': isVisible }">
+      <div ref="gridRef" class="values-grid" :class="{ 'animate-in': isVisible }">
         <GlassCard
           v-for="(value, index) in values"
           :key="value.key"

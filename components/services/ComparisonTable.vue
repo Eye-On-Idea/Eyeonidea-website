@@ -6,6 +6,7 @@ const { t, tm } = useI18n();
 const sectionRef = ref<HTMLElement | null>(null);
 const isVisible = ref(false);
 const activeTooltip = ref<string | null>(null);
+const expandedCategories = ref<Set<string>>(new Set());
 
 onMounted(() => {
   if (!sectionRef.value) return;
@@ -63,12 +64,31 @@ const toggleTooltip = (featureKey: string) => {
   activeTooltip.value = activeTooltip.value === featureKey ? null : featureKey;
 };
 
+const toggleCategory = (key: string) => {
+  const newSet = new Set(expandedCategories.value);
+  if (newSet.has(key)) {
+    newSet.delete(key);
+  } else {
+    newSet.add(key);
+  }
+  expandedCategories.value = newSet;
+};
+
+const isCategoryExpanded = (key: string) => expandedCategories.value.has(key);
+
 const getFeatureValue = (
   feature: Feature,
   pkg: (typeof packages)[number]
 ): boolean | string => {
   return feature[pkg];
 };
+
+// Open first category by default on mount
+onMounted(() => {
+  if (categories.value.length > 0) {
+    expandedCategories.value = new Set([categories.value[0].key]);
+  }
+});
 </script>
 
 <template>
@@ -92,8 +112,10 @@ const getFeatureValue = (
         </p>
       </div>
 
-      <!-- Comparison Table -->
-      <div class="table-wrapper" :class="{ 'animate-in': isVisible }">
+      <!-- ═══════════════════════════════════════════ -->
+      <!-- DESKTOP: Original table (hidden on mobile)  -->
+      <!-- ═══════════════════════════════════════════ -->
+      <div class="table-wrapper desktop-only" :class="{ 'animate-in': isVisible }">
         <div class="table-container">
           <table class="comparison-table" role="grid">
             <!-- Sticky Header -->
@@ -233,11 +255,135 @@ const getFeatureValue = (
             </tfoot>
           </table>
         </div>
+      </div>
 
-        <!-- Mobile Scroll Indicator -->
-        <div class="scroll-indicator" aria-hidden="true">
-          <UIcon name="i-heroicons-arrows-right-left" />
-          <span>Scroll to compare</span>
+      <!-- ═══════════════════════════════════════════ -->
+      <!-- MOBILE: Accordion comparison view           -->
+      <!-- ═══════════════════════════════════════════ -->
+      <div class="mobile-comparison mobile-only" :class="{ 'animate-in': isVisible }">
+        <!-- Package header row (always visible) -->
+        <div class="mobile-pkg-header">
+          <div
+            v-for="pkg in packages"
+            :key="pkg"
+            class="mobile-pkg-col"
+            :class="{ 'mobile-pkg-col--featured': pkg === 'growth' }"
+          >
+            <span
+              v-if="pkg === 'growth'"
+              class="mobile-popular"
+            >
+              {{ t("services.packages.growth.popular") }}
+            </span>
+            <span class="mobile-pkg-name">{{ getPackageName(pkg) }}</span>
+            <div class="mobile-pkg-price">
+              <span class="mobile-price-currency">{{ getPackageCurrency(pkg) }}</span>
+              <span class="mobile-price-amount">{{ getPackagePrice(pkg) }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion categories -->
+        <div class="mobile-categories">
+          <div
+            v-for="category in categories"
+            :key="category.key"
+            class="mobile-category"
+            :class="{ 'mobile-category--expanded': isCategoryExpanded(category.key) }"
+          >
+            <button
+              type="button"
+              class="mobile-category__trigger"
+              :aria-expanded="isCategoryExpanded(category.key)"
+              :aria-controls="`mobile-cat-${category.key}`"
+              @click="toggleCategory(category.key)"
+            >
+              <span class="mobile-category__title">{{ category.title }}</span>
+              <span class="mobile-category__count">{{ category.features.length }}</span>
+              <UIcon
+                name="i-heroicons-chevron-down"
+                class="mobile-category__chevron"
+                :class="{ 'mobile-category__chevron--open': isCategoryExpanded(category.key) }"
+                aria-hidden="true"
+              />
+            </button>
+
+            <div
+              :id="`mobile-cat-${category.key}`"
+              class="mobile-category__panel"
+              :class="{ 'mobile-category__panel--open': isCategoryExpanded(category.key) }"
+              role="region"
+              :aria-label="category.title"
+            >
+              <div
+                v-for="(feature, fIndex) in category.features"
+                :key="fIndex"
+                class="mobile-feature"
+              >
+                <div class="mobile-feature__name">
+                  {{ feature.name }}
+                  <button
+                    type="button"
+                    class="mobile-feature__info"
+                    :aria-expanded="activeTooltip === `m-${category.key}-${fIndex}`"
+                    :aria-label="`Info: ${feature.name}`"
+                    @click.stop="toggleTooltip(`m-${category.key}-${fIndex}`)"
+                  >
+                    <UIcon name="i-heroicons-information-circle" class="mobile-feature__info-icon" />
+                  </button>
+                </div>
+
+                <Transition name="tooltip">
+                  <div
+                    v-if="activeTooltip === `m-${category.key}-${fIndex}`"
+                    class="mobile-feature__tooltip"
+                    role="tooltip"
+                  >
+                    {{ feature.tooltip }}
+                  </div>
+                </Transition>
+
+                <!-- 3-column grid of values -->
+                <div class="mobile-feature__values">
+                  <div
+                    v-for="pkg in packages"
+                    :key="pkg"
+                    class="mobile-feature__value"
+                    :class="{ 'mobile-feature__value--featured': pkg === 'growth' }"
+                  >
+                    <span class="mobile-feature__pkg-label">{{ getPackageName(pkg) }}</span>
+                    <span v-if="getFeatureValue(feature, pkg) === true" class="feature-check feature-check--sm">
+                      <UIcon name="i-heroicons-check" class="check-icon check-icon--sm" />
+                      <span class="sr-only">{{ t("services.comparison.legend.included") }}</span>
+                    </span>
+                    <span v-else-if="getFeatureValue(feature, pkg) === false" class="feature-dash feature-dash--sm">
+                      <UIcon name="i-heroicons-minus" class="dash-icon dash-icon--sm" />
+                      <span class="sr-only">{{ t("services.comparison.legend.notIncluded") }}</span>
+                    </span>
+                    <span v-else class="feature-partial feature-partial--sm">
+                      {{ getFeatureValue(feature, pkg) }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile CTA -->
+        <div class="mobile-cta-row">
+          <NuxtLink
+            v-for="pkg in packages"
+            :key="pkg"
+            to="/contact"
+            class="mobile-cta-button"
+            :class="{
+              'mobile-cta-button--featured': pkg === 'growth',
+              'mobile-cta-button--default': pkg !== 'growth',
+            }"
+          >
+            {{ getPackageName(pkg) }}
+          </NuxtLink>
         </div>
       </div>
 
@@ -320,6 +466,28 @@ const getFeatureValue = (
   color: var(--color-text-muted);
 }
 
+/* ══════════════════════════════════════════ */
+/* Visibility toggles                        */
+/* ══════════════════════════════════════════ */
+.desktop-only {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+.mobile-only {
+  display: block;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+/* ══════════════════════════════════════════ */
+/* DESKTOP TABLE (unchanged)                 */
+/* ══════════════════════════════════════════ */
 .table-wrapper {
   opacity: 0;
   transform: translateY(30px);
@@ -341,7 +509,6 @@ const getFeatureValue = (
   border: 1px solid var(--card-border);
   box-shadow: var(--card-shadow);
 
-  // Hide scrollbar but keep functionality
   scrollbar-width: thin;
   scrollbar-color: var(--color-primary-300) transparent;
 
@@ -550,10 +717,20 @@ const getFeatureValue = (
   border-radius: 50%;
 }
 
+.feature-check--sm {
+  width: 24px;
+  height: 24px;
+}
+
 .check-icon {
   width: 16px;
   height: 16px;
   color: white;
+}
+
+.check-icon--sm {
+  width: 14px;
+  height: 14px;
 }
 
 .feature-dash {
@@ -566,10 +743,20 @@ const getFeatureValue = (
   border-radius: 50%;
 }
 
+.feature-dash--sm {
+  width: 24px;
+  height: 24px;
+}
+
 .dash-icon {
   width: 14px;
   height: 14px;
   color: var(--color-text-subtle);
+}
+
+.dash-icon--sm {
+  width: 12px;
+  height: 12px;
 }
 
 .feature-partial {
@@ -581,6 +768,11 @@ const getFeatureValue = (
   font-weight: 600;
   border-radius: 9999px;
   text-transform: capitalize;
+}
+
+.feature-partial--sm {
+  padding: 0.125rem 0.5rem;
+  font-size: 0.625rem;
 }
 
 .cta-row {
@@ -642,20 +834,309 @@ const getFeatureValue = (
   }
 }
 
-.scroll-indicator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 1rem;
-  color: var(--color-text-muted);
-  font-size: var(--text-sm);
+/* ══════════════════════════════════════════ */
+/* MOBILE: Accordion comparison view         */
+/* ══════════════════════════════════════════ */
+.mobile-comparison {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s var(--ease-smooth) 0.2s,
+    transform 0.6s var(--ease-smooth) 0.2s;
 
-  @media (min-width: 768px) {
-    display: none;
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+/* Package header strip */
+.mobile-pkg-header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.mobile-pkg-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 12px 8px;
+  border-radius: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  text-align: center;
+}
+
+.mobile-pkg-col--featured {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-accent-50) 50%, var(--card-bg)) 0%,
+    var(--card-bg) 100%
+  );
+  border-color: color-mix(in srgb, var(--color-accent-400) 30%, var(--card-border));
+}
+
+.mobile-popular {
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent-600);
+  background: var(--color-accent-100);
+  padding: 2px 8px;
+  border-radius: 9999px;
+  margin-bottom: 2px;
+}
+
+.mobile-pkg-name {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.mobile-pkg-price {
+  display: flex;
+  align-items: baseline;
+  gap: 1px;
+}
+
+.mobile-price-currency {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.mobile-price-amount {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-primary-600);
+}
+
+/* Accordion categories */
+.mobile-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-category {
+  border-radius: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  overflow: hidden;
+  transition: box-shadow var(--duration-fast) var(--ease-smooth);
+}
+
+.mobile-category--expanded {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.mobile-category__trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 16px;
+  min-height: 48px;
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.mobile-category__trigger:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: -2px;
+}
+
+.mobile-category__title {
+  flex: 1;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.mobile-category__count {
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
+  background: var(--color-surface-2);
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.mobile-category__chevron {
+  width: 18px;
+  height: 18px;
+  color: var(--color-text-muted);
+  transition: transform var(--duration-fast) var(--ease-smooth);
+  flex-shrink: 0;
+}
+
+.mobile-category__chevron--open {
+  transform: rotate(180deg);
+}
+
+/* Panel (collapsible) */
+.mobile-category__panel {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.3s var(--ease-smooth),
+    opacity 0.3s var(--ease-smooth);
+}
+
+.mobile-category__panel--open {
+  max-height: 2000px;
+  opacity: 1;
+}
+
+/* Feature row */
+.mobile-feature {
+  padding: 0 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.mobile-feature:last-child {
+  padding-bottom: 12px;
+}
+
+.mobile-feature__name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 0 6px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.mobile-feature__info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.mobile-feature__info:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: -2px;
+}
+
+.mobile-feature__info-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-subtle);
+  transition: color var(--duration-fast) var(--ease-smooth);
+}
+
+.mobile-feature__info:hover .mobile-feature__info-icon {
+  color: var(--color-primary-500);
+}
+
+.mobile-feature__tooltip {
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  background: var(--color-primary-900);
+  color: white;
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  border-radius: 8px;
+}
+
+/* 3-column values grid */
+.mobile-feature__values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  padding-bottom: 10px;
+}
+
+.mobile-feature__value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 4px;
+  border-radius: 8px;
+  background: var(--color-surface-2);
+}
+
+.mobile-feature__value--featured {
+  background: color-mix(in srgb, var(--color-accent-50) 30%, var(--color-surface-2));
+}
+
+.mobile-feature__pkg-label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-subtle);
+}
+
+/* Mobile CTA row */
+.mobile-cta-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.mobile-cta-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 8px;
+  min-height: 44px;
+  font-weight: 600;
+  font-size: var(--text-xs);
+  text-decoration: none;
+  border-radius: 10px;
+  text-align: center;
+  transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+.mobile-cta-button--default {
+  background: transparent;
+  color: var(--color-primary-600);
+  border: 2px solid var(--color-primary-400);
+}
+
+.mobile-cta-button--default:hover {
+  background: var(--color-primary-50);
+}
+
+.mobile-cta-button--featured {
+  background: var(--color-accent-500);
+  color: white;
+  border: 2px solid transparent;
+}
+
+.mobile-cta-button--featured:hover {
+  background: var(--color-accent-600);
+}
+
+.mobile-cta-button:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* ══════════════════════════════════════════ */
+/* Legend + shared                            */
+/* ══════════════════════════════════════════ */
 .legend {
   display: flex;
   justify-content: center;
@@ -725,7 +1206,9 @@ const getFeatureValue = (
   border: 0;
 }
 
-// Dark mode
+/* ══════════════════════════════════════════ */
+/* Dark mode                                 */
+/* ══════════════════════════════════════════ */
 :root.dark {
   .comparison-section {
     background: var(--color-section-dark);
@@ -755,12 +1238,14 @@ const getFeatureValue = (
     );
   }
 
-  .popular-indicator {
+  .popular-indicator,
+  .mobile-popular {
     background: var(--color-accent-900);
     color: var(--color-accent-300);
   }
 
-  .price-amount {
+  .price-amount,
+  .mobile-price-amount {
     color: var(--color-primary-300);
   }
 
@@ -780,7 +1265,8 @@ const getFeatureValue = (
     );
   }
 
-  .tooltip {
+  .tooltip,
+  .mobile-feature__tooltip {
     background: var(--color-neutral-800);
   }
 
@@ -797,7 +1283,8 @@ const getFeatureValue = (
     );
   }
 
-  .cta-button--default {
+  .cta-button--default,
+  .mobile-cta-button--default {
     color: var(--color-primary-300);
     border-color: var(--color-primary-500);
 
@@ -806,7 +1293,8 @@ const getFeatureValue = (
     }
   }
 
-  .cta-button--featured {
+  .cta-button--featured,
+  .mobile-cta-button--featured {
     background: var(--color-accent-400);
 
     &:hover {
@@ -821,14 +1309,62 @@ const getFeatureValue = (
   .legend-dash {
     background: var(--color-surface-4);
   }
+
+  // Mobile dark mode
+  .mobile-pkg-col {
+    background: var(--card-bg);
+    border-color: var(--card-border);
+  }
+
+  .mobile-pkg-col--featured {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-accent-900) 40%, var(--card-bg)) 0%,
+      var(--card-bg) 100%
+    );
+    border-color: color-mix(in srgb, var(--color-accent-500) 25%, var(--card-border));
+  }
+
+  .mobile-category {
+    background: var(--card-bg);
+    border-color: var(--card-border);
+  }
+
+  .mobile-category--expanded {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .mobile-feature__value {
+    background: var(--color-surface-3);
+  }
+
+  .mobile-feature__value--featured {
+    background: color-mix(in srgb, var(--color-accent-900) 25%, var(--color-surface-3));
+  }
+
+  .mobile-category__count {
+    background: var(--color-surface-3);
+  }
 }
 
+/* ══════════════════════════════════════════ */
+/* Reduced motion                            */
+/* ══════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
   .section-header,
   .table-wrapper,
+  .mobile-comparison,
   .legend {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+
+  .mobile-category__panel {
+    transition: none;
+  }
+
+  .mobile-category__chevron {
     transition: none;
   }
 }

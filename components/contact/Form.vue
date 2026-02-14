@@ -1,11 +1,24 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, computed, onMounted, onUnmounted, nextTick } from "vue";
 
 const { t } = useI18n();
 
 const sectionRef = ref<HTMLElement | null>(null);
 const isVisible = ref(false);
 const isSubmitting = ref(false);
+const submitSuccess = ref(false);
+const submitError = ref(false);
+
+// Form data
+const formData = ref({
+  name: "",
+  email: "",
+  phone: "",
+  company: "",
+  interest: "",
+  subject: "",
+  message: "",
+});
 
 onMounted(() => {
   if (!sectionRef.value) return;
@@ -29,14 +42,154 @@ onMounted(() => {
   });
 });
 
-const interestOptions = [
-  { value: "website", label: "contact.form.interest.options.website" },
-  { value: "identity", label: "contact.form.interest.options.identity" },
-  { value: "cms", label: "contact.form.interest.options.cms" },
-  { value: "support", label: "contact.form.interest.options.support" },
-  { value: "consulting", label: "contact.form.interest.options.consulting" },
-  { value: "other", label: "contact.form.interest.options.other" },
-];
+// Interest dropdown
+const interestOptions = computed(() => [
+  { value: "website", label: t("contact.form.interest.options.website") },
+  { value: "identity", label: t("contact.form.interest.options.identity") },
+  { value: "cms", label: t("contact.form.interest.options.cms") },
+  { value: "support", label: t("contact.form.interest.options.support") },
+  { value: "consulting", label: t("contact.form.interest.options.consulting") },
+  { value: "other", label: t("contact.form.interest.options.other") },
+]);
+
+const isDropdownOpen = ref(false);
+const dropdownRef = ref<HTMLElement | null>(null);
+const focusedOptionIndex = ref(-1);
+
+const selectedLabel = computed(() => {
+  const selected = interestOptions.value.find(
+    (opt) => opt.value === formData.value.interest
+  );
+  return selected?.label || "";
+});
+
+const toggleDropdown = () => {
+  isDropdownOpen.value = !isDropdownOpen.value;
+  if (isDropdownOpen.value) {
+    focusedOptionIndex.value = interestOptions.value.findIndex(
+      (opt) => opt.value === formData.value.interest
+    );
+  }
+};
+
+const selectOption = (value: string) => {
+  formData.value.interest = value;
+  isDropdownOpen.value = false;
+  // Return focus to trigger
+  nextTick(() => {
+    dropdownRef.value?.querySelector<HTMLElement>(".dropdown-trigger")?.focus();
+  });
+};
+
+const handleDropdownKeydown = (event: KeyboardEvent) => {
+  const options = interestOptions.value;
+
+  switch (event.key) {
+    case "Enter":
+    case " ":
+      event.preventDefault();
+      if (isDropdownOpen.value && focusedOptionIndex.value >= 0) {
+        selectOption(options[focusedOptionIndex.value].value);
+      } else {
+        toggleDropdown();
+      }
+      break;
+    case "ArrowDown":
+      event.preventDefault();
+      if (!isDropdownOpen.value) {
+        isDropdownOpen.value = true;
+        focusedOptionIndex.value = 0;
+      } else {
+        focusedOptionIndex.value = Math.min(
+          focusedOptionIndex.value + 1,
+          options.length - 1
+        );
+      }
+      break;
+    case "ArrowUp":
+      event.preventDefault();
+      if (isDropdownOpen.value) {
+        focusedOptionIndex.value = Math.max(focusedOptionIndex.value - 1, 0);
+      }
+      break;
+    case "Escape":
+      event.preventDefault();
+      isDropdownOpen.value = false;
+      break;
+    case "Home":
+      if (isDropdownOpen.value) {
+        event.preventDefault();
+        focusedOptionIndex.value = 0;
+      }
+      break;
+    case "End":
+      if (isDropdownOpen.value) {
+        event.preventDefault();
+        focusedOptionIndex.value = options.length - 1;
+      }
+      break;
+  }
+};
+
+// Close dropdown on outside click
+const handleClickOutside = (event: MouseEvent) => {
+  if (
+    dropdownRef.value &&
+    !dropdownRef.value.contains(event.target as Node)
+  ) {
+    isDropdownOpen.value = false;
+  }
+};
+
+onMounted(() => {
+  document.addEventListener("click", handleClickOutside);
+});
+
+onUnmounted(() => {
+  document.removeEventListener("click", handleClickOutside);
+});
+
+// Form submission
+const handleSubmit = async (event: Event) => {
+  event.preventDefault();
+  if (isSubmitting.value) return;
+
+  isSubmitting.value = true;
+  submitSuccess.value = false;
+  submitError.value = false;
+
+  try {
+    const form = event.target as HTMLFormElement;
+    const data = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (response.ok) {
+      submitSuccess.value = true;
+      formData.value = {
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        interest: "",
+        subject: "",
+        message: "",
+      };
+    } else {
+      submitError.value = true;
+    }
+  } catch {
+    submitError.value = true;
+  } finally {
+    isSubmitting.value = false;
+  }
+};
 </script>
 
 <template>
@@ -55,37 +208,72 @@ const interestOptions = [
           class="contact-form glass-subtle"
           action="https://formsubmit.co/hello@eyeonidea.com"
           method="POST"
+          @submit="handleSubmit"
         >
           <h2 id="contact-form-heading" class="form-heading">
             {{ t("contact.form.heading") }}
           </h2>
 
+          <!-- Success Message -->
+          <Transition
+            enter-active-class="transition-all duration-300 ease-out"
+            leave-active-class="transition-all duration-200 ease-in"
+            enter-from-class="opacity-0 -translate-y-2"
+            enter-to-class="opacity-100 translate-y-0"
+            leave-from-class="opacity-100 translate-y-0"
+            leave-to-class="opacity-0 -translate-y-2"
+          >
+            <div v-if="submitSuccess" class="form-alert form-alert--success" role="alert">
+              <UIcon name="i-heroicons-check-circle" class="alert-icon" aria-hidden="true" />
+              <span>{{ t("contact.form.successMessage") }}</span>
+            </div>
+          </Transition>
+
+          <!-- Error Message -->
+          <Transition
+            enter-active-class="transition-all duration-300 ease-out"
+            leave-active-class="transition-all duration-200 ease-in"
+            enter-from-class="opacity-0 -translate-y-2"
+            enter-to-class="opacity-100 translate-y-0"
+            leave-from-class="opacity-100 translate-y-0"
+            leave-to-class="opacity-0 -translate-y-2"
+          >
+            <div v-if="submitError" class="form-alert form-alert--error" role="alert">
+              <UIcon name="i-heroicons-exclamation-triangle" class="alert-icon" aria-hidden="true" />
+              <span>{{ t("contact.form.errorMessage") }}</span>
+            </div>
+          </Transition>
+
           <!-- Name & Email Row -->
           <div class="form-row">
             <div class="form-group">
-              <label for="name" class="form-label">
+              <label for="contact-name" class="form-label">
                 {{ t("contact.form.name.label") }}
-                <span class="required">*</span>
+                <span class="required" aria-hidden="true">*</span>
               </label>
               <input
-                id="name"
+                id="contact-name"
+                v-model="formData.name"
                 name="name"
                 type="text"
                 required
+                autocomplete="name"
                 class="form-input"
                 :placeholder="t('contact.form.name.placeholder')"
               />
             </div>
             <div class="form-group">
-              <label for="email" class="form-label">
+              <label for="contact-email" class="form-label">
                 {{ t("contact.form.email.label") }}
-                <span class="required">*</span>
+                <span class="required" aria-hidden="true">*</span>
               </label>
               <input
-                id="email"
+                id="contact-email"
+                v-model="formData.email"
                 name="email"
                 type="email"
                 required
+                autocomplete="email"
                 class="form-input"
                 :placeholder="t('contact.form.email.placeholder')"
               />
@@ -95,62 +283,116 @@ const interestOptions = [
           <!-- Phone & Company Row -->
           <div class="form-row">
             <div class="form-group">
-              <label for="phone" class="form-label">
+              <label for="contact-phone" class="form-label">
                 {{ t("contact.form.phone.label") }}
               </label>
               <input
-                id="phone"
+                id="contact-phone"
+                v-model="formData.phone"
                 name="phone"
                 type="tel"
+                autocomplete="tel"
                 class="form-input"
                 :placeholder="t('contact.form.phone.placeholder')"
               />
             </div>
             <div class="form-group">
-              <label for="company" class="form-label">
+              <label for="contact-company" class="form-label">
                 {{ t("contact.form.company.label") }}
               </label>
               <input
-                id="company"
+                id="contact-company"
+                v-model="formData.company"
                 name="company"
                 type="text"
+                autocomplete="organization"
                 class="form-input"
                 :placeholder="t('contact.form.company.placeholder')"
               />
             </div>
           </div>
 
-          <!-- Interest Dropdown -->
+          <!-- Interest Custom Dropdown -->
           <div class="form-group">
-            <label for="interest" class="form-label">
+            <label id="interest-label" class="form-label">
               {{ t("contact.form.interest.label") }}
             </label>
-            <select
-              id="interest"
-              name="interest"
-              class="form-select"
-            >
-              <option value="" disabled selected>
-                {{ t("contact.form.interest.placeholder") }}
-              </option>
-              <option
-                v-for="option in interestOptions"
-                :key="option.value"
-                :value="option.value"
+            <!-- Hidden input for form submission -->
+            <input type="hidden" name="interest" :value="formData.interest" />
+            <div ref="dropdownRef" class="custom-select">
+              <button
+                type="button"
+                class="dropdown-trigger"
+                role="combobox"
+                aria-haspopup="listbox"
+                :aria-expanded="isDropdownOpen"
+                aria-labelledby="interest-label"
+                aria-controls="interest-listbox"
+                :class="{ 'has-value': formData.interest }"
+                @click="toggleDropdown"
+                @keydown="handleDropdownKeydown"
               >
-                {{ t(option.label) }}
-              </option>
-            </select>
+                <span class="dropdown-text">
+                  {{ selectedLabel || t("contact.form.interest.placeholder") }}
+                </span>
+                <UIcon
+                  name="i-heroicons-chevron-down"
+                  class="dropdown-chevron"
+                  :class="{ 'dropdown-chevron--open': isDropdownOpen }"
+                  aria-hidden="true"
+                />
+              </button>
+
+              <Transition
+                enter-active-class="transition-all duration-200 ease-out"
+                leave-active-class="transition-all duration-150 ease-in"
+                enter-from-class="opacity-0 -translate-y-1 scale-y-95"
+                enter-to-class="opacity-100 translate-y-0 scale-y-100"
+                leave-from-class="opacity-100 translate-y-0 scale-y-100"
+                leave-to-class="opacity-0 -translate-y-1 scale-y-95"
+              >
+                <ul
+                  v-if="isDropdownOpen"
+                  id="interest-listbox"
+                  role="listbox"
+                  aria-labelledby="interest-label"
+                  class="dropdown-list"
+                >
+                  <li
+                    v-for="(option, index) in interestOptions"
+                    :key="option.value"
+                    role="option"
+                    :aria-selected="formData.interest === option.value"
+                    class="dropdown-option"
+                    :class="{
+                      'dropdown-option--selected': formData.interest === option.value,
+                      'dropdown-option--focused': focusedOptionIndex === index,
+                    }"
+                    @click="selectOption(option.value)"
+                    @mouseenter="focusedOptionIndex = index"
+                  >
+                    <span>{{ option.label }}</span>
+                    <UIcon
+                      v-if="formData.interest === option.value"
+                      name="i-heroicons-check"
+                      class="option-check"
+                      aria-hidden="true"
+                    />
+                  </li>
+                </ul>
+              </Transition>
+            </div>
           </div>
 
           <!-- Subject -->
           <div class="form-group">
-            <label for="subject" class="form-label">
+            <label for="contact-subject" class="form-label">
               {{ t("contact.form.subject.label") }}
-              <span class="required">*</span>
+              <span class="required" aria-hidden="true">*</span>
             </label>
             <input
-              id="subject"
+              id="contact-subject"
+              v-model="formData.subject"
               name="subject"
               type="text"
               required
@@ -161,12 +403,13 @@ const interestOptions = [
 
           <!-- Message -->
           <div class="form-group">
-            <label for="message" class="form-label">
+            <label for="contact-message" class="form-label">
               {{ t("contact.form.message.label") }}
-              <span class="required">*</span>
+              <span class="required" aria-hidden="true">*</span>
             </label>
             <textarea
-              id="message"
+              id="contact-message"
+              v-model="formData.message"
               name="message"
               rows="5"
               required
@@ -188,16 +431,16 @@ const interestOptions = [
               :disabled="isSubmitting"
             >
               <span v-if="!isSubmitting">{{ t("contact.form.submit") }}</span>
-              <span v-else>{{ t("contact.form.submitting") }}</span>
-              <svg
+              <span v-else class="submitting-content">
+                <UIcon name="i-heroicons-arrow-path" class="spinner" aria-hidden="true" />
+                {{ t("contact.form.submitting") }}
+              </span>
+              <UIcon
                 v-if="!isSubmitting"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
+                name="i-heroicons-paper-airplane"
                 class="submit-icon"
-              >
-                <path d="M3.105 2.289a.75.75 0 00-.826.95l1.414 4.925A1.5 1.5 0 005.135 9.25h6.115a.75.75 0 010 1.5H5.135a1.5 1.5 0 00-1.442 1.086l-1.414 4.926a.75.75 0 00.826.95 28.896 28.896 0 0015.293-7.154.75.75 0 000-1.115A28.897 28.897 0 003.105 2.289z" />
-              </svg>
+                aria-hidden="true"
+              />
             </button>
           </div>
 
@@ -258,6 +501,36 @@ const interestOptions = [
   }
 }
 
+// Alert messages
+.form-alert {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.form-alert--success {
+  background: color-mix(in srgb, var(--color-accent-500) 10%, transparent);
+  color: var(--color-accent-700);
+  border: 1px solid color-mix(in srgb, var(--color-accent-500) 25%, transparent);
+}
+
+.form-alert--error {
+  background: color-mix(in srgb, #ef4444 10%, transparent);
+  color: #dc2626;
+  border: 1px solid color-mix(in srgb, #ef4444 25%, transparent);
+}
+
+.alert-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr;
@@ -285,13 +558,14 @@ const interestOptions = [
 }
 
 .form-input,
-.form-select,
 .form-textarea {
   width: 100%;
   padding: 0.875rem 1rem;
+  min-height: 48px;
   font-size: var(--text-base);
+  font-family: inherit;
   color: var(--color-text);
-  background: var(--color-bg-input);
+  background: var(--color-surface-1);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   transition: border-color 0.2s var(--ease-smooth), box-shadow 0.2s var(--ease-smooth);
@@ -300,26 +574,120 @@ const interestOptions = [
     color: var(--color-text-subtle);
   }
 
-  &:focus {
+  &:focus-visible {
     outline: none;
     border-color: var(--color-primary-400);
-    box-shadow: 0 0 0 3px var(--color-primary-100);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary-500) 15%, transparent);
   }
-}
-
-.form-select {
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-  background-position: right 0.75rem center;
-  background-repeat: no-repeat;
-  background-size: 1.25rem;
-  padding-right: 2.5rem;
 }
 
 .form-textarea {
   resize: vertical;
   min-height: 140px;
+}
+
+// Custom select dropdown
+.custom-select {
+  position: relative;
+}
+
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.875rem 1rem;
+  min-height: 48px;
+  font-size: var(--text-base);
+  font-family: inherit;
+  color: var(--color-text-subtle);
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s var(--ease-smooth), box-shadow 0.2s var(--ease-smooth);
+
+  &.has-value {
+    color: var(--color-text);
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: var(--color-primary-400);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary-500) 15%, transparent);
+  }
+
+  &:hover {
+    border-color: var(--color-border-strong);
+  }
+}
+
+.dropdown-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown-chevron {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  color: var(--color-text-secondary);
+  transition: transform 0.2s var(--ease-smooth);
+
+  &--open {
+    transform: rotate(180deg);
+  }
+}
+
+.dropdown-list {
+  position: absolute;
+  z-index: 50;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  list-style: none;
+  padding: 0.375rem;
+  margin: 0;
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  max-height: 240px;
+  overflow-y: auto;
+  transform-origin: top;
+}
+
+.dropdown-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  min-height: 44px;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  border-radius: var(--radius-sm, 6px);
+  cursor: pointer;
+  transition: background 0.15s var(--ease-smooth);
+
+  &--focused,
+  &:hover {
+    background: var(--color-surface-3);
+  }
+
+  &--selected {
+    color: var(--color-primary-600);
+    font-weight: 600;
+  }
+}
+
+.option-check {
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-primary-500);
+  flex-shrink: 0;
 }
 
 .form-actions {
@@ -333,6 +701,7 @@ const interestOptions = [
   justify-content: center;
   gap: 0.5rem;
   padding: 1rem 2.5rem;
+  min-height: 48px;
   background: var(--color-primary-500);
   color: white;
   font-size: var(--text-base);
@@ -348,7 +717,7 @@ const interestOptions = [
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-primary-400);
+    outline: 2px solid var(--focus-ring);
     outline-offset: 4px;
   }
 
@@ -356,6 +725,23 @@ const interestOptions = [
     opacity: 0.7;
     cursor: not-allowed;
   }
+}
+
+.submitting-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spinner {
+  width: 1.125rem;
+  height: 1.125rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .submit-icon {
@@ -380,19 +766,47 @@ const interestOptions = [
   }
 
   .form-input,
-  .form-select,
-  .form-textarea {
-    background: var(--color-bg-elevated);
-    border-color: var(--color-border);
+  .form-textarea,
+  .dropdown-trigger {
+    background: var(--color-surface-2);
 
-    &:focus {
+    &:focus-visible {
       border-color: var(--color-primary-500);
-      box-shadow: 0 0 0 3px var(--color-primary-900);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary-500) 20%, transparent);
     }
   }
 
-  .form-select {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  .dropdown-list {
+    background: var(--color-surface-2);
+    border-color: var(--color-border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .dropdown-option {
+    &--focused,
+    &:hover {
+      background: var(--color-surface-3);
+    }
+
+    &--selected {
+      color: var(--color-primary-400);
+    }
+  }
+
+  .option-check {
+    color: var(--color-primary-400);
+  }
+
+  .form-alert--success {
+    background: color-mix(in srgb, var(--color-accent-500) 12%, transparent);
+    color: var(--color-accent-300);
+    border-color: color-mix(in srgb, var(--color-accent-500) 20%, transparent);
+  }
+
+  .form-alert--error {
+    background: color-mix(in srgb, #ef4444 12%, transparent);
+    color: #fca5a5;
+    border-color: color-mix(in srgb, #ef4444 20%, transparent);
   }
 }
 
@@ -401,6 +815,10 @@ const interestOptions = [
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .spinner {
+    animation: none;
   }
 }
 </style>

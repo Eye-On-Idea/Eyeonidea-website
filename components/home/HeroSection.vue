@@ -61,10 +61,23 @@ const scrollToContent = () => {
         </div>
         <!-- Main Heading -->
         <h1 id="hero-heading" class="hero-heading">
-          <span class="headline-primary">{{ t("landing.hero.headline") }}</span>
-          <span class="headline-accent text-gradient">{{
-            t("landing.hero.headlineAccent")
-          }}</span>
+          <TextReveal
+            :text="t('landing.hero.headline')"
+            tag="span"
+            class="headline-primary"
+            :delay="200"
+            :stagger="70"
+            trigger-on-mount
+          />
+          <TextReveal
+            :text="t('landing.hero.headlineAccent')"
+            tag="span"
+            class="headline-accent"
+            word-class="text-gradient"
+            :delay="500"
+            :stagger="80"
+            trigger-on-mount
+          />
         </h1>
 
         <!-- Subheadline -->
@@ -74,12 +87,12 @@ const scrollToContent = () => {
 
         <!-- CTA Buttons -->
         <div class="hero-cta">
-          <NuxtLink to="/contact" class="btn-primary">
+          <NuxtLink v-magnetic to="/contact" class="btn-primary">
             {{ t("landing.hero.cta.primary") }}
             <UIcon name="i-heroicons-arrow-right-20-solid" class="btn-icon" />
           </NuxtLink>
 
-          <NuxtLink to="/services" class="btn-secondary">
+          <NuxtLink v-magnetic to="/services" class="btn-secondary">
             {{ t("landing.hero.cta.secondary") }}
           </NuxtLink>
         </div>

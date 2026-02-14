@@ -1,0 +1,54 @@
+{
+  "title": "News & Insights",
+  "seo": {
+    "title": "News & Insights - Eye On Idea",
+    "description": "News, updates, and practical insights from Eye On Idea."
+  },
+  "hero": {
+    "title": "News & Insights",
+    "subtitle": "Updates from Eye On Idea"
+  },
+  "filters": {
+    "search": "Search articles...",
+    "searchLabel": "Search",
+    "allTypes": "All Types",
+    "news": "News",
+    "article": "Article",
+    "announcement": "Announcement",
+    "caseStudy": "Case Study",
+    "clear": "Clear filters",
+    "resultsCount": "Found {count} article(s)"
+  },
+  "posts": {
+    "readMore": "Read more",
+    "readingTime": "{minutes} min read",
+    "noResults": "No articles found",
+    "noResultsText": "Try a different search or clear the filters.",
+    "loadMore": "Load more articles",
+    "loading": "Loading articles...",
+    "featured": "Featured"
+  },
+  "article": {
+    "loading": "Loading article...",
+    "notFound": "Article not found",
+    "notFoundText": "This article doesn't exist or has been removed.",
+    "backToNews": "Back to News",
+    "defaultTitle": "Article",
+    "share": "Share this article",
+    "shareLinkedIn": "Share on LinkedIn",
+    "shareTwitter": "Share on X (Twitter)",
+    "shareEmail": "Share via email",
+    "allArticles": "All Articles",
+    "checkOut": "Check out this article:"
+  },
+  "related": {
+    "title": "Related Articles",
+    "viewAll": "View all articles"
+  },
+  "categories": {
+    "news": "News",
+    "article": "Article",
+    "announcement": "Announcement",
+    "caseStudy": "Case Study"
+  }
+}

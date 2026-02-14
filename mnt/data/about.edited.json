@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "title": "About - Eye On Idea",
+    "description": "Meet Eye On Idea, a Denmark-based consultancy founded by Rune M. P. Pjetursson. We help B2B companies present themselves clearly online across Europe."
+  },
+  "hero": {
+    "badge": "About Us",
+    "title": "Websites Built to Last",
+    "subtitle": "Eye On Idea helps B2B companies build a clear, professional online presence."
+  },
+  "story": {
+    "badge": "Our Story",
+    "title": "From Idea to Reality",
+    "paragraphs": [
+      "Eye On Idea was founded in 2024 with a simple belief. Every business deserves a website that clearly shows who they are and what they offer.",
+      "Many companies end up with sites that do not fit their business. They are hard to update and costly to maintain over time.",
+      "We start by understanding your goals and your situation. Then we build a website you can rely on as you grow."
+    ]
+  },
+  "founder": {
+    "badge": "The Founder",
+    "name": "Rune M. P. Pjetursson",
+    "role": "Founder and Lead Consultant",
+    "bio": [
+      "Rune founded Eye On Idea to turn complex needs into simple, reliable websites. His focus is results, clarity, and long-term value.",
+      "He has worked with companies across Europe. He helps teams make practical choices that support the business."
+    ],
+    "philosophy": {
+      "title": "Working Philosophy",
+      "text": "I prefer long-term partnerships over one-off projects. When you work with Eye On Idea, you get a partner who learns your business and supports your goals."
+    },
+    "connect": "Connect on LinkedIn"
+  },
+  "values": {
+    "badge": "What We Stand For",
+    "title": "Our Values",
+    "items": [
+      {
+        "icon": "i-heroicons-light-bulb",
+        "title": "Clarity",
+        "description": "We build websites you can understand and manage. Clear choices lead to better results."
+      },
+      {
+        "icon": "i-heroicons-hand-raised",
+        "title": "Partnership",
+        "description": "We stay involved after launch. Your success matters to us."
+      },
+      {
+        "icon": "i-heroicons-chat-bubble-left-ellipsis",
+        "title": "Honest Communication",
+        "description": "We give clear advice and set realistic expectations. This helps you decide with confidence."
+      },
+      {
+        "icon": "i-heroicons-shield-check",
+        "title": "Quality",
+        "description": "We build reliable, fast websites and follow professional standards in every project."
+      }
+    ]
+  },
+  "location": {
+    "badge": "Where We Are",
+    "title": "Based in Denmark, Serving Europe",
+    "description": "Eye On Idea is based in Aalborg, Denmark. We work with clients across the Nordics and the European Union. Meetings can be online or in person when needed.",
+    "details": {
+      "headquarters": "Aalborg, Denmark",
+      "coverage": "Denmark, Nordics, European Union",
+      "languages": "English, Danish"
+    },
+    "processLink": "See Our Process"
+  },
+  "quickFacts": {
+    "title": "At a Glance",
+    "items": [
+      {
+        "icon": "i-heroicons-calendar",
+        "label": "Founded",
+        "value": "2024"
+      },
+      {
+        "icon": "i-heroicons-building-office",
+        "label": "Focus",
+        "value": "B2B Digital Presence"
+      },
+      {
+        "icon": "i-heroicons-code-bracket",
+        "label": "Approach",
+        "value": "Modern and Reliable"
+      },
+      {
+        "icon": "i-heroicons-shield-check",
+        "label": "Compliance",
+        "value": "GDPR and EU Law"
+      }
+    ]
+  },
+  "cta": {
+    "badge": "Ready to Start?",
+    "title": "Let Us Talk About Your Project",
+    "description": "Whether you have a plan or just an idea, we help you choose the right next step.",
+    "primary": "Get in Touch",
+    "secondary": "View Our Services"
+  }
+}

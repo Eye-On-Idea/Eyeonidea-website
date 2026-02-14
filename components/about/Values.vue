@@ -1,39 +1,40 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, computed } from "vue";
+import { animationPresets, withDelay } from "~/composables/useAccessibleMotion";
+import { useStrokeDraw } from "~/composables/useStrokeDraw";
 
 const { t, tm } = useI18n();
+const { cursorX, cursorY, prefersReducedMotion } = useCursorFollow();
 
-const sectionRef = ref<HTMLElement | null>(null);
-const isVisible = ref(false);
+const featuredRef = ref<HTMLElement | null>(null);
+const gridRef = ref<HTMLElement | null>(null);
 
-onMounted(() => {
-  if (!sectionRef.value) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true;
-          observer.disconnect();
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  observer.observe(sectionRef.value);
-
-  onUnmounted(() => {
-    observer.disconnect();
-  });
+useStrokeDraw(gridRef, {
+  delay: 300,
+  stagger: 150,
+  duration: 700,
+  selector: ".value-icon-wrap",
 });
 
-const valueIcons = ["lightbulb", "handshake", "chat", "shield"];
+const values = computed(() =>
+  tm("about.values.items") as Array<{ icon: string; title: string; description: string }>
+);
+
+// Cursor-following shine on featured card
+const shineStyle = computed(() => {
+  if (prefersReducedMotion.value || !featuredRef.value) return {};
+  const rect = featuredRef.value?.getBoundingClientRect();
+  if (!rect) return {};
+  const x = cursorX.value - rect.left;
+  const y = cursorY.value - rect.top;
+  return {
+    background: `radial-gradient(400px circle at ${x}px ${y}px, rgba(42, 147, 134, 0.08), transparent 60%)`,
+  };
+});
 </script>
 
 <template>
   <section
-    ref="sectionRef"
     class="about-values"
     aria-labelledby="values-heading"
   >
@@ -41,48 +42,54 @@ const valueIcons = ["lightbulb", "handshake", "chat", "shield"];
       <!-- Header -->
       <div
         class="section-header"
-        :class="{ 'animate-in': isVisible }"
+        v-motion
+        :initial="animationPresets.fadeInUp.initial"
+        :visible-once="animationPresets.fadeInUp.visible"
       >
         <span class="section-badge">{{ t("about.values.badge") }}</span>
-        <h2 id="values-heading" class="section-title">
+        <h2 id="values-heading" class="section-title" style="text-wrap: balance">
           {{ t("about.values.title") }}
         </h2>
       </div>
 
-      <!-- Values Grid -->
-      <div class="values-grid" :class="{ 'animate-in': isVisible }">
+      <!-- Bento Values Grid -->
+      <div ref="gridRef" class="values-bento">
+        <!-- First value: featured / larger -->
         <div
-          v-for="(value, index) in (tm('about.values.items') as Array<{title: string, description: string}>)"
-          :key="index"
-          class="value-card glass-subtle"
-          :class="`stagger-${index + 1}`"
+          v-if="values[0]"
+          ref="featuredRef"
+          v-motion
+          :initial="animationPresets.fadeInUpScale.initial"
+          :visible-once="withDelay('fadeInUpScale', 200).visible"
         >
-          <div class="value-icon" :class="`icon-${valueIcons[index]}`">
-            <!-- Lightbulb -->
-            <svg v-if="valueIcons[index] === 'lightbulb'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18h6M10 22h4M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0018 8 6 6 0 006 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 018.91 14" />
-            </svg>
-            <!-- Handshake -->
-            <svg v-else-if="valueIcons[index] === 'handshake'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 8V4H8" />
-              <rect x="2" y="2" width="20" height="8" rx="2" />
-              <path d="m18 14.4-3-1.9c-.4-.2-.9-.4-1.4-.4H9.4c-.5 0-1 .2-1.4.4l-4 2.5c-.4.3-.8.7-1 1.2l-.5 1.7c-.2.7.1 1.4.7 1.7l3.4 1.9c.3.1.6.2.9.2h3c.3 0 .6-.1.9-.2l4.1-2.2" />
-              <path d="m14 21 2.5-1.4" />
-              <path d="m7 14 5 1 3-2" />
-            </svg>
-            <!-- Chat -->
-            <svg v-else-if="valueIcons[index] === 'chat'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
-              <path d="M8 10h.01M12 10h.01M16 10h.01" />
-            </svg>
-            <!-- Shield -->
-            <svg v-else-if="valueIcons[index] === 'shield'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              <path d="m9 12 2 2 4-4" />
-            </svg>
-          </div>
-          <h3 class="value-title">{{ value.title }}</h3>
-          <p class="value-description">{{ value.description }}</p>
+          <TiltCard :max-tilt="6" :scale="1.02" class="value-card value-card--featured">
+            <div class="value-icon-wrap" v-motion :initial="animationPresets.iconHover.initial" :hover="animationPresets.iconHover.hover">
+              <UIcon :name="values[0].icon" class="value-icon" aria-hidden="true" />
+            </div>
+            <div class="value-text">
+              <h3 class="value-title">{{ values[0].title }}</h3>
+              <p class="value-description">{{ values[0].description }}</p>
+            </div>
+            <!-- Cursor-following shine overlay -->
+            <div class="shine-overlay" :style="shineStyle" aria-hidden="true" />
+          </TiltCard>
+        </div>
+
+        <!-- Remaining values: smaller cards -->
+        <div
+          v-for="(value, index) in values.slice(1)"
+          :key="index + 1"
+          v-motion
+          :initial="animationPresets.staggerItem.initial"
+          :visible-once="withDelay('staggerItem', 350 + index * 120).visible"
+        >
+          <TiltCard :max-tilt="8" :scale="1.03" class="value-card">
+            <div class="value-icon-wrap" v-motion :initial="animationPresets.iconHover.initial" :hover="animationPresets.iconHover.hover">
+              <UIcon :name="value.icon" class="value-icon" aria-hidden="true" />
+            </div>
+            <h3 class="value-title">{{ value.title }}</h3>
+            <p class="value-description">{{ value.description }}</p>
+          </TiltCard>
         </div>
       </div>
     </div>
@@ -107,15 +114,7 @@ const valueIcons = ["lightbulb", "handshake", "chat", "shield"];
 .section-header {
   text-align: center;
   max-width: 600px;
-  margin: 0 auto 4rem;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  margin: 0 auto 3.5rem;
 }
 
 .section-badge {
@@ -134,65 +133,118 @@ const valueIcons = ["lightbulb", "handshake", "chat", "shield"];
 .section-title {
   font-size: var(--text-3xl);
   color: var(--color-text);
-  margin-bottom: 0;
 
   @media (min-width: 768px) {
     font-size: var(--text-4xl);
   }
 }
 
-.values-grid {
+.values-bento {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1.25rem;
 
   @media (min-width: 640px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  &.animate-in .value-card {
-    opacity: 1;
-    transform: translateY(0);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 .value-card {
+  position: relative;
   padding: 2rem;
-  border-radius: var(--radius-lg);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  background: var(--color-surface-1);
+  border: 1px solid var(--glass-border-subtle);
+  border-radius: var(--radius-xl);
+  transition: box-shadow 0.2s var(--ease-smooth);
 
-  &.stagger-1 { transition-delay: 100ms; }
-  &.stagger-2 { transition-delay: 150ms; }
-  &.stagger-3 { transition-delay: 200ms; }
-  &.stagger-4 { transition-delay: 250ms; }
-}
-
-.value-icon {
-  width: 3rem;
-  height: 3rem;
-  margin-bottom: 1.25rem;
-  padding: 0.625rem;
-  background: var(--color-accent-100);
-  border-radius: var(--radius-md);
-  color: var(--color-accent-600);
-
-  svg {
-    width: 100%;
-    height: 100%;
+  &:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   }
 }
 
+// Featured card spans all 3 columns on desktop
+.value-card--featured {
+  overflow: hidden;
+
+  @media (min-width: 640px) {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2.5rem;
+  }
+
+  .value-text {
+    flex: 1;
+  }
+
+  .value-icon-wrap {
+    @media (min-width: 640px) {
+      width: 4rem;
+      height: 4rem;
+      flex-shrink: 0;
+    }
+  }
+
+  .value-icon {
+    @media (min-width: 640px) {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  .value-title {
+    @media (min-width: 640px) {
+      font-size: var(--text-xl);
+    }
+  }
+}
+
+// Featured card parent spans full width in the grid
+.values-bento > :first-child {
+  @media (min-width: 640px) {
+    grid-column: 1 / -1;
+  }
+}
+
+.shine-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+.value-icon-wrap {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-primary-500) 12%, transparent),
+    color-mix(in srgb, var(--color-accent-500) 12%, transparent)
+  );
+  border-radius: var(--radius-lg);
+}
+
+.value-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-accent-600);
+}
+
 .value-title {
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   font-weight: 600;
   color: var(--color-text);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .value-description {
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   line-height: 1.6;
   color: var(--color-text-muted);
 }
@@ -209,17 +261,11 @@ const valueIcons = ["lightbulb", "handshake", "chat", "shield"];
   }
 
   .value-icon {
-    background: var(--color-accent-900);
     color: var(--color-accent-400);
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .section-header,
-  .value-card {
-    opacity: 1;
-    transform: none;
-    transition: none;
+  .value-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   }
 }
 </style>

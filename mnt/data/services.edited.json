@@ -1,0 +1,544 @@
+{
+  "meta": {
+    "title": "Services - Eye On Idea",
+    "description": "Website packages, visual identity, content editing setup, and ongoing support for B2B companies across Europe."
+  },
+  "hero": {
+    "badge": "Our Services",
+    "title": "Digital Solutions That Grow With You",
+    "subtitle": "Eye On Idea helps B2B companies build a clear, professional online presence. Each project is scoped to real needs, not templates."
+  },
+  "packages": {
+    "badge": "Website Packages",
+    "title": "Choose Your Foundation",
+    "subtitle": "Professional websites tailored to your business stage and needs",
+    "launch": {
+      "name": "Launch",
+      "tagline": "Start strong",
+      "description": "A professional website that helps your company look credible from day one.",
+      "idealFor": "New companies, solo founders, or teams building their first website.",
+      "includes": [
+        "Clear, structured website design",
+        "Works well on phones, tablets, and desktops",
+        "1 custom domain with 1-year license",
+        "Ready for future growth",
+        "Basic search setup"
+      ],
+      "price": {
+        "amount": "1,500",
+        "currency": "€",
+        "prefix": "From",
+        "vatNote": "excl. VAT"
+      }
+    },
+    "growth": {
+      "name": "Growth",
+      "tagline": "Scale with confidence",
+      "popular": "Most Popular",
+      "description": "A flexible website designed for regular updates and stronger visibility as you grow.",
+      "idealFor": "Companies that update content often and want a website that can evolve over time.",
+      "includes": [
+        "Everything in Launch",
+        "Content editor for easy updates",
+        "Blog or news section",
+        "Search-friendly structure",
+        "A consistent design while you update content",
+        "Draft and review before publishing"
+      ],
+      "price": {
+        "amount": "3,000",
+        "currency": "€",
+        "prefix": "From",
+        "vatNote": "excl. VAT"
+      }
+    },
+    "platform": {
+      "name": "Platform",
+      "tagline": "Built for the long term",
+      "description": "A long-term website platform built for structured content, multiple audiences, and future growth.",
+      "idealFor": "Companies that treat their website as a core business tool, not a static brochure.",
+      "includes": [
+        "Everything in Growth",
+        "Flexible page sections for future expansion",
+        "Support for more complex content",
+        "Ready for more than one language",
+        "Planning for future updates and growth",
+        "Advanced content editing features"
+      ],
+      "price": {
+        "amount": "5,000",
+        "currency": "€",
+        "prefix": "From",
+        "vatNote": "excl. VAT"
+      }
+    },
+    "cta": "Get a Quote",
+    "pricingNote": "All prices excl. VAT. Final pricing depends on scope and requirements."
+  },
+  "comparison": {
+    "badge": "Compare Packages",
+    "title": "What's Included",
+    "subtitle": "A detailed breakdown of features across all website packages",
+    "packages": ["Launch", "Growth", "Platform"],
+    "categories": {
+      "core": {
+        "title": "Core Features",
+        "features": [
+          {
+            "name": "Custom website design",
+            "tooltip": "Designed for your brand and goals",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Mobile-responsive",
+            "tooltip": "Works well on all devices and screen sizes",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Custom domain (1 year)",
+            "tooltip": "One domain registration included for first year",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "SSL certificate",
+            "tooltip": "Secure connection (HTTPS) included",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Basic SEO setup",
+            "tooltip": "Basic setup to help search engines read your site",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          }
+        ]
+      },
+      "content": {
+        "title": "Content Editing",
+        "features": [
+          {
+            "name": "Content management system",
+            "tooltip": "Sanity content editor for easy updates",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Blog / News section",
+            "tooltip": "Publish articles, news, and updates",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Editorial workflow",
+            "tooltip": "Draft, review, and publish when ready",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Multi-section content",
+            "tooltip": "More complex content across multiple sections",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          },
+          {
+            "name": "Advanced CMS capabilities",
+            "tooltip": "Custom content types and advanced editing features",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          }
+        ]
+      },
+      "structure": {
+        "title": "Growth & Scale",
+        "features": [
+          {
+            "name": "Scalable foundation",
+            "tooltip": "Built to grow with your business",
+            "launch": "basic",
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Modular architecture",
+            "tooltip": "Flexible sections that make future changes easier",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          },
+          {
+            "name": "Multilingual foundations",
+            "tooltip": "Ready for multiple language versions",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          },
+          {
+            "name": "Platform strategy",
+            "tooltip": "Planning for long-term updates and growth",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          }
+        ]
+      },
+      "seo": {
+        "title": "Search & Visibility",
+        "features": [
+          {
+            "name": "Basic SEO structure",
+            "tooltip": "Helps search engines find and understand your site",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "SEO-optimized structure",
+            "tooltip": "Clean page structure and speed improvements",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Content hierarchy guidance",
+            "tooltip": "Organize pages and headings to support search",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          }
+        ]
+      }
+    },
+    "legend": {
+      "included": "Included",
+      "notIncluded": "Not included",
+      "basic": "Basic"
+    }
+  },
+  "addons": {
+    "badge": "Add-ons & Extras",
+    "title": "Extend Your Package",
+    "subtitle": "Optional services to support your website project",
+    "categories": {
+      "identity": {
+        "title": "Visual Identity",
+        "icon": "i-heroicons-paint-brush",
+        "items": [
+          {
+            "name": "Logo design (primary + variations)",
+            "price": "500",
+            "unit": "one-time"
+          },
+          {
+            "name": "Extended logo variations",
+            "price": "200",
+            "unit": "one-time"
+          },
+          {
+            "name": "Color palette & typography",
+            "price": "250",
+            "unit": "one-time"
+          },
+          {
+            "name": "Business card design",
+            "price": "150",
+            "unit": "one-time"
+          },
+          {
+            "name": "Letterhead templates",
+            "price": "150",
+            "unit": "one-time"
+          },
+          {
+            "name": "Presentation templates",
+            "price": "300",
+            "unit": "one-time"
+          },
+          {
+            "name": "Social media brand assets",
+            "price": "200",
+            "unit": "one-time"
+          },
+          {
+            "name": "Brand guidelines document",
+            "price": "400",
+            "unit": "one-time"
+          }
+        ]
+      },
+      "content": {
+        "title": "Content & Language",
+        "icon": "i-heroicons-document-text",
+        "items": [
+          {
+            "name": "Website copywriting (per page)",
+            "price": "100",
+            "unit": "per page"
+          },
+          {
+            "name": "Content editing & refinement",
+            "price": "75",
+            "unit": "per hour"
+          },
+          {
+            "name": "AI-assisted translation",
+            "price": "50",
+            "unit": "per page"
+          },
+          {
+            "name": "Additional language version",
+            "price": "500",
+            "unit": "per language"
+          }
+        ]
+      },
+      "domain": {
+        "title": "Domain & Email",
+        "icon": "i-heroicons-globe-alt",
+        "items": [
+          {
+            "name": "Additional domain registration",
+            "price": "15-50",
+            "unit": "per year"
+          },
+          {
+            "name": "Domain transfer assistance",
+            "price": "50",
+            "unit": "one-time"
+          },
+          {
+            "name": "Email Starter (15 GB)",
+            "price": "1",
+            "unit": "per account/month"
+          },
+          {
+            "name": "Email Pro (50 GB)",
+            "price": "4",
+            "unit": "per account/month"
+          }
+        ]
+      },
+      "seo": {
+        "title": "Search & Visibility",
+        "icon": "i-heroicons-magnifying-glass",
+        "items": [
+          {
+            "name": "SEO structure review",
+            "price": "200",
+            "unit": "one-time"
+          },
+          {
+            "name": "Metadata optimization",
+            "price": "150",
+            "unit": "one-time"
+          },
+          {
+            "name": "Internal linking strategy",
+            "price": "150",
+            "unit": "one-time"
+          }
+        ]
+      },
+      "hosting": {
+        "title": "Hosting",
+        "icon": "i-heroicons-server",
+        "items": [
+          {
+            "name": "EU-based website hosting",
+            "price": "20",
+            "unit": "per month"
+          },
+          {
+            "name": "Speed optimization",
+            "price": "15",
+            "unit": "per month"
+          },
+          {
+            "name": "Site updates & monitoring",
+            "price": "25",
+            "unit": "per month"
+          }
+        ]
+      },
+      "consulting": {
+        "title": "Consulting & Review",
+        "icon": "i-heroicons-chat-bubble-left-right",
+        "items": [
+          {
+            "name": "Advisory session (1 hour)",
+            "price": "100",
+            "unit": "per session"
+          },
+          {
+            "name": "Website audit",
+            "price": "300",
+            "unit": "one-time"
+          },
+          {
+            "name": "Pre-launch review",
+            "price": "200",
+            "unit": "one-time"
+          },
+          {
+            "name": "Second-opinion review",
+            "price": "150",
+            "unit": "one-time"
+          }
+        ]
+      }
+    },
+    "currency": "€",
+    "vatNote": "All prices excl. VAT"
+  },
+  "identity": {
+    "badge": "Visual Identity",
+    "title": "Brand Your Digital Presence",
+    "description": "A clear visual foundation that makes your company recognizable and professional online. Focused on what you need for the web, with options to extend into print.",
+    "includes": [
+      "Logo (primary + variations)",
+      "Color palette with usage examples",
+      "Typography selection and guidance",
+      "Visual direction for digital platforms"
+    ],
+    "price": {
+      "amount": "800",
+      "currency": "€",
+      "prefix": "From",
+      "vatNote": "excl. VAT"
+    },
+    "cta": "Discuss Your Brand"
+  },
+  "cms": {
+    "badge": "CMS Solutions",
+    "title": "Manage Content Independently",
+    "description": "Eye On Idea sets up Sanity, a simple content editor, so your team can update the website without technical work.",
+    "features": [
+      {
+        "title": "Clear Content Fields",
+        "description": "Content fields that match what your business needs"
+      },
+      {
+        "title": "Easy to Use",
+        "description": "Simple screens designed for non-technical users"
+      },
+      {
+        "title": "Consistent Design",
+        "description": "Update content without breaking the layout"
+      },
+      {
+        "title": "Fits Your Project",
+        "description": "Standalone service or included in website projects"
+      }
+    ],
+    "cta": "Learn About CMS"
+  },
+  "support": {
+    "badge": "Support Plans",
+    "title": "Ongoing Partnership",
+    "subtitle": "A website is not a one-time product. It's an active part of your business.",
+    "plans": {
+      "essential": {
+        "name": "Essential",
+        "description": "Light support for companies that want peace of mind and occasional help.",
+        "bestFor": "Smaller websites with low update frequency",
+        "includes": [
+          "Priority support access",
+          "Minor fixes and adjustments",
+          "Fixes when something breaks",
+          "Advice when you need it"
+        ],
+        "price": {
+          "amount": "99",
+          "currency": "€",
+          "unit": "/month",
+          "vatNote": "excl. VAT"
+        }
+      },
+      "growth": {
+        "name": "Growth",
+        "description": "Ongoing collaboration for companies that update and improve their website often.",
+        "bestFor": "Growing, content-driven websites",
+        "includes": [
+          "Everything in Essential",
+          "Regular content updates",
+          "Iterative improvements",
+          "CMS guidance",
+          "Speed improvements"
+        ],
+        "price": {
+          "amount": "249",
+          "currency": "€",
+          "unit": "/month",
+          "vatNote": "excl. VAT"
+        }
+      },
+      "partner": {
+        "name": "Partner",
+        "description": "A close working relationship where Eye On Idea supports you over the long term.",
+        "bestFor": "Business-critical websites",
+        "includes": [
+          "Reserved time for your website",
+          "Ongoing improvements",
+          "Long-term advice",
+          "Fast response",
+          "Ongoing testing and optimization"
+        ],
+        "price": {
+          "amount": "499",
+          "currency": "€",
+          "unit": "/month",
+          "vatNote": "excl. VAT"
+        }
+      }
+    },
+    "billing": "Monthly subscription",
+    "cta": "Find Your Plan"
+  },
+  "howWeWork": {
+    "badge": "How We Work",
+    "title": "A Clear, Transparent Process",
+    "subtitle": "From first contact to launch and beyond, every project follows the same clear steps.",
+    "steps": [
+      {
+        "icon": "i-heroicons-chat-bubble-left-right",
+        "title": "Discover",
+        "description": "We meet to understand your goals, audience, and what you already have."
+      },
+      {
+        "icon": "i-heroicons-document-check",
+        "title": "Propose",
+        "description": "You receive a clear proposal with scope, timeline, and pricing."
+      },
+      {
+        "icon": "i-heroicons-code-bracket",
+        "title": "Build",
+        "description": "We build your site, with check-ins and a preview before launch."
+      },
+      {
+        "icon": "i-heroicons-rocket-launch",
+        "title": "Launch",
+        "description": "Your site goes live, with 2 weeks of post-launch support included."
+      }
+    ],
+    "cta": "See Full Process"
+  },
+  "cta": {
+    "badge": "Ready to Start?",
+    "title": "Let's Find the Right Solution",
+    "description": "We start by understanding what you need. Then we recommend the best next step.",
+    "primary": "Start a Conversation",
+    "secondary": "View Our Work"
+  }
+}

@@ -34,7 +34,11 @@ onMounted(() => {
         </span>
 
         <h1 id="services-hero-heading" class="hero-title">
-          {{ t("services.hero.title") }}
+          <TextReveal
+            :text="t('services.hero.title')"
+            :delay="200"
+            :stagger="70"
+          />
         </h1>
 
         <p class="hero-subtitle">

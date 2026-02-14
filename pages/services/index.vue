@@ -28,6 +28,9 @@ useHead({
     <!-- Hero Section -->
     <ServicesHero />
 
+    <!-- Sticky Section Navigation -->
+    <ServicesSectionNav />
+
     <!-- Website Packages Cards -->
     <ServicesPackagesSection />
 
@@ -46,6 +49,12 @@ useHead({
     <!-- Support Plans -->
     <ServicesSupportPlans />
 
+    <!-- How We Work -->
+    <ServicesHowWeWorkSection />
+
+    <!-- Before/After Results -->
+    <ServicesBeforeAfter />
+
     <!-- CTA Section -->
     <ServicesCTA />
   </div>
@@ -54,5 +63,17 @@ useHead({
 <style lang="scss" scoped>
 .services-page {
   min-height: 100vh;
+}
+
+/* Offset smooth-scroll targets for sticky header + section nav */
+:deep(#packages-section),
+:deep(#comparison-section),
+:deep(#addons-section),
+:deep(#identity-section),
+:deep(#cms-section),
+:deep(#support-plans),
+:deep(#how-we-work-section),
+:deep(#before-after-section) {
+  scroll-margin-top: 136px;
 }
 </style>

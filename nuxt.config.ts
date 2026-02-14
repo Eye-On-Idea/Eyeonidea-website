@@ -5,17 +5,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
   devtools: { enabled: true },
 
-  modules: [
-    "@nuxt/image",
-    "@nuxt/ui",
-    "@dargmuesli/nuxt-cookie-control",
-    "@nuxt/fonts",
-    "@tresjs/nuxt",
-    "@pinia/nuxt",
-    "@nuxtjs/i18n",
-    "@vueuse/motion/nuxt",
-    "@nuxtjs/sanity",
-  ],
+  modules: ["@nuxt/image", "@nuxt/ui", "@dargmuesli/nuxt-cookie-control", "@nuxt/fonts", "@tresjs/nuxt", "@pinia/nuxt", "@nuxtjs/i18n", "@vueuse/motion/nuxt", "@nuxtjs/sanity", "nuxt-auth-utils"],
 
   // Color mode configuration (included with @nuxt/ui)
   colorMode: {
@@ -25,10 +15,10 @@ export default defineNuxtConfig({
     storage: "localStorage", // Persist user preference
     storageKey: "color-mode",
   },
-  // Static Site Generation (SSG) configuration
+  // SSR configuration — Cloudflare Pages with selective prerendering
   ssr: true,
   nitro: {
-    preset: "static",
+    preset: "cloudflare-pages",
     prerender: {
       routes: [
         "/",
@@ -124,6 +114,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: "/",
     buildAssetsDir: "/_nuxt/",
+    pageTransition: { name: "page", mode: "out-in" },
     head: {
       htmlAttrs: {
         lang: "en",
@@ -205,6 +196,7 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    clientHubPassword: process.env.CLIENT_HUB_PASSWORD || "client2025",
     public: {
       GTM_ID: "GTM-MHZ76SX2",
     },
@@ -321,11 +313,23 @@ export default defineNuxtConfig({
   // Experimental features for better static generation
   experimental: {
     payloadExtraction: false,
+    viewTransition: true,
   },
   // Compatibility fixes
   alias: {
     "@nuxt/kit": "@nuxt/kit",
   },
 
-  routeRules: { "/**": { prerender: true } },
+  routeRules: {
+    // Prerender public marketing pages for performance
+    "/": { prerender: true },
+    "/services": { prerender: true },
+    "/about": { prerender: true },
+    "/about/**": { prerender: true },
+    "/contact": { prerender: true },
+    "/news": { prerender: true },
+    "/news/**": { prerender: true },
+    // Client Hub requires SSR for session-based auth
+    "/client-hub/**": { ssr: true },
+  },
 });

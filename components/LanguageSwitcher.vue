@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { ref, computed, onMounted, onUnmounted, watch, nextTick } from "vue";
 import {
   SUPPORTED_LANGUAGES,
   type SupportedLanguage,
@@ -9,53 +8,157 @@ const { locale, setLocale, t } = useI18n();
 const preferencesStore = usePreferencesStore();
 
 const isOpen = ref(false);
-const dropdownRef = ref<HTMLElement | null>(null);
+const containerRef = ref<HTMLElement | null>(null);
 const buttonRef = ref<HTMLButtonElement | null>(null);
+const panelRef = ref<HTMLElement | null>(null);
 const activeIndex = ref(-1);
-const menuId = "language-switcher-menu";
 
-const languageDetails: Record<
-  SupportedLanguage,
-  { name: string; icon: string }
+// Complete language registry — only those in SUPPORTED_LANGUAGES are shown
+const languageRegistry: Record<
+  string,
+  { nativeName: string; icon: string; region: string }
 > = {
-  en: { name: "English", icon: "i-circle-flags-gb" },
-  fr: { name: "Français", icon: "i-circle-flags-fr" },
-  es: { name: "Español", icon: "i-circle-flags-es" },
+  en: { nativeName: "English", icon: "i-circle-flags-gb", region: "GB" },
+  fr: { nativeName: "Français", icon: "i-circle-flags-fr", region: "FR" },
+  es: { nativeName: "Español", icon: "i-circle-flags-es", region: "ES" },
+  de: { nativeName: "Deutsch", icon: "i-circle-flags-de", region: "DE" },
+  it: { nativeName: "Italiano", icon: "i-circle-flags-it", region: "IT" },
+  nl: { nativeName: "Nederlands", icon: "i-circle-flags-nl", region: "NL" },
+  dk: { nativeName: "Dansk", icon: "i-circle-flags-dk", region: "DK" },
+  se: { nativeName: "Svenska", icon: "i-circle-flags-se", region: "SE" },
+  fi: { nativeName: "Suomi", icon: "i-circle-flags-fi", region: "FI" },
+  is: { nativeName: "Íslenska", icon: "i-circle-flags-is", region: "IS" },
+  gr: { nativeName: "Ελληνικά", icon: "i-circle-flags-gr", region: "GR" },
 };
 
-const availableLocales = SUPPORTED_LANGUAGES.map((code) => ({
-  code,
-  ...languageDetails[code],
-}));
+const options = computed(() =>
+  SUPPORTED_LANGUAGES.map((code) => ({
+    code,
+    ...(languageRegistry[code] ?? {
+      nativeName: code.toUpperCase(),
+      icon: "i-heroicons-language",
+      region: code.toUpperCase(),
+    }),
+  })),
+);
 
-const currentLanguage = computed(() => {
-  const found = availableLocales.find((lang) => lang.code === locale.value);
-  return found ?? availableLocales[0];
-});
-
-const currentLanguageName = computed(
-  () => currentLanguage.value?.name ?? languageDetails.en.name
+const currentLanguage = computed(() =>
+  options.value.find((lang) => lang.code === locale.value) ?? options.value[0],
 );
 
 const switchLanguage = async (langCode: SupportedLanguage) => {
   if (locale.value === langCode) {
-    closeMenu(true);
+    closePanel(true);
     return;
   }
-
-  // Save preference to cookie and localStorage FIRST
   await preferencesStore.setLanguage(langCode);
-
-  // Then change the locale
   await setLocale(langCode);
-
-  closeMenu(true);
+  closePanel(true);
 };
 
-// Close dropdown when clicking outside
+// Panel open/close
+const openPanel = (focusIndex = 0) => {
+  isOpen.value = true;
+  activeIndex.value = focusIndex;
+  nextTick(() => focusItem(focusIndex));
+};
+
+const closePanel = (returnFocus = false) => {
+  isOpen.value = false;
+  activeIndex.value = -1;
+  if (returnFocus) {
+    nextTick(() => buttonRef.value?.focus());
+  }
+};
+
+const togglePanel = () => {
+  if (isOpen.value) {
+    closePanel();
+  } else {
+    openPanel(0);
+  }
+};
+
+// Focus management
+const getItems = () => {
+  if (!panelRef.value) return [];
+  return Array.from(panelRef.value.querySelectorAll<HTMLElement>('[role="radio"]'));
+};
+
+const focusItem = (index: number) => {
+  const items = getItems();
+  if (items.length === 0) return;
+  const wrappedIndex = ((index % items.length) + items.length) % items.length;
+  activeIndex.value = wrappedIndex;
+  items[wrappedIndex]?.focus();
+};
+
+// Keyboard: trigger button
+const handleButtonKeydown = (event: KeyboardEvent) => {
+  switch (event.key) {
+    case "ArrowDown":
+    case "Enter":
+    case " ":
+      event.preventDefault();
+      openPanel(0);
+      break;
+    case "ArrowUp":
+      event.preventDefault();
+      openPanel(options.value.length - 1);
+      break;
+    case "Escape":
+      if (isOpen.value) {
+        event.preventDefault();
+        closePanel(true);
+      }
+      break;
+  }
+};
+
+// Keyboard: within panel (grid navigation)
+const handlePanelKeydown = (event: KeyboardEvent) => {
+  const items = getItems();
+  if (items.length === 0) return;
+  const current = activeIndex.value;
+  // Calculate columns based on grid layout (2 columns on small, 3 on larger)
+  const cols = window.innerWidth >= 640 ? 3 : 2;
+
+  switch (event.key) {
+    case "ArrowRight":
+      event.preventDefault();
+      focusItem(current + 1);
+      break;
+    case "ArrowLeft":
+      event.preventDefault();
+      focusItem(current - 1);
+      break;
+    case "ArrowDown":
+      event.preventDefault();
+      focusItem(current + cols);
+      break;
+    case "ArrowUp":
+      event.preventDefault();
+      focusItem(current - cols);
+      break;
+    case "Home":
+      event.preventDefault();
+      focusItem(0);
+      break;
+    case "End":
+      event.preventDefault();
+      focusItem(items.length - 1);
+      break;
+    case "Escape":
+      event.preventDefault();
+      closePanel(true);
+      break;
+  }
+};
+
+// Click outside
 const handleClickOutside = (event: MouseEvent) => {
-  if (dropdownRef.value && !dropdownRef.value.contains(event.target as Node)) {
-    closeMenu();
+  if (containerRef.value && !containerRef.value.contains(event.target as Node)) {
+    closePanel();
   }
 };
 
@@ -66,159 +169,252 @@ onMounted(() => {
 onUnmounted(() => {
   document.removeEventListener("click", handleClickOutside);
 });
-
-const getMenuItems = () => {
-  const dropdown = dropdownRef.value;
-  if (!dropdown) return [];
-  return Array.from(
-    dropdown.querySelectorAll<HTMLElement>('[role="menuitem"]')
-  );
-};
-
-const focusMenuItem = (index: number) => {
-  const items = getMenuItems();
-  if (items.length === 0) return;
-  const wrappedIndex = ((index % items.length) + items.length) % items.length;
-  activeIndex.value = wrappedIndex;
-  items[wrappedIndex]?.focus();
-};
-
-const openMenu = (focusIndex: number) => {
-  isOpen.value = true;
-  nextTick(() => focusMenuItem(focusIndex));
-};
-
-const closeMenu = (returnFocus = false) => {
-  isOpen.value = false;
-  activeIndex.value = -1;
-  if (returnFocus) {
-    nextTick(() => buttonRef.value?.focus());
-  }
-};
-
-const toggleDropdown = () => {
-  if (isOpen.value) {
-    closeMenu();
-    return;
-  }
-  isOpen.value = true;
-};
-
-const handleButtonKeydown = (event: KeyboardEvent) => {
-  switch (event.key) {
-    case "ArrowDown":
-      event.preventDefault();
-      openMenu(0);
-      break;
-    case "ArrowUp":
-      event.preventDefault();
-      openMenu(availableLocales.length - 1);
-      break;
-    case "Enter":
-    case " ":
-      if (!isOpen.value) {
-        event.preventDefault();
-        openMenu(0);
-      }
-      break;
-    case "Escape":
-      if (isOpen.value) {
-        event.preventDefault();
-        closeMenu(true);
-      }
-      break;
-  }
-};
-
-const handleMenuKeydown = (event: KeyboardEvent) => {
-  const items = getMenuItems();
-  if (items.length === 0) return;
-  const activeElement = document.activeElement as HTMLElement | null;
-  const currentIndex = activeElement ? items.indexOf(activeElement) : -1;
-
-  switch (event.key) {
-    case "ArrowDown":
-      event.preventDefault();
-      focusMenuItem(currentIndex < 0 ? 0 : currentIndex + 1);
-      break;
-    case "ArrowUp":
-      event.preventDefault();
-      focusMenuItem(
-        currentIndex < 0 ? items.length - 1 : currentIndex - 1
-      );
-      break;
-    case "Home":
-      event.preventDefault();
-      focusMenuItem(0);
-      break;
-    case "End":
-      event.preventDefault();
-      focusMenuItem(items.length - 1);
-      break;
-    case "Escape":
-      event.preventDefault();
-      closeMenu(true);
-      break;
-  }
-};
 </script>
 
 <template>
-  <div ref="dropdownRef" class="relative">
-    <!-- Language Button -->
+  <div ref="containerRef" class="lang-switcher">
+    <!-- Globe trigger button -->
     <button
       ref="buttonRef"
-      @click="toggleDropdown"
-      @keydown="handleButtonKeydown"
-      class="touch-target px-3 py-2 bg-(--color-surface-1)! hover:bg-primary-800/10! dark:hover:bg-(--color-surface-3) rounded-lg transition-colors flex items-center gap-2 cursor-pointer"
+      type="button"
+      class="lang-switcher__trigger"
       :aria-label="t('common.accessibility.selectLanguage')"
       :aria-expanded="isOpen"
-      aria-haspopup="menu"
-      :aria-controls="menuId"
+      aria-haspopup="true"
+      @click="togglePanel"
+      @keydown="handleButtonKeydown"
     >
       <UIcon
-        :name="currentLanguage?.icon ?? 'i-circle-flags-gb'"
-        class="w-5 h-5"
+        :name="currentLanguage.icon"
+        class="lang-switcher__flag"
       />
-      <span class="sm:inline text-neutral-900">{{ currentLanguageName }}</span>
+      <span class="lang-switcher__code">{{ currentLanguage.code.toUpperCase() }}</span>
       <UIcon
         name="i-lucide-chevron-down"
-        class="h-4 w-4 transition-transform duration-200 bg-neutral-900"
-        :class="{ 'rotate-180': isOpen }"
+        class="lang-switcher__chevron"
+        :class="{ 'lang-switcher__chevron--open': isOpen }"
       />
     </button>
 
-    <!-- Dropdown Menu -->
+    <!-- Flyout panel -->
     <Transition
-      enter-active-class="transition ease-out duration-200"
-      enter-from-class="opacity-0 translate-y-1"
-      enter-to-class="opacity-100 translate-y-0"
-      leave-active-class="transition ease-in duration-150"
-      leave-from-class="opacity-100 translate-y-0"
-      leave-to-class="opacity-0 translate-y-1"
+      enter-active-class="transition-all duration-200 ease-out"
+      leave-active-class="transition-all duration-150 ease-in"
+      enter-from-class="opacity-0 scale-95 -translate-y-1"
+      enter-to-class="opacity-100 scale-100 translate-y-0"
+      leave-from-class="opacity-100 scale-100 translate-y-0"
+      leave-to-class="opacity-0 scale-95 -translate-y-1"
     >
       <div
-        :id="menuId"
-        v-show="isOpen"
-        class="absolute right-0 mt-2 w-48 rounded-lg bg-(--color-surface-1) shadow-lg ring-1 ring-black ring-opacity-5 dark:ring-white dark:ring-opacity-10 z-50"
+        v-if="isOpen"
+        ref="panelRef"
+        class="lang-switcher__panel"
+        role="radiogroup"
+        :aria-label="t('common.accessibility.selectLanguage')"
+        @keydown="handlePanelKeydown"
       >
-        <div class="py-1" role="menu" @keydown="handleMenuKeydown">
-          <button
-            v-for="lang in availableLocales"
-            :key="lang.code"
-            @click="switchLanguage(lang.code)"
-            class="w-full flex items-center gap-3 px-4 py-2 text-sm text-neutral-700 dark:text-neutral-300 hover:bg-(--color-surface-2) dark:hover:bg-(--color-surface-3) hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-left cursor-pointer"
-            :class="{
-              'bg-(--color-surface-2) dark:bg-(--color-surface-3)':
-                locale === lang.code,
-            }"
-            role="menuitem"
-          >
-            <UIcon :name="lang.icon" class="h-5 w-5" />
-            <span>{{ lang.name }}</span>
-          </button>
-        </div>
+        <button
+          v-for="(lang, index) in options"
+          :key="lang.code"
+          type="button"
+          role="radio"
+          :aria-checked="locale === lang.code"
+          :aria-label="lang.nativeName"
+          :tabindex="index === activeIndex ? 0 : -1"
+          class="lang-switcher__item"
+          :class="{ 'lang-switcher__item--active': locale === lang.code }"
+          @click="switchLanguage(lang.code)"
+        >
+          <UIcon :name="lang.icon" class="lang-switcher__item-flag" />
+          <span class="lang-switcher__item-name" :lang="lang.code">{{ lang.nativeName }}</span>
+        </button>
       </div>
     </Transition>
   </div>
 </template>
+
+<style scoped>
+.lang-switcher {
+  position: relative;
+}
+
+/* ── Trigger button ── */
+.lang-switcher__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  min-height: 36px;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border-subtle);
+  background: color-mix(in srgb, var(--color-surface-1) 60%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+.lang-switcher__trigger:hover {
+  background: color-mix(in srgb, var(--color-surface-1) 85%, transparent);
+  border-color: var(--glass-border);
+}
+
+.lang-switcher__trigger:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.lang-switcher__flag {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.lang-switcher__code {
+  font-family: var(--font-text);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--nav-link-text, var(--color-text-secondary));
+}
+
+.lang-switcher__chevron {
+  width: 14px;
+  height: 14px;
+  color: var(--nav-link-text, var(--color-text-tertiary));
+  transition: transform var(--duration-fast) var(--ease-smooth);
+}
+
+.lang-switcher__chevron--open {
+  transform: rotate(180deg);
+}
+
+/* ── Flyout panel ── */
+.lang-switcher__panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  padding: 8px;
+  min-width: 240px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--color-surface-1) 94%, transparent);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+  box-shadow: var(--glass-shadow-elevated);
+  transform-origin: top right;
+}
+
+@media (min-width: 640px) {
+  .lang-switcher__panel {
+    grid-template-columns: repeat(3, 1fr);
+    min-width: 320px;
+  }
+}
+
+/* ── Language item ── */
+.lang-switcher__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  min-height: 40px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+.lang-switcher__item:hover {
+  background: var(--color-surface-2);
+  border-color: var(--glass-border-subtle);
+}
+
+.lang-switcher__item:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: -2px;
+}
+
+.lang-switcher__item--active {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-primary-500) 15%, transparent),
+    color-mix(in srgb, var(--color-accent-500) 15%, transparent)
+  );
+  border-color: color-mix(in srgb, var(--color-primary-500) 25%, transparent);
+}
+
+.lang-switcher__item--active:hover {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-primary-500) 20%, transparent),
+    color-mix(in srgb, var(--color-accent-500) 20%, transparent)
+  );
+}
+
+.lang-switcher__item-flag {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.lang-switcher__item-name {
+  font-family: var(--font-text);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.lang-switcher__item--active .lang-switcher__item-name {
+  color: var(--color-text-primary);
+  font-weight: 700;
+}
+
+/* ── Dark mode ── */
+html.dark .lang-switcher__trigger {
+  background: color-mix(in srgb, var(--color-surface-2) 70%, transparent);
+}
+
+html.dark .lang-switcher__panel {
+  background: color-mix(in srgb, var(--color-surface-1) 96%, transparent);
+}
+
+html.dark .lang-switcher__item--active {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-primary-400) 18%, transparent),
+    color-mix(in srgb, var(--color-accent-400) 18%, transparent)
+  );
+  border-color: color-mix(in srgb, var(--color-primary-400) 30%, transparent);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .lang-switcher__chevron,
+  .lang-switcher__trigger,
+  .lang-switcher__item {
+    transition: none;
+  }
+}
+
+/* ── Reduced transparency ── */
+@media (prefers-reduced-transparency: reduce) {
+  .lang-switcher__trigger {
+    background: var(--color-surface-1);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .lang-switcher__panel {
+    background: var(--color-surface-1);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+</style>

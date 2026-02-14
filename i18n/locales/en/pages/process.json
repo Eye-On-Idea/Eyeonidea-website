@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "title": "Our Process - Eye On Idea",
+    "description": "From first contact to launch and beyond. Learn how Eye On Idea delivers professional website projects with clear timelines, transparent pricing, and ongoing support."
+  },
+  "hero": {
+    "badge": "Our Process",
+    "title": "From Idea to Launch",
+    "subtitle": "Every project follows a clear, transparent process designed to keep you informed and in control at every stage."
+  },
+  "intro": {
+    "text": "We believe great websites are built on clear communication and mutual understanding. Here's exactly what to expect when you work with Eye On Idea."
+  },
+  "timeline": {
+    "title": "Your Project Journey",
+    "steps": {
+      "contact": {
+        "number": "01",
+        "title": "Initial Contact",
+        "description": "You reach out with your project idea or needs. We respond within 1-2 business days and propose a discovery meeting, either in person or online, with flexible scheduling options.",
+        "details": [
+          "No commitment required at this stage",
+          "Meeting can be physical or online (Teams, Zoom, etc.)",
+          "You choose the time and date that works for you"
+        ],
+        "cta": {
+          "label": "Get in Touch",
+          "to": "/contact"
+        }
+      },
+      "discovery": {
+        "number": "02",
+        "title": "Discovery Meeting",
+        "description": "We sit down together to understand your goals, target audience, and business context. This meeting shapes the entire project scope.",
+        "details": [
+          "Define expectations, wants, and needs",
+          "Audit existing assets (logos, content, domains, hosting)",
+          "Identify what needs to be created or sourced",
+          "Discuss timeline and any specific launch requirements"
+        ]
+      },
+      "proposal": {
+        "number": "03",
+        "title": "Proposal & Agreement",
+        "description": "Based on the discovery meeting, we send you a detailed proposal outlining the full project scope, deliverables, timeline, and cost.",
+        "details": [
+          "Clear project scope with all deliverables listed",
+          "Transparent pricing with no hidden fees",
+          "A deposit of 25–50% of total cost to begin work",
+          "Deposit is non-refundable and secures your project slot",
+          "Accepting the proposal includes GDPR consent for data handling as outlined"
+        ],
+        "note": "The proposal clearly states what personal data will be processed, for what purpose, and under which legal basis, in compliance with GDPR. Your data is never shared with third parties beyond what the project requires.",
+        "cta": {
+          "label": "View Our Packages",
+          "to": "/services#packages-section"
+        }
+      },
+      "kickoff": {
+        "number": "04",
+        "title": "Project Kickoff",
+        "description": "Once the deposit is received, work begins. We'll set up the project environment and start building based on the agreed scope.",
+        "details": [
+          "Project typically takes 2–4 weeks depending on scope",
+          "Optional weekly or monthly check-in meetings",
+          "Dedicated communication channel for questions and updates"
+        ]
+      },
+      "development": {
+        "number": "05",
+        "title": "Development & Progress",
+        "description": "Your website takes shape. During this phase, you can optionally request early access to a development server to follow along in real time.",
+        "details": [
+          "Available after the first week of work",
+          "Provides constant insight into project progress",
+          "May incur an additional fee (requires regular codebase maintenance for proper uploads)"
+        ],
+        "note": "Early dev server access is an optional add-on. It requires more frequent deployment and maintenance, which is why it's offered as a separate service.",
+        "cta": {
+          "label": "See Add-ons & Extras",
+          "to": "/services#addons-section"
+        }
+      },
+      "preview": {
+        "number": "06",
+        "title": "Pre-Launch Preview",
+        "description": "One week before the agreed launch date, you receive a link to the test server where you can review the complete project.",
+        "details": [
+          "Full project available for review on a test URL",
+          "Opportunity to request final edits or adjustments",
+          "If CMS is included, you also receive your CMS invitation with instructions and guidance",
+          "This preview acts as the final approval before going live"
+        ]
+      },
+      "payment": {
+        "number": "07",
+        "title": "Final Payment & Launch",
+        "description": "The remaining project balance is invoiced 2–5 business days before launch. Payment is due on launch day.",
+        "details": [
+          "Invoice covers the remainder after the initial deposit",
+          "Payment due on the day of launch",
+          "Website goes live on the agreed date",
+          "All deliverables are handed over"
+        ]
+      },
+      "postlaunch": {
+        "number": "08",
+        "title": "Post-Launch Support",
+        "description": "After launch, you have a 2-week support window where we monitor the site and handle any small corrections you find.",
+        "details": [
+          "We loosely monitor the site for errors",
+          "Small text edits, image swaps, typo fixes, contact info corrections",
+          "Does not include major redesigns or new features",
+          "Report any issues within the 2-week window"
+        ],
+        "note": "This is a complimentary period to catch anything overlooked before launch. Major changes or new feature requests are handled as separate projects or through a support plan."
+      },
+      "handoff": {
+        "number": "09",
+        "title": "Handoff & Beyond",
+        "description": "The project is complete and fully paid. We thank you for the collaboration, and we're always here when you need us next.",
+        "details": [
+          "Hosting and server maintenance remain Eye On Idea's responsibility (hosted on OVH Cloud EU)",
+          "Ongoing support plans available if you want continued collaboration",
+          "No further edits included after the 2-week post-launch window",
+          "Future projects and services always welcome"
+        ],
+        "cta": {
+          "label": "View Support Plans",
+          "to": "/services#support-plans"
+        }
+      }
+    }
+  },
+  "faq": {
+    "title": "Common Questions",
+    "subtitle": "Answers to frequently asked questions about our process",
+    "items": [
+      {
+        "question": "How long does a typical website project take?",
+        "answer": "Most website projects take 2–4 weeks from kickoff to launch, depending on the scope and complexity. Larger platform projects may take longer. The exact timeline is always agreed upon in the proposal."
+      },
+      {
+        "question": "What does the deposit cover?",
+        "answer": "The deposit (25–50% of total project cost) secures your project slot and covers the initial setup, planning, and early development work. It is non-refundable, as work begins immediately after payment."
+      },
+      {
+        "question": "Can I make changes during the project?",
+        "answer": "Yes. We offer optional check-in meetings (weekly or monthly) and you can provide feedback during the pre-launch preview. Minor adjustments within the agreed scope are part of the process. Changes outside the original scope may require a revised proposal."
+      },
+      {
+        "question": "What counts as a 'small edit' during post-launch support?",
+        "answer": "Small edits include text corrections (typos, grammar, wrong contact info), image replacements, and similar minor fixes. It does not include layout changes, new pages, new features, or visual redesigns."
+      },
+      {
+        "question": "What happens with my data (GDPR)?",
+        "answer": "Accepting our proposal includes consent for us to handle your data as outlined in the project scope. This always follows GDPR guidelines. Your data is only used for the project and is never shared with unrelated third parties. Full details are in our privacy policy."
+      },
+      {
+        "question": "Do I need a support plan after launch?",
+        "answer": "Not necessarily. After the 2-week post-launch window, the project is complete. A support plan is optional and is ideal if you want ongoing content updates, technical improvements, or strategic advisory. It can be added at any time."
+      },
+      {
+        "question": "Who handles hosting after launch?",
+        "answer": "Eye On Idea handles hosting and server maintenance on OVH Cloud (EU-based). This is our ongoing responsibility as long as we host your project. Hosting costs are either included in a support plan or billed separately."
+      },
+      {
+        "question": "Can I access the project during development?",
+        "answer": "By default, you receive access to the test server 1 week before launch. If you'd like earlier access to follow development in real time, this is available as an optional add-on service."
+      }
+    ]
+  },
+  "cta": {
+    "badge": "Ready to Begin?",
+    "title": "Let's Start Your Project",
+    "description": "The first step is a conversation. Tell us about your project and we'll take it from there.",
+    "primary": "Start a Conversation",
+    "secondary": "View Our Services"
+  }
+}

@@ -8,6 +8,8 @@ import contact from "./pages/contact.json";
 import about from "./pages/about.json";
 import legal from "./pages/legal.json";
 import policies from "./pages/policies.json";
+import clientHub from "./pages/client-hub.json";
+import process from "./pages/process.json";
 
 export default {
   common,
@@ -20,4 +22,6 @@ export default {
   about,
   legal,
   policies,
+  clientHub,
+  process,
 };

@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "title": "Eye On Idea - Professional B2B Websites",
+    "description": "Eye On Idea helps B2B companies across Europe build clear, professional websites. We also support visual identity and ongoing updates."
+  },
+  "hero": {
+    "headline": "Your online presence",
+    "headlineAccent": "built for growth",
+    "subheadline": "We build professional websites that help you earn trust and grow.",
+    "cta": {
+      "primary": "Start Your Project",
+      "secondary": "Explore Services"
+    },
+    "scrollIndicator": "Scroll to learn more"
+  },
+  "about": {
+    "badge": "Who We Are",
+    "title": "A Partner, Not Just a Supplier",
+    "description": "Eye On Idea is a Danish consultancy for B2B companies that need a clear, reliable website. We help you communicate your value and stay consistent as you grow. You get a site that is easy to update and built to last.",
+    "values": {
+      "clarity": {
+        "title": "Clarity First",
+        "description": "We focus on what matters and explain it in plain language."
+      },
+      "partnership": {
+        "title": "Long-Term Collaboration",
+        "description": "We support you before, during, and after launch."
+      },
+      "quality": {
+        "title": "Built to Last",
+        "description": "We use proven tools and build for reliability over time."
+      }
+    },
+    "cta": "Learn About Us"
+  },
+  "services": {
+    "badge": "What We Offer",
+    "title": "Website Packages",
+    "subtitle": "Tailored solutions for every stage of your business",
+    "additionalServices": {
+      "title": "Additional Services",
+      "identity": {
+        "title": "Visual Identity",
+        "description": "Logo, colors, and brand guidelines for digital use."
+      },
+      "cms": {
+        "title": "CMS Solutions",
+        "description": "Content editing setup so your team can update the website."
+      },
+      "support": {
+        "title": "Ongoing Support",
+        "description": "We keep your site up to date and help you improve it over time."
+      }
+    },
+    "cta": {
+      "viewAll": "View All Services"
+    }
+  },
+  "process": {
+    "badge": "How We Work",
+    "title": "A Clear Path Forward",
+    "steps": {
+      "discover": {
+        "title": "Discover",
+        "description": "We start by understanding your business, goals, and what success looks like."
+      },
+      "design": {
+        "title": "Design",
+        "description": "We design around your needs. No generic templates."
+      },
+      "develop": {
+        "title": "Develop",
+        "description": "We build a fast, reliable website that works well for all visitors."
+      },
+      "support": {
+        "title": "Support",
+        "description": "We stay with you after launch for updates and improvements."
+      }
+    }
+  },
+  "cta": {
+    "badge": "Ready to Start?",
+    "title": "Let's Build Something Great Together",
+    "description": "Whether you're starting fresh, improving your current site, or need a second opinion, we can help.",
+    "primary": "Start a Conversation",
+    "secondary": "View Our Work"
+  },
+  "stats": {
+    "clients": {
+      "value": "50+",
+      "label": "Clients Served"
+    },
+    "countries": {
+      "value": "12",
+      "label": "EU Countries"
+    },
+    "years": {
+      "value": "8+",
+      "label": "Years Experience"
+    }
+  }
+}

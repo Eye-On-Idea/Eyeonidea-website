@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "title": "Contact - Eye On Idea",
+    "description": "Get in touch with Eye On Idea. Tell us what you need and we will help you choose the right next step."
+  },
+  "hero": {
+    "badge": "Get In Touch",
+    "title": "Let's Talk",
+    "subtitle": "Have a project in mind or a question about our services? We are here to help."
+  },
+  "form": {
+    "heading": "Send Us a Message",
+    "name": {
+      "label": "Name",
+      "placeholder": "Your full name"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "your@email.com"
+    },
+    "phone": {
+      "label": "Phone (optional)",
+      "placeholder": "+45 00 00 00 00"
+    },
+    "company": {
+      "label": "Company (optional)",
+      "placeholder": "Your company name"
+    },
+    "subject": {
+      "label": "Subject",
+      "placeholder": "What is this about?"
+    },
+    "interest": {
+      "label": "I'm interested in",
+      "placeholder": "Select a service",
+      "options": {
+        "website": "Website Project",
+        "identity": "Visual Identity",
+        "cms": "Content Editing Setup (CMS)",
+        "support": "Support Plans",
+        "consulting": "Consulting",
+        "other": "Something else"
+      }
+    },
+    "message": {
+      "label": "Message",
+      "placeholder": "Tell us about your project or question..."
+    },
+    "submit": "Send Message",
+    "submitting": "Sending...",
+    "successMessage": "Thank you. Your message has been sent. We'll get back to you within 24 hours.",
+    "errorMessage": "Something went wrong. Please try again or contact us directly at hello@eyeonidea.com.",
+    "gdprNotice": "When you contact Eye On Idea, you agree that we can reply using the details you provide. Your data is only used to handle your request and is not shared with third parties."
+  },
+  "info": {
+    "heading": "Other Ways to Reach Us",
+    "directContact": {
+      "title": "Direct Contact",
+      "description": "Prefer a quick conversation? Reach out by email or phone."
+    },
+    "email": {
+      "label": "Email",
+      "value": "hello@eyeonidea.com"
+    },
+    "phone": {
+      "label": "Phone",
+      "value": "+45 29 93 05 83"
+    },
+    "location": {
+      "title": "Location",
+      "address": "Aalborg, Denmark",
+      "description": "Serving clients across Denmark, the Nordics, and the European Union."
+    },
+    "hours": {
+      "title": "Business Hours",
+      "weekdays": "Monday - Friday: 9:00 - 17:00 CET",
+      "response": "We typically respond within 24 hours."
+    },
+    "social": {
+      "title": "Connect Online",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "cta": {
+    "title": "Not Sure Where to Start?",
+    "description": "Browse our services to see what we offer, or read our latest updates.",
+    "services": "View Services",
+    "news": "Read Our News"
+  }
+}

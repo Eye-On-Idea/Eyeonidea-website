@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 
-const { t } = useI18n();
+const { t, tm } = useI18n();
 
 const isVisible = ref(false);
 
@@ -73,7 +73,7 @@ const sectionKeys = [
         >
           <h2 class="section-title">{{ t(`legal.sections.${key}.title`) }}</h2>
           <p
-            v-for="(paragraph, index) in t(`legal.sections.${key}.content`)"
+            v-for="(paragraph, index) in (tm(`legal.sections.${key}.content`) as string[])"
             :key="index"
             class="section-paragraph"
           >
@@ -84,10 +84,8 @@ const sectionKeys = [
         <!-- Back Link -->
         <div class="back-link-wrapper">
           <NuxtLink to="/about" class="back-link">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="back-icon">
-              <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" />
-            </svg>
-            Back to About
+            <UIcon name="i-heroicons-arrow-left" class="back-icon" aria-hidden="true" />
+            {{ t("common.cta.backToAbout") }}
           </NuxtLink>
         </div>
       </div>
