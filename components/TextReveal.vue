@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from "vue";
+import { STAGGER_TEXT } from "~/composables/useAccessibleMotion";
 
 const props = withDefaults(
   defineProps<{
@@ -19,7 +20,7 @@ const props = withDefaults(
   {
     tag: "span",
     delay: 0,
-    stagger: 60,
+    stagger: STAGGER_TEXT,
     triggerOnMount: false,
     wordClass: "",
   }

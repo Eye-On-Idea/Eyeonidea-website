@@ -1,13 +1,31 @@
+<script setup lang="ts">
+export interface BreadcrumbItem {
+  label: string;
+  to?: string;
+}
+
+defineProps<{
+  /** Ordered list of breadcrumb items. Last item is treated as current page. */
+  crumbs: BreadcrumbItem[];
+  /** Accessible label for the nav element */
+  ariaLabel?: string;
+}>();
+</script>
+
 <template>
-  <nav :aria-label="t('news.article.breadcrumbLabel')" class="breadcrumb-nav">
+  <nav :aria-label="ariaLabel ?? 'Breadcrumb'" class="breadcrumb-nav">
     <ol class="breadcrumb-list">
-      <li v-for="(crumb, index) in crumbs" :key="crumb.to" class="breadcrumb-item">
+      <li
+        v-for="(crumb, index) in crumbs"
+        :key="crumb.to ?? index"
+        class="breadcrumb-item"
+      >
         <NuxtLink
-          v-if="index < crumbs.length - 1"
+          v-if="crumb.to && index < crumbs.length - 1"
           :to="crumb.to"
           class="breadcrumb-link"
         >
-          <Icon
+          <UIcon
             v-if="index === 0"
             name="i-heroicons-home"
             class="breadcrumb-home-icon"
@@ -18,7 +36,7 @@
         <span v-else class="breadcrumb-current" aria-current="page">
           {{ crumb.label }}
         </span>
-        <Icon
+        <UIcon
           v-if="index < crumbs.length - 1"
           name="i-heroicons-chevron-right"
           class="breadcrumb-separator"
@@ -28,19 +46,6 @@
     </ol>
   </nav>
 </template>
-
-<script setup lang="ts">
-interface Crumb {
-  label: string;
-  to: string;
-}
-
-defineProps<{
-  crumbs: Crumb[];
-}>();
-
-const { t } = useI18n();
-</script>
 
 <style lang="scss" scoped>
 .breadcrumb-nav {
@@ -72,6 +77,7 @@ const { t } = useI18n();
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-smooth);
   padding: 0.25rem 0.5rem;
+  min-height: 44px;
   border-radius: 6px;
 
   &:hover {
@@ -107,7 +113,6 @@ const { t } = useI18n();
   white-space: nowrap;
 }
 
-/* Dark mode */
 :global(.dark) .breadcrumb-link {
   color: var(--color-primary-400);
 
@@ -125,7 +130,6 @@ const { t } = useI18n();
   color: var(--color-primary-100);
 }
 
-/* Responsive */
 @media (max-width: 640px) {
   .breadcrumb-current {
     max-width: 150px;

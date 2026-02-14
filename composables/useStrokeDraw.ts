@@ -1,4 +1,5 @@
 import { ref, onMounted, onUnmounted, type Ref } from "vue";
+import { STAGGER_ICON } from "~/composables/useAccessibleMotion";
 
 /**
  * Composable that animates SVG stroke-dashoffset on icon elements
@@ -24,7 +25,7 @@ export function useStrokeDraw(
 ) {
   const {
     delay = 0,
-    stagger = 120,
+    stagger = STAGGER_ICON,
     duration = 600,
     easing = "cubic-bezier(0.22, 1, 0.36, 1)",
     selector = ".value-icon-wrap",

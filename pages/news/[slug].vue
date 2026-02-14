@@ -47,7 +47,7 @@
       <article class="article-container">
         <UContainer class="max-w-7xl py-8">
           <!-- Breadcrumb -->
-          <NewsBreadcrumb
+          <BaseBreadcrumb
             v-motion
             :initial="{ opacity: 0, x: -20 }"
             :enter="{ opacity: 1, x: 0, transition: { duration: 300 } }"

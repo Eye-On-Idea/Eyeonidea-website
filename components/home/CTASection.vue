@@ -68,12 +68,12 @@ onMounted(() => {
 
           <!-- Buttons -->
           <div class="cta-buttons">
-            <NuxtLink v-magnetic to="/contact" class="btn-primary">
+            <NuxtLink to="/contact" class="btn-primary">
               {{ t("landing.cta.primary") }}
               <UIcon name="i-heroicons-arrow-right-20-solid" class="btn-icon" />
             </NuxtLink>
 
-            <NuxtLink v-magnetic to="/about" class="btn-secondary">
+            <NuxtLink to="/about" class="btn-secondary">
               {{ t("landing.cta.secondary") }}
             </NuxtLink>
           </div>

@@ -18,7 +18,7 @@ const iconName = computed(() => t(props.iconKey));
     class="category-card group cursor-pointer"
   >
     <GlassCard
-      tint-color="dark"
+      variant="solid"
       hover-effect="lift"
       :padding="true"
       wrapper-class="h-full"

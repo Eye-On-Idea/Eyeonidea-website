@@ -49,7 +49,7 @@ onMounted(() => {
           </p>
 
           <!-- Core Includes -->
-          <div class="includes-card glass-subtle">
+          <div class="includes-card">
             <h3 class="card-heading">Core Deliverables</h3>
             <ul class="includes-list">
               <li

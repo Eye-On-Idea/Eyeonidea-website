@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
 
-const { t, tm } = useI18n();
+const { t } = useI18n();
 
 // Scroll animation
 const sectionRef = ref<HTMLElement | null>(null);
@@ -31,21 +31,9 @@ onMounted(() => {
 
 // Package data
 const packages = [
-  {
-    key: "launch",
-    variant: "default" as const,
-    popular: false,
-  },
-  {
-    key: "growth",
-    variant: "featured" as const,
-    popular: true,
-  },
-  {
-    key: "platform",
-    variant: "default" as const,
-    popular: false,
-  },
+  { key: "launch" as const, featured: false },
+  { key: "growth" as const, featured: true },
+  { key: "platform" as const, featured: false },
 ];
 
 // Additional services
@@ -90,42 +78,14 @@ const additionalServices = [
 
       <!-- Package Cards Grid - Uses centralized services.packages locale -->
       <div class="packages-grid" :class="{ 'animate-in': isVisible }">
-        <HomePackageCard
+        <ServicesPackageCard
           v-for="(pkg, index) in packages"
           :key="pkg.key"
-          :name="t(`services.packages.${pkg.key}.name`)"
-          :tagline="t(`services.packages.${pkg.key}.tagline`)"
-          :description="t(`services.packages.${pkg.key}.description`)"
-          :ideal-for="t(`services.packages.${pkg.key}.idealFor`)"
-          :features="tm(`services.packages.${pkg.key}.includes`) as string[]"
-          :price="{
-            amount: t(`services.packages.${pkg.key}.price.amount`),
-            currency: t(`services.packages.${pkg.key}.price.currency`),
-            prefix: t(`services.packages.${pkg.key}.price.prefix`),
-            vatNote: t(`services.packages.${pkg.key}.price.vatNote`),
-          }"
-          :variant="pkg.variant"
-          :popular-label="
-            pkg.popular ? t(`services.packages.${pkg.key}.popular`) : undefined
-          "
+          :package-key="pkg.key"
+          :featured="pkg.featured"
           class="package-item"
           :class="`stagger-${index + 1}`"
-        >
-          <template #cta>
-            <NuxtLink
-              to="/contact"
-              class="cta-button"
-              :class="
-                pkg.variant === 'featured'
-                  ? 'cta-button--featured'
-                  : 'cta-button--default'
-              "
-            >
-              <span>{{ t("services.packages.cta") }}</span>
-              <UIcon name="i-heroicons-arrow-right" class="cta-arrow" />
-            </NuxtLink>
-          </template>
-        </HomePackageCard>
+        />
       </div>
 
       <!-- Additional Services -->
@@ -138,7 +98,7 @@ const additionalServices = [
           <GlassCard
             v-for="(service, index) in additionalServices"
             :key="service.key"
-            tint-color="light"
+            variant="solid"
             hover-effect="lift"
             class="service-card"
             :class="`stagger-${index + 4}`"
@@ -290,75 +250,6 @@ const additionalServices = [
   }
   &.stagger-3 {
     transition-delay: 300ms;
-  }
-}
-
-// Button styles for package cards
-:deep(.cta-button) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  width: 100%;
-  padding: 1rem 1.5rem;
-  font-weight: 600;
-  font-size: var(--text-sm);
-  text-decoration: none;
-  border-radius: 12px;
-  transition: all var(--duration-normal) var(--ease-smooth);
-
-  .cta-arrow {
-    width: 18px;
-    height: 18px;
-    transition: transform var(--duration-fast) var(--ease-smooth);
-  }
-
-  &:hover .cta-arrow {
-    transform: translateX(4px);
-  }
-}
-
-:deep(.cta-button--default) {
-  background: transparent;
-  color: var(--color-primary-200);
-  border: 2px solid var(--color-primary-400);
-
-  &:hover {
-    background: rgba(255, 237, 223, 0.1);
-    border-color: var(--color-primary-300);
-    color: var(--color-primary-100);
-    transform: translateY(-2px);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-primary-300);
-    outline-offset: 4px;
-  }
-}
-
-:deep(.cta-button--featured) {
-  background: linear-gradient(
-    135deg,
-    var(--color-accent-500) 0%,
-    var(--color-accent-600) 100%
-  );
-  color: white;
-  border: 2px solid transparent;
-  box-shadow: 0 4px 16px rgba(42, 147, 134, 0.25);
-
-  &:hover {
-    background: linear-gradient(
-      135deg,
-      var(--color-accent-600) 0%,
-      var(--color-accent-700) 100%
-    );
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(42, 147, 134, 0.35);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-accent-400);
-    outline-offset: 4px;
   }
 }
 

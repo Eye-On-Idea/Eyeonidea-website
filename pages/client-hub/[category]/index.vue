@@ -28,9 +28,11 @@ useHead({
   <div class="category-page" v-if="category">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       <!-- Breadcrumb -->
-      <ClientHubBreadcrumb
-        :category-slug="category.slug"
-        :category-title="t(category.titleKey)"
+      <BaseBreadcrumb
+        :crumbs="[
+          { label: t('clientHub.breadcrumb.hub'), to: '/client-hub' },
+          { label: t(category.titleKey) },
+        ]"
       />
 
       <!-- Search bar -->

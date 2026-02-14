@@ -205,7 +205,7 @@ const handleSubmit = async (event: Event) => {
       >
         <form
           id="contact-form"
-          class="contact-form glass-subtle"
+          class="contact-form"
           action="https://formsubmit.co/hello@eyeonidea.com"
           method="POST"
           @submit="handleSubmit"

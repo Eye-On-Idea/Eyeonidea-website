@@ -82,7 +82,7 @@ const handleSubmit = async () => {
       </div>
 
       <!-- Login card -->
-      <GlassCard tint-color="dark" hover-effect="none" :padding="true">
+      <GlassCard variant="solid" hover-effect="none" :padding="true">
         <div class="p-2 sm:p-4">
           <h1 class="text-2xl font-bold text-(--color-text-primary) text-center">
             {{ t("clientHub.login.title") }}

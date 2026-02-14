@@ -18,7 +18,9 @@ useHead({
   <div class="hub-landing">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       <!-- Breadcrumb -->
-      <ClientHubBreadcrumb />
+      <BaseBreadcrumb
+        :crumbs="[{ label: t('clientHub.breadcrumb.hub') }]"
+      />
 
       <!-- Search bar -->
       <div class="mt-6 max-w-xl">

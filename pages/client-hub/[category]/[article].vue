@@ -74,10 +74,12 @@ useHead({
   <div class="article-page" v-if="category && article">
     <div class="max-w-prose mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       <!-- Breadcrumb -->
-      <ClientHubBreadcrumb
-        :category-slug="category.slug"
-        :category-title="t(category.titleKey)"
-        :article-title="t(article.titleKey)"
+      <BaseBreadcrumb
+        :crumbs="[
+          { label: t('clientHub.breadcrumb.hub'), to: '/client-hub' },
+          { label: t(category.titleKey), to: `/client-hub/${category.slug}` },
+          { label: t(article.titleKey) },
+        ]"
       />
 
       <!-- Article header -->

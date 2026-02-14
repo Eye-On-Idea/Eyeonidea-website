@@ -1,22 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { animationPresets, withDelay } from "~/composables/useAccessibleMotion";
 
 const { t } = useI18n();
-
-// Animation states
-const isVisible = ref(false);
-const prefersReducedMotion = ref(false);
-
-onMounted(() => {
-  prefersReducedMotion.value = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  ).matches;
-
-  // Trigger entrance animation
-  setTimeout(() => {
-    isVisible.value = true;
-  }, 100);
-});
 
 // Scroll to next section
 const scrollToContent = () => {

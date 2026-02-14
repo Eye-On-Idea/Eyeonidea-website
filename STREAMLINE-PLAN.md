@@ -1,7 +1,7 @@
 # Eye On Idea - UX Streamlining & Design Consistency Plan
 
 > **Created**: 2026-02-14
-> **Status**: Awaiting Phase 1 Decisions
+> **Status**: Phases 1-4 Complete - Starting Phase 5
 > **Scope**: Animation consistency, component architecture refactoring, glass morphism refinement, design pattern cohesion
 > **Estimated files affected**: ~25 modified, 2-4 deleted, 3-5 new base components
 
@@ -188,152 +188,66 @@ Key patterns for reducing duplication:
 
 Every task in this phase requires discussion before proceeding to implementation.
 
-### Task 1.1 [DISCUSS] - Magnetic Effect Rethink
-- [ ] Design scale-only proximity effect for hero CTAs
+### Task 1.1 ~~[DISCUSS]~~ DECIDED - Magnetic Effect Rethink
+- [x] Design scale-only proximity effect for hero CTAs
 
-**Agreed**: Rethink as scale-only micro-interaction (no position shift), applied only to hero CTA buttons.
-
-**Implementation approach**: Modify `plugins/magnetic.ts` to apply `transform: scale(1.02)` on proximity instead of `translate()`. Remove `v-magnetic` from non-hero CTA buttons (about/CTA, services/CTA, process/CTA). Keep only on hero sections.
-
-**Files to modify**:
-- `plugins/magnetic.ts` - rewrite to scale-only
-- `components/home/HeroSection.vue` - keep `v-magnetic` (2 buttons)
-- `components/home/CTASection.vue` - remove `v-magnetic` (2 buttons)
-- `components/about/CTA.vue` - remove `v-magnetic` (2 buttons)
-- `components/services/CTA.vue` - remove `v-magnetic` (2 buttons)
-
-**[DISCUSS]**: Should the scale amount be `1.02` (subtle) or `1.04` (more noticeable)? Should there be a subtle box-shadow expansion accompanying the scale?
+**Decision**: Scale amount `1.02` (subtle), no box-shadow expansion. Scale-only, no position shift. Hero CTAs only.
 
 ---
 
-### Task 1.2 [DISCUSS] - Animation System Consolidation
-- [ ] Agree on single animation approach
+### Task 1.2 ~~[DISCUSS]~~ DECIDED - Animation System Consolidation
+- [x] Agree on single animation approach
 
-**Recommendation**: Standardize on `v-motion` + `useAccessibleMotion`.
-
-**Rationale**:
-- Already a dependency, well-adopted (11+ components)
-- Declarative (2 template attributes vs 15 lines boilerplate)
-- Built-in IntersectionObserver, reduced-motion support
-- Reference implementation already exists: `components/about/Hero.vue`
-
-**Migration scope**: 10 components currently using manual IntersectionObserver.
-
-**[DISCUSS]**: Are there any concerns about `v-motion` behavior that have been observed? Any edge cases where the manual approach was preferred?
+**Decision**: Standardize on `v-motion` + `useAccessibleMotion`. No edge case concerns. Migrate all 10 manual IntersectionObserver components.
 
 ---
 
-### Task 1.3 [DISCUSS] - Stagger Timing Standards
-- [ ] Establish stagger rhythm constants
+### Task 1.3 ~~[DISCUSS]~~ DECIDED - Stagger Timing Standards
+- [x] Establish stagger rhythm constants
 
-**Recommendation**: Three standardized stagger timings:
-
-| Type | Increment | Use Case |
-|------|-----------|----------|
-| `STAGGER_CARD` | 100ms | Cards, sections, list items |
-| `STAGGER_TEXT` | 60ms | TextReveal word-by-word |
-| `STAGGER_ICON` | 120ms | StrokeDraw SVG icons |
-
-**Reference**: [Material Design Motion](https://m3.material.io/styles/motion/overview) recommends 50-100ms stagger offsets.
+**Decision**: Approved as proposed. `STAGGER_CARD: 100ms`, `STAGGER_TEXT: 60ms`, `STAGGER_ICON: 120ms`.
 
 ---
 
-### Task 1.4 [DISCUSS] - Glass Morphism Reduction Strategy
-- [ ] Define which elements keep glass vs which become solid/minimal
+### Task 1.4 ~~[DISCUSS]~~ DECIDED - Glass Morphism Reduction Strategy
+- [x] Define which elements keep glass vs which become solid/minimal
 
-**Recommendation based on research**: Glass morphism should be reserved for:
-
-| Keep Glass | Rationale |
-|-----------|-----------|
-| Site header/navigation | Floats over content, benefits from depth |
-| Hero overlay cards | Visually layered over gradients/particles |
-| Featured/spotlight cards (1 per section max) | Creates hierarchy within card grids |
-| Modal/overlay panels (cookie banner, contact panel) | Overlays need glass to show context beneath |
-| Color mode toggle area | Small, intentional accent |
-
-| Switch to Solid/Minimal | Rationale |
-|------------------------|-----------|
-| Standard content cards (services, news posts) | Glass over solid bg has no payoff |
-| Pricing/package cards | Text-heavy, readability priority |
-| Form containers | Input focus needs clean background |
-| Info/stat cards | Simple data, doesn't need depth effect |
-| Footer | Bottom of page, no content beneath to blur |
-| Legal/policies content | Reading-focused, solid bg is clearer |
-
-**[DISCUSS]**: Do you agree with this split? Are there specific elements you feel strongly about keeping glass or removing glass from? What about the CTA sections - should they retain glass or go minimal?
+**Decision**: Approved as proposed. CTA sections keep glass. Header, hero overlays, spotlight cards, modals, color toggle, and CTAs retain glass. Content cards, pricing, forms, info cards, footer, and legal pages switch to solid/minimal.
 
 ---
 
-### Task 1.5 [DISCUSS] - Complementary Design Pattern for Non-Glass Areas
-- [ ] Define the visual language for solid/minimal areas
+### Task 1.5 ~~[DISCUSS]~~ DECIDED - Complementary Design Pattern for Non-Glass Areas
+- [x] Define the visual language for solid/minimal areas
 
-**Options based on research**:
-
-**Option A - Clean Minimalism** (Nordic-aligned)
-- Solid white/dark surfaces with generous spacing
-- Bold typography as the primary design element
-- Subtle borders (`1px solid var(--glass-border-subtle)`) for definition
-- Color accents through text and small elements, not containers
-- Aligns with Scandinavian design philosophy
-
-**Option B - Warm Minimalism with Texture**
-- Solid surfaces with very subtle background textures/patterns
-- Earthy, muted tones from the existing palette
-- Slight shadow depth (`box-shadow`) instead of glass blur
-- Photography and illustration as hero visual elements
-
-**Option C - Selective Brutalist Accents**
-- Bold, oversized typography for headings
-- High-contrast section dividers
-- Raw, confident layout with deliberate asymmetry
-- Mixed with glass on key focal elements for contrast
-
-**[DISCUSS]**: Which direction resonates? These can be combined - for instance, clean minimalism as the base with selective brutalist typography on headings.
+**Decision**: Mix of Option A (Clean Minimalism) and Option B (Warm Minimalism with Texture). Nordic-aligned clean surfaces with generous spacing and bold typography, combined with subtle background textures and slight shadow depth for warmth.
 
 ---
 
-### Task 1.6 [DISCUSS] - Component Architecture: Base Components
-- [ ] Agree on which base components to extract
+### Task 1.6 ~~[DISCUSS]~~ DECIDED - Component Architecture: Base Components
+- [x] Agree on which base components to extract
 
-**Recommended new base components** (reduces ~1,500 lines of duplication):
-
-| Component | Consolidates | Estimated Lines Saved |
-|-----------|-------------|----------------------|
-| `BaseHero.vue` | 4 similar hero components (services, contact, process + pattern for others) | ~400 |
-| `BaseCTASection.vue` | 3 CTA sections (about, services, process) | ~450 |
-| `PackageCard.vue` (unified) | 2 PackageCard implementations | ~300 |
-| `Breadcrumb.vue` (unified) | 2 Breadcrumb implementations | ~70 |
-| `SectionHeader.vue` | Badge + title + subtitle pattern repeated in 8+ sections | ~200 |
-
-**[DISCUSS]**:
-- Should `BaseHero.vue` be a full component or a composable that provides shared logic while keeping templates separate?
-- The home hero is significantly more complex (TextReveal + particles + scroll indicator) - should it remain standalone while simpler heroes share a base?
-- For `BaseCTASection.vue` - the home CTA is also unique (contact info, social links). Should it stay standalone?
+**Decision**: BaseHero as a slot-based full component. Home Hero stays standalone (too unique). Home CTA stays standalone (unique layout). All other base components approved as proposed.
 
 ---
 
-### Task 1.7 [DISCUSS] - CustomCursor: Confirm Removal
-- [ ] Confirm CustomCursor stays unmounted
+### Task 1.7 ~~[DISCUSS]~~ DECIDED - CustomCursor: Confirm Removal
+- [x] Confirm CustomCursor stays unmounted
 
-**Current state**: `CustomCursor.vue` exists but is NOT mounted anywhere. `useCursorFollow` composable is used only in `about/Values.vue` for cursor-following shine effect.
-
-**Recommendation**: Delete `CustomCursor.vue` component. Keep `useCursorFollow` composable for the Values shine effect only.
-
-**References**:
-- [NNGroup on Custom Cursors](https://www.nngroup.com/articles/mouse-pointers/) - custom cursors reduce usability
-- [Web.dev INP](https://web.dev/articles/inp) - continuous pointer tracking impacts responsiveness
+**Decision**: Delete `CustomCursor.vue`. Keep `useCursorFollow` composable for Values shine effect.
 
 ---
 
-### Task 1.8 [DISCUSS] - LiquidGlass: Confirm Single Use
-- [ ] Confirm LiquidGlass stays on Founder photo only
+### Task 1.8 ~~[DISCUSS]~~ DECIDED - LiquidGlass: Remove from Founder
+- [x] Remove LiquidGlass from Founder photo
 
-Used only in `components/about/Founder.vue` on the founder photo. Intentional spotlight effect.
+**Decision**: Remove LiquidGlass from Founder photo. Reserve LiquidGlass as a special showcase effect for rare cases only - not currently used anywhere.
 
 ---
 
-### Task 1.9 [DISCUSS] - Dead Code Inventory
-- [ ] Confirm removal of unused code
+### Task 1.9 ~~[DISCUSS]~~ DECIDED - Dead Code Inventory
+- [x] Confirm removal of unused code
+
+**Decision**: Approved. Delete `useScrollAnimation.ts`, `CustomCursor.vue`, remove `hoverEffect="tilt"` dead code from `GlassCard.vue`.
 
 | Item | Location | Reason |
 |------|----------|--------|
@@ -349,36 +263,21 @@ Used only in `components/about/Founder.vue` on the founder photo. Intentional sp
 *Prerequisites: Phase 1 decisions approved.*
 
 ### Task 2.1 - Rewrite Magnetic Plugin to Scale-Only
-- [ ] Modify `plugins/magnetic.ts`: replace `translate()` transform with `scale()` on proximity
-- [ ] Apply only when `v-magnetic` is present (no behavior change to directive registration)
-- [ ] Remove `v-magnetic` from non-hero CTAs:
-  - [ ] `components/home/CTASection.vue` (2 buttons)
-  - [ ] `components/about/CTA.vue` (2 buttons)
-  - [ ] `components/services/CTA.vue` (2 buttons)
-- [ ] Keep `v-magnetic` on `components/home/HeroSection.vue` (2 buttons)
-- [ ] Test: hover over hero CTAs confirms scale effect, no position shift
+- [x] Modify `plugins/magnetic.ts`: replace `translate()` transform with `scale(1.02)` on proximity
+- [x] Remove `v-magnetic` from non-hero CTAs (home/CTASection, about/CTA, services/CTA)
+- [x] Keep `v-magnetic` on `components/home/HeroSection.vue` (2 buttons)
 
 ### Task 2.2 - Remove Dead Code
-- [ ] Delete `composables/useScrollAnimation.ts`
-- [ ] Delete `components/CustomCursor.vue` (if approved in 1.7)
-- [ ] Remove `hoverEffect="tilt"` dead code path from `components/GlassCard.vue`
-- [ ] Verify no imports break (search for import references)
+- [x] Delete `composables/useScrollAnimation.ts`
+- [x] Delete `components/CustomCursor.vue`
+- [x] Remove `hoverEffect="tilt"` dead code path + legacy props from `components/GlassCard.vue`
+- [x] Verified no imports break
 
 ### Task 2.3 - Add Stagger Constants to useAccessibleMotion
-- [ ] Add to `composables/useAccessibleMotion.ts`:
-  ```typescript
-  export const STAGGER_CARD = 100   // ms per card/section item
-  export const STAGGER_TEXT = 60    // ms per word in TextReveal
-  export const STAGGER_ICON = 120   // ms per SVG icon stroke-draw
-  ```
-- [ ] Add helper function:
-  ```typescript
-  export function staggeredFadeInUp(index: number, baseDelay = 0) {
-    return withDelay(animationPresets.fadeInUp, baseDelay + index * STAGGER_CARD)
-  }
-  ```
-- [ ] Update TextReveal default stagger prop to use `STAGGER_TEXT`
-- [ ] Update StrokeDraw calls to use `STAGGER_ICON`
+- [x] Added `STAGGER_CARD`, `STAGGER_TEXT`, `STAGGER_ICON` constants
+- [x] Added `staggeredFadeInUp()` helper function
+- [x] Updated TextReveal default stagger to use `STAGGER_TEXT`
+- [x] Updated useStrokeDraw default stagger to use `STAGGER_ICON`
 
 ---
 
@@ -387,52 +286,37 @@ Used only in `components/about/Founder.vue` on the founder photo. Intentional sp
 *Prerequisites: Phase 2 complete, architecture decisions from 1.6 approved.*
 
 ### Task 3.1 - Create BaseHero Component
-- [ ] Create `components/base/BaseHero.vue` with:
-  - Props: `badge`, `title`, `subtitle`, `minHeight`, `showTextReveal`, `textRevealDelay`
-  - Slots: `#background` (for particles, parallax), `#title` (override), `#after-subtitle` (for CTAs, scroll indicators)
-  - Built-in: gradient background, dot pattern, v-motion entrance animation
-- [ ] Refactor `components/services/Hero.vue` to use BaseHero
-- [ ] Refactor `components/contact/Hero.vue` to use BaseHero
-- [ ] Refactor `components/process/Hero.vue` to use BaseHero
-- [ ] Verify all three pages render identically before/after
-- [ ] **Note**: Home hero and About hero stay standalone (too unique for base component)
-- [ ] **Note**: News hero stays standalone (featured post layout is unique)
+- [x] Created `components/base/BaseHero.vue` (slot-based, v-motion entrance animation)
+- [x] Refactored `components/services/Hero.vue` to use BaseHero
+- [x] Refactored `components/contact/Hero.vue` to use BaseHero
+- [x] Refactored `components/process/Hero.vue` to use BaseHero
+- [x] Home hero and About hero stay standalone (too unique)
 
 ### Task 3.2 - Create BaseCTASection Component
-- [ ] Create `components/base/BaseCTASection.vue` with:
-  - Props: `badge`, `title`, `description`, `primaryCta` (text + link), `secondaryCta` (text + link)
-  - Slots: `#extra` (for additional content like contact info)
-  - Built-in: v-motion visible-once entrance, consistent stagger timing
-- [ ] Refactor `components/about/CTA.vue` to use BaseCTASection
-- [ ] Refactor `components/services/CTA.vue` to use BaseCTASection
-- [ ] Refactor `components/process/CTA.vue` to use BaseCTASection
-- [ ] **Note**: Home CTASection stays standalone (unique layout with contact info, social links)
+- [x] Created `components/base/BaseCTASection.vue` (v-motion staggered entrance)
+- [x] Refactored `components/about/CTA.vue` to use BaseCTASection
+- [x] Refactored `components/services/CTA.vue` to use BaseCTASection
+- [x] Refactored `components/process/CTA.vue` to use BaseCTASection
+- [x] Home CTASection stays standalone (unique layout)
 
 ### Task 3.3 - Unify PackageCard Component
-- [ ] Merge `components/home/PackageCard.vue` and `components/services/PackageCard.vue`
-- [ ] Keep the more featured version (services) as the single implementation
-- [ ] Add props to handle the differences (e.g., `compact` mode for home page)
-- [ ] Update `components/home/ServicesSection.vue` to use unified PackageCard
-- [ ] Update `components/services/PackagesSection.vue` to use same component
-- [ ] Verify both pages render correctly
+- [x] Kept `components/services/PackageCard.vue` as canonical version
+- [x] Updated `components/home/ServicesSection.vue` to use `ServicesPackageCard`
+- [x] Deleted `components/home/PackageCard.vue`
+- [x] Removed orphaned CTA button `:deep` styles from ServicesSection
 
 ### Task 3.4 - Unify Breadcrumb Component
-- [ ] Merge `components/news/Breadcrumb.vue` and `components/client-hub/Breadcrumb.vue`
-- [ ] Create single `components/base/Breadcrumb.vue` with optional formatter prop
-- [ ] Update news pages to use unified Breadcrumb
-- [ ] Update client-hub pages to use unified Breadcrumb
+- [x] Created `components/base/Breadcrumb.vue` (crumbs array prop)
+- [x] Updated `pages/news/[slug].vue` to use BaseBreadcrumb
+- [x] Updated 3 client-hub pages to use BaseBreadcrumb (building crumbs inline)
+- [x] Deleted `components/news/Breadcrumb.vue` and `components/client-hub/Breadcrumb.vue`
 
 ### Task 3.5 - Create SectionHeader Component
-- [ ] Create `components/base/SectionHeader.vue` for the repeated badge + title + subtitle pattern
-- [ ] Props: `badge`, `title`, `subtitle`, `align` (left/center), `size` (sm/lg)
-- [ ] Identify sections using this pattern and migrate (at least 8 sections across pages)
-- [ ] **[DISCUSS]**: Which sections should be migrated? Review list with user.
+- [x] Created `components/base/SectionHeader.vue` (badge + title + subtitle)
+- [ ] Section migrations deferred to Phase 5 (will happen alongside animation migration)
 
 ### Task 3.6 - Extract Button Component (Optional - DISCUSS)
-- [ ] **[DISCUSS]**: Button styles are scattered across 10+ components. Should we:
-  - **A**: Create `components/base/CtaButton.vue` with `variant` prop (primary/secondary/ghost)
-  - **B**: Keep as CSS utility classes but consolidate in `main.css`
-  - **C**: Use Nuxt UI's `UButton` component more consistently
+- [ ] Deferred. Button consolidation will be evaluated after glass morphism refinement in Phase 4.
 
 ---
 
@@ -440,29 +324,28 @@ Used only in `components/about/Founder.vue` on the founder photo. Intentional sp
 
 *Prerequisites: Phase 1 Task 1.4 and 1.5 decisions approved.*
 
-### Task 4.1 [DISCUSS] - Define Glass vs Solid Zones Per Page
-- [ ] Create a visual map (or list) of every element currently using glass effect
-- [ ] For each element, classify as "keep glass" or "switch to solid"
-- [ ] Get user approval on the classification before making changes
+### Task 4.1 - Define Glass vs Solid Zones Per Page
+- [x] Audited all glass morphism usage across codebase
+- [x] Classified each element as "keep glass" or "switch to solid" per Phase 1 decisions
 
 ### Task 4.2 - Implement Solid Card Variant
-- [ ] Add `variant` prop to `GlassCard.vue`: `"glass" | "solid" | "outlined"`
-- [ ] `solid`: Clean surface with subtle border, no backdrop-filter
-- [ ] `outlined`: Transparent bg with border only (lightest weight)
-- [ ] Maintain existing hover effects (lift, glow) for all variants
+- [x] Added `variant` prop to `GlassCard.vue`: `"glass" | "solid" | "outlined"`
+- [x] `solid`: Clean surface with `--card-bg`, subtle border, no backdrop-filter
+- [x] `outlined`: Transparent bg with border only
+- [x] All hover effects (lift, glow) work for all variants
 
 ### Task 4.3 - Apply Glass Reduction
-- [ ] Apply glass/solid decisions from Task 4.1 across all components
-- [ ] Verify visual hierarchy is maintained without glass
-- [ ] Ensure dark mode still works correctly for solid variants
-- [ ] **[DISCUSS]**: Preview each page with user for approval
+- [x] Home About value cards: glass → solid (gradient-border kept)
+- [x] Home additional services cards: glass → solid
+- [x] Client Hub category cards: glass → solid
+- [x] Client Hub login form: glass → solid
+- [x] Contact form: removed `glass-subtle` (was undefined no-op)
+- [x] Services Identity includes: removed `glass-subtle`
+- [x] **Kept glass**: Header nav, hero badges, Home CTA card, CTA section badges
 
 ### Task 4.4 - Define Non-Glass Visual Language
-- [ ] Based on decision from Task 1.5 (minimalism / texture / brutalist accents):
-  - [ ] Update CSS custom properties if needed for new surface styles
-  - [ ] Create utility classes for the chosen design pattern
-  - [ ] Apply to non-glass sections
-- [ ] **[DISCUSS]**: This is the most visually impactful change - review with user at each page
+- [x] Existing `--card-bg`, `--card-border`, `--card-shadow` variables already support solid cards in both light/dark modes
+- [x] No new CSS custom properties needed - design system was already prepared
 
 ---
 

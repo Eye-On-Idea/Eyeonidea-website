@@ -1,28 +1,27 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useSimpleCardTilt } from "~/composables/useCardTilt";
 
 const props = withDefaults(
   defineProps<{
-    // Glass effect props
-    glassIntensity?: number; // 0-1 for blur amount
-    tintColor?: "light" | "dark" | "brand"; // Glass tint variant
-    // Interaction props
-    hoverEffect?: "lift" | "glow" | "tilt" | "none";
-    // Visual props
-    gradientBorder?: boolean; // Add gradient border
-    elevated?: boolean; // Extra elevation/shadow
-    // Layout props
+    /** Card surface variant */
+    variant?: "glass" | "solid" | "outlined";
+    /** Glass effect intensity (0-1), only applies to glass variant */
+    glassIntensity?: number;
+    /** Glass tint color, only applies to glass variant */
+    tintColor?: "light" | "dark" | "brand";
+    /** Hover interaction style */
+    hoverEffect?: "lift" | "glow" | "none";
+    /** Add gradient border */
+    gradientBorder?: boolean;
+    /** Extra elevation/shadow */
+    elevated?: boolean;
+    /** Additional wrapper classes */
     wrapperClass?: string | string[];
+    /** Whether to apply internal padding */
     padding?: boolean;
-    // Legacy props (kept for backwards compatibility)
-    displacementScale?: number;
-    blurAmount?: number;
-    cornerRadius?: number;
-    saturation?: number;
-    overLight?: boolean;
   }>(),
   {
+    variant: "glass",
     glassIntensity: 0.5,
     tintColor: "dark",
     hoverEffect: "lift",
@@ -32,74 +31,64 @@ const props = withDefaults(
   }
 );
 
-// Conditionally use tilt effect
-const { cardRef, cardStyle, glareStyle, isHovered } =
-  props.hoverEffect === "tilt"
-    ? useSimpleCardTilt()
-    : { cardRef: null, cardStyle: null, glareStyle: null, isHovered: null };
+const cardClass = computed(() => {
+  const classes: string[] = [];
 
-// Compute glass class based on tint
-const glassClass = computed(() => {
-  const classes = ["glass-card"];
-
-  switch (props.tintColor) {
-    case "light":
-      classes.push("glass-light");
-      break;
-    case "brand":
-      classes.push("glass-brand");
-      break;
-    case "dark":
-    default:
-      classes.push("glass-dark");
-      break;
+  // Variant class
+  if (props.variant === "glass") {
+    classes.push("glass-card");
+    switch (props.tintColor) {
+      case "light":
+        classes.push("glass-light");
+        break;
+      case "brand":
+        classes.push("glass-brand");
+        break;
+      case "dark":
+      default:
+        classes.push("glass-dark");
+        break;
+    }
+  } else if (props.variant === "solid") {
+    classes.push("solid-card");
+  } else if (props.variant === "outlined") {
+    classes.push("outlined-card");
   }
 
-  // Add hover effect class
+  // Hover effect
   if (props.hoverEffect === "lift") {
     classes.push("hover-lift");
   } else if (props.hoverEffect === "glow") {
     classes.push("hover-glow");
   }
 
-  // Add gradient border class
+  // Gradient border
   if (props.gradientBorder) {
     classes.push("gradient-border");
   }
 
-  // Add elevated class
+  // Elevated
   if (props.elevated) {
-    classes.push("glass-elevated");
+    classes.push("card-elevated");
   }
 
   return classes;
 });
 
-// Compute dynamic glass intensity styles
-const glassStyles = computed(() => {
-  const blur = Math.round(props.glassIntensity * 20); // 0-20px blur
-  return {
-    "--glass-blur-dynamic": `${blur}px`,
-  };
+const cardStyles = computed(() => {
+  if (props.variant !== "glass") return {};
+  const blur = Math.round(props.glassIntensity * 20);
+  return { "--glass-blur-dynamic": `${blur}px` };
 });
 </script>
 
 <template>
   <div
-    :ref="hoverEffect === 'tilt' ? (el) => (cardRef = el as HTMLElement) : undefined"
-    :style="[glassStyles, hoverEffect === 'tilt' && cardStyle ? cardStyle : {}]"
-    :class="[glassClass, wrapperClass]"
+    :style="cardStyles"
+    :class="[cardClass, wrapperClass]"
     class="relative rounded-xl overflow-hidden transition-all duration-300"
     role="presentation"
   >
-    <!-- Glare overlay for tilt effect -->
-    <div
-      v-if="hoverEffect === 'tilt' && glareStyle"
-      class="absolute inset-0 pointer-events-none z-10 rounded-xl"
-      :style="glareStyle"
-    />
-
-    <!-- Content wrapper -->
     <div :class="{ 'p-4 md:p-6': padding }" class="flex flex-col h-full">
       <slot />
     </div>
@@ -107,6 +96,7 @@ const glassStyles = computed(() => {
 </template>
 
 <style lang="scss" scoped>
+/* ── Glass variant ─────────────────────────────── */
 .glass-card {
   backdrop-filter: blur(var(--glass-blur-dynamic, var(--glass-blur, 20px)))
     saturate(var(--glass-saturation, 180%));
@@ -118,13 +108,27 @@ const glassStyles = computed(() => {
   box-shadow: var(--glass-shadow, 0 8px 32px rgba(0, 0, 0, 0.1));
 }
 
-/* Elevated glass with stronger shadow */
-.glass-elevated {
+/* ── Solid variant ─────────────────────────────── */
+.solid-card {
+  background: var(--card-bg, var(--color-surface-1));
+  border: 1px solid var(--card-border, var(--color-border));
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+/* ── Outlined variant ──────────────────────────── */
+.outlined-card {
+  background: transparent;
+  border: 1px solid var(--card-border, var(--color-border));
+  box-shadow: none;
+}
+
+/* ── Elevated ──────────────────────────────────── */
+.card-elevated {
   box-shadow: var(--glass-shadow-elevated, 0 16px 48px rgba(0, 0, 0, 0.15)),
     0 0 40px rgba(64, 150, 255, 0.1);
 }
 
-/* Gradient border effect */
+/* ── Gradient border ───────────────────────────── */
 .gradient-border {
   position: relative;
   border: none;
@@ -150,25 +154,31 @@ const glassStyles = computed(() => {
   }
 }
 
-/* Enhanced hover states */
-.glass-card.hover-lift:hover {
-  box-shadow: var(--glass-shadow-elevated, 0 16px 48px rgba(0, 0, 0, 0.15)),
-    0 0 30px rgba(64, 150, 255, 0.15);
+/* ── Hover states ──────────────────────────────── */
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12),
+    0 0 30px rgba(64, 150, 255, 0.1);
 }
 
-.glass-card.hover-glow:hover {
-  box-shadow: var(--glass-shadow, 0 8px 32px rgba(0, 0, 0, 0.1)),
+.hover-glow:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
     0 0 40px rgba(64, 150, 255, 0.25);
 }
 
-/* Respect reduced motion */
+/* ── Accessibility ─────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .glass-card {
+  .glass-card,
+  .solid-card,
+  .outlined-card {
     transition: none;
+  }
+
+  .hover-lift:hover {
+    transform: none;
   }
 }
 
-/* Respect reduced transparency */
 @media (prefers-reduced-transparency: reduce) {
   .glass-card {
     backdrop-filter: none;

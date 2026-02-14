@@ -33,6 +33,20 @@ export function useAccessibleMotion() {
   };
 }
 
+/** Stagger timing constants (ms) */
+export const STAGGER_CARD = 100; // Cards, sections, list items
+export const STAGGER_TEXT = 60; // TextReveal word-by-word
+export const STAGGER_ICON = 120; // StrokeDraw SVG icons
+
+/**
+ * Creates a fadeInUp animation variant with staggered delay based on item index.
+ * @param index - Item index in the list (0-based)
+ * @param baseDelay - Optional base delay in ms before stagger begins
+ */
+export function staggeredFadeInUp(index: number, baseDelay = 0) {
+  return withDelay("fadeInUp", baseDelay + index * STAGGER_CARD);
+}
+
 /**
  * Reusable animation presets matching the site's design system
  */

@@ -19,24 +19,12 @@ const { t, tm } = useI18n();
           :visible-once="animationPresets.slideInLeft.visible"
         >
           <div class="photo-container">
-            <ClientOnly>
-              <LiquidGlass class="liquid-glass-photo">
-                <img
-                  src="/public-material/profile-picture.png"
-                  :alt="t('about.founder.name')"
-                  class="founder-photo"
-                  loading="lazy"
-                />
-              </LiquidGlass>
-              <template #fallback>
-                <img
-                  src="/public-material/profile-picture.png"
-                  :alt="t('about.founder.name')"
-                  class="founder-photo"
-                  loading="lazy"
-                />
-              </template>
-            </ClientOnly>
+            <img
+              src="/public-material/profile-picture.png"
+              :alt="t('about.founder.name')"
+              class="founder-photo"
+              loading="lazy"
+            />
             <div class="photo-backdrop" aria-hidden="true" />
           </div>
         </div>
@@ -133,15 +121,6 @@ const { t, tm } = useI18n();
     width: 300px;
     height: 300px;
   }
-}
-
-.liquid-glass-photo {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
 }
 
 .founder-photo {

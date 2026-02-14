@@ -82,7 +82,7 @@ const values = [
         <GlassCard
           v-for="(value, index) in values"
           :key="value.key"
-          tint-color="dark"
+          variant="solid"
           hover-effect="lift"
           :gradient-border="true"
           class="value-card"
