@@ -5,7 +5,18 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
   devtools: { enabled: true },
 
-  modules: ["@nuxt/image", "@nuxt/ui", "@dargmuesli/nuxt-cookie-control", "@nuxt/fonts", "@tresjs/nuxt", "@pinia/nuxt", "@nuxtjs/i18n", "@vueuse/motion/nuxt", "@nuxtjs/sanity", "nuxt-auth-utils"],
+  modules: [
+    "@nuxt/image",
+    "@nuxt/ui",
+    "@dargmuesli/nuxt-cookie-control",
+    "@nuxt/fonts",
+    "@tresjs/nuxt",
+    "@pinia/nuxt",
+    "@nuxtjs/i18n",
+    "@vueuse/motion/nuxt",
+    "@nuxtjs/sanity",
+    "nuxt-auth-utils",
+  ],
 
   // Color mode configuration (included with @nuxt/ui)
   colorMode: {
@@ -23,6 +34,7 @@ export default defineNuxtConfig({
       routes: [
         "/",
         "/services",
+        "/services/process",
         "/about",
         "/about/legal",
         "/about/policies",
@@ -324,6 +336,7 @@ export default defineNuxtConfig({
     // Prerender public marketing pages for performance
     "/": { prerender: true },
     "/services": { prerender: true },
+    "/services/**": { prerender: true },
     "/about": { prerender: true },
     "/about/**": { prerender: true },
     "/contact": { prerender: true },

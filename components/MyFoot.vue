@@ -121,11 +121,11 @@
                 {{ t("footer.siteNav.about") }}
               </NuxtLink>
             </li>
-            <li>
+            <!-- News page <li>
               <NuxtLink class="footer-nav-link" to="/news">
                 {{ t("footer.siteNav.news") }}
               </NuxtLink>
-            </li>
+            </li> -->
             <li>
               <NuxtLink class="footer-nav-link" to="/contact">
                 {{ t("footer.siteNav.contact") }}

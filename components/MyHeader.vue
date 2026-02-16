@@ -18,7 +18,7 @@ const navLinks = computed(() => [
       },
     ],
   },
-  { label: t("nav.news"), to: "/news" },
+  // { label: t("nav.news"), to: "/news" },
   {
     label: t("nav.about"),
     to: "/about",
@@ -164,10 +164,13 @@ const toggleMobileExpand = (to: string) => {
 };
 
 // Close dropdown and mobile menu on route change
-watch(() => route.path, () => {
-  openDropdown.value = null;
-  expandedMobile.value = null;
-});
+watch(
+  () => route.path,
+  () => {
+    openDropdown.value = null;
+    expandedMobile.value = null;
+  },
+);
 
 // Check if current route matches link or any of its children
 const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
@@ -249,7 +252,11 @@ onBeforeUnmount(() => {
           <span class="relative z-10">{{ link.label }}</span>
           <div
             class="header-nav-underline absolute bottom-0 left-0 right-0 h-0.5 origin-left transition-all duration-300 ease-out"
-            :class="isActiveLink(link) ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'"
+            :class="
+              isActiveLink(link)
+                ? 'opacity-100 scale-x-100'
+                : 'opacity-0 scale-x-0'
+            "
           ></div>
         </NuxtLink>
 
@@ -281,7 +288,11 @@ onBeforeUnmount(() => {
             />
             <div
               class="header-nav-underline absolute bottom-0 left-0 right-0 h-0.5 origin-left transition-all duration-300 ease-out"
-              :class="isActiveLink(link) ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'"
+              :class="
+                isActiveLink(link)
+                  ? 'opacity-100 scale-x-100'
+                  : 'opacity-0 scale-x-0'
+              "
             ></div>
           </NuxtLink>
 
@@ -328,7 +339,11 @@ onBeforeUnmount(() => {
           class="header-hub-link hidden sm:inline-flex items-center gap-1.5 px-3 py-2 min-h-9 text-sm font-bold rounded-lg transition-all duration-300"
           :aria-label="t('nav.clientHub')"
         >
-          <Icon name="i-heroicons-book-open" class="w-4 h-4" aria-hidden="true" />
+          <Icon
+            name="i-heroicons-book-open"
+            class="w-4 h-4"
+            aria-hidden="true"
+          />
           <span>{{ t("nav.clientHub") }}</span>
         </NuxtLink>
         <ColorModeToggle />
@@ -415,7 +430,11 @@ onBeforeUnmount(() => {
               to="/client-hub"
               class="header-mobile-link flex items-center gap-2 px-4 py-3 rounded-xl text-base font-bold transition-all duration-300"
             >
-              <Icon name="i-heroicons-book-open" class="w-5 h-5" aria-hidden="true" />
+              <Icon
+                name="i-heroicons-book-open"
+                class="w-5 h-5"
+                aria-hidden="true"
+              />
               <span>{{ t("nav.clientHub") }}</span>
             </NuxtLink>
           </div>
