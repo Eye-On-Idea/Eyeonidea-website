@@ -18,9 +18,7 @@ useHead({
   <div class="hub-landing">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       <!-- Breadcrumb -->
-      <BaseBreadcrumb
-        :crumbs="[{ label: t('clientHub.breadcrumb.hub') }]"
-      />
+      <BaseBreadcrumb :crumbs="[{ label: t('clientHub.breadcrumb.hub') }]" />
 
       <!-- Search bar -->
       <div class="mt-6 max-w-xl">
@@ -32,14 +30,22 @@ useHead({
         <h1 class="text-2xl sm:text-3xl font-bold text-(--color-text-primary)">
           {{ t("clientHub.hub.welcomeTitle") }}
         </h1>
-        <p class="text-base text-(--color-text-secondary) mt-2 max-w-2xl leading-relaxed">
+        <p
+          class="text-base text-(--color-text-secondary) mt-2 max-w-2xl leading-relaxed"
+        >
           {{ t("clientHub.hub.welcomeDescription") }}
         </p>
       </div>
 
       <!-- Getting started callout -->
-      <div class="mt-6 flex items-center gap-2 p-3 rounded-xl bg-primary-500/5 border border-primary-500/10">
-        <Icon name="i-heroicons-rocket-launch" class="w-5 h-5 text-primary-500 shrink-0" aria-hidden="true" />
+      <div
+        class="mt-6 flex items-center gap-2 p-3 rounded-xl bg-primary-500/5 border border-primary-500/10"
+      >
+        <Icon
+          name="i-heroicons-rocket-launch"
+          class="w-5 h-5 text-primary-500 shrink-0"
+          aria-hidden="true"
+        />
         <p class="text-sm text-(--color-text-secondary)">
           {{ t("clientHub.hub.gettingStartedHighlight") }}
         </p>

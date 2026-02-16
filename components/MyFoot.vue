@@ -1,7 +1,7 @@
 <template>
-  <footer class="footer-main mt-16">
+  <footer class="footer-main">
     <!-- Top: Logo + Contacts + Site nav -->
-    <UContainer class="max-w-[120rem] py-16">
+    <UContainer class="max-w-480 py-16">
       <div class="grid gap-12 lg:grid-cols-[320px_1fr_320px] items-start">
         <!-- Brand / intro -->
         <div class="space-y-5">
@@ -35,9 +35,7 @@
                   aria-hidden="true"
                   class="size-5 text-primary-400"
                 />
-                <a
-                  class="footer-link"
-                  href="tel:+4529930583"
+                <a class="footer-link" href="tel:+4529930583"
                   >+45 29 93 05 83</a
                 >
               </p>
@@ -47,9 +45,7 @@
                   aria-hidden="true"
                   class="size-5 text-primary-400"
                 />
-                <a
-                  class="footer-link"
-                  href="mailto:hello@eyeonidea.com"
+                <a class="footer-link" href="mailto:hello@eyeonidea.com"
                   >hello@eyeonidea.com</a
                 >
               </p>
@@ -168,7 +164,11 @@ const { t } = useI18n();
 <style lang="scss" scoped>
 /* Footer main styling */
 .footer-main {
-  background: linear-gradient(180deg, var(--color-primary-950) 0%, var(--color-neutral-950) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--color-primary-950) 0%,
+    var(--color-neutral-950) 100%
+  );
   color: var(--color-primary-100);
 }
 
@@ -219,7 +219,7 @@ const { t } = useI18n();
   line-height: 1.6;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -2px;
     left: 0;

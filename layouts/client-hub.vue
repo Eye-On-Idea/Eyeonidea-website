@@ -13,13 +13,11 @@ const handleLogout = async () => {
 <template>
   <div class="client-hub-layout min-h-screen flex flex-col">
     <!-- Skip link (WCAG 2.4.1) -->
-    <a href="#hub-main-content" class="skip-link">
-      Skip to content
-    </a>
+    <a href="#hub-main-content" class="skip-link"> Skip to content </a>
 
     <!-- Hub Header -->
     <header
-      class="hub-header sticky top-0 z-50"
+      class="hub-header sticky top-0 z-50 bg-primary-50 dark:bg-primary-950"
       role="banner"
     >
       <nav
@@ -32,12 +30,14 @@ const handleLogout = async () => {
             <NuxtLink
               to="/client-hub"
               class="flex items-center gap-3 group min-h-11"
-              :aria-label="t('clientHub.nav.hubTitle') + ' — ' + t('clientHub.nav.home')"
+              :aria-label="
+                t('clientHub.nav.hubTitle') + ' — ' + t('clientHub.nav.home')
+              "
             >
               <img
-                src="/public-material/logo-center-shadow.svg"
+                src="/public-material/img/logo-nobg_dark.png"
                 alt=""
-                class="h-8 w-auto transition-transform duration-300 group-hover:scale-105"
+                class="h-8 w-auto transition-transform duration-300 group-hover:scale-105 dark:invert"
                 aria-hidden="true"
               />
               <span class="hub-title text-lg font-bold">
@@ -56,18 +56,28 @@ const handleLogout = async () => {
               to="/"
               class="hub-action-btn hidden sm:inline-flex items-center gap-1.5 min-h-9 px-3 py-1.5 text-sm font-medium rounded-lg transition-all duration-200"
             >
-              <Icon name="i-heroicons-arrow-left" class="w-4 h-4" aria-hidden="true" />
+              <Icon
+                name="i-heroicons-arrow-left"
+                class="w-4 h-4"
+                aria-hidden="true"
+              />
               {{ t("clientHub.nav.backToSite") }}
             </NuxtLink>
 
             <!-- Logout -->
             <button
               type="button"
-              class="hub-action-btn hub-action-btn--logout inline-flex items-center gap-1.5 px-3 py-1.5 min-h-9 text-sm font-medium rounded-lg transition-all duration-200"
+              class="hub-action-btn hub-action-btn--logout inline-flex items-center gap-1.5 px-3 py-1.5 min-h-9 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer"
               @click="handleLogout"
             >
-              <Icon name="i-heroicons-arrow-right-on-rectangle" class="w-4 h-4" aria-hidden="true" />
-              <span class="hidden sm:inline">{{ t("clientHub.nav.logout") }}</span>
+              <Icon
+                name="i-heroicons-arrow-right-on-rectangle"
+                class="w-4 h-4"
+                aria-hidden="true"
+              />
+              <span class="hidden sm:inline">{{
+                t("clientHub.nav.logout")
+              }}</span>
             </button>
           </div>
         </div>
@@ -81,11 +91,13 @@ const handleLogout = async () => {
 
     <!-- Minimal footer -->
     <footer
-      class="hub-footer border-t border-(--glass-border-subtle) py-6"
+      class="hub-footer border-t border-(--glass-border-subtle) py-6 bg-brand-200"
       role="contentinfo"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-(--color-text-tertiary)">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-(--color-text-tertiary)"
+        >
           <NuxtLink
             to="/"
             class="min-h-11 inline-flex items-center hover:text-(--color-text-secondary) transition-colors"
@@ -94,7 +106,7 @@ const handleLogout = async () => {
           </NuxtLink>
           <button
             type="button"
-            class="min-h-11 inline-flex items-center hover:text-(--color-text-secondary) transition-colors"
+            class="min-h-11 inline-flex items-center hover:text-(--color-text-secondary) transition-colors cursor-pointer bg-brand-800"
             @click="handleLogout"
           >
             {{ t("clientHub.nav.logout") }}
@@ -107,7 +119,6 @@ const handleLogout = async () => {
 
 <style scoped>
 .hub-header {
-  background: color-mix(in srgb, var(--color-surface-1, var(--ui-bg)) 85%, transparent);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   border-bottom: 1px solid var(--glass-border-subtle);
@@ -146,11 +157,11 @@ const handleLogout = async () => {
 .hub-action-btn--logout:hover {
   color: var(--color-danger, #dc2626);
   background: color-mix(in srgb, var(--color-danger, #dc2626) 8%, transparent);
-  border-color: color-mix(in srgb, var(--color-danger, #dc2626) 20%, transparent);
-}
-
-.hub-footer {
-  background: var(--color-surface-1, var(--ui-bg));
+  border-color: color-mix(
+    in srgb,
+    var(--color-danger, #dc2626) 20%,
+    transparent
+  );
 }
 
 @media (prefers-reduced-transparency: reduce) {
