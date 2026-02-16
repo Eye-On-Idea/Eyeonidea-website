@@ -1,41 +1,21 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref } from "vue";
+import {
+  animationPresets,
+  withDelay,
+  staggeredFadeInUp,
+} from "~/composables/useAccessibleMotion";
 import { useStrokeDraw } from "~/composables/useStrokeDraw";
 
 const { t } = useI18n();
 
-// Scroll animation
-const sectionRef = ref<HTMLElement | null>(null);
 const gridRef = ref<HTMLElement | null>(null);
 
 useStrokeDraw(gridRef, {
   delay: 200,
-  stagger: 150,
-  duration: 700,
+  stagger: 120,
+  duration: 600,
   selector: ".value-icon-wrapper",
-});
-const isVisible = ref(false);
-
-onMounted(() => {
-  if (!sectionRef.value) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true;
-          observer.disconnect();
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-
-  observer.observe(sectionRef.value);
-
-  onUnmounted(() => {
-    observer.disconnect();
-  });
 });
 
 // Value cards data using i18n
@@ -53,12 +33,15 @@ const values = [
     icon: "i-heroicons-shield-check",
   },
 ];
+
+// v-motion presets
+const headerMotion = animationPresets.fadeInUp;
+const ctaMotion = withDelay("fadeInUp", 400);
 </script>
 
 <template>
   <section
     id="about-section"
-    ref="sectionRef"
     class="about-section"
     aria-labelledby="about-heading"
   >
@@ -66,9 +49,10 @@ const values = [
       <!-- Section Header -->
       <div
         class="section-header"
-        :class="{ 'animate-in': isVisible }"
+        v-motion
+        :initial="headerMotion.initial"
+        :visible-once="headerMotion.visible"
       >
-        <span class="section-badge">{{ t("landing.about.badge") }}</span>
         <h2 id="about-heading" class="section-title">
           {{ t("landing.about.title") }}
         </h2>
@@ -78,15 +62,17 @@ const values = [
       </div>
 
       <!-- Value Cards -->
-      <div ref="gridRef" class="values-grid" :class="{ 'animate-in': isVisible }">
+      <div ref="gridRef" class="values-grid">
         <GlassCard
           v-for="(value, index) in values"
           :key="value.key"
+          v-motion
+          :initial="staggeredFadeInUp(index).initial"
+          :visible-once="staggeredFadeInUp(index).visible"
           variant="solid"
           hover-effect="lift"
-          :gradient-border="true"
+          :gradient-border="false"
           class="value-card"
-          :class="`stagger-${index + 1}`"
         >
           <div class="value-icon-wrapper">
             <UIcon :name="value.icon" class="value-icon" />
@@ -101,7 +87,12 @@ const values = [
       </div>
 
       <!-- CTA -->
-      <div class="about-cta" :class="{ 'animate-in': isVisible }">
+      <div
+        class="about-cta"
+        v-motion
+        :initial="ctaMotion.initial"
+        :visible-once="ctaMotion.visible"
+      >
         <NuxtLink to="/about" class="cta-link">
           {{ t("landing.about.cta") }}
           <UIcon name="i-heroicons-arrow-right-20-solid" class="cta-icon" />
@@ -153,14 +144,6 @@ const values = [
   text-align: center;
   max-width: 700px;
   margin: 0 auto 4rem;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .section-badge {
@@ -210,22 +193,10 @@ const values = [
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
   }
-
-  &.animate-in .value-card {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .value-card {
   background: var(--color-surface-1);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
-
-  &.stagger-1 { transition-delay: 100ms; }
-  &.stagger-2 { transition-delay: 200ms; }
-  &.stagger-3 { transition-delay: 300ms; }
 }
 
 .value-icon-wrapper {
@@ -234,11 +205,7 @@ const values = [
   justify-content: center;
   width: 56px;
   height: 56px;
-  background: linear-gradient(
-    135deg,
-    var(--color-accent-100) 0%,
-    var(--color-accent-50) 100%
-  );
+  background: var(--color-primary-100);
   border-radius: 12px;
   margin-bottom: 1.25rem;
 }
@@ -246,7 +213,7 @@ const values = [
 .value-icon {
   width: 28px;
   height: 28px;
-  color: var(--icon-accent);
+  color: var(--color-primary-600);
 }
 
 .value-title {
@@ -264,14 +231,6 @@ const values = [
 
 .about-cta {
   text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s var(--ease-smooth) 0.4s, transform 0.6s var(--ease-smooth) 0.4s;
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .cta-link {
@@ -323,15 +282,11 @@ const values = [
   }
 
   .value-icon-wrapper {
-    background: linear-gradient(
-      135deg,
-      var(--color-accent-800) 0%,
-      var(--color-accent-900) 100%
-    );
+    background: var(--color-primary-800);
   }
 
   .value-icon {
-    color: var(--color-accent-300);
+    color: var(--color-primary-300);
   }
 
   .cta-link {
@@ -344,13 +299,5 @@ const values = [
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .section-header,
-  .value-card,
-  .about-cta {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
+// prefers-reduced-motion handled by v-motion / useAccessibleMotion
 </style>

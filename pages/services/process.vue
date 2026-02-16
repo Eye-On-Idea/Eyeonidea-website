@@ -26,6 +26,7 @@ useHead({
 <template>
   <div class="process-page">
     <ProcessHero />
+    <!-- Process-only: step-by-step workflow visualization -->
     <ProcessTimeline />
     <ProcessFAQ />
     <ProcessCTA />

@@ -1,271 +1,282 @@
 This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.
 
 Analysis:
-Let me chronologically analyze the conversation:
+Let me chronologically analyze the conversation from this continued session:
 
-1. User opened STREAMLINE-PLAN.md and asked to start the project
-2. I read the full plan document - a comprehensive UX streamlining project for Eye On Idea website
-3. Phase 1 was all [DISCUSS] items requiring user input
+1. The session started with a summary of previous work (Phases 1-4 complete) and the user's intent to continue the UX streamlining project.
 
-Phase 1 Decisions (first round):
+2. Phase 5: Global Animation Consistency was the focus. I read the plan and all relevant files, then systematically migrated components from manual IntersectionObserver to v-motion.
 
-- Task 1.1: Magnetic effect - user chose 1.02 scale (subtle), no box-shadow
-- Task 1.2: Animation consolidation - user confirmed no edge cases with v-motion
-- Task 1.3: Stagger timings - user approved as proposed
-- Task 1.4: Glass morphism reduction - user agreed with split, CTA sections keep glass
+**Task 5.1 - Home HeroSection**: Added `contentMotion` and `scrollIndicatorMotion` presets, replaced `.animate-in`/`.no-animation` CSS classes with `v-motion :initial :enter`, cleaned up CSS.
 
-Phase 1 Decisions (second round):
+**Task 5.2 - Home AboutSection**: Replaced IntersectionObserver + stagger classes with `v-motion :visible-once` + `staggeredFadeInUp(index)`. Updated StrokeDraw params to 200/120/600. Removed all animation CSS.
 
-- Task 1.5: Design pattern - user chose mix of Option A (Clean Minimalism) and Option B (Warm Minimalism with Texture)
-- Task 1.6: Base components - BaseHero as slot-based component, Home Hero standalone, Home CTA standalone
-- Task 1.7: CustomCursor removal - agreed
-- Task 1.8: LiquidGlass - user said "no remove from founder photo, liquid glass should be a special effect in rare cases of showcase" - meaning REMOVE it from founder, keep the component for rare future use
-- Task 1.9: Dead code removal - agreed
+**Task 5.3 - Home CTASection**: Replaced observer with `v-motion :visible-once` using `fadeInUpScale` preset. Cleaned CSS.
 
-User said "No need to review - continue" when I asked about reviewing Phase 2 work.
-User said "Proceed" when I asked about starting Phase 4.
+**Task 5.4 - Home ServicesSection**: Replaced observer + stagger with v-motion. Header, packages, additional services, and CTA all use v-motion now.
 
-Phase 2 Implementation:
+**Task 5.5 - Services Hero**: Already uses BaseHero (Phase 3), no changes needed.
 
-- Task 2.1: Rewrote magnetic.ts from translate to scale(1.02), removed v-magnetic from 6 non-hero buttons
-- Task 2.2: Deleted useScrollAnimation.ts, CustomCursor.vue, cleaned GlassCard.vue tilt dead code
-- Task 2.3: Added STAGGER_CARD/TEXT/ICON constants and staggeredFadeInUp() helper
+**Task 5.6 - Contact Components**: Contact Hero already uses BaseHero. Migrated Info.vue (4 cards with staggeredFadeInUp + heading + bottomCta) and Form.vue (single formMotion preset). Removed sectionRef from Form.vue since no longer needed.
 
-Phase 3 Implementation:
+**Task 5.7 - Legal + Policies**: Both used `setTimeout(100)` + `isVisible`. Replaced with `v-motion :initial :enter` for hero and `:visible-once` for content. Cleaned CSS.
 
-- Removed LiquidGlass from Founder.vue (Task 1.8)
-- Task 3.1: Created BaseHero.vue, refactored services/contact/process heroes
-- Task 3.2: Created BaseCTASection.vue, refactored about/services/process CTAs
-- Task 3.3: Unified PackageCard - deleted home/PackageCard.vue, home uses services version
-- Task 3.4: Created base/Breadcrumb.vue, updated news and client-hub pages, deleted old breadcrumbs
-- Task 3.5: Created base/SectionHeader.vue (migrations deferred to Phase 5)
+**Task 5.8 - TextReveal (DISCUSS)**: User chose "All heroes". Added TextReveal to Contact Hero (via `show-text-reveal` prop on BaseHero), Legal page, Policies page, and News Hero (with `word-class="text-gradient"`). About Hero already had it.
 
-Phase 4 Implementation:
+**Task 5.9 - ParticleWaves (DISCUSS)**: User chose "Remove from About". Removed `<ThreeParticleWaves>` and `.hero-particles` CSS from About Hero.
 
-- Task 4.1: Full glass morphism audit via explore agent
-- Task 4.2: Added solid/outlined variants to GlassCard.vue
-- Task 4.3: Applied glass reduction - switched 4 GlassCard usages to solid, removed 2 glass-subtle classes
-- Task 4.4: Confirmed existing CSS variables already support solid cards
+**Task 5.10 - StrokeDraw Standardization**: Updated About Values from 300/150/700 to 200/120/600. Home AboutSection and Contact Info already correct.
 
-Files created:
+**Task 5.11 - Orphaned CSS**: Audited global CSS. `.stagger-1` through `.stagger-5` still used by 5 services components. No orphaned globals to remove yet.
 
-- components/base/BaseHero.vue
-- components/base/BaseCTASection.vue
-- components/base/Breadcrumb.vue
-- components/base/SectionHeader.vue
+3. Phase 6: Page-Specific Enhancements
 
-Files deleted:
+**Task 6.1**: Added documentation comments to page-specific features:
 
-- composables/useScrollAnimation.ts
-- components/CustomCursor.vue
-- components/home/PackageCard.vue
-- components/news/Breadcrumb.vue
-- components/client-hub/Breadcrumb.vue
+- Home HeroSection: ParticleWaves comment
+- About Hero: Parallax comment
+- About Values: TiltCard comment
+- Services index page: SectionNav, ComparisonTable, BeforeAfter comments
+- Process page: Timeline comment
+- LiquidGlass component: Reserved for rare use comment
 
-Files modified:
+**Task 6.2 (DISCUSS)**: User chose "Leave as-is" for News PostCard.
+**Task 6.3 (DISCUSS)**: User chose "Keep as-is" for Client Hub.
 
+4. Phase 7: Performance & Accessibility Audit - Three parallel agents launched:
+
+**Agent 1 (a755c15)**: Reduced motion + magnetic audit - completed. Found:
+
+- Magnetic plugin: needs verification of reduced-motion check
+- CSS keyframes in main.css: has `@media (prefers-reduced-motion: reduce)` block
+- Page transitions: no explicit transitions in app.vue/layouts
+- useAccessibleMotion: properly checks `usePreferredReducedMotion`
+- TextReveal: has built-in check
+- useStrokeDraw: has built-in check (lines 67-74)
+
+**Agent 2 (aa60838)**: Touch targets + security - completed. Found:
+
+- Touch target issues: SectionNav items (40px), LanguageSwitcher trigger (36px), LanguageSwitcher items (40px), scroll indicator (undefined), footer nav links (undefined)
+- Security: Hardcoded password fallback "client2025" in nuxt.config.ts (CRITICAL), escapeHtml: false in i18n config (MEDIUM)
+- Session management: properly implemented
+- No API keys exposed
+
+**Agent 3 (afd9812)**: Three.js + bundle - completed. Found:
+
+- HeroBackground.client.vue: No `document.hidden` pause, partial cleanup on unmount
+- ParticleWaves: Not currently used (removed from About), geometry/material not disposed
+- vuedraggable: listed in package.json but NOT used anywhere
+- LiquidGlass: component exists but not mounted
+- No explicit chunk configuration for Three.js
+
+User messages in this session:
+
+1. "Proceed" (to start Phase 5 after Phase 4 completion, carried from previous context)
+2. Answered DISCUSS questions for TextReveal ("All heroes") and ParticleWaves ("Remove from About")
+3. "Proceed" (to start Phase 6 after Phase 5 completion)
+4. Answered DISCUSS questions for News PostCard ("Leave as-is") and Client Hub ("Keep as-is")
+5. User didn't say anything more - the agents completed and we were about to process the results
+
+The system reminders confirmed several linter-modified files were intentional changes.
+
+Current state: All three audit agents completed. I need to process the findings, fix actionable items, and update the plan.
+
+Files modified in this session:
+
+- components/home/HeroSection.vue (v-motion migration + ParticleWaves comment)
+- components/home/AboutSection.vue (v-motion migration)
+- components/home/CTASection.vue (v-motion migration)
+- components/home/ServicesSection.vue (v-motion migration)
+- components/contact/Info.vue (v-motion migration)
+- components/contact/Form.vue (v-motion migration)
+- components/contact/Hero.vue (added show-text-reveal)
+- pages/about/legal.vue (v-motion migration + TextReveal)
+- pages/about/policies.vue (v-motion migration + TextReveal)
+- components/about/Hero.vue (removed ParticleWaves + parallax comment)
+- components/about/Values.vue (StrokeDraw standardization + TiltCard comment)
+- components/news/Hero.vue (added TextReveal with word-class)
+- pages/services/index.vue (documentation comments)
+- pages/services/process.vue (documentation comment)
+- components/LiquidGlass.vue (reserved-for-future comment)
 - STREAMLINE-PLAN.md (status tracking throughout)
-- plugins/magnetic.ts (rewritten to scale-only)
-- composables/useAccessibleMotion.ts (added constants + helper)
-- composables/useStrokeDraw.ts (import STAGGER_ICON)
-- components/TextReveal.vue (import STAGGER_TEXT)
-- components/GlassCard.vue (removed tilt, added solid/outlined variants)
-- components/about/Founder.vue (removed LiquidGlass)
-- components/about/CTA.vue (use BaseCTASection, removed v-magnetic)
-- components/services/CTA.vue (use BaseCTASection, removed v-magnetic)
-- components/process/CTA.vue (use BaseCTASection)
-- components/services/Hero.vue (use BaseHero)
-- components/contact/Hero.vue (use BaseHero)
-- components/process/Hero.vue (use BaseHero)
-- components/home/CTASection.vue (removed v-magnetic)
-- components/home/ServicesSection.vue (use ServicesPackageCard, solid cards)
-- components/home/AboutSection.vue (solid cards)
-- components/client-hub/CategoryCard.vue (solid cards)
-- pages/client-hub/login.vue (solid cards)
-- pages/client-hub/index.vue (BaseBreadcrumb)
-- pages/client-hub/[category]/index.vue (BaseBreadcrumb)
-- pages/client-hub/[category]/[article].vue (BaseBreadcrumb)
-- pages/news/[slug].vue (BaseBreadcrumb)
-- components/contact/Form.vue (removed glass-subtle)
-- components/services/IdentitySection.vue (removed glass-subtle)
 
-Errors encountered:
-
-- Process Hero.vue Write tool failed because file hadn't been read in current context - fixed by reading first
-- Process CTA.vue same issue - fixed by reading first
-
-Current state: Phases 1-4 complete, Phase 5 (Global Animation Consistency) is next. The plan has 11 sub-tasks in Phase 5 for migrating manual IntersectionObserver to v-motion across ~13 files.
+Errors: The `pages/about/legal.vue` edit failed with "File has not been read yet" error, fixed by reading the file first.
 
 Summary:
 
 1. Primary Request and Intent:
-   The user opened `STREAMLINE-PLAN.md` and requested to start the project described within. This is a comprehensive UX streamlining and design consistency refactoring project for the Eye On Idea website (Nuxt 4 / Vue 3 / Tailwind CSS 4). The plan has 8 phases covering: animation system consolidation, component architecture refactoring, glass morphism refinement, animation migration, page-specific enhancements, performance/accessibility auditing, and final testing. The user wants to work through each phase sequentially, making decisions at [DISCUSS] checkpoints and implementing changes.
+   The user is working through a comprehensive UX streamlining project for the Eye On Idea website (Nuxt 4 / Vue 3 / Tailwind CSS 4), defined in `STREAMLINE-PLAN.md`. The project has 8 phases. Phases 1-4 were completed in the previous session. In this session, the user requested to continue sequentially through the remaining phases. The user said "Proceed" to start Phase 5, answered [DISCUSS] checkpoints for TextReveal and ParticleWaves, said "Proceed" again for Phase 6, answered [DISCUSS] items for News/Client Hub, and the work continued into Phase 7 (Performance & Accessibility Audit) where three parallel audit agents were launched and completed.
 
 2. Key Technical Concepts:
-   - **v-motion / useAccessibleMotion**: The standardized animation system (replacing manual IntersectionObserver)
-   - **Stagger timing constants**: `STAGGER_CARD: 100ms`, `STAGGER_TEXT: 60ms`, `STAGGER_ICON: 120ms`
-   - **`staggeredFadeInUp(index, baseDelay)`**: Helper for consistent card entrance animations
-   - **GlassCard variants**: `"glass" | "solid" | "outlined"` - solid uses `--card-bg`/`--card-border` CSS vars
-   - **Base component architecture**: Slot-based components (BaseHero, BaseCTASection, Breadcrumb, SectionHeader)
-   - **Magnetic directive**: Rewritten from `translate()` to `scale(1.02)` on proximity, hero CTAs only
-   - **Glass morphism reduction strategy**: Glass reserved for header/nav, hero badges, CTAs, modals; solid for content cards, forms, info cards
-   - **Design direction**: Mix of Clean Minimalism (Nordic) + Warm Minimalism with Texture
+   - **v-motion / useAccessibleMotion**: Standardized animation system replacing manual IntersectionObserver
+   - **Animation presets**: `animationPresets.fadeInUp`, `fadeInUpScale`, `fadeIn`, `scaleIn` from `useAccessibleMotion.ts`
+   - **`staggeredFadeInUp(index, baseDelay)`**: Helper for consistent card stagger animations (100ms per card)
+   - **`withDelay(preset, delay)`**: Creates delayed animation variants
+   - **`:initial` + `:enter`**: For page-load animations (heroes)
+   - **`:initial` + `:visible-once`**: For scroll-triggered animations (sections)
+   - **StrokeDraw standardization**: All calls use `{ delay: 200, stagger: 120, duration: 600 }`
+   - **TextReveal**: Word-by-word reveal animation, now on ALL page heroes
+   - **ParticleWaves**: Removed from About Hero, Home-only for performance budget
+   - **GlassCard variants**: `"glass" | "solid" | "outlined"` (from Phase 4)
+   - **BaseHero**: Slot-based hero with built-in v-motion + optional TextReveal via `show-text-reveal` prop
 
 3. Files and Code Sections:
-   - **STREAMLINE-PLAN.md** - Master plan document tracking all decisions and progress. Updated status to "Phases 1-4 Complete - Starting Phase 5". All Phase 1 [DISCUSS] items marked as DECIDED with decisions recorded. Phase 2/3/4 tasks marked complete with implementation notes.
+   - **STREAMLINE-PLAN.md** - Master plan tracking all decisions/progress
+     - Updated status: `Phases 1-6 Complete - Starting Phase 7`
+     - All Phase 5 and 6 tasks marked with `[x]` and implementation notes
+     - Phase 5.8 and 5.9 DISCUSS decisions recorded
+     - Phase 6.2 and 6.3 DISCUSS decisions recorded
 
-   - **plugins/magnetic.ts** - Rewritten from translate-based to scale-only:
+   - **components/home/HeroSection.vue** - Migrated from `isVisible` CSS to v-motion
+     - Added script presets:
+       ```typescript
+       const contentMotion = animationPresets.fadeInUp;
+       const scrollIndicatorMotion = withDelay("fadeIn", 800);
+       ```
+     - Template: `v-motion :initial="contentMotion.initial" :enter="contentMotion.visible"` on content-wrapper
+     - Template: `v-motion :initial="scrollIndicatorMotion.initial" :enter="scrollIndicatorMotion.visible"` on scroll-indicator
+     - Removed `.content-wrapper` opacity/transform/transition CSS, `.no-animation` class, `.visible` class
+     - Added ParticleWaves documentation comment: `<!-- 3D Particle Background — Home-only: first-impression effect, heavy on GPU budget -->`
+     - Kept `prefers-reduced-motion` for scrollWheel animation and button hover transforms
 
-     ```typescript
-     const scale = opts.scale ?? 1.02;
-     const radius = opts.radius ?? 100;
-     // ... lerp-based animation loop
-     el.style.transform = `scale(${currentScale})`;
-     ```
+   - **components/home/AboutSection.vue** - Full v-motion migration
+     - Replaced IntersectionObserver + `isVisible` + `sectionRef` with:
+       ```typescript
+       import {
+         animationPresets,
+         withDelay,
+         staggeredFadeInUp,
+       } from "~/composables/useAccessibleMotion";
+       const headerMotion = animationPresets.fadeInUp;
+       const ctaMotion = withDelay("fadeInUp", 400);
+       ```
+     - StrokeDraw updated to `{ delay: 200, stagger: 120, duration: 600 }` (was 200/150/700)
+     - Value cards use `v-motion :initial="staggeredFadeInUp(index).initial" :visible-once="staggeredFadeInUp(index).visible"`
+     - Removed all `.animate-in`, `.stagger-1/2/3`, and `prefers-reduced-motion` CSS blocks
 
-   - **composables/useAccessibleMotion.ts** - Added stagger constants and helper:
+   - **components/home/CTASection.vue** - v-motion migration
+     - Script replaced to: `const cardMotion = animationPresets.fadeInUpScale;`
+     - GlassCard gets `v-motion :initial="cardMotion.initial" :visible-once="cardMotion.visible"`
+     - Removed `sectionRef`, `isVisible`, IntersectionObserver, `.cta-card` opacity/transform CSS
 
-     ```typescript
-     export const STAGGER_CARD = 100;
-     export const STAGGER_TEXT = 60;
-     export const STAGGER_ICON = 120;
+   - **components/home/ServicesSection.vue** - v-motion migration
+     - Script: Added `staggeredFadeInUp` imports, `headerMotion`, `additionalMotion`, `ctaMotion` presets
+     - Package cards: `v-motion :initial="staggeredFadeInUp(index).initial" :visible-once="staggeredFadeInUp(index).visible"`
+     - Additional services cards: `staggeredFadeInUp(index, 500)` (500ms base delay)
+     - Removed all IntersectionObserver, stagger CSS classes, `.animate-in` patterns
 
-     export function staggeredFadeInUp(index: number, baseDelay = 0) {
-       return withDelay("fadeInUp", baseDelay + index * STAGGER_CARD);
-     }
-     ```
+   - **components/contact/Info.vue** - v-motion migration with 4 staggered cards
+     - Script: `headingMotion`, `bottomCtaMotion = withDelay("fadeInUp", 300)`
+     - Each card: `v-motion :initial="staggeredFadeInUp(0..3).initial" :visible-once="staggeredFadeInUp(0..3).visible"`
+     - Removed all `.animate-in`, `.stagger-1/2/3/4`, opacity/transform CSS
 
-   - **components/TextReveal.vue** - Updated default stagger to use centralized constant:
+   - **components/contact/Form.vue** - v-motion migration
+     - Script: `const formMotion = animationPresets.fadeInUp;`
+     - Removed `sectionRef` (no longer needed), `isVisible`, IntersectionObserver, `ref="sectionRef"` from template
+     - Form wrapper: `v-motion :initial="formMotion.initial" :visible-once="formMotion.visible"`
 
-     ```typescript
-     import { STAGGER_TEXT } from "~/composables/useAccessibleMotion";
-     // ...
-     stagger: STAGGER_TEXT,
-     ```
+   - **components/contact/Hero.vue** - Added TextReveal
+     - Added `show-text-reveal` prop to BaseHero usage
 
-   - **composables/useStrokeDraw.ts** - Updated default stagger to use centralized constant:
+   - **pages/about/legal.vue** - v-motion migration + TextReveal
+     - Script: Replaced `setTimeout(100)` + `isVisible` with:
+       ```typescript
+       import {
+         animationPresets,
+         withDelay,
+       } from "~/composables/useAccessibleMotion";
+       const heroMotion = animationPresets.fadeInUp;
+       const contentMotion = withDelay("fadeInUp", 200);
+       ```
+     - Hero: `v-motion :initial="heroMotion.initial" :enter="heroMotion.visible"`
+     - Content: `v-motion :initial="contentMotion.initial" :visible-once="contentMotion.visible"`
+     - H1 wrapped in `<TextReveal :text="t('legal.hero.title')" :delay="200" />`
 
-     ```typescript
-     import { STAGGER_ICON } from "~/composables/useAccessibleMotion";
-     // ...
-     stagger = STAGGER_ICON,
-     ```
+   - **pages/about/policies.vue** - Same migration pattern as legal.vue
+     - Identical v-motion setup with heroMotion and contentMotion
+     - H1 wrapped in `<TextReveal :text="t('policies.hero.title')" :delay="200" />`
 
-   - **components/GlassCard.vue** - Major refactor: removed tilt dead code, legacy props, useSimpleCardTilt import; added `variant` prop with solid/outlined support:
+   - **components/news/Hero.vue** - Added TextReveal
+     - Replaced `<span class="text-gradient">{{ t("news.hero.title") }}</span>` with:
+       ```vue
+       <TextReveal
+         :text="t('news.hero.title')"
+         :delay="200"
+         word-class="text-gradient"
+       />
+       ```
 
-     ```typescript
-     variant?: "glass" | "solid" | "outlined";
-     ```
+   - **components/about/Hero.vue** - Removed ParticleWaves
+     - Removed `<ClientOnly><ThreeParticleWaves>` block and `.hero-particles` CSS
+     - Added parallax documentation comment: `// Parallax scroll — About-only: adds narrative depth for company story`
 
-     Solid variant CSS:
+   - **components/about/Values.vue** - StrokeDraw standardization + documentation
+     - Changed from `{ delay: 300, stagger: 150, duration: 700 }` to `{ delay: 200, stagger: 120, duration: 600 }`
+     - Added comment: `<!-- Bento Values Grid — About-only: TiltCard + cursor shine for featured value highlight -->`
 
-     ```scss
-     .solid-card {
-       background: var(--card-bg, var(--color-surface-1));
-       border: 1px solid var(--card-border, var(--color-border));
-       box-shadow:
-         0 1px 3px rgba(0, 0, 0, 0.06),
-         0 4px 16px rgba(0, 0, 0, 0.04);
-     }
-     ```
+   - **pages/services/index.vue** - Documentation comments
+     - SectionNav: `<!-- Sticky Section Navigation — Services-only: only page with 8+ scrollable sections -->`
+     - ComparisonTable: `<!-- Feature Comparison Table — Services-only: plan comparison specific to offerings -->`
+     - BeforeAfter: `<!-- Before/After Results — Services-only: results showcase unique to services -->`
 
-   - **components/base/BaseHero.vue** - New slot-based hero component with v-motion entrance:
+   - **pages/services/process.vue** - Documentation comment
+     - `<!-- Process-only: step-by-step workflow visualization -->`
 
-     ```vue
-     <script setup lang="ts">
-     import { animationPresets } from "~/composables/useAccessibleMotion";
-     // Props: badge, title, subtitle, minHeight, showTextReveal, textRevealDelay, headingId
-     // Slots: #background, #title, #after-subtitle
-     </script>
-     ```
-
-     Uses `v-motion :initial :enter` with `animationPresets.fadeInUp`.
-
-   - **components/base/BaseCTASection.vue** - New CTA section with v-motion staggered animations:
-     Props: badge, title, description, primaryText, primaryTo, secondaryText, secondaryTo, headingId.
-     Uses staggered `v-motion :visible-once` on badge (scaleIn), title (fadeInUpScale +150ms), description (fadeInUp +300ms), actions (fadeInUp +450ms).
-
-   - **components/base/Breadcrumb.vue** - Unified breadcrumb with `crumbs` array prop:
-
-     ```typescript
-     export interface BreadcrumbItem {
-       label: string;
-       to?: string;
-     }
-     ```
-
-     Features home icon on first item, `aria-current="page"` on last, dark mode styles, min-height 44px touch targets.
-
-   - **components/base/SectionHeader.vue** - Created for badge+title+subtitle pattern. Props: badge, title, subtitle, tag (h2/h3), align (left/center), headingId. Has #title slot. Section migrations deferred to Phase 5.
-
-   - **components/services/Hero.vue** - Reduced from ~155 lines to ~13 lines using BaseHero
-   - **components/contact/Hero.vue** - Reduced from ~151 lines to ~12 lines using BaseHero
-   - **components/process/Hero.vue** - Reduced from ~151 lines to ~12 lines using BaseHero
-   - **components/about/CTA.vue** - Reduced from ~238 lines to ~16 lines using BaseCTASection
-   - **components/services/CTA.vue** - Reduced from ~233 lines to ~16 lines using BaseCTASection
-   - **components/process/CTA.vue** - Reduced from ~247 lines to ~16 lines using BaseCTASection
-
-   - **components/about/Founder.vue** - Removed LiquidGlass wrapper, simplified to direct `<img>` tag, removed `.liquid-glass-photo` CSS class.
-
-   - **components/home/ServicesSection.vue** - Changed to use `ServicesPackageCard` instead of `HomePackageCard`, removed `tm` from useI18n destructure, removed `:deep(.cta-button)` orphaned styles, switched additional services GlassCards to `variant="solid"`.
-
-   - **components/home/AboutSection.vue** - Changed GlassCard from `tint-color="dark"` to `variant="solid"` (kept gradient-border).
-
-   - **components/home/CTASection.vue** - Removed `v-magnetic` from 2 buttons (kept glass).
-
-   - **components/client-hub/CategoryCard.vue** - Changed GlassCard to `variant="solid"`.
-   - **pages/client-hub/login.vue** - Changed GlassCard to `variant="solid"`.
-   - **pages/client-hub/index.vue** - Changed to `<BaseBreadcrumb>`.
-   - **pages/client-hub/[category]/index.vue** - Changed to `<BaseBreadcrumb>` with inline crumbs array.
-   - **pages/client-hub/[category]/[article].vue** - Changed to `<BaseBreadcrumb>` with inline crumbs array.
-   - **pages/news/[slug].vue** - Changed from `<NewsBreadcrumb>` to `<BaseBreadcrumb>`.
-
-   - **components/contact/Form.vue** - Removed undefined `glass-subtle` class.
-   - **components/services/IdentitySection.vue** - Removed undefined `glass-subtle` class.
-
-   - **Files deleted**: `composables/useScrollAnimation.ts`, `components/CustomCursor.vue`, `components/home/PackageCard.vue`, `components/news/Breadcrumb.vue`, `components/client-hub/Breadcrumb.vue`
+   - **components/LiquidGlass.vue** - Documentation comment
+     - `<!-- Reserved for rare showcase use only — not currently mounted anywhere -->`
 
 4. Errors and Fixes:
-   - **Write tool "File has not been read yet" error** on `components/process/Hero.vue` and `components/process/CTA.vue`: The files had been read earlier in the conversation but the tool required a more recent read. Fixed by reading the file again before writing.
-   - **Pre-existing TypeScript errors** found during `npx nuxi typecheck`: ~40 errors existed before our changes (missing `~/types/sanity` module, various TS2532/TS18048 nullable issues). The only error related to our code was in `useAccessibleMotion.ts:209` - the `withDelay` function's `basePreset.visible` access on presets that have `hover` instead of `visible`. This was pre-existing and the return type is `any`, so left as-is (out of scope).
-   - **`glass-subtle` class was undefined**: Found during Task 4.3 that `glass-subtle` was used in 2 components but never defined in any CSS file - effectively a no-op. Simply removed the class references.
+   - **"File has not been read yet" error** on `pages/about/legal.vue`: The Edit tool requires the file to be read in the current context window before editing. Fixed by reading the file first with `Read`, then applying the edit.
+   - Several system reminders about linter-modified files were noted as intentional (about/Hero.vue, news/Hero.vue, contact/Hero.vue, policies.vue, legal.vue, contact/Form.vue, contact/Info.vue). These were minor formatting changes by the linter that didn't affect functionality.
 
 5. Problem Solving:
-   - Identified that `useSimpleCardTilt` composable is still used by `TiltCard.vue` (About/Values), so only removed the import from GlassCard.vue, not the composable itself.
-   - Determined that home PackageCard could be eliminated entirely by having home ServicesSection use `ServicesPackageCard` directly (same i18n keys).
-   - Client-hub Breadcrumb had different API (category/article props that built crumbs internally) vs news Breadcrumb (crumbs array prop). Unified on crumbs array approach and moved crumb-building logic to the consuming pages.
-   - LiquidGlass component kept in codebase (not deleted) despite being unused - per user decision to reserve it for "rare cases of showcase."
+   - **10 services/process components still use IntersectionObserver**: These were not in Phase 5's explicit scope. Noted for future migration. Global `.stagger-1` through `.stagger-5` CSS classes kept because they're still used by these unmigrated components.
+   - **ParticleWaves (ThreeParticleWaves) no longer used anywhere**: Removed from About Hero in Phase 5.9. The component files still exist in `components/three/` but are not mounted. The audit found disposal issues in these unused components.
+   - **Phase 7 audit findings** (from three parallel agents):
+     - **Reduced motion**: v-motion handles it via `useAccessibleMotion`, TextReveal and StrokeDraw have built-in checks, CSS keyframes covered by main.css media query, magnetic plugin needs verification
+     - **Touch targets below 44px**: SectionNav items (40px), LanguageSwitcher trigger (36px), LanguageSwitcher items (40px), scroll indicator (undefined), footer nav links (undefined)
+     - **Security**: Hardcoded password fallback `"client2025"` in nuxt.config.ts line 199 (CRITICAL), `escapeHtml: false` in i18n config (MEDIUM risk)
+     - **Three.js**: HeroBackground.client.vue lacks `document.hidden` pause, ParticleWaves has undisposed geometry/materials (not currently mounted)
+     - **Bundle**: `vuedraggable` package listed but not used anywhere, `@wxperia/liquid-glass-vue` imported in unused LiquidGlass component
 
 6. All User Messages:
-   - `"STREAMLINE-PLAN.md" is the current project. Let us start the project explained in the document.`
-   - `1.1 "1.02" should be sufficient. 1.2 No I haven't noticed any edge case 1.3 Yes. 1.4 Yes that is right, and CTA sections let us go with glass.`
-   - `1.5. a mix of option A and B. 1.6 BaseHero could be slot based, Home Hero should be unique indeed standalone, as well as Home CTA standalone. 1.7 agreed. 1.8. no remove from founder photo, liquid glass should be a special effect in rare cases of showcase. 1.9. agreed`
-   - `No need to review - continue` (when asked about reviewing Phase 2 work before Phase 3)
-   - `Proceed` (when asked about starting Phase 4 after Phase 3 completion)
+   - Previous session context: User said "Proceed" to continue from Phase 4 to Phase 5 (carried over in summary)
+   - TextReveal DISCUSS: User chose "All heroes (Recommended)" - add TextReveal to Contact, Legal, Policies, News heroes
+   - ParticleWaves DISCUSS: User chose "Remove from About (Recommended)" - ParticleWaves Home-only
+   - "Proceed" - to continue from Phase 5 to Phase 6
+   - News PostCard DISCUSS: User chose "Leave as-is (Recommended)" - PostCard's editorial style is intentionally distinct
+   - Client Hub DISCUSS: User chose "Keep as-is (Recommended)" - private utility area stays simpler
 
 7. Pending Tasks:
-   - **Phase 5: Global Animation Consistency** (13 files to migrate from manual IntersectionObserver to v-motion)
-     - Task 5.1: Migrate Home HeroSection
-     - Task 5.2: Migrate Home AboutSection
-     - Task 5.3: Migrate Home CTASection
-     - Task 5.4: Migrate Home ServicesSection
-     - Task 5.5: Migrate Services Hero (already uses BaseHero with v-motion - may just need verification)
-     - Task 5.6: Migrate Contact components (Hero already done via BaseHero; Info, Form still need migration)
-     - Task 5.7: Migrate Legal and Policies pages
-     - Task 5.8: Extend TextReveal to all page heroes
-     - Task 5.9: Remove ParticleWaves from About Hero
-     - Task 5.10: Standardize all StrokeDraw parameters
-     - Task 5.11: Clean up orphaned CSS
-   - **Phase 6: Page-Specific Enhancements** (documentation + news/client-hub consistency review)
-   - **Phase 7: Performance & Accessibility Audit**
-   - **Phase 8: Final Review & Testing**
-   - **Task 3.5 deferred work**: Migrate section headers in 14+ components to use SectionHeader component (during Phase 5)
-   - **Task 3.6 deferred**: Button component extraction (evaluate after Phase 4)
+   - **Phase 7: Performance & Accessibility Audit** - All three audit agents completed, findings need to be processed into actionable fixes:
+     - Task 7.1: Verify prefers-reduced-motion coverage (audit complete, magnetic plugin needs verification)
+     - Task 7.2: Fix touch targets below 44px (SectionNav, LanguageSwitcher, scroll indicator, footer links)
+     - Task 7.3: Add `document.hidden` pause to HeroBackground.client.vue
+     - Task 7.4: Remove unused `vuedraggable` dependency, evaluate LiquidGlass/ParticleWaves bundle impact
+     - Task 7.5: Address hardcoded password fallback, evaluate `escapeHtml: false`
+   - **Phase 8: Final Review & Testing** - Visual regression checks across all pages
+   - **Deferred work**:
+     - Task 3.5: Migrate 14+ section headers to SectionHeader component
+     - Task 3.6: Button component extraction
+     - 10 services/process components still using IntersectionObserver
+     - Global `.stagger-1` through `.stagger-5` CSS removal (when services/process migrated)
 
 8. Current Work:
-   Phase 4 (Glass Morphism Refinement) was just completed. All four sub-tasks (4.1-4.4) are marked done. The STREAMLINE-PLAN.md status was updated to "Phases 1-4 Complete - Starting Phase 5". The user's last message was "Proceed" in response to my asking whether to continue with Phase 4 after Phase 3 completion.
+   Phase 7 (Performance & Accessibility Audit) was in progress. Three parallel explore agents were launched and all completed:
+   - Agent a755c15: Reduced motion + magnetic audit
+   - Agent aa60838: Touch target + security audit
+   - Agent afd9812: Three.js performance + bundle audit
+
+   The results were retrieved via `TaskOutput` calls. I was about to process the audit findings, apply fixes for actionable items (touch targets, security issues, Three.js visibility pause, unused dependencies), and update STREAMLINE-PLAN.md.
 
 9. Optional Next Step:
-   Begin **Phase 5: Global Animation Consistency** - migrating manual IntersectionObserver animations to `v-motion` across ~13 component files. The first task is **Task 5.1: Migrate Home HeroSection** (`components/home/HeroSection.vue`) - replacing `isVisible` + `setTimeout` with `v-motion :initial :enter`, keeping TextReveal and ParticleWaves, removing `.animate-in` CSS. The user said "Proceed" indicating they want continuous progress through the plan phases.
+   Process the Phase 7 audit findings and begin applying fixes. The user said "Proceed" to move through phases continuously. The immediate work is:
+   - Fix touch target issues (increase min-height on SectionNav, LanguageSwitcher, scroll indicator)
+   - Fix the magnetic plugin to check for prefers-reduced-motion
+   - Add `document.hidden` visibility pause to HeroBackground.client.vue
+   - Address security finding: remove hardcoded password fallback in nuxt.config.ts
+   - Remove unused `vuedraggable` from package.json
+   - Update STREAMLINE-PLAN.md with Phase 7 findings and fixes
 
-   If you need specific details from before compaction (like exact code snippets, error messages, or content you generated), read the full transcript at: "/2d9ff54d-da77-4f2d-99a6-28de50b2e250.jsonl"
+If you need specific details from before compaction (like exact code snippets, error messages, or content you generated), read the full transcript at: /Users/rune/.claude/projects/-Users-rune-Documents-Git-projects-eyeonidea-Eyeonidea-website/24bb013c-e00e-42fd-982f-80ef0a679dc6.jsonl
+Please continue the conversation from where we left off without asking the user any further questions. Continue with the last task that you were asked to work on.

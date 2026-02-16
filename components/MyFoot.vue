@@ -179,11 +179,9 @@ const { t } = useI18n();
   padding: 1rem;
 }
 
-/* Office cards with glass effect */
+/* Office cards - solid surface */
 .office-card {
-  background: var(--glass-tint-light);
-  backdrop-filter: blur(var(--glass-blur-light)) saturate(var(--glass-saturation));
-  -webkit-backdrop-filter: blur(var(--glass-blur-light)) saturate(var(--glass-saturation));
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 1.5rem;
@@ -192,7 +190,7 @@ const { t } = useI18n();
   transition: all var(--duration-normal) var(--ease-smooth);
 
   &:hover {
-    background: var(--glass-tint-medium);
+    background: rgba(255, 255, 255, 0.09);
     border-color: rgba(255, 255, 255, 0.15);
     transform: translateY(-2px);
   }
@@ -216,6 +214,9 @@ const { t } = useI18n();
   transition: color var(--duration-fast) var(--ease-smooth);
   position: relative;
   display: inline-block;
+  padding: 0.375rem 0;
+  min-height: 44px;
+  line-height: 1.6;
 
   &::after {
     content: '';
@@ -259,8 +260,6 @@ address {
 @media (prefers-reduced-transparency: reduce) {
   .office-card {
     background: var(--color-primary-900);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
   }
 }
 </style>

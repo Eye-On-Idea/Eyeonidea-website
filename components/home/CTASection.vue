@@ -1,42 +1,14 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { animationPresets } from "~/composables/useAccessibleMotion";
 
 const { t } = useI18n();
 
-// Scroll animation
-const sectionRef = ref<HTMLElement | null>(null);
-const isVisible = ref(false);
-
-onMounted(() => {
-  if (!sectionRef.value) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true;
-          observer.disconnect();
-        }
-      });
-    },
-    { threshold: 0.3 },
-  );
-
-  observer.observe(sectionRef.value);
-
-  onUnmounted(() => {
-    observer.disconnect();
-  });
-});
+// v-motion entrance - card scales in
+const cardMotion = animationPresets.fadeInUpScale;
 </script>
 
 <template>
-  <section
-    id="cta-section"
-    ref="sectionRef"
-    class="cta-section"
-    aria-labelledby="cta-heading"
-  >
+  <section id="cta-section" class="cta-section" aria-labelledby="cta-heading">
     <!-- Background Elements -->
     <div class="cta-background" aria-hidden="true">
       <div class="bg-gradient" />
@@ -50,7 +22,9 @@ onMounted(() => {
         :elevated="true"
         hover-effect="none"
         class="cta-card"
-        :class="{ 'animate-in': isVisible }"
+        v-motion
+        :initial="cardMotion.initial"
+        :visible-once="cardMotion.visible"
       >
         <div class="cta-content">
           <!-- Badge -->
@@ -157,16 +131,6 @@ onMounted(() => {
   position: relative;
   overflow: hidden;
   background: var(--color-surface-1);
-  opacity: 0;
-  transform: translateY(40px) scale(0.98);
-  transition:
-    opacity 0.7s var(--ease-smooth),
-    transform 0.7s var(--ease-smooth);
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
 }
 
 .cta-content {
@@ -343,30 +307,6 @@ onMounted(() => {
   }
 }
 
-.cta-decoration {
-  position: absolute;
-  right: -80px;
-  bottom: -80px;
-  width: 300px;
-  height: 300px;
-  opacity: 0.04;
-  pointer-events: none;
-  z-index: 1;
-
-  @media (min-width: 768px) {
-    right: -60px;
-    bottom: -60px;
-    width: 350px;
-    height: 350px;
-  }
-}
-
-.decoration-logo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
 // Dark mode
 :root.dark {
   .cta-section {
@@ -397,12 +337,6 @@ onMounted(() => {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cta-card {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
   .btn-primary:hover,
   .btn-secondary:hover {
     transform: none;

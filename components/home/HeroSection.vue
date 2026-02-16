@@ -10,6 +10,10 @@ const scrollToContent = () => {
     nextSection.scrollIntoView({ behavior: "smooth" });
   }
 };
+
+// v-motion entrance presets
+const contentMotion = animationPresets.fadeInUp;
+const scrollIndicatorMotion = withDelay("fadeIn", 800);
 </script>
 
 <template>
@@ -21,7 +25,7 @@ const scrollToContent = () => {
     <!-- Gradient Background -->
     <div class="hero-gradient" aria-hidden="true" />
 
-    <!-- Particle Animation Background -->
+    <!-- 3D Particle Background — Home-only: first-impression effect, heavy on GPU budget -->
     <ClientOnly>
       <ThreeHeroBackground />
     </ClientOnly>
@@ -30,10 +34,9 @@ const scrollToContent = () => {
     <div class="hero-content">
       <div
         class="content-wrapper"
-        :class="{
-          'animate-in': isVisible,
-          'no-animation': prefersReducedMotion,
-        }"
+        v-motion
+        :initial="contentMotion.initial"
+        :enter="contentMotion.visible"
       >
         <!-- Logo Watermark -->
         <div class="w-3xs ml-auto mr-auto mb-2 p-4" aria-hidden="true">
@@ -87,7 +90,9 @@ const scrollToContent = () => {
     <!-- Scroll Indicator -->
     <button
       class="scroll-indicator"
-      :class="{ visible: isVisible }"
+      v-motion
+      :initial="scrollIndicatorMotion.initial"
+      :enter="scrollIndicatorMotion.visible"
       @click="scrollToContent"
       :aria-label="t('landing.hero.scrollIndicator')"
     >
@@ -108,7 +113,7 @@ const scrollToContent = () => {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  padding: rem 1.5rem 4rem;
+  padding: 1rem 1.5rem 4rem;
 
   @media (min-width: 768px) {
     padding: 2rem;
@@ -128,12 +133,12 @@ const scrollToContent = () => {
     background:
       radial-gradient(
         ellipse at 30% 20%,
-        rgba(223, 175, 133, 0.15) 0%,
+        rgba(223, 175, 133, 0.1) 0%,
         transparent 50%
       ),
       radial-gradient(
         ellipse at 70% 80%,
-        rgba(42, 147, 134, 0.1) 0%,
+        rgba(211, 154, 105, 0.06) 0%,
         transparent 50%
       );
   }
@@ -145,25 +150,6 @@ const scrollToContent = () => {
   max-width: 900px;
   width: 100%;
   text-align: center;
-}
-
-.content-wrapper {
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity 0.8s var(--ease-smooth),
-    transform 0.8s var(--ease-smooth);
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  &.no-animation {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
 }
 
 .hero-badge {
@@ -288,24 +274,18 @@ const scrollToContent = () => {
 }
 
 .scroll-indicator {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 32px;
   gap: 0.75rem;
   background: none;
   border: none;
   cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.5s var(--ease-smooth) 0.8s;
   z-index: 10;
-
-  &.visible {
-    opacity: 1;
-  }
+  min-width: 44px;
+  min-height: 44px;
 
   &:hover {
     .scroll-mouse {
@@ -359,17 +339,6 @@ const scrollToContent = () => {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .content-wrapper {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
-  .scroll-indicator {
-    opacity: 1;
-    transition: none;
-  }
-
   .scroll-wheel {
     animation: none;
   }

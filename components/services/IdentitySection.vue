@@ -18,7 +18,7 @@ onMounted(() => {
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.1 },
   );
 
   observer.observe(sectionRef.value);
@@ -40,7 +40,6 @@ onMounted(() => {
       <div class="content-grid" :class="{ 'animate-in': isVisible }">
         <!-- Left: Main Content -->
         <div class="main-content">
-          <span class="section-badge">{{ t("services.identity.badge") }}</span>
           <h2 id="identity-heading" class="section-title">
             {{ t("services.identity.title") }}
           </h2>
@@ -53,12 +52,23 @@ onMounted(() => {
             <h3 class="card-heading">Core Deliverables</h3>
             <ul class="includes-list">
               <li
-                v-for="(item, index) in (tm('services.identity.includes') as string[])"
+                v-for="(item, index) in tm(
+                  'services.identity.includes',
+                ) as string[]"
                 :key="index"
                 class="include-item"
               >
-                <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                <svg
+                  class="check-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  />
                 </svg>
                 <span>{{ item }}</span>
               </li>
@@ -67,8 +77,17 @@ onMounted(() => {
 
           <NuxtLink to="/contact" class="cta-button">
             {{ t("services.identity.cta") }}
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="cta-icon">
-              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="cta-icon"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
             </svg>
           </NuxtLink>
         </div>
@@ -76,15 +95,28 @@ onMounted(() => {
         <!-- Right: Add-ons -->
         <div class="addons-panel">
           <div class="addons-card">
-            <h3 class="addons-heading">{{ t("services.identity.addons.title") }}</h3>
+            <h3 class="addons-heading">
+              {{ t("services.identity.addons.title") }}
+            </h3>
             <ul class="addons-list">
               <li
-                v-for="(addon, index) in (tm('services.identity.addons.items') as string[])"
+                v-for="(addon, index) in tm(
+                  'services.identity.addons.items',
+                ) as string[]"
                 :key="index"
                 class="addon-item"
               >
-                <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                <svg
+                  class="plus-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                    clip-rule="evenodd"
+                  />
                 </svg>
                 <span>{{ addon }}</span>
               </li>
@@ -123,7 +155,9 @@ onMounted(() => {
   gap: 3rem;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
+  transition:
+    opacity 0.8s var(--ease-smooth),
+    transform 0.8s var(--ease-smooth);
 
   &.animate-in {
     opacity: 1;
@@ -231,7 +265,9 @@ onMounted(() => {
   font-weight: 600;
   text-decoration: none;
   border-radius: var(--radius-md);
-  transition: background 0.2s var(--ease-smooth), transform 0.2s var(--ease-smooth);
+  transition:
+    background 0.2s var(--ease-smooth),
+    transform 0.2s var(--ease-smooth);
 
   &:hover {
     background: var(--color-accent-600);

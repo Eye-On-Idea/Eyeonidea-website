@@ -199,10 +199,21 @@ onMounted(() => {
 
   animateWithConnections();
 
+  // Pause animation when tab is hidden to save CPU/battery
+  const handleVisibility = () => {
+    if (document.hidden) {
+      cancelAnimationFrame(animationId.value);
+    } else if (!prefersReducedMotion.value) {
+      animateWithConnections();
+    }
+  };
+  document.addEventListener("visibilitychange", handleVisibility);
+
   onUnmounted(() => {
     cancelAnimationFrame(animationId.value);
     window.removeEventListener("resize", resizeCanvas);
     mediaQuery.removeEventListener("change", handleChange);
+    document.removeEventListener("visibilitychange", handleVisibility);
   });
 });
 </script>

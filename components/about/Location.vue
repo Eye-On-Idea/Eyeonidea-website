@@ -244,7 +244,7 @@ const quickFacts = computed(() =>
 .fact-card {
   padding: 1.5rem;
   background: var(--color-surface-1);
-  border: 1px solid var(--glass-border-subtle);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
   text-align: center;
 }
@@ -256,18 +256,14 @@ const quickFacts = computed(() =>
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--color-primary-500) 12%, transparent),
-    color-mix(in srgb, var(--color-accent-500) 12%, transparent)
-  );
+  background: var(--color-primary-100);
   border-radius: var(--radius-lg);
 }
 
 .fact-icon {
   width: 1.25rem;
   height: 1.25rem;
-  color: var(--color-accent-600);
+  color: var(--color-primary-600);
 }
 
 .fact-label {
@@ -299,10 +295,14 @@ const quickFacts = computed(() =>
   }
 }
 
-// Dark mode hover
+// Dark mode
 :root.dark {
   .fact-icon {
-    color: var(--color-accent-400);
+    color: var(--color-primary-300);
+  }
+
+  .fact-icon-wrap {
+    background: var(--color-primary-800);
   }
 }
 </style>

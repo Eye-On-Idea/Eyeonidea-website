@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref } from "vue";
+import { animationPresets, withDelay, staggeredFadeInUp } from "~/composables/useAccessibleMotion";
 import { useStrokeDraw } from "~/composables/useStrokeDraw";
 
 const { t } = useI18n();
@@ -12,29 +13,10 @@ useStrokeDraw(sectionRef, {
   duration: 600,
   selector: ".card-icon",
 });
-const isVisible = ref(false);
 
-onMounted(() => {
-  if (!sectionRef.value) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true;
-          observer.disconnect();
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  observer.observe(sectionRef.value);
-
-  onUnmounted(() => {
-    observer.disconnect();
-  });
-});
+// v-motion presets
+const headingMotion = animationPresets.fadeInUp;
+const bottomCtaMotion = withDelay("fadeInUp", 300);
 </script>
 
 <template>
@@ -44,13 +26,24 @@ onMounted(() => {
     aria-labelledby="contact-info-heading"
   >
     <div class="section-container">
-      <h2 id="contact-info-heading" class="section-heading" :class="{ 'animate-in': isVisible }">
+      <h2
+        id="contact-info-heading"
+        class="section-heading"
+        v-motion
+        :initial="headingMotion.initial"
+        :visible-once="headingMotion.visible"
+      >
         {{ t("contact.info.heading") }}
       </h2>
 
-      <div class="info-grid" :class="{ 'animate-in': isVisible }">
+      <div class="info-grid">
         <!-- Direct Contact Card -->
-        <div class="info-card stagger-1">
+        <div
+          class="info-card"
+          v-motion
+          :initial="staggeredFadeInUp(0).initial"
+          :visible-once="staggeredFadeInUp(0).visible"
+        >
           <div class="card-icon">
             <UIcon name="i-heroicons-phone" aria-hidden="true" />
           </div>
@@ -70,7 +63,12 @@ onMounted(() => {
         </div>
 
         <!-- Location Card -->
-        <div class="info-card stagger-2">
+        <div
+          class="info-card"
+          v-motion
+          :initial="staggeredFadeInUp(1).initial"
+          :visible-once="staggeredFadeInUp(1).visible"
+        >
           <div class="card-icon">
             <UIcon name="i-heroicons-map-pin" aria-hidden="true" />
           </div>
@@ -80,7 +78,12 @@ onMounted(() => {
         </div>
 
         <!-- Business Hours Card -->
-        <div class="info-card stagger-3">
+        <div
+          class="info-card"
+          v-motion
+          :initial="staggeredFadeInUp(2).initial"
+          :visible-once="staggeredFadeInUp(2).visible"
+        >
           <div class="card-icon">
             <UIcon name="i-heroicons-clock" aria-hidden="true" />
           </div>
@@ -90,7 +93,12 @@ onMounted(() => {
         </div>
 
         <!-- Social Card -->
-        <div class="info-card stagger-4">
+        <div
+          class="info-card"
+          v-motion
+          :initial="staggeredFadeInUp(3).initial"
+          :visible-once="staggeredFadeInUp(3).visible"
+        >
           <div class="card-icon">
             <UIcon name="i-heroicons-share" aria-hidden="true" />
           </div>
@@ -111,7 +119,12 @@ onMounted(() => {
       </div>
 
       <!-- Bottom CTA -->
-      <div class="bottom-cta" :class="{ 'animate-in': isVisible }">
+      <div
+        class="bottom-cta"
+        v-motion
+        :initial="bottomCtaMotion.initial"
+        :visible-once="bottomCtaMotion.visible"
+      >
         <h3 class="cta-title">{{ t("contact.cta.title") }}</h3>
         <p class="cta-description">{{ t("contact.cta.description") }}</p>
         <div class="cta-buttons">
@@ -147,14 +160,6 @@ onMounted(() => {
   font-size: var(--text-2xl);
   color: var(--color-hero-text);
   margin-bottom: 3rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
 
   @media (min-width: 768px) {
     font-size: var(--text-3xl);
@@ -171,26 +176,13 @@ onMounted(() => {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  &.animate-in .info-card {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .info-card {
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-lg);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
-
-  &.stagger-1 { transition-delay: 100ms; }
-  &.stagger-2 { transition-delay: 150ms; }
-  &.stagger-3 { transition-delay: 200ms; }
-  &.stagger-4 { transition-delay: 250ms; }
 
   @media (min-width: 768px) {
     padding: 2rem;
@@ -204,7 +196,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-accent-400);
+  color: var(--color-primary-300);
 
   :deep(svg),
   :deep(.iconify) {
@@ -272,7 +264,7 @@ onMounted(() => {
   :deep(.iconify) {
     width: 1rem;
     height: 1rem;
-    color: var(--color-accent-400);
+    color: var(--color-primary-300);
     flex-shrink: 0;
   }
 }
@@ -314,18 +306,9 @@ onMounted(() => {
 .bottom-cta {
   text-align: center;
   padding: 2.5rem;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-xl);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s var(--ease-smooth) 0.3s, transform 0.6s var(--ease-smooth) 0.3s;
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .cta-title {
@@ -409,13 +392,5 @@ onMounted(() => {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .section-heading,
-  .info-card,
-  .bottom-cta {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
+// prefers-reduced-motion handled by v-motion / useAccessibleMotion
 </style>

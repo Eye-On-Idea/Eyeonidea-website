@@ -20,7 +20,7 @@ onMounted(() => {
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.1 },
   );
 
   observer.observe(sectionRef.value);
@@ -78,7 +78,7 @@ const isCategoryExpanded = (key: string) => expandedCategories.value.has(key);
 
 const getFeatureValue = (
   feature: Feature,
-  pkg: (typeof packages)[number]
+  pkg: (typeof packages)[number],
 ): boolean | string => {
   return feature[pkg];
 };
@@ -101,9 +101,6 @@ onMounted(() => {
     <div class="section-container">
       <!-- Header -->
       <div class="section-header" :class="{ 'animate-in': isVisible }">
-        <span class="section-badge">{{
-          t("services.comparison.badge")
-        }}</span>
         <h2 id="comparison-heading" class="section-title">
           {{ t("services.comparison.title") }}
         </h2>
@@ -115,7 +112,10 @@ onMounted(() => {
       <!-- ═══════════════════════════════════════════ -->
       <!-- DESKTOP: Original table (hidden on mobile)  -->
       <!-- ═══════════════════════════════════════════ -->
-      <div class="table-wrapper desktop-only" :class="{ 'animate-in': isVisible }">
+      <div
+        class="table-wrapper desktop-only"
+        :class="{ 'animate-in': isVisible }"
+      >
         <div class="table-container">
           <table class="comparison-table" role="grid">
             <!-- Sticky Header -->
@@ -132,10 +132,7 @@ onMounted(() => {
                   scope="col"
                 >
                   <div class="package-header-content">
-                    <span
-                      v-if="pkg === 'growth'"
-                      class="popular-indicator"
-                    >
+                    <span v-if="pkg === 'growth'" class="popular-indicator">
                       {{ t("services.packages.growth.popular") }}
                     </span>
                     <span class="package-name">{{ getPackageName(pkg) }}</span>
@@ -143,7 +140,9 @@ onMounted(() => {
                       <span class="price-currency">{{
                         getPackageCurrency(pkg)
                       }}</span>
-                      <span class="price-amount">{{ getPackagePrice(pkg) }}</span>
+                      <span class="price-amount">{{
+                        getPackagePrice(pkg)
+                      }}</span>
                     </div>
                   </div>
                 </th>
@@ -260,7 +259,10 @@ onMounted(() => {
       <!-- ═══════════════════════════════════════════ -->
       <!-- MOBILE: Accordion comparison view           -->
       <!-- ═══════════════════════════════════════════ -->
-      <div class="mobile-comparison mobile-only" :class="{ 'animate-in': isVisible }">
+      <div
+        class="mobile-comparison mobile-only"
+        :class="{ 'animate-in': isVisible }"
+      >
         <!-- Package header row (always visible) -->
         <div class="mobile-pkg-header">
           <div
@@ -269,16 +271,17 @@ onMounted(() => {
             class="mobile-pkg-col"
             :class="{ 'mobile-pkg-col--featured': pkg === 'growth' }"
           >
-            <span
-              v-if="pkg === 'growth'"
-              class="mobile-popular"
-            >
+            <span v-if="pkg === 'growth'" class="mobile-popular">
               {{ t("services.packages.growth.popular") }}
             </span>
             <span class="mobile-pkg-name">{{ getPackageName(pkg) }}</span>
             <div class="mobile-pkg-price">
-              <span class="mobile-price-currency">{{ getPackageCurrency(pkg) }}</span>
-              <span class="mobile-price-amount">{{ getPackagePrice(pkg) }}</span>
+              <span class="mobile-price-currency">{{
+                getPackageCurrency(pkg)
+              }}</span>
+              <span class="mobile-price-amount">{{
+                getPackagePrice(pkg)
+              }}</span>
             </div>
           </div>
         </div>
@@ -289,7 +292,9 @@ onMounted(() => {
             v-for="category in categories"
             :key="category.key"
             class="mobile-category"
-            :class="{ 'mobile-category--expanded': isCategoryExpanded(category.key) }"
+            :class="{
+              'mobile-category--expanded': isCategoryExpanded(category.key),
+            }"
           >
             <button
               type="button"
@@ -299,11 +304,17 @@ onMounted(() => {
               @click="toggleCategory(category.key)"
             >
               <span class="mobile-category__title">{{ category.title }}</span>
-              <span class="mobile-category__count">{{ category.features.length }}</span>
+              <span class="mobile-category__count">{{
+                category.features.length
+              }}</span>
               <UIcon
                 name="i-heroicons-chevron-down"
                 class="mobile-category__chevron"
-                :class="{ 'mobile-category__chevron--open': isCategoryExpanded(category.key) }"
+                :class="{
+                  'mobile-category__chevron--open': isCategoryExpanded(
+                    category.key,
+                  ),
+                }"
                 aria-hidden="true"
               />
             </button>
@@ -311,7 +322,11 @@ onMounted(() => {
             <div
               :id="`mobile-cat-${category.key}`"
               class="mobile-category__panel"
-              :class="{ 'mobile-category__panel--open': isCategoryExpanded(category.key) }"
+              :class="{
+                'mobile-category__panel--open': isCategoryExpanded(
+                  category.key,
+                ),
+              }"
               role="region"
               :aria-label="category.title"
             >
@@ -325,11 +340,16 @@ onMounted(() => {
                   <button
                     type="button"
                     class="mobile-feature__info"
-                    :aria-expanded="activeTooltip === `m-${category.key}-${fIndex}`"
+                    :aria-expanded="
+                      activeTooltip === `m-${category.key}-${fIndex}`
+                    "
                     :aria-label="`Info: ${feature.name}`"
                     @click.stop="toggleTooltip(`m-${category.key}-${fIndex}`)"
                   >
-                    <UIcon name="i-heroicons-information-circle" class="mobile-feature__info-icon" />
+                    <UIcon
+                      name="i-heroicons-information-circle"
+                      class="mobile-feature__info-icon"
+                    />
                   </button>
                 </div>
 
@@ -349,16 +369,36 @@ onMounted(() => {
                     v-for="pkg in packages"
                     :key="pkg"
                     class="mobile-feature__value"
-                    :class="{ 'mobile-feature__value--featured': pkg === 'growth' }"
+                    :class="{
+                      'mobile-feature__value--featured': pkg === 'growth',
+                    }"
                   >
-                    <span class="mobile-feature__pkg-label">{{ getPackageName(pkg) }}</span>
-                    <span v-if="getFeatureValue(feature, pkg) === true" class="feature-check feature-check--sm">
-                      <UIcon name="i-heroicons-check" class="check-icon check-icon--sm" />
-                      <span class="sr-only">{{ t("services.comparison.legend.included") }}</span>
+                    <span class="mobile-feature__pkg-label">{{
+                      getPackageName(pkg)
+                    }}</span>
+                    <span
+                      v-if="getFeatureValue(feature, pkg) === true"
+                      class="feature-check feature-check--sm"
+                    >
+                      <UIcon
+                        name="i-heroicons-check"
+                        class="check-icon check-icon--sm"
+                      />
+                      <span class="sr-only">{{
+                        t("services.comparison.legend.included")
+                      }}</span>
                     </span>
-                    <span v-else-if="getFeatureValue(feature, pkg) === false" class="feature-dash feature-dash--sm">
-                      <UIcon name="i-heroicons-minus" class="dash-icon dash-icon--sm" />
-                      <span class="sr-only">{{ t("services.comparison.legend.notIncluded") }}</span>
+                    <span
+                      v-else-if="getFeatureValue(feature, pkg) === false"
+                      class="feature-dash feature-dash--sm"
+                    >
+                      <UIcon
+                        name="i-heroicons-minus"
+                        class="dash-icon dash-icon--sm"
+                      />
+                      <span class="sr-only">{{
+                        t("services.comparison.legend.notIncluded")
+                      }}</span>
                     </span>
                     <span v-else class="feature-partial feature-partial--sm">
                       {{ getFeatureValue(feature, pkg) }}
@@ -699,11 +739,7 @@ onMounted(() => {
   border-left: 1px solid var(--color-border);
 
   &--featured {
-    background: color-mix(
-      in srgb,
-      var(--color-accent-50) 20%,
-      transparent
-    );
+    background: color-mix(in srgb, var(--color-accent-50) 20%, transparent);
   }
 }
 
@@ -789,11 +825,7 @@ onMounted(() => {
   border-left: 1px solid var(--color-border);
 
   &--featured {
-    background: color-mix(
-      in srgb,
-      var(--color-accent-50) 20%,
-      transparent
-    );
+    background: color-mix(in srgb, var(--color-accent-50) 20%, transparent);
   }
 }
 
@@ -876,7 +908,11 @@ onMounted(() => {
     color-mix(in srgb, var(--color-accent-50) 50%, var(--card-bg)) 0%,
     var(--card-bg) 100%
   );
-  border-color: color-mix(in srgb, var(--color-accent-400) 30%, var(--card-border));
+  border-color: color-mix(
+    in srgb,
+    var(--color-accent-400) 30%,
+    var(--card-border)
+  );
 }
 
 .mobile-popular {
@@ -1076,7 +1112,11 @@ onMounted(() => {
 }
 
 .mobile-feature__value--featured {
-  background: color-mix(in srgb, var(--color-accent-50) 30%, var(--color-surface-2));
+  background: color-mix(
+    in srgb,
+    var(--color-accent-50) 30%,
+    var(--color-surface-2)
+  );
 }
 
 .mobile-feature__pkg-label {
@@ -1258,11 +1298,7 @@ onMounted(() => {
   }
 
   .feature-cell--featured {
-    background: color-mix(
-      in srgb,
-      var(--color-accent-900) 20%,
-      transparent
-    );
+    background: color-mix(in srgb, var(--color-accent-900) 20%, transparent);
   }
 
   .tooltip,
@@ -1276,11 +1312,7 @@ onMounted(() => {
   }
 
   .cta-cell--featured {
-    background: color-mix(
-      in srgb,
-      var(--color-accent-900) 20%,
-      transparent
-    );
+    background: color-mix(in srgb, var(--color-accent-900) 20%, transparent);
   }
 
   .cta-button--default,
@@ -1322,7 +1354,11 @@ onMounted(() => {
       color-mix(in srgb, var(--color-accent-900) 40%, var(--card-bg)) 0%,
       var(--card-bg) 100%
     );
-    border-color: color-mix(in srgb, var(--color-accent-500) 25%, var(--card-border));
+    border-color: color-mix(
+      in srgb,
+      var(--color-accent-500) 25%,
+      var(--card-border)
+    );
   }
 
   .mobile-category {
@@ -1339,7 +1375,11 @@ onMounted(() => {
   }
 
   .mobile-feature__value--featured {
-    background: color-mix(in srgb, var(--color-accent-900) 25%, var(--color-surface-3));
+    background: color-mix(
+      in srgb,
+      var(--color-accent-900) 25%,
+      var(--color-surface-3)
+    );
   }
 
   .mobile-category__count {

@@ -1,18 +1,15 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import { animationPresets, withDelay } from "~/composables/useAccessibleMotion";
 import { useStrokeDraw } from "~/composables/useStrokeDraw";
 
 const { t, tm } = useI18n();
-const { cursorX, cursorY, prefersReducedMotion } = useCursorFollow();
-
-const featuredRef = ref<HTMLElement | null>(null);
 const gridRef = ref<HTMLElement | null>(null);
 
 useStrokeDraw(gridRef, {
-  delay: 300,
-  stagger: 150,
-  duration: 700,
+  delay: 200,
+  stagger: 120,
+  duration: 600,
   selector: ".value-icon-wrap",
 });
 
@@ -20,17 +17,7 @@ const values = computed(() =>
   tm("about.values.items") as Array<{ icon: string; title: string; description: string }>
 );
 
-// Cursor-following shine on featured card
-const shineStyle = computed(() => {
-  if (prefersReducedMotion.value || !featuredRef.value) return {};
-  const rect = featuredRef.value?.getBoundingClientRect();
-  if (!rect) return {};
-  const x = cursorX.value - rect.left;
-  const y = cursorY.value - rect.top;
-  return {
-    background: `radial-gradient(400px circle at ${x}px ${y}px, rgba(42, 147, 134, 0.08), transparent 60%)`,
-  };
-});
+
 </script>
 
 <template>
@@ -52,12 +39,11 @@ const shineStyle = computed(() => {
         </h2>
       </div>
 
-      <!-- Bento Values Grid -->
+      <!-- Bento Values Grid — About-only: TiltCard + cursor shine for featured value highlight -->
       <div ref="gridRef" class="values-bento">
         <!-- First value: featured / larger -->
         <div
           v-if="values[0]"
-          ref="featuredRef"
           v-motion
           :initial="animationPresets.fadeInUpScale.initial"
           :visible-once="withDelay('fadeInUpScale', 200).visible"
@@ -70,8 +56,6 @@ const shineStyle = computed(() => {
               <h3 class="value-title">{{ values[0].title }}</h3>
               <p class="value-description">{{ values[0].description }}</p>
             </div>
-            <!-- Cursor-following shine overlay -->
-            <div class="shine-overlay" :style="shineStyle" aria-hidden="true" />
           </TiltCard>
         </div>
 
@@ -120,8 +104,8 @@ const shineStyle = computed(() => {
 .section-badge {
   display: inline-block;
   padding: 0.375rem 1rem;
-  background: var(--color-accent-100);
-  color: var(--color-accent-700);
+  background: var(--color-primary-100);
+  color: var(--color-primary-700);
   font-size: var(--text-xs);
   font-weight: 600;
   text-transform: uppercase;
@@ -153,7 +137,7 @@ const shineStyle = computed(() => {
   position: relative;
   padding: 2rem;
   background: var(--color-surface-1);
-  border: 1px solid var(--glass-border-subtle);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
   transition: box-shadow 0.2s var(--ease-smooth);
 
@@ -207,14 +191,6 @@ const shineStyle = computed(() => {
   }
 }
 
-.shine-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border-radius: inherit;
-  z-index: 1;
-}
-
 .value-icon-wrap {
   width: 3rem;
   height: 3rem;
@@ -222,18 +198,14 @@ const shineStyle = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--color-primary-500) 12%, transparent),
-    color-mix(in srgb, var(--color-accent-500) 12%, transparent)
-  );
+  background: var(--color-primary-100);
   border-radius: var(--radius-lg);
 }
 
 .value-icon {
   width: 1.5rem;
   height: 1.5rem;
-  color: var(--color-accent-600);
+  color: var(--color-primary-600);
 }
 
 .value-title {
@@ -256,12 +228,12 @@ const shineStyle = computed(() => {
   }
 
   .section-badge {
-    background: var(--color-accent-900);
-    color: var(--color-accent-300);
+    background: var(--color-primary-900);
+    color: var(--color-primary-300);
   }
 
   .value-icon {
-    color: var(--color-accent-400);
+    color: var(--color-primary-300);
   }
 
   .value-card:hover {

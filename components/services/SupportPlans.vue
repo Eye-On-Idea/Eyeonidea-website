@@ -18,7 +18,7 @@ onMounted(() => {
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.1 },
   );
 
   observer.observe(sectionRef.value);
@@ -45,7 +45,6 @@ const plans = [
     <div class="section-container">
       <!-- Header -->
       <div class="section-header" :class="{ 'animate-in': isVisible }">
-        <span class="section-badge">{{ t("services.support.badge") }}</span>
         <h2 id="support-heading" class="section-title">
           {{ t("services.support.title") }}
         </h2>
@@ -60,7 +59,10 @@ const plans = [
           v-for="(plan, index) in plans"
           :key="plan.key"
           class="plan-card"
-          :class="[`stagger-${index + 1}`, { 'plan-card--featured': plan.featured }]"
+          :class="[
+            `stagger-${index + 1}`,
+            { 'plan-card--featured': plan.featured },
+          ]"
         >
           <div v-if="plan.featured" class="featured-badge">
             <UIcon name="i-heroicons-sparkles-solid" class="badge-icon" />
@@ -103,7 +105,9 @@ const plans = [
 
           <ul class="plan-includes" role="list">
             <li
-              v-for="(item, itemIndex) in (tm(`services.support.plans.${plan.key}.includes`) as string[])"
+              v-for="(item, itemIndex) in tm(
+                `services.support.plans.${plan.key}.includes`,
+              ) as string[]"
               :key="itemIndex"
               class="include-item"
             >
@@ -118,7 +122,9 @@ const plans = [
             <NuxtLink
               to="/contact"
               class="plan-cta"
-              :class="plan.featured ? 'plan-cta--featured' : 'plan-cta--default'"
+              :class="
+                plan.featured ? 'plan-cta--featured' : 'plan-cta--default'
+              "
             >
               <span>{{ t("services.support.cta") }}</span>
               <UIcon name="i-heroicons-arrow-right" class="cta-icon" />

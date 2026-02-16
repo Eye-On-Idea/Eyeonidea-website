@@ -13,7 +13,11 @@
           class="hero-header"
         >
           <h1 class="hero-title">
-            <span class="text-gradient">{{ t("news.hero.title") }}</span>
+            <TextReveal
+              :text="t('news.hero.title')"
+              :delay="200"
+              word-class="text-gradient"
+            />
           </h1>
           <p class="hero-description">
             {{ t("news.hero.subtitle") }}

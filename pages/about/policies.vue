@@ -1,15 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { animationPresets, withDelay } from "~/composables/useAccessibleMotion";
 
 const { t, tm } = useI18n();
 
-const isVisible = ref(false);
-
-onMounted(() => {
-  setTimeout(() => {
-    isVisible.value = true;
-  }, 100);
-});
+// v-motion presets
+const heroMotion = animationPresets.fadeInUp;
+const contentMotion = withDelay("fadeInUp", 200);
 
 useSeoMeta({
   title: () => t("policies.meta.title"),
@@ -54,16 +50,18 @@ const cookieSectionKeys = ["what", "types", "specific", "manage", "thirdParty"];
       <div class="hero-background" aria-hidden="true">
         <div class="bg-gradient" />
       </div>
-      <div class="hero-content" :class="{ 'animate-in': isVisible }">
+      <div class="hero-content" v-motion :initial="heroMotion.initial" :enter="heroMotion.visible">
         <span class="hero-badge glass-brand">{{ t("policies.hero.badge") }}</span>
-        <h1 id="policies-heading" class="hero-title">{{ t("policies.hero.title") }}</h1>
+        <h1 id="policies-heading" class="hero-title">
+          <TextReveal :text="t('policies.hero.title')" :delay="200" />
+        </h1>
         <p class="hero-subtitle">{{ t("policies.hero.subtitle") }}</p>
       </div>
     </section>
 
     <!-- Content -->
     <section class="page-content">
-      <div class="content-container" :class="{ 'animate-in': isVisible }">
+      <div class="content-container" v-motion :initial="contentMotion.initial" :visible-once="contentMotion.visible">
         <p class="last-updated">{{ t("policies.lastUpdated") }}</p>
 
         <!-- Table of Contents -->
@@ -206,14 +204,6 @@ const cookieSectionKeys = ["what", "types", "specific", "manage", "thirdParty"];
   z-index: 1;
   max-width: 700px;
   margin: 0 auto;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .hero-badge {
@@ -260,14 +250,6 @@ const cookieSectionKeys = ["what", "types", "specific", "manage", "thirdParty"];
 .content-container {
   max-width: 800px;
   margin: 0 auto;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s var(--ease-smooth) 0.2s, transform 0.8s var(--ease-smooth) 0.2s;
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .last-updated {
@@ -499,12 +481,5 @@ const cookieSectionKeys = ["what", "types", "specific", "manage", "thirdParty"];
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .hero-content,
-  .content-container {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
+// prefers-reduced-motion handled by v-motion / useAccessibleMotion
 </style>

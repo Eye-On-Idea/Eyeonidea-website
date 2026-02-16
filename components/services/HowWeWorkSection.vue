@@ -46,7 +46,6 @@ const steps = computed(() =>
         class="section-header"
         :class="{ 'animate-in': isVisible }"
       >
-        <span class="section-badge">{{ t("services.howWeWork.badge") }}</span>
         <h2 id="how-we-work-heading" class="section-title">
           {{ t("services.howWeWork.title") }}
         </h2>

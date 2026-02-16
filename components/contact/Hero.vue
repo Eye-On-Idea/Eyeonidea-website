@@ -8,5 +8,7 @@ const { t } = useI18n();
     :title="t('contact.hero.title')"
     :subtitle="t('contact.hero.subtitle')"
     heading-id="contact-hero-heading"
+    variant="light"
+    show-text-reveal
   />
 </template>

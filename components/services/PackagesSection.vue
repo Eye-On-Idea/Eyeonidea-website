@@ -18,7 +18,7 @@ onMounted(() => {
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.1 },
   );
 
   observer.observe(sectionRef.value);
@@ -44,11 +44,7 @@ const packages = [
   >
     <div class="section-container">
       <!-- Header -->
-      <div
-        class="section-header"
-        :class="{ 'animate-in': isVisible }"
-      >
-        <span class="section-badge">{{ t("services.packages.badge") }}</span>
+      <div class="section-header" :class="{ 'animate-in': isVisible }">
         <h2 id="packages-heading" class="section-title">
           {{ t("services.packages.title") }}
         </h2>
@@ -70,10 +66,7 @@ const packages = [
       </div>
 
       <!-- Pricing Note -->
-      <p
-        class="pricing-note"
-        :class="{ 'animate-in': isVisible }"
-      >
+      <p class="pricing-note" :class="{ 'animate-in': isVisible }">
         {{ t("services.packages.pricingNote") }}
       </p>
     </div>
@@ -105,7 +98,9 @@ const packages = [
   margin: 0 auto 4rem;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  transition:
+    opacity 0.6s var(--ease-smooth),
+    transform 0.6s var(--ease-smooth);
 
   &.animate-in {
     opacity: 1;
@@ -169,11 +164,19 @@ const packages = [
 .package-item {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  transition:
+    opacity 0.6s var(--ease-smooth),
+    transform 0.6s var(--ease-smooth);
 
-  &.stagger-1 { transition-delay: 100ms; }
-  &.stagger-2 { transition-delay: 200ms; }
-  &.stagger-3 { transition-delay: 300ms; }
+  &.stagger-1 {
+    transition-delay: 100ms;
+  }
+  &.stagger-2 {
+    transition-delay: 200ms;
+  }
+  &.stagger-3 {
+    transition-delay: 300ms;
+  }
 }
 
 .pricing-note {
@@ -182,7 +185,9 @@ const packages = [
   color: var(--color-text-subtle);
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s var(--ease-smooth) 0.4s, transform 0.6s var(--ease-smooth) 0.4s;
+  transition:
+    opacity 0.6s var(--ease-smooth) 0.4s,
+    transform 0.6s var(--ease-smooth) 0.4s;
 
   &.animate-in {
     opacity: 1;

@@ -167,16 +167,15 @@ const { t, tm } = useI18n();
 .section-badge {
   display: inline-block;
   padding: 0.375rem 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  color: var(--color-accent-300);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-primary-200);
   font-size: var(--text-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   border-radius: 9999px;
   margin-bottom: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .founder-name {
@@ -192,7 +191,7 @@ const { t, tm } = useI18n();
 
 .founder-role {
   font-size: var(--text-lg);
-  color: var(--color-accent-400);
+  color: var(--color-primary-300);
   font-weight: 500;
   margin-bottom: 1.5rem;
 }
@@ -212,8 +211,8 @@ const { t, tm } = useI18n();
 
 .philosophy-block {
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-left: 3px solid var(--color-accent-500);
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 3px solid var(--color-primary-400);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   margin-bottom: 2rem;
 }
@@ -223,7 +222,7 @@ const { t, tm } = useI18n();
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-accent-400);
+  color: var(--color-primary-300);
   margin-bottom: 0.75rem;
 }
 

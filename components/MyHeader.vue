@@ -428,19 +428,18 @@ onBeforeUnmount(() => {
 <style lang="scss" scoped>
 /* Header base styles */
 .header-main {
-  background: color-mix(in srgb, var(--color-hero-bg) 75%, transparent);
-  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
-  -webkit-backdrop-filter: blur(var(--glass-blur))
-    saturate(var(--glass-saturation));
+  background: color-mix(in srgb, var(--color-hero-bg) 95%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--glass-border-subtle);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   transition: all var(--duration-normal) var(--ease-smooth);
 }
 
-/* Enhanced glass effect when scrolled */
+/* Slightly more opaque when scrolled */
 .header-scrolled {
-  background: color-mix(in srgb, var(--ui-bg) 92%, transparent);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  background: color-mix(in srgb, var(--ui-bg) 97%, transparent);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 /* Logo container with dark background for visibility */

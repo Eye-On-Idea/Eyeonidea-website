@@ -243,8 +243,8 @@ onUnmounted(() => {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 10px;
-  min-height: 36px;
+  padding: 10px 10px;
+  min-height: 44px;
   border-radius: 10px;
   border: 1px solid var(--glass-border-subtle);
   background: color-mix(in srgb, var(--color-surface-1) 60%, transparent);
@@ -321,8 +321,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 10px;
-  min-height: 40px;
+  padding: 10px 10px;
+  min-height: 44px;
   border-radius: 10px;
   border: 1px solid transparent;
   background: transparent;

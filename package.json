@@ -32,8 +32,7 @@
     "three": "^0.181.0",
     "typescript": "^5.9.3",
     "vue": "^3.5.16",
-    "vue-router": "^4.5.1",
-    "vuedraggable": "^4.1.0"
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@iconify-json/circle-flags": "^1.2.10",

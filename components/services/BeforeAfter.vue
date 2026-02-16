@@ -79,7 +79,6 @@ onMounted(() => {
     <div class="section-container">
       <!-- Header -->
       <div class="section-header" :class="{ 'animate-in': isVisible }">
-        <span class="section-badge">{{ t("services.beforeAfter.badge") }}</span>
         <h2 id="before-after-heading" class="section-title">
           {{ t("services.beforeAfter.title") }}
         </h2>

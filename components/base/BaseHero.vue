@@ -17,19 +17,23 @@ withDefaults(
     textRevealDelay?: number;
     /** aria-labelledby ID for the heading */
     headingId?: string;
+    /** Visual variant: dark (default) or light (warm cream bg, dark text) */
+    variant?: "dark" | "light";
   }>(),
   {
     minHeight: "45vh",
     showTextReveal: false,
     textRevealDelay: 200,
     headingId: "hero-heading",
-  }
+    variant: "dark",
+  },
 );
 </script>
 
 <template>
   <section
-    class="base-hero"
+    class="base-hero dark:bg-brand-600 bg-brand-400"
+    :class="{ 'base-hero--light': variant === 'light' }"
     :style="{ minHeight }"
     :aria-labelledby="headingId"
   >
@@ -49,10 +53,6 @@ withDefaults(
         :initial="animationPresets.fadeInUp.initial"
         :enter="animationPresets.fadeInUp.visible"
       >
-        <span v-if="badge" class="hero-badge glass-brand">
-          {{ badge }}
-        </span>
-
         <slot name="title">
           <h1 v-if="title" :id="headingId" class="hero-title">
             <TextReveal

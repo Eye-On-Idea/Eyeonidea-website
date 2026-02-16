@@ -28,13 +28,13 @@ useHead({
     <!-- Hero Section -->
     <ServicesHero />
 
-    <!-- Sticky Section Navigation -->
+    <!-- Sticky Section Navigation — Services-only: only page with 8+ scrollable sections -->
     <ServicesSectionNav />
 
     <!-- Website Packages Cards -->
     <ServicesPackagesSection />
 
-    <!-- Feature Comparison Table -->
+    <!-- Feature Comparison Table — Services-only: plan comparison specific to offerings -->
     <ServicesComparisonTable />
 
     <!-- Add-ons & Extras -->
@@ -52,7 +52,7 @@ useHead({
     <!-- How We Work -->
     <ServicesHowWeWorkSection />
 
-    <!-- Before/After Results -->
+    <!-- Before/After Results — Services-only: results showcase unique to services -->
     <ServicesBeforeAfter />
 
     <!-- CTA Section -->

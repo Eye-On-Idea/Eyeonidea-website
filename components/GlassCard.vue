@@ -21,7 +21,7 @@ const props = withDefaults(
     padding?: boolean;
   }>(),
   {
-    variant: "glass",
+    variant: "solid",
     glassIntensity: 0.5,
     tintColor: "dark",
     hoverEffect: "lift",

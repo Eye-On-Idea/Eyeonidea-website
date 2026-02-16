@@ -19,7 +19,7 @@ onMounted(() => {
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.1 },
   );
 
   observer.observe(sectionRef.value);
@@ -84,7 +84,6 @@ const formatUnit = (unit: string) => {
     <div class="section-container">
       <!-- Header -->
       <div class="section-header" :class="{ 'animate-in': isVisible }">
-        <span class="section-badge">{{ t("services.addons.badge") }}</span>
         <h2 id="addons-heading" class="section-title">
           {{ t("services.addons.title") }}
         </h2>
@@ -120,7 +119,9 @@ const formatUnit = (unit: string) => {
             <UIcon
               name="i-heroicons-chevron-down"
               class="expand-icon"
-              :class="{ 'expand-icon--rotated': expandedCategory === category.key }"
+              :class="{
+                'expand-icon--rotated': expandedCategory === category.key,
+              }"
             />
           </button>
 
@@ -128,7 +129,9 @@ const formatUnit = (unit: string) => {
           <div
             :id="`addon-content-${category.key}`"
             class="addon-content"
-            :class="{ 'addon-content--visible': expandedCategory === category.key }"
+            :class="{
+              'addon-content--visible': expandedCategory === category.key,
+            }"
           >
             <ul class="addon-list" role="list">
               <li
@@ -250,12 +253,24 @@ const formatUnit = (unit: string) => {
     transform 0.6s var(--ease-smooth),
     box-shadow var(--duration-normal) var(--ease-smooth);
 
-  &.stagger-1 { transition-delay: 100ms; }
-  &.stagger-2 { transition-delay: 150ms; }
-  &.stagger-3 { transition-delay: 200ms; }
-  &.stagger-4 { transition-delay: 250ms; }
-  &.stagger-5 { transition-delay: 300ms; }
-  &.stagger-6 { transition-delay: 350ms; }
+  &.stagger-1 {
+    transition-delay: 100ms;
+  }
+  &.stagger-2 {
+    transition-delay: 150ms;
+  }
+  &.stagger-3 {
+    transition-delay: 200ms;
+  }
+  &.stagger-4 {
+    transition-delay: 250ms;
+  }
+  &.stagger-5 {
+    transition-delay: 300ms;
+  }
+  &.stagger-6 {
+    transition-delay: 350ms;
+  }
 
   &:hover {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);

@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, nextTick } from "vue";
+import { animationPresets } from "~/composables/useAccessibleMotion";
 
 const { t } = useI18n();
 
-const sectionRef = ref<HTMLElement | null>(null);
-const isVisible = ref(false);
 const isSubmitting = ref(false);
 const submitSuccess = ref(false);
 const submitError = ref(false);
@@ -20,27 +19,8 @@ const formData = ref({
   message: "",
 });
 
-onMounted(() => {
-  if (!sectionRef.value) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true;
-          observer.disconnect();
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  observer.observe(sectionRef.value);
-
-  onUnmounted(() => {
-    observer.disconnect();
-  });
-});
+// v-motion preset
+const formMotion = animationPresets.fadeInUp;
 
 // Interest dropdown
 const interestOptions = computed(() => [
@@ -194,14 +174,15 @@ const handleSubmit = async (event: Event) => {
 
 <template>
   <section
-    ref="sectionRef"
     class="contact-form-section"
     aria-labelledby="contact-form-heading"
   >
     <div class="section-container">
       <div
         class="form-wrapper"
-        :class="{ 'animate-in': isVisible }"
+        v-motion
+        :initial="formMotion.initial"
+        :visible-once="formMotion.visible"
       >
         <form
           id="contact-form"
@@ -470,14 +451,7 @@ const handleSubmit = async (event: Event) => {
 }
 
 .form-wrapper {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  // Animation handled by v-motion
 }
 
 .contact-form {
@@ -811,12 +785,6 @@ const handleSubmit = async (event: Event) => {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .form-wrapper {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
   .spinner {
     animation: none;
   }

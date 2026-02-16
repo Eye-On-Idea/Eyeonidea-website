@@ -1,33 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { animationPresets, withDelay, staggeredFadeInUp } from "~/composables/useAccessibleMotion";
 
 const { t } = useI18n();
-
-// Scroll animation
-const sectionRef = ref<HTMLElement | null>(null);
-const isVisible = ref(false);
-
-onMounted(() => {
-  if (!sectionRef.value) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true;
-          observer.disconnect();
-        }
-      });
-    },
-    { threshold: 0.15 },
-  );
-
-  observer.observe(sectionRef.value);
-
-  onUnmounted(() => {
-    observer.disconnect();
-  });
-});
 
 // Package data
 const packages = [
@@ -51,12 +25,16 @@ const additionalServices = [
     icon: "i-heroicons-lifebuoy",
   },
 ];
+
+// v-motion presets
+const headerMotion = animationPresets.fadeInUp;
+const additionalMotion = withDelay("fadeInUp", 400);
+const ctaMotion = withDelay("fadeInUp", 600);
 </script>
 
 <template>
   <section
     id="services-section"
-    ref="sectionRef"
     class="services-section"
     aria-labelledby="services-heading"
   >
@@ -67,7 +45,12 @@ const additionalServices = [
 
     <div class="services-container">
       <!-- Section Header -->
-      <div class="section-header" :class="{ 'animate-in': isVisible }">
+      <div
+        class="section-header"
+        v-motion
+        :initial="headerMotion.initial"
+        :visible-once="headerMotion.visible"
+      >
         <h2 id="services-heading" class="section-title">
           {{ t("landing.services.title") }}
         </h2>
@@ -76,20 +59,27 @@ const additionalServices = [
         </p>
       </div>
 
-      <!-- Package Cards Grid - Uses centralized services.packages locale -->
-      <div class="packages-grid" :class="{ 'animate-in': isVisible }">
+      <!-- Package Cards Grid -->
+      <div class="packages-grid">
         <ServicesPackageCard
           v-for="(pkg, index) in packages"
           :key="pkg.key"
+          v-motion
+          :initial="staggeredFadeInUp(index).initial"
+          :visible-once="staggeredFadeInUp(index).visible"
           :package-key="pkg.key"
           :featured="pkg.featured"
           class="package-item"
-          :class="`stagger-${index + 1}`"
         />
       </div>
 
       <!-- Additional Services -->
-      <div class="additional-services" :class="{ 'animate-in': isVisible }">
+      <div
+        class="additional-services"
+        v-motion
+        :initial="additionalMotion.initial"
+        :visible-once="additionalMotion.visible"
+      >
         <h3 class="additional-title">
           {{ t("landing.services.additionalServices.title") }}
         </h3>
@@ -98,10 +88,12 @@ const additionalServices = [
           <GlassCard
             v-for="(service, index) in additionalServices"
             :key="service.key"
+            v-motion
+            :initial="staggeredFadeInUp(index, 500).initial"
+            :visible-once="staggeredFadeInUp(index, 500).visible"
             variant="solid"
             hover-effect="lift"
             class="service-card"
-            :class="`stagger-${index + 4}`"
           >
             <div class="service-icon-wrapper">
               <UIcon :name="service.icon" class="service-icon" />
@@ -123,7 +115,12 @@ const additionalServices = [
       </div>
 
       <!-- Section CTA -->
-      <div class="section-cta" :class="{ 'animate-in': isVisible }">
+      <div
+        class="section-cta"
+        v-motion
+        :initial="ctaMotion.initial"
+        :visible-once="ctaMotion.visible"
+      >
         <NuxtLink to="/services" class="cta-primary">
           {{ t("landing.services.cta.viewAll") }}
           <UIcon name="i-heroicons-arrow-right-20-solid" class="cta-icon" />
@@ -161,12 +158,12 @@ const additionalServices = [
   background:
     radial-gradient(
       ellipse at 20% 0%,
-      rgba(223, 175, 133, 0.08) 0%,
+      rgba(223, 175, 133, 0.06) 0%,
       transparent 50%
     ),
     radial-gradient(
       ellipse at 80% 100%,
-      rgba(42, 147, 134, 0.06) 0%,
+      rgba(211, 154, 105, 0.04) 0%,
       transparent 50%
     );
 }
@@ -182,16 +179,6 @@ const additionalServices = [
   text-align: center;
   max-width: 700px;
   margin: 0 auto 4rem;
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity 0.6s var(--ease-smooth),
-    transform 0.6s var(--ease-smooth);
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .section-title {
@@ -229,42 +216,10 @@ const additionalServices = [
     gap: 2rem;
   }
 
-  &.animate-in .package-item {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.package-item {
-  opacity: 0;
-  transform: translateY(40px);
-  transition:
-    opacity 0.6s var(--ease-smooth),
-    transform 0.6s var(--ease-smooth);
-
-  &.stagger-1 {
-    transition-delay: 100ms;
-  }
-  &.stagger-2 {
-    transition-delay: 200ms;
-  }
-  &.stagger-3 {
-    transition-delay: 300ms;
-  }
 }
 
 .additional-services {
   margin-bottom: 3rem;
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity 0.6s var(--ease-smooth) 0.4s,
-    transform 0.6s var(--ease-smooth) 0.4s;
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .additional-title {
@@ -290,26 +245,6 @@ const additionalServices = [
 
 .service-card {
   text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.5s var(--ease-smooth),
-    transform 0.5s var(--ease-smooth);
-
-  .animate-in & {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  &.stagger-4 {
-    transition-delay: 500ms;
-  }
-  &.stagger-5 {
-    transition-delay: 600ms;
-  }
-  &.stagger-6 {
-    transition-delay: 700ms;
-  }
 }
 
 .service-icon-wrapper {
@@ -344,16 +279,6 @@ const additionalServices = [
 
 .section-cta {
   text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.6s var(--ease-smooth) 0.6s,
-    transform 0.6s var(--ease-smooth) 0.6s;
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .cta-primary {
@@ -391,15 +316,5 @@ const additionalServices = [
   transition: transform var(--duration-fast) var(--ease-smooth);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .section-header,
-  .package-item,
-  .additional-services,
-  .service-card,
-  .section-cta {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
+// prefers-reduced-motion handled by v-motion / useAccessibleMotion
 </style>

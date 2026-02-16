@@ -1,3 +1,4 @@
+<!-- Reserved for rare showcase use only — not currently mounted anywhere -->
 <script setup lang="ts">
 import { LiquidGlass as LiquidGlassBase } from "@wxperia/liquid-glass-vue";
 

@@ -196,7 +196,7 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    clientHubPassword: process.env.CLIENT_HUB_PASSWORD || "client2025",
+    clientHubPassword: process.env.CLIENT_HUB_PASSWORD || "",
     public: {
       GTM_ID: "GTM-MHZ76SX2",
     },

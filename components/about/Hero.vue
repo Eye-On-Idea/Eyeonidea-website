@@ -5,7 +5,7 @@ import { animationPresets, withDelay } from "~/composables/useAccessibleMotion";
 
 const { t } = useI18n();
 
-// Parallax scroll
+// Parallax scroll — About-only: adds narrative depth for company story
 const { y: scrollY } = useWindowScroll();
 const reducedMotion = usePreferredReducedMotion();
 const prefersReduced = computed(() => reducedMotion.value === "reduce");
@@ -26,20 +26,13 @@ const bgPatternStyle = computed(() =>
     <!-- Background -->
     <div class="hero-background" aria-hidden="true">
       <div class="bg-gradient" :style="bgGradientStyle" />
-      <ClientOnly>
-        <ThreeParticleWaves
-          :particle-count="2000"
-          :wave-amplitude="0.5"
-          class="hero-particles"
-        />
-      </ClientOnly>
       <div class="bg-pattern" :style="bgPatternStyle" />
     </div>
 
     <!-- Content -->
     <div class="hero-content">
       <span
-        class="hero-badge glass-brand"
+        class="hero-badge"
         v-motion
         :initial="animationPresets.fadeInUp.initial"
         :visible-once="withDelay('fadeInUp', 100).visible"
@@ -96,7 +89,7 @@ const bgPatternStyle = computed(() =>
 .bg-gradient {
   position: absolute;
   inset: -20% 0;
-  background: var(--color-hero-bg-gradient);
+  background: var(--color-hero-bg-light, #faf7f4);
   will-change: transform;
 }
 
@@ -106,22 +99,15 @@ const bgPatternStyle = computed(() =>
   background:
     radial-gradient(
       ellipse at 25% 35%,
-      rgba(223, 175, 133, 0.12) 0%,
+      rgba(223, 175, 133, 0.04) 0%,
       transparent 50%
     ),
     radial-gradient(
       ellipse at 75% 65%,
-      rgba(42, 147, 134, 0.08) 0%,
+      rgba(211, 154, 105, 0.03) 0%,
       transparent 50%
     );
   will-change: transform;
-}
-
-.hero-particles {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  opacity: 0.6;
 }
 
 .hero-content {
@@ -137,7 +123,8 @@ const bgPatternStyle = computed(() =>
   border-radius: 9999px;
   font-size: var(--text-sm);
   font-weight: 600;
-  color: var(--color-accent-200);
+  background: var(--color-hero-badge-bg, var(--color-primary-100));
+  color: var(--color-hero-badge-text, var(--color-primary-700));
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 1.5rem;
@@ -145,7 +132,7 @@ const bgPatternStyle = computed(() =>
 
 .hero-title {
   font-size: var(--text-4xl);
-  color: var(--color-hero-text);
+  color: var(--color-hero-text-light, var(--color-primary-800));
   margin-bottom: 1.5rem;
   line-height: 1.1;
 
@@ -154,15 +141,10 @@ const bgPatternStyle = computed(() =>
   }
 }
 
-.hero-title :deep(.text-gradient) {
-  background-size: 200% auto;
-  animation: shimmer 6s ease-in-out infinite;
-}
-
 .hero-subtitle {
   font-size: var(--text-lg);
   line-height: 1.7;
-  color: var(--color-hero-text-muted);
+  color: var(--color-hero-text-light-muted, var(--color-primary-600));
   max-width: 600px;
   margin: 0 auto;
 
@@ -172,10 +154,6 @@ const bgPatternStyle = computed(() =>
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-title :deep(.text-gradient) {
-    animation: none;
-  }
-
   .bg-gradient,
   .bg-pattern {
     will-change: auto;

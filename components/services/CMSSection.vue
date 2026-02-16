@@ -44,7 +44,6 @@ const featureIcons = ["grid", "users", "layers", "puzzle"];
         class="section-header"
         :class="{ 'animate-in': isVisible }"
       >
-        <span class="section-badge">{{ t("services.cms.badge") }}</span>
         <h2 id="cms-heading" class="section-title">
           {{ t("services.cms.title") }}
         </h2>

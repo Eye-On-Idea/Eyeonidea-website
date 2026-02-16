@@ -9,6 +9,7 @@ const { t } = useI18n();
     :subtitle="t('services.hero.subtitle')"
     heading-id="services-hero-heading"
     min-height="50vh"
+    variant="light"
     show-text-reveal
   />
 </template>
