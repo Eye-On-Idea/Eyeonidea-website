@@ -53,7 +53,7 @@ const handleKeydown = (e: KeyboardEvent) => {
       e.preventDefault();
       if (activeIndex.value >= 0 && activeIndex.value < count) {
         const article = results.value[activeIndex.value];
-        navigateTo(`/client-hub/${article.categorySlug}/${article.slug}`);
+        navigateTo(`/client-hub/${article.serviceSlug}/${article.categorySlug}/${article.slug}`);
         handleSelect();
       }
       break;
@@ -169,7 +169,7 @@ const isMac = computed(() => {
           v-for="(article, index) in results"
           :id="`search-result-${index}`"
           :key="`${article.categorySlug}/${article.slug}`"
-          :to="`/client-hub/${article.categorySlug}/${article.slug}`"
+          :to="`/client-hub/${article.serviceSlug}/${article.categorySlug}/${article.slug}`"
           role="option"
           :aria-selected="index === activeIndex"
           :data-active="index === activeIndex"

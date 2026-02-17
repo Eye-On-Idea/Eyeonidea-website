@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Client Hub",
-    "description": "Guides and resources to help you manage your website"
+    "description": "Guides and resources to help you manage your website, email, domain, hosting, and brand identity"
   },
   "login": {
     "title": "Client Hub",
@@ -22,106 +22,340 @@
     "home": "Hub Home",
     "search": "Search guides...",
     "noResults": "No guides found for \"{query}\"",
-    "allCategories": "All Categories"
+    "allCategories": "All Categories",
+    "allServices": "All Services"
   },
   "hub": {
     "welcomeTitle": "Welcome to your Client Hub",
-    "welcomeDescription": "Find guides and resources to help you manage your website content. Choose a category below to get started.",
-    "categoriesTitle": "Browse by Category",
-    "gettingStartedHighlight": "New here? Start with the Getting Started guides."
+    "welcomeDescription": "Find guides and resources for the services we provide. Choose a service below to get started.",
+    "servicesTitle": "Browse by Service",
+    "gettingStartedHighlight": "New here? Start with the onboarding guide above to understand what to expect."
+  },
+  "onboarding": {
+    "title": "Getting Started — Onboarding Guide",
+    "description": "Important information about your website launch, access, and what to expect.",
+    "ctaDescription": "Everything you need to know before and after your website launch — timeline, access, legal, support, and handoff.",
+    "ctaButton": "Read onboarding guide",
+    "backToHub": "Back to Hub",
+    "collapseLabel": "Collapse onboarding guide",
+    "expandLabel": "Expand onboarding guide",
+    "sections": {
+      "whereWeAre": {
+        "title": "Where We Are Now",
+        "content": "You are currently in the Pre-Launch Phase. You have received access to the test server, CMS invitation (if included), review access to the full website, and the final invoice (2–5 business days before launch). Launch means your website becomes live and accessible through your domain."
+      },
+      "launchTimeline": {
+        "title": "Launch Timeline",
+        "beforeLaunch": "Before launch, you review all page content, contact details, images, legal pages, forms, navigation, and SEO fields. You confirm approval. Final payment is due on launch day.",
+        "launchDay": "On launch day, the website goes live on your domain. SSL is active, hosting is monitored, analytics tracking is active (if included), and all deliverables are handed over.",
+        "afterLaunch": "After launch, you enter a 2-week support window. This includes small text edits, image replacements, typo corrections, and contact info adjustments. It does not include new pages, layout changes, design adjustments, or new features. Major changes require a new agreement or support plan."
+      },
+      "accessCredentials": {
+        "title": "Access & Credentials",
+        "cms": "CMS invitations are sent by email. Editors can add and delete content. Writers can add content only. Content recovery is not guaranteed. You are responsible for managing your own content.",
+        "email": "Initial password is provided by Eye On Idea. You must change it after first login. Email hosting is EU-based. Backups are your responsibility. Eye On Idea does not retain mailbox access.",
+        "domain": "Domain is registered in your company name. You are the legal owner. Renewal is yearly. Renewal reminders are sent in advance. Failure to renew may result in expiration.",
+        "hosting": "Website is hosted in Europe. SSL is active. Weekly uptime checks are performed. FTP/server access is not provided by default. DNS records can be provided upon request."
+      },
+      "legalCompliance": {
+        "title": "Legal & Compliance",
+        "content": "Eye On Idea provides a Privacy Policy, Cookie Policy, and cookie banner configuration (industry standard wording). Terms & Conditions must be discussed and approved during the project. GDPR compliance is structured according to standard EU law context. If EU legislation changes in the future, Eye On Idea may update relevant policies accordingly."
+      },
+      "seoExpectations": {
+        "title": "SEO & Expectations",
+        "content": "Your website is built to achieve 90+ Lighthouse performance score, follow semantic structure best practices, and support technical SEO standards. Eye On Idea does not guarantee search rankings. Search engine ranking services are outside scope and require a specialist."
+      },
+      "monitoring": {
+        "title": "Monitoring & Maintenance",
+        "content": "After launch, weekly uptime checks are performed, critical security issues will be addressed if discovered, and compatibility updates are performed only when necessary. Ongoing optimization and extended support require a support plan."
+      },
+      "launchChecklist": {
+        "title": "Launch Checklist",
+        "intro": "Before confirming launch, please verify:",
+        "items": [
+          "All content approved",
+          "Contact information correct",
+          "Legal pages reviewed",
+          "Forms tested",
+          "Email accounts tested",
+          "CMS login working",
+          "Domain renewal confirmed",
+          "Final invoice acknowledged"
+        ],
+        "note": "Launch confirms approval of delivered work."
+      },
+      "supportWindow": {
+        "title": "Support Window",
+        "content": "The 2-week support period is designed to catch small corrections. It does not include redesign, feature expansion, new page creation, or structural changes. After the support window, further work requires a new agreement or support plan."
+      },
+      "handoff": {
+        "title": "Handoff & Ownership",
+        "content": "Upon full and final payment, intellectual property of custom work transfers to you. Static website files can be delivered upon request. Brand assets can be re-delivered for active clients. Pre-existing frameworks and reusable systems remain property of Eye On Idea."
+      },
+      "communication": {
+        "title": "Communication",
+        "content": "Primary contact channels are email and phone. Response times depend on current workload unless a support plan is active."
+      }
+    }
+  },
+  "services": {
+    "website-content": {
+      "title": "Website Content",
+      "description": "Guides for managing your website content using the content management studio.",
+      "icon": "i-heroicons-globe-alt"
+    },
+    "email": {
+      "title": "Email",
+      "description": "Setting up and managing your professional email accounts with Zimbra.",
+      "icon": "i-heroicons-envelope"
+    },
+    "domain": {
+      "title": "Domain",
+      "description": "Understanding and managing your domain name, DNS, and renewals.",
+      "icon": "i-heroicons-link"
+    },
+    "hosting": {
+      "title": "Hosting & Infrastructure",
+      "description": "Your website hosting, deployment, performance, and uptime monitoring.",
+      "icon": "i-heroicons-server-stack"
+    },
+    "visual-identity": {
+      "title": "Visual Identity",
+      "description": "Your logo, brand colors, typography, and printed materials.",
+      "icon": "i-heroicons-paint-brush"
+    }
+  },
+  "serviceCard": {
+    "guideCount": "{count} guides | {count} guide | {count} guides",
+    "browse": "Browse guides",
+    "comingSoon": "Coming soon"
   },
   "categories": {
     "getting-started": {
       "title": "Getting Started",
-      "description": "Set up your account, log in for the first time, and learn the basics of your content management system.",
+      "description": "Set up your access, log in for the first time, and learn the basics.",
       "icon": "i-heroicons-rocket-launch"
-    },
-    "content-management": {
-      "title": "Managing Content",
-      "description": "Learn how to create, edit, and organize your website content.",
-      "icon": "i-heroicons-pencil-square"
-    },
-    "media": {
-      "title": "Media & Images",
-      "description": "Upload, manage, and optimize images and media files for your website.",
-      "icon": "i-heroicons-photo"
-    },
-    "publishing": {
-      "title": "Publishing & Workflow",
-      "description": "Understand how content moves from draft to published, and manage your publishing workflow.",
-      "icon": "i-heroicons-arrow-up-on-square"
-    },
-    "troubleshooting": {
-      "title": "Troubleshooting",
-      "description": "Solutions to common issues with logging in, viewing changes, and permissions.",
-      "icon": "i-heroicons-wrench-screwdriver"
-    },
-    "best-practices": {
-      "title": "Best Practices",
-      "description": "Tips and recommendations for managing your content effectively.",
-      "icon": "i-heroicons-light-bulb"
-    }
-  },
-  "articles": {
-    "accepting-invitation": {
-      "title": "Accepting Your Invitation",
-      "summary": "How to accept the invitation email and create your account."
-    },
-    "logging-in": {
-      "title": "Logging In",
-      "summary": "How to access your content management studio."
-    },
-    "studio-overview": {
-      "title": "Studio Overview",
-      "summary": "A quick orientation to the main areas of the studio interface."
-    },
-    "creating-content": {
-      "title": "Creating Content",
-      "summary": "How to create new content items in the studio."
     },
     "editing-content": {
       "title": "Editing Content",
-      "summary": "How to find and edit existing content on your website."
+      "description": "Learn how to edit text, save drafts, and publish changes.",
+      "icon": "i-heroicons-pencil-square"
     },
-    "understanding-drafts": {
-      "title": "Understanding Drafts",
-      "summary": "The difference between draft and published content, and why it matters."
+    "seo": {
+      "title": "SEO Fields",
+      "description": "Optimise your page titles, descriptions, and URLs for search engines.",
+      "icon": "i-heroicons-magnifying-glass"
     },
-    "uploading-media": {
-      "title": "Uploading Media",
-      "summary": "How to upload images and other media files to the studio."
+    "news-and-posts": {
+      "title": "News & Posts",
+      "description": "Create, format, and publish news articles or blog posts.",
+      "icon": "i-heroicons-newspaper"
     },
-    "managing-media": {
-      "title": "Managing Your Media",
-      "summary": "How to find, organize, and replace media files."
+    "media": {
+      "title": "Media & Images",
+      "description": "Upload, manage, and optimise images and files for your website.",
+      "icon": "i-heroicons-photo"
     },
-    "publishing-changes": {
-      "title": "Publishing Changes",
-      "summary": "How to publish your draft content so it appears on the live website."
+    "troubleshooting": {
+      "title": "Troubleshooting",
+      "description": "Solutions to common issues and frequently asked questions.",
+      "icon": "i-heroicons-wrench-screwdriver"
     },
-    "draft-publish-workflow": {
-      "title": "The Draft-to-Publish Workflow",
-      "summary": "An overview of how content flows from draft to live."
+    "setup": {
+      "title": "Setup",
+      "description": "Configure your email in apps like Outlook, Apple Mail, and mobile devices.",
+      "icon": "i-heroicons-cog-6-tooth"
     },
-    "cannot-login": {
-      "title": "Cannot Log In",
-      "summary": "What to do if you are unable to access the studio."
+    "management": {
+      "title": "Management",
+      "description": "Manage backups, security, and ongoing responsibilities.",
+      "icon": "i-heroicons-clipboard-document-list"
     },
-    "changes-not-showing": {
-      "title": "Changes Not Appearing",
-      "summary": "What to check when your edits are not visible on the website."
+    "overview": {
+      "title": "Overview",
+      "description": "Understand how the service works and who is responsible for what.",
+      "icon": "i-heroicons-information-circle"
     },
-    "permission-issues": {
-      "title": "Permission Issues",
-      "summary": "Understanding and resolving access and permission problems."
+    "renewals": {
+      "title": "Renewals",
+      "description": "How domain renewal works and what happens if it expires.",
+      "icon": "i-heroicons-arrow-path"
     },
-    "content-tips": {
-      "title": "Content Editing Tips",
-      "summary": "Practical tips for writing and formatting content effectively."
+    "transfers": {
+      "title": "Transfers & DNS",
+      "description": "Transfer your domain or understand DNS configuration.",
+      "icon": "i-heroicons-arrows-right-left"
     },
-    "image-guidelines": {
-      "title": "Image Guidelines",
-      "summary": "Recommended sizes, formats, and best practices for images."
+    "how-it-works": {
+      "title": "How It Works",
+      "description": "Understand content updates, rebuilds, and analytics.",
+      "icon": "i-heroicons-cpu-chip"
+    },
+    "maintenance": {
+      "title": "Maintenance & Access",
+      "description": "Support tiers, maintenance scope, and access policies.",
+      "icon": "i-heroicons-shield-check"
+    },
+    "logo": {
+      "title": "Logo",
+      "description": "Understand your logo file types, versions, and usage rules.",
+      "icon": "i-heroicons-sparkles"
+    },
+    "brand-guidelines": {
+      "title": "Brand Guidelines",
+      "description": "Colors, typography, and templates for consistent branding.",
+      "icon": "i-heroicons-swatch"
+    },
+    "brand-management": {
+      "title": "Brand Management",
+      "description": "Keep your brand consistent and manage your files properly.",
+      "icon": "i-heroicons-folder-open"
+    }
+  },
+  "articles": {
+    "cms-overview": {
+      "title": "CMS Overview",
+      "summary": "What your content management system is and what you can do with it."
+    },
+    "logging-in": {
+      "title": "Opening & Signing In",
+      "summary": "How to access your content studio and sign in for the first time."
+    },
+    "studio-navigation": {
+      "title": "Navigating the Studio",
+      "summary": "Find your way around the studio interface and locate content types."
+    },
+    "editing-text": {
+      "title": "Editing Text",
+      "summary": "How to safely edit text content in the studio."
+    },
+    "drafts-and-publishing": {
+      "title": "Drafts & Publishing",
+      "summary": "Save drafts, publish content, and check the result on your live website."
+    },
+    "seo-basics": {
+      "title": "SEO Basics",
+      "summary": "Understanding SEO fields, writing titles, and meta descriptions."
+    },
+    "slugs-and-urls": {
+      "title": "Slugs & URLs",
+      "summary": "Managing page URLs and publishing SEO changes."
+    },
+    "creating-a-post": {
+      "title": "Creating a Post",
+      "summary": "How to create a new news article or blog post with images and structure."
+    },
+    "publishing-a-post": {
+      "title": "Publishing a Post",
+      "summary": "Save, publish, and review your post on the live website."
+    },
+    "image-best-practices": {
+      "title": "Image Best Practices",
+      "summary": "Prepare, upload, and crop images for your website."
+    },
+    "alt-text-and-files": {
+      "title": "Alt Text & File Uploads",
+      "summary": "Add alt text for accessibility and upload documents correctly."
+    },
+    "common-mistakes": {
+      "title": "Common Mistakes",
+      "summary": "Avoid the most frequent content management mistakes."
+    },
+    "cms-faq": {
+      "title": "CMS FAQ",
+      "summary": "Frequently asked questions about using the content management system."
+    },
+    "email-overview": {
+      "title": "Email Overview",
+      "summary": "What your professional email includes and who is responsible for what."
+    },
+    "first-login": {
+      "title": "First Login",
+      "summary": "Log in for the first time and change your password immediately."
+    },
+    "webmail-access": {
+      "title": "Webmail Access",
+      "summary": "Access your email through the browser using webmail."
+    },
+    "email-app-setup": {
+      "title": "Email App Setup",
+      "summary": "Configure your email in Outlook, Apple Mail, Thunderbird, or mobile apps."
+    },
+    "email-backup": {
+      "title": "Email Backup",
+      "summary": "Understand your backup responsibilities and how to protect your emails."
+    },
+    "email-faq": {
+      "title": "Email FAQ",
+      "summary": "Frequently asked questions about your email service."
+    },
+    "domain-ownership": {
+      "title": "Domain Ownership",
+      "summary": "Understand who owns your domain and who manages it."
+    },
+    "domain-renewal": {
+      "title": "Domain Renewal",
+      "summary": "How the renewal process works and what happens if it expires."
+    },
+    "domain-transfer": {
+      "title": "Domain Transfer",
+      "summary": "How to transfer your domain to another provider."
+    },
+    "dns-configuration": {
+      "title": "DNS & Technical Configuration",
+      "summary": "How DNS is managed and why coordination matters."
+    },
+    "domain-faq": {
+      "title": "Domain FAQ",
+      "summary": "Frequently asked questions about domain management."
+    },
+    "hosting-setup": {
+      "title": "Hosting Overview",
+      "summary": "How your website is hosted and what Eye On Idea manages."
+    },
+    "environments": {
+      "title": "Production vs Development",
+      "summary": "Understand the difference between your live site and development environment."
+    },
+    "content-updates": {
+      "title": "Content Updates & Rebuilds",
+      "summary": "How publishing content triggers automatic website updates."
+    },
+    "analytics": {
+      "title": "Analytics & Reporting",
+      "summary": "Website analytics tracking and reporting options."
+    },
+    "support-and-maintenance": {
+      "title": "Support & Maintenance",
+      "summary": "What basic maintenance includes and how to get extended support."
+    },
+    "hosting-faq": {
+      "title": "Hosting FAQ",
+      "summary": "Frequently asked questions about hosting and infrastructure."
+    },
+    "logo-files": {
+      "title": "Logo File Types",
+      "summary": "Understand SVG, PNG, and JPG formats and when to use each."
+    },
+    "logo-usage": {
+      "title": "Logo Usage Rules",
+      "summary": "Which logo version to use and what not to do with your logo."
+    },
+    "colors-and-typography": {
+      "title": "Colors & Typography",
+      "summary": "Your brand color palette and typography guidelines."
+    },
+    "templates-and-print": {
+      "title": "Templates & Print Material",
+      "summary": "Business cards, letterhead, presentations, and social media assets."
+    },
+    "brand-consistency": {
+      "title": "Brand Consistency",
+      "summary": "Why consistency matters and how to maintain it."
+    },
+    "visual-identity-faq": {
+      "title": "Visual Identity FAQ",
+      "summary": "Frequently asked questions about your brand assets."
     }
   },
   "article": {
@@ -137,182 +371,509 @@
     "needHelp": "Need help?",
     "needHelpText": "If you're stuck or something doesn't look right, contact your Eye On Idea project manager.",
     "content": {
-      "acceptingInvitation": {
-        "whatToExpect": "What to expect",
-        "whatToExpectText": "When your account is set up, you will receive an invitation email from Sanity. This email contains a link to join your project's content studio. If you don't see the email, check your spam or junk folder.",
-        "steps": "How to accept your invitation",
-        "step1": "Open the invitation email. It will be from Sanity (typically from a sanity.io address).",
-        "step2": "Click the invitation link in the email. This will open a page where you can create your account or sign in.",
-        "step3": "Follow the on-screen prompts to create your account. You may be asked to sign up with Google, GitHub, or email and password - use whichever method was agreed with your project manager.",
-        "step4": "Once your account is created, you should be directed to your project's studio. Bookmark this URL for easy access later.",
-        "tip": "If the invitation link has expired, contact your Eye On Idea project manager to request a new one. Invitation links typically expire after a few days.",
-        "troubleTitle": "Having trouble?",
-        "trouble1": "If the link says it has expired, ask your project manager to resend the invitation.",
-        "trouble2": "If you already have a Sanity account with a different email, let your project manager know so the invitation can be sent to the correct address.",
-        "trouble3": "If you see an error after clicking the link, try opening it in a different browser or in a private/incognito window."
+      "cmsOverview": {
+        "introTitle": "What is the CMS?",
+        "introText": "Your CMS (Content Management System) is the place where you manage your website's content. It does not require coding.",
+        "whatYouCanDoTitle": "What you can do",
+        "whatYouCanDo1": "Update text and images on your website",
+        "whatYouCanDo2": "Create and publish news or posts (if included in your project)",
+        "whatYouCanDo3": "Manage pages and navigation (if included)",
+        "whatYouCanDo4": "Keep your website up to date without touching code",
+        "prerequisitesTitle": "What you need before you start",
+        "prerequisitesText": "To access the CMS, you need an invitation email from Eye On Idea. You will provide the email addresses that should get access and specify who should be Editor vs Writer (if relevant).",
+        "rolesTitle": "Editor vs Writer",
+        "rolesWriter": "Writer: Can add content (limited editing and removal capabilities)",
+        "rolesEditor": "Editor: Can add, edit, and delete content",
+        "rolesNote": "Eye On Idea retains Admin access to protect the technical setup. Clients do not receive schema access.",
+        "tip": "If you are unsure about something, save a draft first. In normal use, you cannot break the website by editing content."
       },
       "loggingIn": {
-        "accessTitle": "Accessing your studio",
-        "accessText": "Your content studio is a web application - you access it through your browser. Your project manager will have provided you with the studio URL, or you can find it in your Sanity invitation email.",
-        "stepsTitle": "How to log in",
-        "step1": "Open your studio URL in your browser (e.g., Chrome, Firefox, Safari, or Edge).",
-        "step2": "You will see a login screen. Sign in using the same method you used when accepting your invitation (Google, GitHub, or email and password).",
-        "step3": "After signing in, you will be taken to the studio dashboard where you can manage your content.",
-        "note": "If you don't see the login screen, make sure you're using the correct URL. If you've lost it, contact your project manager.",
-        "bookmarkTitle": "Bookmark your studio",
-        "bookmarkText": "For quick access in the future, we recommend bookmarking your studio URL. This way, you can access it with a single click without needing to search for the link."
+        "openStudioTitle": "Open the Studio",
+        "openStudioText": "Your content studio is a web application accessed through your browser. Go to your Studio link, usually:",
+        "openStudioUrl": "studio.yourdomain.com",
+        "openStudioBookmark": "Bookmark this URL for quick access in the future.",
+        "signInTitle": "Sign in",
+        "signInStep1": "Click Sign in on the studio page",
+        "signInStep2": "Use the email address you were invited with",
+        "signInStep3": "Complete the login flow",
+        "noInviteTitle": "Did not receive an invite?",
+        "noInviteText": "Ask your company admin to confirm your email address, or contact Eye On Idea directly to resend the invitation.",
+        "tip": "If the invitation link has expired, contact your Eye On Idea project manager to request a new one."
       },
-      "studioOverview": {
-        "introTitle": "Getting oriented",
-        "introText": "When you first open the studio, you'll see the main dashboard. The studio is organized to help you find and manage your content. The exact layout may vary based on your project's configuration, but most studios share a similar structure.",
-        "areasTitle": "Main areas of the studio",
-        "area1Label": "Navigation / Sidebar",
-        "area1Desc": "Usually on the left side, this shows the different content types available in your project (e.g., Pages, Blog Posts, Settings). Click a content type to see all items of that type.",
-        "area2Label": "Content list",
-        "area2Desc": "When you select a content type, you'll see a list of existing items. You can search, filter, and sort this list.",
-        "area3Label": "Editor / Detail view",
-        "area3Desc": "When you click on a specific content item, the editor opens where you can view and modify the content fields.",
+      "studioNavigation": {
+        "introTitle": "Finding what you need",
+        "introText": "Most studios have a left-side menu with content types. These typically include:",
+        "contentType1": "Pages",
+        "contentType2": "News / Posts",
+        "contentType3": "Settings",
+        "contentType4": "Navigation",
+        "contentType5": "SEO",
+        "howToNavigate": "Click the area you want to update. Use the search feature if it is available to find specific content quickly.",
         "tip": "If you don't see a navigation sidebar, look for a menu icon (often three horizontal lines) at the top of the screen, especially on smaller screens."
       },
-      "creatingContent": {
-        "introTitle": "Creating new content",
-        "introText": "You can create new content items directly in the studio. The types of content you can create depend on how your project is configured - for example, you might have pages, blog posts, team members, or other content types.",
-        "stepsTitle": "How to create a new item",
-        "step1": "Navigate to the content type you want to create (e.g., \"Blog Posts\" or \"Pages\") using the sidebar navigation.",
-        "step2": "Look for a button to create a new item. This is typically a \"+\" icon, a \"Create\" button, or a \"New\" button near the top of the content list. If you don't see it, it may be named differently in your studio.",
-        "step3": "Fill in the fields in the editor. Required fields are typically marked with an indicator. Complete as many fields as you can.",
-        "step4": "Your changes are saved as a draft automatically. When you're ready, publish the item (see the Publishing guide for details).",
-        "note": "The available content types and fields are specific to your project. If you need a new content type or field that doesn't exist yet, contact your project manager.",
-        "fieldsTitle": "Understanding fields",
-        "fieldsText": "Each content type has a set of fields (e.g., title, body text, image, date). Some fields may be required, while others are optional. The studio will typically indicate which fields need to be completed before you can publish.",
-        "tip": "Start by filling in the most important fields first (usually title and main content). You can always come back to add more details later before publishing."
+      "editingText": {
+        "introTitle": "Editing text safely",
+        "introText": "To edit text content in the studio, click into a text field, make your changes, and keep sentences short and clear.",
+        "stepsTitle": "How to edit",
+        "step1": "Click into the text field you want to change",
+        "step2": "Make your edits directly in the field",
+        "step3": "Keep sentences short and clear for readability",
+        "pastingTitle": "Pasting text",
+        "pastingText": "Avoid pasting text with formatting from Word or other editors. If you paste, quickly re-check spacing and headings to ensure they look correct.",
+        "tip": "Use the built-in formatting tools (headings, bold, lists) rather than trying to format manually with spaces or special characters.",
+        "warning": "Some content may be locked to protect the website structure. Only Eye On Idea changes the schema and studio setup."
       },
-      "editingContent": {
-        "findTitle": "Finding content to edit",
-        "findText": "To edit existing content, you first need to find it. Use the sidebar navigation to select the content type, then browse or search the list to find the specific item you want to edit.",
-        "stepsTitle": "How to edit an item",
-        "step1": "Navigate to the content type in the sidebar (e.g., \"Pages\" or \"Blog Posts\").",
-        "step2": "Find the item you want to edit. You can scroll through the list or use the search bar if available.",
-        "step3": "Click on the item to open it in the editor. Make your changes to the fields you want to update.",
-        "step4": "Your changes are saved as a draft automatically. When you're satisfied with the changes, publish them to make them live on the website.",
-        "tip": "If you can't find a specific item, try using the search functionality. You can also check if you're looking in the correct content type - some items may be categorized differently than you expect."
+      "draftsAndPublishing": {
+        "draftsTitle": "Saving as draft",
+        "draftsText": "Drafts save automatically in most studios. Use drafts when you are not done yet, want someone else to review, or are unsure about the final wording.",
+        "publishTitle": "Publishing",
+        "publishStep1": "Click Publish when you are ready",
+        "publishStep2": "Confirm if prompted",
+        "publishStep3": "The website will update automatically — it may take a short time before changes appear",
+        "checkTitle": "Check the result",
+        "checkText": "After publishing, open the page on your live website and verify:",
+        "check1": "Text flow and readability",
+        "check2": "Spelling and grammar",
+        "check3": "Mobile view",
+        "check4": "Images (size and crop)",
+        "tip": "If you do not see your changes, try a hard refresh: Cmd+Shift+R (Mac) or Ctrl+Shift+R (Windows).",
+        "warning": "Deleting content is often permanent. If you are unsure, save a draft or contact Eye On Idea before deleting anything."
       },
-      "understandingDrafts": {
-        "whatTitle": "What are drafts?",
-        "whatText": "In your studio, content exists in two states: draft and published. This system allows you to make changes and review them before they go live on your website. Think of it as a built-in safety net - you can edit freely without affecting what visitors see.",
-        "differenceTitle": "Draft vs. published",
-        "draftLabel": "Draft",
-        "draftDesc": "A work-in-progress version of your content. Drafts are only visible inside the studio, not on the live website. You can edit drafts as many times as you like.",
-        "publishedLabel": "Published",
-        "publishedDesc": "The live version of your content that visitors can see on your website. Once you publish a draft, it replaces the current live version.",
-        "warning": "Until you explicitly publish your changes, they will remain as drafts and will not appear on the live website. Don't forget to publish when your edits are ready.",
-        "howToTellTitle": "How to tell if content is a draft",
-        "howToTellText": "The studio typically shows a visual indicator next to each content item to show its status. This might be a colored dot, a label like \"Draft\" or \"Published\", or an icon. The exact appearance depends on your studio's configuration. If you're unsure, look for any status indicators near the item title."
+      "seoBasics": {
+        "introTitle": "What are SEO fields?",
+        "introText": "SEO fields control how your pages appear in search engine results and social media previews. They do not change visible website text.",
+        "fieldsTitle": "What you can control",
+        "field1": "SEO Title — the page title shown in Google results",
+        "field2": "Meta Description — the short text under the title in Google",
+        "field3": "Social share image (if included in your project)",
+        "field4": "Slug — the page URL",
+        "titleTitle": "Writing the SEO Title",
+        "titleText": "The SEO title appears in Google search results. Keep it 50–60 characters, clear and specific, and include your main topic.",
+        "titleExample": "Example: \"Commercial Roofing Services in Aarhus\"",
+        "descriptionTitle": "Writing the Meta Description",
+        "descriptionText": "The meta description is the short text under the title in Google. Keep it 120–160 characters, write a clear summary of the page, and invite the user to click.",
+        "descriptionExample": "Example: \"Professional roofing solutions for businesses in Aarhus. Get expert advice and a free consultation.\"",
+        "note": "SEO does not guarantee rankings. Clear structure matters more than keyword stuffing. Keep it simple and human."
       },
-      "uploadingMedia": {
-        "introTitle": "Adding media to your content",
-        "introText": "Images and other media files can be uploaded directly through the studio. You can add them when editing a content item (by clicking on an image field) or through a dedicated media section if your studio has one.",
-        "stepsTitle": "How to upload media",
-        "step1": "Open the content item you want to add media to, or navigate to the media section of your studio.",
-        "step2": "Click on an image or file field. You should see an option to upload a new file - this may appear as an upload button, a drag-and-drop area, or a \"Browse\" option.",
-        "step3": "Select the file from your computer and wait for it to upload. Once uploaded, you should see a preview of the image or file name.",
-        "formatsTitle": "Supported formats",
-        "formatsText": "The studio typically supports common image formats such as JPEG, PNG, WebP, and GIF. For best results, use JPEG for photos and PNG for graphics with transparency. Check the Image Guidelines article for specific size recommendations.",
-        "tip": "Before uploading, make sure your images are appropriately sized. Very large image files can slow down your website. See the Image Guidelines article for recommended sizes."
+      "slugsAndUrls": {
+        "introTitle": "Managing page URLs",
+        "introText": "The slug is the page address that appears in the browser URL bar.",
+        "exampleTitle": "How slugs work",
+        "exampleText": "For example: yourdomain.com/roofing-services",
+        "bestPracticesTitle": "Best practices",
+        "bestPractice1": "Keep slugs short and descriptive",
+        "bestPractice2": "Use lowercase letters only",
+        "bestPractice3": "Avoid special characters",
+        "bestPractice4": "Use hyphens to separate words",
+        "publishTitle": "Publishing SEO changes",
+        "publishText": "After updating SEO fields, click Publish. Changes take effect after the website rebuilds.",
+        "warning": "Avoid changing a slug after publishing unless necessary. Changing a slug changes the page URL, which can break existing links and bookmarks.",
+        "note": "Every page should have SEO fields filled in. Empty SEO fields mean search engines have less information about your page."
       },
-      "managingMedia": {
-        "findingTitle": "Finding your media",
-        "findingText": "Depending on your studio configuration, you may have a dedicated media library section where all uploaded files are listed. You can also find images attached to specific content items by opening those items in the editor.",
-        "replacingTitle": "Replacing media",
-        "replacingText": "To replace an existing image, open the content item containing the image, click on the image field, and upload a new file. The old file will be replaced. Note that in some configurations, the old file may remain in the media library even after replacement.",
-        "note": "Changes to media (like replacing an image) follow the same draft/publish workflow as other content. You'll need to publish the content item for the updated media to appear on the live website."
+      "creatingAPost": {
+        "introTitle": "Creating a new post",
+        "introText": "Your news or posts section lets you share updates, publish articles, improve visibility in search engines, and keep your website active. Each post becomes its own page.",
+        "createTitle": "Create a new post",
+        "createStep1": "Open the Studio",
+        "createStep2": "Click News or Posts in the navigation",
+        "createStep3": "Click Create new",
+        "titleSectionTitle": "Add a title",
+        "titleText": "Write a clear, short, and specific title. Avoid very long titles, all caps, or keyword stuffing.",
+        "imageTitle": "Add a featured image",
+        "imageStep1": "Click the image field",
+        "imageStep2": "Upload a new image or select an existing one",
+        "imageStep3": "Adjust the crop if needed",
+        "imageTip": "Use landscape format unless otherwise stated in the help text.",
+        "contentTitle": "Write your content",
+        "contentText": "Use headings to structure your text. A good structure includes an introduction, main section, supporting details, and a conclusion. Keep paragraphs short and avoid long blocks of text."
       },
-      "publishingChanges": {
-        "introTitle": "Making your changes live",
-        "introText": "After editing content in the studio, your changes exist as drafts. To make them visible on your website, you need to publish them.",
-        "stepsTitle": "How to publish",
-        "step1": "Open the content item you want to publish. Review your changes to make sure everything looks correct.",
-        "step2": "Look for the \"Publish\" button. This is typically located in the bottom action bar or in the top-right area of the editor. If you don't see a \"Publish\" button, it may be labeled differently in your studio.",
-        "step3": "Click \"Publish\". The content will be updated on the live website.",
-        "warning": "Once published, changes are immediately live (or within a few minutes, depending on your website's caching configuration). Double-check your content before publishing.",
-        "delayTitle": "Changes might take a few minutes",
-        "delayText": "Depending on your website's configuration, there may be a short delay (typically a few minutes) between publishing in the studio and seeing the changes on the live website. This is normal and happens because of caching. If your changes don't appear after several minutes, see the Troubleshooting section."
+      "publishingAPost": {
+        "draftTitle": "Save as draft",
+        "draftText": "Draft saves automatically. You can leave and return later. Use a draft if you are not finished or want internal approval first.",
+        "publishTitle": "Publish your post",
+        "publishText": "Click Publish when ready. After publishing, the post becomes visible on your website and appears in your news overview page.",
+        "reviewTitle": "Review on the live website",
+        "reviewText": "Open your website and check:",
+        "review1": "Text layout and formatting",
+        "review2": "Image crop and quality",
+        "review3": "Mobile version",
+        "review4": "Spelling and grammar",
+        "tip": "You can edit a post after publishing. Simply make your changes and publish again.",
+        "note": "Deleting a post removes it permanently. If scheduling is enabled in your project, you can schedule posts for future publication."
       },
-      "draftPublishWorkflow": {
-        "overviewTitle": "How the workflow works",
-        "overviewText": "Your content studio uses a draft-to-publish workflow. This means you can make changes freely without affecting the live website, then publish when you're ready. This gives you a safe space to experiment and review before going live.",
-        "flowTitle": "The typical workflow",
-        "flow1": "Create or edit content - your changes are automatically saved as a draft.",
-        "flow2": "Review your changes - take your time to check everything looks correct.",
-        "flow3": "Publish - click the Publish button to make your changes live on the website.",
-        "flow4": "Verify - check the live website to confirm your changes appear as expected.",
-        "tip": "You can make multiple rounds of edits to a draft before publishing. There's no rush - drafts are saved automatically, and you can come back to them at any time."
+      "imageBestPractices": {
+        "introTitle": "Why image quality matters",
+        "introText": "Good images make your website look professional. Poor images can slow it down or make it look unclear. The studio shows recommended sizes — follow them.",
+        "prepareTitle": "Prepare your image before upload",
+        "prepare1": "Use JPG for photos",
+        "prepare2": "Use PNG only if you need transparency",
+        "prepare3": "Keep file size under 1–2 MB unless otherwise stated",
+        "prepare4": "Resize images close to the recommended size shown in the studio",
+        "uploadTitle": "Upload the image",
+        "uploadStep1": "Click the image field",
+        "uploadStep2": "Upload or choose from existing media",
+        "uploadStep3": "Wait for the upload to finish",
+        "uploadWarning": "Avoid uploading screenshots from WhatsApp, very small images stretched large, or images with embedded text (unless intentional).",
+        "cropTitle": "Adjust crop if needed",
+        "cropText": "Make sure the subject is centered, important text is not cut off, and faces are not cropped at the top. Always check how it looks on the website.",
+        "tip": "When in doubt, use landscape images unless told otherwise."
       },
-      "cannotLogin": {
-        "commonTitle": "Common login issues",
-        "commonText": "If you're having trouble logging into the studio, here are the most common causes and solutions.",
-        "cause1Title": "Wrong login method",
-        "cause1Text": "Make sure you're using the same sign-in method you used when you first accepted the invitation (Google, GitHub, or email/password). Using a different method may create a separate account that doesn't have access to your project.",
-        "cause2Title": "Wrong email address",
-        "cause2Text": "Verify that you're signing in with the email address that received the original invitation. If you have multiple email accounts, make sure you're using the correct one.",
-        "cause3Title": "Expired invitation",
-        "cause3Text": "If you never completed the sign-up process and the invitation link has expired, contact your project manager to request a new invitation.",
-        "cause4Title": "Browser issues",
-        "cause4Text": "Try clearing your browser cache and cookies, or try logging in using a private/incognito window. If that works, the issue may be a stale session or conflicting cookies.",
-        "warning": "If none of these solutions work, contact your Eye On Idea project manager. Do not repeatedly attempt to log in, as this could temporarily lock your account."
+      "altTextAndFiles": {
+        "altTextTitle": "Adding alt text",
+        "altTextText": "Alt text describes the image. It helps with accessibility, search engines, and screen readers. Keep it short and descriptive.",
+        "altTextGood": "Good example: \"Commercial roofing team installing flat roof in Aarhus\"",
+        "altTextBad": "Bad example: \"image123.jpg\"",
+        "publishTitle": "Publish and review",
+        "publishText": "After publishing, open the page on your website and check desktop view, mobile view, and loading speed. If it feels slow, the image may be too large.",
+        "filesTitle": "File uploads (PDFs and documents)",
+        "filesText": "If your studio allows file uploads, follow these guidelines:",
+        "file1": "Keep PDFs under 5 MB if possible",
+        "file2": "Use clear filenames (e.g., company-brochure-2026.pdf)",
+        "file3": "Avoid spaces in filenames",
+        "file4": "Use lowercase letters",
+        "warning": "Alt text is important for accessibility (WCAG compliance). Always fill it in when the field is available."
       },
-      "changesNotShowing": {
-        "introTitle": "When edits don't appear",
-        "introText": "If you've made changes in the studio but they're not visible on the live website, work through this checklist.",
-        "checklistTitle": "What to check",
-        "check1": "Did you publish? Changes remain as drafts until you click the Publish button. Open the content item and check its status.",
-        "check2": "Wait a few minutes. Depending on your website's caching configuration, there can be a short delay (typically 1–5 minutes) before published changes appear.",
-        "check3": "Clear your browser cache or try a hard refresh (Ctrl+Shift+R on Windows, Cmd+Shift+R on Mac). Your browser may be showing a cached version of the page.",
-        "check4": "Try viewing the page in a private/incognito window. If the changes appear there but not in your regular browser, it's a browser cache issue.",
-        "tip": "If changes still don't appear after checking all the above, contact your project manager. There may be a deployment or caching issue that needs attention."
+      "commonMistakes": {
+        "introTitle": "Common content management mistakes",
+        "introText": "Here are the most frequent mistakes when working with your CMS, and how to avoid them.",
+        "cms1Title": "Deleting content instead of unpublishing",
+        "cms1Text": "Deleting is often permanent. If you are unsure, save a draft or ask Eye On Idea before deleting.",
+        "cms2Title": "Uploading very large images",
+        "cms2Text": "Images over 5 MB slow down the page. Use the recommended sizes shown in the studio help text.",
+        "cms3Title": "Editing navigation without checking mobile",
+        "cms3Text": "Menus behave differently on mobile. Always check both desktop and mobile views after changes.",
+        "cms4Title": "Pasting formatted text from Word",
+        "cms4Text": "This can introduce hidden formatting. Re-check spacing and headings after pasting.",
+        "cms5Title": "Writing without structure",
+        "cms5Text": "Use headings and short paragraphs. Break up long blocks of text for readability.",
+        "cms6Title": "Publishing without previewing",
+        "cms6Text": "Always check how content looks on the live website before considering it final.",
+        "cms7Title": "Keyword stuffing in SEO fields",
+        "cms7Text": "Repeating words unnaturally harms clarity. Write for humans first.",
+        "cms8Title": "Leaving SEO fields empty",
+        "cms8Text": "Always fill in SEO title and meta description. Empty fields give search engines less information.",
+        "cms9Title": "Forgetting alt text on images",
+        "cms9Text": "Alt text is important for accessibility and search engines. Always fill it in."
       },
-      "permissionIssues": {
-        "introTitle": "Understanding permissions",
-        "introText": "Your studio access level determines what you can see and do. Permissions are set by your project administrator. If you're experiencing restrictions, it may be by design based on your role.",
-        "symptomsTitle": "Common permission symptoms",
-        "symptom1": "You can view content but cannot edit or publish it.",
-        "symptom2": "Certain content types are not visible in the sidebar navigation.",
-        "symptom3": "You see an error message like \"Insufficient permissions\" when trying to perform an action.",
-        "whatToDoTitle": "What to do",
-        "whatToDoText": "If you believe you need additional permissions, contact your Eye On Idea project manager. Let them know what you're trying to do and what error or limitation you're experiencing. They can adjust your role in the project.",
-        "note": "Permissions are managed at the project level in Sanity. Your project manager can update your role without needing to create a new account."
+      "cmsFaq": {
+        "introTitle": "Frequently asked questions",
+        "q1": "Where do I edit my website content?",
+        "a1": "In your CMS Studio, usually at studio.yourdomain.com.",
+        "q2": "Can I break the website by editing content?",
+        "a2": "In normal use, no. You can change text, images, and content blocks safely. Avoid deleting content, unpublishing key pages, or replacing images with very large files. If unsure, save a draft first.",
+        "q3": "Why can't I edit certain things?",
+        "a3": "Some content is locked to protect the structure. Only Eye On Idea changes the schema and studio setup.",
+        "q4": "I can't log in. What do I do?",
+        "a4": "Confirm you are using the invited email address, check your spam folder for the invitation, or ask Eye On Idea to resend the invite.",
+        "q5": "When do changes show on the website?",
+        "a5": "Usually within a short time after you publish. Your website rebuilds automatically when content is published.",
+        "q6": "Can I schedule content?",
+        "a6": "If scheduling is enabled in your studio, yes. If not, Eye On Idea can add it in some setups.",
+        "q7": "Does SEO guarantee first place in Google?",
+        "a7": "No. SEO improves clarity and structure. Ranking depends on many external factors.",
+        "q8": "Does the system compress images automatically?",
+        "a8": "Yes. The website optimises images when displaying them. Still, start with reasonable sizes.",
+        "q9": "Can Eye On Idea help with content and SEO?",
+        "a9": "Yes. Content improvement, image optimisation, and SEO audits are available as additional services."
       },
-      "contentTips": {
-        "introTitle": "Writing effective content",
-        "introText": "Good content practices help keep your website professional and easy for visitors to read. Here are practical tips for working in the studio.",
-        "writingTitle": "Writing tips",
-        "writing1": "Write in clear, simple language. Avoid jargon unless your audience expects it.",
-        "writing2": "Use short paragraphs. Long blocks of text are harder to read online.",
-        "writing3": "Use descriptive headings to help readers scan the page and find what they need.",
-        "writing4": "Proofread before publishing. Check for spelling errors, broken links, and formatting issues.",
-        "formattingTitle": "Formatting tips",
-        "formatting1": "Use the built-in formatting tools (headings, bold, lists) rather than trying to format manually with spaces or special characters.",
-        "formatting2": "Use bullet points or numbered lists for items that work as a list - they're easier to scan than long paragraphs.",
-        "formatting3": "Avoid excessive use of bold, italic, or ALL CAPS. Use them sparingly for emphasis.",
-        "tip": "Preview your content before publishing if your studio supports it. What looks good in the editor may appear differently on the live website."
+      "emailOverview": {
+        "introTitle": "Your professional email",
+        "introText": "Your email address (e.g., name{'@'}yourdomain.com) is provided as part of your website setup. It runs on a professional email system called Zimbra.",
+        "featuresTitle": "What is included",
+        "feature1": "Secure email hosting in the EU",
+        "feature2": "Webmail access through your browser",
+        "feature3": "IMAP support for apps (Outlook, Apple Mail, Thunderbird, mobile)",
+        "feature4": "Separate from your website CMS",
+        "eoiTitle": "What Eye On Idea does",
+        "eoi1": "Creates your email account",
+        "eoi2": "Provides your initial password",
+        "eoi3": "Configures domain records (SPF, DKIM)",
+        "eoi4": "Manages account creation, deletion, or upgrades",
+        "yourTitle": "What you are responsible for",
+        "your1": "Changing your password after first login",
+        "your2": "Keeping your password secure",
+        "your3": "Managing mailbox content",
+        "your4": "Backing up your emails (if needed)",
+        "warning": "Eye On Idea does not retain access to your mailbox after delivery."
       },
-      "imageGuidelines": {
-        "introTitle": "Image best practices",
-        "introText": "Using appropriately sized and formatted images keeps your website fast and looking professional. Here are guidelines to follow when preparing images for upload.",
-        "formatsTitle": "Recommended formats",
-        "format1": "JPEG (.jpg) - Best for photographs and images with many colors. Good balance of quality and file size.",
-        "format2": "PNG (.png) - Best for graphics, logos, and images that need transparency. Produces larger files than JPEG.",
-        "format3": "WebP (.webp) - Modern format with excellent compression. Supported by most modern browsers. Ideal if available.",
-        "sizesTitle": "Recommended sizes",
-        "sizesText": "As a general guideline, aim for images that are no wider than 2000 pixels and no larger than 500 KB in file size. Your specific project may have different recommendations - contact your project manager if you're unsure about the ideal dimensions for your website.",
-        "dosTitle": "Do",
-        "do1": "Resize images to appropriate dimensions before uploading. Don't upload a 5000px photo if it will only be displayed at 800px.",
-        "do2": "Use descriptive file names (e.g., 'team-meeting-2025.jpg' rather than 'IMG_4521.jpg'). This helps with organization and SEO.",
-        "do3": "Add alt text (alternative text) when the field is available. Alt text describes the image for screen readers and search engines.",
-        "dontsTitle": "Don't",
-        "dont1": "Don't upload very large files (over 5 MB). They slow down the website and take longer to load for visitors.",
-        "dont2": "Don't use images with text embedded in them as the primary content - the text won't be searchable or accessible.",
-        "dont3": "Don't stretch or distort images. If an image doesn't fit the required dimensions, crop or resize it proportionally."
+      "firstLogin": {
+        "stepsTitle": "First login",
+        "step1": "Open your browser",
+        "step2": "Go to: https://zimbra1.mail.ovh.net/",
+        "step3": "Log in with your full email address and the password provided to you",
+        "changePasswordTitle": "Immediately change your password",
+        "changeStep1": "Go to account settings after logging in",
+        "changeStep2": "Change your password to something secure",
+        "changeStep3": "Store it securely (use a password manager if possible)",
+        "warning": "Always change your initial password immediately after first login. This protects your mailbox from unauthorised access."
+      },
+      "webmailAccess": {
+        "introTitle": "Using webmail",
+        "introText": "Webmail allows you to access your email directly through a browser without installing any apps.",
+        "featuresTitle": "What you can do with webmail",
+        "feature1": "Send and receive emails",
+        "feature2": "Organise folders",
+        "feature3": "Use built-in calendar and contacts (if enabled)",
+        "accessTitle": "How to access",
+        "accessText": "Go to https://zimbra1.mail.ovh.net/ and sign in with your email address and password.",
+        "note": "You can use webmail only, or also connect an email app. Both work simultaneously."
+      },
+      "emailAppSetup": {
+        "introTitle": "Setting up your email app",
+        "introText": "Most users prefer using an email app instead of or in addition to webmail. Use the IMAP settings below.",
+        "imapTitle": "IMAP Settings",
+        "incomingTitle": "Incoming (IMAP)",
+        "incomingServer": "Server: imap.mail.ovh.net",
+        "incomingPort": "Port: 993",
+        "incomingEncryption": "Encryption: SSL/TLS",
+        "outgoingTitle": "Outgoing (SMTP)",
+        "outgoingServer": "Server: smtp.mail.ovh.net",
+        "outgoingPort": "Port: 465",
+        "outgoingEncryption": "Encryption: SSL/TLS",
+        "credentialsTitle": "Credentials",
+        "credentialsUsername": "Username: Your full email address",
+        "credentialsPassword": "Password: Your updated password",
+        "appsTitle": "Compatible apps",
+        "appsText": "Use these settings in Outlook, Apple Mail, Thunderbird, or your iPhone/Android mail app.",
+        "testTitle": "Test the setup",
+        "testStep1": "Send a test email to yourself",
+        "testStep2": "Confirm it appears in your inbox",
+        "testStep3": "Try sending from another device",
+        "tip": "If something fails, double-check server names, confirm correct ports, and ensure SSL is enabled.",
+        "warning": "Always use IMAP, not POP. IMAP keeps all your devices synced. POP may cause messages to disappear from other devices."
+      },
+      "emailBackup": {
+        "introTitle": "Email backup responsibilities",
+        "introText": "Eye On Idea does not provide mailbox backups. If backups are important for your business, you should set them up yourself.",
+        "optionsTitle": "Backup options",
+        "option1": "Enable local mail storage in your email client",
+        "option2": "Export mail periodically to a local archive",
+        "option3": "Use professional backup software if required",
+        "warning": "Email data can be lost due to accidental deletion, account issues, or security incidents. Regular backups protect your business communications."
+      },
+      "emailFaq": {
+        "introTitle": "Frequently asked questions",
+        "q1": "Where is my email stored?",
+        "a1": "Your mailbox data is stored in European data centres (France and Germany), helping you comply with GDPR.",
+        "q2": "Can Eye On Idea read my emails?",
+        "a2": "No. Eye On Idea does not have mailbox access after setup. We only manage account structure (create, delete, upgrade accounts).",
+        "q3": "Can I create additional email addresses?",
+        "a3": "Yes. Contact Eye On Idea to create new accounts or aliases.",
+        "q4": "Can I upgrade mailbox storage?",
+        "a4": "Yes. Storage upgrades can be arranged if needed.",
+        "mistakesTitle": "Common mistakes",
+        "mistake1": "Not changing the initial password — always change it immediately",
+        "mistake2": "Using POP instead of IMAP — IMAP keeps devices synced",
+        "mistake3": "Sharing passwords by email — never send passwords via unsecured channels"
+      },
+      "domainOwnership": {
+        "introTitle": "Your domain",
+        "introText": "Your domain is your digital address (e.g., yourdomain.com). It connects your website, email, and other online services.",
+        "ownershipTitle": "Who owns your domain?",
+        "ownershipText": "Your domain is registered in your company's name and legally owned by your company. Eye On Idea manages it administratively but you remain the legal owner at all times.",
+        "eoiTitle": "What Eye On Idea does",
+        "eoi1": "Registers the domain in your company's name",
+        "eoi2": "Configures DNS (website, email, security)",
+        "eoi3": "Manages renewals and sends reminders",
+        "eoi4": "Handles technical configuration",
+        "yourTitle": "What you are responsible for",
+        "your1": "Paying annual renewal fees",
+        "your2": "Confirming renewal when requested",
+        "your3": "Informing us if company details change",
+        "your4": "Requesting transfers if needed"
+      },
+      "domainRenewal": {
+        "processTitle": "How renewal works",
+        "processText": "Domains renew yearly. The process is straightforward:",
+        "processStep1": "One month before renewal, Eye On Idea contacts you",
+        "processStep2": "A renewal invoice is sent",
+        "processStep3": "You confirm and pay",
+        "processStep4": "Domain is renewed for 1 year",
+        "expirationTitle": "If no response is received",
+        "expirationText": "In the final month before expiration, weekly reminders are sent. Contact attempts may include phone and email.",
+        "warning": "If no response is received before expiration, the domain may expire, become publicly available, and your website and email may stop working. Eye On Idea does not retain ownership of expired domains.",
+        "lifecycleTitle": "Domain lifecycle",
+        "lifecycle1": "Active — your domain is working normally",
+        "lifecycle2": "Expired — domain stops functioning",
+        "lifecycle3": "Grace period — may still be recoverable",
+        "lifecycle4": "Redemption period — recovery involves additional fees",
+        "lifecycle5": "Released — domain becomes available for anyone to register",
+        "tip": "To avoid any risk, always renew before expiration."
+      },
+      "domainTransfer": {
+        "introTitle": "Transferring your domain",
+        "introText": "You can transfer your domain to another provider at any time. Eye On Idea does not block domain transfers. The domain belongs to you.",
+        "processTitle": "Transfer process",
+        "processStep1": "Written confirmation from the domain owner is required",
+        "processStep2": "Transfer code (auth code) is provided by Eye On Idea",
+        "processStep3": "The new provider handles the transfer from there",
+        "note": "Transfers are coordinated to avoid downtime. Contact Eye On Idea to start the process."
+      },
+      "dnsConfiguration": {
+        "introTitle": "DNS and technical configuration",
+        "introText": "DNS (Domain Name System) controls how your domain connects to your website, email, and other services. Eye On Idea manages these settings.",
+        "managedTitle": "What is managed",
+        "managed1": "Website connection (A/AAAA records)",
+        "managed2": "Email records (SPF, DKIM, MX)",
+        "managed3": "SSL setup and renewal",
+        "managed4": "Security configuration (DMARC recommended)",
+        "warning": "We recommend not changing DNS settings without coordination, as it may interrupt website access, email delivery, or security certificates."
+      },
+      "domainFaq": {
+        "introTitle": "Frequently asked questions",
+        "q1": "Do I own my domain?",
+        "a1": "Yes. The domain is registered in your company's name. You are the legal owner.",
+        "q2": "Can Eye On Idea take my domain?",
+        "a2": "No. You are the legal owner at all times.",
+        "q3": "What happens if I forget to renew?",
+        "a3": "The domain may expire and eventually become available for others to register.",
+        "q4": "Can I register additional domains?",
+        "a4": "Yes. Additional domains can be registered for brand protection, multiple markets, or campaign use.",
+        "q5": "Can I move my domain to another provider?",
+        "a5": "Yes. Transfer is possible at any time with written confirmation."
+      },
+      "hostingSetup": {
+        "introTitle": "How your website is hosted",
+        "introText": "Your website is hosted on European infrastructure. It is built as a performance-focused static website, which means fast loading, high security, low maintenance risk, and no public server login required.",
+        "eoiTitle": "What Eye On Idea manages",
+        "eoi1": "Deploys and maintains the production website",
+        "eoi2": "Monitors uptime and functionality",
+        "eoi3": "Manages SSL certificates",
+        "eoi4": "Maintains DNS configuration",
+        "eoi5": "Ensures website rebuild after content updates",
+        "eoi6": "Handles infrastructure configuration",
+        "note": "Hosting access (FTP or control panel) is not provided by default. This ensures stability, security, and clear responsibility. If you require special access, this must be agreed in writing."
+      },
+      "environments": {
+        "productionTitle": "Production (live website)",
+        "productionText": "Your live website is hosted in Europe, uses secure SSL, is optimised for performance, and is monitored for availability. You do not need to access this environment.",
+        "developmentTitle": "Development / Staging",
+        "developmentText": "During development, a temporary development environment is created. You may receive access to preview progress. This environment is removed after launch.",
+        "note": "The development environment is not public infrastructure. It may not have had constant uptime during the project. Production hosting is stable and monitored."
+      },
+      "contentUpdates": {
+        "introTitle": "How content updates work",
+        "introText": "When you publish content in your CMS, the website updates automatically. You do not need to manually upload files.",
+        "processTitle": "The update process",
+        "processStep1": "You publish content in the CMS",
+        "processStep2": "The CMS sends a trigger (webhook)",
+        "processStep3": "The website rebuilds automatically",
+        "processStep4": "The updated version replaces the previous one",
+        "tip": "Changes may take a few minutes to appear due to the rebuild process. If changes don't appear after several minutes, try a hard refresh or contact your project manager."
+      },
+      "analyticsReporting": {
+        "introTitle": "Analytics & reporting",
+        "introText": "Your website can include analytics tracking to help you understand visitor behaviour.",
+        "optionsTitle": "Reporting options",
+        "option1": "Scheduled email reports",
+        "option2": "Manual report exports",
+        "option3": "Dashboard sharing (when enabled)",
+        "note": "Reporting structure may evolve as Eye On Idea improves its analytics system. If you require structured reporting or KPI tracking, this can be added as a service."
+      },
+      "supportAndMaintenance": {
+        "basicTitle": "Basic maintenance",
+        "basicText": "Basic maintenance is included and covers:",
+        "basic1": "Ensuring the website remains live",
+        "basic2": "Security updates where required",
+        "basic3": "Infrastructure monitoring",
+        "extendedTitle": "Extended support",
+        "extendedText": "Extended maintenance is available through support packages, which may include:",
+        "extended1": "Content updates handled for you",
+        "extended2": "Technical adjustments",
+        "extended3": "Priority response times",
+        "extended4": "Ongoing optimisation",
+        "accessTitle": "Access policy",
+        "accessText": "By default, no FTP access or hosting control panel access is provided. This ensures stability, security, and clear responsibility. DNS record lists can be provided upon request."
+      },
+      "hostingFaq": {
+        "introTitle": "Frequently asked questions",
+        "q1": "Can I access the server?",
+        "a1": "Not by default. External access can affect stability and security.",
+        "q2": "What happens if the website goes down?",
+        "a2": "Eye On Idea monitors uptime. If an issue is detected, it is investigated and resolved.",
+        "q3": "Is the hosting in the EU?",
+        "a3": "Yes. Hosting infrastructure is based in Europe.",
+        "q4": "Can I move hosting elsewhere?",
+        "a4": "Yes. Hosting can be transferred upon written request. The process will be coordinated to avoid downtime."
+      },
+      "logoFiles": {
+        "introTitle": "Understanding your logo files",
+        "introText": "You received multiple versions of your logo in different formats. Each format has a specific purpose.",
+        "svgTitle": "SVG (Vector format)",
+        "svgText": "Best for website, large prints, professional printing, and scaling to any size. Never loses quality. This is your most versatile logo file.",
+        "pngTitle": "PNG",
+        "pngText": "Best for social media, presentations, documents, and transparent backgrounds. Good for digital use.",
+        "jpgTitle": "JPG",
+        "jpgText": "Best for simple digital sharing and email attachments. Not ideal for printing due to compression.",
+        "tip": "When in doubt, use SVG for professional use and PNG for everyday digital use."
+      },
+      "logoUsage": {
+        "versionsTitle": "Logo versions",
+        "versionsText": "You may have received several logo versions:",
+        "version1": "Primary logo — use this by default",
+        "version2": "Horizontal version — for wide spaces",
+        "version3": "Stacked version — for vertical spaces",
+        "version4": "Icon-only version — for social media profile pictures and small spaces",
+        "version5": "Light version — for dark backgrounds",
+        "version6": "Dark version — for light backgrounds",
+        "rulesTitle": "Usage rules",
+        "rulesText": "Use the primary logo by default. Use variations only when space is limited, background requires contrast, or a social media profile picture needs the icon-only version.",
+        "doNotTitle": "Do not",
+        "doNot1": "Stretch the logo",
+        "doNot2": "Change its colors",
+        "doNot3": "Add shadows or effects",
+        "doNot4": "Place it on low-contrast backgrounds",
+        "doNot5": "Crop parts of the logo",
+        "warning": "If unsure about logo usage, ask Eye On Idea before making changes."
+      },
+      "colorsAndTypography": {
+        "colorsTitle": "Color palette",
+        "colorsText": "Your brand includes defined colors. Use the primary color for main highlights, secondary colors for support, and neutral colors for backgrounds.",
+        "colorsAvoid": "Avoid random new colors or overuse of strong accent colours. If unsure, follow your brand guide PDF.",
+        "typographyTitle": "Typography",
+        "typographyText": "If fonts were delivered, use the defined primary font for headings and the secondary font for body text. If the brand includes system-safe alternatives, use those in email or internal documents.",
+        "warning": "Do not mix random fonts. Consistent typography is essential for brand recognition."
+      },
+      "templatesAndPrint": {
+        "businessCardsTitle": "Business cards",
+        "businessCardsText": "Delivered as print-ready PDF and digital formats. For printing, send the print-ready PDF directly to the printer. Do not modify bleed or margins.",
+        "letterheadTitle": "Letterhead",
+        "letterheadText": "Use the official template with correct logo placement and spacing. Avoid resizing elements.",
+        "presentationsTitle": "Presentation templates",
+        "presentationsText": "Delivered as PPTX file (possibly with PDF version). Use master slides, predefined layouts, and correct font styles. Do not insert different fonts or change layout structure.",
+        "socialMediaTitle": "Social media assets",
+        "socialMediaText": "Includes profile image templates, post templates, and highlight covers (if included). Use these to maintain visual consistency across platforms."
+      },
+      "brandConsistency": {
+        "introTitle": "Why consistency matters",
+        "introText": "Consistency builds recognition. Inconsistent branding looks unprofessional, confuses customers, and weakens trust.",
+        "checklistTitle": "Ask yourself",
+        "check1": "Does this follow our brand guide?",
+        "check2": "Does it look like our website?",
+        "check3": "Would someone recognise it instantly?",
+        "checkText": "If not, adjust before publishing or sharing.",
+        "fileManagementTitle": "File management",
+        "fileManagement1": "Store brand assets in one shared company folder",
+        "fileManagement2": "Keep original filenames intact",
+        "fileManagement3": "Create copies when editing",
+        "fileManagement4": "Never edit the original master files",
+        "warning": "Using screenshots of your logo, mixing brand colors with random shades, or uploading low-quality assets undermines your professional image."
+      },
+      "visualIdentityFaq": {
+        "introTitle": "Frequently asked questions",
+        "q1": "Which logo file should I send to a printer?",
+        "a1": "Use the SVG or the print-ready PDF. Never send a JPG to a printer.",
+        "q2": "Can I change brand colors?",
+        "a2": "Only as part of a formal rebranding process.",
+        "q3": "Can Eye On Idea create additional brand assets?",
+        "a3": "Yes. Extended brand services are available.",
+        "q4": "What if I lose the files?",
+        "a4": "Contact Eye On Idea for re-delivery.",
+        "mistakesTitle": "Common mistakes",
+        "mistake1": "Sending JPG to printer — use vector files or print-ready PDFs",
+        "mistake2": "Using a screenshot of the logo — never use screenshots",
+        "mistake3": "Mixing brand colors with random shades — stick to the defined palette",
+        "mistake4": "Uploading low-quality logo to social media — use the high-resolution PNG provided"
       }
     }
   },

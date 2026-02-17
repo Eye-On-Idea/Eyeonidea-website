@@ -4,6 +4,7 @@ const { t } = useI18n();
 defineProps<{
   slug: string;
   categorySlug: string;
+  serviceSlug: string;
   titleKey: string;
   summaryKey: string;
   order: number;
@@ -12,7 +13,7 @@ defineProps<{
 
 <template>
   <NuxtLink
-    :to="`/client-hub/${categorySlug}/${slug}`"
+    :to="`/client-hub/${serviceSlug}/${categorySlug}/${slug}`"
     class="article-card group block"
   >
     <div class="flex items-start gap-4 p-4 min-h-11 rounded-xl border border-(--glass-border-subtle) hover:border-primary-400/30 hover:bg-(--color-surface-2) transition-all">

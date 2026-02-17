@@ -1,0 +1,26 @@
+<script setup lang="ts">
+const { t } = useI18n();
+</script>
+
+<template>
+  <div>
+    <h2>{{ t("clientHub.article.content.firstLogin.stepsTitle") }}</h2>
+    <ol>
+      <li>{{ t("clientHub.article.content.firstLogin.step1") }}</li>
+      <li>{{ t("clientHub.article.content.firstLogin.step2") }}</li>
+      <li>{{ t("clientHub.article.content.firstLogin.step3") }}</li>
+    </ol>
+
+    <h2>{{ t("clientHub.article.content.firstLogin.changePasswordTitle") }}</h2>
+    <ol>
+      <li>{{ t("clientHub.article.content.firstLogin.changeStep1") }}</li>
+      <li>{{ t("clientHub.article.content.firstLogin.changeStep2") }}</li>
+      <li>{{ t("clientHub.article.content.firstLogin.changeStep3") }}</li>
+    </ol>
+
+    <div class="warning-box">
+      <strong>{{ t("clientHub.article.warningLabel") }}:</strong>
+      {{ t("clientHub.article.content.firstLogin.warning") }}
+    </div>
+  </div>
+</template>
