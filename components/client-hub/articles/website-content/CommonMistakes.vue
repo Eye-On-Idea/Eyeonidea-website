@@ -7,6 +7,8 @@ const { t } = useI18n();
     <h2>{{ t("clientHub.article.content.commonMistakes.introTitle") }}</h2>
     <p>{{ t("clientHub.article.content.commonMistakes.introText") }}</p>
 
+    <ClientHubArticleImage alt="Common CMS editing mistakes overview" caption="Examples of common mistakes to avoid" />
+
     <h3>{{ t("clientHub.article.content.commonMistakes.cms1Title") }}</h3>
     <p>{{ t("clientHub.article.content.commonMistakes.cms1Text") }}</p>
 

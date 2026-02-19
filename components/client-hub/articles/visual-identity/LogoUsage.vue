@@ -15,8 +15,12 @@ const { t } = useI18n();
       <li>{{ t("clientHub.article.content.logoUsage.version6") }}</li>
     </ul>
 
+    <ClientHubArticleImage alt="Logo versions and variations" caption="Available logo versions" />
+
     <h2>{{ t("clientHub.article.content.logoUsage.rulesTitle") }}</h2>
     <p>{{ t("clientHub.article.content.logoUsage.rulesText") }}</p>
+
+    <ClientHubArticleImage alt="Logo clear space and minimum size guidelines" caption="Logo spacing and size rules" />
 
     <h2>{{ t("clientHub.article.content.logoUsage.doNotTitle") }}</h2>
     <ul>

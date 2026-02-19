@@ -166,18 +166,8 @@ useHead({
 <template>
   <div class="article-page" v-if="service && category && article">
     <div class="max-w-prose mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-      <!-- Breadcrumb -->
-      <BaseBreadcrumb
-        :crumbs="[
-          { label: t('clientHub.breadcrumb.hub'), to: '/client-hub' },
-          { label: t(service.titleKey), to: `/client-hub/${service.slug}` },
-          { label: t(category.titleKey), to: `/client-hub/${service.slug}/${category.slug}` },
-          { label: t(article.titleKey) },
-        ]"
-      />
-
       <!-- Article header -->
-      <div class="mt-8">
+      <div>
         <h1 class="text-2xl sm:text-3xl font-bold text-(--color-text-primary)">
           {{ t(article.titleKey) }}
         </h1>

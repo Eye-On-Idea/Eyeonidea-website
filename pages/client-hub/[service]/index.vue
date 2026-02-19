@@ -26,22 +26,9 @@ useHead({
 
 <template>
   <div class="service-page" v-if="service">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-      <!-- Breadcrumb -->
-      <BaseBreadcrumb
-        :crumbs="[
-          { label: t('clientHub.breadcrumb.hub'), to: '/client-hub' },
-          { label: t(service.titleKey) },
-        ]"
-      />
-
-      <!-- Search bar -->
-      <div class="mt-6 max-w-xl">
-        <ClientHubSearchBar />
-      </div>
-
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       <!-- Service header -->
-      <div class="mt-8 flex items-start gap-4">
+      <div class="flex items-start gap-4">
         <div class="p-3 rounded-xl bg-primary-500/10">
           <Icon
             :name="t(service.iconKey)"
@@ -73,17 +60,6 @@ useHead({
             :article-count="category.articles.length"
           />
         </div>
-      </div>
-
-      <!-- Back to hub -->
-      <div class="mt-8">
-        <NuxtLink
-          to="/client-hub"
-          class="inline-flex items-center gap-1.5 min-h-11 text-sm text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors"
-        >
-          <Icon name="i-heroicons-arrow-left" class="w-4 h-4" aria-hidden="true" />
-          {{ t("clientHub.nav.allServices") }}
-        </NuxtLink>
       </div>
     </div>
   </div>

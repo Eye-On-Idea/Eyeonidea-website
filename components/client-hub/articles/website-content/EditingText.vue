@@ -14,6 +14,8 @@ const { t } = useI18n();
       <li>{{ t("clientHub.article.content.editingText.step3") }}</li>
     </ol>
 
+    <ClientHubArticleImage alt="Text editing field in the Studio" caption="Editing a text field in the Studio" />
+
     <h3>{{ t("clientHub.article.content.editingText.pastingTitle") }}</h3>
     <p>{{ t("clientHub.article.content.editingText.pastingText") }}</p>
 

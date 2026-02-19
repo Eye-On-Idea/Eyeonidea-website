@@ -5,43 +5,58 @@ definePageMeta({
 });
 
 const { t } = useI18n();
+const route = useRoute();
 const { getOnboardingSections } = useClientHub();
 
 const sections = getOnboardingSections();
-const expandedItems = ref<Set<string>>(new Set());
+const stepperRef = ref();
 
-function toggleItem(key: string) {
-  if (expandedItems.value.has(key)) {
-    expandedItems.value.delete(key);
-  } else {
-    expandedItems.value.add(key);
+// Map sections to stepper items
+const stepperItems = computed(() =>
+  sections.map((section, index) => ({
+    value: section.key,
+    title: t(section.titleKey),
+    description: `${index + 1} / ${sections.length}`,
+    slot: section.key,
+  })),
+);
+
+// Support deep-linking via ?step= query param
+const initialStep = computed(() => {
+  const stepParam = route.query.step as string | undefined;
+  if (stepParam && sections.some((s) => s.key === stepParam)) {
+    return stepParam;
   }
-}
+  return sections[0]?.key;
+});
 
-function isItemExpanded(key: string) {
-  return expandedItems.value.has(key);
-}
+// Track current step for progress display
+const currentStep = ref(initialStep.value);
 
-function expandAll() {
-  sections.forEach((s) => expandedItems.value.add(s.key));
-}
+// Find current step index for progress display
+const currentStepIndex = computed(() => {
+  const idx = sections.findIndex((s) => s.key === currentStep.value);
+  return idx >= 0 ? idx : 0;
+});
 
-function collapseAll() {
-  expandedItems.value.clear();
-}
-
-const allExpanded = computed(() => expandedItems.value.size === sections.length);
-
+// SEO
 useSeoMeta({
-  title: () => `${t("clientHub.onboarding.title")} | ${t("clientHub.meta.title")}`,
+  title: () =>
+    `${t("clientHub.onboarding.title")} | ${t("clientHub.meta.title")}`,
   description: () => t("clientHub.onboarding.description"),
-  ogTitle: () => `${t("clientHub.onboarding.title")} | ${t("clientHub.meta.title")}`,
+  ogTitle: () =>
+    `${t("clientHub.onboarding.title")} | ${t("clientHub.meta.title")}`,
   ogDescription: () => t("clientHub.onboarding.description"),
   ogType: "article",
 });
 
 useHead({
-  link: [{ rel: "canonical", href: "https://eyeonidea.com/client-hub/onboarding" }],
+  link: [
+    {
+      rel: "canonical",
+      href: "https://eyeonidea.com/client-hub/onboarding",
+    },
+  ],
   script: [
     {
       type: "application/ld+json",
@@ -49,7 +64,8 @@ useHead({
         "@context": "https://schema.org",
         "@type": "Article",
         name: "Website Onboarding & Launch Guide",
-        description: "Everything you need to know before and after your website launch.",
+        description:
+          "Everything you need to know before and after your website launch.",
         publisher: {
           "@type": "Organization",
           name: "Eye On Idea",
@@ -83,17 +99,9 @@ useHead({
 
 <template>
   <div class="onboarding-page">
-    <div class="max-w-prose mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-      <!-- Breadcrumb -->
-      <BaseBreadcrumb
-        :crumbs="[
-          { label: t('clientHub.breadcrumb.hub'), to: '/client-hub' },
-          { label: t('clientHub.onboarding.title') },
-        ]"
-      />
-
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       <!-- Header -->
-      <div class="mt-8">
+      <div class="mb-8">
         <div class="flex items-center gap-3 mb-4">
           <div class="p-2.5 rounded-xl bg-accent-500/10">
             <Icon
@@ -103,153 +111,313 @@ useHead({
             />
           </div>
           <div>
-            <h1 class="text-2xl sm:text-3xl font-bold text-(--color-text-primary)">
+            <h1
+              class="text-2xl sm:text-3xl font-bold text-(--color-text-primary)"
+            >
               {{ t("clientHub.onboarding.title") }}
             </h1>
           </div>
         </div>
-        <p class="text-base text-(--color-text-secondary) leading-relaxed max-w-2xl">
+        <p
+          class="text-base text-(--color-text-secondary) leading-relaxed max-w-2xl"
+        >
           {{ t("clientHub.onboarding.description") }}
         </p>
       </div>
 
-      <!-- Expand/Collapse all toggle -->
-      <div class="mt-6 flex justify-end">
-        <button
-          class="text-sm text-(--color-text-tertiary) hover:text-(--color-text-primary) transition-colors min-h-9 px-2"
-          @click="allExpanded ? collapseAll() : expandAll()"
-        >
-          {{ allExpanded ? t("clientHub.onboarding.collapseLabel") : t("clientHub.onboarding.expandLabel") }}
-        </button>
-      </div>
-
-      <!-- Sections accordion -->
-      <div class="mt-2 space-y-2">
+      <!-- Progress indicator (compact, always visible) -->
+      <div
+        class="mb-6 flex items-center gap-3 p-3 rounded-xl bg-(--color-surface-1) border border-(--glass-border-subtle)"
+      >
         <div
-          v-for="(section, index) in sections"
-          :key="section.key"
-          class="onboarding-item rounded-xl border border-(--glass-border-subtle) overflow-hidden bg-(--color-surface-1)"
-          :style="{ '--stagger-delay': `${index * 50}ms` }"
+          class="text-sm font-semibold text-(--color-text-primary) whitespace-nowrap"
         >
-          <button
-            :id="`onboarding-trigger-${section.key}`"
-            class="flex items-center justify-between w-full min-h-12 px-5 py-3.5 text-left font-medium text-(--color-text-primary) hover:bg-(--color-surface-2) transition-colors"
-            :aria-expanded="isItemExpanded(section.key)"
-            :aria-controls="`onboarding-panel-${section.key}`"
-            @click="toggleItem(section.key)"
-          >
-            <div class="flex items-center gap-3">
-              <span class="text-xs font-bold text-(--color-text-tertiary) w-5 text-center tabular-nums">{{ index + 1 }}</span>
-              <span>{{ t(section.titleKey) }}</span>
-            </div>
-            <Icon
-              name="i-heroicons-chevron-down"
-              class="w-4 h-4 text-(--color-text-tertiary) shrink-0 transition-transform duration-200"
-              :class="{ 'rotate-180': isItemExpanded(section.key) }"
-              aria-hidden="true"
-            />
-          </button>
-
+          {{ currentStepIndex + 1 }} / {{ sections.length }}
+        </div>
+        <div class="flex-1 h-1.5 bg-(--color-surface-3) rounded-full overflow-hidden">
           <div
-            :id="`onboarding-panel-${section.key}`"
-            role="region"
-            :aria-labelledby="`onboarding-trigger-${section.key}`"
-            class="onboarding-panel"
-            :class="{ 'onboarding-panel--open': isItemExpanded(section.key) }"
-          >
-            <div class="px-5 pb-5 pl-13 text-sm text-(--color-text-secondary) leading-relaxed article-content">
-              <!-- Where We Are Now -->
-              <template v-if="section.key === 'whereWeAre'">
-                <p>{{ t("clientHub.onboarding.sections.whereWeAre.content") }}</p>
-              </template>
-
-              <!-- Launch Timeline -->
-              <template v-else-if="section.key === 'launchTimeline'">
-                <div class="space-y-4">
-                  <div>
-                    <h3 class="font-semibold text-(--color-text-primary) mb-1">Before Launch</h3>
-                    <p>{{ t("clientHub.onboarding.sections.launchTimeline.beforeLaunch") }}</p>
-                  </div>
-                  <div>
-                    <h3 class="font-semibold text-(--color-text-primary) mb-1">Launch Day</h3>
-                    <p>{{ t("clientHub.onboarding.sections.launchTimeline.launchDay") }}</p>
-                  </div>
-                  <div>
-                    <h3 class="font-semibold text-(--color-text-primary) mb-1">After Launch</h3>
-                    <p>{{ t("clientHub.onboarding.sections.launchTimeline.afterLaunch") }}</p>
-                  </div>
-                </div>
-              </template>
-
-              <!-- Access & Credentials -->
-              <template v-else-if="section.key === 'accessCredentials'">
-                <div class="space-y-4">
-                  <div>
-                    <h3 class="font-semibold text-(--color-text-primary) mb-1">CMS</h3>
-                    <p>{{ t("clientHub.onboarding.sections.accessCredentials.cms") }}</p>
-                  </div>
-                  <div>
-                    <h3 class="font-semibold text-(--color-text-primary) mb-1">Email</h3>
-                    <p>{{ t("clientHub.onboarding.sections.accessCredentials.email") }}</p>
-                  </div>
-                  <div>
-                    <h3 class="font-semibold text-(--color-text-primary) mb-1">Domain</h3>
-                    <p>{{ t("clientHub.onboarding.sections.accessCredentials.domain") }}</p>
-                  </div>
-                  <div>
-                    <h3 class="font-semibold text-(--color-text-primary) mb-1">Hosting</h3>
-                    <p>{{ t("clientHub.onboarding.sections.accessCredentials.hosting") }}</p>
-                  </div>
-                </div>
-              </template>
-
-              <!-- Launch Checklist -->
-              <template v-else-if="section.key === 'launchChecklist'">
-                <p class="mb-3">{{ t("clientHub.onboarding.sections.launchChecklist.intro") }}</p>
-                <ul class="space-y-2 mb-4">
-                  <li
-                    v-for="(item, i) in (t('clientHub.onboarding.sections.launchChecklist.items') as unknown as string[])"
-                    :key="i"
-                    class="flex items-start gap-2.5"
-                  >
-                    <Icon name="i-heroicons-check-circle" class="w-4.5 h-4.5 text-accent-500 shrink-0 mt-0.5" aria-hidden="true" />
-                    <span>{{ item }}</span>
-                  </li>
-                </ul>
-                <div class="note-box">
-                  <strong>{{ t("clientHub.article.noteLabel") }}:</strong>
-                  {{ t("clientHub.onboarding.sections.launchChecklist.note") }}
-                </div>
-              </template>
-
-              <!-- Generic content sections -->
-              <template v-else-if="section.key === 'legalCompliance'">
-                <p>{{ t("clientHub.onboarding.sections.legalCompliance.content") }}</p>
-              </template>
-              <template v-else-if="section.key === 'seoExpectations'">
-                <p>{{ t("clientHub.onboarding.sections.seoExpectations.content") }}</p>
-              </template>
-              <template v-else-if="section.key === 'monitoring'">
-                <p>{{ t("clientHub.onboarding.sections.monitoring.content") }}</p>
-              </template>
-              <template v-else-if="section.key === 'supportWindow'">
-                <p>{{ t("clientHub.onboarding.sections.supportWindow.content") }}</p>
-              </template>
-              <template v-else-if="section.key === 'handoff'">
-                <p>{{ t("clientHub.onboarding.sections.handoff.content") }}</p>
-              </template>
-              <template v-else-if="section.key === 'communication'">
-                <p>{{ t("clientHub.onboarding.sections.communication.content") }}</p>
-              </template>
-            </div>
-          </div>
+            class="h-full bg-accent-500 rounded-full transition-all duration-300"
+            :style="{
+              width: `${((currentStepIndex + 1) / sections.length) * 100}%`,
+            }"
+          />
+        </div>
+        <div class="text-xs text-(--color-text-tertiary) whitespace-nowrap hidden sm:block">
+          {{ stepperItems[currentStepIndex]?.title }}
         </div>
       </div>
 
+      <!-- Stepper -->
+      <UStepper
+        ref="stepperRef"
+        v-model="currentStep"
+        :items="stepperItems"
+        orientation="vertical"
+        :linear="false"
+        color="primary"
+        size="md"
+      >
+        <!-- Where We Are Now -->
+        <template #whereWeAre>
+          <div class="onboarding-content">
+            <p>
+              {{
+                t("clientHub.onboarding.sections.whereWeAre.content")
+              }}
+            </p>
+          </div>
+        </template>
+
+        <!-- Launch Timeline -->
+        <template #launchTimeline>
+          <div class="onboarding-content space-y-4">
+            <div>
+              <h3
+                class="font-semibold text-(--color-text-primary) mb-1"
+              >
+                Before Launch
+              </h3>
+              <p>
+                {{
+                  t(
+                    "clientHub.onboarding.sections.launchTimeline.beforeLaunch",
+                  )
+                }}
+              </p>
+            </div>
+            <div>
+              <h3
+                class="font-semibold text-(--color-text-primary) mb-1"
+              >
+                Launch Day
+              </h3>
+              <p>
+                {{
+                  t(
+                    "clientHub.onboarding.sections.launchTimeline.launchDay",
+                  )
+                }}
+              </p>
+            </div>
+            <div>
+              <h3
+                class="font-semibold text-(--color-text-primary) mb-1"
+              >
+                After Launch
+              </h3>
+              <p>
+                {{
+                  t(
+                    "clientHub.onboarding.sections.launchTimeline.afterLaunch",
+                  )
+                }}
+              </p>
+            </div>
+          </div>
+        </template>
+
+        <!-- Access & Credentials -->
+        <template #accessCredentials>
+          <div class="onboarding-content space-y-4">
+            <div>
+              <h3
+                class="font-semibold text-(--color-text-primary) mb-1"
+              >
+                CMS
+              </h3>
+              <p>
+                {{
+                  t(
+                    "clientHub.onboarding.sections.accessCredentials.cms",
+                  )
+                }}
+              </p>
+            </div>
+            <div>
+              <h3
+                class="font-semibold text-(--color-text-primary) mb-1"
+              >
+                Email
+              </h3>
+              <p>
+                {{
+                  t(
+                    "clientHub.onboarding.sections.accessCredentials.email",
+                  )
+                }}
+              </p>
+            </div>
+            <div>
+              <h3
+                class="font-semibold text-(--color-text-primary) mb-1"
+              >
+                Domain
+              </h3>
+              <p>
+                {{
+                  t(
+                    "clientHub.onboarding.sections.accessCredentials.domain",
+                  )
+                }}
+              </p>
+            </div>
+            <div>
+              <h3
+                class="font-semibold text-(--color-text-primary) mb-1"
+              >
+                Hosting
+              </h3>
+              <p>
+                {{
+                  t(
+                    "clientHub.onboarding.sections.accessCredentials.hosting",
+                  )
+                }}
+              </p>
+            </div>
+          </div>
+        </template>
+
+        <!-- Legal & Compliance -->
+        <template #legalCompliance>
+          <div class="onboarding-content">
+            <p>
+              {{
+                t(
+                  "clientHub.onboarding.sections.legalCompliance.content",
+                )
+              }}
+            </p>
+          </div>
+        </template>
+
+        <!-- SEO & Expectations -->
+        <template #seoExpectations>
+          <div class="onboarding-content">
+            <p>
+              {{
+                t(
+                  "clientHub.onboarding.sections.seoExpectations.content",
+                )
+              }}
+            </p>
+          </div>
+        </template>
+
+        <!-- Monitoring & Maintenance -->
+        <template #monitoring>
+          <div class="onboarding-content">
+            <p>
+              {{
+                t("clientHub.onboarding.sections.monitoring.content")
+              }}
+            </p>
+          </div>
+        </template>
+
+        <!-- Launch Checklist -->
+        <template #launchChecklist>
+          <div class="onboarding-content">
+            <p class="mb-3">
+              {{
+                t(
+                  "clientHub.onboarding.sections.launchChecklist.intro",
+                )
+              }}
+            </p>
+            <ul class="space-y-2 mb-4">
+              <li
+                v-for="(item, i) in (t('clientHub.onboarding.sections.launchChecklist.items') as unknown as string[])"
+                :key="i"
+                class="flex items-start gap-2.5"
+              >
+                <Icon
+                  name="i-heroicons-check-circle"
+                  class="w-4.5 h-4.5 text-accent-500 shrink-0 mt-0.5"
+                  aria-hidden="true"
+                />
+                <span>{{ item }}</span>
+              </li>
+            </ul>
+            <div class="note-box">
+              <strong>{{ t("clientHub.article.noteLabel") }}:</strong>
+              {{
+                t(
+                  "clientHub.onboarding.sections.launchChecklist.note",
+                )
+              }}
+            </div>
+          </div>
+        </template>
+
+        <!-- Support Window -->
+        <template #supportWindow>
+          <div class="onboarding-content">
+            <p>
+              {{
+                t(
+                  "clientHub.onboarding.sections.supportWindow.content",
+                )
+              }}
+            </p>
+          </div>
+        </template>
+
+        <!-- Handoff & Ownership -->
+        <template #handoff>
+          <div class="onboarding-content">
+            <p>
+              {{
+                t("clientHub.onboarding.sections.handoff.content")
+              }}
+            </p>
+          </div>
+        </template>
+
+        <!-- Communication -->
+        <template #communication>
+          <div class="onboarding-content">
+            <p>
+              {{
+                t(
+                  "clientHub.onboarding.sections.communication.content",
+                )
+              }}
+            </p>
+          </div>
+        </template>
+      </UStepper>
+
+      <!-- Prev / Next buttons -->
+      <div class="mt-8 flex items-center justify-between gap-4">
+        <UButton
+          :disabled="!stepperRef?.hasPrev"
+          variant="outline"
+          color="neutral"
+          icon="i-heroicons-arrow-left"
+          @click="stepperRef?.prev()"
+        >
+          {{ t("clientHub.article.previousArticle") }}
+        </UButton>
+        <UButton
+          :disabled="!stepperRef?.hasNext"
+          trailing-icon="i-heroicons-arrow-right"
+          @click="stepperRef?.next()"
+        >
+          {{ t("clientHub.article.nextArticle") }}
+        </UButton>
+      </div>
+
       <!-- Need help callout -->
-      <div class="mt-10 p-4 rounded-xl bg-(--color-surface-2) border border-(--glass-border-subtle)">
+      <div
+        class="mt-10 p-4 rounded-xl bg-(--color-surface-2) border border-(--glass-border-subtle)"
+      >
         <div class="flex items-start gap-3">
-          <Icon name="i-heroicons-chat-bubble-left-right" class="w-5 h-5 text-primary-500 shrink-0 mt-0.5" aria-hidden="true" />
+          <Icon
+            name="i-heroicons-chat-bubble-left-right"
+            class="w-5 h-5 text-primary-500 shrink-0 mt-0.5"
+            aria-hidden="true"
+          />
           <div>
             <h3 class="text-sm font-semibold text-(--color-text-primary)">
               {{ t("clientHub.article.needHelp") }}
@@ -260,52 +428,27 @@ useHead({
           </div>
         </div>
       </div>
-
-      <!-- Back to hub -->
-      <div class="mt-8">
-        <NuxtLink
-          to="/client-hub"
-          class="flex items-center gap-2 min-h-11 text-sm text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors"
-        >
-          <Icon name="i-heroicons-arrow-left" class="w-4 h-4" aria-hidden="true" />
-          <span class="font-medium">{{ t("clientHub.onboarding.backToHub") }}</span>
-        </NuxtLink>
-      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.onboarding-panel {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows var(--duration-normal, 300ms) var(--ease-smooth, cubic-bezier(0.22, 1, 0.36, 1));
-}
-
-.onboarding-panel > div {
-  overflow: hidden;
-}
-
-.onboarding-panel--open {
-  grid-template-rows: 1fr;
-}
-
-.pl-13 {
-  padding-left: 3.25rem;
-}
-
-.article-content :deep(h3) {
-  font-size: 0.9375rem;
-}
-
-.article-content :deep(p) {
+.onboarding-content {
+  font-size: 0.875rem;
   color: var(--color-text-secondary);
   line-height: 1.7;
+}
+
+.onboarding-content p {
   margin-bottom: 0.75rem;
 }
 
-.article-content :deep(p:last-child) {
+.onboarding-content p:last-child {
   margin-bottom: 0;
+}
+
+.onboarding-content h3 {
+  font-size: 0.9375rem;
 }
 
 .note-box {
@@ -317,10 +460,6 @@ useHead({
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .onboarding-panel {
-    transition: none;
-  }
-
   .onboarding-page * {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;

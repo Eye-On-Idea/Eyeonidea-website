@@ -15,6 +15,8 @@ const { t } = useI18n();
       <li>{{ t("clientHub.article.content.contentUpdates.processStep4") }}</li>
     </ol>
 
+    <ClientHubArticleImage alt="Content update deployment flow" caption="How content updates go live" />
+
     <div class="tip-box">
       <strong>{{ t("clientHub.article.tipLabel") }}:</strong>
       {{ t("clientHub.article.content.contentUpdates.tip") }}

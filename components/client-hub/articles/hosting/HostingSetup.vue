@@ -7,6 +7,8 @@ const { t } = useI18n();
     <h2>{{ t("clientHub.article.content.hostingSetup.introTitle") }}</h2>
     <p>{{ t("clientHub.article.content.hostingSetup.introText") }}</p>
 
+    <ClientHubArticleImage alt="Hosting infrastructure overview" caption="Your hosting setup" />
+
     <h2>{{ t("clientHub.article.content.hostingSetup.eoiTitle") }}</h2>
     <ul>
       <li>{{ t("clientHub.article.content.hostingSetup.eoi1") }}</li>

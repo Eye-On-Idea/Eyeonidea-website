@@ -9,6 +9,8 @@ const { t } = useI18n();
     <p class="good-example">{{ t("clientHub.article.content.altTextAndFiles.altTextGood") }}</p>
     <p class="bad-example">{{ t("clientHub.article.content.altTextAndFiles.altTextBad") }}</p>
 
+    <ClientHubArticleImage alt="Alt text field for an image in the Studio" caption="The alt text field for an image asset" />
+
     <h2>{{ t("clientHub.article.content.altTextAndFiles.publishTitle") }}</h2>
     <p>{{ t("clientHub.article.content.altTextAndFiles.publishText") }}</p>
 

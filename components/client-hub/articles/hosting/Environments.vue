@@ -7,6 +7,8 @@ const { t } = useI18n();
     <h2>{{ t("clientHub.article.content.environments.productionTitle") }}</h2>
     <p>{{ t("clientHub.article.content.environments.productionText") }}</p>
 
+    <ClientHubArticleImage alt="Production and development environment diagram" caption="Production vs. development environments" />
+
     <h2>{{ t("clientHub.article.content.environments.developmentTitle") }}</h2>
     <p>{{ t("clientHub.article.content.environments.developmentText") }}</p>
 

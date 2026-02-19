@@ -173,5 +173,40 @@ export default defineAppConfig({
         footer: "p-6 border-t border-[var(--ui-border)]",
       },
     },
+
+    /**
+     * DASHBOARD SIDEBAR
+     * Glass morphism styling for client-hub sidebar.
+     */
+    dashboardSidebar: {
+      slots: {
+        root: "bg-[var(--color-surface-1)] border-r border-[var(--glass-border-subtle)]",
+        header: "border-b border-[var(--glass-border-subtle)]",
+        footer: "border-t border-[var(--glass-border-subtle)]",
+      },
+    },
+
+    /**
+     * DASHBOARD PANEL
+     * Content area background.
+     */
+    dashboardPanel: {
+      slots: {
+        root: "bg-[var(--color-background)]",
+      },
+    },
+
+    /**
+     * NAVIGATION MENU
+     * Vertical sidebar navigation styling.
+     */
+    navigationMenu: {
+      slots: {
+        link: "transition-colors text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]",
+        childLink:
+          "transition-colors text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]",
+        childLabel: "mt-3 first:mt-0",
+      },
+    },
   },
 });

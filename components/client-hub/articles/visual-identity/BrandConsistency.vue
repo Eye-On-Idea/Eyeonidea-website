@@ -7,6 +7,8 @@ const { t } = useI18n();
     <h2>{{ t("clientHub.article.content.brandConsistency.introTitle") }}</h2>
     <p>{{ t("clientHub.article.content.brandConsistency.introText") }}</p>
 
+    <ClientHubArticleImage alt="Brand consistency examples across materials" caption="Consistent brand application" />
+
     <h3>{{ t("clientHub.article.content.brandConsistency.checklistTitle") }}</h3>
     <ul>
       <li>{{ t("clientHub.article.content.brandConsistency.check1") }}</li>

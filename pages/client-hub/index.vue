@@ -7,12 +7,7 @@ definePageMeta({
 const { t } = useI18n();
 const { getServices, getServiceArticleCount } = useClientHub();
 
-const services = getServices();
-const isLoaded = ref(false);
-
-onMounted(() => {
-  isLoaded.value = true;
-});
+const services = getServices().filter((s) => !s.comingSoon);
 
 useSeoMeta({
   title: () => t("clientHub.meta.title"),
@@ -32,7 +27,8 @@ useHead({
         "@context": "https://schema.org",
         "@type": "WebPage",
         name: "Client Hub",
-        description: "Guides and resources to help you manage your website, email, domain, hosting, and brand identity",
+        description:
+          "Guides and resources to help you manage your website, email, domain, hosting, and brand identity",
         publisher: {
           "@type": "Organization",
           name: "Eye On Idea",
@@ -46,17 +42,9 @@ useHead({
 
 <template>
   <div class="hub-landing">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-      <!-- Breadcrumb -->
-      <BaseBreadcrumb :crumbs="[{ label: t('clientHub.breadcrumb.hub') }]" />
-
-      <!-- Search bar -->
-      <div class="mt-6 max-w-xl">
-        <ClientHubSearchBar />
-      </div>
-
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       <!-- Welcome section -->
-      <div class="mt-8">
+      <div>
         <h1 class="text-2xl sm:text-3xl font-bold text-(--color-text-primary)">
           {{ t("clientHub.hub.welcomeTitle") }}
         </h1>
@@ -67,10 +55,36 @@ useHead({
         </p>
       </div>
 
-      <!-- Onboarding section -->
-      <div class="mt-8">
-        <ClientHubOnboardingSection />
-      </div>
+      <!-- Onboarding CTA -->
+      <NuxtLink
+        to="/client-hub/onboarding"
+        class="mt-8 block p-5 rounded-xl border border-accent-500/15 bg-accent-500/5 hover:bg-accent-500/10 transition-colors group"
+      >
+        <div class="flex items-start gap-4">
+          <div class="p-2.5 rounded-xl bg-accent-500/10 shrink-0">
+            <Icon
+              name="i-heroicons-academic-cap"
+              class="w-6 h-6 text-accent-500"
+              aria-hidden="true"
+            />
+          </div>
+          <div class="flex-1 min-w-0">
+            <h2
+              class="text-base font-semibold text-(--color-text-primary) group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors"
+            >
+              {{ t("clientHub.onboarding.title") }}
+            </h2>
+            <p class="text-sm text-(--color-text-secondary) mt-1">
+              {{ t("clientHub.onboarding.ctaDescription") }}
+            </p>
+          </div>
+          <Icon
+            name="i-heroicons-arrow-right"
+            class="w-5 h-5 text-(--color-text-tertiary) group-hover:text-accent-500 transition-colors shrink-0 mt-1"
+            aria-hidden="true"
+          />
+        </div>
+      </NuxtLink>
 
       <!-- Getting started callout -->
       <div
@@ -86,27 +100,65 @@ useHead({
         </p>
       </div>
 
-      <!-- Services grid -->
+      <!-- Quick links grid -->
       <div class="mt-8">
         <h2 class="text-lg font-semibold text-(--color-text-primary) mb-4">
           {{ t("clientHub.hub.servicesTitle") }}
         </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div
-            v-for="(service, index) in services"
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <NuxtLink
+            v-for="service in services"
             :key="service.slug"
-            class="service-card-wrapper"
-            :class="{ 'service-card-wrapper--visible': isLoaded }"
-            :style="{ transitionDelay: `${index * 100}ms` }"
+            :to="`/client-hub/${service.slug}`"
+            class="quick-link-tile flex items-center gap-3 p-4 rounded-xl border border-(--glass-border-subtle) bg-(--color-surface-1) hover:bg-(--color-surface-2) transition-colors group"
           >
-            <ClientHubServiceCard
-              :slug="service.slug"
-              :title-key="service.titleKey"
-              :description-key="service.descriptionKey"
-              :icon-key="service.iconKey"
-              :article-count="getServiceArticleCount(service.slug)"
-              :coming-soon="service.comingSoon"
+            <div class="p-2 rounded-lg bg-primary-500/10 shrink-0">
+              <Icon
+                :name="t(service.iconKey)"
+                class="w-5 h-5 text-primary-500"
+                aria-hidden="true"
+              />
+            </div>
+            <div class="flex-1 min-w-0">
+              <div
+                class="text-sm font-semibold text-(--color-text-primary) truncate"
+              >
+                {{ t(service.titleKey) }}
+              </div>
+              <div class="text-xs text-(--color-text-tertiary)">
+                {{
+                  t("clientHub.serviceCard.guideCount", {
+                    count: getServiceArticleCount(service.slug),
+                  })
+                }}
+              </div>
+            </div>
+            <Icon
+              name="i-heroicons-chevron-right"
+              class="w-4 h-4 text-(--color-text-tertiary) group-hover:text-(--color-text-secondary) transition-colors shrink-0"
+              aria-hidden="true"
             />
+          </NuxtLink>
+        </div>
+      </div>
+
+      <!-- Need help -->
+      <div
+        class="mt-10 p-4 rounded-xl bg-(--color-surface-2) border border-(--glass-border-subtle)"
+      >
+        <div class="flex items-start gap-3">
+          <Icon
+            name="i-heroicons-chat-bubble-left-right"
+            class="w-5 h-5 text-primary-500 shrink-0 mt-0.5"
+            aria-hidden="true"
+          />
+          <div>
+            <h3 class="text-sm font-semibold text-(--color-text-primary)">
+              {{ t("clientHub.article.needHelp") }}
+            </h3>
+            <p class="text-sm text-(--color-text-secondary) mt-0.5">
+              {{ t("clientHub.article.needHelpText") }}
+            </p>
           </div>
         </div>
       </div>
@@ -115,23 +167,13 @@ useHead({
 </template>
 
 <style scoped>
-.service-card-wrapper {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity var(--duration-slow, 500ms) var(--ease-smooth, cubic-bezier(0.22, 1, 0.36, 1)),
-    transform var(--duration-slow, 500ms) var(--ease-smooth, cubic-bezier(0.22, 1, 0.36, 1));
-}
-
-.service-card-wrapper--visible {
-  opacity: 1;
-  transform: translateY(0);
+.quick-link-tile:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .service-card-wrapper {
-    opacity: 1;
-    transform: none;
+  .quick-link-tile {
     transition: none;
   }
 }

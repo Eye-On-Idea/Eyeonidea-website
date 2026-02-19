@@ -17,6 +17,14 @@ const { t } = useI18n();
     <h2>{{ t("clientHub.article.content.webmailAccess.accessTitle") }}</h2>
     <p>{{ t("clientHub.article.content.webmailAccess.accessText") }}</p>
 
+    <ClientHubExternalLinkButton
+      href="https://zimbra1.mail.ovh.net/"
+      label="zimbra1.mail.ovh.net"
+      icon="i-heroicons-envelope"
+    />
+
+    <ClientHubArticleImage alt="Zimbra webmail inbox interface" caption="The Zimbra webmail inbox" />
+
     <div class="note-box">
       <strong>{{ t("clientHub.article.noteLabel") }}:</strong>
       {{ t("clientHub.article.content.webmailAccess.note") }}

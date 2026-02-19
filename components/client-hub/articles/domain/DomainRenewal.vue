@@ -13,6 +13,8 @@ const { t } = useI18n();
       <li>{{ t("clientHub.article.content.domainRenewal.processStep4") }}</li>
     </ol>
 
+    <ClientHubArticleImage alt="Domain renewal process timeline" caption="The domain renewal process" />
+
     <h2>{{ t("clientHub.article.content.domainRenewal.expirationTitle") }}</h2>
     <p>{{ t("clientHub.article.content.domainRenewal.expirationText") }}</p>
 

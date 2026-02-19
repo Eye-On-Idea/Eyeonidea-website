@@ -7,6 +7,8 @@ const { t } = useI18n();
     <h2>{{ t("clientHub.article.content.dnsConfiguration.introTitle") }}</h2>
     <p>{{ t("clientHub.article.content.dnsConfiguration.introText") }}</p>
 
+    <ClientHubArticleImage alt="DNS records configuration panel" caption="DNS records for a domain" />
+
     <h2>{{ t("clientHub.article.content.dnsConfiguration.managedTitle") }}</h2>
     <ul>
       <li>{{ t("clientHub.article.content.dnsConfiguration.managed1") }}</li>
