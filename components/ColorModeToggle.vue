@@ -14,11 +14,10 @@ const isDark = computed(() => colorMode.value === "dark");
 const toggleColorMode = async (event: MouseEvent) => {
   // Check for View Transitions API support and reduced motion preference
   const isReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
+    "(prefers-reduced-motion: reduce)",
   ).matches;
   const supportsViewTransitions =
-    "startViewTransition" in document &&
-    !isReducedMotion;
+    "startViewTransition" in document && !isReducedMotion;
 
   // Capture the current state BEFORE toggling
   const isCurrentlyDark = isDark.value;
@@ -38,7 +37,7 @@ const toggleColorMode = async (event: MouseEvent) => {
   // Calculate the maximum radius needed to cover the entire screen
   const maxRadius = Math.hypot(
     Math.max(x, window.innerWidth - x),
-    Math.max(y, window.innerHeight - y)
+    Math.max(y, window.innerHeight - y),
   );
 
   // Start the view transition
@@ -63,7 +62,7 @@ const toggleColorMode = async (event: MouseEvent) => {
       duration: 500,
       easing: "cubic-bezier(0.4, 0, 0.2, 1)",
       pseudoElement: "::view-transition-old(root)",
-    }
+    },
   );
 
   // Wait for animation to complete to prevent flash at end
@@ -71,11 +70,11 @@ const toggleColorMode = async (event: MouseEvent) => {
 };
 
 const currentIcon = computed(() =>
-  isDark.value ? "i-lucide-moon" : "i-lucide-sun"
+  isDark.value ? "i-lucide-moon" : "i-lucide-sun",
 );
 
 const currentLabel = computed(() =>
-  isDark.value ? t("common.colorMode.dark") : t("common.colorMode.light")
+  isDark.value ? t("common.colorMode.dark") : t("common.colorMode.light"),
 );
 </script>
 
@@ -83,7 +82,7 @@ const currentLabel = computed(() =>
   <button
     ref="buttonRef"
     @click="toggleColorMode"
-    class="touch-target p-2.5 bg-(--color-surface-1)! hover:bg-primary-800/10! dark:hover:bg-(--color-surface-3) rounded-lg transition-all duration-200 flex items-center justify-center cursor-pointer group"
+    class="touch-target p-2.5 hover:bg-primary-800/10! dark:hover:bg-(--color-surface-3) rounded-lg transition-all duration-200 flex items-center justify-center cursor-pointer group"
     :aria-label="t('common.accessibility.toggleColorMode')"
     :title="currentLabel"
   >
@@ -99,7 +98,7 @@ const currentLabel = computed(() =>
       <UIcon
         :key="currentIcon"
         :name="currentIcon"
-        class="w-5 h-5 text-neutral-700 dark:text-neutral-300 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
+        class="w-5 h-5 bg-primary-50 dark:text-neutral-300 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
       />
     </Transition>
   </button>

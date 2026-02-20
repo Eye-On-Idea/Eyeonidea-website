@@ -190,7 +190,7 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
 
 <template>
   <UHeader
-    class="header-main sticky top-0 z-50 bg-primary-800 dark:bg-primary-950"
+    class="header-main sticky top-0 z-50 bg-primary-900 dark:bg-primary-950"
     ><div
       class="absolute -bottom-4.5 left-0 right-0 w-full h-auto z-49 bg-transparent"
     ></div>
@@ -382,7 +382,7 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
                       'header-mobile-child-active': route.path === child.to,
                     }"
                   >
-                    <span>{{ child.label }}</span>
+                    <span class="text-brand-950">{{ child.label }}</span>
                   </NuxtLink>
                 </div>
               </Transition>
@@ -435,7 +435,9 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
 span {
   color: var(--color-primary-50);
 }
-
+html.dark span {
+  color: var(--color-primary-50);
+}
 .header-nav-underline {
   border-radius: 0 0 4px 4px;
   height: calc(var(--spacing) * 1.3);

@@ -179,20 +179,25 @@ onUnmounted(() => {
     <button
       ref="buttonRef"
       type="button"
-      class="lang-switcher__trigger"
+      class="lang-switcher__trigger active:bg-primary-600 hover:bg-primary-600"
       :aria-label="t('common.accessibility.selectLanguage')"
       :aria-expanded="isOpen"
       aria-haspopup="true"
       @click="togglePanel"
       @keydown="handleButtonKeydown"
     >
-      <UIcon :name="currentLanguage.icon" class="lang-switcher__flag" />
-      <span class="lang-switcher__code">{{
+      <ClientOnly>
+        <UIcon :name="currentLanguage.icon" class="lang-switcher__flag" />
+        <template #fallback>
+          <UIcon name="i-heroicons-language" class="lang-switcher__flag" />
+        </template>
+      </ClientOnly>
+      <span class="lang-switcher__code text-primary-50">{{
         currentLanguage.code.toUpperCase()
       }}</span>
       <UIcon
         name="i-lucide-chevron-down"
-        class="lang-switcher__chevron"
+        class="lang-switcher__chevron text-primary-50"
         :class="{ 'lang-switcher__chevron--open': isOpen }"
       />
     </button>
@@ -248,23 +253,12 @@ onUnmounted(() => {
   gap: 6px;
   padding: 10px 10px;
   min-height: 44px;
-  border-radius: 10px;
-  border: 1px solid var(--glass-border-subtle);
-  background: color-mix(in srgb, var(--color-surface-1) 60%, transparent);
+  border-radius: 12px;
+
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   cursor: pointer;
   transition: all var(--duration-fast) var(--ease-smooth);
-}
-
-.lang-switcher__trigger:hover {
-  background: color-mix(in srgb, var(--color-surface-1) 85%, transparent);
-  border-color: var(--glass-border);
-}
-
-.lang-switcher__trigger:focus-visible {
-  outline: 2px solid var(--focus-ring);
-  outline-offset: 2px;
 }
 
 .lang-switcher__flag {
@@ -278,13 +272,11 @@ onUnmounted(() => {
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.03em;
-  color: var(--nav-link-text, var(--color-text-secondary));
 }
 
 .lang-switcher__chevron {
   width: 14px;
   height: 14px;
-  color: var(--nav-link-text, var(--color-text-tertiary));
   transition: transform var(--duration-fast) var(--ease-smooth);
 }
 
