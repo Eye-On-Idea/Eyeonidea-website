@@ -40,6 +40,7 @@
     "@iconify-json/lucide": "^1.2.86",
     "@tailwindcss/vite": "^4.1.13",
     "@types/three": "^0.181.0",
+    "commander": "^13.1.0",
     "tailwindcss": "^4.1.13",
     "vitest": "^3.2.4"
   }
