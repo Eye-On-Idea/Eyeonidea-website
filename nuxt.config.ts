@@ -39,6 +39,9 @@ export default defineNuxtConfig({
         "/about/legal",
         "/about/policies",
         "/contact",
+        "/cases",
+        "/cases/herqulez",
+        "/cases/tegetec",
       ],
       failOnError: false,
       crawlLinks: true,
@@ -72,8 +75,7 @@ export default defineNuxtConfig({
         iso: "de-DE",
         language: "de-DE",
         name: "Deutsch",
-        file: "en/index.ts",
-        isCatchallLocale: true,
+        file: "de/index.ts",
       },
       {
         code: "fr",
@@ -354,6 +356,8 @@ export default defineNuxtConfig({
     "/about": { prerender: true },
     "/about/**": { prerender: true },
     "/contact": { prerender: true },
+    "/cases": { prerender: true },
+    "/cases/**": { prerender: true },
     "/news": { prerender: true },
     "/news/**": { prerender: true },
     // Client Hub requires SSR for session-based auth

@@ -1,0 +1,112 @@
+{
+  "slug": "herqulez",
+  "category": "myCompanies",
+  "title": "Herqulez",
+  "subtitle": "Modular Fitness Ecosystem Platform",
+  "company": "Herqulez",
+  "projectType": "Marketing Website for Health Tech Startup",
+  "year": "2025",
+  "role": "Web Design, Development, SEO, Hosting",
+  "duration": "November 2025 - Ongoing",
+  "url": "https://herqulez.com",
+  "thumbnail": "/images/cases/herqulez/squared-dark-yellow.png",
+  "hero": "/images/cases/herqulez/herq-landing.png",
+  "tags": ["Web Development", "UX/UI Design", "Health Tech", "Nuxt.js", "SEO"],
+  "technologies": ["Nuxt 4", "Vue.js", "Tailwind CSS", "Google Tag Manager"],
+  "overview": {
+    "challenge": "Herqulez is a modular fitness platform covering six areas - Core Fitness, Nutrition, Sleep/Recovery, Habits, Sport, and Travel - each with its own product identity. The marketing website needed to communicate a complex, multi-module ecosystem clearly without overwhelming visitors, while establishing trust ahead of the app launch.",
+    "solution": "We designed and built a high-performance marketing website with Nuxt 4 that introduces the Herqulez ecosystem in a clear, visually engaging way. The architecture prioritizes performance and SEO, with multi-language support (English and Danish live, with more planned) and a GDPR-compliant analytics setup via GTM consent-mode.",
+    "outcome": "The marketing site achieved Lighthouse scores of 99 (Performance), 93 (Accessibility), 96 (Best Practices), and 100 (SEO). It positions Herqulez for the planned MVP launch in early 2026, with a scalable foundation ready for additional languages and content."
+  },
+  "keyMetrics": [
+    {
+      "label": "Lighthouse Performance",
+      "value": "99",
+      "description": "Near-perfect performance score"
+    },
+    {
+      "label": "Lighthouse SEO",
+      "value": "100",
+      "description": "Perfect SEO score"
+    },
+    {
+      "label": "Languages",
+      "value": "2 live",
+      "description": "English and Danish, with German, Spanish, French, and Swedish planned"
+    }
+  ],
+  "process": [
+    {
+      "phase": "Discovery and Planning",
+      "description": "We worked closely with the Herqulez founders to understand the product roadmap, target audience, and go-to-market strategy. Key priorities were clear communication of the modular concept, brand credibility ahead of launch, and a scalable multi-language architecture.",
+      "deliverables": [
+        "Project scope and goals",
+        "Sitemap and content structure",
+        "Technology decisions",
+        "Multi-language plan"
+      ]
+    },
+    {
+      "phase": "Design",
+      "description": "We designed a high-contrast, energy-forward visual identity for the website that aligns with the Herqulez app design system. The layout guides visitors from brand introduction through module overviews to a clear call to action, keeping the complex ecosystem approachable.",
+      "deliverables": [
+        "Page layouts and visual design",
+        "Component design system",
+        "Responsive breakpoints",
+        "Accessibility review"
+      ]
+    },
+    {
+      "phase": "Development and SEO",
+      "description": "We built the site with Nuxt 4 and configured it for static site generation, delivering fast load times without ongoing server costs. Comprehensive Schema.org markup, canonical tags, and page-level meta content were implemented. GTM with consent-mode ensures compliant analytics from launch.",
+      "deliverables": [
+        "Nuxt 4 application",
+        "Static site generation",
+        "Schema.org implementation",
+        "GTM/GA4 with consent-mode",
+        "Multi-language (EN/DA)"
+      ]
+    }
+  ],
+  "challenges": [
+    {
+      "title": "Communicating Ecosystem Complexity",
+      "problem": "Presenting six interconnected fitness modules without overwhelming visitors who may only be interested in one area.",
+      "solution": "We structured the site to lead with the overarching value proposition, then progressively introduce each module. Clear visual separation and focused copy keep the experience navigable."
+    },
+    {
+      "title": "Pre-launch Credibility",
+      "problem": "The app is not yet launched, so the website needs to build trust and capture early interest without a live product to show.",
+      "solution": "We focused on clear messaging, strong brand visuals, Lighthouse-verified performance, and a credible product story grounded in the validation work the founders had already done."
+    }
+  ],
+  "results": {
+    "summary": "The Herqulez marketing website launched with near-perfect technical scores and a clear, confident brand presence. It is positioned to support the app launch in early 2026 and built to scale with additional languages and content sections as the product grows.",
+    "highlights": [
+      "Lighthouse: 99 Performance, 93 Accessibility, 96 Best Practices, 100 SEO",
+      "English and Danish live at launch",
+      "Static Nuxt 4 build with CDN delivery for minimal hosting cost",
+      "GDPR-compliant analytics via GTM consent-mode",
+      "Schema.org markup for rich search results",
+      "Ready for German, Spanish, French, and Swedish expansion"
+    ]
+  },
+  "gallery": [
+    "/images/cases/herqulez/herq-landing.png",
+    "/images/cases/herqulez/herq-fullsystem.png",
+    "/images/cases/herqulez/herq-fitness.png",
+    "/images/cases/herqulez/lighthouse-herqulez.png"
+  ],
+  "learnings": [
+    "A well-structured marketing site can establish credibility for a product that has not yet launched, if the brand story is clear",
+    "Multi-language architecture is best planned from the start - retrofitting it later is significantly more work",
+    "Static site generation delivers excellent performance with minimal infrastructure cost for marketing sites",
+    "Consent-mode analytics setup from day one means compliant data collection as soon as visitors arrive"
+  ],
+  "nextSteps": [
+    "Update the site with app screenshots as the MVP approaches launch",
+    "Expand language support to German, Spanish, French, and Swedish",
+    "Add a blog or insight section to support SEO growth",
+    "Integrate a waitlist or early-access signup once the product is ready"
+  ]
+}

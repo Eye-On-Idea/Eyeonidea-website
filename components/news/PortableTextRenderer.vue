@@ -1,31 +1,31 @@
 <template>
   <div class="portable-text">
-    <template v-for="(block, index) in blocks" :key="index">
+    <template v-for="(group, index) in renderedGroups" :key="index">
       <!-- Headings -->
-      <h2 v-if="block._type === 'block' && block.style === 'h2'" class="pt-h2">
-        <span v-for="(child, i) in block.children" :key="i">{{ child.text }}</span>
+      <h2 v-if="group.type === 'h2'" class="pt-h2">
+        <span v-for="(child, i) in group.block!.children" :key="i">{{ child.text }}</span>
       </h2>
-      <h3 v-else-if="block._type === 'block' && block.style === 'h3'" class="pt-h3">
-        <span v-for="(child, i) in block.children" :key="i">{{ child.text }}</span>
+      <h3 v-else-if="group.type === 'h3'" class="pt-h3">
+        <span v-for="(child, i) in group.block!.children" :key="i">{{ child.text }}</span>
       </h3>
-      <h4 v-else-if="block._type === 'block' && block.style === 'h4'" class="pt-h4">
-        <span v-for="(child, i) in block.children" :key="i">{{ child.text }}</span>
+      <h4 v-else-if="group.type === 'h4'" class="pt-h4">
+        <span v-for="(child, i) in group.block!.children" :key="i">{{ child.text }}</span>
       </h4>
 
       <!-- Blockquote -->
-      <blockquote v-else-if="block._type === 'block' && block.style === 'blockquote'" class="pt-blockquote">
-        <span v-for="(child, i) in block.children" :key="i">{{ child.text }}</span>
+      <blockquote v-else-if="group.type === 'blockquote'" class="pt-blockquote">
+        <span v-for="(child, i) in group.block!.children" :key="i">{{ child.text }}</span>
       </blockquote>
 
       <!-- Normal paragraph -->
-      <p v-else-if="block._type === 'block' && (block.style === 'normal' || !block.style)" class="pt-paragraph">
-        <template v-for="(child, i) in block.children" :key="i">
+      <p v-else-if="group.type === 'paragraph'" class="pt-paragraph">
+        <template v-for="(child, i) in group.block!.children" :key="i">
           <a
             v-if="hasLink(child)"
-            :href="getLinkHref(child, block)"
+            :href="getLinkHref(child, group.block!)"
             class="pt-link"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             <strong v-if="child.marks?.includes('strong')">{{ child.text }}</strong>
             <em v-else-if="child.marks?.includes('em')">{{ child.text }}</em>
@@ -42,38 +42,40 @@
       </p>
 
       <!-- Image -->
-      <figure v-else-if="block._type === 'image'" class="pt-figure">
+      <figure v-else-if="group.type === 'image'" class="pt-figure">
         <img
-          v-if="block.url || block.asset"
-          :src="getImageUrl(block)"
-          :alt="block.alt || ''"
+          v-if="group.block!.url || group.block!.asset"
+          :src="getImageUrl(group.block!)"
+          :alt="group.block!.alt || ''"
           class="pt-image"
           loading="lazy"
         />
-        <figcaption v-if="block.caption" class="pt-caption">{{ block.caption }}</figcaption>
+        <figcaption v-if="group.block!.caption" class="pt-caption">{{ group.block!.caption }}</figcaption>
       </figure>
 
-      <!-- Bullet list detection (checking listItem) -->
-      <ul v-else-if="block._type === 'block' && block.listItem === 'bullet'" class="pt-list">
-        <li>
-          <span v-for="(child, i) in block.children" :key="i">{{ child.text }}</span>
+      <!-- Bullet list - grouped consecutive items into one ul -->
+      <ul v-else-if="group.type === 'bullet'" class="pt-list">
+        <li v-for="(item, i) in group.items" :key="i">
+          <span v-for="(child, j) in item.children" :key="j">{{ child.text }}</span>
         </li>
       </ul>
 
-      <!-- Numbered list detection -->
-      <ol v-else-if="block._type === 'block' && block.listItem === 'number'" class="pt-list pt-list-ordered">
-        <li>
-          <span v-for="(child, i) in block.children" :key="i">{{ child.text }}</span>
+      <!-- Numbered list - grouped consecutive items into one ol -->
+      <ol v-else-if="group.type === 'number'" class="pt-list pt-list-ordered">
+        <li v-for="(item, i) in group.items" :key="i">
+          <span v-for="(child, j) in item.children" :key="j">{{ child.text }}</span>
         </li>
       </ol>
 
       <!-- Code block -->
-      <pre v-else-if="block._type === 'code'" class="pt-code-block"><code :class="block.language ? `language-${block.language}` : ''">{{ block.code }}</code></pre>
+      <pre v-else-if="group.type === 'code'" class="pt-code-block"><code :class="group.block!.language ? `language-${group.block!.language}` : ''">{{ group.block!.code }}</code></pre>
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+
 interface PortableTextChild {
   _key?: string;
   _type: string;
@@ -99,9 +101,46 @@ interface PortableTextBlock {
   language?: string;
 }
 
+type RenderedGroup =
+  | { type: 'h2' | 'h3' | 'h4' | 'blockquote' | 'paragraph' | 'image' | 'code'; block: PortableTextBlock; items?: never }
+  | { type: 'bullet' | 'number'; items: PortableTextBlock[]; block?: never };
+
 const props = defineProps<{
   blocks: PortableTextBlock[];
 }>();
+
+// Group consecutive list blocks so they render in a single ul/ol
+const renderedGroups = computed((): RenderedGroup[] => {
+  const groups: RenderedGroup[] = [];
+
+  for (const block of props.blocks) {
+    if (block._type === 'block' && (block.listItem === 'bullet' || block.listItem === 'number')) {
+      const listType = block.listItem as 'bullet' | 'number';
+      const last = groups[groups.length - 1];
+      if (last && last.type === listType) {
+        last.items!.push(block);
+      } else {
+        groups.push({ type: listType, items: [block] });
+      }
+    } else if (block._type === 'block' && block.style === 'h2') {
+      groups.push({ type: 'h2', block });
+    } else if (block._type === 'block' && block.style === 'h3') {
+      groups.push({ type: 'h3', block });
+    } else if (block._type === 'block' && block.style === 'h4') {
+      groups.push({ type: 'h4', block });
+    } else if (block._type === 'block' && block.style === 'blockquote') {
+      groups.push({ type: 'blockquote', block });
+    } else if (block._type === 'image') {
+      groups.push({ type: 'image', block });
+    } else if (block._type === 'code') {
+      groups.push({ type: 'code', block });
+    } else if (block._type === 'block') {
+      groups.push({ type: 'paragraph', block });
+    }
+  }
+
+  return groups;
+});
 
 function hasLink(child: PortableTextChild): boolean {
   return child.marks?.some(mark => mark !== 'strong' && mark !== 'em' && mark !== 'code') || false;

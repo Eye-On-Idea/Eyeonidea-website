@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "herqulez",
+    "category": "myCompanies",
+    "title": "Herqulez",
+    "subtitle": "Modular Fitness Ecosystem Platform",
+    "company": "Herqulez",
+    "year": "2025",
+    "thumbnail": "/images/cases/herqulez/squared-dark-yellow.png",
+    "tags": ["Web Development", "UX/UI Design", "Health Tech", "Nuxt.js", "SEO"]
+  },
+  {
+    "slug": "tegetec",
+    "category": "clientWork",
+    "title": "Tegetec",
+    "subtitle": "Industrial Food Processing Equipment Provider",
+    "company": "Tegetec",
+    "year": "2025",
+    "thumbnail": "/images/cases/tegetec/tegetec.svg",
+    "tags": ["Web Redesign", "SEO", "B2B", "Static Site", "Industrial"]
+  }
+]

@@ -162,6 +162,10 @@ function debouncedSearch() {
   }, 300);
 }
 
+onUnmounted(() => {
+  clearTimeout(searchTimeout);
+});
+
 function clearSearch() {
   localSearch.value = "";
   emit("update:searchQuery", "");

@@ -10,6 +10,10 @@ import legal from "./pages/legal.json";
 import policies from "./pages/policies.json";
 import clientHub from "./pages/client-hub.json";
 import process from "./pages/process.json";
+import cases from "./pages/cases.json";
+import casesIndex from "./pages/cases/_index.json";
+import caseHerqulez from "./pages/cases/herqulez.json";
+import caseTegetec from "./pages/cases/tegetec.json";
 
 export default {
   common,
@@ -24,4 +28,10 @@ export default {
   policies,
   clientHub,
   process,
+  cases,
+  casesIndex,
+  caseStudies: {
+    herqulez: caseHerqulez,
+    tegetec: caseTegetec,
+  },
 };

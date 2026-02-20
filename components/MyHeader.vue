@@ -18,6 +18,7 @@ const navLinks = computed(() => [
       },
     ],
   },
+  { label: t("nav.cases"), to: "/cases" },
   // { label: t("nav.news"), to: "/news" },
   {
     label: t("nav.about"),
@@ -179,9 +180,9 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
   const linkPath = link.to.replace(/\/$/, "") || "/";
   // Exact match
   if (path === linkPath) return true;
-  // For parent links with children, also match child routes
-  if (link.children && linkPath !== "/") {
-    return path.startsWith(linkPath + "/") || path === linkPath;
+  // Match any child route (with or without an explicit children array)
+  if (linkPath !== "/") {
+    return path.startsWith(linkPath + "/");
   }
   return false;
 };

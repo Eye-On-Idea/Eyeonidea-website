@@ -1,0 +1,70 @@
+{
+  "metaTitle": "Our Work | Eye On Idea",
+  "metaDescription": "Explore how Eye On Idea designs and builds websites for small and mid-sized businesses - from strategy and visual identity to launch and ongoing support.",
+
+  "hero": {
+    "title": "Our Work",
+    "subtitle": "Strategy, design, and development - delivered.",
+    "description": "A look at the projects we have designed and built for our clients and our own brands, from concept to production."
+  },
+
+  "categories": {
+    "myCompanies": "Our Brands",
+    "clientWork": "Client Work",
+    "sideProjects": "Side Projects"
+  },
+
+  "filter": {
+    "all": "All Projects",
+    "webDev": "Web Development",
+    "uxui": "UX/UI Design",
+    "branding": "Branding",
+    "seo": "SEO"
+  },
+
+  "cta": {
+    "viewCase": "View Case Study",
+    "visitSite": "Visit Website",
+    "readMore": "Read More"
+  },
+
+  "badges": {
+    "eyeOnIdea": "Eye On Idea",
+    "herqulez": "Partner Project",
+    "schoolProject": "School Project",
+    "featured": "Featured"
+  },
+
+  "stats": {
+    "role": "Our Role",
+    "duration": "Duration",
+    "year": "Year",
+    "technologies": "Technologies"
+  },
+
+  "sections": {
+    "overview": "Overview",
+    "challenge": "The Challenge",
+    "solution": "Our Solution",
+    "outcome": "The Outcome",
+    "process": "Our Process",
+    "keyMetrics": "Key Metrics",
+    "challenges": "Challenges and Solutions",
+    "results": "Results",
+    "learnings": "Key Learnings",
+    "nextSteps": "Next Steps",
+    "gallery": "Gallery"
+  },
+
+  "navigation": {
+    "backToCases": "Back to Our Work",
+    "nextCase": "Next Case Study",
+    "previousCase": "Previous Case Study"
+  },
+
+  "contact": {
+    "title": "Ready to start your project?",
+    "description": "We work with small and mid-sized businesses to build websites that look great and perform even better. Let us talk about what we can do for you.",
+    "button": "Get in Touch"
+  }
+}

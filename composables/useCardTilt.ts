@@ -72,6 +72,13 @@ export function useCardTilt(options: {
     glareOpacity.value = 0
   }
 
+  let gyroscopeRegistered = false
+  const handleOrientation = (e: DeviceOrientationEvent) => {
+    if (!isHovered.value || !e.beta || !e.gamma) return
+    tiltX.value = (e.beta - 45) / 45 * maxTilt
+    tiltY.value = e.gamma / 45 * maxTilt
+  }
+
   onMounted(() => {
     if (!cardRef.value || prefersReducedMotion.value) return
 
@@ -83,18 +90,8 @@ export function useCardTilt(options: {
 
     // Optional: Gyroscope support for mobile
     if (gyroscope && 'DeviceOrientationEvent' in window) {
-      const handleOrientation = (e: DeviceOrientationEvent) => {
-        if (!isHovered.value || !e.beta || !e.gamma) return
-
-        tiltX.value = (e.beta - 45) / 45 * maxTilt
-        tiltY.value = e.gamma / 45 * maxTilt
-      }
-
       window.addEventListener('deviceorientation', handleOrientation)
-
-      return () => {
-        window.removeEventListener('deviceorientation', handleOrientation)
-      }
+      gyroscopeRegistered = true
     }
   })
 
@@ -105,6 +102,10 @@ export function useCardTilt(options: {
     element.removeEventListener('mousemove', handleMouseMove)
     element.removeEventListener('mouseenter', handleMouseEnter)
     element.removeEventListener('mouseleave', handleMouseLeave)
+
+    if (gyroscopeRegistered) {
+      window.removeEventListener('deviceorientation', handleOrientation)
+    }
   })
 
   const cardStyle = computed(() => {
