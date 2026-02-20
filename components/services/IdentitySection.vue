@@ -6,6 +6,21 @@ const { t, tm } = useI18n();
 const sectionRef = ref<HTMLElement | null>(null);
 const isVisible = ref(false);
 
+const carouselImages = [
+  {
+    src: "/images/visual-identity/eoi-light-bg.png",
+    alt: t("services.identity.carousel.eoiLight"),
+  },
+  {
+    src: "/images/visual-identity/eoi-dark-bg.png",
+    alt: t("services.identity.carousel.eoiDark"),
+  },
+  {
+    src: "/images/visual-identity/herqulez-logo-package.png",
+    alt: t("services.identity.carousel.herqulez"),
+  },
+];
+
 onMounted(() => {
   if (!sectionRef.value) return;
 
@@ -95,32 +110,37 @@ onMounted(() => {
         <!-- Right: Add-ons -->
         <div class="addons-panel">
           <div class="addons-card">
-            <h3 class="addons-heading">
-              {{ t("services.identity.addons.title") }}
-            </h3>
-            <ul class="addons-list">
-              <li
-                v-for="(addon, index) in tm(
-                  'services.identity.addons.items',
-                ) as string[]"
-                :key="index"
-                class="addon-item"
-              >
-                <svg
-                  class="plus-icon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-                    clip-rule="evenodd"
+            <UCarousel
+              :items="carouselImages"
+              arrows
+              dots
+              loop
+              :autoplay="{ delay: 5000, stopOnInteraction: true }"
+              fade
+              class="carousel"
+              :ui="{
+                root: 'w-full',
+                item: 'min-w-0 flex-[0_0_100%]',
+                controls: 'mt-3 justify-center',
+                dot: 'carousel-dot',
+              }"
+            >
+              <template #default="{ item }">
+                <figure class="carousel-slide">
+                  <NuxtImg
+                    :src="item.src"
+                    :alt="item.alt"
+                    width="800"
+                    height="600"
+                    format="webp"
+                    quality="85"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 480px"
+                    class="carousel-image"
                   />
-                </svg>
-                <span>{{ addon }}</span>
-              </li>
-            </ul>
+                </figure>
+              </template>
+            </UCarousel>
           </div>
         </div>
       </div>
@@ -339,10 +359,62 @@ onMounted(() => {
   color: var(--color-primary-400);
 }
 
+.carousel {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.carousel-slide {
+  margin: 0;
+  width: 100%;
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.carousel :deep(.carousel-dot) {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.3);
+  transition: background 0.2s var(--ease-smooth);
+
+  &[data-state="active"] {
+    background: var(--color-accent-400);
+  }
+}
+
+.carousel :deep([data-slot="prev"]),
+.carousel :deep([data-slot="next"]) {
+  color: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+
+  &:hover:not(:disabled) {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .content-grid {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+
+  .carousel :deep(.carousel-dot) {
     transition: none;
   }
 }

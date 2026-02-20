@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "title": "Vores proces - Eye On Idea",
+    "description": "Fra første kontakt til lancering og videre. Lær, hvordan Eye On Idea leverer professionelle webstedsprojekter med klare tidslinjer, gennemsigtige priser og løbende support."
+  },
+  "hero": {
+    "badge": "Vores proces",
+    "title": "Fra idé til lancering",
+    "subtitle": "Hvert projekt følger en klar, gennemsigtig proces designet til at holde dig informeret og i kontrol på alle stadier."
+  },
+  "intro": {
+    "text": "Vi tror på, at gode hjemmesider er bygget på klar kommunikation og gensidig forståelse. Her er præcis, hvad du kan forvente, når du arbejder med Eye On Idea."
+  },
+  "timeline": {
+    "title": "Din projektrejse",
+    "steps": {
+      "contact": {
+        "number": "01",
+        "title": "Indledende kontakt",
+        "description": "Du når ud med din projektidé eller behov. Vi svarer inden for 1-2 hverdage og foreslår et opdagelsesmøde, enten personligt eller online, med fleksible planlægningsmuligheder.",
+        "details": [
+          "Der kræves ingen forpligtelse på dette stadium",
+          "Mødet kan være fysisk eller online (teams, zoom osv.)",
+          "Du vælger det tidspunkt og den dato, der passer dig"
+        ],
+        "cta": {
+          "label": "Tag kontakt",
+          "to": "/kontakt"
+        }
+      },
+      "discovery": {
+        "number": "02",
+        "title": "Opdagelsesmøde",
+        "description": "Vi sætter os ned sammen for at forstå dine mål, målgruppe og forretningskontekst. Dette møde former hele projektets omfang.",
+        "details": [
+          "Definer forventninger, ønsker og behov",
+          "Revidere eksisterende aktiver (logoer, indhold, domæner, hosting)",
+          "Identificer, hvad der skal oprettes eller hentes",
+          "Diskuter tidslinje og eventuelle specifikke lanceringskrav"
+        ]
+      },
+      "proposal": {
+        "number": "03",
+        "title": "Forslag og aftale",
+        "description": "Baseret på opdagelsesmødet sender vi dig et detaljeret forslag, der beskriver det fulde projektomfang, leverancer, tidslinje og omkostninger.",
+        "details": [
+          "Klart projektomfang med alle leverancer anført",
+          "Gennemsigtig prissætning uden skjulte gebyrer",
+          "Et depositum på 25-50 % af de samlede omkostninger for at begynde arbejdet",
+          "Indbetaling kan ikke refunderes og sikrer din projektplads",
+          "Accept af forslaget omfatter GDPR-samtykke til datahåndtering som skitseret"
+        ],
+        "note": "Forslaget angiver klart, hvilke personoplysninger der vil blive behandlet, til hvilket formål og under hvilket retsgrundlag, i overensstemmelse med GDPR. Dine data deles aldrig med tredjeparter ud over, hvad projektet kræver.",
+        "cta": {
+          "label": "Se vores pakker",
+          "to": "/services#pakker-sektion"
+        }
+      },
+      "kickoff": {
+        "number": "04",
+        "title": "Projekt Kickoff",
+        "description": "Når depositum er modtaget, begynder arbejdet. Vi sætter projektmiljøet op og begynder at bygge ud fra det aftalte omfang.",
+        "details": [
+          "Projektet tager typisk 2-4 uger afhængig af omfang",
+          "Valgfri ugentlige eller månedlige check-in møder",
+          "Dedikeret kommunikationskanal for spørgsmål og opdateringer"
+        ]
+      },
+      "development": {
+        "number": "05",
+        "title": "Udvikling & Fremskridt",
+        "description": "Din hjemmeside tager form. I denne fase kan du eventuelt anmode om tidlig adgang til en udviklingsserver for at følge med i realtid.",
+        "details": [
+          "Tilgængelig efter den første arbejdsuge",
+          "Giver konstant indsigt i projektets fremdrift",
+          "Kan medføre et ekstra gebyr (kræver regelmæssig kodebasevedligeholdelse for korrekte uploads)"
+        ],
+        "note": "Tidlig dev-serveradgang er en valgfri tilføjelse. Det kræver hyppigere implementering og vedligeholdelse, hvorfor det tilbydes som en separat service.",
+        "cta": {
+          "label": "Se Tilføjelser og ekstramateriale",
+          "to": "/services#addons-sektion"
+        }
+      },
+      "preview": {
+        "number": "06",
+        "title": "Pre-Launch Preview",
+        "description": "En uge før den aftalte lanceringsdato modtager du et link til testserveren, hvor du kan gennemgå hele projektet.",
+        "details": [
+          "Fuldt projekt tilgængeligt til gennemgang på en test-URL",
+          "Mulighed for at anmode om endelige redigeringer eller justeringer",
+          "Hvis CMS er inkluderet, modtager du også din CMS-invitation med instruktioner og vejledning",
+          "Denne forhåndsvisning fungerer som den endelige godkendelse, inden den går live"
+        ]
+      },
+      "payment": {
+        "number": "07",
+        "title": "Endelig betaling & lancering",
+        "description": "Den resterende projektsaldo faktureres 2-5 hverdage før lancering. Betaling skal ske på lanceringsdagen.",
+        "details": [
+          "Faktura dækker resten efter den første indbetaling",
+          "Betaling forfalder på lanceringsdagen",
+          "Hjemmesiden går live på den aftalte dato",
+          "Alle leverancer afleveres"
+        ]
+      },
+      "postlaunch": {
+        "number": "08",
+        "title": "Support efter lancering",
+        "description": "After launch, you have a 2-week support window where we monitor the site and handle any small corrections you find.",
+        "details": [
+          "Vi overvåger løst siden for fejl",
+          "Små tekstredigeringer, billedbytninger, rettelser af tastefejl, rettelser af kontaktoplysninger",
+          "Indeholder ikke større redesigns eller nye funktioner",
+          "Rapporter eventuelle problemer inden for 2-ugers vinduet"
+        ],
+        "note": "Dette er en gratis periode til at fange alt, der er overset før lanceringen. Større ændringer eller anmodninger om nye funktioner håndteres som separate projekter eller gennem en supportplan."
+      },
+      "handoff": {
+        "number": "09",
+        "title": "Handoff & Beyond",
+        "description": "Projektet er færdigt og fuldt betalt. Vi takker for samarbejdet, og vi er her altid, når du har brug for os næste gang.",
+        "details": [
+          "Hosting og servervedligeholdelse forbliver Eye On Ideas ansvar (hostet på OVH Cloud EU)",
+          "Løbende supportplaner til rådighed, hvis du ønsker fortsat samarbejde",
+          "Ingen yderligere redigeringer inkluderet efter 2-ugers efter-lancering",
+          "Fremtidige projekter og tjenester er altid velkomne"
+        ],
+        "cta": {
+          "label": "Se supportplaner",
+          "to": "/services#support-planer"
+        }
+      }
+    }
+  },
+  "faq": {
+    "title": "Almindelige spørgsmål",
+    "subtitle": "Svar på ofte stillede spørgsmål om vores proces",
+    "items": [
+      {
+        "question": "Hvor lang tid tager et typisk webstedsprojekt?",
+        "answer": "De fleste webstedsprojekter tager 2-4 uger fra start til lancering, afhængigt af omfanget og kompleksiteten. Større platformsprojekter kan tage længere tid. Den nøjagtige tidsplan aftales altid i forslaget."
+      },
+      {
+        "question": "Hvad dækker depositummet?",
+        "answer": "Depositummet (25-50 % af de samlede projektomkostninger) sikrer dit projektslot og dækker den indledende opsætning, planlægning og tidlige udviklingsarbejde. Det kan ikke refunderes, da arbejdet påbegyndes umiddelbart efter betaling."
+      },
+      {
+        "question": "Kan jeg foretage ændringer i løbet af projektet?",
+        "answer": "Ja. Vi tilbyder valgfri indtjekningsmøder (ugentlig eller månedlig), og du kan give feedback under pre-lanceringen. Mindre justeringer inden for det aftalte omfang er en del af processen. Ændringer uden for det oprindelige anvendelsesområde kan kræve et revideret forslag."
+      },
+      {
+        "question": "Hvad tæller som en 'lille redigering' under support efter lancering?",
+        "answer": "Små redigeringer inkluderer tekstrettelser (tastefejl, grammatik, forkerte kontaktoplysninger), billederstatninger og lignende mindre rettelser. Det inkluderer ikke layoutændringer, nye sider, nye funktioner eller visuelle redesigns."
+      },
+      {
+        "question": "Hvad sker der med mine data (GDPR)?",
+        "answer": "At acceptere vores forslag omfatter samtykke til, at vi kan håndtere dine data som beskrevet i projektets omfang. Dette følger altid GDPR retningslinjer. Dine data bruges kun til projektet og deles aldrig med uafhængige tredjeparter. Alle detaljer findes i vores privatlivspolitik."
+      },
+      {
+        "question": "Har jeg brug for en supportplan efter lancering?",
+        "answer": "Ikke nødvendigvis. Efter 2 ugers post-lanceringsvindue er projektet afsluttet. En supportplan er valgfri og er ideel, hvis du ønsker løbende indholdsopdateringer, tekniske forbedringer eller strategisk rådgivning. Det kan tilføjes til enhver tid."
+      },
+      {
+        "question": "Hvem håndterer hosting efter lancering?",
+        "answer": "Eye On Idea håndterer hosting og servervedligeholdelse på OVH Cloud (EU-baseret). Dette er vores løbende ansvar, så længe vi er vært for dit projekt. Hostingomkostninger er enten inkluderet i en supportplan eller faktureres separat."
+      },
+      {
+        "question": "Kan jeg få adgang til projektet under udvikling?",
+        "answer": "Som standard får du adgang til testserveren 1 uge før lancering. Hvis du gerne vil have tidligere adgang til at følge udviklingen i realtid, er dette tilgængeligt som en valgfri tilføjelsestjeneste."
+      }
+    ]
+  },
+  "cta": {
+    "badge": "Klar til at begynde?",
+    "title": "Lad os starte dit projekt",
+    "description": "Det første skridt er en samtale. Fortæl os om dit projekt, så tager vi det derfra.",
+    "primary": "Start en samtale",
+    "secondary": "Se vores tjenester"
+  }
+}

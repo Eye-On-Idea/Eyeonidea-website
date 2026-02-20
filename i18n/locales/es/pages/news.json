@@ -1,0 +1,54 @@
+{
+  "title": "Noticias y perspectivas",
+  "seo": {
+    "title": "Noticias y perspectivas: Eye On Idea",
+    "description": "Manténgase actualizado con las últimas noticias, conocimientos y actualizaciones de Eye On Idea. Tendencias de desarrollo web, noticias de agencias digitales y conocimientos de la industria."
+  },
+  "hero": {
+    "title": "Noticias y perspectivas",
+    "subtitle": "Manténgase actualizado con lo último de Eye On Idea"
+  },
+  "filters": {
+    "search": "Buscar artículos...",
+    "searchLabel": "Buscar",
+    "allTypes": "Todos los tipos",
+    "news": "Noticias",
+    "article": "Artículo",
+    "announcement": "Anuncio",
+    "caseStudy": "Estudio de caso",
+    "clear": "Limpiar filtros",
+    "resultsCount": "{count} artículo(s) encontrado(s)"
+  },
+  "posts": {
+    "readMore": "Leer más",
+    "readingTime": "{minutes} lectura mínima",
+    "noResults": "No se encontraron artículos",
+    "noResultsText": "Intente ajustar su búsqueda o filtros",
+    "loadMore": "Cargar más artículos",
+    "loading": "Cargando artículos...",
+    "featured": "Destacado"
+  },
+  "article": {
+    "loading": "Cargando artículo...",
+    "notFound": "Artículo no encontrado",
+    "notFoundText": "El artículo que buscas no existe o ha sido eliminado.",
+    "backToNews": "Volver a Noticias",
+    "defaultTitle": "Artículo",
+    "share": "Comparte este artículo",
+    "shareLinkedIn": "Compartir en LinkedIn",
+    "shareTwitter": "Compartir en X (Twitter)",
+    "shareEmail": "Compartir por correo electrónico",
+    "allArticles": "Todos los artículos",
+    "checkOut": "Mira este artículo:"
+  },
+  "related": {
+    "title": "Artículos relacionados",
+    "viewAll": "Ver todos los artículos"
+  },
+  "categories": {
+    "news": "Noticias",
+    "article": "Artículo",
+    "announcement": "Anuncio",
+    "caseStudy": "Estudio de caso"
+  }
+}

@@ -1,0 +1,595 @@
+{
+  "meta": {
+    "title": "Servicios - Eye On Idea",
+    "description": "Paquetes de sitios web profesionales, identidad visual, soluciones CMS y soporte continuo. Soluciones digitales a medida para empresas B2B de toda Europa."
+  },
+  "hero": {
+    "badge": "Nuestros Servicios",
+    "title": "Soluciones digitales que crecen contigo",
+    "subtitle": "Eye On Idea ayuda a las empresas a establecer y hacer crecer una presencia digital clara y profesional. Todos los proyectos tienen un alcance individual y se basan en necesidades reales, no en plantillas."
+  },
+  "packages": {
+    "badge": "Paquetes de sitios web",
+    "title": "Elige tu base",
+    "subtitle": "Sitios web profesionales adaptados a la etapa y necesidades de su negocio",
+    "launch": {
+      "name": "Lanzamiento",
+      "tagline": "Empiece bien",
+      "description": "Un sitio web profesional que le da a su empresa una presencia creíble y confiable desde el primer día.",
+      "idealFor": "Nuevas empresas, fundadores en solitario o empresas que establecen su presencia en línea.",
+      "includes": [
+        "Diseño de sitio web claro y estructurado.",
+        "Responsiva móvil en todos los dispositivos",
+        "1 dominio personalizado con licencia de 1 año",
+        "Base para el crecimiento futuro",
+        "Configuración básica de SEO"
+      ],
+      "price": {
+        "amount": "1,500",
+        "currency": "€",
+        "prefix": "De",
+        "vatNote": "excluido IVA"
+      }
+    },
+    "growth": {
+      "name": "Crecimiento",
+      "tagline": "Escale con confianza",
+      "popular": "Más Popular",
+      "description": "Un sitio web flexible diseñado para respaldar contenido, actualizaciones y visibilidad a medida que crece su negocio.",
+      "idealFor": "Empresas que actualizan contenidos activamente y quieren un sitio web que evolucione con el negocio.",
+      "includes": [
+        "Todo en lanzamiento",
+        "Sistema de gestión de contenidos",
+        "Blog o sección de noticias",
+        "Estructura optimizada para SEO",
+        "Clara separación entre contenido y diseño",
+        "Soporte de flujo de trabajo editorial"
+      ],
+      "price": {
+        "amount": "3,000",
+        "currency": "€",
+        "prefix": "De",
+        "vatNote": "excluido IVA"
+      }
+    },
+    "platform": {
+      "name": "Plataforma",
+      "tagline": "Construido para el largo plazo",
+      "description": "Una plataforma digital a largo plazo creada para respaldar contenido estructurado, múltiples audiencias y crecimiento futuro.",
+      "idealFor": "Empresas que ven su sitio web como una herramienta comercial central en lugar de una presentación estática.",
+      "includes": [
+        "Todo en crecimiento",
+        "Arquitectura modular y escalable",
+        "Soporte de contenido de varias secciones",
+        "Fundamentos multilingües",
+        "Estrategia de plataforma a largo plazo",
+        "Capacidades avanzadas de CMS"
+      ],
+      "price": {
+        "amount": "5,000",
+        "currency": "€",
+        "prefix": "De",
+        "vatNote": "excluido IVA"
+      }
+    },
+    "cta": "Obtenga una cotización",
+    "pricingNote": "Todos los precios excl. TINA. El precio final depende del alcance y los requisitos."
+  },
+  "comparison": {
+    "badge": "Comparar paquetes",
+    "title": "Qué está incluido",
+    "subtitle": "Un desglose detallado de las funciones de todos los paquetes de sitios web",
+    "packages": [
+      "Lanzamiento",
+      "Crecimiento",
+      "Plataforma"
+    ],
+    "categories": {
+      "core": {
+        "title": "Características principales",
+        "features": [
+          {
+            "name": "Diseño de sitio web personalizado",
+            "tooltip": "Diseñado profesionalmente, exclusivo para su marca",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Responsivo para dispositivos móviles",
+            "tooltip": "Optimizado para todos los dispositivos y tamaños de pantalla.",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Dominio personalizado (1 año)",
+            "tooltip": "Un registro de dominio incluido durante el primer año.",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "certificado SSL",
+            "tooltip": "Conexión HTTPS segura incluida",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Configuración básica de SEO",
+            "tooltip": "Metaetiquetas, mapas del sitio e indexación de motores de búsqueda",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          }
+        ]
+      },
+      "content": {
+        "title": "Gestión de contenidos",
+        "features": [
+          {
+            "name": "Sistema de gestión de contenidos",
+            "tooltip": "Sanity CMS para la edición de contenidos independiente",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Blog / Sección de noticias",
+            "tooltip": "Publicar artículos, noticias y actualizaciones.",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Flujo de trabajo editorial",
+            "tooltip": "Redacte, revise y publique contenido de manera eficiente",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Contenido de varias secciones",
+            "tooltip": "Estructuras de contenido complejas en múltiples áreas",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          },
+          {
+            "name": "Capacidades avanzadas de CMS",
+            "tooltip": "Tipos de contenido personalizados y funciones de edición avanzadas",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          }
+        ]
+      },
+      "structure": {
+        "title": "Arquitectura y escala",
+        "features": [
+          {
+            "name": "Base escalable",
+            "tooltip": "Creado para crecer con su negocio",
+            "launch": "basico",
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Arquitectura modular",
+            "tooltip": "Componentes reutilizables para una expansión flexible",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          },
+          {
+            "name": "Fundamentos multilingües",
+            "tooltip": "Infraestructura para versiones en múltiples idiomas",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          },
+          {
+            "name": "Estrategia de plataforma",
+            "tooltip": "Hoja de ruta a largo plazo y planificación de la evolución",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          }
+        ]
+      },
+      "seo": {
+        "title": "SEO y visibilidad",
+        "features": [
+          {
+            "name": "Estructura básica de SEO",
+            "tooltip": "Metaetiquetas e indexación esenciales",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Estructura optimizada para SEO",
+            "tooltip": "HTML semántico y optimización del rendimiento",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Guía de jerarquía de contenido",
+            "tooltip": "Organización estratégica de contenidos para búsqueda.",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          }
+        ]
+      }
+    },
+    "legend": {
+      "included": "Incluido",
+      "notIncluded": "No incluido",
+      "basic": "Básico"
+    }
+  },
+  "addons": {
+    "badge": "Complementos y extras",
+    "title": "Amplíe su paquete",
+    "subtitle": "Servicios opcionales para mejorar su proyecto web",
+    "categories": {
+      "identity": {
+        "title": "Identidad Visual",
+        "icon": "i-heroicons-paint-brush",
+        "items": [
+          {
+            "name": "Diseño de logotipo (primario + variaciones)",
+            "price": "500",
+            "unit": "una sola vez"
+          },
+          {
+            "name": "Variaciones de logotipo extendidas",
+            "price": "200",
+            "unit": "una sola vez"
+          },
+          {
+            "name": "Paleta de colores y tipografía.",
+            "price": "250",
+            "unit": "una sola vez"
+          },
+          {
+            "name": "diseño de tarjetas de visita",
+            "price": "150",
+            "unit": "una sola vez"
+          },
+          {
+            "name": "Plantillas de membrete",
+            "price": "150",
+            "unit": "una sola vez"
+          },
+          {
+            "name": "Plantillas de presentación",
+            "price": "300",
+            "unit": "una sola vez"
+          },
+          {
+            "name": "Activos de marca en redes sociales",
+            "price": "200",
+            "unit": "una sola vez"
+          },
+          {
+            "name": "Documento de directrices de marca",
+            "price": "400",
+            "unit": "una sola vez"
+          }
+        ]
+      },
+      "content": {
+        "title": "Contenido e idioma",
+        "icon": "i-heroicons-document-text",
+        "items": [
+          {
+            "name": "Redacción de sitios web (por página)",
+            "price": "100",
+            "unit": "por página"
+          },
+          {
+            "name": "Edición y refinamiento de contenido",
+            "price": "75",
+            "unit": "por hora"
+          },
+          {
+            "name": "Fundamentos multilingües (2 idiomas por defecto)",
+            "price": "350",
+            "unit": "una sola vez"
+          },
+          {
+            "name": "Versión de idioma adicional",
+            "price": "125",
+            "unit": "por idioma"
+          }
+        ]
+      },
+      "domain": {
+        "title": "Dominio y correo electrónico",
+        "icon": "i-heroicons-globe-alt",
+        "items": [
+          {
+            "name": "Registro de dominio adicional",
+            "price": "15-50",
+            "unit": "por año"
+          },
+          {
+            "name": "Asistencia para transferencia de dominio",
+            "price": "50",
+            "unit": "una sola vez"
+          },
+          {
+            "name": "Correo electrónico inicial (15 GB)",
+            "price": "1",
+            "unit": "por cuenta/mes"
+          },
+          {
+            "name": "Correo electrónico profesional (50 GB)",
+            "price": "4",
+            "unit": "por cuenta/mes"
+          }
+        ]
+      },
+      "seo": {
+        "title": "SEO y visibilidad",
+        "icon": "i-heroicons-magnifying-glass",
+        "items": [
+          {
+            "name": "Revisión de la estructura SEO",
+            "price": "200",
+            "unit": "una sola vez"
+          },
+          {
+            "name": "Optimización de metadatos",
+            "price": "150",
+            "unit": "una sola vez"
+          },
+          {
+            "name": "Estrategia de enlaces internos",
+            "price": "150",
+            "unit": "una sola vez"
+          }
+        ]
+      },
+      "hosting": {
+        "title": "Alojamiento e infraestructura",
+        "icon": "i-heroicons-server",
+        "items": [
+          {
+            "name": "Alojamiento de sitios web en la UE",
+            "price": "20",
+            "unit": "por mes"
+          }
+        ]
+      },
+      "consulting": {
+        "title": "Consultoría y control de calidad",
+        "icon": "i-heroicons-chat-bubble-left-right",
+        "items": [
+          {
+            "name": "Sesión de asesoramiento (1 hora)",
+            "price": "100",
+            "unit": "por sesión"
+          },
+          {
+            "name": "Auditoría técnica",
+            "price": "300",
+            "unit": "una sola vez"
+          },
+          {
+            "name": "Revisión de control de calidad previa al lanzamiento",
+            "price": "200",
+            "unit": "una sola vez"
+          },
+          {
+            "name": "Revisión de segunda opinión",
+            "price": "150",
+            "unit": "una sola vez"
+          }
+        ]
+      }
+    },
+    "currency": "€",
+    "vatNote": "Todos los precios excl. IVA"
+  },
+  "identity": {
+    "badge": "Identidad Visual",
+    "title": "Marca tu presencia digital",
+    "description": "Una base visual coherente que le da a su empresa una apariencia reconocible y profesional. Centrado en marcas relevantes para la web con opciones para extenderlas a la impresión.",
+    "includes": [
+      "Logotipo (principal + variaciones)",
+      "Paleta de colores con ejemplos de uso.",
+      "Selección y orientación de tipografía.",
+      "Dirección visual para plataformas digitales."
+    ],
+    "price": {
+      "amount": "800",
+      "currency": "€",
+      "prefix": "De",
+      "vatNote": "excluido IVA"
+    },
+    "cta": "Discuta su marca",
+    "carousel": {
+      "eoiLight": "Identidad de marca Eye On Idea sobre fondo claro",
+      "eoiDark": "Identidad de marca Eye On Idea sobre fondo oscuro",
+      "herqulez": "Paquete con el logotipo de Herqulez que muestra variaciones de la marca"
+    }
+  },
+  "cms": {
+    "badge": "Soluciones CMS",
+    "title": "Administrar contenido de forma independiente",
+    "description": "Eye On Idea ofrece soluciones CMS personalizadas utilizando Sanity, lo que permite a los clientes administrar contenido de forma independiente sin complejidad técnica.",
+    "features": [
+      {
+        "title": "Edición estructurada",
+        "description": "Modelos de contenidos escalables adaptados a las necesidades de tu negocio"
+      },
+      {
+        "title": "Fácil de editar",
+        "description": "Interfaces limpias diseñadas para usuarios no técnicos"
+      },
+      {
+        "title": "Separación de contenido",
+        "description": "Separación clara entre contenido y diseño."
+      },
+      {
+        "title": "Integración flexible",
+        "description": "Servicio independiente o incluido en proyectos de sitios web."
+      }
+    ],
+    "cta": "Más información sobre CMS"
+  },
+  "support": {
+    "badge": "Planes de soporte",
+    "title": "Asociación continua",
+    "subtitle": "Un sitio web no es un producto único. Es una parte viva de su negocio.",
+    "plans": {
+      "essential": {
+        "name": "Esencial",
+        "description": "Soporte ligero y continuo para empresas que quieran tranquilidad y ayuda puntual.",
+        "bestFor": "Sitios web más pequeños con baja frecuencia de actualización",
+        "includes": [
+          "Acceso prioritario al soporte",
+          "Correcciones y ajustes menores.",
+          "Manejo de errores",
+          "Apoyo consultivo"
+        ],
+        "price": {
+          "amount": "99",
+          "currency": "€",
+          "unit": "/mes",
+          "vatNote": "excluido IVA"
+        }
+      },
+      "growth": {
+        "name": "Crecimiento",
+        "description": "Colaboración continua para empresas que actualizan y evolucionan activamente su sitio web.",
+        "bestFor": "Sitios web en crecimiento basados en contenido",
+        "includes": [
+          "Todo en Esencial",
+          "Actualizaciones periódicas de contenido",
+          "Mejoras iterativas",
+          "Guía del CMS",
+          "Ajustes de rendimiento"
+        ],
+        "price": {
+          "amount": "249",
+          "currency": "€",
+          "unit": "/mes",
+          "vatNote": "excluido IVA"
+        }
+      },
+      "partner": {
+        "name": "Socio",
+        "description": "Una estrecha relación de trabajo en la que Eye On Idea actúa como su socio digital a largo plazo.",
+        "bestFor": "Sitios web críticos para el negocio",
+        "includes": [
+          "Capacidad de soporte dedicada",
+          "iteración continua",
+          "Asesoría estratégica",
+          "Manejo prioritario",
+          "Optimización continua"
+        ],
+        "price": {
+          "amount": "499",
+          "currency": "€",
+          "unit": "/mes",
+          "vatNote": "excluido IVA"
+        }
+      }
+    },
+    "billing": "Basado en suscripción, recurrente mensual",
+    "cta": "Encuentra tu plan"
+  },
+  "howWeWork": {
+    "badge": "Cómo trabajamos",
+    "title": "Un proceso claro y transparente",
+    "subtitle": "Desde el primer contacto hasta el lanzamiento y más allá, cada proyecto sigue el mismo flujo de trabajo profesional.",
+    "steps": [
+      {
+        "icon": "i-heroicons-chat-bubble-left-right",
+        "title": "Descubrir",
+        "description": "Nos reunimos para comprender sus objetivos, audiencia y activos existentes."
+      },
+      {
+        "icon": "i-heroicons-document-check",
+        "title": "Proponer",
+        "description": "Recibirá una propuesta detallada con alcance, cronograma y precios transparentes."
+      },
+      {
+        "icon": "i-heroicons-code-bracket",
+        "title": "construir",
+        "description": "Desarrollamos tu proyecto con check-ins opcionales y una vista previa previa al lanzamiento."
+      },
+      {
+        "icon": "i-heroicons-rocket-launch",
+        "title": "Lanzamiento",
+        "description": "Su sitio se activa con 2 semanas de soporte posterior al lanzamiento incluido."
+      }
+    ],
+    "cta": "Ver proceso completo"
+  },
+  "cta": {
+    "badge": "¿Listo para empezar?",
+    "title": "Busquemos la solución adecuada",
+    "description": "Cada proyecto comienza con la comprensión de lo que realmente necesita su empresa. No hay soluciones predefinidas, solo una conversación sobre tus objetivos.",
+    "primary": "Iniciar una conversación",
+    "secondary": "Ver nuestro trabajo"
+  },
+  "beforeAfter": {
+    "badge": "Resultados reales",
+    "title": "Cómo es el desarrollo web adecuado",
+    "subtitle": "La diferencia entre un sitio modelo y una presencia digital creada profesionalmente, medida en las métricas que importan.",
+    "sliderLabel": "Arrastre para comparar métricas de antes y después",
+    "beforeLabel": "antes",
+    "afterLabel": "Después - con Eye On Idea",
+    "metrics": [
+      {
+        "label": "Puntuación del faro",
+        "before": "48",
+        "after": "92",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "Tiempo de carga",
+        "before": "5.9",
+        "after": "1.8",
+        "unit": "s",
+        "improved": true
+      },
+      {
+        "label": "Accesibilidad",
+        "before": "63",
+        "after": "95",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "Puntuación SEO",
+        "before": "61",
+        "after": "96",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "Cambio CLS",
+        "before": "0.27",
+        "after": "0.04",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "Puntuación móvil",
+        "before": "44",
+        "after": "91",
+        "unit": "",
+        "improved": true
+      }
+    ]
+  }
+}

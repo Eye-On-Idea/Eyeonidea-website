@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "title": "Om - Eye On Idea",
+    "description": "Lær om Eye On Idea, et dansk digitalt konsulentfirma grundlagt af Rune M. P. Pjetursson. Vi hjælper B2B-virksomheder med at opbygge en klar og professionel digital tilstedeværelse på tværs af Europa."
+  },
+  "hero": {
+    "badge": "Om os",
+    "title": "Opbygning af digitale fundamenter, der holder",
+    "subtitle": "Eye On Idea er en dansk digital konsulentvirksomhed, der hjælper B2B-virksomheder med at opbygge en stærk og professionel online tilstedeværelse."
+  },
+  "story": {
+    "badge": "Vores historie",
+    "title": "Fra idé til virkelighed",
+    "paragraphs": [
+      "Eye On Idea blev grundlagt i 2025 med en simpel overbevisning. Enhver virksomhed fortjener en digital tilstedeværelse, der afspejler, hvem de er, og hvad de tilbyder.",
+      "Mange virksomheder ender med hjemmesider, der ikke passer til deres forretning, er svære at opdatere eller bliver dyre at vedligeholde med tiden.",
+      "Vi tager en anden tilgang. Ethvert projekt starter med at forstå dine mål og din situation. Vi bygger et solidt digitalt fundament, der understøtter din vækst i dag og i fremtiden."
+    ]
+  },
+  "founder": {
+    "badge": "Grundlæggeren",
+    "name": "Rune M. P. Pjetursson",
+    "role": "Grundlægger og ledende konsulent",
+    "bio": [
+      "Rune grundlagde Eye On Idea for at forbinde teknisk ekspertise med reelle forretningsbehov. Hans fokus er altid på resultater, klarhed og langsigtet værdi.",
+      "Han har arbejdet med virksomheder i hele Europa og forstår, hvordan man omsætter komplekse ideer til praktiske og pålidelige digitale løsninger."
+    ],
+    "philosophy": {
+      "title": "Arbejdsfilosofi",
+      "text": "Jeg tror på langsigtede partnerskaber, ikke engangsprojekter. Når du arbejder med Eye On Idea, får du en partner, der forstår din virksomhed og arbejder for at understøtte din succes."
+    },
+    "connect": "Opret forbindelse på LinkedIn"
+  },
+  "values": {
+    "badge": "Hvad vi står for",
+    "title": "Vores værdier",
+    "items": [
+      {
+        "icon": "i-heroicons-light-bulb",
+        "title": "Klarhed",
+        "description": "Vi bygger løsninger, som du forstår og kan administrere. Klar struktur fører til bedre resultater."
+      },
+      {
+        "icon": "i-heroicons-hand-raised",
+        "title": "Partnerskab",
+        "description": "Vi forbliver involveret ud over levering. Din succes er en del af vores ansvar."
+      },
+      {
+        "icon": "i-heroicons-chat-bubble-left-ellipsis",
+        "title": "Ærlig kommunikation",
+        "description": "Vi giver klare råd og realistiske forventninger, så du kan træffe informerede beslutninger."
+      },
+      {
+        "icon": "i-heroicons-shield-check",
+        "title": "Kvalitet",
+        "description": "Vi fokuserer på holdbarhed, ydeevne og professionelle standarder i hvert projekt."
+      }
+    ]
+  },
+  "location": {
+    "badge": "Hvor vi er",
+    "title": "Baseret i Danmark, betjener Europa",
+    "description": "Eye On Idea er baseret i Aalborg, Danmark. Vi arbejder med kunder på tværs af Norden og EU. Møder kan afholdes online eller personligt efter behov.",
+    "details": {
+      "headquarters": "Aalborg, Danmark",
+      "coverage": "Danmark, Norden, EU",
+      "languages": "engelsk, dansk"
+    },
+    "processLink": "Se vores proces"
+  },
+  "quickFacts": {
+    "title": "Et blik",
+    "items": [
+      {
+        "icon": "i-heroicons-calendar",
+        "label": "Grundlagt",
+        "value": "2025"
+      },
+      {
+        "icon": "i-heroicons-building-office",
+        "label": "Fokus",
+        "value": "B2B digital tilstedeværelse"
+      },
+      {
+        "icon": "i-heroicons-code-bracket",
+        "label": "tilgang",
+        "value": "Moderne og pålidelig"
+      },
+      {
+        "icon": "i-heroicons-shield-check",
+        "label": "Overholdelse",
+        "value": "GDPR og EU-lovgivning"
+      }
+    ]
+  },
+  "cta": {
+    "badge": "Klar til at starte?",
+    "title": "Lad os tale om dit projekt",
+    "description": "Uanset om du har en klar plan eller en tidlig idé, hjælper vi dig med at definere det rigtige næste skridt.",
+    "primary": "Tag kontakt",
+    "secondary": "Se vores tjenester"
+  }
+}

@@ -1,0 +1,887 @@
+{
+  "meta": {
+    "title": "Centro clienti",
+    "description": "Guide e risorse per aiutarti a gestire il tuo sito web, la posta elettronica, il dominio, l'hosting e l'identità del marchio"
+  },
+  "login": {
+    "title": "Centro clienti",
+    "subtitle": "Inserisci la tua password per accedere a guide e risorse",
+    "passwordLabel": "Parola d'ordine",
+    "passwordPlaceholder": "Inserisci la tua password di accesso",
+    "submitButton": "Hub di accesso",
+    "submitting": "Verifica...",
+    "errorInvalid": "Password errata. Riprova o contatta il tuo project manager.",
+    "errorRequired": "Inserisci la tua password.",
+    "errorGeneric": "Qualcosa è andato storto. Per favore riprova.",
+    "helpText": "Se non disponi di una password, contatta il tuo project manager Eye On Idea."
+  },
+  "nav": {
+    "hubTitle": "Centro clienti",
+    "backToSite": "Torna al sito principale",
+    "logout": "Esci",
+    "home": "Casa dell'Hub",
+    "search": "Cerca guide...",
+    "noResults": "Nessuna guida trovata per \"{query}\"",
+    "allCategories": "Tutte le categorie",
+    "allServices": "Tutti i servizi"
+  },
+  "hub": {
+    "welcomeTitle": "Benvenuto nel tuo hub clienti",
+    "welcomeDescription": "Trova guide e risorse per i servizi che forniamo. Scegli un servizio qui sotto per iniziare.",
+    "servicesTitle": "Sfoglia per servizio",
+    "gettingStartedHighlight": "Nuovo qui? Inizia con la guida onboarding qui sopra per capire cosa aspettarti."
+  },
+  "onboarding": {
+    "title": "Per iniziare: guida all'onboarding",
+    "description": "Informazioni importanti sul lancio del tuo sito web, sull'accesso e su cosa aspettarti.",
+    "ctaDescription": "Tutto quello che devi sapere prima e dopo il lancio del tuo sito web: cronologia, accesso, aspetti legali, supporto e trasferimento.",
+    "ctaButton": "Leggi la guida all'onboarding",
+    "backToHub": "Torniamo all'Hub",
+    "collapseLabel": "Comprimi la guida all'onboarding",
+    "expandLabel": "Espandi la guida all'onboarding",
+    "sections": {
+      "whereWeAre": {
+        "title": "Dove siamo adesso",
+        "content": "Attualmente sei nella fase di pre-lancio. Hai ricevuto l'accesso al server di prova, l'invito CMS (se incluso), l'accesso per la revisione al sito Web completo e la fattura finale (2-5 giorni lavorativi prima del lancio). Lancio significa che il tuo sito web diventa attivo e accessibile tramite il tuo dominio."
+      },
+      "launchTimeline": {
+        "title": "Avvia la sequenza temporale",
+        "beforeLaunch": "Prima del lancio, esamini tutto il contenuto della pagina, i dettagli di contatto, le immagini, le pagine legali, i moduli, la navigazione e i campi SEO. Confermi l'approvazione. Il pagamento finale è dovuto il giorno del lancio.",
+        "launchDay": "Il giorno del lancio, il sito web sarà attivo sul tuo dominio. SSL è attivo, l'hosting è monitorato, il monitoraggio analitico è attivo (se incluso) e tutti i risultati finali vengono consegnati.",
+        "afterLaunch": "Dopo il lancio, entri in una finestra di supporto di 2 settimane. Ciò include piccole modifiche al testo, sostituzioni di immagini, correzioni di errori di battitura e regolazioni delle informazioni di contatto. Non include nuove pagine, modifiche al layout, modifiche al design o nuove funzionalità. I cambiamenti più importanti richiedono un nuovo accordo o piano di supporto."
+      },
+      "accessCredentials": {
+        "title": "Accesso e credenziali",
+        "cms": "Gli inviti CMS vengono inviati tramite e-mail. Gli editor possono aggiungere ed eliminare contenuti. Gli scrittori possono aggiungere solo contenuti. Il recupero dei contenuti non è garantito. Sei responsabile della gestione dei tuoi contenuti.",
+        "email": "La password iniziale è fornita da Eye On Idea. È necessario modificarlo dopo il primo accesso. L'hosting della posta elettronica ha sede nell'UE. I backup sono tua responsabilità. Eye On Idea non mantiene l'accesso alla casella di posta.",
+        "domain": "Il dominio è registrato a nome della tua azienda. Tu sei il proprietario legale. Il rinnovo è annuale. I promemoria di rinnovo vengono inviati in anticipo. Il mancato rinnovo può comportare la scadenza.",
+        "hosting": "Il sito web è ospitato in Europa. SSL è attivo. Vengono eseguiti controlli settimanali del tempo di attività. L'accesso FTP/server non è fornito per impostazione predefinita. I record DNS possono essere forniti su richiesta."
+      },
+      "legalCompliance": {
+        "title": "Legale e conformità",
+        "content": "Eye On Idea fornisce una politica sulla privacy, una politica sui cookie e una configurazione del banner sui cookie (formulazione standard del settore). Termini e condizioni devono essere discussi e approvati durante il progetto. La conformità al GDPR è strutturata in base al contesto normativo standard dell’UE. Se la legislazione europea dovesse cambiare in futuro, Eye On Idea potrebbe aggiornare di conseguenza le politiche pertinenti."
+      },
+      "seoExpectations": {
+        "title": "SEO e aspettative",
+        "content": "Il tuo sito web è costruito per raggiungere un punteggio di performance Lighthouse superiore a 90, seguire le migliori pratiche di struttura semantica e supportare gli standard SEO tecnici. Eye On Idea non garantisce il posizionamento nei risultati di ricerca. I servizi di posizionamento nei motori di ricerca non rientrano nell'ambito e richiedono uno specialista."
+      },
+      "monitoring": {
+        "title": "Monitoraggio e manutenzione",
+        "content": "Dopo il lancio, verranno eseguiti controlli settimanali di operatività, i problemi critici di sicurezza verranno risolti se rilevati e gli aggiornamenti di compatibilità verranno eseguiti solo quando necessario. L'ottimizzazione continua e il supporto esteso richiedono un piano di supporto."
+      },
+      "launchChecklist": {
+        "title": "Avvia la lista di controllo",
+        "intro": "Prima di confermare il lancio, verifica:",
+        "items": [
+          "Tutti i contenuti approvati",
+          "Informazioni di contatto corrette",
+          "Pagine legali revisionate",
+          "Forme testate",
+          "Account di posta elettronica testati",
+          "Accesso al CMS funzionante",
+          "Confermato il rinnovo del dominio",
+          "Fattura finale riconosciuta"
+        ],
+        "note": "Il lancio conferma l'approvazione del lavoro consegnato."
+      },
+      "supportWindow": {
+        "title": "Finestra di supporto",
+        "content": "Il periodo di supporto di 2 settimane è progettato per rilevare piccole correzioni. Non include riprogettazione, espansione di funzionalità, creazione di nuove pagine o modifiche strutturali. Dopo il periodo di supporto, ulteriori lavori richiedono un nuovo accordo o piano di supporto."
+      },
+      "handoff": {
+        "title": "Trasferimento e proprietà",
+        "content": "Al momento del pagamento completo e finale, la proprietà intellettuale del lavoro personalizzato viene trasferita all'utente. I file statici del sito Web possono essere forniti su richiesta. Le risorse del marchio possono essere riconsegnate ai clienti attivi. I framework preesistenti e i sistemi riutilizzabili rimangono di proprietà di Eye On Idea."
+      },
+      "communication": {
+        "title": "Comunicazione",
+        "content": "I canali di contatto principali sono email e telefono. I tempi di risposta dipendono dal carico di lavoro corrente, a meno che non sia attivo un piano di supporto."
+      }
+    }
+  },
+  "services": {
+    "website-content": {
+      "title": "Contenuto del sito web",
+      "description": "Guide per la gestione dei contenuti del tuo sito web utilizzando lo studio di gestione dei contenuti.",
+      "icon": "i-heroicons-globe-alt"
+    },
+    "email": {
+      "title": "E-mail",
+      "description": "Configura e gestisci i tuoi account di posta elettronica professionali con Zimbra.",
+      "icon": "i-heroicons-envelope"
+    },
+    "domain": {
+      "title": "Dominio",
+      "description": "Comprendere e gestire il nome di dominio, i DNS e i rinnovi.",
+      "icon": "i-heroicons-link"
+    },
+    "hosting": {
+      "title": "Hosting e infrastruttura",
+      "description": "Hosting, distribuzione, prestazioni e monitoraggio del tempo di attività del tuo sito web.",
+      "icon": "i-heroicons-server-stack"
+    },
+    "visual-identity": {
+      "title": "Identità visiva",
+      "description": "Il tuo logo, i colori del marchio, la tipografia e i materiali stampati.",
+      "icon": "i-heroicons-paint-brush"
+    }
+  },
+  "serviceCard": {
+    "guideCount": "{count} guide | {count} guida | {count} guide",
+    "browse": "Sfoglia le guide",
+    "comingSoon": "Prossimamente"
+  },
+  "categories": {
+    "getting-started": {
+      "title": "Come iniziare",
+      "description": "Configura il tuo accesso, accedi per la prima volta e apprendi le nozioni di base.",
+      "icon": "i-heroicons-rocket-launch"
+    },
+    "editing-content": {
+      "title": "Modifica dei contenuti",
+      "description": "Scopri come modificare testo, salvare bozze e pubblicare modifiche.",
+      "icon": "i-heroicons-pencil-square"
+    },
+    "seo": {
+      "title": "Campi SEO",
+      "description": "Ottimizza i titoli delle pagine, le descrizioni e gli URL per i motori di ricerca.",
+      "icon": "i-heroicons-magnifying-glass"
+    },
+    "news-and-posts": {
+      "title": "Notizie e post",
+      "description": "Crea, formatta e pubblica articoli di notizie o post di blog.",
+      "icon": "i-heroicons-newspaper"
+    },
+    "media": {
+      "title": "Media e immagini",
+      "description": "Carica, gestisci e ottimizza immagini e file per il tuo sito web.",
+      "icon": "i-heroicons-photo"
+    },
+    "troubleshooting": {
+      "title": "Risoluzione dei problemi",
+      "description": "Soluzioni a problemi comuni e domande frequenti.",
+      "icon": "i-heroicons-wrench-screwdriver"
+    },
+    "setup": {
+      "title": "Installazione",
+      "description": "Configura la tua posta elettronica in app come Outlook, Apple Mail e dispositivi mobili.",
+      "icon": "i-heroicons-cog-6-tooth"
+    },
+    "management": {
+      "title": "Gestione",
+      "description": "Gestisci backup, sicurezza e responsabilità continue.",
+      "icon": "i-heroicons-clipboard-document-list"
+    },
+    "overview": {
+      "title": "Panoramica",
+      "description": "Comprendere come funziona il servizio e chi è responsabile di cosa.",
+      "icon": "i-heroicons-information-circle"
+    },
+    "renewals": {
+      "title": "Rinnovi",
+      "description": "Come funziona il rinnovo del dominio e cosa succede se scade.",
+      "icon": "i-heroicons-arrow-path"
+    },
+    "transfers": {
+      "title": "Trasferimenti e DNS",
+      "description": "Trasferisci il tuo dominio o comprendi la configurazione DNS.",
+      "icon": "i-heroicons-arrows-right-left"
+    },
+    "how-it-works": {
+      "title": "Come funziona",
+      "description": "Comprendere gli aggiornamenti, le ricostruzioni e le analisi dei contenuti.",
+      "icon": "i-heroicons-cpu-chip"
+    },
+    "maintenance": {
+      "title": "Manutenzione e accesso",
+      "description": "Livelli di supporto, ambito di manutenzione e policy di accesso.",
+      "icon": "i-heroicons-shield-check"
+    },
+    "logo": {
+      "title": "Marchio",
+      "description": "Comprendi i tipi di file del tuo logo, le versioni e le regole di utilizzo.",
+      "icon": "i-heroicons-sparkles"
+    },
+    "brand-guidelines": {
+      "title": "Linee guida del marchio",
+      "description": "Colori, tipografia e modelli per un branding coerente.",
+      "icon": "i-heroicons-swatch"
+    },
+    "brand-management": {
+      "title": "Gestione del marchio",
+      "description": "Mantieni coerente il tuo marchio e gestisci i tuoi file correttamente.",
+      "icon": "i-heroicons-folder-open"
+    }
+  },
+  "articles": {
+    "cms-overview": {
+      "title": "Panoramica del CMS",
+      "summary": "Cos'è il tuo sistema di gestione dei contenuti e cosa puoi fare con esso."
+    },
+    "logging-in": {
+      "title": "Apertura e accesso",
+      "summary": "Come accedere al tuo Content Studio e accedere per la prima volta."
+    },
+    "studio-navigation": {
+      "title": "Navigare nello Studio",
+      "summary": "Orientarsi nell'interfaccia di Studio e individuare i tipi di contenuto."
+    },
+    "editing-text": {
+      "title": "Modifica del testo",
+      "summary": "Come modificare in sicurezza il contenuto di testo in studio."
+    },
+    "drafts-and-publishing": {
+      "title": "Bozze e pubblicazione",
+      "summary": "Salva bozze, pubblica contenuti e controlla il risultato sul tuo sito web live."
+    },
+    "seo-basics": {
+      "title": "Nozioni di base sulla SEO",
+      "summary": "Comprendere i campi SEO, scrivere titoli e meta descrizioni."
+    },
+    "slugs-and-urls": {
+      "title": "Slug e URL",
+      "summary": "Gestione degli URL delle pagine e pubblicazione delle modifiche SEO."
+    },
+    "creating-a-post": {
+      "title": "Creazione di un messaggio",
+      "summary": "Come creare un nuovo articolo di notizie o post di blog con immagini e struttura."
+    },
+    "publishing-a-post": {
+      "title": "Pubblicare un post",
+      "summary": "Salva, pubblica e rivedi il tuo post sul sito Web live."
+    },
+    "image-best-practices": {
+      "title": "Best practice per le immagini",
+      "summary": "Prepara, carica e ritaglia le immagini per il tuo sito web."
+    },
+    "alt-text-and-files": {
+      "title": "Caricamenti di testo alternativo e file",
+      "summary": "Aggiungi testo alternativo per l'accessibilità e carica i documenti correttamente."
+    },
+    "common-mistakes": {
+      "title": "Errori comuni",
+      "summary": "Evita gli errori più frequenti nella gestione dei contenuti."
+    },
+    "cms-faq": {
+      "title": "Domande frequenti sul CMS",
+      "summary": "Domande frequenti sull'utilizzo del sistema di gestione dei contenuti."
+    },
+    "email-overview": {
+      "title": "Panoramica dell'e-mail",
+      "summary": "Cosa include la tua email professionale e chi è responsabile di cosa."
+    },
+    "first-login": {
+      "title": "Primo accesso",
+      "summary": "Accedi per la prima volta e cambia subito la password."
+    },
+    "webmail-access": {
+      "title": "Accesso alla posta elettronica",
+      "summary": "Accedi alla tua posta elettronica tramite il browser utilizzando la webmail."
+    },
+    "email-app-setup": {
+      "title": "Configurazione dell'app di posta elettronica",
+      "summary": "Configura la tua posta elettronica in Outlook, Apple Mail, Thunderbird o nelle app mobili."
+    },
+    "email-backup": {
+      "title": "Backup della posta elettronica",
+      "summary": "Comprendi le tue responsabilità di backup e come proteggere le tue e-mail."
+    },
+    "email-faq": {
+      "title": "Domande frequenti tramite posta elettronica",
+      "summary": "Domande frequenti sul tuo servizio di posta elettronica."
+    },
+    "domain-ownership": {
+      "title": "Proprietà del dominio",
+      "summary": "Scopri chi possiede il tuo dominio e chi lo gestisce."
+    },
+    "domain-renewal": {
+      "title": "Rinnovo dominio",
+      "summary": "Come funziona il processo di rinnovo e cosa succede se scade."
+    },
+    "domain-transfer": {
+      "title": "Trasferimento dominio",
+      "summary": "Come trasferire il tuo dominio ad un altro provider."
+    },
+    "dns-configuration": {
+      "title": "DNS e configurazione tecnica",
+      "summary": "Come viene gestito il DNS e perché il coordinamento è importante."
+    },
+    "domain-faq": {
+      "title": "Domande frequenti sul dominio",
+      "summary": "Domande frequenti sulla gestione del dominio."
+    },
+    "hosting-setup": {
+      "title": "Panoramica dell'hosting",
+      "summary": "Come è ospitato il tuo sito web e cosa gestisce Eye On Idea."
+    },
+    "environments": {
+      "title": "Produzione vs Sviluppo",
+      "summary": "Comprendi la differenza tra il tuo sito live e l'ambiente di sviluppo."
+    },
+    "content-updates": {
+      "title": "Aggiornamenti e ricostruzioni dei contenuti",
+      "summary": "In che modo la pubblicazione di contenuti attiva gli aggiornamenti automatici del sito Web."
+    },
+    "analytics": {
+      "title": "Analisi e reporting",
+      "summary": "Opzioni di monitoraggio e reporting dell'analisi dei siti Web."
+    },
+    "support-and-maintenance": {
+      "title": "Supporto e manutenzione",
+      "summary": "Cosa include la manutenzione di base e come ottenere supporto esteso."
+    },
+    "hosting-faq": {
+      "title": "Domande frequenti sull'hosting",
+      "summary": "Domande frequenti su hosting e infrastruttura."
+    },
+    "logo-files": {
+      "title": "Tipi di file del logo",
+      "summary": "Comprendi i formati SVG, PNG e JPG e quando utilizzarli."
+    },
+    "logo-usage": {
+      "title": "Regole per l'utilizzo del logo",
+      "summary": "Quale versione del logo utilizzare e cosa non fare con il tuo logo."
+    },
+    "colors-and-typography": {
+      "title": "Colori e tipografia",
+      "summary": "La tavolozza dei colori del tuo marchio e le linee guida tipografiche."
+    },
+    "templates-and-print": {
+      "title": "Modelli e materiale di stampa",
+      "summary": "Biglietti da visita, carta intestata, presentazioni e risorse dei social media."
+    },
+    "brand-consistency": {
+      "title": "Coerenza del marchio",
+      "summary": "Perché la coerenza è importante e come mantenerla."
+    },
+    "visual-identity-faq": {
+      "title": "Domande frequenti sull'identità visiva",
+      "summary": "Domande frequenti sulle risorse del tuo brand."
+    }
+  },
+  "article": {
+    "lastUpdated": "Ultimo aggiornamento",
+    "previousArticle": "Precedente",
+    "nextArticle": "Avanti",
+    "backToCategory": "Torna a {category}",
+    "screenshotPlaceholder": "Lo screenshot verrà aggiunto qui",
+    "studioMayDiffer": "Il tuo studio potrebbe apparire leggermente diverso a seconda della configurazione del progetto.",
+    "tipLabel": "Suggerimento",
+    "noteLabel": "Nota",
+    "warningLabel": "Importante",
+    "needHelp": "Hai bisogno di aiuto?",
+    "needHelpText": "Se sei bloccato o qualcosa non sembra corretto, contatta il tuo project manager Eye On Idea.",
+    "content": {
+      "cmsOverview": {
+        "introTitle": "Cos'è il CMS?",
+        "introText": "Il tuo CMS (Content Management System) è il luogo in cui gestisci i contenuti del tuo sito web. Non richiede codifica.",
+        "whatYouCanDoTitle": "Cosa puoi fare",
+        "whatYouCanDo1": "Aggiorna testo e immagini sul tuo sito web",
+        "whatYouCanDo2": "Creare e pubblicare notizie o post (se inclusi nel tuo progetto)",
+        "whatYouCanDo3": "Gestisci pagine e navigazione (se inclusa)",
+        "whatYouCanDo4": "Mantieni aggiornato il tuo sito web senza toccare il codice",
+        "prerequisitesTitle": "Di cosa hai bisogno prima di iniziare",
+        "prerequisitesText": "Per accedere al CMS è necessaria una email di invito da parte di Eye On Idea. Fornirai gli indirizzi email a cui dovrebbe essere consentito l'accesso e specificherai chi dovrebbe essere Editor o Scrittore (se pertinente).",
+        "rolesTitle": "Editor contro scrittore",
+        "rolesWriter": "Scrittore: può aggiungere contenuti (capacità di modifica e rimozione limitate)",
+        "rolesEditor": "Editor: può aggiungere, modificare ed eliminare contenuti",
+        "rolesNote": "Eye On Idea mantiene l'accesso come amministratore per proteggere la configurazione tecnica. I client non ricevono l'accesso allo schema.",
+        "tip": "Se non sei sicuro di qualcosa, salva prima una bozza. Nell'uso normale, non è possibile interrompere il sito Web modificando il contenuto."
+      },
+      "loggingIn": {
+        "openStudioTitle": "Apri lo Studio",
+        "openStudioText": "Il tuo Content Studio è un'applicazione web a cui si accede tramite il tuo browser. Vai al link di Studio, solitamente:",
+        "openStudioUrl": "studio.tuodominio.com",
+        "openStudioBookmark": "Aggiungi questo URL ai segnalibri per un accesso rapido in futuro.",
+        "signInTitle": "Accedi",
+        "signInStep1": "Fare clic su Accedi nella pagina dello studio",
+        "signInStep2": "Utilizza l'indirizzo email con cui sei stato invitato",
+        "signInStep3": "Completa il flusso di accesso",
+        "noInviteTitle": "Non hai ricevuto un invito?",
+        "noInviteText": "Chiedi all'amministratore della tua azienda di confermare il tuo indirizzo email o contatta direttamente Eye On Idea per inviare nuovamente l'invito.",
+        "tip": "Se il link di invito è scaduto, contatta il tuo project manager Eye On Idea per richiederne uno nuovo."
+      },
+      "studioNavigation": {
+        "introTitle": "Trovare ciò di cui hai bisogno",
+        "introText": "La maggior parte degli studi dispone di un menu sul lato sinistro con i tipi di contenuto. Questi in genere includono:",
+        "contentType1": "Pagine",
+        "contentType2": "Notizie/post",
+        "contentType3": "Impostazioni",
+        "contentType4": "Navigazione",
+        "contentType5": "SEO",
+        "howToNavigate": "Fai clic sull'area che desideri aggiornare. Utilizza la funzione di ricerca se è disponibile per trovare rapidamente contenuti specifici.",
+        "tip": "Se non vedi una barra laterale di navigazione, cerca un'icona di menu (spesso tre linee orizzontali) nella parte superiore dello schermo, soprattutto sugli schermi più piccoli."
+      },
+      "editingText": {
+        "introTitle": "Modifica del testo in modo sicuro",
+        "introText": "Per modificare il contenuto del testo in Studio, fai clic in un campo di testo, apporta le modifiche e mantieni le frasi brevi e chiare.",
+        "stepsTitle": "Come modificare",
+        "step1": "Fai clic nel campo di testo che desideri modificare",
+        "step2": "Apporta le tue modifiche direttamente sul campo",
+        "step3": "Mantieni le frasi brevi e chiare per la leggibilità",
+        "pastingTitle": "Incollare testo",
+        "pastingText": "Evita di incollare testo con formattazione di Word o altri editor. Se incolli, ricontrolla rapidamente la spaziatura e le intestazioni per assicurarti che siano corretti.",
+        "tip": "Utilizza gli strumenti di formattazione integrati (titoli, grassetto, elenchi) anziché provare a formattare manualmente con spazi o caratteri speciali.",
+        "warning": "Alcuni contenuti potrebbero essere bloccati per proteggere la struttura del sito web. Solo Eye On Idea cambia lo schema e la configurazione dello studio."
+      },
+      "draftsAndPublishing": {
+        "draftsTitle": "Salvataggio come bozza",
+        "draftsText": "Le bozze vengono salvate automaticamente nella maggior parte degli studi. Utilizza le bozze quando non hai ancora finito, vuoi che qualcun altro la riveda o non sei sicuro della formulazione finale.",
+        "publishTitle": "Editoria",
+        "publishStep1": "Fai clic su Pubblica quando sei pronto",
+        "publishStep2": "Conferma se richiesto",
+        "publishStep3": "Il sito Web si aggiornerà automaticamente: potrebbe essere necessario un po' di tempo prima che vengano visualizzate le modifiche",
+        "checkTitle": "Controlla il risultato",
+        "checkText": "Dopo la pubblicazione, apri la pagina sul tuo sito web live e verifica:",
+        "check1": "Flusso e leggibilità del testo",
+        "check2": "Ortografia e grammatica",
+        "check3": "Visualizzazione mobile",
+        "check4": "Immagini (dimensioni e ritaglio)",
+        "tip": "Se non vedi le modifiche, prova un aggiornamento forzato: Cmd+Shift+R (Mac) o Ctrl+Shift+R (Windows).",
+        "warning": "L'eliminazione dei contenuti è spesso permanente. Se non sei sicuro, salva una bozza o contatta Eye On Idea prima di eliminare qualsiasi cosa."
+      },
+      "seoBasics": {
+        "introTitle": "Cosa sono i campi SEO?",
+        "introText": "I campi SEO controllano il modo in cui le tue pagine appaiono nei risultati dei motori di ricerca e nelle anteprime dei social media. Non modificano il testo visibile del sito web.",
+        "fieldsTitle": "Cosa puoi controllare",
+        "field1": "Titolo SEO: il titolo della pagina mostrato nei risultati di Google",
+        "field2": "Meta Descrizione: il breve testo sotto il titolo in Google",
+        "field3": "Immagine di condivisione social (se inclusa nel tuo progetto)",
+        "field4": "Slug: l'URL della pagina",
+        "titleTitle": "Scrivere il titolo SEO",
+        "titleText": "Il titolo SEO appare nei risultati di ricerca di Google. Mantieni 50-60 caratteri, chiari e specifici e includi l'argomento principale.",
+        "titleExample": "Esempio: \"Servizi di copertura di coperture commerciali ad Aarhus\"",
+        "descriptionTitle": "Scrivere la Meta Descrizione",
+        "descriptionText": "La meta descrizione è il breve testo sotto il titolo in Google. Mantieni 120-160 caratteri, scrivi un riepilogo chiaro della pagina e invita l'utente a fare clic.",
+        "descriptionExample": "Esempio: \"Soluzioni di copertura professionali per le aziende ad Aarhus. Ottieni la consulenza di esperti e una consulenza gratuita.\"",
+        "note": "La SEO non garantisce il posizionamento. Una struttura chiara conta più del riempimento di parole chiave. Mantienilo semplice e umano."
+      },
+      "slugsAndUrls": {
+        "introTitle": "Gestione degli URL delle pagine",
+        "introText": "Lo slug è l'indirizzo della pagina che appare nella barra degli URL del browser.",
+        "exampleTitle": "Come funzionano le lumache",
+        "exampleText": "Ad esempio: tuodominio.com/roofing-services",
+        "bestPracticesTitle": "Migliori pratiche",
+        "bestPractice1": "Mantieni le lumache brevi e descrittive",
+        "bestPractice2": "Utilizzare solo lettere minuscole",
+        "bestPractice3": "Evita i caratteri speciali",
+        "bestPractice4": "Usa i trattini per separare le parole",
+        "publishTitle": "Pubblicazione di modifiche SEO",
+        "publishText": "Dopo aver aggiornato i campi SEO, fai clic su Pubblica. Le modifiche diventano effettive dopo la ricostruzione del sito web.",
+        "warning": "Evita di modificare uno slug dopo la pubblicazione, a meno che non sia necessario. La modifica di uno slug modifica l'URL della pagina, il che può interrompere collegamenti e segnalibri esistenti.",
+        "note": "Ogni pagina dovrebbe avere campi SEO compilati. I campi SEO vuoti significano che i motori di ricerca hanno meno informazioni sulla tua pagina."
+      },
+      "creatingAPost": {
+        "introTitle": "Creazione di un nuovo post",
+        "introText": "La sezione notizie o post ti consente di condividere aggiornamenti, pubblicare articoli, migliorare la visibilità nei motori di ricerca e mantenere attivo il tuo sito web. Ogni post diventa la sua pagina.",
+        "createTitle": "Crea un nuovo messaggio",
+        "createStep1": "Apri lo Studio",
+        "createStep2": "Fai clic su Notizie o Post nella navigazione",
+        "createStep3": "Fare clic su Crea nuovo",
+        "titleSectionTitle": "Aggiungi un titolo",
+        "titleText": "Scrivi un titolo chiaro, breve e specifico. Evita titoli molto lunghi, tutto maiuscolo o parole chiave in eccesso.",
+        "imageTitle": "Aggiungi un'immagine in primo piano",
+        "imageStep1": "Fare clic sul campo dell'immagine",
+        "imageStep2": "Carica una nuova immagine o selezionane una esistente",
+        "imageStep3": "Se necessario, regola il ritaglio",
+        "imageTip": "Utilizzare il formato orizzontale se non diversamente indicato nel testo della guida.",
+        "contentTitle": "Scrivi i tuoi contenuti",
+        "contentText": "Utilizza i titoli per strutturare il testo. Una buona struttura include un'introduzione, una sezione principale, dettagli di supporto e una conclusione. Mantieni i paragrafi brevi ed evita lunghi blocchi di testo."
+      },
+      "publishingAPost": {
+        "draftTitle": "Salva come bozza",
+        "draftText": "La bozza viene salvata automaticamente. Puoi partire e tornare più tardi. Utilizza una bozza se non hai finito o desideri prima l'approvazione interna.",
+        "publishTitle": "Pubblica il tuo post",
+        "publishText": "Fai clic su Pubblica quando sei pronto. Dopo la pubblicazione, il post diventa visibile sul tuo sito web e appare nella pagina di panoramica delle notizie.",
+        "reviewTitle": "Recensione sul sito live",
+        "reviewText": "Apri il tuo sito web e controlla:",
+        "review1": "Layout e formattazione del testo",
+        "review2": "Ritaglio e qualità dell'immagine",
+        "review3": "Versione mobile",
+        "review4": "Ortografia e grammatica",
+        "tip": "Puoi modificare un post dopo la pubblicazione. Apporta semplicemente le modifiche e pubblica di nuovo.",
+        "note": "L'eliminazione di un post lo rimuove definitivamente. Se la pianificazione è abilitata nel tuo progetto, puoi pianificare i post per la pubblicazione futura."
+      },
+      "imageBestPractices": {
+        "introTitle": "Perché la qualità dell'immagine è importante",
+        "introText": "Le buone immagini danno al tuo sito web un aspetto professionale. Immagini di scarsa qualità possono rallentarlo o renderlo poco chiaro. Lo studio mostra le taglie consigliate: seguile.",
+        "prepareTitle": "Prepara la tua immagine prima del caricamento",
+        "prepare1": "Usa JPG per le foto",
+        "prepare2": "Usa PNG solo se hai bisogno di trasparenza",
+        "prepare3": "Mantieni la dimensione del file inferiore a 1-2 MB se non diversamente specificato",
+        "prepare4": "Ridimensiona le immagini vicino alla dimensione consigliata mostrata in studio",
+        "uploadTitle": "Carica l'immagine",
+        "uploadStep1": "Fare clic sul campo dell'immagine",
+        "uploadStep2": "Carica o scegli dai media esistenti",
+        "uploadStep3": "Attendi il completamento del caricamento",
+        "uploadWarning": "Evita di caricare screenshot da WhatsApp, immagini molto piccole ingrandite o immagini con testo incorporato (a meno che non sia intenzionale).",
+        "cropTitle": "Regola il ritaglio se necessario",
+        "cropText": "Assicurati che il soggetto sia centrato, che il testo importante non sia tagliato e che i volti non siano ritagliati nella parte superiore. Controlla sempre come appare sul sito web.",
+        "tip": "In caso di dubbi, utilizza immagini orizzontali se non diversamente specificato."
+      },
+      "altTextAndFiles": {
+        "altTextTitle": "Aggiunta del testo alternativo",
+        "altTextText": "Il testo alternativo descrive l'immagine. Aiuta con l'accessibilità, i motori di ricerca e gli screen reader. Sii breve e descrittivo.",
+        "altTextGood": "Buon esempio: \"Team di copertura commerciale che installa un tetto piano ad Aarhus\"",
+        "altTextBad": "Cattivo esempio: \"image123.jpg\"",
+        "publishTitle": "Pubblica e rivedi",
+        "publishText": "Dopo la pubblicazione, apri la pagina sul tuo sito web e controlla la visualizzazione desktop, la visualizzazione mobile e la velocità di caricamento. Se sembra lento, l'immagine potrebbe essere troppo grande.",
+        "filesTitle": "Caricamenti di file (PDF e documenti)",
+        "filesText": "Se il tuo studio consente il caricamento di file, segui queste linee guida:",
+        "file1": "Se possibile, mantieni i PDF sotto i 5 MB",
+        "file2": "Utilizza nomi di file chiari (ad esempio, brochure-aziendale-2026.pdf)",
+        "file3": "Evita gli spazi nei nomi dei file",
+        "file4": "Usa le lettere minuscole",
+        "warning": "Il testo alternativo è importante per l'accessibilità (conformità WCAG). Compilatelo sempre quando il campo è disponibile."
+      },
+      "commonMistakes": {
+        "introTitle": "Errori comuni nella gestione dei contenuti",
+        "introText": "Ecco gli errori più frequenti quando si lavora con il proprio CMS e come evitarli.",
+        "cms1Title": "Eliminazione di contenuti invece di annullamento della pubblicazione",
+        "cms1Text": "L'eliminazione è spesso permanente. Se non sei sicuro, salva una bozza o chiedi a Eye On Idea prima di eliminare.",
+        "cms2Title": "Caricamento di immagini molto grandi",
+        "cms2Text": "Le immagini superiori a 5 MB rallentano la pagina. Utilizza le dimensioni consigliate mostrate nel testo della guida di Studio.",
+        "cms3Title": "Modifica della navigazione senza controllare il cellulare",
+        "cms3Text": "I menu si comportano diversamente sui dispositivi mobili. Controlla sempre sia la visualizzazione desktop che quella mobile dopo le modifiche.",
+        "cms4Title": "Incollare testo formattato da Word",
+        "cms4Text": "Ciò può introdurre formattazione nascosta. Ricontrolla la spaziatura e le intestazioni dopo aver incollato.",
+        "cms5Title": "Scrittura senza struttura",
+        "cms5Text": "Utilizza titoli e paragrafi brevi. Suddividi lunghi blocchi di testo per migliorarne la leggibilità.",
+        "cms6Title": "Pubblicazione senza anteprima",
+        "cms6Text": "Controlla sempre come appaiono i contenuti sul sito web live prima di considerarli definitivi.",
+        "cms7Title": "Riempimento di parole chiave nei campi SEO",
+        "cms7Text": "Ripetere le parole danneggia in modo innaturale la chiarezza. Scrivi prima per gli esseri umani.",
+        "cms8Title": "Lasciando i campi SEO vuoti",
+        "cms8Text": "Compila sempre il titolo SEO e la meta descrizione. I campi vuoti forniscono ai motori di ricerca meno informazioni.",
+        "cms9Title": "Dimenticare il testo alternativo sulle immagini",
+        "cms9Text": "Il testo alternativo è importante per l'accessibilità e i motori di ricerca. Compilalo sempre."
+      },
+      "cmsFaq": {
+        "introTitle": "Domande frequenti",
+        "q1": "Dove posso modificare il contenuto del mio sito web?",
+        "a1": "Nel tuo CMS Studio, solitamente su studio.tuodominio.com.",
+        "q2": "Posso interrompere il sito Web modificando il contenuto?",
+        "a2": "Nell'uso normale, no. Puoi modificare testo, immagini e blocchi di contenuto in modo sicuro. Evita di eliminare contenuti, annullare la pubblicazione di pagine importanti o sostituire immagini con file di grandi dimensioni. Se non sei sicuro, salva prima una bozza.",
+        "q3": "Perché non posso modificare alcune cose?",
+        "a3": "Alcuni contenuti sono bloccati per proteggere la struttura. Solo Eye On Idea cambia lo schema e la configurazione dello studio.",
+        "q4": "Non riesco ad accedere. Cosa faccio?",
+        "a4": "Conferma di utilizzare l'indirizzo email invitato, controlla l'invito nella cartella spam o chiedi a Eye On Idea di inviare nuovamente l'invito.",
+        "q5": "Quando vengono visualizzate le modifiche sul sito web?",
+        "a5": "Di solito entro breve tempo dalla pubblicazione. Il tuo sito web si ricostruisce automaticamente quando il contenuto viene pubblicato.",
+        "q6": "Posso programmare i contenuti?",
+        "a6": "Se la programmazione è abilitata nel tuo studio, sì. In caso contrario, Eye On Idea può aggiungerlo in alcune configurazioni.",
+        "q7": "La SEO garantisce il primo posto su Google?",
+        "a7": "No. La SEO migliora la chiarezza e la struttura. Il posizionamento dipende da molti fattori esterni.",
+        "q8": "Il sistema comprime le immagini automaticamente?",
+        "a8": "Sì. Il sito Web ottimizza le immagini durante la visualizzazione. Tuttavia, inizia con dimensioni ragionevoli.",
+        "q9": "Eye On Idea può aiutare con i contenuti e il SEO?",
+        "a9": "Sì. Come servizi aggiuntivi sono disponibili il miglioramento dei contenuti, l'ottimizzazione delle immagini e gli audit SEO."
+      },
+      "emailOverview": {
+        "introTitle": "La tua email professionale",
+        "introText": "Il tuo indirizzo email (ad esempio, nome{'@'}tuodominio.com) viene fornito come parte della configurazione del tuo sito web. Funziona su un sistema di posta elettronica professionale chiamato Zimbra.",
+        "featuresTitle": "Cosa è incluso",
+        "feature1": "Hosting sicuro della posta elettronica nell'UE",
+        "feature2": "Accesso alla webmail tramite il tuo browser",
+        "feature3": "Supporto IMAP per app (Outlook, Apple Mail, Thunderbird, mobile)",
+        "feature4": "Separato dal CMS del tuo sito web",
+        "eoiTitle": "Cosa fa Eye On Idea",
+        "eoi1": "Crea il tuo account di posta elettronica",
+        "eoi2": "Fornisce la password iniziale",
+        "eoi3": "Configura i record del dominio (SPF, DKIM)",
+        "eoi4": "Gestisce la creazione, l'eliminazione o gli aggiornamenti dell'account",
+        "yourTitle": "Di cosa sei responsabile",
+        "your1": "Modifica della password dopo il primo accesso",
+        "your2": "Mantenere la tua password sicura",
+        "your3": "Gestione del contenuto della casella di posta",
+        "your4": "Backup delle tue email (se necessario)",
+        "warning": "Eye On Idea non mantiene l'accesso alla tua casella di posta dopo la consegna."
+      },
+      "firstLogin": {
+        "stepsTitle": "Primo accesso",
+        "step1": "Apri il browser",
+        "step2": "Vai a: https://zimbra1.mail.ovh.net/",
+        "step3": "Accedi con il tuo indirizzo email completo e la password che ti è stata fornita",
+        "changePasswordTitle": "Cambia immediatamente la tua password",
+        "changeStep1": "Vai alle impostazioni dell'account dopo aver effettuato l'accesso",
+        "changeStep2": "Cambia la tua password con qualcosa di sicuro",
+        "changeStep3": "Conservalo in modo sicuro (utilizza un gestore di password se possibile)",
+        "warning": "Cambia sempre la tua password iniziale subito dopo il primo accesso. Ciò protegge la tua casella di posta da accessi non autorizzati."
+      },
+      "webmailAccess": {
+        "introTitle": "Utilizzando la webmail",
+        "introText": "La webmail ti consente di accedere alla tua posta elettronica direttamente tramite un browser senza installare alcuna app.",
+        "featuresTitle": "Cosa puoi fare con la webmail",
+        "feature1": "Invia e ricevi e-mail",
+        "feature2": "Organizza le cartelle",
+        "feature3": "Utilizza calendario e contatti integrati (se abilitati)",
+        "accessTitle": "Come accedere",
+        "accessText": "Vai a https://zimbra1.mail.ovh.net/ e accedi con il tuo indirizzo email e la tua password.",
+        "note": "Puoi utilizzare solo la webmail o anche connettere un'app di posta elettronica. Entrambi funzionano contemporaneamente."
+      },
+      "emailAppSetup": {
+        "introTitle": "Configurazione dell'app di posta elettronica",
+        "introText": "La maggior parte degli utenti preferisce utilizzare un'app di posta elettronica anziché o in aggiunta alla webmail. Utilizza le impostazioni IMAP riportate di seguito.",
+        "imapTitle": "Impostazioni IMAP",
+        "incomingTitle": "In entrata (IMAP)",
+        "incomingServer": "Server: imap.mail.ovh.net",
+        "incomingPort": "Porto: 993",
+        "incomingEncryption": "Crittografia: SSL/TLS",
+        "outgoingTitle": "In uscita (SMTP)",
+        "outgoingServer": "Server: smtp.mail.ovh.net",
+        "outgoingPort": "Porto: 465",
+        "outgoingEncryption": "Crittografia: SSL/TLS",
+        "credentialsTitle": "Credenziali",
+        "credentialsUsername": "Nome utente: il tuo indirizzo email completo",
+        "credentialsPassword": "Password: la tua password aggiornata",
+        "appsTitle": "App compatibili",
+        "appsText": "Utilizza queste impostazioni in Outlook, Apple Mail, Thunderbird o nell'app di posta per iPhone/Android.",
+        "testTitle": "Testare la configurazione",
+        "testStep1": "Invia un'e-mail di prova a te stesso",
+        "testStep2": "Conferma che appaia nella tua casella di posta",
+        "testStep3": "Prova a inviare da un altro dispositivo",
+        "tip": "Se qualcosa non funziona, ricontrolla i nomi dei server, conferma le porte corrette e assicurati che SSL sia abilitato.",
+        "warning": "Utilizza sempre IMAP e non POP. IMAP mantiene sincronizzati tutti i tuoi dispositivi. POP potrebbe far scomparire i messaggi da altri dispositivi."
+      },
+      "emailBackup": {
+        "introTitle": "Responsabilità del backup della posta elettronica",
+        "introText": "Eye On Idea non fornisce backup delle caselle di posta. Se i backup sono importanti per la tua azienda, dovresti configurarli tu stesso.",
+        "optionsTitle": "Opzioni di backup",
+        "option1": "Abilita l'archiviazione locale della posta nel tuo client di posta elettronica",
+        "option2": "Esporta periodicamente la posta in un archivio locale",
+        "option3": "Se necessario, utilizzare un software di backup professionale",
+        "warning": "I dati e-mail possono andare persi a causa di eliminazioni accidentali, problemi dell'account o incidenti di sicurezza. I backup regolari proteggono le tue comunicazioni aziendali."
+      },
+      "emailFaq": {
+        "introTitle": "Domande frequenti",
+        "q1": "Dove viene archiviata la mia email?",
+        "a1": "I dati della tua casella di posta sono archiviati in data center europei (Francia e Germania), aiutandoti a rispettare il GDPR.",
+        "q2": "Eye On Idea può leggere le mie email?",
+        "a2": "No. Eye On Idea non ha accesso alla casella di posta dopo la configurazione. Gestiamo solo la struttura dell'account (creazione, eliminazione, aggiornamento degli account).",
+        "q3": "Posso creare indirizzi email aggiuntivi?",
+        "a3": "Sì. Contatta Eye On Idea per creare nuovi account o alias.",
+        "q4": "Posso aggiornare lo spazio di archiviazione delle caselle di posta?",
+        "a4": "Sì. Se necessario, è possibile organizzare aggiornamenti dello spazio di archiviazione.",
+        "mistakesTitle": "Errori comuni",
+        "mistake1": "Non modificare la password iniziale: cambiala sempre immediatamente",
+        "mistake2": "Utilizzo di POP anziché IMAP: IMAP mantiene i dispositivi sincronizzati",
+        "mistake3": "Condivisione delle password tramite e-mail: non inviare mai password tramite canali non protetti"
+      },
+      "domainOwnership": {
+        "introTitle": "Il tuo dominio",
+        "introText": "Il tuo dominio è il tuo indirizzo digitale (ad esempio, tuodominio.com). Collega il tuo sito web, la posta elettronica e altri servizi online.",
+        "ownershipTitle": "Chi possiede il tuo dominio?",
+        "ownershipText": "Il tuo dominio è registrato a nome della tua azienda ed è legalmente di proprietà della tua azienda. Eye On Idea lo gestisce amministrativamente ma tu rimani sempre il proprietario legale.",
+        "eoiTitle": "Cosa fa Eye On Idea",
+        "eoi1": "Registra il dominio a nome della tua azienda",
+        "eoi2": "Configura DNS (sito web, e-mail, sicurezza)",
+        "eoi3": "Gestisce i rinnovi e invia promemoria",
+        "eoi4": "Gestisce la configurazione tecnica",
+        "yourTitle": "Di cosa sei responsabile",
+        "your1": "Pagamento delle tasse di rinnovo annuale",
+        "your2": "Conferma del rinnovo quando richiesto",
+        "your3": "Informandoci se i dettagli dell'azienda cambiano",
+        "your4": "Richiedere trasferimenti se necessario"
+      },
+      "domainRenewal": {
+        "processTitle": "Come funziona il rinnovo",
+        "processText": "I domini si rinnovano ogni anno. Il processo è semplice:",
+        "processStep1": "Un mese prima del rinnovo, Eye On Idea ti contatta",
+        "processStep2": "Viene inviata una fattura di rinnovo",
+        "processStep3": "Confermi e paghi",
+        "processStep4": "Il dominio viene rinnovato per 1 anno",
+        "expirationTitle": "Se non viene ricevuta alcuna risposta",
+        "expirationText": "Nell'ultimo mese prima della scadenza vengono inviati promemoria settimanali. I tentativi di contatto possono includere telefono ed e-mail.",
+        "warning": "Se non viene ricevuta alcuna risposta prima della scadenza, il dominio potrebbe scadere, diventare disponibile al pubblico e il tuo sito web e la tua posta elettronica potrebbero smettere di funzionare. Eye On Idea non mantiene la proprietà dei domini scaduti.",
+        "lifecycleTitle": "Ciclo di vita del dominio",
+        "lifecycle1": "Attivo: il tuo dominio funziona normalmente",
+        "lifecycle2": "Scaduto: il dominio smette di funzionare",
+        "lifecycle3": "Periodo di grazia: potrebbe essere ancora recuperabile",
+        "lifecycle4": "Periodo di riscatto: il recupero comporta costi aggiuntivi",
+        "lifecycle5": "Rilasciato: il dominio diventa disponibile per la registrazione di chiunque",
+        "tip": "Per evitare qualsiasi rischio, rinnovare sempre prima della scadenza."
+      },
+      "domainTransfer": {
+        "introTitle": "Trasferimento del tuo dominio",
+        "introText": "Puoi trasferire il tuo dominio a un altro provider in qualsiasi momento. Eye On Idea non blocca i trasferimenti di dominio. Il dominio appartiene a te.",
+        "processTitle": "Processo di trasferimento",
+        "processStep1": "È necessaria la conferma scritta del proprietario del dominio",
+        "processStep2": "Il codice di trasferimento (codice di autenticazione) è fornito da Eye On Idea",
+        "processStep3": "Il nuovo fornitore gestisce il trasferimento da lì",
+        "note": "I trasferimenti sono coordinati per evitare tempi di inattività. Contatta Eye On Idea per avviare il processo."
+      },
+      "dnsConfiguration": {
+        "introTitle": "DNS e configurazione tecnica",
+        "introText": "Il DNS (Domain Name System) controlla il modo in cui il tuo dominio si connette al tuo sito web, alla posta elettronica e ad altri servizi. Eye On Idea gestisce queste impostazioni.",
+        "managedTitle": "Cosa viene gestito",
+        "managed1": "Collegamento al sito web (record A/AAAA)",
+        "managed2": "Record di posta elettronica (SPF, DKIM, MX)",
+        "managed3": "Configurazione e rinnovo SSL",
+        "managed4": "Configurazione della sicurezza (consigliato DMARC)",
+        "warning": "Ti consigliamo di non modificare le impostazioni DNS senza coordinamento, poiché ciò potrebbe interrompere l'accesso al sito Web, la consegna della posta elettronica o i certificati di sicurezza."
+      },
+      "domainFaq": {
+        "introTitle": "Domande frequenti",
+        "q1": "Possiedo il mio dominio?",
+        "a1": "Sì. Il dominio è registrato a nome della tua azienda. Tu sei il proprietario legale.",
+        "q2": "Eye On Idea può prendere il mio dominio?",
+        "a2": "No. Sei sempre il proprietario legale.",
+        "q3": "Cosa succede se dimentico di rinnovare?",
+        "a3": "Il dominio potrebbe scadere ed eventualmente diventare disponibile per la registrazione da parte di altri.",
+        "q4": "Posso registrare domini aggiuntivi?",
+        "a4": "Sì. È possibile registrare domini aggiuntivi per la protezione del marchio, più mercati o l'utilizzo in campagne.",
+        "q5": "Posso spostare il mio dominio su un altro provider?",
+        "a5": "Sì. Il trasferimento è possibile in qualsiasi momento previa conferma scritta."
+      },
+      "hostingSetup": {
+        "introTitle": "Come è ospitato il tuo sito web",
+        "introText": "Il tuo sito web è ospitato su un'infrastruttura europea. È costruito come un sito Web statico incentrato sulle prestazioni, il che significa caricamento rapido, elevata sicurezza, basso rischio di manutenzione e non è richiesto l'accesso al server pubblico.",
+        "eoiTitle": "Cosa gestisce Eye On Idea",
+        "eoi1": "Distribuisce e mantiene il sito Web di produzione",
+        "eoi2": "Monitora i tempi di attività e la funzionalità",
+        "eoi3": "Gestisce i certificati SSL",
+        "eoi4": "Mantiene la configurazione DNS",
+        "eoi5": "Garantisce la ricostruzione del sito Web dopo gli aggiornamenti dei contenuti",
+        "eoi6": "Gestisce la configurazione dell'infrastruttura",
+        "note": "L'accesso all'hosting (FTP o pannello di controllo) non è fornito per impostazione predefinita. Ciò garantisce stabilità, sicurezza e responsabilità chiare. Se avete bisogno di un accesso speciale, questo deve essere concordato per iscritto."
+      },
+      "environments": {
+        "productionTitle": "Produzione (sito web live)",
+        "productionText": "Il tuo sito web live è ospitato in Europa, utilizza SSL sicuro, è ottimizzato per le prestazioni ed è monitorato per la disponibilità. Non è necessario accedere a questo ambiente.",
+        "developmentTitle": "Sviluppo/Stadiazione",
+        "developmentText": "Durante lo sviluppo, viene creato un ambiente di sviluppo temporaneo. Potresti ricevere l'accesso per visualizzare in anteprima i progressi. Questo ambiente viene rimosso dopo il lancio.",
+        "note": "L’ambiente di sviluppo non è un’infrastruttura pubblica. Potrebbe non aver avuto un tempo di attività costante durante il progetto. L'hosting di produzione è stabile e monitorato."
+      },
+      "contentUpdates": {
+        "introTitle": "Come funzionano gli aggiornamenti dei contenuti",
+        "introText": "Quando pubblichi contenuti nel tuo CMS, il sito web si aggiorna automaticamente. Non è necessario caricare manualmente i file.",
+        "processTitle": "Il processo di aggiornamento",
+        "processStep1": "Pubblichi contenuti nel CMS",
+        "processStep2": "Il CMS invia un trigger (webhook)",
+        "processStep3": "Il sito web si ricostruisce automaticamente",
+        "processStep4": "La versione aggiornata sostituisce la precedente",
+        "tip": "Potrebbero essere necessari alcuni minuti per visualizzare le modifiche a causa del processo di ricostruzione. Se le modifiche non vengono visualizzate dopo diversi minuti, prova un aggiornamento forzato o contatta il tuo project manager."
+      },
+      "analyticsReporting": {
+        "introTitle": "Analisi e reporting",
+        "introText": "Il tuo sito web può includere il monitoraggio analitico per aiutarti a comprendere il comportamento dei visitatori.",
+        "optionsTitle": "Opzioni di segnalazione",
+        "option1": "Rapporti e-mail pianificati",
+        "option2": "Esportazioni manuali dei rapporti",
+        "option3": "Condivisione della dashboard (se abilitata)",
+        "note": "La struttura del reporting può evolversi man mano che Eye On Idea migliora il proprio sistema di analisi. Se hai bisogno di report strutturati o di monitoraggio KPI, questo può essere aggiunto come servizio."
+      },
+      "supportAndMaintenance": {
+        "basicTitle": "Manutenzione di base",
+        "basicText": "La manutenzione di base è inclusa e copre:",
+        "basic1": "Garantire che il sito Web rimanga attivo",
+        "basic2": "Aggiornamenti di sicurezza dove richiesto",
+        "basic3": "Monitoraggio delle infrastrutture",
+        "extendedTitle": "Supporto esteso",
+        "extendedText": "La manutenzione estesa è disponibile tramite pacchetti di supporto, che possono includere:",
+        "extended1": "Aggiornamenti dei contenuti gestiti per te",
+        "extended2": "Adeguamenti tecnici",
+        "extended3": "Tempi di risposta prioritari",
+        "extended4": "Ottimizzazione continua",
+        "accessTitle": "Politica di accesso",
+        "accessText": "Per impostazione predefinita, non viene fornito alcun accesso FTP o accesso al pannello di controllo dell'hosting. Ciò garantisce stabilità, sicurezza e responsabilità chiare. Gli elenchi di record DNS possono essere forniti su richiesta."
+      },
+      "hostingFaq": {
+        "introTitle": "Domande frequenti",
+        "q1": "Posso accedere al server?",
+        "a1": "Non per impostazione predefinita. L'accesso esterno può influire sulla stabilità e sulla sicurezza.",
+        "q2": "Cosa succede se il sito web non funziona?",
+        "a2": "Eye On Idea monitora i tempi di attività. Se viene rilevato un problema, viene analizzato e risolto.",
+        "q3": "L'hosting è nell'UE?",
+        "a3": "Sì. L'infrastruttura di hosting ha sede in Europa.",
+        "q4": "Posso spostare l'hosting altrove?",
+        "a4": "Sì. L'hosting può essere trasferito previa richiesta scritta. Il processo sarà coordinato per evitare tempi di inattività."
+      },
+      "logoFiles": {
+        "introTitle": "Comprendere i file del logo",
+        "introText": "Hai ricevuto più versioni del tuo logo in diversi formati. Ogni formato ha uno scopo specifico.",
+        "svgTitle": "SVG (formato vettoriale)",
+        "svgText": "Ideale per siti Web, stampe di grandi dimensioni, stampa professionale e ridimensionamento a qualsiasi dimensione. Non perde mai la qualità. Questo è il file del logo più versatile.",
+        "pngTitle": "PNG",
+        "pngText": "Ideale per social media, presentazioni, documenti e sfondi trasparenti. Buono per l'uso digitale.",
+        "jpgTitle": "JPG",
+        "jpgText": "Ideale per la semplice condivisione digitale e gli allegati e-mail. Non ideale per la stampa a causa della compressione.",
+        "tip": "In caso di dubbi, utilizza SVG per uso professionale e PNG per l'uso digitale quotidiano."
+      },
+      "logoUsage": {
+        "versionsTitle": "Versioni del logo",
+        "versionsText": "Potresti aver ricevuto diverse versioni del logo:",
+        "version1": "Logo principale: utilizzalo per impostazione predefinita",
+        "version2": "Versione orizzontale  -  per ampi spazi",
+        "version3": "Versione impilata – per spazi verticali",
+        "version4": "Versione solo icone: per immagini del profilo dei social media e piccoli spazi",
+        "version5": "Versione chiara: per sfondi scuri",
+        "version6": "Versione scura: per sfondi chiari",
+        "rulesTitle": "Regole d'uso",
+        "rulesText": "Utilizza il logo principale per impostazione predefinita. Utilizza le varianti solo quando lo spazio è limitato, lo sfondo richiede contrasto o l'immagine del profilo di un social media richiede la versione con sole icone.",
+        "doNotTitle": "Non farlo",
+        "doNot1": "Allunga il logo",
+        "doNot2": "Cambia i suoi colori",
+        "doNot3": "Aggiungi ombre o effetti",
+        "doNot4": "Posizionalo su sfondi a basso contrasto",
+        "doNot5": "Ritaglia parti del logo",
+        "warning": "Se non sei sicuro sull'utilizzo del logo, chiedi a Eye On Idea prima di apportare modifiche."
+      },
+      "colorsAndTypography": {
+        "colorsTitle": "Tavolozza dei colori",
+        "colorsText": "Il tuo marchio include colori definiti. Utilizza il colore primario per le luci principali, i colori secondari per il supporto e i colori neutri per gli sfondi.",
+        "colorsAvoid": "Evita nuovi colori casuali o un uso eccessivo di colori forti. In caso di dubbi, segui il PDF della guida del marchio.",
+        "typographyTitle": "Tipografia",
+        "typographyText": "Se sono stati consegnati dei caratteri, utilizzare il carattere primario definito per i titoli e il carattere secondario per il corpo del testo. Se il marchio include alternative sicure per il sistema, utilizzale nelle e-mail o nei documenti interni.",
+        "warning": "Non mescolare caratteri casuali. Una tipografia coerente è essenziale per il riconoscimento del marchio."
+      },
+      "templatesAndPrint": {
+        "businessCardsTitle": "Biglietti da visita",
+        "businessCardsText": "Fornito in formato PDF e digitale pronto per la stampa. Per la stampa, invia il PDF pronto per la stampa direttamente alla stampante. Non modificare la smarginatura o i margini.",
+        "letterheadTitle": "Carta intestata",
+        "letterheadText": "Utilizza il modello ufficiale con il posizionamento e la spaziatura corretti del logo. Evitare di ridimensionare gli elementi.",
+        "presentationsTitle": "Modelli di presentazione",
+        "presentationsText": "Consegnato come file PPTX (possibilmente con versione PDF). Utilizza diapositive master, layout predefiniti e stili di carattere corretti. Non inserire caratteri diversi né modificare la struttura del layout.",
+        "socialMediaTitle": "Risorse dei social media",
+        "socialMediaText": "Include modelli di immagini del profilo, modelli di post e copertine in evidenza (se incluse). Usali per mantenere la coerenza visiva tra le piattaforme."
+      },
+      "brandConsistency": {
+        "introTitle": "Perché la coerenza è importante",
+        "introText": "La coerenza crea riconoscimento. Un branding incoerente appare poco professionale, confonde i clienti e indebolisce la fiducia.",
+        "checklistTitle": "Chiediti",
+        "check1": "Questo segue la nostra guida al marchio?",
+        "check2": "Assomiglia al nostro sito web?",
+        "check3": "Qualcuno lo riconoscerebbe immediatamente?",
+        "checkText": "In caso contrario, modificalo prima di pubblicare o condividere.",
+        "fileManagementTitle": "Gestione dei file",
+        "fileManagement1": "Archivia le risorse del marchio in una cartella aziendale condivisa",
+        "fileManagement2": "Mantieni intatti i nomi dei file originali",
+        "fileManagement3": "Crea copie durante la modifica",
+        "fileManagement4": "Non modificare mai i file master originali",
+        "warning": "Usare screenshot del tuo logo, mescolare i colori del brand con sfumature casuali o caricare risorse di bassa qualità mina la tua immagine professionale."
+      },
+      "visualIdentityFaq": {
+        "introTitle": "Domande frequenti",
+        "q1": "Quale file del logo devo inviare a una stampante?",
+        "a1": "Utilizza l'SVG o il PDF pronto per la stampa. Non inviare mai un JPG a una stampante.",
+        "q2": "Posso cambiare i colori del marchio?",
+        "a2": "Solo come parte di un processo formale di rebranding.",
+        "q3": "Eye On Idea può creare ulteriori risorse di marca?",
+        "a3": "Sì. Sono disponibili servizi estesi del marchio.",
+        "q4": "Cosa succede se perdo i file?",
+        "a4": "Contatta Eye On Idea per la riconsegna.",
+        "mistakesTitle": "Errori comuni",
+        "mistake1": "Invio di JPG alla stampante: utilizza file vettoriali o PDF pronti per la stampa",
+        "mistake2": "Utilizzando uno screenshot del logo: non utilizzare mai gli screenshot",
+        "mistake3": "Mescola i colori del marchio con sfumature casuali: attieniti alla tavolozza definita",
+        "mistake4": "Caricamento di logo di bassa qualità sui social media: utilizza il PNG ad alta risoluzione fornito"
+      }
+    }
+  },
+  "categoryCard": {
+    "guideCount": "{count} guide | {count} guida | {count} guide",
+    "browse": "Sfoglia le guide"
+  },
+  "breadcrumb": {
+    "hub": "Centro clienti"
+  }
+}

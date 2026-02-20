@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "title": "Kontakt - Eye On Idea",
+    "description": "Kom i kontakt med Eye On Idea. Lad os diskutere dine digitale projektbehov – hjemmesider, visuel identitet, CMS-løsninger eller løbende support."
+  },
+  "hero": {
+    "badge": "Tag kontakt",
+    "title": "Lad os bygge noget sammen",
+    "subtitle": "Har du et projekt i tankerne? Spørgsmål om vores tjenester? Vi er her for at hjælpe dig med at finde den rigtige digitale løsning til din virksomhed."
+  },
+  "form": {
+    "heading": "Send os en besked",
+    "name": {
+      "label": "Navn",
+      "placeholder": "Dit fulde navn"
+    },
+    "email": {
+      "label": "E-mail",
+      "placeholder": "din{'@'}email.com"
+    },
+    "phone": {
+      "label": "Telefon (valgfrit)",
+      "placeholder": "+45 00 00 00 00"
+    },
+    "company": {
+      "label": "Virksomhed (valgfrit)",
+      "placeholder": "Dit firmanavn"
+    },
+    "subject": {
+      "label": "Emne",
+      "placeholder": "Hvad handler det om?"
+    },
+    "interest": {
+      "label": "jeg er interesseret i",
+      "placeholder": "Vælg en tjeneste",
+      "options": {
+        "website": "Udvikling af hjemmeside",
+        "identity": "Visuel identitet",
+        "cms": "CMS løsninger",
+        "support": "Supportplaner",
+        "consulting": "Rådgivning",
+        "other": "Noget andet"
+      }
+    },
+    "message": {
+      "label": "Besked",
+      "placeholder": "Fortæl os om dit projekt eller spørgsmål..."
+    },
+    "submit": "Send besked",
+    "submitting": "Sender...",
+    "successMessage": "Tak! Din besked er blevet sendt. Vi vender tilbage til dig inden for 24 timer.",
+    "errorMessage": "Noget gik galt. Prøv venligst igen eller kontakt os direkte på hello@eyeonidea.com.",
+    "gdprNotice": "Ved at kontakte Eye On Idea giver du dit samtykke til at blive kontaktet via de oplyste oplysninger vedrørende din henvendelse. I henhold til EU's GDPR-forordning vil dine data kun blive brugt til kommunikation relateret til din forespørgsel og vil aldrig blive delt med tredjeparter."
+  },
+  "info": {
+    "heading": "Andre måder at nå os på",
+    "directContact": {
+      "title": "Direkte kontakt",
+      "description": "Foretrækker du en direkte samtale? Kontakt via e-mail eller telefon."
+    },
+    "email": {
+      "label": "E-mail",
+      "value": "hej{'@'}eyeonidea.com"
+    },
+    "phone": {
+      "label": "Telefon",
+      "value": "+45 29 93 05 83"
+    },
+    "location": {
+      "title": "Beliggenhed",
+      "address": "Aalborg, Danmark",
+      "description": "Betjener kunder i hele Danmark, Norden og EU."
+    },
+    "hours": {
+      "title": "Åbningstider",
+      "weekdays": "Mandag - fredag: 9:00 - 17:00 CET",
+      "response": "Vi svarer typisk inden for 24 timer."
+    },
+    "social": {
+      "title": "Forbind online",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "cta": {
+    "title": "Ikke sikker på, hvor du skal starte?",
+    "description": "Gennemse vores tjenester for at lære mere om, hvad vi tilbyder, eller tjek vores seneste nyheder og indsigt.",
+    "services": "Se tjenester",
+    "news": "Læs vores nyheder"
+  }
+}

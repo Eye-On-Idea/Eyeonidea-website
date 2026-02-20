@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export const SUPPORTED_LANGUAGES = ["en", "fr", "es"] as const;
+export const SUPPORTED_LANGUAGES = ["en", "fr", "es", "de", "it", "dk"] as const;
 export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
 
 const normalizeLanguage = (

@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "title": "Notre processus - Eye On Idea",
+    "description": "Du premier contact au lancement et au-delà. Découvrez comment Eye On Idea réalise des projets de sites Web professionnels avec des délais clairs, des prix transparents et une assistance continue."
+  },
+  "hero": {
+    "badge": "Notre processus",
+    "title": "De l'idée au lancement",
+    "subtitle": "Chaque projet suit un processus clair et transparent conçu pour vous tenir informé et garder le contrôle à chaque étape."
+  },
+  "intro": {
+    "text": "Nous pensons que les bons sites Web reposent sur une communication claire et une compréhension mutuelle. Voici exactement à quoi vous attendre lorsque vous travaillez avec Eye On Idea."
+  },
+  "timeline": {
+    "title": "Votre parcours de projet",
+    "steps": {
+      "contact": {
+        "number": "01",
+        "title": "Premier contact",
+        "description": "Vous communiquez avec votre idée de projet ou vos besoins. Nous répondons dans un délai de 1 à 2 jours ouvrables et proposons une réunion de découverte, en personne ou en ligne, avec des options de planification flexibles.",
+        "details": [
+          "Aucun engagement requis à ce stade",
+          "La réunion peut être physique ou en ligne (Teams, Zoom, etc.)",
+          "Vous choisissez l'heure et la date qui vous conviennent"
+        ],
+        "cta": {
+          "label": "Entrez en contact",
+          "to": "/contacter"
+        }
+      },
+      "discovery": {
+        "number": "02",
+        "title": "Rencontre Découverte",
+        "description": "Nous nous asseyons ensemble pour comprendre vos objectifs, votre public cible et votre contexte commercial. Cette réunion façonne l’ensemble de la portée du projet.",
+        "details": [
+          "Définir les attentes, les désirs et les besoins",
+          "Auditer les actifs existants (logos, contenu, domaines, hébergement)",
+          "Identifier ce qui doit être créé ou sourcé",
+          "Discutez du calendrier et de toute exigence spécifique de lancement"
+        ]
+      },
+      "proposal": {
+        "number": "03",
+        "title": "Proposition et accord",
+        "description": "Sur la base de la réunion de découverte, nous vous envoyons une proposition détaillée décrivant la portée complète du projet, les livrables, le calendrier et le coût.",
+        "details": [
+          "Portée claire du projet avec tous les livrables répertoriés",
+          "Tarification transparente sans frais cachés",
+          "Un acompte de 25 à 50 % du coût total pour commencer les travaux",
+          "Le dépôt n'est pas remboursable et garantit l'emplacement de votre projet",
+          "L'acceptation de la proposition inclut le consentement RGPD pour le traitement des données comme indiqué"
+        ],
+        "note": "La proposition indique clairement quelles données personnelles seront traitées, dans quel but et sur quelle base juridique, conformément au RGPD. Vos données ne sont jamais partagées avec des tiers au-delà de ce que nécessite le projet.",
+        "cta": {
+          "label": "Voir nos forfaits",
+          "to": "/services#section-packages"
+        }
+      },
+      "kickoff": {
+        "number": "04",
+        "title": "Lancement du projet",
+        "description": "Une fois l’acompte reçu, les travaux commencent. Nous mettrons en place l’environnement du projet et commencerons à construire en fonction de la portée convenue.",
+        "details": [
+          "Le projet prend généralement 2 à 4 semaines selon la portée",
+          "Réunions d'enregistrement hebdomadaires ou mensuelles facultatives",
+          "Canal de communication dédié pour les questions et les mises à jour"
+        ]
+      },
+      "development": {
+        "number": "05",
+        "title": "Développement et progrès",
+        "description": "Votre site internet prend forme. Durant cette phase, vous pouvez éventuellement demander un accès anticipé à un serveur de développement pour suivre en temps réel.",
+        "details": [
+          "Disponible après la première semaine de travail",
+          "Fournit un aperçu constant de l’avancement du projet",
+          "Peut entraîner des frais supplémentaires (nécessite une maintenance régulière de la base de code pour des téléchargements corrects)"
+        ],
+        "note": "L'accès anticipé au serveur de développement est un module complémentaire facultatif. Il nécessite un déploiement et une maintenance plus fréquents, c'est pourquoi il est proposé en tant que service distinct.",
+        "cta": {
+          "label": "Voir les modules complémentaires et extras",
+          "to": "/services#section-addons"
+        }
+      },
+      "preview": {
+        "number": "06",
+        "title": "Aperçu avant le lancement",
+        "description": "Une semaine avant la date de lancement convenue, vous recevez un lien vers le serveur de test où vous pouvez consulter l'intégralité du projet.",
+        "details": [
+          "Projet complet disponible pour examen sur une URL de test",
+          "Possibilité de demander des modifications ou des ajustements finaux",
+          "Si le CMS est inclus, vous recevez également votre invitation CMS avec des instructions et des conseils",
+          "Cet aperçu constitue l'approbation finale avant la mise en ligne."
+        ]
+      },
+      "payment": {
+        "number": "07",
+        "title": "Paiement final et lancement",
+        "description": "Le solde restant du projet est facturé 2 à 5 jours ouvrables avant le lancement. Le paiement est dû le jour du lancement.",
+        "details": [
+          "La facture couvre le solde après le dépôt initial",
+          "Paiement dû le jour du lancement",
+          "Le site est mis en ligne à la date convenue",
+          "Tous les livrables sont remis"
+        ]
+      },
+      "postlaunch": {
+        "number": "08",
+        "title": "Assistance post-lancement",
+        "description": "Après le lancement, vous disposez d'une fenêtre d'assistance de 2 semaines pendant laquelle nous surveillons le site et traitons les petites corrections que vous trouvez.",
+        "details": [
+          "Nous surveillons vaguement le site pour détecter les erreurs",
+          "Petites modifications de texte, échanges d'images, corrections de fautes de frappe, corrections d'informations de contact",
+          "N'inclut pas de refontes majeures ni de nouvelles fonctionnalités",
+          "Signalez tout problème dans un délai de 2 semaines"
+        ],
+        "note": "Il s’agit d’une période gratuite pour détecter tout ce qui a été négligé avant le lancement. Les modifications majeures ou les demandes de nouvelles fonctionnalités sont traitées sous forme de projets distincts ou via un plan de support."
+      },
+      "handoff": {
+        "number": "09",
+        "title": "Transfert et au-delà",
+        "description": "Le projet est terminé et entièrement payé. Nous vous remercions pour votre collaboration et nous serons toujours là lorsque vous aurez besoin de nous la prochaine fois.",
+        "details": [
+          "L'hébergement et la maintenance du serveur restent à la charge d'Eye On Idea (hébergé sur OVH Cloud EU)",
+          "Plans d'assistance continue disponibles si vous souhaitez une collaboration continue",
+          "Aucune autre modification n'est incluse après la fenêtre de 2 semaines post-lancement",
+          "Les projets et services futurs sont toujours les bienvenus"
+        ],
+        "cta": {
+          "label": "Voir les plans d'assistance",
+          "to": "/services#plans-de-support"
+        }
+      }
+    }
+  },
+  "faq": {
+    "title": "Questions courantes",
+    "subtitle": "Réponses aux questions fréquemment posées sur notre processus",
+    "items": [
+      {
+        "question": "Combien de temps prend un projet de site Web typique ?",
+        "answer": "La plupart des projets de sites Web prennent 2 à 4 semaines entre le lancement et le lancement, selon leur portée et leur complexité. Les projets de plateforme plus importants peuvent prendre plus de temps. Le calendrier exact est toujours convenu dans la proposition."
+      },
+      {
+        "question": "Que couvre la caution ?",
+        "answer": "Le dépôt (25 à 50 % du coût total du projet) garantit l'emplacement de votre projet et couvre la configuration initiale, la planification et les premiers travaux de développement. Il n’est pas remboursable car les travaux commencent immédiatement après le paiement."
+      },
+      {
+        "question": "Puis-je apporter des modifications en cours de projet ?",
+        "answer": "Oui. Nous proposons des réunions d'enregistrement facultatives (hebdomadaires ou mensuelles) et vous pouvez fournir des commentaires lors de l'aperçu préalable au lancement. Des ajustements mineurs dans le cadre convenu font partie du processus. Les changements en dehors de la portée initiale peuvent nécessiter une proposition révisée."
+      },
+      {
+        "question": "Qu'est-ce qui compte comme une « petite modification » lors du support post-lancement ?",
+        "answer": "Les petites modifications incluent des corrections de texte (fautes de frappe, grammaire, informations de contact erronées), des remplacements d'images et des corrections mineures similaires. Cela n’inclut pas les modifications de mise en page, les nouvelles pages, les nouvelles fonctionnalités ou les refontes visuelles."
+      },
+      {
+        "question": "Que se passe-t-il avec mes données (RGPD) ?",
+        "answer": "L'acceptation de notre proposition implique notre consentement à traiter vos données comme indiqué dans la portée du projet. Cela suit toujours les directives du RGPD. Vos données ne sont utilisées que pour le projet et ne sont jamais partagées avec des tiers indépendants. Tous les détails sont dans notre politique de confidentialité."
+      },
+      {
+        "question": "Ai-je besoin d’un plan de support après le lancement ?",
+        "answer": "Pas nécessairement. Après la fenêtre de 2 semaines post-lancement, le projet est terminé. Un plan de support est facultatif et est idéal si vous souhaitez des mises à jour continues du contenu, des améliorations techniques ou des conseils stratégiques. Il peut être ajouté à tout moment."
+      },
+      {
+        "question": "Qui gère l'hébergement après le lancement ?",
+        "answer": "Eye On Idea gère l'hébergement et la maintenance des serveurs sur OVH Cloud (basé dans l'UE). C'est notre responsabilité continue tant que nous hébergeons votre projet. Les frais d'hébergement sont soit inclus dans un plan de support, soit facturés séparément."
+      },
+      {
+        "question": "Puis-je accéder au projet pendant le développement ?",
+        "answer": "Par défaut, vous recevez l'accès au serveur de test 1 semaine avant le lancement. Si vous souhaitez un accès anticipé pour suivre le développement en temps réel, ceci est disponible en tant que service complémentaire facultatif."
+      }
+    ]
+  },
+  "cta": {
+    "badge": "Prêt à commencer ?",
+    "title": "Commençons votre projet",
+    "description": "La première étape est une conversation. Parlez-nous de votre projet et nous nous occuperons de là.",
+    "primary": "Démarrer une conversation",
+    "secondary": "Voir nos services"
+  }
+}

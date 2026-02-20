@@ -18,7 +18,7 @@ onMounted(() => {
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.1 },
   );
 
   observer.observe(sectionRef.value);
@@ -28,8 +28,13 @@ onMounted(() => {
   });
 });
 
-const steps = computed(() =>
-  (tm("services.howWeWork.steps") as Array<{ icon: string; title: string; description: string }>)
+const steps = computed(
+  () =>
+    tm("services.howWeWork.steps") as Array<{
+      icon: string;
+      title: string;
+      description: string;
+    }>,
 );
 </script>
 
@@ -42,10 +47,7 @@ const steps = computed(() =>
   >
     <div class="section-container">
       <!-- Header -->
-      <div
-        class="section-header"
-        :class="{ 'animate-in': isVisible }"
-      >
+      <div class="section-header" :class="{ 'animate-in': isVisible }">
         <h2 id="how-we-work-heading" class="section-title">
           {{ t("services.howWeWork.title") }}
         </h2>
@@ -72,13 +74,14 @@ const steps = computed(() =>
       </div>
 
       <!-- CTA Link -->
-      <div
-        class="section-cta"
-        :class="{ 'animate-in': isVisible }"
-      >
+      <div class="section-cta" :class="{ 'animate-in': isVisible }">
         <NuxtLink to="/services/process" class="cta-link">
           {{ t("services.howWeWork.cta") }}
-          <UIcon name="i-heroicons-arrow-right" class="cta-icon" aria-hidden="true" />
+          <UIcon
+            name="i-heroicons-arrow-right"
+            class="cta-icon"
+            aria-hidden="true"
+          />
         </NuxtLink>
       </div>
     </div>
@@ -110,7 +113,9 @@ const steps = computed(() =>
   margin: 0 auto 4rem;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  transition:
+    opacity 0.6s var(--ease-smooth),
+    transform 0.6s var(--ease-smooth);
 
   &.animate-in {
     opacity: 1;
@@ -179,17 +184,27 @@ const steps = computed(() =>
   border-radius: var(--radius-xl);
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth),
+  transition:
+    opacity 0.6s var(--ease-smooth),
+    transform 0.6s var(--ease-smooth),
     box-shadow 0.2s var(--ease-smooth);
 
   &:hover {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   }
 
-  &.stagger-1 { transition-delay: 100ms; }
-  &.stagger-2 { transition-delay: 200ms; }
-  &.stagger-3 { transition-delay: 300ms; }
-  &.stagger-4 { transition-delay: 400ms; }
+  &.stagger-1 {
+    transition-delay: 100ms;
+  }
+  &.stagger-2 {
+    transition-delay: 200ms;
+  }
+  &.stagger-3 {
+    transition-delay: 300ms;
+  }
+  &.stagger-4 {
+    transition-delay: 400ms;
+  }
 }
 
 .step-number {
@@ -247,7 +262,9 @@ const steps = computed(() =>
   margin-top: 3rem;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s var(--ease-smooth) 0.5s, transform 0.6s var(--ease-smooth) 0.5s;
+  transition:
+    opacity 0.6s var(--ease-smooth) 0.5s,
+    transform 0.6s var(--ease-smooth) 0.5s;
 
   &.animate-in {
     opacity: 1;
@@ -266,7 +283,9 @@ const steps = computed(() =>
   font-weight: 600;
   text-decoration: none;
   border-radius: var(--radius-md);
-  transition: background 0.2s var(--ease-smooth), transform 0.2s var(--ease-smooth);
+  transition:
+    background 0.2s var(--ease-smooth),
+    transform 0.2s var(--ease-smooth);
 
   &:hover {
     background: var(--color-primary-600);

@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "title": "Datenschutz- und Cookie-Richtlinie – Eye On Idea",
+    "description": "Datenschutzrichtlinie und Cookie-Richtlinie für Eye On Idea. Erfahren Sie, wie wir Ihre personenbezogenen Daten gemäß der EU-DSGVO erfassen, verwenden und schützen."
+  },
+  "hero": {
+    "badge": "Richtlinien",
+    "title": "Datenschutz- und Cookie-Richtlinie",
+    "subtitle": "Wie wir Ihre Daten erfassen, verwenden und schützen, wenn Sie unsere Website besuchen oder unsere Dienste nutzen."
+  },
+  "lastUpdated": "Letzte Aktualisierung: Februar 2026",
+  "privacy": {
+    "title": "Datenschutzrichtlinie",
+    "sections": {
+      "introduction": {
+        "title": "1. Einführung",
+        "content": [
+          "Eye On Idea (CVR: 45356175) verpflichtet sich, Ihre Privatsphäre zu schützen und verantwortungsvoll mit Ihren persönlichen Daten umzugehen. In dieser Datenschutzrichtlinie wird erläutert, wie wir Ihre personenbezogenen Daten gemäß der EU-Datenschutz-Grundverordnung (DSGVO, Verordnung 2016/679) und dem dänischen Datenschutzgesetz (Databeskyttelsesloven) erheben, verarbeiten, speichern und schützen.",
+          "Diese Richtlinie gilt für alle personenbezogenen Daten, die über unsere Website (eyeonidea.com), unsere Kontaktformulare und im Zusammenhang mit den von uns bereitgestellten Dienstleistungen erfasst werden."
+        ]
+      },
+      "dataController": {
+        "title": "2. Datenverantwortlicher",
+        "content": [
+          "Verantwortlicher für die Verarbeitung Ihrer personenbezogenen Daten ist:",
+          "Eye On Idea, CVR: 45356175",
+          "Aalborg, Dänemark",
+          "E-Mail: hello{'@'}eyeonidea.com | Telefon: +45 29 93 05 83",
+          "Wenn Sie Fragen dazu haben, wie wir Ihre personenbezogenen Daten verarbeiten oder Ihre Rechte ausüben möchten, kontaktieren Sie uns bitte über die oben genannten Kontaktdaten."
+        ]
+      },
+      "dataCollected": {
+        "title": "3. Von uns erfasste personenbezogene Daten",
+        "content": [
+          "Einsendungen aus dem Kontaktformular: Name, E-Mail-Adresse, Telefonnummer (optional), Firmenname (optional), Betreff der Anfrage, Interessengebiet und Nachrichteninhalt.",
+          "Projektaufträge: Geschäftskontaktdaten, Unternehmensinformationen, Projektanforderungen, Kommunikationsverlauf, Rechnungsdetails und alle anderen Informationen, die für die Leistungserbringung und Vertragsverwaltung erforderlich sind.",
+          "Website-Nutzungsdaten: Durch Analysecookies (mit Ihrer Zustimmung) erfassen wir anonymisierte Daten wie besuchte Seiten, Besuchsdauer, Verweisquelle, Browsertyp und ungefähre geografische Lage (Länder-/Regionsebene).",
+          "Wir erheben keine besonderen Kategorien personenbezogener Daten (sensible Daten) im Sinne von Artikel 9 DSGVO und erheben auch nicht wissentlich Daten von Kindern unter 16 Jahren."
+        ]
+      },
+      "purpose": {
+        "title": "4. Zwecke der Verarbeitung",
+        "content": [
+          "Wir verarbeiten Ihre personenbezogenen Daten für die folgenden spezifischen Zwecke:",
+          "Um auf Ihre über unser Kontaktformular oder per E-Mail übermittelten Anfragen zu antworten.",
+          "Erstellung von Projektvorschlägen und Abschluss von Serviceverträgen.",
+          "Um vertraglich vereinbarte Dienstleistungen zu erbringen, laufende Kundenbeziehungen zu verwalten und Support bereitzustellen.",
+          "Zur Ausstellung von Rechnungen und Abwicklung von Zahlungen im Zusammenhang mit unseren Dienstleistungen.",
+          "Um unsere Website, Dienste und Benutzererfahrung auf der Grundlage aggregierter, anonymisierter Nutzungsmuster zu verbessern.",
+          "Zur Einhaltung geltender gesetzlicher Verpflichtungen, einschließlich der dänischen Buchhaltungs- und Steuergesetzgebung (Bogføringsloven).",
+          "Wir werden Ihre personenbezogenen Daten niemals an Dritte verkaufen, vermieten oder damit handeln. Wir werden Ihre Daten ohne Ihre vorherige ausdrückliche Zustimmung nicht für andere als die in dieser Richtlinie genannten Zwecke verwenden."
+        ]
+      },
+      "legalBasis": {
+        "title": "5. Rechtsgrundlage für die Verarbeitung",
+        "content": [
+          "Wir verarbeiten Ihre personenbezogenen Daten auf Grundlage der folgenden Rechtsgrundlagen gemäß Art. 6 Abs. 1 DSGVO:",
+          "Einwilligung (Art. 6(1)(a)): Für die Übermittlung von Kontaktformularen, Newsletter-Abonnements (falls zutreffend) und die Verwendung nicht notwendiger Cookies wie Analyse-Cookies. Sie können Ihre Einwilligung jederzeit widerrufen, ohne dass die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung berührt wird.",
+          "Vertrag (Art. 6(1)(b)): Für die Verarbeitung, die erforderlich ist, um einen Vertrag zu erfüllen, dessen Vertragspartei Sie sind, oder um auf Ihren Wunsch vor dem Abschluss eines Vertrags Maßnahmen zu ergreifen, beispielsweise die Vorbereitung eines Projektvorschlags oder die Erbringung vereinbarter Dienstleistungen.",
+          "Berechtigtes Interesse (Art. 6(1)(f)): Für die Sicherheit der Website, Betrugsprävention und allgemeine Serviceverbesserung. Unser berechtigtes Interesse wird gegen Ihre Rechte abgewogen und hat keinen Vorrang vor Ihren Grundfreiheiten.",
+          "Gesetzliche Verpflichtung (Art. 6(1)(c)): Wenn die Verarbeitung zur Einhaltung dänischen Rechts erforderlich ist, einschließlich der Buchhaltungsanforderungen gemäß Bogføringsloven (5-jährige Aufbewahrung von Finanzunterlagen)."
+        ]
+      },
+      "retention": {
+        "title": "6. Datenaufbewahrung",
+        "content": [
+          "Wir bewahren personenbezogene Daten nur so lange auf, wie es zur Erfüllung der Zwecke, für die sie erhoben wurden, erforderlich ist oder wie gesetzlich vorgeschrieben:",
+          "Anfragen über Kontaktformulare: Bis zu 2 Jahre ab dem Datum Ihrer letzten Kommunikation, es sei denn, Sie werden Kunde oder beantragen eine frühere Löschung.",
+          "Kundenprojektdaten: Für die Dauer unserer Geschäftsbeziehung plus 5 Jahre danach, in Übereinstimmung mit der dänischen Buchhaltungsgesetzgebung (Bogføringsloven §10).",
+          "Rechnungsstellung und Finanzunterlagen: 5 Jahre ab Ende des Geschäftsjahres, wie von Bogføringsloven gefordert.",
+          "Analysedaten: Anonymisiert und bis zu 14 Monate lang gespeichert (gemäß den aktuellen Einstellungen des Analyseanbieters).",
+          "Nach Ablauf der Aufbewahrungsfrist werden Ihre Daten sicher gelöscht oder vollständig anonymisiert."
+        ]
+      },
+      "sharing": {
+        "title": "7. Datenweitergabe und internationale Übermittlungen",
+        "content": [
+          "Wir können Ihre personenbezogenen Daten an die folgenden Kategorien vertrauenswürdiger Dienstleister weitergeben, die uns bei der Führung unseres Geschäfts unterstützen:",
+          "Hosting-Anbieter: Cloudflare (Website-Hosting und CDN). Die Daten werden innerhalb der EU/des EWR und in den USA im Rahmen von EU-genehmigten Schutzmaßnahmen verarbeitet.",
+          "Formularbearbeitung: FormSubmit.co (Kontaktformularbearbeitung).",
+          "Analytics: Google Analytics (anonymisierte Website-Nutzungsdaten, nur mit Ihrer Einwilligung).",
+          "E-Mail und Kommunikation: E-Mail-Dienstleister, die für die Geschäftskorrespondenz eingesetzt werden.",
+          "Alle Drittverarbeiter sind an Datenverarbeitungsvereinbarungen (DPAs) gemäß Artikel 28 der DSGVO gebunden. Bei der Übermittlung von Daten außerhalb der EU/des EWR stellen wir sicher, dass geeignete Sicherheitsvorkehrungen getroffen werden, wie z. B. von der Europäischen Kommission genehmigte Standardvertragsklauseln (SCCs) oder eine Angemessenheitsentscheidung.",
+          "Wir können personenbezogene Daten auch offenlegen, wenn dies gesetzlich oder durch einen Gerichtsbeschluss erforderlich ist oder um unsere berechtigten rechtlichen Interessen zu schützen."
+        ]
+      },
+      "rights": {
+        "title": "8. Ihre Rechte gemäß DSGVO",
+        "content": [
+          "Nach der Datenschutz-Grundverordnung haben Sie hinsichtlich Ihrer personenbezogenen Daten folgende Rechte:",
+          "Auskunftsrecht (Art. 15): Fordern Sie eine Kopie der personenbezogenen Daten an, die wir über Sie gespeichert haben.",
+          "Recht auf Berichtigung (Art. 16): Berichtigung unrichtiger oder unvollständiger personenbezogener Daten verlangen.",
+          "Recht auf Löschung (Art. 17): Verlangen Sie die Löschung Ihrer personenbezogenen Daten („Recht auf Vergessenwerden“), vorbehaltlich gesetzlicher Aufbewahrungspflichten.",
+          "Recht auf Einschränkung (Art. 18): Verlangen Sie, dass wir die Verarbeitung Ihrer Daten unter bestimmten Umständen einschränken.",
+          "Recht auf Datenübertragbarkeit (Art. 20): Sie erhalten Ihre personenbezogenen Daten in einem strukturierten, gängigen, maschinenlesbaren Format.",
+          "Widerspruchsrecht (Art. 21): Widerspruch gegen die Verarbeitung aufgrund unserer berechtigten Interessen. Wir werden die Verarbeitung einstellen, es sei denn, wir können zwingende schutzwürdige Gründe nachweisen.",
+          "Recht auf Widerruf der Einwilligung: Wenn die Verarbeitung auf einer Einwilligung beruht, können Sie diese jederzeit widerrufen, ohne dass die Rechtmäßigkeit der vorherigen Verarbeitung berührt wird.",
+          "Um eines dieser Rechte auszuüben, kontaktieren Sie uns bitte unter hello{'@'}eyeonidea.com. Wir werden Ihre Anfrage innerhalb von 30 Tagen beantworten. Sollten wir mehr Zeit benötigen (bis zu 60 zusätzliche Tage bei komplexen Anfragen), werden wir Sie über die Verlängerung und die Gründe für die Verzögerung informieren.",
+          "Wir betreiben keine automatisierte Entscheidungsfindung im Einzelfall oder Profiling im Sinne von Artikel 22 DSGVO."
+        ]
+      },
+      "security": {
+        "title": "9. Datensicherheit",
+        "content": [
+          "Wir ergreifen geeignete technische und organisatorische Maßnahmen, um Ihre personenbezogenen Daten vor unbefugtem Zugriff, Änderung, Offenlegung oder Zerstörung zu schützen. Zu diesen Maßnahmen gehören:",
+          "Verschlüsselung der Daten während der Übertragung (TLS/SSL) und gegebenenfalls im Ruhezustand.",
+          "Sichere Hosting-Infrastruktur mit regelmäßigen Sicherheitsupdates.",
+          "Zugriffskontrollen, die den Datenzugriff nur auf autorisiertes Personal beschränken.",
+          "Regelmäßige Überprüfung unserer Datenverarbeitungsaktivitäten und Sicherheitspraktiken.",
+          "Obwohl wir alle angemessenen Maßnahmen ergreifen, um Ihre Daten zu schützen, ist keine Methode der Übertragung über das Internet oder der elektronischen Speicherung absolut sicher. Im Falle einer Datenschutzverletzung, die ein Risiko für Ihre Rechte und Freiheiten darstellt, benachrichtigen wir die dänische Datenschutzbehörde (Datatilsynet) innerhalb von 72 Stunden und informieren Sie unverzüglich gemäß den Artikeln 33 und 34 der DSGVO."
+        ]
+      }
+    }
+  },
+  "cookies": {
+    "title": "Cookie-Richtlinie",
+    "sections": {
+      "what": {
+        "title": "1. Was sind Cookies?",
+        "content": [
+          "Cookies sind kleine Textdateien, die auf Ihrem Gerät (Computer, Tablet oder Telefon) abgelegt werden, wenn Sie eine Website besuchen. Sie werden häufig verwendet, um dafür zu sorgen, dass Websites ordnungsgemäß funktionieren, die Leistung zu verbessern und Websitebesitzern Informationen bereitzustellen.",
+          "In dieser Cookie-Richtlinie wird erläutert, welche Cookies wir verwenden, warum wir sie verwenden und wie Sie Ihre Präferenzen gemäß der dänischen Cookie-Verordnung (Cookiebekendtgørelsen) und der Datenschutzrichtlinie für elektronische Kommunikation verwalten können."
+        ]
+      },
+      "types": {
+        "title": "2. Arten von Cookies, die wir verwenden",
+        "content": [
+          "Unverzichtbare Cookies: Diese sind für das Funktionieren der Website unbedingt erforderlich und können nicht deaktiviert werden. Sie bedürfen nach EU-Recht nicht Ihrer Einwilligung.",
+          "Präferenz-Cookies: Diese speichern Ihre Einstellungen und Auswahlmöglichkeiten (z. B. Sprach- und Themenpräferenzen), um ein persönlicheres Erlebnis zu ermöglichen. Einstellung nur mit Ihrer Zustimmung.",
+          "Analyse-Cookies: Diese helfen uns zu verstehen, wie Besucher mit unserer Website interagieren, indem sie anonymisierte Daten sammeln (z. B. besuchte Seiten, Besuchsdauer). Diese Cookies werden nur mit Ihrer ausdrücklichen Einwilligung gesetzt."
+        ]
+      },
+      "specific": {
+        "title": "3. Auf dieser Website verwendete Cookies",
+        "items": [
+          {
+            "name": "cookie_consent",
+            "purpose": "Speichert Ihre Cookie-Zustimmungseinstellungen",
+            "duration": "1 Jahr",
+            "type": "Unverzichtbar"
+          },
+          {
+            "name": "Thema",
+            "purpose": "Merkt sich Ihre Präferenz für den Hell-/Dunkelmodus",
+            "duration": "1 Jahr",
+            "type": "Präferenz"
+          },
+          {
+            "name": "Gebietsschema",
+            "purpose": "Speichert Ihre bevorzugte Spracheinstellung",
+            "duration": "1 Jahr",
+            "type": "Präferenz"
+          },
+          {
+            "name": "_ga, _gid",
+            "purpose": "Google Analytics: anonymisierte Besucherstatistiken und Nutzungsmuster",
+            "duration": "_ga: 2 Jahre, _gid: 24 Stunden",
+            "type": "Analytik"
+          }
+        ]
+      },
+      "manage": {
+        "title": "4. Verwalten Ihrer Cookie-Einstellungen",
+        "content": [
+          "Wenn Sie unsere Website zum ersten Mal besuchen, wird Ihnen ein Cookie-Zustimmungsbanner angezeigt, in dem Sie nicht unbedingt erforderliche Cookies akzeptieren oder ablehnen können. Sie können Ihre Präferenzen jederzeit über unsere Cookie-Einstellungen aktualisieren.",
+          "Sie können Cookies auch über Ihre Browsereinstellungen verwalten oder löschen. Bitte beachten Sie, dass die Deaktivierung bestimmter Cookies die Funktionalität und Benutzererfahrung unserer Website beeinträchtigen kann.",
+          "Um die Nachverfolgung durch Google Analytics auf allen Websites zu deaktivieren, können Sie das Browser-Add-on zur Deaktivierung von Google Analytics installieren, das kostenlos von Google erhältlich ist."
+        ]
+      },
+      "thirdParty": {
+        "title": "5. Cookies von Drittanbietern",
+        "content": [
+          "Auf unserer Website können Inhalte oder Links von Drittanbieterdiensten (wie LinkedIn oder anderen Social-Media-Plattformen) eingebettet sein, die möglicherweise ihre eigenen Cookies setzen, wenn Sie mit ihnen interagieren. Diese Cookies unterliegen den Datenschutz- und Cookie-Richtlinien des jeweiligen Drittanbieters und unterliegen nicht unserer Kontrolle.",
+          "Wir empfehlen Ihnen, die Datenschutzrichtlinien aller Drittanbieterdienste zu lesen, mit denen Sie über unsere Website interagieren."
+        ]
+      }
+    }
+  },
+  "changes": {
+    "title": "Richtlinienaktualisierungen",
+    "content": "Wir können diese Richtlinien von Zeit zu Zeit aktualisieren, um Änderungen in unseren Praktiken, der Technologie, den gesetzlichen Anforderungen oder anderen Faktoren Rechnung zu tragen. Wenn wir wesentliche Änderungen vornehmen, aktualisieren wir das Datum der „letzten Aktualisierung“ oben auf dieser Seite und benachrichtigen Sie gegebenenfalls über unsere Website."
+  },
+  "contact": {
+    "title": "Fragen oder Beschwerden?",
+    "content": "Wenn Sie Fragen zu unseren Datenschutzpraktiken oder der Verwendung von Cookies haben oder Ihre Datenschutzrechte ausüben möchten, kontaktieren Sie uns bitte unter hello{'@'}eyeonidea.com oder telefonisch unter +45 29 93 05 83.",
+    "complaints": "Sie haben das Recht, eine Beschwerde bei der dänischen Datenschutzbehörde (Datatilsynet) einzureichen, wenn Sie glauben, dass Ihre Rechte an personenbezogenen Daten verletzt wurden. Datatilsynet kann unter folgender Adresse kontaktiert werden: Carl Jacobsens Vej 35, 2500 Valby, Dänemark. Telefon: +45 33 19 32 00. E-Mail: dt{'@'}datatilsynet.dk. Website: datatilsynet.dk."
+  }
+}

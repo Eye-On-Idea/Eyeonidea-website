@@ -1,0 +1,887 @@
+{
+  "meta": {
+    "title": "Klienthub",
+    "description": "Vejledninger og ressourcer til at hjælpe dig med at administrere din hjemmeside, e-mail, domæne, hosting og brandidentitet"
+  },
+  "login": {
+    "title": "Klienthub",
+    "subtitle": "Indtast din adgangskode for at få adgang til vejledninger og ressourcer",
+    "passwordLabel": "Adgangskode",
+    "passwordPlaceholder": "Indtast din adgangskode",
+    "submitButton": "Access Hub",
+    "submitting": "Bekræfter...",
+    "errorInvalid": "Forkert adgangskode. Prøv venligst igen eller kontakt din projektleder.",
+    "errorRequired": "Indtast venligst din adgangskode.",
+    "errorGeneric": "Noget gik galt. Prøv venligst igen.",
+    "helpText": "Hvis du ikke har en adgangskode, skal du kontakte din Eye On Idea-projektleder."
+  },
+  "nav": {
+    "hubTitle": "Klienthub",
+    "backToSite": "Tilbage til hovedsiden",
+    "logout": "Log ud",
+    "home": "Hub Hjem",
+    "search": "Søg i guider...",
+    "noResults": "Ingen vejledninger fundet for \"{query}\"",
+    "allCategories": "Alle kategorier",
+    "allServices": "Alle tjenester"
+  },
+  "hub": {
+    "welcomeTitle": "Velkommen til din klienthub",
+    "welcomeDescription": "Find vejledninger og ressourcer til de tjenester, vi leverer. Vælg en tjeneste nedenfor for at komme i gang.",
+    "servicesTitle": "Gennemse efter tjeneste",
+    "gettingStartedHighlight": "Ny her? Start med onboarding-guiden ovenfor for at forstå, hvad du kan forvente."
+  },
+  "onboarding": {
+    "title": "Kom godt i gang  -  Onboarding Guide",
+    "description": "Vigtig information om dit websteds lancering, adgang og hvad du kan forvente.",
+    "ctaDescription": "Alt hvad du behøver at vide før og efter dit websteds lancering - tidslinje, adgang, juridisk, support og overdragelse.",
+    "ctaButton": "Læs onboarding guide",
+    "backToHub": "Tilbage til Hub",
+    "collapseLabel": "Skjul onboarding-guiden",
+    "expandLabel": "Udvid onboarding guide",
+    "sections": {
+      "whereWeAre": {
+        "title": "Hvor er vi nu",
+        "content": "Du er i øjeblikket i præ-lanceringsfasen. Du har modtaget adgang til testserveren, CMS-invitation (hvis inkluderet), gennemgangsadgang til hele webstedet og den endelige faktura (2-5 hverdage før lancering). Lancering betyder, at dit websted bliver live og tilgængeligt via dit domæne."
+      },
+      "launchTimeline": {
+        "title": "Start tidslinje",
+        "beforeLaunch": "Før lanceringen gennemgår du alt sideindhold, kontaktoplysninger, billeder, juridiske sider, formularer, navigation og SEO-felter. Du bekræfter godkendelsen. Endelig betaling forfalder på lanceringsdagen.",
+        "launchDay": "På lanceringsdagen går hjemmesiden live på dit domæne. SSL er aktiv, hosting overvåges, analysesporing er aktiv (hvis inkluderet), og alle leverancer afleveres.",
+        "afterLaunch": "Efter lanceringen går du ind i et 2-ugers supportvindue. This includes small text edits, image replacements, typo corrections, and contact info adjustments. It does not include new pages, layout changes, design adjustments, or new features. Større ændringer kræver en ny aftale eller supportplan."
+      },
+      "accessCredentials": {
+        "title": "Adgang og legitimationsoplysninger",
+        "cms": "CMS-invitationer sendes på e-mail. Redaktører kan tilføje og slette indhold. Forfattere kan kun tilføje indhold. Gendannelse af indhold er ikke garanteret. Du er ansvarlig for at administrere dit eget indhold.",
+        "email": "Indledende adgangskode leveres af Eye On Idea. Du skal ændre det efter første login. E-mail-hosting er EU-baseret. Sikkerhedskopier er dit ansvar. Eye On Idea bevarer ikke postkasseadgang.",
+        "domain": "Domæne er registreret i dit firmanavn. Du er den juridiske ejer. Fornyelse er årligt. Påmindelser om fornyelse sendes på forhånd. Manglende fornyelse kan resultere i udløb.",
+        "hosting": "Hjemmesiden er hostet i Europa. SSL er aktiv. Der udføres ugentlige oppetidstjek. FTP/serveradgang leveres ikke som standard. DNS-registreringer kan leveres efter anmodning."
+      },
+      "legalCompliance": {
+        "title": "Juridisk og overholdelse",
+        "content": "Eye On Idea leverer en privatlivspolitik, en cookiepolitik og konfiguration af cookiebanner (branchestandardformulering). Vilkår og betingelser skal diskuteres og godkendes under projektet. Overholdelse af GDPR er struktureret i henhold til standard EU-lovgivningskontekst. Hvis EU-lovgivningen ændres i fremtiden, kan Eye On Idea opdatere relevante politikker i overensstemmelse hermed."
+      },
+      "seoExpectations": {
+        "title": "SEO & forventninger",
+        "content": "Dit websted er bygget til at opnå 90+ Lighthouse-præstationsscore, følge bedste praksis for semantisk struktur og understøtte tekniske SEO-standarder. Eye On Idea garanterer ikke søgerangeringer. Søgemaskinerangeringstjenester er uden for rammerne og kræver en specialist."
+      },
+      "monitoring": {
+        "title": "Overvågning & Vedligeholdelse",
+        "content": "Efter lanceringen udføres der ugentlige oppetidstjek, kritiske sikkerhedsproblemer vil blive løst, hvis de opdages, og kompatibilitetsopdateringer udføres kun, når det er nødvendigt. Ongoing optimization and extended support require a support plan."
+      },
+      "launchChecklist": {
+        "title": "Start tjekliste",
+        "intro": "Før du bekræfter lanceringen, skal du bekræfte:",
+        "items": [
+          "Alt indhold godkendt",
+          "Kontaktoplysninger korrekte",
+          "Juridiske sider gennemgået",
+          "Formularer testet",
+          "E-mail-konti testet",
+          "CMS login virker",
+          "Domænefornyelse bekræftet",
+          "Endelig faktura bekræftet"
+        ],
+        "note": "Lancering bekræfter godkendelse af leveret arbejde."
+      },
+      "supportWindow": {
+        "title": "Supportvindue",
+        "content": "Den 2-ugers supportperiode er designet til at fange små rettelser. Det inkluderer ikke redesign, funktionsudvidelse, oprettelse af nye sider eller strukturelle ændringer. Efter supportvinduet kræver det videre arbejde en ny aftale eller supportplan."
+      },
+      "handoff": {
+        "title": "Overdragelse og ejerskab",
+        "content": "Ved fuld og endelig betaling overføres den intellektuelle ejendomsret til tilpasset arbejde til dig. Statiske hjemmesidefiler kan leveres efter anmodning. Varemærkeaktiver kan genleveres til aktive kunder. Eksisterende rammer og genanvendelige systemer forbliver Eye On Ideas ejendom."
+      },
+      "communication": {
+        "title": "Kommunikation",
+        "content": "Primære kontaktkanaler er e-mail og telefon. Svartider afhænger af den aktuelle arbejdsbyrde, medmindre en supportplan er aktiv."
+      }
+    }
+  },
+  "services": {
+    "website-content": {
+      "title": "Hjemmesideindhold",
+      "description": "Vejledninger til styring af dit webstedsindhold ved hjælp af indholdsstyringsstudiet.",
+      "icon": "i-heroicons-globe-alt"
+    },
+    "email": {
+      "title": "E-mail",
+      "description": "Opsætning og administration af dine professionelle e-mail-konti med Zimbra.",
+      "icon": "i-heroicons-envelope"
+    },
+    "domain": {
+      "title": "Domæne",
+      "description": "Forståelse og administration af dit domænenavn, DNS og fornyelser.",
+      "icon": "i-heroicons-link"
+    },
+    "hosting": {
+      "title": "Hosting & Infrastruktur",
+      "description": "Overvågning af din hjemmeside, implementering, ydeevne og oppetid.",
+      "icon": "i-heroicons-server-stack"
+    },
+    "visual-identity": {
+      "title": "Visuel identitet",
+      "description": "Dit logo, mærkefarver, typografi og trykte materialer.",
+      "icon": "i-heroicons-paint-brush"
+    }
+  },
+  "serviceCard": {
+    "guideCount": "{count} guider | {count} guide | {count} guider",
+    "browse": "Gennemse guider",
+    "comingSoon": "Kommer snart"
+  },
+  "categories": {
+    "getting-started": {
+      "title": "Kom godt i gang",
+      "description": "Konfigurer din adgang, log ind for første gang, og lær det grundlæggende.",
+      "icon": "i-heroicons-rocket-launch"
+    },
+    "editing-content": {
+      "title": "Redigering af indhold",
+      "description": "Lær, hvordan du redigerer tekst, gemmer kladder og udgiver ændringer.",
+      "icon": "i-heroicons-pencil-square"
+    },
+    "seo": {
+      "title": "SEO felter",
+      "description": "Optimer dine sidetitler, beskrivelser og webadresser til søgemaskiner.",
+      "icon": "i-heroicons-magnifying-glass"
+    },
+    "news-and-posts": {
+      "title": "Nyheder og indlæg",
+      "description": "Opret, formater og udgiv nyhedsartikler eller blogindlæg.",
+      "icon": "i-heroicons-newspaper"
+    },
+    "media": {
+      "title": "Medier og billeder",
+      "description": "Upload, administrer og optimer billeder og filer til dit websted.",
+      "icon": "i-heroicons-photo"
+    },
+    "troubleshooting": {
+      "title": "Fejlfinding",
+      "description": "Løsninger på almindelige problemer og ofte stillede spørgsmål.",
+      "icon": "i-heroicons-wrench-screwdriver"
+    },
+    "setup": {
+      "title": "Opsætning",
+      "description": "Konfigurer din e-mail i apps som Outlook, Apple Mail og mobile enheder.",
+      "icon": "i-heroicons-cog-6-tooth"
+    },
+    "management": {
+      "title": "Ledelse",
+      "description": "Administrer sikkerhedskopier, sikkerhed og løbende ansvar.",
+      "icon": "i-heroicons-clipboard-document-list"
+    },
+    "overview": {
+      "title": "Oversigt",
+      "description": "Forstå, hvordan tjenesten fungerer, og hvem der har ansvaret for hvad.",
+      "icon": "i-heroicons-information-circle"
+    },
+    "renewals": {
+      "title": "Fornyelser",
+      "description": "Hvordan domænefornyelse fungerer, og hvad sker der, hvis den udløber.",
+      "icon": "i-heroicons-arrow-path"
+    },
+    "transfers": {
+      "title": "Overførsler & DNS",
+      "description": "Overfør dit domæne eller forstå DNS-konfiguration.",
+      "icon": "i-heroicons-arrows-right-left"
+    },
+    "how-it-works": {
+      "title": "Hvordan det virker",
+      "description": "Forstå indholdsopdateringer, ombygninger og analyser.",
+      "icon": "i-heroicons-cpu-chip"
+    },
+    "maintenance": {
+      "title": "Vedligeholdelse & Adgang",
+      "description": "Supportniveauer, vedligeholdelsesomfang og adgangspolitikker.",
+      "icon": "i-heroicons-shield-check"
+    },
+    "logo": {
+      "title": "Logo",
+      "description": "Forstå dine logofiltyper, versioner og brugsregler.",
+      "icon": "i-heroicons-sparkles"
+    },
+    "brand-guidelines": {
+      "title": "Brand retningslinjer",
+      "description": "Farver, typografi og skabeloner for ensartet branding.",
+      "icon": "i-heroicons-swatch"
+    },
+    "brand-management": {
+      "title": "Brand Management",
+      "description": "Hold dit brand konsistent, og administrer dine filer korrekt.",
+      "icon": "i-heroicons-folder-open"
+    }
+  },
+  "articles": {
+    "cms-overview": {
+      "title": "CMS oversigt",
+      "summary": "Hvad dit content management system er, og hvad du kan gøre med det."
+    },
+    "logging-in": {
+      "title": "Åbning og login",
+      "summary": "Sådan får du adgang til dit indholdsstudie og logger ind for første gang."
+    },
+    "studio-navigation": {
+      "title": "Navigering i studiet",
+      "summary": "Find rundt i studiegrænsefladen og find indholdstyper."
+    },
+    "editing-text": {
+      "title": "Redigering af tekst",
+      "summary": "Sådan redigerer du sikkert tekstindhold i studiet."
+    },
+    "drafts-and-publishing": {
+      "title": "Udkast og udgivelse",
+      "summary": "Gem udkast, udgiv indhold og tjek resultatet på dit live-websted."
+    },
+    "seo-basics": {
+      "title": "SEO Grundlæggende",
+      "summary": "Forstå SEO-felter, skrive titler og metabeskrivelser."
+    },
+    "slugs-and-urls": {
+      "title": "Snegle og URL'er",
+      "summary": "Håndtering af side-URL'er og udgivelse af SEO-ændringer."
+    },
+    "creating-a-post": {
+      "title": "Oprettelse af et indlæg",
+      "summary": "Sådan opretter du en ny nyhedsartikel eller blogindlæg med billeder og struktur."
+    },
+    "publishing-a-post": {
+      "title": "Udgivelse af et indlæg",
+      "summary": "Gem, publicer og gennemgå dit indlæg på livewebstedet."
+    },
+    "image-best-practices": {
+      "title": "Billede bedste praksis",
+      "summary": "Forbered, upload og beskær billeder til dit websted."
+    },
+    "alt-text-and-files": {
+      "title": "Alt tekst og filuploads",
+      "summary": "Tilføj alternativ tekst for tilgængelighed og upload dokumenter korrekt."
+    },
+    "common-mistakes": {
+      "title": "Almindelige fejl",
+      "summary": "Undgå de hyppigste indholdsstyringsfejl."
+    },
+    "cms-faq": {
+      "title": "Ofte stillede spørgsmål om CMS",
+      "summary": "Ofte stillede spørgsmål om brug af indholdsstyringssystemet."
+    },
+    "email-overview": {
+      "title": "E-mail oversigt",
+      "summary": "Hvad din professionelle e-mail indeholder, og hvem er ansvarlig for hvad."
+    },
+    "first-login": {
+      "title": "Første login",
+      "summary": "Log ind første gang og skift din adgangskode med det samme."
+    },
+    "webmail-access": {
+      "title": "Adgang til webmail",
+      "summary": "Få adgang til din e-mail via browseren ved hjælp af webmail."
+    },
+    "email-app-setup": {
+      "title": "Opsætning af e-mail-app",
+      "summary": "Konfigurer din e-mail i Outlook, Apple Mail, Thunderbird eller mobilapps."
+    },
+    "email-backup": {
+      "title": "E-mail backup",
+      "summary": "Forstå dit sikkerhedskopieringsansvar, og hvordan du beskytter dine e-mails."
+    },
+    "email-faq": {
+      "title": "Email FAQ",
+      "summary": "Ofte stillede spørgsmål om din e-mail-tjeneste."
+    },
+    "domain-ownership": {
+      "title": "Domæneejerskab",
+      "summary": "Forstå, hvem der ejer dit domæne, og hvem der administrerer det."
+    },
+    "domain-renewal": {
+      "title": "Domænefornyelse",
+      "summary": "Hvordan fornyelsesprocessen fungerer, og hvad sker der, hvis den udløber."
+    },
+    "domain-transfer": {
+      "title": "Domæneoverførsel",
+      "summary": "Sådan overfører du dit domæne til en anden udbyder."
+    },
+    "dns-configuration": {
+      "title": "DNS og teknisk konfiguration",
+      "summary": "Hvordan DNS administreres, og hvorfor koordinering er vigtig."
+    },
+    "domain-faq": {
+      "title": "Ofte stillede spørgsmål om domæne",
+      "summary": "Ofte stillede spørgsmål om domæneadministration."
+    },
+    "hosting-setup": {
+      "title": "Hosting Oversigt",
+      "summary": "Hvordan din hjemmeside er hostet, og hvad Eye On Idea administrerer."
+    },
+    "environments": {
+      "title": "Produktion vs Udvikling",
+      "summary": "Forstå forskellen mellem dit live-site og udviklingsmiljø."
+    },
+    "content-updates": {
+      "title": "Indholdsopdateringer og genopbygninger",
+      "summary": "Hvordan publicering af indhold udløser automatiske webstedsopdateringer."
+    },
+    "analytics": {
+      "title": "Analyse og rapportering",
+      "summary": "Muligheder for sporing og rapportering af webstedsanalyse."
+    },
+    "support-and-maintenance": {
+      "title": "Support & Vedligeholdelse",
+      "summary": "Hvad grundlæggende vedligeholdelse omfatter, og hvordan får du udvidet support."
+    },
+    "hosting-faq": {
+      "title": "Ofte stillede spørgsmål om hosting",
+      "summary": "Ofte stillede spørgsmål om hosting og infrastruktur."
+    },
+    "logo-files": {
+      "title": "Logo filtyper",
+      "summary": "Forstå SVG-, PNG- og JPG-formater, og hvornår de skal bruges."
+    },
+    "logo-usage": {
+      "title": "Regler for logobrug",
+      "summary": "Hvilken logoversion du skal bruge, og hvad du ikke skal gøre med dit logo."
+    },
+    "colors-and-typography": {
+      "title": "Farver og typografi",
+      "summary": "Retningslinjer for din brandfarvepalet og typografi."
+    },
+    "templates-and-print": {
+      "title": "Skabeloner og trykmateriale",
+      "summary": "Visitkort, brevpapir, præsentationer og sociale medier."
+    },
+    "brand-consistency": {
+      "title": "Brandkonsistens",
+      "summary": "Hvorfor konsistens er vigtig, og hvordan man vedligeholder den."
+    },
+    "visual-identity-faq": {
+      "title": "Ofte stillede spørgsmål om visuel identitet",
+      "summary": "Ofte stillede spørgsmål om dine brandaktiver."
+    }
+  },
+  "article": {
+    "lastUpdated": "Sidst opdateret",
+    "previousArticle": "Forrige",
+    "nextArticle": "Næste",
+    "backToCategory": "Tilbage til {category}",
+    "screenshotPlaceholder": "Skærmbillede vil blive tilføjet her",
+    "studioMayDiffer": "Dit studie kan se lidt anderledes ud afhængigt af din projektkonfiguration.",
+    "tipLabel": "Tip",
+    "noteLabel": "Bemærk",
+    "warningLabel": "Vigtigt",
+    "needHelp": "Har du brug for hjælp?",
+    "needHelpText": "Hvis du sidder fast, eller noget ser ikke rigtigt ud, så kontakt din Eye On Idea-projektleder.",
+    "content": {
+      "cmsOverview": {
+        "introTitle": "Hvad er CMS?",
+        "introText": "Dit CMS (Content Management System) er stedet, hvor du administrerer dit websteds indhold. Det kræver ikke kodning.",
+        "whatYouCanDoTitle": "Hvad du kan gøre",
+        "whatYouCanDo1": "Opdater tekst og billeder på din hjemmeside",
+        "whatYouCanDo2": "Opret og udgiv nyheder eller indlæg (hvis inkluderet i dit projekt)",
+        "whatYouCanDo3": "Administrer sider og navigation (hvis inkluderet)",
+        "whatYouCanDo4": "Hold din hjemmeside opdateret uden at røre ved kode",
+        "prerequisitesTitle": "Hvad du skal bruge, før du starter",
+        "prerequisitesText": "For at få adgang til CMS'et skal du have en invitationsmail fra Eye On Idea. Du vil angive de e-mailadresser, der skal få adgang, og specificere, hvem der skal være Editor vs Writer (hvis relevant).",
+        "rolesTitle": "Redaktør vs forfatter",
+        "rolesWriter": "Forfatter: Kan tilføje indhold (begrænsede redigerings- og fjernelsesmuligheder)",
+        "rolesEditor": "Editor: Kan tilføje, redigere og slette indhold",
+        "rolesNote": "Eye On Idea beholder administratoradgang for at beskytte den tekniske opsætning. Klienter modtager ikke skemaadgang.",
+        "tip": "Hvis du er i tvivl om noget, så gem først en kladde. Ved normal brug kan du ikke bryde hjemmesiden ved at redigere indhold."
+      },
+      "loggingIn": {
+        "openStudioTitle": "Åbn studiet",
+        "openStudioText": "Dit indholdsstudie er en webapplikation, som du får adgang til via din browser. Gå til dit Studio-link, normalt:",
+        "openStudioUrl": "studio.ditdomæne.com",
+        "openStudioBookmark": "Bogmærk denne URL for hurtig adgang i fremtiden.",
+        "signInTitle": "Log ind",
+        "signInStep1": "Klik på Log ind på studiesiden",
+        "signInStep2": "Brug den e-mailadresse, du blev inviteret med",
+        "signInStep3": "Fuldfør login-flowet",
+        "noInviteTitle": "Har du ikke modtaget en invitation?",
+        "noInviteText": "Bed din virksomhedsadministrator om at bekræfte din e-mailadresse, eller kontakt Eye On Idea direkte for at sende invitationen igen.",
+        "tip": "Hvis invitationslinket er udløbet, skal du kontakte din Eye On Idea-projektleder for at anmode om et nyt."
+      },
+      "studioNavigation": {
+        "introTitle": "At finde det, du har brug for",
+        "introText": "De fleste studier har en menu til venstre med indholdstyper. Disse omfatter typisk:",
+        "contentType1": "Sider",
+        "contentType2": "Nyheder / Indlæg",
+        "contentType3": "Indstillinger",
+        "contentType4": "Navigation",
+        "contentType5": "SEO",
+        "howToNavigate": "Klik på det område, du vil opdatere. Brug søgefunktionen, hvis den er tilgængelig til hurtigt at finde specifikt indhold.",
+        "tip": "Hvis du ikke kan se en navigationssidebjælke, skal du kigge efter et menuikon (ofte tre vandrette linjer) øverst på skærmen, især på mindre skærme."
+      },
+      "editingText": {
+        "introTitle": "Sikker redigering af tekst",
+        "introText": "For at redigere tekstindhold i studiet skal du klikke ind i et tekstfelt, foretage dine ændringer og holde sætninger korte og klare.",
+        "stepsTitle": "Sådan redigeres",
+        "step1": "Klik ind i det tekstfelt, du vil ændre",
+        "step2": "Foretag dine redigeringer direkte i feltet",
+        "step3": "Hold sætninger korte og klare for at kunne læse dem",
+        "pastingTitle": "Indsætter tekst",
+        "pastingText": "Undgå at indsætte tekst med formatering fra Word eller andre editorer. Hvis du indsætter, skal du hurtigt kontrollere mellemrum og overskrifter igen for at sikre, at de ser korrekte ud.",
+        "tip": "Brug de indbyggede formateringsværktøjer (overskrifter, fed, lister) i stedet for at forsøge at formatere manuelt med mellemrum eller specialtegn.",
+        "warning": "Noget indhold kan være låst for at beskytte hjemmesidens struktur. Only Eye On Idea ændrer skemaet og studieopsætningen."
+      },
+      "draftsAndPublishing": {
+        "draftsTitle": "Gemmer som kladde",
+        "draftsText": "Kladder gemmes automatisk i de fleste studier. Brug kladder, når du ikke er færdig endnu, vil have en anden til at gennemgå eller er usikker på den endelige formulering.",
+        "publishTitle": "Udgivelse",
+        "publishStep1": "Klik på Udgiv, når du er klar",
+        "publishStep2": "Bekræft, hvis du bliver bedt om det",
+        "publishStep3": "Hjemmesiden opdateres automatisk - det kan tage kort tid, før ændringer vises",
+        "checkTitle": "Tjek resultatet",
+        "checkText": "After publishing, open the page on your live website and verify:",
+        "check1": "Tekstflow og læsbarhed",
+        "check2": "Retskrivning og grammatik",
+        "check3": "Mobil visning",
+        "check4": "Billeder (størrelse og beskæring)",
+        "tip": "Hvis du ikke kan se dine ændringer, kan du prøve en hård opdatering: Cmd+Shift+R (Mac) eller Ctrl+Shift+R (Windows).",
+        "warning": "Sletning af indhold er ofte permanent. Hvis du er usikker, så gem en kladde eller kontakt Eye On Idea, før du sletter noget."
+      },
+      "seoBasics": {
+        "introTitle": "Hvad er SEO-felter?",
+        "introText": "SEO-felter styrer, hvordan dine sider vises i søgemaskineresultater og forhåndsvisninger på sociale medier. De ændrer ikke synlig hjemmesidetekst.",
+        "fieldsTitle": "Hvad du kan kontrollere",
+        "field1": "SEO-titel  -  sidetitlen vist i Google-resultater",
+        "field2": "Metabeskrivelse  -  den korte tekst under titlen i Google",
+        "field3": "Socialt delbillede (hvis inkluderet i dit projekt)",
+        "field4": "Slug  -  sidens URL",
+        "titleTitle": "At skrive SEO-titlen",
+        "titleText": "SEO-titlen vises i Googles søgeresultater. Hold det 50-60 tegn, klart og specifikt, og medtag dit hovedemne.",
+        "titleExample": "Eksempel: \"Kommerciel tagdækning i Aarhus\"",
+        "descriptionTitle": "At skrive metabeskrivelsen",
+        "descriptionText": "Metabeskrivelsen er den korte tekst under titlen i Google. Behold den på 120–160 tegn, skriv en klar oversigt over siden, og inviter brugeren til at klikke.",
+        "descriptionExample": "Eksempel: \"Professionelle tagløsninger til erhverv i Aarhus. Få ekspertrådgivning og gratis konsultation.\"",
+        "note": "SEO garanterer ikke placeringer. Klar struktur betyder mere end nøgleordsfyld. Hold det enkelt og menneskeligt."
+      },
+      "slugsAndUrls": {
+        "introTitle": "Håndtering af side-URL'er",
+        "introText": "Sneglen er den sideadresse, der vises i browserens URL-linje.",
+        "exampleTitle": "Sådan virker snegle",
+        "exampleText": "For eksempel: ditdomæne.com/roofing-services",
+        "bestPracticesTitle": "Bedste praksis",
+        "bestPractice1": "Hold snegle korte og beskrivende",
+        "bestPractice2": "Brug kun små bogstaver",
+        "bestPractice3": "Undgå specialtegn",
+        "bestPractice4": "Brug bindestreger til at adskille ord",
+        "publishTitle": "Udgivelse af SEO-ændringer",
+        "publishText": "Klik på Udgiv efter opdatering af SEO-felter. Ændringer træder i kraft, efter at hjemmesiden er genopbygget.",
+        "warning": "Undgå at ændre en slug efter udgivelse, medmindre det er nødvendigt. Ændring af en slug ændrer sidens URL, som kan bryde eksisterende links og bogmærker.",
+        "note": "Hver side bør have SEO-felter udfyldt. Tomme SEO-felter betyder, at søgemaskiner har færre oplysninger om din side."
+      },
+      "creatingAPost": {
+        "introTitle": "Oprettelse af et nyt indlæg",
+        "introText": "Din nyheds- eller indlægssektion giver dig mulighed for at dele opdateringer, udgive artikler, forbedre synlighed i søgemaskiner og holde dit websted aktivt. Hvert indlæg bliver sin egen side.",
+        "createTitle": "Opret et nyt indlæg",
+        "createStep1": "Åbn studiet",
+        "createStep2": "Klik på Nyheder eller Indlæg i navigationen",
+        "createStep3": "Klik på Opret ny",
+        "titleSectionTitle": "Tilføj en titel",
+        "titleText": "Skriv en klar, kort og specifik titel. Undgå meget lange titler, store bogstaver eller nøgleordsfyld.",
+        "imageTitle": "Tilføj et fremhævet billede",
+        "imageStep1": "Klik på billedfeltet",
+        "imageStep2": "Upload et nyt billede, eller vælg et eksisterende",
+        "imageStep3": "Juster afgrøden, hvis det er nødvendigt",
+        "imageTip": "Brug liggende format, medmindre andet er angivet i hjælpeteksten.",
+        "contentTitle": "Skriv dit indhold",
+        "contentText": "Brug overskrifter til at strukturere din tekst. En god struktur inkluderer en introduktion, hovedafsnit, understøttende detaljer og en konklusion. Hold afsnit korte og undgå lange tekstblokke."
+      },
+      "publishingAPost": {
+        "draftTitle": "Gem som kladde",
+        "draftText": "Kladde gemmes automatisk. Du kan tage af sted og vende tilbage senere. Brug et udkast, hvis du ikke er færdig eller ønsker intern godkendelse først.",
+        "publishTitle": "Udgiv dit indlæg",
+        "publishText": "Klik på Udgiv, når du er klar. Efter udgivelsen bliver indlægget synligt på din hjemmeside og vises på din nyhedsoversigtsside.",
+        "reviewTitle": "Anmeldelse på live-hjemmesiden",
+        "reviewText": "Åbn din hjemmeside og tjek:",
+        "review1": "Tekstlayout og formatering",
+        "review2": "Billedbeskæring og kvalitet",
+        "review3": "Mobil version",
+        "review4": "Retskrivning og grammatik",
+        "tip": "Du kan redigere et indlæg efter udgivelsen. Du skal blot foretage dine ændringer og udgive igen.",
+        "note": "Sletning af et indlæg fjerner det permanent. Hvis planlægning er aktiveret i dit projekt, kan du planlægge indlæg til fremtidig udgivelse."
+      },
+      "imageBestPractices": {
+        "introTitle": "Hvorfor billedkvalitet betyder noget",
+        "introText": "Gode billeder får din hjemmeside til at se professionel ud. Dårlige billeder kan bremse det eller få det til at se uklart ud. Studiet viser anbefalede størrelser - følg dem.",
+        "prepareTitle": "Forbered dit billede før upload",
+        "prepare1": "Brug JPG til billeder",
+        "prepare2": "Brug kun PNG, hvis du har brug for gennemsigtighed",
+        "prepare3": "Hold filstørrelsen under 1-2 MB, medmindre andet er angivet",
+        "prepare4": "Tilpas størrelsen på billeder tæt på den anbefalede størrelse vist i studiet",
+        "uploadTitle": "Upload billedet",
+        "uploadStep1": "Klik på billedfeltet",
+        "uploadStep2": "Upload eller vælg mellem eksisterende medier",
+        "uploadStep3": "Vent på, at uploaden er færdig",
+        "uploadWarning": "Undgå at uploade skærmbilleder fra WhatsApp, meget små billeder, der er strakt store, eller billeder med indlejret tekst (medmindre det er med vilje).",
+        "cropTitle": "Juster afgrøden, hvis det er nødvendigt",
+        "cropText": "Sørg for, at motivet er centreret, at vigtig tekst ikke er skåret af, og at ansigter ikke er beskåret foroven. Tjek altid, hvordan det ser ud på hjemmesiden.",
+        "tip": "Brug landskabsbilleder, hvis du er i tvivl, medmindre andet er fortalt."
+      },
+      "altTextAndFiles": {
+        "altTextTitle": "Tilføjelse af alternativ tekst",
+        "altTextText": "Alt tekst beskriver billedet. Det hjælper med tilgængelighed, søgemaskiner og skærmlæsere. Hold det kort og beskrivende.",
+        "altTextGood": "Godt eksempel: \"Kommercielt tagdækningsteam lægger fladt tag i Aarhus\"",
+        "altTextBad": "Dårligt eksempel: \"image123.jpg\"",
+        "publishTitle": "Udgiv og anmeld",
+        "publishText": "After publishing, open the page on your website and check desktop view, mobile view, and loading speed. Hvis det føles langsomt, kan billedet være for stort.",
+        "filesTitle": "Filupload (PDF'er og dokumenter)",
+        "filesText": "Hvis dit studie tillader filupload, skal du følge disse retningslinjer:",
+        "file1": "Hold PDF-filer under 5 MB, hvis det er muligt",
+        "file2": "Brug klare filnavne (f.eks. company-brochure-2026.pdf)",
+        "file3": "Undgå mellemrum i filnavne",
+        "file4": "Brug små bogstaver",
+        "warning": "Alt-tekst er vigtig for tilgængelighed (WCAG compliance). Udfyld det altid, når feltet er ledigt."
+      },
+      "commonMistakes": {
+        "introTitle": "Almindelige indholdsstyringsfejl",
+        "introText": "Her er de hyppigste fejl, når du arbejder med dit CMS, og hvordan du undgår dem.",
+        "cms1Title": "Sletning af indhold i stedet for at fjerne udgivelsen",
+        "cms1Text": "Sletning er ofte permanent. Hvis du er usikker, så gem en kladde eller spørg Eye On Idea, før du sletter.",
+        "cms2Title": "Uploader meget store billeder",
+        "cms2Text": "Billeder over 5 MB gør siden langsommere. Brug de anbefalede størrelser vist i studiehjælpeteksten.",
+        "cms3Title": "Redigering af navigation uden at tjekke mobil",
+        "cms3Text": "Menuer opfører sig anderledes på mobilen. Tjek altid både desktop- og mobilvisninger efter ændringer.",
+        "cms4Title": "Indsættelse af formateret tekst fra Word",
+        "cms4Text": "Dette kan introducere skjult formatering. Tjek igen mellemrum og overskrifter efter indsættelse.",
+        "cms5Title": "At skrive uden struktur",
+        "cms5Text": "Brug overskrifter og korte afsnit. Bryd lange tekstblokke op for at blive læst.",
+        "cms6Title": "Udgivelse uden forhåndsvisning",
+        "cms6Text": "Tjek altid, hvordan indholdet ser ud på live-webstedet, før du betragter det som endeligt.",
+        "cms7Title": "Søgeordsfyld i SEO-felter",
+        "cms7Text": "At gentage ord skader unaturligt klarheden. Skriv først for mennesker.",
+        "cms8Title": "Efterlader SEO-felter tomme",
+        "cms8Text": "Udfyld altid SEO-titel og metabeskrivelse. Tomme felter giver søgemaskinerne mindre information.",
+        "cms9Title": "Glem alt tekst på billeder",
+        "cms9Text": "Alt-tekst er vigtig for tilgængelighed og søgemaskiner. Udfyld det altid."
+      },
+      "cmsFaq": {
+        "introTitle": "Ofte stillede spørgsmål",
+        "q1": "Hvor redigerer jeg indholdet på mit websted?",
+        "a1": "I dit CMS Studio, normalt på studio.ditdomæne.com.",
+        "q2": "Kan jeg bryde hjemmesiden ved at redigere indhold?",
+        "a2": "Ved normal brug, nej. Du kan ændre tekst, billeder og indholdsblokke sikkert. Undgå at slette indhold, fjerne udgivelse af nøglesider eller udskifte billeder med meget store filer. Hvis du er usikker, så gem først et udkast.",
+        "q3": "Hvorfor kan jeg ikke redigere visse ting?",
+        "a3": "Noget indhold er låst for at beskytte strukturen. Only Eye On Idea ændrer skemaet og studieopsætningen.",
+        "q4": "Jeg kan ikke logge ind. Hvad gør jeg?",
+        "a4": "Bekræft, at du bruger den inviterede e-mailadresse, tjek din spam-mappe for invitationen, eller bed Eye On Idea om at sende invitationen igen.",
+        "q5": "Hvornår vises ændringer på hjemmesiden?",
+        "a5": "Normalt inden for kort tid efter du har offentliggjort. Dit websted genopbygges automatisk, når indhold udgives.",
+        "q6": "Kan jeg planlægge indhold?",
+        "a6": "Hvis planlægning er aktiveret i dit studie, ja. Hvis ikke, kan Eye On Idea tilføje det i nogle opsætninger.",
+        "q7": "Garanterer SEO førstepladsen i Google?",
+        "a7": "Nej. SEO forbedrer klarhed og struktur. Placering afhænger af mange eksterne faktorer.",
+        "q8": "Komprimerer systemet billeder automatisk?",
+        "a8": "Ja. Hjemmesiden optimerer billeder, når de vises. Start alligevel med rimelige størrelser.",
+        "q9": "Kan Eye On Idea hjælpe med indhold og SEO?",
+        "a9": "Ja. Indholdsforbedring, billedoptimering og SEO-revisioner er tilgængelige som yderligere tjenester."
+      },
+      "emailOverview": {
+        "introTitle": "Din professionelle e-mail",
+        "introText": "Din e-mailadresse (f.eks. navn{'@'}ditdomæne.com) er angivet som en del af din hjemmesideopsætning. Det kører på et professionelt e-mail-system kaldet Zimbra.",
+        "featuresTitle": "Hvad er inkluderet",
+        "feature1": "Sikker e-mail-hosting i EU",
+        "feature2": "Adgang til webmail via din browser",
+        "feature3": "IMAP-understøttelse af apps (Outlook, Apple Mail, Thunderbird, mobil)",
+        "feature4": "Adskilt fra dit websted CMS",
+        "eoiTitle": "Hvad Eye On Idea gør",
+        "eoi1": "Opretter din e-mail-konto",
+        "eoi2": "Giver din oprindelige adgangskode",
+        "eoi3": "Konfigurerer domæneposter (SPF, DKIM)",
+        "eoi4": "Administrerer kontooprettelse, sletning eller opgraderinger",
+        "yourTitle": "Hvad du er ansvarlig for",
+        "your1": "Ændring af din adgangskode efter første login",
+        "your2": "Hold din adgangskode sikker",
+        "your3": "Håndtering af postkasseindhold",
+        "your4": "Sikkerhedskopiering af dine e-mails (hvis nødvendigt)",
+        "warning": "Eye On Idea beholder ikke adgangen til din postkasse efter levering."
+      },
+      "firstLogin": {
+        "stepsTitle": "Første login",
+        "step1": "Åbn din browser",
+        "step2": "Gå til: https://zimbra1.mail.ovh.net/",
+        "step3": "Log ind med din fulde e-mailadresse og den adgangskode, du har fået",
+        "changePasswordTitle": "Skift din adgangskode med det samme",
+        "changeStep1": "Gå til kontoindstillinger efter at have logget ind",
+        "changeStep2": "Skift din adgangskode til noget sikkert",
+        "changeStep3": "Opbevar det sikkert (brug en adgangskodeadministrator, hvis det er muligt)",
+        "warning": "Skift altid din oprindelige adgangskode umiddelbart efter første login. Dette beskytter din postkasse mod uautoriseret adgang."
+      },
+      "webmailAccess": {
+        "introTitle": "Brug af webmail",
+        "introText": "Webmail giver dig adgang til din e-mail direkte gennem en browser uden at installere nogen apps.",
+        "featuresTitle": "Hvad du kan gøre med webmail",
+        "feature1": "Send og modtag e-mails",
+        "feature2": "Organiser mapper",
+        "feature3": "Brug indbygget kalender og kontakter (hvis aktiveret)",
+        "accessTitle": "Sådan får du adgang",
+        "accessText": "Gå til https://zimbra1.mail.ovh.net/ og log ind med din e-mailadresse og adgangskode.",
+        "note": "Du kan kun bruge webmail eller også tilslutte en e-mail-app. Begge arbejder samtidigt."
+      },
+      "emailAppSetup": {
+        "introTitle": "Opsætning af din e-mail-app",
+        "introText": "De fleste brugere foretrækker at bruge en e-mail-app i stedet for eller som supplement til webmail. Brug IMAP-indstillingerne nedenfor.",
+        "imapTitle": "IMAP-indstillinger",
+        "incomingTitle": "Indgående (IMAP)",
+        "incomingServer": "Server: imap.mail.ovh.net",
+        "incomingPort": "Havn: 993",
+        "incomingEncryption": "Kryptering: SSL/TLS",
+        "outgoingTitle": "Udgående (SMTP)",
+        "outgoingServer": "Server: smtp.mail.ovh.net",
+        "outgoingPort": "Havn: 465",
+        "outgoingEncryption": "Kryptering: SSL/TLS",
+        "credentialsTitle": "Legitimationsoplysninger",
+        "credentialsUsername": "Brugernavn: Din fulde e-mailadresse",
+        "credentialsPassword": "Adgangskode: Din opdaterede adgangskode",
+        "appsTitle": "Kompatible apps",
+        "appsText": "Brug disse indstillinger i Outlook, Apple Mail, Thunderbird eller din iPhone/Android mail-app.",
+        "testTitle": "Test opsætningen",
+        "testStep1": "Send en test-e-mail til dig selv",
+        "testStep2": "Bekræft, at den vises i din indbakke",
+        "testStep3": "Prøv at sende fra en anden enhed",
+        "tip": "Hvis noget fejler, skal du dobbelttjekke servernavne, bekræfte korrekte porte og sikre, at SSL er aktiveret.",
+        "warning": "Brug altid IMAP, ikke POP. IMAP holder alle dine enheder synkroniseret. POP kan få beskeder til at forsvinde fra andre enheder."
+      },
+      "emailBackup": {
+        "introTitle": "E-mail backup ansvar",
+        "introText": "Eye On Idea leverer ikke sikkerhedskopiering af postkassen. Hvis sikkerhedskopier er vigtige for din virksomhed, bør du selv opsætte dem.",
+        "optionsTitle": "Backup muligheder",
+        "option1": "Aktiver lokal postlagring i din e-mailklient",
+        "option2": "Eksporter post med jævne mellemrum til et lokalt arkiv",
+        "option3": "Brug professionel backup-software, hvis det kræves",
+        "warning": "E-mail-data kan gå tabt på grund af utilsigtet sletning, kontoproblemer eller sikkerhedshændelser. Regelmæssige sikkerhedskopier beskytter din virksomheds kommunikation."
+      },
+      "emailFaq": {
+        "introTitle": "Ofte stillede spørgsmål",
+        "q1": "Hvor er min e-mail gemt?",
+        "a1": "Dine postkassedata gemmes i europæiske datacentre (Frankrig og Tyskland), hvilket hjælper dig med at overholde GDPR.",
+        "q2": "Kan Eye On Idea læse mine e-mails?",
+        "a2": "Nej. Eye On Idea har ikke postkasseadgang efter opsætning. Vi administrerer kun kontostruktur (oprette, slette, opgradere konti).",
+        "q3": "Kan jeg oprette yderligere e-mailadresser?",
+        "a3": "Ja. Kontakt Eye On Idea for at oprette nye konti eller aliaser.",
+        "q4": "Kan jeg opgradere postkasselager?",
+        "a4": "Ja. Lageropgraderinger kan arrangeres efter behov.",
+        "mistakesTitle": "Almindelige fejl",
+        "mistake1": "Ikke at ændre den oprindelige adgangskode - skift den altid med det samme",
+        "mistake2": "Brug af POP i stedet for IMAP  -  IMAP holder enheder synkroniseret",
+        "mistake3": "Deling af adgangskoder via e-mail - send aldrig adgangskoder via usikrede kanaler"
+      },
+      "domainOwnership": {
+        "introTitle": "Dit domæne",
+        "introText": "Dit domæne er din digitale adresse (f.eks. ditdomæne.com). Det forbinder din hjemmeside, e-mail og andre onlinetjenester.",
+        "ownershipTitle": "Hvem ejer dit domæne?",
+        "ownershipText": "Dit domæne er registreret i din virksomheds navn og ejes juridisk af din virksomhed. Eye On Idea administrerer det administrativt, men du forbliver den juridiske ejer til enhver tid.",
+        "eoiTitle": "Hvad Eye On Idea gør",
+        "eoi1": "Registrerer domænet i din virksomheds navn",
+        "eoi2": "Konfigurerer DNS (websted, e-mail, sikkerhed)",
+        "eoi3": "Håndterer fornyelser og sender påmindelser",
+        "eoi4": "Håndterer teknisk konfiguration",
+        "yourTitle": "Hvad du er ansvarlig for",
+        "your1": "Betaling af årlige fornyelsesgebyrer",
+        "your2": "Bekræfter fornyelse efter anmodning",
+        "your3": "Informer os, hvis virksomhedens oplysninger ændres",
+        "your4": "Anmoder om overførsler, hvis det er nødvendigt"
+      },
+      "domainRenewal": {
+        "processTitle": "Sådan fungerer fornyelse",
+        "processText": "Domæner fornys årligt. Processen er ligetil:",
+        "processStep1": "En måned før fornyelse kontakter Eye On Idea dig",
+        "processStep2": "Der sendes en fornyelsesfaktura",
+        "processStep3": "Du bekræfter og betaler",
+        "processStep4": "Domæne fornyes for 1 år",
+        "expirationTitle": "Hvis der ikke modtages svar",
+        "expirationText": "I den sidste måned før udløb sendes der ugentlige rykkere. Kontaktforsøg kan omfatte telefon og e-mail.",
+        "warning": "Hvis der ikke modtages noget svar inden udløbet, kan domænet udløbe, blive offentligt tilgængeligt, og dit websted og din e-mail holder muligvis op med at fungere. Eye On Idea bevarer ikke ejerskabet af udløbne domæner.",
+        "lifecycleTitle": "Domænets livscyklus",
+        "lifecycle1": "Aktiv - dit domæne fungerer normalt",
+        "lifecycle2": "Udløbet  -  domænet holder op med at fungere",
+        "lifecycle3": "Henstandsperiode  -  kan stadig være tilbagebetalt",
+        "lifecycle4": "Indløsningsperiode  -  inddrivelse medfører yderligere gebyrer",
+        "lifecycle5": "Frigivet - domænet bliver tilgængeligt for alle at registrere",
+        "tip": "For at undgå enhver risiko, forny altid før udløb."
+      },
+      "domainTransfer": {
+        "introTitle": "Overførsel af dit domæne",
+        "introText": "Du kan til enhver tid overføre dit domæne til en anden udbyder. Eye On Idea blokerer ikke domæneoverførsler. Domænet tilhører dig.",
+        "processTitle": "Overførselsproces",
+        "processStep1": "Skriftlig bekræftelse fra domæneejeren er påkrævet",
+        "processStep2": "Overførselskode (godkendelseskode) leveres af Eye On Idea",
+        "processStep3": "Den nye udbyder håndterer overførslen derfra",
+        "note": "Overførsler koordineres for at undgå nedetid. Kontakt Eye On Idea for at starte processen."
+      },
+      "dnsConfiguration": {
+        "introTitle": "DNS og teknisk konfiguration",
+        "introText": "DNS (Domain Name System) styrer, hvordan dit domæne opretter forbindelse til din hjemmeside, e-mail og andre tjenester. Eye On Idea administrerer disse indstillinger.",
+        "managedTitle": "Hvad er forvaltet",
+        "managed1": "Hjemmesideforbindelse (A/AAAA-registreringer)",
+        "managed2": "E-mail-poster (SPF, DKIM, MX)",
+        "managed3": "SSL opsætning og fornyelse",
+        "managed4": "Sikkerhedskonfiguration (DMARC anbefales)",
+        "warning": "Vi anbefaler ikke at ændre DNS-indstillinger uden koordinering, da det kan afbryde webstedsadgang, e-mail-levering eller sikkerhedscertifikater."
+      },
+      "domainFaq": {
+        "introTitle": "Ofte stillede spørgsmål",
+        "q1": "Ejer jeg mit domæne?",
+        "a1": "Ja. Domænet er registreret i din virksomheds navn. Du er den juridiske ejer.",
+        "q2": "Kan Eye On Idea tage mit domæne?",
+        "a2": "Nej. Du er den juridiske ejer til enhver tid.",
+        "q3": "Hvad sker der, hvis jeg glemmer at forny?",
+        "a3": "Domænet kan udløbe og i sidste ende blive tilgængeligt for andre at registrere.",
+        "q4": "Kan jeg registrere yderligere domæner?",
+        "a4": "Ja. Yderligere domæner kan registreres til brandbeskyttelse, flere markeder eller kampagnebrug.",
+        "q5": "Kan jeg flytte mit domæne til en anden udbyder?",
+        "a5": "Ja. Overførsel er mulig til enhver tid med skriftlig bekræftelse."
+      },
+      "hostingSetup": {
+        "introTitle": "Hvordan din hjemmeside er hostet",
+        "introText": "Din hjemmeside er hostet på europæisk infrastruktur. Det er bygget som et præstationsfokuseret statisk websted, hvilket betyder hurtig indlæsning, høj sikkerhed, lav vedligeholdelsesrisiko og ingen offentlig server-login påkrævet.",
+        "eoiTitle": "Hvad Eye On Idea formår",
+        "eoi1": "Implementerer og vedligeholder produktionswebstedet",
+        "eoi2": "Overvåger oppetid og funktionalitet",
+        "eoi3": "Håndterer SSL-certifikater",
+        "eoi4": "Vedligeholder DNS-konfiguration",
+        "eoi5": "Sikrer genopbygning af webstedet efter indholdsopdateringer",
+        "eoi6": "Håndterer infrastrukturkonfiguration",
+        "note": "Hostingadgang (FTP eller kontrolpanel) leveres ikke som standard. Dette sikrer stabilitet, sikkerhed og tydeligt ansvar. Har du behov for særlig adgang, skal dette aftales skriftligt."
+      },
+      "environments": {
+        "productionTitle": "Produktion (live hjemmeside)",
+        "productionText": "Dit live-websted er hostet i Europa, bruger sikker SSL, er optimeret til ydeevne og overvåges for tilgængelighed. Du behøver ikke at få adgang til dette miljø.",
+        "developmentTitle": "Udvikling / Iscenesættelse",
+        "developmentText": "Under udviklingen skabes et midlertidigt udviklingsmiljø. Du får muligvis adgang til forhåndsvisning af fremskridt. Dette miljø fjernes efter lancering.",
+        "note": "Udviklingsmiljøet er ikke offentlig infrastruktur. Det har muligvis ikke haft konstant oppetid under projektet. Produktionshosting er stabil og overvåget."
+      },
+      "contentUpdates": {
+        "introTitle": "Sådan fungerer indholdsopdateringer",
+        "introText": "Når du udgiver indhold i dit CMS, opdateres hjemmesiden automatisk. Du behøver ikke at uploade filer manuelt.",
+        "processTitle": "Opdateringsprocessen",
+        "processStep1": "Du udgiver indhold i CMS",
+        "processStep2": "CMS'et sender en trigger (webhook)",
+        "processStep3": "Hjemmesiden genopbygges automatisk",
+        "processStep4": "Den opdaterede version erstatter den tidligere",
+        "tip": "Ændringer kan tage et par minutter, før de vises på grund af genopbygningsprocessen. Hvis ændringer ikke vises efter flere minutter, kan du prøve en hård opdatering eller kontakte din projektleder."
+      },
+      "analyticsReporting": {
+        "introTitle": "Analyse og rapportering",
+        "introText": "Dit websted kan inkludere analysesporing for at hjælpe dig med at forstå besøgendes adfærd.",
+        "optionsTitle": "Indberetningsmuligheder",
+        "option1": "Planlagte e-mail rapporter",
+        "option2": "Manuel rapporteksport",
+        "option3": "Dashboard-deling (når aktiveret)",
+        "note": "Rapporteringsstrukturen kan udvikle sig, efterhånden som Eye On Idea forbedrer sit analysesystem. Har du behov for struktureret rapportering eller KPI-sporing, kan dette tilføjes som en service."
+      },
+      "supportAndMaintenance": {
+        "basicTitle": "Grundlæggende vedligeholdelse",
+        "basicText": "Grundlæggende vedligeholdelse er inkluderet og dækker:",
+        "basic1": "Sikre, at hjemmesiden forbliver live",
+        "basic2": "Sikkerhedsopdateringer, hvor det er nødvendigt",
+        "basic3": "Infrastrukturovervågning",
+        "extendedTitle": "Udvidet support",
+        "extendedText": "Udvidet vedligeholdelse er tilgængelig via supportpakker, som kan omfatte:",
+        "extended1": "Indholdsopdateringer håndteres for dig",
+        "extended2": "Tekniske justeringer",
+        "extended3": "Prioriterede svartider",
+        "extended4": "Løbende optimering",
+        "accessTitle": "Adgangspolitik",
+        "accessText": "Som standard er der ingen FTP-adgang eller hostingkontrolpaneladgang. Dette sikrer stabilitet, sikkerhed og tydeligt ansvar. DNS-registreringslister kan leveres efter anmodning."
+      },
+      "hostingFaq": {
+        "introTitle": "Ofte stillede spørgsmål",
+        "q1": "Kan jeg få adgang til serveren?",
+        "a1": "Ikke som standard. Ekstern adgang kan påvirke stabilitet og sikkerhed.",
+        "q2": "Hvad sker der, hvis hjemmesiden går ned?",
+        "a2": "Eye On Idea overvåger oppetiden. Hvis der opdages et problem, bliver det undersøgt og løst.",
+        "q3": "Er værten i EU?",
+        "a3": "Ja. Hostinginfrastruktur er baseret i Europa.",
+        "q4": "Kan jeg flytte hosting et andet sted hen?",
+        "a4": "Ja. Hosting kan overføres efter skriftlig anmodning. Processen vil blive koordineret for at undgå nedetid."
+      },
+      "logoFiles": {
+        "introTitle": "Forstå dine logofiler",
+        "introText": "Du har modtaget flere versioner af dit logo i forskellige formater. Hvert format har et specifikt formål.",
+        "svgTitle": "SVG (vektorformat)",
+        "svgText": "Bedst til hjemmeside, store udskrifter, professionel udskrivning og skalering til enhver størrelse. Mister aldrig kvalitet. Dette er din mest alsidige logofil.",
+        "pngTitle": "PNG",
+        "pngText": "Bedst til sociale medier, præsentationer, dokumenter og gennemsigtige baggrunde. God til digital brug.",
+        "jpgTitle": "JPG",
+        "jpgText": "Bedst til simpel digital deling og e-mailvedhæftede filer. Ikke ideel til udskrivning på grund af kompression.",
+        "tip": "Når du er i tvivl, så brug SVG til professionel brug og PNG til daglig digital brug."
+      },
+      "logoUsage": {
+        "versionsTitle": "Logo versioner",
+        "versionsText": "Du har muligvis modtaget flere logoversioner:",
+        "version1": "Primært logo - brug dette som standard",
+        "version2": "Vandret version  -  til store rum",
+        "version3": "Stablet version  -  til lodrette rum",
+        "version4": "Ikonversion  -  til profilbilleder på sociale medier og små rum",
+        "version5": "Lys version  -  til mørke baggrunde",
+        "version6": "Mørk version  -  til lyse baggrunde",
+        "rulesTitle": "Brugsregler",
+        "rulesText": "Brug det primære logo som standard. Brug kun variationer, når pladsen er begrænset, baggrunden kræver kontrast, eller et profilbillede på sociale medier har brug for ikonversionen.",
+        "doNotTitle": "Gør det ikke",
+        "doNot1": "Stræk logoet",
+        "doNot2": "Skift dens farver",
+        "doNot3": "Tilføj skygger eller effekter",
+        "doNot4": "Placer den på baggrunde med lav kontrast",
+        "doNot5": "Beskær dele af logoet",
+        "warning": "Hvis du er usikker på logobrug, så spørg Eye On Idea, før du foretager ændringer."
+      },
+      "colorsAndTypography": {
+        "colorsTitle": "Farvepalet",
+        "colorsText": "Dit brand inkluderer definerede farver. Brug den primære farve til hovedhøjlys, sekundære farver til støtte og neutrale farver til baggrunde.",
+        "colorsAvoid": "Undgå tilfældige nye farver eller overforbrug af stærke accentfarver. Hvis du er i tvivl, så følg din brandguide PDF.",
+        "typographyTitle": "Typografi",
+        "typographyText": "Hvis der blev leveret skrifttyper, skal du bruge den definerede primære skrifttype til overskrifter og den sekundære skrifttype til brødtekst. Hvis mærket inkluderer systemsikre alternativer, skal du bruge dem i e-mail eller interne dokumenter.",
+        "warning": "Bland ikke tilfældige skrifttyper. Ensartet typografi er afgørende for brandgenkendelse."
+      },
+      "templatesAndPrint": {
+        "businessCardsTitle": "Visitkort",
+        "businessCardsText": "Leveres som printklar PDF og digitale formater. Til udskrivning skal du sende den printklare PDF direkte til printeren. Udløb eller marginer må ikke ændres.",
+        "letterheadTitle": "Brevpapir",
+        "letterheadText": "Brug den officielle skabelon med korrekt logoplacering og -mellemrum. Undgå at ændre størrelse på elementer.",
+        "presentationsTitle": "Præsentations skabeloner",
+        "presentationsText": "Leveres som PPTX-fil (evt. med PDF-version). Brug masterslides, foruddefinerede layouts og korrekte skrifttyper. Indsæt ikke forskellige skrifttyper eller skift layoutstruktur.",
+        "socialMediaTitle": "Aktiver på sociale medier",
+        "socialMediaText": "Indeholder profilbilledeskabeloner, indlægsskabeloner og highlight-omslag (hvis inkluderet). Brug disse til at bevare visuel sammenhæng på tværs af platforme."
+      },
+      "brandConsistency": {
+        "introTitle": "Hvorfor konsekvens betyder noget",
+        "introText": "Konsistens skaber genkendelse. Inkonsekvent branding ser uprofessionelt ud, forvirrer kunderne og svækker tilliden.",
+        "checklistTitle": "Spørg dig selv",
+        "check1": "Følger dette vores brand guide?",
+        "check2": "Ligner det vores hjemmeside?",
+        "check3": "Ville nogen genkende det med det samme?",
+        "checkText": "Hvis ikke, skal du justere før udgivelse eller deling.",
+        "fileManagementTitle": "Filhåndtering",
+        "fileManagement1": "Gem varemærkeaktiver i én delt virksomhedsmappe",
+        "fileManagement2": "Hold de originale filnavne intakte",
+        "fileManagement3": "Opret kopier ved redigering",
+        "fileManagement4": "Rediger aldrig de originale masterfiler",
+        "warning": "Brug af skærmbilleder af dit logo, blanding af mærkefarver med tilfældige nuancer eller upload af aktiver af lav kvalitet underminerer dit professionelle image."
+      },
+      "visualIdentityFaq": {
+        "introTitle": "Ofte stillede spørgsmål",
+        "q1": "Hvilken logofil skal jeg sende til en printer?",
+        "a1": "Brug SVG eller den printklare PDF. Send aldrig en JPG til en printer.",
+        "q2": "Kan jeg ændre mærkefarver?",
+        "a2": "Kun som en del af en formel rebranding-proces.",
+        "q3": "Kan Eye On Idea skabe yderligere brandaktiver?",
+        "a3": "Ja. Udvidede brandtjenester er tilgængelige.",
+        "q4": "Hvad hvis jeg mister filerne?",
+        "a4": "Kontakt Eye On Idea for omlevering.",
+        "mistakesTitle": "Almindelige fejl",
+        "mistake1": "Sender JPG til printeren  -  brug vektorfiler eller printklare PDF'er",
+        "mistake2": "Brug af et skærmbillede af logoet - brug aldrig skærmbilleder",
+        "mistake3": "Blande mærkefarver med tilfældige nuancer - hold dig til den definerede palet",
+        "mistake4": "Upload af lavkvalitetslogo til sociale medier - brug den medfølgende PNG i høj opløsning"
+      }
+    }
+  },
+  "categoryCard": {
+    "guideCount": "{count} guider | {count} guide | {count} guider",
+    "browse": "Gennemse guider"
+  },
+  "breadcrumb": {
+    "hub": "Klienthub"
+  }
+}

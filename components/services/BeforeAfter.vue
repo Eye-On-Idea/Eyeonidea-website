@@ -9,14 +9,15 @@ const isVisible = ref(false);
 const sliderPosition = ref(50);
 const isDragging = ref(false);
 
-const metrics = computed(() =>
-  tm("services.beforeAfter.metrics") as Array<{
-    label: string;
-    before: string;
-    after: string;
-    unit: string;
-    improved: boolean;
-  }>
+const metrics = computed(
+  () =>
+    tm("services.beforeAfter.metrics") as Array<{
+      label: string;
+      before: string;
+      after: string;
+      unit: string;
+      improved: boolean;
+    }>,
 );
 
 function updateSlider(clientX: number) {
@@ -61,7 +62,7 @@ onMounted(() => {
         observer.disconnect();
       }
     },
-    { threshold: 0.15 }
+    { threshold: 0.15 },
   );
   observer.observe(sectionRef.value);
 
@@ -106,14 +107,18 @@ onMounted(() => {
       >
         <!-- Before panel -->
         <div class="panel panel--before">
-          <div class="panel__label">{{ t("services.beforeAfter.beforeLabel") }}</div>
+          <div class="panel__label">
+            {{ t("services.beforeAfter.beforeLabel") }}
+          </div>
           <div class="panel__metrics">
             <div
               v-for="(metric, i) in metrics"
               :key="`before-${i}`"
               class="metric"
             >
-              <span class="metric__value metric__value--poor">{{ metric.before }}{{ metric.unit }}</span>
+              <span class="metric__value metric__value--poor"
+                >{{ metric.before }}{{ metric.unit }}</span
+              >
               <span class="metric__label">{{ metric.label }}</span>
             </div>
           </div>
@@ -124,14 +129,18 @@ onMounted(() => {
           class="panel panel--after"
           :style="{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }"
         >
-          <div class="panel__label">{{ t("services.beforeAfter.afterLabel") }}</div>
+          <div class="panel__label">
+            {{ t("services.beforeAfter.afterLabel") }}
+          </div>
           <div class="panel__metrics">
             <div
               v-for="(metric, i) in metrics"
               :key="`after-${i}`"
               class="metric"
             >
-              <span class="metric__value metric__value--good">{{ metric.after }}{{ metric.unit }}</span>
+              <span class="metric__value metric__value--good"
+                >{{ metric.after }}{{ metric.unit }}</span
+              >
               <span class="metric__label">{{ metric.label }}</span>
             </div>
           </div>
@@ -145,7 +154,10 @@ onMounted(() => {
         >
           <div class="slider-line" />
           <div class="slider-grip">
-            <UIcon name="i-heroicons-arrows-right-left" class="slider-grip__icon" />
+            <UIcon
+              name="i-heroicons-arrows-right-left"
+              class="slider-grip__icon"
+            />
           </div>
         </div>
       </div>
@@ -238,7 +250,7 @@ onMounted(() => {
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-accent-400);
+    outline: 2px solid var(--color-primary-400);
     outline-offset: 4px;
   }
 }
@@ -266,10 +278,11 @@ onMounted(() => {
   inset: 0;
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--color-accent-500) 8%, var(--color-surface-1)),
+    color-mix(in srgb, var(--color-primary-500) 8%, var(--color-surface-1)),
     var(--color-surface-1)
   );
-  border: 1px solid color-mix(in srgb, var(--color-accent-500) 25%, transparent);
+  border: 1px solid
+    color-mix(in srgb, var(--color-primary-500) 25%, transparent);
   z-index: 1;
 }
 
@@ -286,7 +299,7 @@ onMounted(() => {
 }
 
 .panel--after .panel__label {
-  color: var(--color-accent-600);
+  color: var(--color-primary-600);
 }
 
 .panel__metrics {
@@ -294,7 +307,6 @@ onMounted(() => {
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem 2rem;
   flex: 1;
-
   @media (min-width: 640px) {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -323,7 +335,7 @@ onMounted(() => {
 }
 
 .metric__value--good {
-  color: var(--color-accent-600);
+  color: var(--color-primary-600);
 }
 
 .metric__label {
@@ -352,7 +364,7 @@ onMounted(() => {
   bottom: 0;
   left: -1px;
   width: 2px;
-  background: var(--color-accent-500);
+  background: var(--color-primary-500);
 }
 
 .slider-grip {
@@ -363,7 +375,7 @@ onMounted(() => {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--color-accent-500);
+  background: var(--color-primary-500);
   border: 3px solid var(--color-surface-1);
   display: flex;
   align-items: center;
@@ -392,22 +404,22 @@ onMounted(() => {
   .panel--after {
     background: linear-gradient(
       135deg,
-      color-mix(in srgb, var(--color-accent-500) 10%, var(--color-surface-2)),
+      color-mix(in srgb, var(--color-primary-500) 10%, var(--color-surface-2)),
       var(--color-surface-2)
     );
   }
 
   .panel--after .panel__label {
-    color: var(--color-accent-400);
+    color: var(--color-primary-400);
   }
 
   .metric__value--good {
-    color: var(--color-accent-400);
+    color: var(--color-primary-400);
   }
 
   .section-badge {
-    background: var(--color-accent-900);
-    color: var(--color-accent-300);
+    background: var(--color-primary-900);
+    color: var(--color-primary-300);
   }
 
   .slider-grip {

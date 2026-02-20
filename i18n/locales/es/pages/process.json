@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "title": "Nuestro proceso - Eye On Idea",
+    "description": "Desde el primer contacto hasta el lanzamiento y más allá. Descubra cómo Eye On Idea ofrece proyectos de sitios web profesionales con cronogramas claros, precios transparentes y soporte continuo."
+  },
+  "hero": {
+    "badge": "Nuestro proceso",
+    "title": "De la idea al lanzamiento",
+    "subtitle": "Cada proyecto sigue un proceso claro y transparente diseñado para mantenerlo informado y en control en cada etapa."
+  },
+  "intro": {
+    "text": "Creemos que los grandes sitios web se basan en una comunicación clara y un entendimiento mutuo. Esto es exactamente lo que puede esperar cuando trabaja con Eye On Idea."
+  },
+  "timeline": {
+    "title": "El viaje de su proyecto",
+    "steps": {
+      "contact": {
+        "number": "01",
+        "title": "Contacto inicial",
+        "description": "Usted se comunica con la idea o las necesidades de su proyecto. Respondemos dentro de 1-2 días hábiles y proponemos una reunión de descubrimiento, ya sea en persona o en línea, con opciones de programación flexibles.",
+        "details": [
+          "No se requiere compromiso en esta etapa",
+          "La reunión puede ser física u online (Teams, Zoom, etc.)",
+          "Tú eliges la hora y la fecha que más te convengan"
+        ],
+        "cta": {
+          "label": "Ponte en contacto",
+          "to": "/contacto"
+        }
+      },
+      "discovery": {
+        "number": "02",
+        "title": "Reunión de descubrimiento",
+        "description": "Nos sentamos juntos para comprender sus objetivos, público objetivo y contexto empresarial. Esta reunión da forma a todo el alcance del proyecto.",
+        "details": [
+          "Definir expectativas, deseos y necesidades.",
+          "Auditar los activos existentes (logotipos, contenido, dominios, hosting)",
+          "Identificar lo que se necesita crear u obtener",
+          "Analice el cronograma y cualquier requisito de lanzamiento específico."
+        ]
+      },
+      "proposal": {
+        "number": "03",
+        "title": "Propuesta y Acuerdo",
+        "description": "Basándonos en la reunión de descubrimiento, le enviamos una propuesta detallada que describe el alcance completo del proyecto, los entregables, el cronograma y el costo.",
+        "details": [
+          "Alcance claro del proyecto con todos los entregables enumerados",
+          "Precios transparentes sin cargos ocultos",
+          "Un depósito del 25% al 50% del costo total para comenzar a trabajar.",
+          "El depósito no es reembolsable y asegura el lugar para su proyecto",
+          "La aceptación de la propuesta incluye el consentimiento RGPD para el manejo de datos como se describe"
+        ],
+        "note": "La propuesta establece claramente qué datos personales se procesarán, con qué finalidad y bajo qué base jurídica, de conformidad con el RGPD. Tus datos nunca se comparten con terceros más allá de lo que requiere el proyecto.",
+        "cta": {
+          "label": "Ver nuestros paquetes",
+          "to": "/servicios#sección-paquetes"
+        }
+      },
+      "kickoff": {
+        "number": "04",
+        "title": "Inicio del proyecto",
+        "description": "Una vez recibido el depósito, comienza el trabajo. Configuraremos el entorno del proyecto y comenzaremos a construir según el alcance acordado.",
+        "details": [
+          "El proyecto suele tardar entre 2 y 4 semanas, según el alcance.",
+          "Reuniones de control semanales o mensuales opcionales",
+          "Canal de comunicación dedicado para preguntas y actualizaciones."
+        ]
+      },
+      "development": {
+        "number": "05",
+        "title": "Desarrollo y Progreso",
+        "description": "Tu sitio web toma forma. Durante esta fase, opcionalmente puede solicitar acceso temprano a un servidor de desarrollo para realizar un seguimiento en tiempo real.",
+        "details": [
+          "Disponible después de la primera semana de trabajo.",
+          "Proporciona información constante sobre el progreso del proyecto.",
+          "Puede incurrir en una tarifa adicional (requiere mantenimiento regular de la base de código para cargas adecuadas)"
+        ],
+        "note": "El acceso temprano al servidor de desarrollo es un complemento opcional. Requiere implementación y mantenimiento más frecuentes, por lo que se ofrece como un servicio independiente.",
+        "cta": {
+          "label": "Ver complementos y extras",
+          "to": "/servicios#sección-complementos"
+        }
+      },
+      "preview": {
+        "number": "06",
+        "title": "Vista previa previa al lanzamiento",
+        "description": "Una semana antes de la fecha de lanzamiento acordada, recibirás un enlace al servidor de prueba donde podrás revisar el proyecto completo.",
+        "details": [
+          "Proyecto completo disponible para revisión en una URL de prueba",
+          "Oportunidad de solicitar ediciones o ajustes finales",
+          "Si se incluye CMS, también recibirá su invitación de CMS con instrucciones y orientación.",
+          "Esta vista previa actúa como la aprobación final antes de publicarse."
+        ]
+      },
+      "payment": {
+        "number": "07",
+        "title": "Pago final y lanzamiento",
+        "description": "El saldo restante del proyecto se factura entre 2 y 5 días hábiles antes del lanzamiento. El pago vence el día del lanzamiento.",
+        "details": [
+          "La factura cubre el resto después del depósito inicial.",
+          "Pago vencido el día del lanzamiento.",
+          "El sitio web se activa en la fecha acordada",
+          "Se entregan todos los entregables."
+        ]
+      },
+      "postlaunch": {
+        "number": "08",
+        "title": "Soporte posterior al lanzamiento",
+        "description": "Después del lanzamiento, tiene una ventana de soporte de 2 semanas donde monitoreamos el sitio y manejamos cualquier pequeña corrección que encuentre.",
+        "details": [
+          "Supervisamos vagamente el sitio en busca de errores.",
+          "Pequeñas ediciones de texto, intercambios de imágenes, corrección de errores tipográficos, correcciones de información de contacto",
+          "No incluye rediseños importantes ni nuevas características.",
+          "Informar cualquier problema dentro del plazo de 2 semanas"
+        ],
+        "note": "Este es un período gratuito para detectar cualquier cosa que se haya pasado por alto antes del lanzamiento. Los cambios importantes o las solicitudes de nuevas funciones se manejan como proyectos separados o mediante un plan de soporte."
+      },
+      "handoff": {
+        "number": "09",
+        "title": "Traspaso y más allá",
+        "description": "El proyecto está completo y totalmente pagado. Le agradecemos la colaboración y siempre estaremos aquí cuando nos necesite.",
+        "details": [
+          "El alojamiento y el mantenimiento del servidor siguen siendo responsabilidad de Eye On Idea (alojado en OVH Cloud EU)",
+          "Planes de soporte continuo disponibles si desea una colaboración continua",
+          "No se incluyen más ediciones después de la ventana de dos semanas posterior al lanzamiento.",
+          "Proyectos y servicios futuros siempre bienvenidos"
+        ],
+        "cta": {
+          "label": "Ver planes de soporte",
+          "to": "/servicios#planes-de-soporte"
+        }
+      }
+    }
+  },
+  "faq": {
+    "title": "Preguntas comunes",
+    "subtitle": "Respuestas a preguntas frecuentes sobre nuestro proceso",
+    "items": [
+      {
+        "question": "¿Cuánto tiempo lleva un proyecto de sitio web típico?",
+        "answer": "La mayoría de los proyectos de sitios web tardan entre 2 y 4 semanas desde el inicio hasta el lanzamiento, según el alcance y la complejidad. Los proyectos de plataformas más grandes pueden llevar más tiempo. El cronograma exacto siempre se acuerda en la propuesta."
+      },
+      {
+        "question": "¿Qué cubre el depósito?",
+        "answer": "El depósito (entre el 25% y el 50% del costo total del proyecto) asegura su lugar en el proyecto y cubre la configuración inicial, la planificación y el trabajo de desarrollo inicial. No es reembolsable, ya que el trabajo comienza inmediatamente después del pago."
+      },
+      {
+        "question": "¿Puedo hacer cambios durante el proyecto?",
+        "answer": "Sí. Ofrecemos reuniones de control opcionales (semanales o mensuales) y usted puede brindar comentarios durante la vista previa previa al lanzamiento. Los ajustes menores dentro del alcance acordado son parte del proceso. Los cambios fuera del alcance original pueden requerir una propuesta revisada."
+      },
+      {
+        "question": "¿Qué se considera una \"pequeña edición\" durante el soporte posterior al lanzamiento?",
+        "answer": "Las pequeñas ediciones incluyen correcciones de texto (errores tipográficos, gramaticales, información de contacto incorrecta), reemplazos de imágenes y correcciones menores similares. No incluye cambios de diseño, nuevas páginas, nuevas funciones ni rediseños visuales."
+      },
+      {
+        "question": "¿Qué pasa con mis datos (GDPR)?",
+        "answer": "Aceptar nuestra propuesta incluye el consentimiento para que manejemos sus datos como se describe en el alcance del proyecto. Esto siempre sigue las directrices del RGPD. Sus datos solo se utilizan para el proyecto y nunca se comparten con terceros no relacionados. Los detalles completos se encuentran en nuestra política de privacidad."
+      },
+      {
+        "question": "¿Necesito un plan de soporte después del lanzamiento?",
+        "answer": "No necesariamente. Después de la ventana de dos semanas posterior al lanzamiento, el proyecto estará completo. Un plan de soporte es opcional y es ideal si desea actualizaciones de contenido continuas, mejoras técnicas o asesoramiento estratégico. Se puede agregar en cualquier momento."
+      },
+      {
+        "question": "¿Quién se encarga del alojamiento después del lanzamiento?",
+        "answer": "Eye On Idea se encarga del hosting y del mantenimiento de los servidores en la nube de OVH (con sede en la UE). Esta es nuestra responsabilidad continua mientras alojemos su proyecto. Los costos de alojamiento se incluyen en un plan de soporte o se facturan por separado."
+      },
+      {
+        "question": "¿Puedo acceder al proyecto durante el desarrollo?",
+        "answer": "De forma predeterminada, recibe acceso al servidor de prueba 1 semana antes del lanzamiento. Si desea un acceso temprano para seguir el desarrollo en tiempo real, está disponible como un servicio complementario opcional."
+      }
+    ]
+  },
+  "cta": {
+    "badge": "¿Listo para comenzar?",
+    "title": "Comencemos tu proyecto",
+    "description": "El primer paso es una conversación. Cuéntenos sobre su proyecto y lo abordaremos desde allí.",
+    "primary": "Iniciar una conversación",
+    "secondary": "Ver nuestros servicios"
+  }
+}

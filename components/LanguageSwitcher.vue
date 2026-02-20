@@ -23,12 +23,7 @@ const languageRegistry: Record<
   es: { nativeName: "Español", icon: "i-circle-flags-es", region: "ES" },
   de: { nativeName: "Deutsch", icon: "i-circle-flags-de", region: "DE" },
   it: { nativeName: "Italiano", icon: "i-circle-flags-it", region: "IT" },
-  nl: { nativeName: "Nederlands", icon: "i-circle-flags-nl", region: "NL" },
   dk: { nativeName: "Dansk", icon: "i-circle-flags-dk", region: "DK" },
-  se: { nativeName: "Svenska", icon: "i-circle-flags-se", region: "SE" },
-  fi: { nativeName: "Suomi", icon: "i-circle-flags-fi", region: "FI" },
-  is: { nativeName: "Íslenska", icon: "i-circle-flags-is", region: "IS" },
-  gr: { nativeName: "Ελληνικά", icon: "i-circle-flags-gr", region: "GR" },
 };
 
 const options = computed(() =>
@@ -42,8 +37,10 @@ const options = computed(() =>
   })),
 );
 
-const currentLanguage = computed(() =>
-  options.value.find((lang) => lang.code === locale.value) ?? options.value[0],
+const currentLanguage = computed(
+  () =>
+    options.value.find((lang) => lang.code === locale.value) ??
+    options.value[0],
 );
 
 const switchLanguage = async (langCode: SupportedLanguage) => {
@@ -82,7 +79,9 @@ const togglePanel = () => {
 // Focus management
 const getItems = () => {
   if (!panelRef.value) return [];
-  return Array.from(panelRef.value.querySelectorAll<HTMLElement>('[role="radio"]'));
+  return Array.from(
+    panelRef.value.querySelectorAll<HTMLElement>('[role="radio"]'),
+  );
 };
 
 const focusItem = (index: number) => {
@@ -157,7 +156,10 @@ const handlePanelKeydown = (event: KeyboardEvent) => {
 
 // Click outside
 const handleClickOutside = (event: MouseEvent) => {
-  if (containerRef.value && !containerRef.value.contains(event.target as Node)) {
+  if (
+    containerRef.value &&
+    !containerRef.value.contains(event.target as Node)
+  ) {
     closePanel();
   }
 };
@@ -184,11 +186,10 @@ onUnmounted(() => {
       @click="togglePanel"
       @keydown="handleButtonKeydown"
     >
-      <UIcon
-        :name="currentLanguage.icon"
-        class="lang-switcher__flag"
-      />
-      <span class="lang-switcher__code">{{ currentLanguage.code.toUpperCase() }}</span>
+      <UIcon :name="currentLanguage.icon" class="lang-switcher__flag" />
+      <span class="lang-switcher__code">{{
+        currentLanguage.code.toUpperCase()
+      }}</span>
       <UIcon
         name="i-lucide-chevron-down"
         class="lang-switcher__chevron"
@@ -226,7 +227,9 @@ onUnmounted(() => {
           @click="switchLanguage(lang.code)"
         >
           <UIcon :name="lang.icon" class="lang-switcher__item-flag" />
-          <span class="lang-switcher__item-name" :lang="lang.code">{{ lang.nativeName }}</span>
+          <span class="lang-switcher__item-name" :lang="lang.code">{{
+            lang.nativeName
+          }}</span>
         </button>
       </div>
     </Transition>
@@ -304,7 +307,8 @@ onUnmounted(() => {
   background: color-mix(in srgb, var(--color-surface-1) 94%, transparent);
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+  -webkit-backdrop-filter: blur(var(--glass-blur))
+    saturate(var(--glass-saturation));
   box-shadow: var(--glass-shadow-elevated);
   transform-origin: top right;
 }

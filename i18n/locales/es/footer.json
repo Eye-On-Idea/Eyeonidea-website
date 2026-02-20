@@ -1,0 +1,27 @@
+{
+  "goToHomepage": "Ir a la página de inicio",
+  "tagline": "Transforma buenas ideas en grandes experiencias",
+  "copyright": "© {year} Eye On Idea. Todos los derechos reservados.",
+  "offices": {
+    "denmark": {
+      "title": "Sede",
+      "address": "Aalborg, Dinamarca",
+      "cvr": "CVR: 45356175",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "founder": {
+    "title": "Fundador",
+    "role": "CEO y desarrollador principal"
+  },
+  "siteNav": {
+    "heading": "Navegación",
+    "home": "Inicio",
+    "services": "Servicios",
+    "about": "Sobre nosotros",
+    "news": "Noticias",
+    "contact": "Contacto",
+    "legal": "Legal",
+    "policies": "Políticas"
+  }
+}

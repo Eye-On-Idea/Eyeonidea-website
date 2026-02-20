@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "title": "Contact - Eye On Idea",
+    "description": "Contactez Eye On Idea. Discutons des besoins de votre projet numérique : sites Web, identité visuelle, solutions CMS ou assistance continue."
+  },
+  "hero": {
+    "badge": "Entrez en contact",
+    "title": "Construisons quelque chose ensemble",
+    "subtitle": "Vous avez un projet en tête ? Des questions sur nos services ? Nous sommes là pour vous aider à trouver la solution numérique adaptée à votre entreprise."
+  },
+  "form": {
+    "heading": "Envoyez-nous un message",
+    "name": {
+      "label": "Nom",
+      "placeholder": "Votre nom complet"
+    },
+    "email": {
+      "label": "Courriel",
+      "placeholder": "votre{'@'}email.com"
+    },
+    "phone": {
+      "label": "Téléphone (facultatif)",
+      "placeholder": "+45 00 00 00 00"
+    },
+    "company": {
+      "label": "Entreprise (facultatif)",
+      "placeholder": "Le nom de votre entreprise"
+    },
+    "subject": {
+      "label": "Sujet",
+      "placeholder": "De quoi s'agit-il ?"
+    },
+    "interest": {
+      "label": "je suis intéressé par",
+      "placeholder": "Sélectionnez une prestation",
+      "options": {
+        "website": "Développement de sites Web",
+        "identity": "Identité visuelle",
+        "cms": "Solutions CMS",
+        "support": "Plans d'assistance",
+        "consulting": "Conseil",
+        "other": "Quelque chose d'autre"
+      }
+    },
+    "message": {
+      "label": "Message",
+      "placeholder": "Parlez-nous de votre projet ou de votre question..."
+    },
+    "submit": "Envoyer un message",
+    "submitting": "Envoi...",
+    "successMessage": "Merci! Votre message a été envoyé. Nous vous répondrons dans les 24 heures.",
+    "errorMessage": "Quelque chose s'est mal passé. Veuillez réessayer ou contactez-nous directement à hello@eyeonidea.com.",
+    "gdprNotice": "En contactant Eye On Idea, vous acceptez d'être contacté via les informations fournies concernant votre demande. Conformément au règlement RGPD de l'UE, vos données ne seront utilisées qu'à des fins de communication liées à votre demande et ne seront jamais partagées avec des tiers."
+  },
+  "info": {
+    "heading": "Autres moyens de nous joindre",
+    "directContact": {
+      "title": "Contact direct",
+      "description": "Vous préférez une conversation directe? Contactez-nous par e-mail ou par téléphone."
+    },
+    "email": {
+      "label": "Courriel",
+      "value": "bonjour{'@'}eyeonidea.com"
+    },
+    "phone": {
+      "label": "Téléphone",
+      "value": "+45 29 93 05 83"
+    },
+    "location": {
+      "title": "Emplacement",
+      "address": "Aalborg, Danemark",
+      "description": "Au service de clients à travers le Danemark, les pays nordiques et l'Union européenne."
+    },
+    "hours": {
+      "title": "Heures d'ouverture",
+      "weekdays": "Du lundi au vendredi : de 9h00 à 17h00 CET",
+      "response": "Nous répondons généralement dans les 24 heures."
+    },
+    "social": {
+      "title": "Connectez-vous en ligne",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "cta": {
+    "title": "Vous ne savez pas par où commencer ?",
+    "description": "Parcourez nos services pour en savoir plus sur ce que nous proposons, ou consultez nos dernières actualités et informations.",
+    "services": "Voir les services",
+    "news": "Lisez nos actualités"
+  }
+}

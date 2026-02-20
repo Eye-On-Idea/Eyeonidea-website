@@ -1,0 +1,45 @@
+{
+  "brand": {
+    "name": "Eye On Idea",
+    "shortName": "EOI",
+    "tagline": "Forvandl idéer til digital virkelighed"
+  },
+  "cta": {
+    "getStarted": "Kom i gang",
+    "learnMore": "Læs mere",
+    "contactUs": "Kontakt os",
+    "viewServices": "Se ydelser",
+    "startProject": "Start et projekt",
+    "bookConsultation": "Book en konsultation",
+    "readMore": "Læs mere",
+    "seeAll": "Se alle",
+    "goBack": "Tilbage",
+    "backToAbout": "Tilbage til Om os"
+  },
+  "contact": {
+    "title": "Kom i",
+    "titleHighlight": "kontakt",
+    "email": "E-mail",
+    "phone": "Telefon",
+    "openPanel": "Åbn kontaktpanelet",
+    "closePanel": "Luk kontaktpanelet"
+  },
+  "aria": {
+    "menu": "Navigationsmenu",
+    "close": "Luk",
+    "open": "Åbn",
+    "loading": "Indlæser",
+    "scrollToTop": "Rul til toppen",
+    "externalLink": "Åbner i ny fane"
+  },
+  "accessibility": {
+    "scrollProgress": "Sidens rullefremskridt",
+    "selectLanguage": "Vælg sprog",
+    "toggleColorMode": "Skift farvetilstand"
+  },
+  "colorMode": {
+    "light": "Lys tilstand",
+    "dark": "Mørk tilstand",
+    "system": "Systemindstilling"
+  }
+}

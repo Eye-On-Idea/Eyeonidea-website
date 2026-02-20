@@ -1,0 +1,54 @@
+{
+  "title": "Neuigkeiten und Einblicke",
+  "seo": {
+    "title": "Neuigkeiten und Einblicke – Eye On Idea",
+    "description": "Bleiben Sie mit den neuesten Nachrichten, Erkenntnissen und Updates von Eye On Idea auf dem Laufenden. Webentwicklungstrends, Neuigkeiten von Digitalagenturen und Brancheneinblicke."
+  },
+  "hero": {
+    "title": "Neuigkeiten und Einblicke",
+    "subtitle": "Bleiben Sie mit den neuesten Informationen von Eye On Idea auf dem Laufenden"
+  },
+  "filters": {
+    "search": "Artikel durchsuchen...",
+    "searchLabel": "Suchen",
+    "allTypes": "Alle Typen",
+    "news": "Nachrichten",
+    "article": "Artikel",
+    "announcement": "Ankündigung",
+    "caseStudy": "Fallstudie",
+    "clear": "Filter löschen",
+    "resultsCount": "{count} Artikel gefunden"
+  },
+  "posts": {
+    "readMore": "Lesen Sie mehr",
+    "readingTime": "{minutes} Min. Lesezeit",
+    "noResults": "Keine Artikel gefunden",
+    "noResultsText": "Versuchen Sie, Ihre Suche oder Filter anzupassen",
+    "loadMore": "Weitere Artikel laden",
+    "loading": "Artikel werden geladen...",
+    "featured": "Hervorgehoben"
+  },
+  "article": {
+    "loading": "Artikel wird geladen...",
+    "notFound": "Artikel nicht gefunden",
+    "notFoundText": "Der gesuchte Artikel existiert nicht oder wurde entfernt.",
+    "backToNews": "Zurück zu den Neuigkeiten",
+    "defaultTitle": "Artikel",
+    "share": "Teilen Sie diesen Artikel",
+    "shareLinkedIn": "Auf LinkedIn teilen",
+    "shareTwitter": "Teilen auf X (Twitter)",
+    "shareEmail": "Per E-Mail teilen",
+    "allArticles": "Alle Artikel",
+    "checkOut": "Schauen Sie sich diesen Artikel an:"
+  },
+  "related": {
+    "title": "Verwandte Artikel",
+    "viewAll": "Alle Artikel ansehen"
+  },
+  "categories": {
+    "news": "Nachrichten",
+    "article": "Artikel",
+    "announcement": "Ankündigung",
+    "caseStudy": "Fallstudie"
+  }
+}

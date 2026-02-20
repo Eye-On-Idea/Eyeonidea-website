@@ -1,0 +1,595 @@
+{
+  "meta": {
+    "title": "Ydelser - Eye On Idea",
+    "description": "Professionelle hjemmesidepakker, visuel identitet, CMS-løsninger og løbende support. Skræddersyede digitale løsninger til B2B-virksomheder i hele Europa."
+  },
+  "hero": {
+    "badge": "Vores tjenester",
+    "title": "Digitale løsninger, der vokser med dig",
+    "subtitle": "Eye On Idea hjælper virksomheder med at etablere og udvikle en klar, professionel digital tilstedeværelse. Alle projekter scopes individuelt, baseret på reelle behov - ikke skabeloner."
+  },
+  "packages": {
+    "badge": "Hjemmesidepakker",
+    "title": "Vælg dit fundament",
+    "subtitle": "Professionelle hjemmesider skræddersyet til din virksomheds fase og behov",
+    "launch": {
+      "name": "Lancering",
+      "tagline": "Kom rigtigt i gang",
+      "description": "En professionel hjemmeside, der giver din virksomhed en troværdig og troværdig tilstedeværelse fra dag ét.",
+      "idealFor": "Nye virksomheder, solo-stiftere eller virksomheder, der etablerer deres online tilstedeværelse.",
+      "includes": [
+        "Overskueligt, struktureret hjemmesidedesign",
+        "Mobil-responsiv på tværs af alle enheder",
+        "1 brugerdefineret domæne med 1-års licens",
+        "Grundlag for fremtidig vækst",
+        "Grundlæggende SEO opsætning"
+      ],
+      "price": {
+        "amount": "1,500",
+        "currency": "€",
+        "prefix": "Fra",
+        "vatNote": "ekskl. moms"
+      }
+    },
+    "growth": {
+      "name": "Vækst",
+      "tagline": "Skala med selvtillid",
+      "popular": "Mest populær",
+      "description": "Et fleksibelt websted designet til at understøtte indhold, opdateringer og synlighed, efterhånden som din virksomhed vokser.",
+      "idealFor": "Virksomheder, der aktivt opdaterer indhold og ønsker en hjemmeside, der udvikler sig med virksomheden.",
+      "includes": [
+        "Alt i lancering",
+        "Content management system",
+        "Blog eller nyhedssektion",
+        "SEO-optimeret struktur",
+        "Tydelig adskillelse mellem indhold og design",
+        "Redaktionel workflow support"
+      ],
+      "price": {
+        "amount": "3,000",
+        "currency": "€",
+        "prefix": "Fra",
+        "vatNote": "ekskl. moms"
+      }
+    },
+    "platform": {
+      "name": "Platform",
+      "tagline": "Bygget til lang sigt",
+      "description": "En langsigtet digital platform bygget til at understøtte struktureret indhold, flere målgrupper og fremtidig vækst.",
+      "idealFor": "Virksomheder, der ser deres hjemmeside som et kerneforretningsværktøj frem for en statisk præsentation.",
+      "includes": [
+        "Alt i vækst",
+        "Modulær, skalerbar arkitektur",
+        "Understøttelse af indhold i flere sektioner",
+        "Flersprogede fonde",
+        "Langsigtet platformstrategi",
+        "Avancerede CMS-funktioner"
+      ],
+      "price": {
+        "amount": "5,000",
+        "currency": "€",
+        "prefix": "Fra",
+        "vatNote": "ekskl. moms"
+      }
+    },
+    "cta": "Få et tilbud",
+    "pricingNote": "Alle priser ekskl. moms. Den endelige pris afhænger af omfang og krav."
+  },
+  "comparison": {
+    "badge": "Sammenlign pakker",
+    "title": "Hvad er inkluderet",
+    "subtitle": "En detaljeret opdeling af funktioner på tværs af alle webstedspakker",
+    "packages": [
+      "Lancering",
+      "Vækst",
+      "Platform"
+    ],
+    "categories": {
+      "core": {
+        "title": "Kernefunktioner",
+        "features": [
+          {
+            "name": "Brugerdefineret hjemmeside design",
+            "tooltip": "Professionelt designet, unikt for dit brand",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Mobil-responsiv",
+            "tooltip": "Optimeret til alle enheder og skærmstørrelser",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Tilpasset domæne (1 år)",
+            "tooltip": "Én domæneregistrering inkluderet for det første år",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "SSL certifikat",
+            "tooltip": "Sikker HTTPS-forbindelse inkluderet",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Grundlæggende SEO opsætning",
+            "tooltip": "Metatags, sitemap og søgemaskineindeksering",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          }
+        ]
+      },
+      "content": {
+        "title": "Content Management",
+        "features": [
+          {
+            "name": "Content management system",
+            "tooltip": "Sanity CMS til uafhængig indholdsredigering",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Blog / Nyhedssektion",
+            "tooltip": "Udgiv artikler, nyheder og opdateringer",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Redaktionel arbejdsgang",
+            "tooltip": "Udarbejd, gennemgå og udgiv indhold effektivt",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Indhold i flere sektioner",
+            "tooltip": "Komplekse indholdsstrukturer på tværs af flere områder",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          },
+          {
+            "name": "Avancerede CMS-funktioner",
+            "tooltip": "Brugerdefinerede indholdstyper og avancerede redigeringsfunktioner",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          }
+        ]
+      },
+      "structure": {
+        "title": "Arkitektur & Skala",
+        "features": [
+          {
+            "name": "Skalerbar foundation",
+            "tooltip": "Bygget til at vokse med din virksomhed",
+            "launch": "grundlæggende",
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Modulær arkitektur",
+            "tooltip": "Genanvendelige komponenter til fleksibel udvidelse",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          },
+          {
+            "name": "Flersprogede fonde",
+            "tooltip": "Infrastruktur til flere sprogversioner",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          },
+          {
+            "name": "Platform strategi",
+            "tooltip": "Langsigtet køreplan og evolutionsplanlægning",
+            "launch": false,
+            "growth": false,
+            "platform": true
+          }
+        ]
+      },
+      "seo": {
+        "title": "SEO og synlighed",
+        "features": [
+          {
+            "name": "Grundlæggende SEO struktur",
+            "tooltip": "Væsentlige metatags og indeksering",
+            "launch": true,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "SEO-optimeret struktur",
+            "tooltip": "Semantisk HTML og ydeevneoptimering",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          },
+          {
+            "name": "Vejledning om indholdshierarki",
+            "tooltip": "Strategisk indholdsorganisation til søgning",
+            "launch": false,
+            "growth": true,
+            "platform": true
+          }
+        ]
+      }
+    },
+    "legend": {
+      "included": "Inkluderet",
+      "notIncluded": "Ikke inkluderet",
+      "basic": "Grundlæggende"
+    }
+  },
+  "addons": {
+    "badge": "Tilføjelser og ekstramateriale",
+    "title": "Forlæng din pakke",
+    "subtitle": "Valgfri tjenester til at forbedre dit webstedsprojekt",
+    "categories": {
+      "identity": {
+        "title": "Visuel identitet",
+        "icon": "i-heroicons-paint-brush",
+        "items": [
+          {
+            "name": "Logodesign (primært + variationer)",
+            "price": "500",
+            "unit": "én gang"
+          },
+          {
+            "name": "Udvidede logovarianter",
+            "price": "200",
+            "unit": "én gang"
+          },
+          {
+            "name": "Farvepalet & typografi",
+            "price": "250",
+            "unit": "én gang"
+          },
+          {
+            "name": "Visitkort design",
+            "price": "150",
+            "unit": "én gang"
+          },
+          {
+            "name": "Skabeloner til brevpapir",
+            "price": "150",
+            "unit": "én gang"
+          },
+          {
+            "name": "Præsentations skabeloner",
+            "price": "300",
+            "unit": "én gang"
+          },
+          {
+            "name": "Sociale mediers brandaktiver",
+            "price": "200",
+            "unit": "én gang"
+          },
+          {
+            "name": "Brand retningslinjer dokument",
+            "price": "400",
+            "unit": "én gang"
+          }
+        ]
+      },
+      "content": {
+        "title": "Indhold & Sprog",
+        "icon": "i-heroicons-document-text",
+        "items": [
+          {
+            "name": "Website copywriting (pr. side)",
+            "price": "100",
+            "unit": "per side"
+          },
+          {
+            "name": "Indholdsredigering og forfining",
+            "price": "75",
+            "unit": "i timen"
+          },
+          {
+            "name": "Flersprogede fundamenter (standard på 2 sprog)",
+            "price": "350",
+            "unit": "én gang"
+          },
+          {
+            "name": "Yderligere sprogversion",
+            "price": "125",
+            "unit": "pr. sprog"
+          }
+        ]
+      },
+      "domain": {
+        "title": "Domæne og e-mail",
+        "icon": "i-heroicons-globe-alt",
+        "items": [
+          {
+            "name": "Yderligere domæneregistrering",
+            "price": "15-50",
+            "unit": "om året"
+          },
+          {
+            "name": "Hjælp til domæneoverførsel",
+            "price": "50",
+            "unit": "én gang"
+          },
+          {
+            "name": "E-mail starter (15 GB)",
+            "price": "1",
+            "unit": "pr konto/måned"
+          },
+          {
+            "name": "Email Pro (50 GB)",
+            "price": "4",
+            "unit": "pr konto/måned"
+          }
+        ]
+      },
+      "seo": {
+        "title": "SEO og synlighed",
+        "icon": "i-heroicons-magnifying-glass",
+        "items": [
+          {
+            "name": "SEO struktur gennemgang",
+            "price": "200",
+            "unit": "én gang"
+          },
+          {
+            "name": "Metadata optimering",
+            "price": "150",
+            "unit": "én gang"
+          },
+          {
+            "name": "Intern koblingsstrategi",
+            "price": "150",
+            "unit": "én gang"
+          }
+        ]
+      },
+      "hosting": {
+        "title": "Hosting & Infrastruktur",
+        "icon": "i-heroicons-server",
+        "items": [
+          {
+            "name": "EU-baseret webstedshosting",
+            "price": "20",
+            "unit": "om måneden"
+          }
+        ]
+      },
+      "consulting": {
+        "title": "Rådgivning & QA",
+        "icon": "i-heroicons-chat-bubble-left-right",
+        "items": [
+          {
+            "name": "Rådgivningsmøde (1 time)",
+            "price": "100",
+            "unit": "pr session"
+          },
+          {
+            "name": "Teknisk revision",
+            "price": "300",
+            "unit": "én gang"
+          },
+          {
+            "name": "Gennemgang af QA før lancering",
+            "price": "200",
+            "unit": "én gang"
+          },
+          {
+            "name": "Second opinion review",
+            "price": "150",
+            "unit": "én gang"
+          }
+        ]
+      }
+    },
+    "currency": "€",
+    "vatNote": "Alle priser ekskl. moms"
+  },
+  "identity": {
+    "badge": "Visuel identitet",
+    "title": "Brand din digitale tilstedeværelse",
+    "description": "Et sammenhængende visuelt fundament, der giver din virksomhed et genkendeligt og professionelt udseende. Fokuseret på web-relevant branding med muligheder for at udvide til tryk.",
+    "includes": [
+      "Logo (primært + variationer)",
+      "Farvepalet med eksempler på brug",
+      "Typografivalg og vejledning",
+      "Visuel retning for digitale platforme"
+    ],
+    "price": {
+      "amount": "800",
+      "currency": "€",
+      "prefix": "Fra",
+      "vatNote": "ekskl. moms"
+    },
+    "cta": "Diskuter dit brand",
+    "carousel": {
+      "eoiLight": "Eye On Idea mærkeidentitet på lys baggrund",
+      "eoiDark": "Eye On Idea mærkeidentitet på mørk baggrund",
+      "herqulez": "Herqulez logopakke, der viser mærkevariationer"
+    }
+  },
+  "cms": {
+    "badge": "CMS løsninger",
+    "title": "Administrer indhold uafhængigt",
+    "description": "Eye On Idea leverer tilpassede CMS-løsninger ved hjælp af Sanity, der gør det muligt for klienter at administrere indhold uafhængigt uden teknisk kompleksitet.",
+    "features": [
+      {
+        "title": "Struktureret redigering",
+        "description": "Skalerbare indholdsmodeller tilpasset din virksomheds behov"
+      },
+      {
+        "title": "Redaktørvenlig",
+        "description": "Rene grænseflader designet til ikke-tekniske brugere"
+      },
+      {
+        "title": "Indholdsadskillelse",
+        "description": "Klar adskillelse mellem indhold og design"
+      },
+      {
+        "title": "Fleksibel integration",
+        "description": "Standalone service eller inkluderet i hjemmesideprojekter"
+      }
+    ],
+    "cta": "Lær om CMS"
+  },
+  "support": {
+    "badge": "Supportplaner",
+    "title": "Løbende partnerskab",
+    "subtitle": "En hjemmeside er ikke et engangsprodukt. Det er en levende del af din virksomhed.",
+    "plans": {
+      "essential": {
+        "name": "Væsentlig",
+        "description": "Let løbende support til virksomheder, der ønsker ro i sindet og lejlighedsvis hjælp.",
+        "bestFor": "Mindre hjemmesider med lav opdateringsfrekvens",
+        "includes": [
+          "Prioriteret supportadgang",
+          "Mindre rettelser og justeringer",
+          "Fejlhåndtering",
+          "Rådgivende støtte"
+        ],
+        "price": {
+          "amount": "99",
+          "currency": "€",
+          "unit": "/måned",
+          "vatNote": "ekskl. moms"
+        }
+      },
+      "growth": {
+        "name": "Vækst",
+        "description": "Løbende samarbejde for virksomheder, der aktivt opdaterer og udvikler deres hjemmeside.",
+        "bestFor": "Voksende, indholdsdrevne hjemmesider",
+        "includes": [
+          "Alt i Essential",
+          "Regelmæssige indholdsopdateringer",
+          "Iterative forbedringer",
+          "CMS vejledning",
+          "Præstationsjusteringer"
+        ],
+        "price": {
+          "amount": "249",
+          "currency": "€",
+          "unit": "/måned",
+          "vatNote": "ekskl. moms"
+        }
+      },
+      "partner": {
+        "name": "Partner",
+        "description": "Et tæt samarbejde, hvor Eye On Idea fungerer som din langsigtede digitale partner.",
+        "bestFor": "Forretningskritiske hjemmesider",
+        "includes": [
+          "Dedikeret støttekapacitet",
+          "Kontinuerlig iteration",
+          "Strategisk rådgivning",
+          "Prioritetshåndtering",
+          "Løbende optimering"
+        ],
+        "price": {
+          "amount": "499",
+          "currency": "€",
+          "unit": "/måned",
+          "vatNote": "ekskl. moms"
+        }
+      }
+    },
+    "billing": "Abonnementsbaseret, månedligt tilbagevendende",
+    "cta": "Find din plan"
+  },
+  "howWeWork": {
+    "badge": "Hvordan vi arbejder",
+    "title": "En klar, gennemsigtig proces",
+    "subtitle": "Fra første kontakt til lancering og videre følger hvert projekt den samme professionelle arbejdsgang.",
+    "steps": [
+      {
+        "icon": "i-heroicons-chat-bubble-left-right",
+        "title": "Opdag",
+        "description": "Vi mødes for at forstå dine mål, målgruppe og eksisterende aktiver."
+      },
+      {
+        "icon": "i-heroicons-document-check",
+        "title": "Foreslå",
+        "description": "Du modtager et detaljeret forslag med omfang, tidslinje og gennemsigtige priser."
+      },
+      {
+        "icon": "i-heroicons-code-bracket",
+        "title": "Byg",
+        "description": "Vi udvikler dit projekt med valgfri check-ins og en pre-lancering preview."
+      },
+      {
+        "icon": "i-heroicons-rocket-launch",
+        "title": "Lancering",
+        "description": "Dit websted går live med 2 ugers support efter lanceringen inkluderet."
+      }
+    ],
+    "cta": "Se Fuld proces"
+  },
+  "cta": {
+    "badge": "Klar til at starte?",
+    "title": "Lad os finde den rigtige løsning",
+    "description": "Ethvert projekt starter med at forstå, hvad din virksomhed faktisk har brug for. Ingen foruddefinerede løsninger - kun en samtale om dine mål.",
+    "primary": "Start en samtale",
+    "secondary": "Se vores arbejde"
+  },
+  "beforeAfter": {
+    "badge": "Virkelige resultater",
+    "title": "Sådan ser korrekt webudvikling ud",
+    "subtitle": "Forskellen mellem et skabelonwebsted og en professionelt bygget digital tilstedeværelse, målt i de målinger, der betyder noget.",
+    "sliderLabel": "Træk for at sammenligne før og efter metrics",
+    "beforeLabel": "før",
+    "afterLabel": "Efter - med Eye On Idea",
+    "metrics": [
+      {
+        "label": "Lighthouse Score",
+        "before": "48",
+        "after": "92",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "Indlæsningstid",
+        "before": "5.9",
+        "after": "1.8",
+        "unit": "s",
+        "improved": true
+      },
+      {
+        "label": "Tilgængelighed",
+        "before": "63",
+        "after": "95",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "SEO-score",
+        "before": "61",
+        "after": "96",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "CLS skift",
+        "before": "0.27",
+        "after": "0.04",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "Mobilscore",
+        "before": "44",
+        "after": "91",
+        "unit": "",
+        "improved": true
+      }
+    ]
+  }
+}

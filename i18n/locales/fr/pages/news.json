@@ -1,0 +1,54 @@
+{
+  "title": "Actualités et informations",
+  "seo": {
+    "title": "Actualités et perspectives - Eye On Idea",
+    "description": "Restez à jour avec les dernières nouvelles, informations et mises à jour d'Eye On Idea. Tendances du développement Web, actualités des agences numériques et informations sur le secteur."
+  },
+  "hero": {
+    "title": "Actualités et informations",
+    "subtitle": "Restez à jour avec les dernières nouveautés d'Eye On Idea"
+  },
+  "filters": {
+    "search": "Rechercher des articles...",
+    "searchLabel": "Rechercher",
+    "allTypes": "Tous types",
+    "news": "Actualités",
+    "article": "Article",
+    "announcement": "Annonce",
+    "caseStudy": "Étude de cas",
+    "clear": "Effacer les filtres",
+    "resultsCount": "{count} article(s) trouvé(s)"
+  },
+  "posts": {
+    "readMore": "Lire la suite",
+    "readingTime": "{minutes} minute de lecture",
+    "noResults": "Aucun article trouvé",
+    "noResultsText": "Essayez d'ajuster votre recherche ou vos filtres",
+    "loadMore": "Charger plus d'articles",
+    "loading": "Chargement des articles...",
+    "featured": "En vedette"
+  },
+  "article": {
+    "loading": "Chargement de l'article...",
+    "notFound": "Article introuvable",
+    "notFoundText": "L'article que vous recherchez n'existe pas ou a été supprimé.",
+    "backToNews": "Retour aux Actualités",
+    "defaultTitle": "Article",
+    "share": "Partagez cet article",
+    "shareLinkedIn": "Partager sur LinkedIn",
+    "shareTwitter": "Partager sur X (Twitter)",
+    "shareEmail": "Partager par e-mail",
+    "allArticles": "Tous les articles",
+    "checkOut": "Consultez cet article :"
+  },
+  "related": {
+    "title": "Articles connexes",
+    "viewAll": "Voir tous les articles"
+  },
+  "categories": {
+    "news": "Actualités",
+    "article": "Article",
+    "announcement": "Annonce",
+    "caseStudy": "Étude de cas"
+  }
+}

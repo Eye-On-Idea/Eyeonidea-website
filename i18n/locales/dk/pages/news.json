@@ -1,0 +1,54 @@
+{
+  "title": "Nyheder og indsigt",
+  "seo": {
+    "title": "Nyheder og indsigt - Eye On Idea",
+    "description": "Hold dig opdateret med de seneste nyheder, indsigter og opdateringer fra Eye On Idea. Webudviklingstendenser, nyheder om digitale bureauer og brancheindsigt."
+  },
+  "hero": {
+    "title": "Nyheder og indsigt",
+    "subtitle": "Hold dig opdateret med det seneste fra Eye On Idea"
+  },
+  "filters": {
+    "search": "Søg i artikler...",
+    "searchLabel": "Søg",
+    "allTypes": "Alle typer",
+    "news": "Nyheder",
+    "article": "Artikel",
+    "announcement": "Meddelelse",
+    "caseStudy": "Casestudie",
+    "clear": "Ryd filtre",
+    "resultsCount": "{count} artikler fundet"
+  },
+  "posts": {
+    "readMore": "Læs mere",
+    "readingTime": "{minutes} min. læst",
+    "noResults": "Ingen artikler fundet",
+    "noResultsText": "Prøv at justere din søgning eller dine filtre",
+    "loadMore": "Indlæs flere artikler",
+    "loading": "Indlæser artikler...",
+    "featured": "Udvalgte"
+  },
+  "article": {
+    "loading": "Indlæser artikel...",
+    "notFound": "Artikel ikke fundet",
+    "notFoundText": "Den artikel, du leder efter, findes ikke eller er blevet fjernet.",
+    "backToNews": "Tilbage til Nyheder",
+    "defaultTitle": "Artikel",
+    "share": "Del denne artikel",
+    "shareLinkedIn": "Del på LinkedIn",
+    "shareTwitter": "Del på X (Twitter)",
+    "shareEmail": "Del via e-mail",
+    "allArticles": "Alle artikler",
+    "checkOut": "Tjek denne artikel:"
+  },
+  "related": {
+    "title": "Relaterede artikler",
+    "viewAll": "Se alle artikler"
+  },
+  "categories": {
+    "news": "Nyheder",
+    "article": "Artikel",
+    "announcement": "Meddelelse",
+    "caseStudy": "Casestudie"
+  }
+}

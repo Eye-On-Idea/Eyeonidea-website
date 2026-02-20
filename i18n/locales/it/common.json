@@ -1,0 +1,45 @@
+{
+  "brand": {
+    "name": "Eye On Idea",
+    "shortName": "EOI",
+    "tagline": "Trasforma le idee in realtà digitale"
+  },
+  "cta": {
+    "getStarted": "Inizia",
+    "learnMore": "Scopri di più",
+    "contactUs": "Contattaci",
+    "viewServices": "Visualizza servizi",
+    "startProject": "Avvia un progetto",
+    "bookConsultation": "Prenota una consulenza",
+    "readMore": "Leggi di più",
+    "seeAll": "Vedi tutto",
+    "goBack": "Indietro",
+    "backToAbout": "Torna a Chi siamo"
+  },
+  "contact": {
+    "title": "Mettiti in",
+    "titleHighlight": "contatto",
+    "email": "E-mail",
+    "phone": "Telefono",
+    "openPanel": "Apri il pannello contatti",
+    "closePanel": "Chiudi il pannello contatti"
+  },
+  "aria": {
+    "menu": "Menu di navigazione",
+    "close": "Chiudi",
+    "open": "Apri",
+    "loading": "Caricamento",
+    "scrollToTop": "Scorri verso l'alto",
+    "externalLink": "Si apre in una nuova scheda"
+  },
+  "accessibility": {
+    "scrollProgress": "Avanzamento dello scorrimento della pagina",
+    "selectLanguage": "Seleziona lingua",
+    "toggleColorMode": "Cambia modalità colore"
+  },
+  "colorMode": {
+    "light": "Modalità chiara",
+    "dark": "Modalità scura",
+    "system": "Preferenza di sistema"
+  }
+}

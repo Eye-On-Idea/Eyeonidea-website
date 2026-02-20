@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "title": "Eye On Idea - Professionelle B2B-hjemmesider",
+    "description": "Eye On Idea hjælper virksomheder i hele Europa med at opbygge en klar og professionel digital tilstedeværelse. Websiteudvikling, visuel identitet og langsigtet support."
+  },
+  "hero": {
+    "headline": "Din digitale tilstedeværelse",
+    "headlineAccent": "bygget til vækst",
+    "subheadline": "Vi hjælper virksomheder med at bygge professionelle hjemmesider, der understøtter vækst og opbygger tillid.",
+    "cta": {
+      "primary": "Start dit projekt",
+      "secondary": "Udforsk tjenester"
+    },
+    "scrollIndicator": "Rul for at udforske"
+  },
+  "about": {
+    "badge": "Hvem vi er",
+    "title": "En partner, ikke bare en leverandør",
+    "description": "Eye On Idea er en dansk digital konsulentvirksomhed, der hjælper virksomheder med at opbygge en klar og pålidelig online tilstedeværelse. Vi arbejder med virksomheder, der ønsker mere end en grundlæggende hjemmeside. Du får struktur, klarhed og en løsning, der understøtter langsigtet vækst.",
+    "values": {
+      "clarity": {
+        "title": "Klarhed først",
+        "description": "Vi bygger det, du har brug for, og forklarer det på en måde, der giver mening."
+      },
+      "partnership": {
+        "title": "Langsigtet samarbejde",
+        "description": "Vi støtter dig før, under og efter lanceringen."
+      },
+      "quality": {
+        "title": "Bygget til at holde",
+        "description": "Vi vælger pålidelige værktøjer og bygger løsninger designet til holdbarhed."
+      }
+    },
+    "cta": "Lær om os"
+  },
+  "services": {
+    "badge": "Hvad vi tilbyder",
+    "title": "Hjemmesidepakker",
+    "subtitle": "Skræddersyede løsninger til alle faser af din virksomhed",
+    "additionalServices": {
+      "title": "Yderligere tjenester",
+      "identity": {
+        "title": "Visuel identitet",
+        "description": "Logo, farver, typografi og brandretning for digitale platforme."
+      },
+      "cms": {
+        "title": "CMS løsninger",
+        "description": "Custom Sanity CMS-opsætning til uafhængig indholdsstyring."
+      },
+      "support": {
+        "title": "Løbende support",
+        "description": "Vedligeholdelse, opdateringer og rådgivning til din digitale tilstedeværelse."
+      }
+    },
+    "cta": {
+      "viewAll": "Se alle tjenester"
+    }
+  },
+  "process": {
+    "badge": "Hvordan vi arbejder",
+    "title": "En klar vej frem",
+    "steps": {
+      "discover": {
+        "title": "Opdag",
+        "description": "Vi starter med at forstå din virksomhed, dine mål og hvordan succes ser ud."
+      },
+      "design": {
+        "title": "Design",
+        "description": "Vi skaber en løsning, der er skræddersyet til dine behov - ingen skabeloner, ingen one-size-fits-all."
+      },
+      "develop": {
+        "title": "Udvikle",
+        "description": "Vi bygger med kvalitet, tilgængelighed og langsigtet vedligeholdelse for øje."
+      },
+      "support": {
+        "title": "Support",
+        "description": "Vi er her efter lanceringen - for opdateringer, forbedringer og løbende partnerskab."
+      }
+    }
+  },
+  "cta": {
+    "badge": "Klar til at starte?",
+    "title": "Lad os bygge noget fantastisk sammen",
+    "description": "Uanset om du starter noget nyt, forbedrer det, du har, eller har brug for en second opinion - vi er her for at hjælpe.",
+    "primary": "Start en samtale",
+    "secondary": "Se vores arbejde"
+  },
+  "stats": {
+    "clients": {
+      "value": "50+",
+      "label": "Kunder betjent"
+    },
+    "countries": {
+      "value": "12",
+      "label": "EU-lande"
+    },
+    "years": {
+      "value": "8+",
+      "label": "års erfaring"
+    }
+  }
+}

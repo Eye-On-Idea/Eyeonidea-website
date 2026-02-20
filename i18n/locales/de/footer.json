@@ -1,0 +1,27 @@
+{
+  "goToHomepage": "Zur Startseite",
+  "tagline": "Gute Ideen in großartige Erlebnisse verwandeln",
+  "copyright": "© {year} Eye On Idea. Alle Rechte vorbehalten.",
+  "offices": {
+    "denmark": {
+      "title": "Hauptsitz",
+      "address": "Aalborg, Dänemark",
+      "cvr": "CVR: 45356175",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "founder": {
+    "title": "Gründer",
+    "role": "CEO und Lead-Entwickler"
+  },
+  "siteNav": {
+    "heading": "Navigation",
+    "home": "Startseite",
+    "services": "Leistungen",
+    "about": "Über uns",
+    "news": "News",
+    "contact": "Kontakt",
+    "legal": "Rechtliches",
+    "policies": "Richtlinien"
+  }
+}

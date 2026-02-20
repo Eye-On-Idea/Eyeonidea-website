@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "title": "Informazioni su Eye On Idea",
+    "description": "Scopri Eye On Idea, una società di consulenza digitale danese fondata da Rune M. P. Pjetursson. Aiutiamo le aziende B2B a costruire una presenza digitale chiara e professionale in tutta Europa."
+  },
+  "hero": {
+    "badge": "Chi siamo",
+    "title": "Costruire basi digitali che durino",
+    "subtitle": "Eye On Idea è una società di consulenza digitale danese che aiuta le aziende B2B a costruire una presenza online forte e professionale."
+  },
+  "story": {
+    "badge": "La nostra storia",
+    "title": "Dall'idea alla realtà",
+    "paragraphs": [
+      "Eye On Idea nasce nel 2025 con una semplice convinzione. Ogni azienda merita una presenza digitale che rifletta chi è e cosa offre.",
+      "Molte aziende si ritrovano con siti web che non si adattano alla loro attività, sono difficili da aggiornare o diventano costosi da mantenere nel tempo.",
+      "Adottiamo un approccio diverso. Ogni progetto inizia con la comprensione dei tuoi obiettivi e della tua situazione. Costruiamo una solida base digitale che supporti la tua crescita oggi e in futuro."
+    ]
+  },
+  "founder": {
+    "badge": "Il Fondatore",
+    "name": "Rune M. P. Pjetursson",
+    "role": "Fondatore e consulente principale",
+    "bio": [
+      "Rune ha fondato Eye On Idea per connettere le competenze tecniche con le reali esigenze aziendali. La sua attenzione è sempre rivolta ai risultati, alla chiarezza e al valore a lungo termine.",
+      "Ha lavorato con aziende in tutta Europa e sa come tradurre idee complesse in soluzioni digitali pratiche e affidabili."
+    ],
+    "philosophy": {
+      "title": "Filosofia di lavoro",
+      "text": "Credo nelle partnership a lungo termine, non nei progetti una tantum. Quando lavori con Eye On Idea, ottieni un partner che comprende la tua attività e lavora per supportare il tuo successo."
+    },
+    "connect": "Connettiti su LinkedIn"
+  },
+  "values": {
+    "badge": "Ciò che rappresentiamo",
+    "title": "I nostri valori",
+    "items": [
+      {
+        "icon": "i-heroicons-light-bulb",
+        "title": "Chiarezza",
+        "description": "Costruiamo soluzioni che puoi comprendere e gestire. Una struttura chiara porta a risultati migliori."
+      },
+      {
+        "icon": "i-heroicons-hand-raised",
+        "title": "Partenariato",
+        "description": "Rimaniamo coinvolti oltre la consegna. Il tuo successo è parte della nostra responsabilità."
+      },
+      {
+        "icon": "i-heroicons-chat-bubble-left-ellipsis",
+        "title": "Comunicazione onesta",
+        "description": "Forniamo consigli chiari e aspettative realistiche in modo che tu possa prendere decisioni informate."
+      },
+      {
+        "icon": "i-heroicons-shield-check",
+        "title": "Qualità",
+        "description": "Ci concentriamo sulla durabilità, sulle prestazioni e sugli standard professionali in ogni progetto."
+      }
+    ]
+  },
+  "location": {
+    "badge": "Dove siamo",
+    "title": "Con sede in Danimarca, al servizio dell'Europa",
+    "description": "Eye On Idea ha sede ad Aalborg, Danimarca. Lavoriamo con clienti in tutta la regione nordica e nell’Unione Europea. Le riunioni possono essere tenute online o di persona quando necessario.",
+    "details": {
+      "headquarters": "Aalborg, Danimarca",
+      "coverage": "Danimarca, Paesi nordici, Unione Europea",
+      "languages": "Inglese, danese"
+    },
+    "processLink": "Vedi il nostro processo"
+  },
+  "quickFacts": {
+    "title": "A colpo d'occhio",
+    "items": [
+      {
+        "icon": "i-heroicons-calendar",
+        "label": "Fondato",
+        "value": "2025"
+      },
+      {
+        "icon": "i-heroicons-building-office",
+        "label": "Concentrarsi",
+        "value": "Presenza digitale B2B"
+      },
+      {
+        "icon": "i-heroicons-code-bracket",
+        "label": "Avvicinamento",
+        "value": "Moderno e affidabile"
+      },
+      {
+        "icon": "i-heroicons-shield-check",
+        "label": "Conformità",
+        "value": "GDPR e diritto comunitario"
+      }
+    ]
+  },
+  "cta": {
+    "badge": "Pronto per iniziare?",
+    "title": "Parliamo del tuo progetto",
+    "description": "Che tu abbia un piano chiaro o un'idea iniziale, ti aiutiamo a definire il passo successivo giusto.",
+    "primary": "Mettiti in contatto",
+    "secondary": "Visualizza i nostri servizi"
+  }
+}

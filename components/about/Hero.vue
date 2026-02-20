@@ -11,18 +11,19 @@ const reducedMotion = usePreferredReducedMotion();
 const prefersReduced = computed(() => reducedMotion.value === "reduce");
 
 const bgGradientStyle = computed(() =>
-  prefersReduced.value ? {} : { transform: `translateY(${scrollY.value * 0.3}px)` }
+  prefersReduced.value
+    ? {}
+    : { transform: `translateY(${scrollY.value * 0.3}px)` },
 );
 const bgPatternStyle = computed(() =>
-  prefersReduced.value ? {} : { transform: `translateY(${scrollY.value * 0.15}px)` }
+  prefersReduced.value
+    ? {}
+    : { transform: `translateY(${scrollY.value * 0.15}px)` },
 );
 </script>
 
 <template>
-  <section
-    class="about-hero"
-    aria-labelledby="about-hero-heading"
-  >
+  <section class="about-hero" aria-labelledby="about-hero-heading">
     <!-- Background -->
     <div class="hero-background" aria-hidden="true">
       <div class="bg-gradient" :style="bgGradientStyle" />
@@ -40,11 +41,7 @@ const bgPatternStyle = computed(() =>
         {{ t("about.hero.badge") }}
       </span>
 
-      <h1
-        id="about-hero-heading"
-        class="hero-title"
-        style="text-wrap: balance"
-      >
+      <h1 id="about-hero-heading" class="hero-title" style="text-wrap: balance">
         <TextReveal
           :text="t('about.hero.title')"
           word-class="text-gradient"
@@ -89,7 +86,7 @@ const bgPatternStyle = computed(() =>
 .bg-gradient {
   position: absolute;
   inset: -20% 0;
-  background: var(--color-hero-bg-light, #faf7f4);
+  background-color: var(--color-zinc-950);
   will-change: transform;
 }
 
@@ -144,7 +141,7 @@ const bgPatternStyle = computed(() =>
 .hero-subtitle {
   font-size: var(--text-lg);
   line-height: 1.7;
-  color: var(--color-hero-text-light-muted, var(--color-primary-600));
+  color: var(--color-primary-100);
   max-width: 600px;
   margin: 0 auto;
 

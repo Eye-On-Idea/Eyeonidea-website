@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "title": "Contacto - Eye On Idea",
+    "description": "Póngase en contacto con Eye On Idea. Analicemos las necesidades de su proyecto digital: sitios web, identidad visual, soluciones CMS o soporte continuo."
+  },
+  "hero": {
+    "badge": "Ponte en contacto",
+    "title": "Construyamos algo juntos",
+    "subtitle": "¿Tienes un proyecto en mente? ¿Preguntas sobre nuestros servicios? Estamos aquí para ayudarle a encontrar la solución digital adecuada para su negocio."
+  },
+  "form": {
+    "heading": "Envíanos un mensaje",
+    "name": {
+      "label": "Nombre",
+      "placeholder": "Tu nombre completo"
+    },
+    "email": {
+      "label": "Correo electrónico",
+      "placeholder": "tu{'@'}correo electrónico.com"
+    },
+    "phone": {
+      "label": "Teléfono (opcional)",
+      "placeholder": "+45 00 00 00 00"
+    },
+    "company": {
+      "label": "Empresa (opcional)",
+      "placeholder": "El nombre de tu empresa"
+    },
+    "subject": {
+      "label": "Asunto",
+      "placeholder": "¿De qué se trata esto?"
+    },
+    "interest": {
+      "label": "estoy interesado en",
+      "placeholder": "Seleccione un servicio",
+      "options": {
+        "website": "Desarrollo de sitios web",
+        "identity": "Identidad Visual",
+        "cms": "Soluciones CMS",
+        "support": "Planes de soporte",
+        "consulting": "Consultoría",
+        "other": "algo mas"
+      }
+    },
+    "message": {
+      "label": "Mensaje",
+      "placeholder": "Cuéntanos tu proyecto o pregunta..."
+    },
+    "submit": "Enviar mensaje",
+    "submitting": "Enviando...",
+    "successMessage": "¡Gracias! Tu mensaje ha sido enviado. Nos comunicaremos con usted dentro de las 24 horas.",
+    "errorMessage": "Algo salió mal. Inténtelo de nuevo o contáctenos directamente al hello@eyeonidea.com.",
+    "gdprNotice": "Al comunicarse con Eye On Idea, usted acepta que lo contactemos a través de la información proporcionada con respecto a su consulta. Según el reglamento GDPR de la UE, sus datos solo se utilizarán para comunicaciones relacionadas con su consulta y nunca se compartirán con terceros."
+  },
+  "info": {
+    "heading": "Otras formas de comunicarse con nosotros",
+    "directContact": {
+      "title": "Contacto directo",
+      "description": "¿Prefieres una conversación directa? Comuníquese por correo electrónico o por teléfono."
+    },
+    "email": {
+      "label": "Correo electrónico",
+      "value": "hola{'@'}eyeonidea.com"
+    },
+    "phone": {
+      "label": "Teléfono",
+      "value": "+45 29 93 05 83"
+    },
+    "location": {
+      "title": "Ubicación",
+      "address": "Aalborg, Dinamarca",
+      "description": "Sirviendo a clientes en Dinamarca, los países nórdicos y la Unión Europea."
+    },
+    "hours": {
+      "title": "Horario comercial",
+      "weekdays": "Lunes - Viernes: 9:00 - 17:00 CET",
+      "response": "Normalmente respondemos dentro de las 24 horas."
+    },
+    "social": {
+      "title": "Conéctese en línea",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "cta": {
+    "title": "¿No estás seguro de por dónde empezar?",
+    "description": "Explore nuestros servicios para obtener más información sobre lo que ofrecemos o consulte nuestras últimas noticias e ideas.",
+    "services": "Ver servicios",
+    "news": "Lea Nuestras Noticias"
+  }
+}

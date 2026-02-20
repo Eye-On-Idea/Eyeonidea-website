@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "title": "Über - Eye On Idea",
+    "description": "Erfahren Sie mehr über Eye On Idea, ein dänisches digitales Beratungsunternehmen, das von Rune M. P. Pjetursson gegründet wurde. Wir helfen B2B-Unternehmen beim Aufbau einer klaren und professionellen digitalen Präsenz in ganz Europa."
+  },
+  "hero": {
+    "badge": "Über uns",
+    "title": "Aufbau dauerhafter digitaler Grundlagen",
+    "subtitle": "Eye On Idea ist ein dänisches digitales Beratungsunternehmen, das B2B-Unternehmen beim Aufbau einer starken und professionellen Online-Präsenz unterstützt."
+  },
+  "story": {
+    "badge": "Unsere Geschichte",
+    "title": "Von der Idee zur Realität",
+    "paragraphs": [
+      "Eye On Idea wurde 2025 mit einer einfachen Überzeugung gegründet. Jedes Unternehmen verdient eine digitale Präsenz, die widerspiegelt, wer es ist und was es anbietet.",
+      "Viele Unternehmen verfügen am Ende über Websites, die nicht zu ihrem Geschäft passen, schwierig zu aktualisieren sind oder deren Wartung mit der Zeit teuer wird.",
+      "Wir verfolgen einen anderen Ansatz. Jedes Projekt beginnt damit, dass Sie Ihre Ziele und Ihre Situation verstehen. Wir schaffen eine solide digitale Grundlage, die Ihr Wachstum heute und in der Zukunft unterstützt."
+    ]
+  },
+  "founder": {
+    "badge": "Der Gründer",
+    "name": "Rune M. P. Pjetursson",
+    "role": "Gründer und leitender Berater",
+    "bio": [
+      "Rune gründete Eye On Idea, um technisches Fachwissen mit echten Geschäftsanforderungen zu verbinden. Sein Fokus liegt stets auf Ergebnissen, Klarheit und langfristigem Wert.",
+      "Er hat mit Unternehmen in ganz Europa zusammengearbeitet und versteht es, komplexe Ideen in praktische und zuverlässige digitale Lösungen umzusetzen."
+    ],
+    "philosophy": {
+      "title": "Arbeitsphilosophie",
+      "text": "Ich glaube an langfristige Partnerschaften, nicht an einmalige Projekte. Wenn Sie mit Eye On Idea zusammenarbeiten, gewinnen Sie einen Partner, der Ihr Geschäft versteht und sich für Ihren Erfolg einsetzt."
+    },
+    "connect": "Vernetzen Sie sich auf LinkedIn"
+  },
+  "values": {
+    "badge": "Wofür wir stehen",
+    "title": "Unsere Werte",
+    "items": [
+      {
+        "icon": "i-heroicons-light-bulb",
+        "title": "Klarheit",
+        "description": "Wir entwickeln Lösungen, die Sie verstehen und verwalten können. Eine klare Struktur führt zu besseren Ergebnissen."
+      },
+      {
+        "icon": "i-heroicons-hand-raised",
+        "title": "Partnerschaft",
+        "description": "Wir bleiben über die Lieferung hinaus beteiligt. Ihr Erfolg ist Teil unserer Verantwortung."
+      },
+      {
+        "icon": "i-heroicons-chat-bubble-left-ellipsis",
+        "title": "Ehrliche Kommunikation",
+        "description": "Wir geben klare Ratschläge und realistische Erwartungen, damit Sie fundierte Entscheidungen treffen können."
+      },
+      {
+        "icon": "i-heroicons-shield-check",
+        "title": "Qualität",
+        "description": "Wir konzentrieren uns bei jedem Projekt auf Langlebigkeit, Leistung und professionelle Standards."
+      }
+    ]
+  },
+  "location": {
+    "badge": "Wo wir sind",
+    "title": "Mit Sitz in Dänemark, im Dienste Europas",
+    "description": "Eye On Idea hat seinen Sitz in Aalborg, Dänemark. Wir arbeiten mit Kunden in der gesamten nordischen Region und der Europäischen Union zusammen. Besprechungen können bei Bedarf online oder persönlich abgehalten werden.",
+    "details": {
+      "headquarters": "Aalborg, Dänemark",
+      "coverage": "Dänemark, Skandinavien, Europäische Union",
+      "languages": "Englisch, Dänisch"
+    },
+    "processLink": "Sehen Sie sich unseren Prozess an"
+  },
+  "quickFacts": {
+    "title": "Auf einen Blick",
+    "items": [
+      {
+        "icon": "i-heroicons-calendar",
+        "label": "Gegründet",
+        "value": "2025"
+      },
+      {
+        "icon": "i-heroicons-building-office",
+        "label": "Konzentrieren Sie sich",
+        "value": "Digitale B2B-Präsenz"
+      },
+      {
+        "icon": "i-heroicons-code-bracket",
+        "label": "Ansatz",
+        "value": "Modern und zuverlässig"
+      },
+      {
+        "icon": "i-heroicons-shield-check",
+        "label": "Compliance",
+        "value": "DSGVO und EU-Recht"
+      }
+    ]
+  },
+  "cta": {
+    "badge": "Bereit zum Start?",
+    "title": "Lassen Sie uns über Ihr Projekt sprechen",
+    "description": "Ob Sie einen klaren Plan oder eine frühe Idee haben, wir helfen Ihnen, den richtigen nächsten Schritt zu definieren.",
+    "primary": "Nehmen Sie Kontakt auf",
+    "secondary": "Sehen Sie sich unsere Dienstleistungen an"
+  }
+}

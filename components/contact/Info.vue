@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { animationPresets, withDelay, staggeredFadeInUp } from "~/composables/useAccessibleMotion";
+import {
+  animationPresets,
+  withDelay,
+  staggeredFadeInUp,
+} from "~/composables/useAccessibleMotion";
 import { useStrokeDraw } from "~/composables/useStrokeDraw";
 
 const { t } = useI18n();
@@ -47,8 +51,12 @@ const bottomCtaMotion = withDelay("fadeInUp", 300);
           <div class="card-icon">
             <UIcon name="i-heroicons-phone" aria-hidden="true" />
           </div>
-          <h3 class="card-title">{{ t("contact.info.directContact.title") }}</h3>
-          <p class="card-description">{{ t("contact.info.directContact.description") }}</p>
+          <h3 class="card-title">
+            {{ t("contact.info.directContact.title") }}
+          </h3>
+          <p class="card-description">
+            {{ t("contact.info.directContact.description") }}
+          </p>
 
           <div class="contact-methods">
             <a href="mailto:hello@eyeonidea.com" class="contact-link">
@@ -74,7 +82,9 @@ const bottomCtaMotion = withDelay("fadeInUp", 300);
           </div>
           <h3 class="card-title">{{ t("contact.info.location.title") }}</h3>
           <p class="card-address">{{ t("contact.info.location.address") }}</p>
-          <p class="card-description">{{ t("contact.info.location.description") }}</p>
+          <p class="card-description">
+            {{ t("contact.info.location.description") }}
+          </p>
         </div>
 
         <!-- Business Hours Card -->
@@ -111,7 +121,11 @@ const bottomCtaMotion = withDelay("fadeInUp", 300);
               class="social-link"
               :aria-label="`${t('contact.info.social.linkedin')} (${t('common.accessibility.externalLink', 'opens in new tab')})`"
             >
-              <UIcon name="i-mdi-light-linkedin" aria-hidden="true" />
+              <UIcon
+                name="i-mdi-linkedin"
+                aria-hidden="true"
+                class="text-primary-50 w-8 h-8"
+              />
               <span>{{ t("contact.info.social.linkedin") }}</span>
             </a>
           </div>
@@ -131,9 +145,9 @@ const bottomCtaMotion = withDelay("fadeInUp", 300);
           <NuxtLink to="/services" class="btn-primary">
             {{ t("contact.cta.services") }}
           </NuxtLink>
-          <NuxtLink to="/news" class="btn-secondary">
+          <!-- Bottom CTA  <NuxtLink to="/news" class="btn-secondary">
             {{ t("contact.cta.news") }}
-          </NuxtLink>
+          </NuxtLink>-->
         </div>
       </div>
     </div>
@@ -175,7 +189,6 @@ const bottomCtaMotion = withDelay("fadeInUp", 300);
   @media (min-width: 640px) {
     grid-template-columns: repeat(2, 1fr);
   }
-
 }
 
 .info-card {
@@ -294,13 +307,6 @@ const bottomCtaMotion = withDelay("fadeInUp", 300);
     outline: 2px solid var(--focus-ring);
     outline-offset: 2px;
   }
-
-  :deep(svg),
-  :deep(.iconify) {
-    width: 1.25rem;
-    height: 1.25rem;
-    flex-shrink: 0;
-  }
 }
 
 .bottom-cta {
@@ -354,7 +360,9 @@ const bottomCtaMotion = withDelay("fadeInUp", 300);
   font-weight: 600;
   text-decoration: none;
   border-radius: var(--radius-md);
-  transition: background 0.2s var(--ease-smooth), transform 0.2s var(--ease-smooth);
+  transition:
+    background 0.2s var(--ease-smooth),
+    transform 0.2s var(--ease-smooth);
 
   &:hover {
     background: var(--color-accent-600);
@@ -379,7 +387,9 @@ const bottomCtaMotion = withDelay("fadeInUp", 300);
   font-weight: 600;
   text-decoration: none;
   border-radius: var(--radius-md);
-  transition: background 0.2s var(--ease-smooth), border-color 0.2s var(--ease-smooth);
+  transition:
+    background 0.2s var(--ease-smooth),
+    border-color 0.2s var(--ease-smooth);
 
   &:hover {
     background: rgba(255, 255, 255, 0.1);

@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "title": "Conditions d'utilisation - Eye On Idea",
+    "description": "Conditions d’utilisation du conseil numérique Eye On Idea. Conditions juridiques régissant nos services, nos engagements de projet et l'utilisation du site Web."
+  },
+  "hero": {
+    "badge": "Juridique",
+    "title": "Conditions d'utilisation",
+    "subtitle": "Les termes et conditions régissant nos services et votre utilisation de ce site Web."
+  },
+  "lastUpdated": "Dernière mise à jour : février 2026",
+  "sections": {
+    "introduction": {
+      "title": "1. Présentation",
+      "content": [
+        "Bienvenue sur Eye On Idea. Ces conditions d'utilisation (« Conditions ») régissent votre utilisation de notre site Web (eyeonidea.com) et des services numériques que nous fournissons. En accédant à notre site Web ou en faisant appel à nos services, vous acceptez d'être lié par ces conditions.",
+        "Eye On Idea est une entreprise individuelle (enkeltmandsvirksomhed) enregistrée au Danemark sous le CVR : 45356175, avec une adresse enregistrée à Aalborg, au Danemark. Vous pouvez nous joindre à hello{'@'}eyeonidea.com ou par téléphone au +45 29 93 05 83.",
+        "Les présentes Conditions sont destinées aux engagements interentreprises (B2B). Si vous êtes un consommateur, des droits statutaires supplémentaires en vertu des lois danoises et européennes sur la protection des consommateurs peuvent s'appliquer."
+      ]
+    },
+    "services": {
+      "title": "2. Prestations",
+      "content": [
+        "Eye On Idea fournit des services de conseil numérique comprenant, sans toutefois s'y limiter : la conception et le développement de sites Web, la création d'identité visuelle, la mise en œuvre d'un système de gestion de contenu (CMS), ainsi que des services d'assistance et de maintenance continus.",
+        "Tous les services sont fournis sur la base d'un projet avec une définition et une tarification individuelles. Les livrables, les délais et les coûts spécifiques sont définis dans une proposition de projet écrite ou un énoncé des travaux avant le début des travaux."
+      ]
+    },
+    "engagement": {
+      "title": "3. Participation au projet",
+      "content": [
+        "Un accord contraignant est formé dès l'acceptation écrite d'une proposition de projet (par e-mail ou document signé) et, le cas échéant, réception de l'acompte convenu.",
+        "La portée du projet, les livrables, le calendrier et les prix sont définis dans la proposition de projet. Toute modification de l'étendue convenue doit être confirmée par écrit par les deux parties et peut entraîner un ajustement des prix et des dates de livraison.",
+        "Vous acceptez de fournir tous les documents, contenus, commentaires et approbations nécessaires en temps opportun pour faciliter l'achèvement du projet. Les retards causés par la livraison tardive des matériaux ou des commentaires peuvent prolonger les délais du projet en conséquence."
+      ]
+    },
+    "payment": {
+      "title": "4. Conditions de paiement",
+      "content": [
+        "Les conditions de paiement sont spécifiées dans les propositions de projets individuelles. Sauf accord contraire, les conditions standard exigent un acompte de 30 à 50 % avant le début des travaux, le solde restant étant dû à l'achèvement et à la livraison du projet.",
+        "Les factures sont payables dans les 14 jours suivant la date de facture, sauf si un délai de paiement différent est convenu par écrit.",
+        "Les paiements tardifs sont soumis à des intérêts conformément à la loi danoise sur les intérêts (Renteloven), actuellement le taux de référence de la Banque nationale danoise majoré de 8 points de pourcentage par an, calculés à partir de la date d'échéance.",
+        "Tous les prix sont indiqués en couronnes danoises (DKK) ou en euros (EUR), comme spécifié dans la proposition. Les prix s'entendent hors TVA (mamans) au taux applicable (actuellement 25%) sauf indication contraire explicite."
+      ]
+    },
+    "intellectualProperty": {
+      "title": "5. Propriété intellectuelle",
+      "content": [
+        "Dès réception du paiement intégral, tous les droits de propriété intellectuelle sur les travaux personnalisés créés spécifiquement pour votre projet, y compris les conceptions sur mesure, le code personnalisé et le contenu original, vous sont transférés. Ce transfert n'est effectif qu'après paiement intégral et final conformément à l'article 55 de la loi danoise sur le droit d'auteur (Ophavsretsloven).",
+        "Eye On Idea conserve la propriété des outils préexistants, des bibliothèques de codes réutilisables, des cadres de développement, des méthodologies générales et du savoir-faire qui n'ont pas été créés spécifiquement pour votre projet ou qui existaient avant l'engagement.",
+        "Les actifs tiers tels que les images de stock, les polices, les icônes et les plugins logiciels restent soumis à leurs conditions de licence respectives. Eye On Idea vous informera de toute obligation de licence tierce pertinente à votre projet.",
+        "Eye On Idea se réserve le droit de référencer et de présenter les travaux réalisés dans des portfolios, des études de cas et des supports marketing, à moins qu'un accord écrit de confidentialité ou de non-divulgation soit en place."
+      ]
+    },
+    "confidentiality": {
+      "title": "6. Confidentialité",
+      "content": [
+        "Les deux parties s'engagent à garder confidentielle toute information exclusive, commerciale ou technique divulguée au cours de la mission et qui est marquée comme confidentielle ou qu'une personne raisonnable considérerait comme confidentielle.",
+        "Les informations confidentielles comprennent, sans s'y limiter, les stratégies commerciales, les structures de prix, les spécifications techniques, les conceptions non publiées et les informations de connexion.",
+        "Les obligations de confidentialité survivent à la résiliation de notre engagement et restent en vigueur pendant une période de deux (2) ans après la résiliation, à moins que les informations ne deviennent accessibles au public sans faute de la partie destinataire."
+      ]
+    },
+    "warranties": {
+      "title": "7. Garanties et responsabilité",
+      "content": [
+        "Eye On Idea garantit que tous les services seront exécutés avec des compétences professionnelles raisonnables et avec un soin conforme aux normes généralement acceptées de l'industrie.",
+        "Les sites Web et produits numériques livrés sont testés pour leur fonctionnalité et leur compatibilité sur les versions actuelles des principaux navigateurs (Chrome, Firefox, Safari, Edge) au moment de la livraison. La compatibilité continue avec les futures versions du navigateur ou les mises à jour tierces n'est pas garantie et peut être couverte par un contrat de maintenance distinct.",
+        "Un délai de notification des défauts de 30 jours s'applique à compter de la date de livraison. Pendant cette période, Eye On Idea remédiera sans frais supplémentaires à tout défaut matériel de l'œuvre livrée, à condition que les défauts soient documentés et signalés par écrit.",
+        "Eye On Idea n'est pas responsable des problèmes résultant de : (a) des modifications apportées par le client ou des tiers après la livraison, (b) des intégrations ou des services tiers non gérés par Eye On Idea, (c) le non-respect des instructions ou de la documentation fournie, ou (d) des circonstances indépendantes de notre volonté raisonnable (force majeure).",
+        "Dans la mesure permise par la loi, la responsabilité globale totale d'Eye On Idea pour toute réclamation découlant de ou en relation avec un projet ne dépassera pas le total des frais réellement payés par vous pour le projet spécifique donnant lieu à la réclamation. Eye On Idea ne sera pas responsable des dommages indirects, consécutifs ou accessoires, y compris la perte de profit, de données ou d'opportunité commerciale."
+      ]
+    },
+    "termination": {
+      "title": "8. Résiliation",
+      "content": [
+        "Chaque partie peut mettre fin à un engagement lié à un projet en fournissant un préavis écrit de 14 jours à l'autre partie. En cas de résiliation, le paiement est dû pour tous les travaux effectués jusqu'à la date effective de résiliation.",
+        "En cas de manquement substantiel de l'une des parties qui n'est pas résolu dans les 14 jours suivant une notification écrite, la partie non fautive peut résilier le contrat avec effet immédiat.",
+        "À la résiliation et à la réception de tous les paiements impayés, Eye On Idea livrera tous les travaux terminés, les fichiers sources et la documentation de transfert nécessaire. Les travaux en cours peuvent être livrés dans leur état actuel."
+      ]
+    },
+    "websiteUse": {
+      "title": "9. Utilisation du site Web",
+      "content": [
+        "Ce site Internet est fourni à titre informatif. Bien que nous fassions tout notre possible pour maintenir les informations exactes et à jour, nous ne garantissons pas que tout le contenu soit à jour ou exempt d'erreurs.",
+        "Vous ne pouvez pas utiliser ce site Web à des fins illégales ou de quelque manière que ce soit qui pourrait endommager, désactiver, surcharger ou détériorer le site Web ou interférer avec l'accès d'autres utilisateurs."
+      ]
+    },
+    "governing": {
+      "title": "10. Loi applicable et litiges",
+      "content": [
+        "Les présentes Conditions sont régies et interprétées conformément aux lois du Danemark, sans égard à ses dispositions en matière de conflits de lois.",
+        "En cas de litige, les parties tenteront d'abord de résoudre le problème à l'amiable par une négociation de bonne foi. Si une résolution ne peut être trouvée, les litiges seront soumis au tribunal municipal d'Aalborg (Retten i Aalborg), en tant que tribunal de première instance.",
+        "Si une disposition des présentes Conditions est jugée invalide ou inapplicable par un tribunal compétent, les dispositions restantes resteront pleinement en vigueur."
+      ]
+    },
+    "contact": {
+      "title": "11. Coordonnées",
+      "content": [
+        "Pour toute question concernant ces Conditions ou nos services, veuillez nous contacter :",
+        "Eye On Idea, CVR: 45356175",
+        "E-mail : bonjour{'@'}eyeonidea.com | Téléphone : +45 29 93 05 83",
+        "Aalborg, Danemark"
+      ]
+    }
+  }
+}

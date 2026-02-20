@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "title": "Il nostro processo: Eye On Idea",
+    "description": "Dal primo contatto al lancio e oltre. Scopri come Eye On Idea offre progetti di siti Web professionali con tempistiche chiare, prezzi trasparenti e supporto continuo."
+  },
+  "hero": {
+    "badge": "Il nostro processo",
+    "title": "Dall'idea al lancio",
+    "subtitle": "Ogni progetto segue un processo chiaro e trasparente progettato per mantenerti informato e sotto controllo in ogni fase."
+  },
+  "intro": {
+    "text": "Crediamo che i migliori siti web siano costruiti su una comunicazione chiara e sulla comprensione reciproca. Ecco esattamente cosa aspettarti quando lavori con Eye On Idea."
+  },
+  "timeline": {
+    "title": "Il tuo viaggio nel progetto",
+    "steps": {
+      "contact": {
+        "number": "01",
+        "title": "Contatto iniziale",
+        "description": "Ci contatti con la tua idea o necessità di progetto. Rispondiamo entro 1-2 giorni lavorativi e proponiamo un incontro conoscitivo, di persona o online, con opzioni di pianificazione flessibili.",
+        "details": [
+          "Nessun impegno richiesto in questa fase",
+          "La riunione può essere fisica o online (Teams, Zoom, ecc.)",
+          "Scegli l'ora e la data che funzionano per te"
+        ],
+        "cta": {
+          "label": "Mettiti in contatto",
+          "to": "/contatto"
+        }
+      },
+      "discovery": {
+        "number": "02",
+        "title": "Incontro di scoperta",
+        "description": "Ci sediamo insieme per comprendere i tuoi obiettivi, il pubblico di destinazione e il contesto aziendale. Questo incontro dà forma all’intero ambito del progetto.",
+        "details": [
+          "Definire aspettative, desideri e bisogni",
+          "Controlla le risorse esistenti (loghi, contenuti, domini, hosting)",
+          "Identificare ciò che deve essere creato o procurato",
+          "Discutere la tempistica e gli eventuali requisiti di lancio specifici"
+        ]
+      },
+      "proposal": {
+        "number": "03",
+        "title": "Proposta e accordo",
+        "description": "Sulla base dell'incontro conoscitivo, ti inviamo una proposta dettagliata che delinea l'intero ambito del progetto, i risultati finali, la tempistica e i costi.",
+        "details": [
+          "Chiarire l'ambito del progetto con tutti i risultati finali elencati",
+          "Prezzi trasparenti senza costi nascosti",
+          "Un acconto del 25-50% del costo totale per iniziare i lavori",
+          "Il deposito non è rimborsabile e garantisce lo spazio per il tuo progetto",
+          "L'accettazione della proposta include il consenso GDPR per il trattamento dei dati come indicato"
+        ],
+        "note": "La proposta indica chiaramente quali dati personali saranno trattati, per quale scopo e in base a quale base giuridica, in conformità con il GDPR. I tuoi dati non vengono mai condivisi con terze parti oltre quanto richiesto dal progetto.",
+        "cta": {
+          "label": "Visualizza i nostri pacchetti",
+          "to": "/services#packages-sezione"
+        }
+      },
+      "kickoff": {
+        "number": "04",
+        "title": "Inizio del progetto",
+        "description": "Una volta ricevuto il deposito iniziano i lavori. Imposteremo l'ambiente del progetto e inizieremo a costruire in base all'ambito concordato.",
+        "details": [
+          "Il progetto richiede in genere 2-4 settimane a seconda dell'ambito",
+          "Riunioni di check-in settimanali o mensili facoltative",
+          "Canale di comunicazione dedicato per domande e aggiornamenti"
+        ]
+      },
+      "development": {
+        "number": "05",
+        "title": "Sviluppo e progresso",
+        "description": "Il tuo sito web prende forma. Durante questa fase, puoi facoltativamente richiedere l'accesso anticipato a un server di sviluppo per seguirlo in tempo reale.",
+        "details": [
+          "Disponibile dopo la prima settimana di lavoro",
+          "Fornisce una visione costante dello stato di avanzamento del progetto",
+          "Potrebbe comportare un costo aggiuntivo (richiede una manutenzione regolare della base di codice per caricamenti corretti)"
+        ],
+        "note": "L'accesso anticipato al server di sviluppo è un componente aggiuntivo facoltativo. Richiede implementazione e manutenzione più frequenti, motivo per cui viene offerto come servizio separato.",
+        "cta": {
+          "label": "Vedi Componenti aggiuntivi ed extra",
+          "to": "/services#addon-sezione"
+        }
+      },
+      "preview": {
+        "number": "06",
+        "title": "Anteprima pre-lancio",
+        "description": "Una settimana prima della data di lancio concordata riceverai un collegamento al server di prova dove potrai rivedere il progetto completo.",
+        "details": [
+          "Progetto completo disponibile per la revisione su un URL di prova",
+          "Possibilità di richiedere modifiche o aggiustamenti finali",
+          "Se CMS è incluso, riceverai anche il tuo invito CMS con istruzioni e guida",
+          "Questa anteprima funge da approvazione finale prima della pubblicazione"
+        ]
+      },
+      "payment": {
+        "number": "07",
+        "title": "Pagamento finale e lancio",
+        "description": "Il saldo rimanente del progetto viene fatturato 2-5 giorni lavorativi prima del lancio. Il pagamento è dovuto il giorno del lancio.",
+        "details": [
+          "La fattura copre il resto dopo il deposito iniziale",
+          "Pagamento dovuto il giorno del lancio",
+          "Il sito web sarà attivo nella data concordata",
+          "Tutti i risultati finali vengono consegnati"
+        ]
+      },
+      "postlaunch": {
+        "number": "08",
+        "title": "Supporto post-lancio",
+        "description": "Dopo il lancio, hai una finestra di supporto di 2 settimane in cui monitoriamo il sito e gestiamo eventuali piccole correzioni che trovi.",
+        "details": [
+          "Monitoriamo liberamente il sito per eventuali errori",
+          "Piccole modifiche al testo, scambi di immagini, correzioni di errori di battitura, correzioni delle informazioni di contatto",
+          "Non include importanti riprogettazioni o nuove funzionalità",
+          "Segnala eventuali problemi entro la finestra di 2 settimane"
+        ],
+        "note": "Questo è un periodo gratuito per cogliere qualsiasi cosa trascurata prima del lancio. Modifiche importanti o richieste di nuove funzionalità vengono gestite come progetti separati o tramite un piano di supporto."
+      },
+      "handoff": {
+        "number": "09",
+        "title": "Trasferimento e oltre",
+        "description": "Il progetto è completo e interamente pagato. Ti ringraziamo per la collaborazione e saremo sempre qui quando avrai bisogno di noi.",
+        "details": [
+          "L'hosting e la manutenzione del server rimangono a carico di Eye On Idea (ospitato su OVH Cloud EU)",
+          "Piani di supporto continui disponibili se desideri una collaborazione continua",
+          "Non sono state incluse ulteriori modifiche dopo la finestra di 2 settimane post-lancio",
+          "Progetti e servizi futuri sono sempre benvenuti"
+        ],
+        "cta": {
+          "label": "Visualizza i piani di supporto",
+          "to": "/services#support-piani"
+        }
+      }
+    }
+  },
+  "faq": {
+    "title": "Domande comuni",
+    "subtitle": "Risposte alle domande più frequenti sul nostro processo",
+    "items": [
+      {
+        "question": "Quanto tempo richiede un tipico progetto di un sito web?",
+        "answer": "La maggior parte dei progetti di siti Web richiedono 2-4 settimane dall'avvio al lancio, a seconda della portata e della complessità. I progetti di piattaforma più grandi potrebbero richiedere più tempo. La tempistica esatta è sempre concordata nella proposta."
+      },
+      {
+        "question": "Cosa copre il deposito?",
+        "answer": "Il deposito (25–50% del costo totale del progetto) garantisce lo spazio assegnato al progetto e copre la configurazione iniziale, la pianificazione e il lavoro di sviluppo iniziale. Non è rimborsabile, poiché il lavoro inizia immediatamente dopo il pagamento."
+      },
+      {
+        "question": "Posso apportare modifiche durante il progetto?",
+        "answer": "Sì. Offriamo incontri di check-in facoltativi (settimanali o mensili) e puoi fornire feedback durante l'anteprima pre-lancio. Piccoli aggiustamenti nell'ambito concordato fanno parte del processo. Le modifiche al di fuori dell'ambito originario potrebbero richiedere una proposta rivista."
+      },
+      {
+        "question": "Cosa conta come \"piccola modifica\" durante il supporto post-lancio?",
+        "answer": "Piccole modifiche includono correzioni di testo (errori di battitura, grammatica, informazioni di contatto errate), sostituzioni di immagini e correzioni minori simili. Non include modifiche al layout, nuove pagine, nuove funzionalità o riprogettazioni visive."
+      },
+      {
+        "question": "Cosa succede con i miei dati (GDPR)?",
+        "answer": "L'accettazione della nostra proposta implica il consenso alla gestione dei tuoi dati come indicato nell'ambito del progetto. Ciò segue sempre le linee guida GDPR. I tuoi dati vengono utilizzati solo per il progetto e non vengono mai condivisi con terze parti non correlate. I dettagli completi sono nella nostra politica sulla privacy."
+      },
+      {
+        "question": "Ho bisogno di un piano di supporto dopo il lancio?",
+        "answer": "Non necessariamente. Dopo la finestra di 2 settimane post-lancio, il progetto è completo. Un piano di supporto è facoltativo ed è l'ideale se desideri aggiornamenti continui dei contenuti, miglioramenti tecnici o consulenza strategica. Può essere aggiunto in qualsiasi momento."
+      },
+      {
+        "question": "Chi gestisce l'hosting dopo il lancio?",
+        "answer": "Eye On Idea si occupa dell'hosting e della manutenzione dei server su OVH Cloud (con sede nell'UE). Questa è la nostra responsabilità continua finché ospitiamo il tuo progetto. I costi di hosting sono inclusi in un piano di supporto o fatturati separatamente."
+      },
+      {
+        "question": "Posso accedere al progetto durante lo sviluppo?",
+        "answer": "Per impostazione predefinita, ricevi l'accesso al server di prova 1 settimana prima del lancio. Se desideri un accesso anticipato per seguire lo sviluppo in tempo reale, questo è disponibile come servizio aggiuntivo opzionale."
+      }
+    ]
+  },
+  "cta": {
+    "badge": "Pronto per iniziare?",
+    "title": "Iniziamo il tuo progetto",
+    "description": "Il primo passo è una conversazione. Raccontaci del tuo progetto e partiremo da lì.",
+    "primary": "Inizia una conversazione",
+    "secondary": "Visualizza i nostri servizi"
+  }
+}

@@ -293,13 +293,13 @@
             "unit": "per hour"
           },
           {
-            "name": "AI-assisted translation",
-            "price": "50",
-            "unit": "per page"
+            "name": "Multilingual foundations (2 languages default)",
+            "price": "350",
+            "unit": "one-time"
           },
           {
             "name": "Additional language version",
-            "price": "500",
+            "price": "125",
             "unit": "per language"
           }
         ]
@@ -359,16 +359,6 @@
             "name": "EU-based website hosting",
             "price": "20",
             "unit": "per month"
-          },
-          {
-            "name": "CDN & performance optimization",
-            "price": "15",
-            "unit": "per month"
-          },
-          {
-            "name": "Deployment & monitoring",
-            "price": "25",
-            "unit": "per month"
           }
         ]
       },
@@ -418,7 +408,12 @@
       "prefix": "From",
       "vatNote": "excl. VAT"
     },
-    "cta": "Discuss Your Brand"
+    "cta": "Discuss Your Brand",
+    "carousel": {
+      "eoiLight": "Eye On Idea brand identity on light background",
+      "eoiDark": "Eye On Idea brand identity on dark background",
+      "herqulez": "Herqulez logo package showcasing brand variations"
+    }
   },
   "cms": {
     "badge": "CMS Solutions",
@@ -549,12 +544,48 @@
     "beforeLabel": "Before",
     "afterLabel": "After - with Eye On Idea",
     "metrics": [
-      { "label": "Lighthouse Score", "before": "42", "after": "97", "unit": "", "improved": true },
-      { "label": "Load Time", "before": "6.8", "after": "1.2", "unit": "s", "improved": true },
-      { "label": "Accessibility", "before": "51", "after": "100", "unit": "", "improved": true },
-      { "label": "SEO Score", "before": "58", "after": "98", "unit": "", "improved": true },
-      { "label": "CLS Shift", "before": "0.42", "after": "0.01", "unit": "", "improved": true },
-      { "label": "Mobile Score", "before": "35", "after": "95", "unit": "", "improved": true }
+      {
+        "label": "Lighthouse Score",
+        "before": "48",
+        "after": "92",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "Load Time",
+        "before": "5.9",
+        "after": "1.8",
+        "unit": "s",
+        "improved": true
+      },
+      {
+        "label": "Accessibility",
+        "before": "63",
+        "after": "95",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "SEO Score",
+        "before": "61",
+        "after": "96",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "CLS Shift",
+        "before": "0.27",
+        "after": "0.04",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "Mobile Score",
+        "before": "44",
+        "after": "91",
+        "unit": "",
+        "improved": true
+      }
     ]
   }
 }

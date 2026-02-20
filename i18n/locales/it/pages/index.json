@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "title": "Eye On Idea - Siti web B2B professionali",
+    "description": "Eye On Idea aiuta le aziende di tutta Europa a costruire una presenza digitale chiara e professionale. Sviluppo del sito web, identità visiva e supporto a lungo termine."
+  },
+  "hero": {
+    "headline": "La tua presenza digitale",
+    "headlineAccent": "costruito per la crescita",
+    "subheadline": "Aiutiamo le aziende a creare siti Web professionali che supportino la crescita e creino fiducia.",
+    "cta": {
+      "primary": "Inizia il tuo progetto",
+      "secondary": "Esplora i servizi"
+    },
+    "scrollIndicator": "Scorri per esplorare"
+  },
+  "about": {
+    "badge": "Chi siamo",
+    "title": "Un partner, non solo un fornitore",
+    "description": "Eye On Idea è una società di consulenza digitale danese che aiuta le aziende a costruire una presenza online chiara e affidabile. Lavoriamo con aziende che desiderano qualcosa di più di un sito Web di base. Ottieni struttura, chiarezza e una soluzione che supporta la crescita a lungo termine.",
+    "values": {
+      "clarity": {
+        "title": "Prima la chiarezza",
+        "description": "Costruiamo ciò di cui hai bisogno e lo spieghiamo in modo logico."
+      },
+      "partnership": {
+        "title": "Collaborazione a lungo termine",
+        "description": "Ti supportiamo prima, durante e dopo il lancio."
+      },
+      "quality": {
+        "title": "Costruito per durare",
+        "description": "Scegliamo strumenti affidabili e costruiamo soluzioni progettate per durare nel tempo."
+      }
+    },
+    "cta": "Scopri di più su di noi"
+  },
+  "services": {
+    "badge": "Cosa offriamo",
+    "title": "Pacchetti sito web",
+    "subtitle": "Soluzioni su misura per ogni fase del tuo business",
+    "additionalServices": {
+      "title": "Servizi aggiuntivi",
+      "identity": {
+        "title": "Identità visiva",
+        "description": "Logo, colori, tipografia e direzione del marchio per piattaforme digitali."
+      },
+      "cms": {
+        "title": "Soluzioni CMS",
+        "description": "Configurazione personalizzata del CMS Sanity per la gestione indipendente dei contenuti."
+      },
+      "support": {
+        "title": "Supporto continuo",
+        "description": "Manutenzione, aggiornamenti e consulenza per la tua presenza digitale."
+      }
+    },
+    "cta": {
+      "viewAll": "Visualizza tutti i servizi"
+    }
+  },
+  "process": {
+    "badge": "Come lavoriamo",
+    "title": "Un chiaro percorso da seguire",
+    "steps": {
+      "discover": {
+        "title": "Scopri",
+        "description": "Iniziamo comprendendo la tua attività, i tuoi obiettivi e il significato del successo."
+      },
+      "design": {
+        "title": "Progettazione",
+        "description": "Creiamo una soluzione su misura per le tue esigenze: nessun modello, nessuna soluzione unica adatta a tutti."
+      },
+      "develop": {
+        "title": "Sviluppare",
+        "description": "Costruiamo pensando alla qualità, all'accessibilità e alla manutenibilità a lungo termine."
+      },
+      "support": {
+        "title": "Supporto",
+        "description": "Siamo qui dopo il lancio per aggiornamenti, miglioramenti e partnership continuativa."
+      }
+    }
+  },
+  "cta": {
+    "badge": "Pronto per iniziare?",
+    "title": "Costruiamo qualcosa di grande insieme",
+    "description": "Che tu stia iniziando qualcosa di nuovo, migliorando ciò che hai o hai bisogno di una seconda opinione, siamo qui per aiutarti.",
+    "primary": "Inizia una conversazione",
+    "secondary": "Visualizza il nostro lavoro"
+  },
+  "stats": {
+    "clients": {
+      "value": "50+",
+      "label": "Clienti serviti"
+    },
+    "countries": {
+      "value": "12",
+      "label": "Paesi dell'UE"
+    },
+    "years": {
+      "value": "8+",
+      "label": "Anni di esperienza"
+    }
+  }
+}

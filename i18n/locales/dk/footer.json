@@ -1,0 +1,27 @@
+{
+  "goToHomepage": "Gå til forsiden",
+  "tagline": "Forvandl gode idéer til stærke oplevelser",
+  "copyright": "© {year} Eye On Idea. Alle rettigheder forbeholdes.",
+  "offices": {
+    "denmark": {
+      "title": "Hovedkontor",
+      "address": "Aalborg, Danmark",
+      "cvr": "CVR: 45356175",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "founder": {
+    "title": "Grundlægger",
+    "role": "CEO og ledende udvikler"
+  },
+  "siteNav": {
+    "heading": "Navigation",
+    "home": "Hjem",
+    "services": "Ydelser",
+    "about": "Om os",
+    "news": "Nyheder",
+    "contact": "Kontakt",
+    "legal": "Juridisk",
+    "policies": "Politikker"
+  }
+}

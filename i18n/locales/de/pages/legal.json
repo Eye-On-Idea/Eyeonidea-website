@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "title": "Nutzungsbedingungen – Eye On Idea",
+    "description": "Nutzungsbedingungen für die digitale Beratung von Eye On Idea. Rechtliche Bedingungen, die unsere Dienstleistungen, Projekteinsätze und die Nutzung der Website regeln."
+  },
+  "hero": {
+    "badge": "Legal",
+    "title": "Nutzungsbedingungen",
+    "subtitle": "Die Allgemeinen Geschäftsbedingungen für unsere Dienstleistungen und Ihre Nutzung dieser Website."
+  },
+  "lastUpdated": "Letzte Aktualisierung: Februar 2026",
+  "sections": {
+    "introduction": {
+      "title": "1. Einführung",
+      "content": [
+        "Willkommen bei Eye On Idea. Diese Nutzungsbedingungen („Bedingungen“) regeln Ihre Nutzung unserer Website (eyeonidea.com) und der von uns bereitgestellten digitalen Dienste. Indem Sie auf unsere Website zugreifen oder unsere Dienste in Anspruch nehmen, erklären Sie sich mit diesen Bedingungen einverstanden.",
+        "Eye On Idea ist ein in Dänemark unter der CVR-Nummer 45356175 registriertes Einzelunternehmen (enkeltmandsvirksomhed) mit eingetragener Adresse in Aalborg, Dänemark. Sie erreichen uns unter hello{'@'}eyeonidea.com oder telefonisch unter +45 29 93 05 83.",
+        "Diese Bedingungen sind für Business-to-Business-Aufträge (B2B) gedacht. Wenn Sie Verbraucher sind, gelten möglicherweise zusätzliche gesetzliche Rechte nach dänischem und EU-Verbraucherschutzrecht."
+      ]
+    },
+    "services": {
+      "title": "2. Dienstleistungen",
+      "content": [
+        "Eye On Idea bietet digitale Beratungsdienste, einschließlich, aber nicht beschränkt auf: Website-Design und -Entwicklung, Erstellung einer visuellen Identität, Implementierung eines Content-Management-Systems (CMS) sowie laufende Support- und Wartungsdienste.",
+        "Alle Dienstleistungen werden auf Projektbasis mit individuellem Umfang und Preis bereitgestellt. Spezifische Leistungen, Zeitpläne und Kosten werden vor Beginn der Arbeiten in einem schriftlichen Projektvorschlag oder einer Leistungsbeschreibung festgelegt."
+      ]
+    },
+    "engagement": {
+      "title": "3. Projektengagement",
+      "content": [
+        "Eine verbindliche Vereinbarung kommt durch die schriftliche Annahme eines Projektvorschlags (per E-Mail oder unterschriebenes Dokument) und gegebenenfalls den Eingang der vereinbarten Anzahlung zustande.",
+        "Der Projektumfang, die zu erbringenden Leistungen, der Zeitplan und die Preise werden im Projektvorschlag definiert. Änderungen des vereinbarten Umfangs bedürfen der schriftlichen Bestätigung beider Parteien und können zu angepassten Preisen und Lieferterminen führen.",
+        "Sie verpflichten sich, alle erforderlichen Materialien, Inhalte, Rückmeldungen und Genehmigungen rechtzeitig bereitzustellen, um den Projektabschluss zu erleichtern. Verzögerungen, die durch verspätete Lieferung von Materialien oder Rückmeldungen verursacht werden, können die Projektlaufzeiten entsprechend verlängern."
+      ]
+    },
+    "payment": {
+      "title": "4. Zahlungsbedingungen",
+      "content": [
+        "Die Zahlungsbedingungen werden in den einzelnen Projektvorschlägen festgelegt. Sofern nicht anders vereinbart, erfordern die Standardbedingungen eine Anzahlung von 30–50 % vor Beginn der Arbeiten, der Restbetrag ist bei Abschluss und Lieferung des Projekts fällig.",
+        "Rechnungen sind innerhalb von 14 Tagen ab Rechnungsdatum zahlbar, sofern nicht eine andere Zahlungsfrist schriftlich vereinbart wurde.",
+        "Bei verspäteten Zahlungen fallen Zinsen gemäß dem dänischen Zinsgesetz (Renteloven) an, derzeit der Referenzzinssatz der Dänischen Nationalbank zuzüglich 8 Prozentpunkten pro Jahr, berechnet ab dem Fälligkeitsdatum.",
+        "Alle Preise sind in dänischen Kronen (DKK) oder Euro (EUR) angegeben, wie im Angebot angegeben. Die Preise verstehen sich zuzüglich der jeweils geltenden Mehrwertsteuer (derzeit 25 %), sofern nicht ausdrücklich anders angegeben."
+      ]
+    },
+    "intellectualProperty": {
+      "title": "5. Geistiges Eigentum",
+      "content": [
+        "Nach Eingang der vollständigen Zahlung gehen alle geistigen Eigentumsrechte an speziell für Ihr Projekt erstellten Sonderanfertigungen, einschließlich maßgeschneiderter Designs, individuellem Code und Originalinhalten, auf Sie über. Diese Übertragung ist erst bei vollständiger und endgültiger Zahlung gemäß Abschnitt 55 des dänischen Urheberrechtsgesetzes (Ophavsretsloven) wirksam.",
+        "Eye On Idea behält das Eigentum an bereits vorhandenen Tools, wiederverwendbaren Codebibliotheken, Entwicklungs-Frameworks, allgemeinen Methoden und Know-how, die nicht speziell für Ihr Projekt erstellt wurden oder vor dem Auftrag vorhanden waren.",
+        "Assets von Drittanbietern wie Stockbilder, Schriftarten, Symbole und Software-Plugins unterliegen weiterhin ihren jeweiligen Lizenzbedingungen. Eye On Idea informiert Sie über alle für Ihr Projekt relevanten Lizenzpflichten Dritter.",
+        "Eye On Idea behält sich das Recht vor, abgeschlossene Arbeiten in Portfolios, Fallstudien und Marketingmaterialien zu referenzieren und zu präsentieren, es sei denn, es besteht eine schriftliche Vertraulichkeits- oder Geheimhaltungsvereinbarung."
+      ]
+    },
+    "confidentiality": {
+      "title": "6. Vertraulichkeit",
+      "content": [
+        "Beide Parteien verpflichten sich, alle im Rahmen des Auftrags offengelegten unternehmenseigenen, kommerziellen oder technischen Informationen, die als vertraulich gekennzeichnet sind oder die eine vernünftige Person als vertraulich betrachten würde, vertraulich zu behandeln.",
+        "Zu den vertraulichen Informationen gehören unter anderem Geschäftsstrategien, Preisstrukturen, technische Spezifikationen, unveröffentlichte Designs und Anmeldeinformationen.",
+        "Vertraulichkeitsverpflichtungen bestehen auch nach Beendigung unseres Auftrags fort und bleiben für einen Zeitraum von zwei (2) Jahren nach Beendigung in Kraft, es sei denn, die Informationen werden ohne Verschulden der empfangenden Partei öffentlich zugänglich."
+      ]
+    },
+    "warranties": {
+      "title": "7. Gewährleistungen und Haftung",
+      "content": [
+        "Eye On Idea garantiert, dass alle Dienstleistungen mit angemessener Fachkompetenz und Sorgfalt im Einklang mit allgemein anerkannten Industriestandards durchgeführt werden.",
+        "Ausgelieferte Websites und digitale Produkte werden zum Zeitpunkt der Auslieferung auf Funktionalität und Kompatibilität mit den aktuellen Versionen der gängigen Browser (Chrome, Firefox, Safari, Edge) getestet. Die fortlaufende Kompatibilität mit zukünftigen Browserversionen oder Updates von Drittanbietern kann nicht garantiert werden und ist möglicherweise durch einen separaten Wartungsvertrag abgedeckt.",
+        "Es gilt eine Mängelrügefrist von 30 Tagen ab Lieferdatum. In diesem Zeitraum wird Eye On Idea etwaige Sachmängel des gelieferten Werks ohne zusätzliche Kosten beseitigen, sofern die Mängel dokumentiert und schriftlich gemeldet werden.",
+        "Eye On Idea haftet nicht für Probleme, die sich aus Folgendem ergeben: (a) vom Kunden oder Dritten nach der Lieferung vorgenommene Änderungen, (b) Integrationen oder Dienste Dritter, die nicht von Eye On Idea verwaltet werden, (c) Nichtbeachtung bereitgestellter Anweisungen oder Dokumentationen oder (d) Umstände, die außerhalb unserer angemessenen Kontrolle liegen (höhere Gewalt).",
+        "Soweit gesetzlich zulässig, übersteigt die Gesamthaftung von Eye On Idea für Ansprüche, die sich aus oder im Zusammenhang mit einem Projekt ergeben, nicht die Gesamtgebühren, die Sie tatsächlich für das spezifische Projekt gezahlt haben, das den Anspruch begründet. Eye On Idea haftet nicht für indirekte, Folge- oder Nebenschäden, einschließlich entgangenen Gewinns, Daten oder Geschäftsmöglichkeiten."
+      ]
+    },
+    "termination": {
+      "title": "8. Kündigung",
+      "content": [
+        "Jede Partei kann einen Projektauftrag mit einer Frist von 14 Tagen schriftlich gegenüber der anderen Partei kündigen. Bei Kündigung ist die Vergütung für alle bis zum Wirksamwerden der Kündigung erbrachten Leistungen fällig.",
+        "Im Falle eines wesentlichen Verstoßes einer der Parteien, der 14 Tage nach schriftlicher Mitteilung nicht geheilt wird, kann die nicht verletzende Partei den Vertrag mit sofortiger Wirkung kündigen.",
+        "Nach der Kündigung und dem Eingang aller ausstehenden Zahlungen liefert Eye On Idea alle abgeschlossenen Arbeiten, Quelldateien und erforderlichen Übergabeunterlagen. In Arbeit befindliche Arbeiten können im aktuellen Zustand geliefert werden."
+      ]
+    },
+    "websiteUse": {
+      "title": "9. Nutzung der Website",
+      "content": [
+        "Diese Website dient der Information. Obwohl wir uns bemühen, die Informationen korrekt und aktuell zu halten, übernehmen wir keine Gewähr dafür, dass alle Inhalte aktuell oder fehlerfrei sind.",
+        "Sie dürfen diese Website nicht für rechtswidrige Zwecke oder in einer Weise nutzen, die die Website beschädigen, deaktivieren, überlasten oder beeinträchtigen oder den Zugriff anderer Benutzer beeinträchtigen könnte."
+      ]
+    },
+    "governing": {
+      "title": "10. Anwendbares Recht und Streitigkeiten",
+      "content": [
+        "Diese Bedingungen unterliegen den Gesetzen Dänemarks und werden in Übereinstimmung mit diesen ausgelegt, ohne Rücksicht auf die Kollisionsnormen.",
+        "Im Streitfall werden die Parteien zunächst versuchen, die Angelegenheit durch gutgläubige Verhandlungen gütlich zu lösen. Kann keine Lösung erzielt werden, werden Streitigkeiten dem Stadtgericht Aalborg (Retten i Aalborg) als Gericht erster Instanz vorgelegt.",
+        "Sollte eine Bestimmung dieser Bedingungen von einem zuständigen Gericht für ungültig oder nicht durchsetzbar befunden werden, bleiben die übrigen Bestimmungen in vollem Umfang in Kraft und wirksam."
+      ]
+    },
+    "contact": {
+      "title": "11. Kontaktinformationen",
+      "content": [
+        "Bei Fragen zu diesen Bedingungen oder unseren Dienstleistungen kontaktieren Sie uns bitte:",
+        "Eye On Idea, CVR: 45356175",
+        "E-Mail: hello{'@'}eyeonidea.com | Telefon: +45 29 93 05 83",
+        "Aalborg, Dänemark"
+      ]
+    }
+  }
+}

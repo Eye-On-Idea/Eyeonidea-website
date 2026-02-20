@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "title": "Privatlivs- og cookiepolitik - Eye On Idea",
+    "description": "Privatlivspolitik og cookiepolitik for Eye On Idea. Lær, hvordan vi indsamler, bruger og beskytter dine personlige data i henhold til EU GDPR."
+  },
+  "hero": {
+    "badge": "Politikker",
+    "title": "Privatlivs- og cookiepolitik",
+    "subtitle": "Hvordan vi indsamler, bruger og beskytter dine oplysninger, når du besøger vores hjemmeside eller bruger vores tjenester."
+  },
+  "lastUpdated": "Sidst opdateret: februar 2026",
+  "privacy": {
+    "title": "Privatlivspolitik",
+    "sections": {
+      "introduction": {
+        "title": "1. Introduktion",
+        "content": [
+          "Eye On Idea (CVR: 45356175) er forpligtet til at beskytte dit privatliv og håndtere dine personlige data ansvarligt. Denne privatlivspolitik forklarer, hvordan vi indsamler, behandler, opbevarer og beskytter dine personoplysninger i overensstemmelse med EU's generelle databeskyttelsesforordning (GDPR, forordning 2016/679) og den danske databeskyttelseslov (Databeskyttelsesloven).",
+          "Denne politik gælder for alle personlige data indsamlet via vores hjemmeside (eyeonidea.com), vores kontaktformularer og i forbindelse med de tjenester, vi leverer."
+        ]
+      },
+      "dataController": {
+        "title": "2. Dataansvarlig",
+        "content": [
+          "Den dataansvarlige, der er ansvarlig for behandlingen af dine personoplysninger er:",
+          "Eye On Idea, CVR: 45356175",
+          "Aalborg, Danmark",
+          "E-mail: hello{'@'}eyeonidea.com | Telefon: +45 29 93 05 83",
+          "Hvis du har spørgsmål til, hvordan vi behandler dine personoplysninger eller ønsker at udøve dine rettigheder, bedes du kontakte os ved hjælp af ovenstående oplysninger."
+        ]
+      },
+      "dataCollected": {
+        "title": "3. Personlige data, vi indsamler",
+        "content": [
+          "Indsendelse af kontaktformularer: Navn, e-mailadresse, telefonnummer (valgfrit), firmanavn (valgfrit), emne for forespørgsel, interesseområde og beskedindhold.",
+          "Projektengagementer: Forretningskontaktoplysninger, virksomhedsoplysninger, projektkrav, kommunikationshistorik, faktureringsoplysninger og enhver anden information, der er nødvendig for servicelevering og kontraktadministration.",
+          "Webstedbrugsdata: Gennem analysecookies (med dit samtykke) indsamler vi anonymiserede data såsom besøgte sider, besøgsvarighed, henvisningskilde, browsertype og omtrentlig geografisk placering (lande-/regionsniveau).",
+          "Vi indsamler ikke særlige kategorier af personoplysninger (følsomme data) som defineret i GDPR Artikel 9, og vi indsamler heller ikke bevidst data fra børn under 16 år."
+        ]
+      },
+      "purpose": {
+        "title": "4. Formål med behandlingen",
+        "content": [
+          "Vi behandler dine personoplysninger til følgende specifikke formål:",
+          "For at svare på dine forespørgsler sendt via vores kontaktformular eller via e-mail.",
+          "At udarbejde projektforslag og indgå serviceaftaler.",
+          "At levere aftalte tjenester, administrere løbende kunderelationer og yde support.",
+          "At udstede fakturaer og behandle betalinger i forbindelse med vores tjenester.",
+          "For at forbedre vores hjemmeside, tjenester og brugeroplevelse baseret på aggregerede, anonymiserede brugsmønstre.",
+          "At overholde gældende retlige forpligtelser, herunder dansk bogførings- og skattelovgivning (Bogføringsloven).",
+          "Vi vil aldrig sælge, udleje eller bytte dine personlige data til tredjeparter. Vi vil ikke bruge dine data til formål ud over dem, der er angivet i denne politik uden at have indhentet dit forudgående udtrykkelige samtykke."
+        ]
+      },
+      "legalBasis": {
+        "title": "5. Retsgrundlag for behandling",
+        "content": [
+          "Vi behandler dine personoplysninger på følgende juridiske grundlag som defineret i GDPR artikel 6(1):",
+          "Samtykke (Art. 6(1)(a)): For indsendelse af kontaktformularer, abonnement på nyhedsbreve (hvis relevant) og brugen af ikke-væsentlige cookies såsom analyser. Du kan til enhver tid trække dit samtykke tilbage uden at påvirke lovligheden af ​​den behandling, der er udført før tilbagetrækningen.",
+          "Kontrakt (Art. 6(1)(b)): Til behandling, der er nødvendig for at udføre en kontrakt, som du er part i, eller for at tage skridt på din anmodning forud for indgåelse af en kontrakt, for eksempel udarbejdelse af et projektforslag eller levering af aftalte ydelser.",
+          "Berettiget interesse (Art. 6(1)(f)): Til webstedssikkerhed, forebyggelse af svindel og generel serviceforbedring. Vores legitime interesser er afbalanceret mod dine rettigheder og vil ikke tilsidesætte dine grundlæggende frihedsrettigheder.",
+          "Lovpligt (Art. 6, stk. 1, litra c): Hvor behandlingen er nødvendig for at overholde dansk lovgivning, herunder bogføringskrav i henhold til Bogføringsloven (5-årig opbevaring af regnskaber)."
+        ]
+      },
+      "retention": {
+        "title": "6. Dataopbevaring",
+        "content": [
+          "Vi opbevarer kun personoplysninger så længe det er nødvendigt for at opfylde de formål, hvortil de blev indsamlet, eller som krævet ved lov:",
+          "Kontaktformularforespørgsler: Op til 2 år fra datoen for din sidste kommunikation, medmindre du bliver kunde eller anmoder om tidligere sletning.",
+          "Kundeprojektdata: For varigheden af vores forretningsforbindelse plus 5 år derefter, i overensstemmelse med dansk bogføringslovgivning (Bogføringsloven §10).",
+          "Fakturering og regnskab: 5 år fra regnskabsårets afslutning, efter Bogføringslovens krav.",
+          "Analysedata: Anonymiseret og opbevaret i op til 14 måneder (i overensstemmelse med de nuværende indstillinger for analyseudbydere).",
+          "Når opbevaringsperioden udløber, vil dine data blive slettet eller fuldstændigt anonymiseret."
+        ]
+      },
+      "sharing": {
+        "title": "7. Datadeling og internationale overførsler",
+        "content": [
+          "Vi kan dele dine personlige data med følgende kategorier af betroede tjenesteudbydere, som hjælper os med at drive vores forretning:",
+          "Hostingudbyder: Cloudflare (webstedshosting og CDN). Data behandles inden for EU/EØS og i USA under EU-godkendte sikkerhedsforanstaltninger.",
+          "Formularhåndtering: FormSubmit.co (kontaktformularbehandling).",
+          "Analytics: Google Analytics (anonymiserede webstedsbrugsdata, kun med dit samtykke).",
+          "E-mail og kommunikation: E-mail-tjenesteudbydere, der bruges til erhvervskorrespondance.",
+          "Alle tredjepartsbehandlere er bundet af databehandlingsaftaler (DPA'er) i overensstemmelse med GDPR artikel 28. Hvor data overføres uden for EU/EØS, sikrer vi, at passende sikkerhedsforanstaltninger er på plads, såsom Standard Contractual Clauses (SCC'er) godkendt af Europa-Kommissionen eller en tilstrækkelighedsbeslutning.",
+          "Vi kan også videregive personoplysninger, hvor det er påkrævet af lov, retskendelse eller for at beskytte vores legitime juridiske interesser."
+        ]
+      },
+      "rights": {
+        "title": "8. Dine rettigheder i henhold til GDPR",
+        "content": [
+          "I henhold til den generelle databeskyttelsesforordning har du følgende rettigheder vedrørende dine personoplysninger:",
+          "Ret til indsigt (art. 15): Anmod om en kopi af de personoplysninger, vi har om dig.",
+          "Ret til berigtigelse (art. 16): Anmod om berigtigelse af unøjagtige eller ufuldstændige personoplysninger.",
+          "Ret til sletning (Art. 17): Anmod om sletning af dine personoplysninger ('ret til at blive glemt'), underlagt juridiske opbevaringsforpligtelser.",
+          "Ret til begrænsning (Art. 18): Anmod om, at vi begrænser behandlingen af dine data under visse omstændigheder.",
+          "Ret til dataportabilitet (Art. 20): Modtag dine personoplysninger i et struktureret, almindeligt anvendt, maskinlæsbart format.",
+          "Ret til at gøre indsigelse (art. 21): Indsigelse mod behandling baseret på vores legitime interesser. Vi vil ophøre med behandlingen, medmindre vi påviser tvingende legitime grunde.",
+          "Ret til at trække samtykke tilbage: Hvor behandlingen er baseret på samtykke, kan du til enhver tid trække det tilbage uden at påvirke lovligheden af forudgående behandling.",
+          "For at udøve nogen af disse rettigheder bedes du kontakte os på hello{'@'}eyeonidea.com. Vi svarer på din anmodning inden for 30 dage. Hvis vi har brug for mere tid (op til yderligere 60 dage for komplekse anmodninger), vil vi informere dig om forlængelsen og årsagerne til forsinkelsen.",
+          "Vi deltager ikke i automatiseret individuel beslutningstagning eller profilering som defineret i GDPR artikel 22."
+        ]
+      },
+      "security": {
+        "title": "9. Datasikkerhed",
+        "content": [
+          "Vi implementerer passende tekniske og organisatoriske foranstaltninger for at beskytte dine personlige data mod uautoriseret adgang, ændring, offentliggørelse eller ødelæggelse. Disse foranstaltninger omfatter:",
+          "Kryptering af data i transit (TLS/SSL) og i hvile, hvor det er relevant.",
+          "Sikker hostinginfrastruktur med regelmæssige sikkerhedsopdateringer.",
+          "Adgangskontroller begrænser dataadgangen til kun autoriseret personale.",
+          "Regelmæssig gennemgang af vores databehandlingsaktiviteter og sikkerhedspraksis.",
+          "Selvom vi tager alle rimelige skridt for at beskytte dine data, er ingen metode til transmission over internettet eller elektronisk lagring fuldstændig sikker. I tilfælde af et databrud, der udgør en risiko for dine rettigheder og friheder, underretter vi Datatilsynet inden for 72 timer og informerer dig uden unødig forsinkelse som påkrævet i GDPR artikel 33 og 34."
+        ]
+      }
+    }
+  },
+  "cookies": {
+    "title": "Cookiepolitik",
+    "sections": {
+      "what": {
+        "title": "1. Hvad er cookies",
+        "content": [
+          "Cookies er små tekstfiler, der placeres på din enhed (computer, tablet eller telefon), når du besøger en hjemmeside. De bruges i vid udstrækning til at få websteder til at fungere korrekt, forbedre ydeevnen og give oplysninger til webstedsejere.",
+          "Denne cookiepolitik forklarer, hvilke cookies vi bruger, hvorfor vi bruger dem, og hvordan du kan administrere dine præferencer i henhold til Cookiebekendtgørelsen og e-databeskyttelsesdirektivet."
+        ]
+      },
+      "types": {
+        "title": "2. Typer af cookies, vi bruger",
+        "content": [
+          "Væsentlige cookies: Disse er strengt nødvendige for at hjemmesiden kan fungere og kan ikke deaktiveres. De kræver ikke dit samtykke i henhold til EU-lovgivningen.",
+          "Præferencecookies: Disse husker dine indstillinger og valg (såsom sprog- og temapræferencer) for at give en mere personlig oplevelse. Indstil kun med dit samtykke.",
+          "Analytics-cookies: Disse hjælper os med at forstå, hvordan besøgende interagerer med vores websted ved at indsamle anonymiserede data (f.eks. besøgte sider, besøgsvarighed). Disse cookies sættes kun med dit udtrykkelige samtykke."
+        ]
+      },
+      "specific": {
+        "title": "3. Cookies brugt på denne hjemmeside",
+        "items": [
+          {
+            "name": "cookie_samtykke",
+            "purpose": "Gemmer dine præferencer for samtykke til cookies",
+            "duration": "1 år",
+            "type": "Væsentlig"
+          },
+          {
+            "name": "tema",
+            "purpose": "Husker din præference for lys/mørke tilstand",
+            "duration": "1 år",
+            "type": "Præference"
+          },
+          {
+            "name": "lokalitet",
+            "purpose": "Gemmer din foretrukne sprogindstilling",
+            "duration": "1 år",
+            "type": "Præference"
+          },
+          {
+            "name": "_ga, _gid",
+            "purpose": "Google Analytics: anonymiseret besøgsstatistik og brugsmønstre",
+            "duration": "_ga: 2 år, _gid: 24 timer",
+            "type": "Analytics"
+          }
+        ]
+      },
+      "manage": {
+        "title": "4. Håndtering af dine cookie-præferencer",
+        "content": [
+          "Første gang du besøger vores hjemmeside, vil du blive præsenteret for et cookie-samtykkebanner, hvor du kan acceptere eller afvise ikke-essentielle cookies. Du kan til enhver tid opdatere dine præferencer gennem vores cookie-indstillinger.",
+          "Du kan også administrere eller slette cookies gennem dine browserindstillinger. Bemærk venligst, at deaktivering af visse cookies kan påvirke funktionaliteten og brugeroplevelsen af ​​vores hjemmeside.",
+          "For at fravælge Google Analytics-sporing på tværs af alle websteder kan du installere Google Analytics Opt-out Browser Add-on, som er tilgængelig gratis fra Google."
+        ]
+      },
+      "thirdParty": {
+        "title": "5. Tredjepartscookies",
+        "content": [
+          "Vores hjemmeside kan indlejre indhold eller links fra tredjepartstjenester (såsom LinkedIn eller andre sociale medieplatforme), der kan sætte deres egne cookies, når du interagerer med dem. Disse cookies er styret af den respektive tredjeparts privatlivs- og cookiepolitikker og er ikke under vores kontrol.",
+          "Vi anbefaler, at du gennemgår privatlivspolitikkerne for alle tredjepartstjenester, du interagerer med via vores hjemmeside."
+        ]
+      }
+    }
+  },
+  "changes": {
+    "title": "Politikopdateringer",
+    "content": "Vi kan opdatere disse politikker fra tid til anden for at afspejle ændringer i vores praksis, teknologi, juridiske krav eller andre faktorer. Når vi foretager væsentlige ændringer, vil vi opdatere 'sidst opdateret'-datoen øverst på denne side og, hvor det er relevant, give dig besked via vores hjemmeside."
+  },
+  "contact": {
+    "title": "Spørgsmål eller klager?",
+    "content": "Hvis du har spørgsmål om vores privatlivspraksis, brug af cookies eller ønsker at udøve dine databeskyttelsesrettigheder, bedes du kontakte os på hello{'@'}eyeonidea.com eller på telefon på +45 29 93 05 83.",
+    "complaints": "Du har ret til at indgive en klage til Datatilsynet, hvis du mener, at dine persondatarettigheder er blevet krænket. Datatilsynet kan kontaktes på: Carl Jacobsens Vej 35, 2500 Valby, Danmark. Telefon: +45 33 19 32 00. E-mail: dt{'@'}datatilsynet.dk. Hjemmeside: datatilsynet.dk."
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "title": "Eye On Idea - Sites Web professionnels B2B",
+    "description": "Eye On Idea aide les entreprises de toute l'Europe à établir une présence numérique claire et professionnelle. Développement de sites internet, identité visuelle et accompagnement sur le long terme."
+  },
+  "hero": {
+    "headline": "Votre présence numérique",
+    "headlineAccent": "construit pour la croissance",
+    "subheadline": "Nous aidons les entreprises à créer des sites Web professionnels qui soutiennent la croissance et renforcent la confiance.",
+    "cta": {
+      "primary": "Démarrez votre projet",
+      "secondary": "Explorer les services"
+    },
+    "scrollIndicator": "Faites défiler pour explorer"
+  },
+  "about": {
+    "badge": "Qui nous sommes",
+    "title": "Un partenaire, pas seulement un fournisseur",
+    "description": "Eye On Idea est un cabinet de conseil numérique danois qui aide les entreprises à établir une présence en ligne claire et fiable. Nous travaillons avec des entreprises qui souhaitent plus qu'un site Web de base. Vous gagnez en structure, en clarté et en une solution qui soutient la croissance à long terme.",
+    "values": {
+      "clarity": {
+        "title": "La clarté avant tout",
+        "description": "Nous construisons ce dont vous avez besoin et l’expliquons d’une manière logique."
+      },
+      "partnership": {
+        "title": "Collaboration à long terme",
+        "description": "Nous vous accompagnons avant, pendant et après le lancement."
+      },
+      "quality": {
+        "title": "Construit pour durer",
+        "description": "Nous choisissons des outils fiables et construisons des solutions conçues pour durer."
+      }
+    },
+    "cta": "En savoir plus sur nous"
+  },
+  "services": {
+    "badge": "Ce que nous proposons",
+    "title": "Forfaits Site Web",
+    "subtitle": "Des solutions sur mesure pour chaque étape de votre entreprise",
+    "additionalServices": {
+      "title": "Services supplémentaires",
+      "identity": {
+        "title": "Identité visuelle",
+        "description": "Logo, couleurs, typographie et orientation de marque pour les plateformes numériques."
+      },
+      "cms": {
+        "title": "Solutions CMS",
+        "description": "Configuration personnalisée de Sanity CMS pour une gestion de contenu indépendante."
+      },
+      "support": {
+        "title": "Assistance continue",
+        "description": "Maintenance, mises à jour et conseils pour votre présence numérique."
+      }
+    },
+    "cta": {
+      "viewAll": "Voir tous les services"
+    }
+  },
+  "process": {
+    "badge": "Comment nous travaillons",
+    "title": "Une voie à suivre claire",
+    "steps": {
+      "discover": {
+        "title": "Découvrez",
+        "description": "Nous commençons par comprendre votre entreprise, vos objectifs et à quoi ressemble le succès."
+      },
+      "design": {
+        "title": "Conception",
+        "description": "Nous créons une solution adaptée à vos besoins – pas de modèles, pas de solution universelle."
+      },
+      "develop": {
+        "title": "Développer",
+        "description": "Nous construisons en gardant à l’esprit la qualité, l’accessibilité et la maintenabilité à long terme."
+      },
+      "support": {
+        "title": "Assistance",
+        "description": "Nous sommes là après le lancement – pour les mises à jour, les améliorations et le partenariat continu."
+      }
+    }
+  },
+  "cta": {
+    "badge": "Prêt à commencer ?",
+    "title": "Bâtissons ensemble quelque chose de grand",
+    "description": "Que vous commenciez quelque chose de nouveau, que vous amélioriez ce que vous avez ou que vous ayez besoin d'un deuxième avis, nous sommes là pour vous aider.",
+    "primary": "Démarrer une conversation",
+    "secondary": "Voir notre travail"
+  },
+  "stats": {
+    "clients": {
+      "value": "50+",
+      "label": "Clients servis"
+    },
+    "countries": {
+      "value": "12",
+      "label": "Pays de l'UE"
+    },
+    "years": {
+      "value": "8+",
+      "label": "Années d'expérience"
+    }
+  }
+}

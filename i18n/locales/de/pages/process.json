@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "title": "Unser Prozess – Eye On Idea",
+    "description": "Vom ersten Kontakt bis zur Markteinführung und darüber hinaus. Erfahren Sie, wie Eye On Idea professionelle Website-Projekte mit klaren Zeitplänen, transparenten Preisen und fortlaufendem Support liefert."
+  },
+  "hero": {
+    "badge": "Unser Prozess",
+    "title": "Von der Idee bis zur Markteinführung",
+    "subtitle": "Jedes Projekt folgt einem klaren, transparenten Prozess, der darauf ausgelegt ist, dass Sie in jeder Phase informiert und die Kontrolle behalten."
+  },
+  "intro": {
+    "text": "Wir glauben, dass großartige Websites auf klarer Kommunikation und gegenseitigem Verständnis basieren. Hier erfahren Sie genau, was Sie erwartet, wenn Sie mit Eye On Idea zusammenarbeiten."
+  },
+  "timeline": {
+    "title": "Ihre Projektreise",
+    "steps": {
+      "contact": {
+        "number": "01",
+        "title": "Erster Kontakt",
+        "description": "Sie melden sich mit Ihrer Projektidee oder Ihrem Bedarf. Wir antworten innerhalb von 1–2 Werktagen und schlagen ein persönliches oder Online-Kennenlerngespräch mit flexiblen Planungsoptionen vor.",
+        "details": [
+          "Zu diesem Zeitpunkt ist keine Verpflichtung erforderlich",
+          "Das Treffen kann physisch oder online stattfinden (Teams, Zoom usw.)",
+          "Sie wählen die Uhrzeit und das Datum, die für Sie am besten geeignet sind"
+        ],
+        "cta": {
+          "label": "Nehmen Sie Kontakt auf",
+          "to": "/Kontakt"
+        }
+      },
+      "discovery": {
+        "number": "02",
+        "title": "Entdeckungstreffen",
+        "description": "Wir setzen uns zusammen, um Ihre Ziele, Ihre Zielgruppe und Ihren Geschäftskontext zu verstehen. Dieses Treffen prägt den gesamten Projektumfang.",
+        "details": [
+          "Definieren Sie Erwartungen, Wünsche und Bedürfnisse",
+          "Prüfen Sie vorhandene Assets (Logos, Inhalte, Domains, Hosting)",
+          "Identifizieren Sie, was erstellt oder beschafft werden muss",
+          "Besprechen Sie den Zeitplan und alle spezifischen Startanforderungen"
+        ]
+      },
+      "proposal": {
+        "number": "03",
+        "title": "Vorschlag und Vereinbarung",
+        "description": "Auf der Grundlage des Entdeckungsgesprächs senden wir Ihnen einen detaillierten Vorschlag, in dem der gesamte Projektumfang, die zu erbringenden Leistungen, der Zeitplan und die Kosten dargelegt sind.",
+        "details": [
+          "Klarer Projektumfang mit Auflistung aller Leistungen",
+          "Transparente Preise ohne versteckte Gebühren",
+          "Eine Anzahlung von 25–50 % der Gesamtkosten vor Beginn der Arbeiten",
+          "Die Anzahlung ist nicht erstattungsfähig und sichert Ihren Projektslot",
+          "Die Annahme des Vorschlags beinhaltet die DSGVO-Zustimmung zur Datenverarbeitung wie beschrieben"
+        ],
+        "note": "Im Vorschlag wird klar dargelegt, welche personenbezogenen Daten zu welchem Zweck und auf welcher Rechtsgrundlage im Einklang mit der DSGVO verarbeitet werden. Ihre Daten werden niemals über die Projektanforderungen hinaus an Dritte weitergegeben.",
+        "cta": {
+          "label": "Sehen Sie sich unsere Pakete an",
+          "to": "/services#packages-Abschnitt"
+        }
+      },
+      "kickoff": {
+        "number": "04",
+        "title": "Projektstart",
+        "description": "Sobald die Anzahlung eingegangen ist, beginnen die Arbeiten. Wir richten die Projektumgebung ein und beginnen mit dem Aufbau auf der Grundlage des vereinbarten Umfangs.",
+        "details": [
+          "Das Projekt dauert je nach Umfang in der Regel 2–4 Wochen",
+          "Optionale wöchentliche oder monatliche Check-in-Meetings",
+          "Spezieller Kommunikationskanal für Fragen und Updates"
+        ]
+      },
+      "development": {
+        "number": "05",
+        "title": "Entwicklung & Fortschritt",
+        "description": "Ihre Website nimmt Gestalt an. Während dieser Phase können Sie optional einen frühen Zugriff auf einen Entwicklungsserver anfordern, um in Echtzeit mitzuverfolgen.",
+        "details": [
+          "Verfügbar nach der ersten Arbeitswoche",
+          "Bietet ständigen Einblick in den Projektfortschritt",
+          "Es kann eine zusätzliche Gebühr anfallen (erfordert regelmäßige Wartung der Codebasis für ordnungsgemäße Uploads)"
+        ],
+        "note": "Der frühe Zugriff auf den Entwicklungsserver ist ein optionales Add-on. Es erfordert eine häufigere Bereitstellung und Wartung, weshalb es als separater Service angeboten wird.",
+        "cta": {
+          "label": "Siehe Add-ons und Extras",
+          "to": "/services#addons-Abschnitt"
+        }
+      },
+      "preview": {
+        "number": "06",
+        "title": "Vorschau vor dem Start",
+        "description": "Eine Woche vor dem vereinbarten Starttermin erhalten Sie einen Link zum Testserver, auf dem Sie das komplette Projekt begutachten können.",
+        "details": [
+          "Das vollständige Projekt steht zur Überprüfung unter einer Test-URL zur Verfügung",
+          "Möglichkeit, letzte Bearbeitungen oder Anpassungen anzufordern",
+          "Wenn CMS enthalten ist, erhalten Sie auch Ihre CMS-Einladung mit Anweisungen und Anleitungen",
+          "Diese Vorschau dient als endgültige Genehmigung vor der Veröffentlichung"
+        ]
+      },
+      "payment": {
+        "number": "07",
+        "title": "Endgültige Zahlung und Einführung",
+        "description": "Der verbleibende Projektsaldo wird 2–5 Werktage vor dem Start in Rechnung gestellt. Die Zahlung ist am Tag der Veröffentlichung fällig.",
+        "details": [
+          "Die Rechnung deckt den Restbetrag nach der ersten Anzahlung ab",
+          "Die Zahlung ist am Tag der Markteinführung fällig",
+          "Zum vereinbarten Termin geht die Website online",
+          "Alle Liefergegenstände werden übergeben"
+        ]
+      },
+      "postlaunch": {
+        "number": "08",
+        "title": "Post-Launch-Support",
+        "description": "Nach dem Start haben Sie ein zweiwöchiges Supportfenster, in dem wir die Website überwachen und alle kleinen Korrekturen vornehmen, die Sie finden.",
+        "details": [
+          "Wir überwachen die Website lose auf Fehler",
+          "Kleine Textänderungen, Bildaustausch, Tippfehlerkorrekturen, Korrekturen von Kontaktinformationen",
+          "Enthält keine größeren Neugestaltungen oder neuen Funktionen",
+          "Melden Sie alle Probleme innerhalb des 2-Wochen-Fensters"
+        ],
+        "note": "Dies ist ein kostenloser Zeitraum, um vor dem Start alles zu fangen, was übersehen wurde. Größere Änderungen oder neue Funktionsanfragen werden als separate Projekte oder über einen Supportplan behandelt."
+      },
+      "handoff": {
+        "number": "09",
+        "title": "Übergabe & darüber hinaus",
+        "description": "Das Projekt ist abgeschlossen und vollständig bezahlt. Wir danken Ihnen für die Zusammenarbeit und sind immer für Sie da, wenn Sie uns das nächste Mal brauchen.",
+        "details": [
+          "Das Hosting und die Serverwartung liegen weiterhin in der Verantwortung von Eye On Idea (gehostet auf OVH Cloud EU).",
+          "Laufende Supportpläne sind verfügbar, wenn Sie eine kontinuierliche Zusammenarbeit wünschen",
+          "Nach dem zweiwöchigen Post-Launch-Fenster sind keine weiteren Änderungen enthalten",
+          "Zukünftige Projekte und Dienstleistungen sind jederzeit willkommen"
+        ],
+        "cta": {
+          "label": "Supportpläne anzeigen",
+          "to": "/services#support-plans"
+        }
+      }
+    }
+  },
+  "faq": {
+    "title": "Häufige Fragen",
+    "subtitle": "Antworten auf häufig gestellte Fragen zu unserem Prozess",
+    "items": [
+      {
+        "question": "Wie lange dauert ein typisches Website-Projekt?",
+        "answer": "Die meisten Website-Projekte dauern je nach Umfang und Komplexität zwei bis vier Wochen vom Kickoff bis zum Start. Größere Plattformprojekte können länger dauern. Der genaue Zeitplan wird immer im Angebot vereinbart."
+      },
+      {
+        "question": "Was deckt die Kaution ab?",
+        "answer": "Die Anzahlung (25–50 % der gesamten Projektkosten) sichert Ihren Projektplatz und deckt die Ersteinrichtung, Planung und frühen Entwicklungsarbeiten ab. Es ist nicht erstattungsfähig, da die Arbeit sofort nach der Zahlung beginnt."
+      },
+      {
+        "question": "Kann ich während des Projekts Änderungen vornehmen?",
+        "answer": "Ja. Wir bieten optionale Check-in-Meetings (wöchentlich oder monatlich) an und Sie können während der Pre-Launch-Vorschau Feedback geben. Kleinere Anpassungen im vereinbarten Umfang sind Teil des Prozesses. Änderungen außerhalb des ursprünglichen Geltungsbereichs erfordern möglicherweise einen überarbeiteten Vorschlag."
+      },
+      {
+        "question": "Was zählt als „kleine Änderung“ während des Post-Launch-Supports?",
+        "answer": "Zu den kleinen Änderungen gehören Textkorrekturen (Tippfehler, Grammatik, falsche Kontaktinformationen), Bildersetzungen und ähnliche kleinere Korrekturen. Es umfasst keine Layoutänderungen, neue Seiten, neue Funktionen oder visuelle Neugestaltungen."
+      },
+      {
+        "question": "Was passiert mit meinen Daten (DSGVO)?",
+        "answer": "Mit der Annahme unseres Angebots erklären Sie sich damit einverstanden, dass wir Ihre Daten gemäß dem Projektumfang verarbeiten. Dies folgt stets den DSGVO-Richtlinien. Ihre Daten werden nur für das Projekt verwendet und niemals an unbeteiligte Dritte weitergegeben. Ausführliche Informationen finden Sie in unserer Datenschutzerklärung."
+      },
+      {
+        "question": "Benötige ich nach dem Start einen Supportplan?",
+        "answer": "Nicht unbedingt. Nach dem zweiwöchigen Post-Launch-Fenster ist das Projekt abgeschlossen. Ein Supportplan ist optional und ideal, wenn Sie laufende Inhaltsaktualisierungen, technische Verbesserungen oder strategische Beratung wünschen. Es kann jederzeit hinzugefügt werden."
+      },
+      {
+        "question": "Wer kümmert sich nach dem Start um das Hosting?",
+        "answer": "Eye On Idea übernimmt das Hosting und die Serverwartung in der OVH Cloud (EU-basiert). Dies ist unsere fortlaufende Verantwortung, solange wir Ihr Projekt hosten. Hosting-Kosten sind entweder in einem Support-Plan enthalten oder werden separat in Rechnung gestellt."
+      },
+      {
+        "question": "Kann ich während der Entwicklung auf das Projekt zugreifen?",
+        "answer": "Standardmäßig erhalten Sie 1 Woche vor dem Start Zugang zum Testserver. Wenn Sie einen früheren Zugriff wünschen, um die Entwicklung in Echtzeit zu verfolgen, ist dies als optionaler Zusatzdienst verfügbar."
+      }
+    ]
+  },
+  "cta": {
+    "badge": "Bereit zum Start?",
+    "title": "Lassen Sie uns Ihr Projekt starten",
+    "description": "Der erste Schritt ist ein Gespräch. Erzählen Sie uns von Ihrem Projekt und wir kümmern uns darum.",
+    "primary": "Starten Sie ein Gespräch",
+    "secondary": "Sehen Sie sich unsere Dienstleistungen an"
+  }
+}

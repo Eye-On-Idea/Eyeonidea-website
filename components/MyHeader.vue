@@ -185,50 +185,14 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
   }
   return false;
 };
-
-// Scroll bar
-const progressMax = 10000;
-const scrollProgress = ref(0);
-
-const updateScrollProgress = () => {
-  const doc = document.documentElement;
-  const scrollTop = window.scrollY || doc.scrollTop;
-  const scrollHeight = doc.scrollHeight - window.innerHeight;
-
-  // Prevent division by zero on very short pages
-  const ratio = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
-
-  scrollProgress.value = Math.round(ratio * progressMax);
-};
-
-onMounted(() => {
-  window.addEventListener("scroll", updateScrollProgress, { passive: true });
-  updateScrollProgress();
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener("scroll", updateScrollProgress);
-});
 </script>
 
 <template>
   <UHeader
     class="header-main sticky top-0 z-50 bg-primary-800 dark:bg-primary-950"
-    :class="{ 'header-scrolled': scrollProgress > 100 }"
     ><div
       class="absolute -bottom-4.5 left-0 right-0 w-full h-auto z-49 bg-transparent"
-    >
-      <progress
-        id="progressBar"
-        :value="scrollProgress"
-        :max="progressMax"
-        :aria-valuenow="scrollProgress"
-        :aria-valuemin="0"
-        :aria-valuemax="progressMax"
-        :aria-label="t('common.accessibility.scrollProgress')"
-        class="w-full h-3"
-      ></progress>
-    </div>
+    ></div>
     <template #title>
       <NuxtLink to="/" class="flex items-center gap-3 group logo-container">
         <img
@@ -287,7 +251,7 @@ onBeforeUnmount(() => {
               :class="{ 'rotate-180': openDropdown === link.to }"
             />
             <div
-              class="header-nav-underline absolute bottom-0 left-0 right-0 h-0.5 origin-left transition-all duration-300 ease-out"
+              class="header-nav-underline absolute bottom-0 left-0 right-0 origin-left transition-all duration-300 ease-out"
               :class="
                 isActiveLink(link)
                   ? 'opacity-100 scale-x-100'
@@ -471,6 +435,11 @@ span {
   color: var(--color-primary-50);
 }
 
+.header-nav-underline {
+  border-radius: 0 0 4px 4px;
+  height: calc(var(--spacing) * 1.3);
+}
+
 /* Client Hub link - accent-tinted pill */
 .header-hub-link {
   color: var(--nav-link-text, var(--ui-text));
@@ -489,38 +458,6 @@ span {
     0 0 0 2px var(--focus-ring),
     0 0 0 4px var(--ring-offset);
 }
-// Progress bar background (the empty track)
-progress {
-  appearance: none;
-  border: none;
-  overflow: hidden;
-}
-
-// WebKit browsers (Chrome, Edge, Safari)
-progress::-webkit-progress-bar {
-  background-color: transparent;
-}
-
-// VALUE (the filled part)
-progress::-webkit-progress-value {
-  background: linear-gradient(
-    to right,
-    var(--color-primary-400),
-    var(--color-accent-400)
-  );
-  border-radius: 4px;
-}
-
-// Firefox
-progress::-moz-progress-bar {
-  background: linear-gradient(
-    to right,
-    var(--color-primary-400),
-    var(--color-accent-400)
-  );
-  border-radius: 4px;
-}
-
 /* Respect reduced transparency */
 @media (prefers-reduced-transparency: reduce) {
   .header-main {

@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "title": "Servicevilkår - Eye On Idea",
+    "description": "Servicevilkår for Eye On Idea digital rådgivning. Juridiske vilkår for vores tjenester, projektengagementer og brug af hjemmeside."
+  },
+  "hero": {
+    "badge": "Juridisk",
+    "title": "Servicevilkår",
+    "subtitle": "Vilkår og betingelser for vores tjenester og din brug af denne hjemmeside."
+  },
+  "lastUpdated": "Sidst opdateret: februar 2026",
+  "sections": {
+    "introduction": {
+      "title": "1. Introduktion",
+      "content": [
+        "Velkommen til Eye On Idea. Disse Servicevilkår ('Betingelser') regulerer din brug af vores hjemmeside (eyeonidea.com) og de digitale tjenester, vi leverer. Ved at gå ind på vores hjemmeside eller benytte vores tjenester accepterer du at være bundet af disse vilkår.",
+        "Eye On Idea er en enkeltmandsvirksomhed (enkeltmandsvirksomhed) registreret i Danmark under CVR: 45356175, med registreret adresse i Aalborg, Danmark. Du kan nå os på hello{'@'}eyeonidea.com eller på telefon på +45 29 93 05 83.",
+        "Disse vilkår er beregnet til business-to-business (B2B) engagementer. Hvis du er forbruger, kan yderligere lovbestemte rettigheder i henhold til dansk og EU's forbrugerbeskyttelseslovgivning gælde."
+      ]
+    },
+    "services": {
+      "title": "2. Tjenester",
+      "content": [
+        "Eye On Idea leverer digitale konsulenttjenester, herunder men ikke begrænset til: webstedsdesign og -udvikling, skabelse af visuel identitet, implementering af indholdsstyringssystem (CMS) og løbende support- og vedligeholdelsestjenester.",
+        "Alle ydelser leveres på projektbasis med individuel scoping og prisfastsættelse. Specifikke leverancer, tidsplaner og omkostninger er defineret i et skriftligt projektforslag eller arbejdsopgørelse, før noget arbejde påbegyndes."
+      ]
+    },
+    "engagement": {
+      "title": "3. Projektengagement",
+      "content": [
+        "En bindende aftale indgås ved skriftlig accept af et projektforslag (via e-mail eller underskrevet dokument) og, hvor det er relevant, modtagelse af det aftalte depositum.",
+        "Projektets omfang, leverancer, tidslinje og prissætning er defineret i projektforslaget. Eventuelle ændringer i det aftalte omfang skal bekræftes skriftligt af begge parter og kan medføre justerede priser og leveringsdatoer.",
+        "Du accepterer at levere alt nødvendigt materiale, indhold, feedback og godkendelser rettidigt for at lette projektets afslutning. Forsinkelser forårsaget af forsinket levering af materialer eller feedback kan forlænge projektets tidsfrister tilsvarende."
+      ]
+    },
+    "payment": {
+      "title": "4. Betalingsbetingelser",
+      "content": [
+        "Betalingsbetingelser er specificeret i individuelle projektforslag. Medmindre andet er aftalt, kræver standardvilkår et depositum på 30-50% før arbejdet påbegyndes, med restbeløbet forfalden ved projektafslutning og levering.",
+        "Fakturaer skal betales inden for 14 dage efter fakturadato, medmindre andet er skriftligt aftalt.",
+        "Ved forsinket betaling tillægges renter i henhold til Renteloven, pt. Nationalbankens referencerente plus 8 procentpoint årligt regnet fra forfaldsdatoen.",
+        "All prices are quoted in Danish Kroner (DKK) or Euros (EUR) as specified in the proposal. Prices are exclusive of VAT (moms) at the applicable rate (currently 25%) unless explicitly stated otherwise."
+      ]
+    },
+    "intellectualProperty": {
+      "title": "5. Intellektuel ejendomsret",
+      "content": [
+        "Ved modtagelse af fuld betaling overføres alle intellektuelle ejendomsrettigheder til specialfremstillet arbejde, der er skabt specifikt til dit projekt, inklusive skræddersyede designs, tilpasset kode og originalt indhold, til dig. Denne overførsel er først gældende ved fuld og endelig betaling i henhold til § 55 i Ophavsretsloven.",
+        "Eye On Idea bevarer ejerskabet af allerede eksisterende værktøjer, genanvendelige kodebiblioteker, udviklingsrammer, generelle metoder og knowhow, der ikke er skabt specifikt til dit projekt, eller som eksisterede før engagementet.",
+        "Tredjepartsaktiver såsom stockbilleder, skrifttyper, ikoner og softwareplugins forbliver underlagt deres respektive licensvilkår. Eye On Idea vil informere dig om eventuelle tredjeparts licensforpligtelser, der er relevante for dit projekt.",
+        "Eye On Idea forbeholder sig retten til at referere og fremvise færdigt arbejde i porteføljer, casestudier og marketingmaterialer, medmindre en skriftlig fortroligheds- eller fortrolighedsaftale er på plads."
+      ]
+    },
+    "confidentiality": {
+      "title": "6. Fortrolighed",
+      "content": [
+        "Begge parter forpligter sig til at holde enhver proprietær, kommerciel eller teknisk information, der afsløres under opgaven, og som er markeret som fortrolig, eller som en fornuftig person ville betragte som fortrolig, fortrolig.",
+        "Fortrolige oplysninger omfatter, men er ikke begrænset til, forretningsstrategier, prisstrukturer, tekniske specifikationer, upublicerede designs og loginoplysninger.",
+        "Fortrolighedsforpligtelser overlever opsigelsen af vores engagement og forbliver i kraft i en periode på to (2) år efter opsigelsen, medmindre oplysningerne bliver offentligt tilgængelige uden skyld fra den modtagende part."
+      ]
+    },
+    "warranties": {
+      "title": "7. Garantier og ansvar",
+      "content": [
+        "Eye On Idea garanterer, at alle tjenester vil blive udført med rimelig faglig dygtighed og omhu i overensstemmelse med generelt accepterede industristandarder.",
+        "Leverede websteder og digitale produkter testes for funktionalitet og kompatibilitet på aktuelle versioner af større browsere (Chrome, Firefox, Safari, Edge) på leveringstidspunktet. Løbende kompatibilitet med fremtidige browserversioner eller tredjepartsopdateringer er ikke garanteret og kan være dækket af en separat vedligeholdelsesaftale.",
+        "Der gælder en fejlanmeldelsesfrist på 30 dage fra leveringsdatoen. Eye On Idea vil i denne periode afhjælpe eventuelle væsentlige mangler ved det leverede arbejde uden ekstra omkostninger, forudsat at manglerne er dokumenteret og skriftligt rapporteret.",
+        "Eye On Idea er ikke ansvarlig for problemer, der opstår som følge af: (a) ændringer foretaget af klienten eller tredjeparter efter levering, (b) tredjepartsintegrationer eller tjenester, der ikke administreres af Eye On Idea, (c) manglende overholdelse af givne instruktioner eller dokumentation, eller (d) omstændigheder uden for vores rimelige kontrol (force majeure).",
+        "I det maksimale omfang, loven tillader, skal Eye On Ideas samlede samlede ansvar for ethvert krav, der udspringer af eller i forbindelse med et projekt, ikke overstige de samlede gebyrer, som du faktisk har betalt for det specifikke projekt, der giver anledning til kravet. Eye On Idea er ikke ansvarlig for indirekte, følgeskader eller tilfældige skader, herunder tab af fortjeneste, data eller forretningsmuligheder."
+      ]
+    },
+    "termination": {
+      "title": "8. Opsigelse",
+      "content": [
+        "Hver af parterne kan opsige et projektengagement med 14 dages skriftligt varsel til den anden part. Ved opsigelse forfalder betaling for alt udført arbejde frem til opsigelsesdatoen.",
+        "I tilfælde af væsentlig misligholdelse fra en af parternes side, som forbliver uhelbredt i 14 dage efter skriftlig meddelelse, kan den ikke-misligholdende part opsige aftalen med øjeblikkelig virkning.",
+        "Ved opsigelse og modtagelse af alle udestående betalinger vil Eye On Idea levere alt udført arbejde, kildefiler og nødvendig overdragelsesdokumentation. Igangværende arbejde kan leveres i dens nuværende tilstand."
+      ]
+    },
+    "websiteUse": {
+      "title": "9. Brug af hjemmeside",
+      "content": [
+        "Denne hjemmeside leveres til informationsformål. Selvom vi gør alt for at holde oplysningerne nøjagtige og opdaterede, garanterer vi ikke, at alt indhold er aktuelt eller fri for fejl.",
+        "Du må ikke bruge denne hjemmeside til noget ulovligt formål eller på nogen måde, der kan beskadige, deaktivere, overbelaste eller forringe hjemmesiden eller forstyrre andre brugeres adgang."
+      ]
+    },
+    "governing": {
+      "title": "10. Gældende lov og tvister",
+      "content": [
+        "Disse vilkår er underlagt og fortolkes i overensstemmelse med dansk lovgivning, uden hensyntagen til dets lovkonflikter.",
+        "I tilfælde af en tvist skal parterne først forsøge at løse sagen i mindelighed ved en god trosforhandling. Kan der ikke opnås en afgørelse, skal tvister indbringes for Aalborg Byret (Retten i Aalborg) som første instans.",
+        "Hvis en bestemmelse i disse vilkår viser sig at være ugyldig eller ikke kan håndhæves af en domstol med kompetent jurisdiktion, vil de resterende bestemmelser fortsætte med fuld kraft og virkning."
+      ]
+    },
+    "contact": {
+      "title": "11. Kontaktoplysninger",
+      "content": [
+        "For spørgsmål vedrørende disse vilkår eller vores tjenester, bedes du kontakte os:",
+        "Eye On Idea, CVR: 45356175",
+        "E-mail: hello{'@'}eyeonidea.com | Telefon: +45 29 93 05 83",
+        "Aalborg, Danmark"
+      ]
+    }
+  }
+}

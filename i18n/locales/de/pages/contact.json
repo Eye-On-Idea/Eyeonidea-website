@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "title": "Kontakt - Eye On Idea",
+    "description": "Nehmen Sie Kontakt mit Eye On Idea auf. Lassen Sie uns Ihre digitalen Projektanforderungen besprechen – Websites, visuelle Identität, CMS-Lösungen oder fortlaufende Unterstützung."
+  },
+  "hero": {
+    "badge": "Nehmen Sie Kontakt auf",
+    "title": "Lassen Sie uns gemeinsam etwas aufbauen",
+    "subtitle": "Haben Sie ein Projekt im Sinn? Fragen zu unseren Leistungen? Wir sind hier, um Ihnen zu helfen, die richtige digitale Lösung für Ihr Unternehmen zu finden."
+  },
+  "form": {
+    "heading": "Senden Sie uns eine Nachricht",
+    "name": {
+      "label": "Name",
+      "placeholder": "Ihr vollständiger Name"
+    },
+    "email": {
+      "label": "E-Mail",
+      "placeholder": "your{'@'}email.com"
+    },
+    "phone": {
+      "label": "Telefon (optional)",
+      "placeholder": "+45 00 00 00 00"
+    },
+    "company": {
+      "label": "Firma (optional)",
+      "placeholder": "Ihr Firmenname"
+    },
+    "subject": {
+      "label": "Betreff",
+      "placeholder": "Worum geht es hier?"
+    },
+    "interest": {
+      "label": "Ich interessiere mich für",
+      "placeholder": "Wählen Sie einen Dienst aus",
+      "options": {
+        "website": "Website-Entwicklung",
+        "identity": "Visuelle Identität",
+        "cms": "CMS-Lösungen",
+        "support": "Support-Pläne",
+        "consulting": "Beratung",
+        "other": "Etwas anderes"
+      }
+    },
+    "message": {
+      "label": "Nachricht",
+      "placeholder": "Erzählen Sie uns von Ihrem Projekt oder Ihrer Frage..."
+    },
+    "submit": "Nachricht senden",
+    "submitting": "Senden...",
+    "successMessage": "Vielen Dank! Ihre Nachricht wurde gesendet. Wir werden uns innerhalb von 24 Stunden bei Ihnen melden.",
+    "errorMessage": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt unter hello@eyeonidea.com.",
+    "gdprNotice": "Durch die Kontaktaufnahme mit Eye On Idea erklären Sie sich damit einverstanden, über die zu Ihrer Anfrage bereitgestellten Informationen kontaktiert zu werden. Im Rahmen der EU-DSGVO werden Ihre Daten nur für die Kommunikation im Zusammenhang mit Ihrer Anfrage verwendet und niemals an Dritte weitergegeben."
+  },
+  "info": {
+    "heading": "Andere Möglichkeiten, uns zu erreichen",
+    "directContact": {
+      "title": "Direkter Kontakt",
+      "description": "Bevorzugen Sie ein direktes Gespräch? Kontaktieren Sie uns per E-Mail oder Telefon."
+    },
+    "email": {
+      "label": "E-Mail",
+      "value": "Hallo{'@'}eyeonidea.com"
+    },
+    "phone": {
+      "label": "Telefon",
+      "value": "+45 29 93 05 83"
+    },
+    "location": {
+      "title": "Standort",
+      "address": "Aalborg, Dänemark",
+      "description": "Betreuung von Kunden in ganz Dänemark, den nordischen Ländern und der Europäischen Union."
+    },
+    "hours": {
+      "title": "Geschäftszeiten",
+      "weekdays": "Montag – Freitag: 9:00 – 17:00 Uhr MEZ",
+      "response": "Wir antworten in der Regel innerhalb von 24 Stunden."
+    },
+    "social": {
+      "title": "Online verbinden",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "cta": {
+    "title": "Sie wissen nicht, wo Sie anfangen sollen?",
+    "description": "Durchsuchen Sie unsere Dienstleistungen, um mehr über unser Angebot zu erfahren, oder sehen Sie sich unsere neuesten Nachrichten und Erkenntnisse an.",
+    "services": "Dienste anzeigen",
+    "news": "Lesen Sie unsere Neuigkeiten"
+  }
+}

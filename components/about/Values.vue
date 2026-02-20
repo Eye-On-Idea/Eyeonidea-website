@@ -13,18 +13,18 @@ useStrokeDraw(gridRef, {
   selector: ".value-icon-wrap",
 });
 
-const values = computed(() =>
-  tm("about.values.items") as Array<{ icon: string; title: string; description: string }>
+const values = computed(
+  () =>
+    tm("about.values.items") as Array<{
+      icon: string;
+      title: string;
+      description: string;
+    }>,
 );
-
-
 </script>
 
 <template>
-  <section
-    class="about-values"
-    aria-labelledby="values-heading"
-  >
+  <section class="about-values" aria-labelledby="values-heading">
     <div class="section-container">
       <!-- Header -->
       <div
@@ -34,7 +34,12 @@ const values = computed(() =>
         :visible-once="animationPresets.fadeInUp.visible"
       >
         <span class="section-badge">{{ t("about.values.badge") }}</span>
-        <h2 id="values-heading" class="section-title" style="text-wrap: balance">
+        <br />
+        <h2
+          id="values-heading"
+          class="section-title"
+          style="text-wrap: balance"
+        >
           {{ t("about.values.title") }}
         </h2>
       </div>
@@ -48,9 +53,22 @@ const values = computed(() =>
           :initial="animationPresets.fadeInUpScale.initial"
           :visible-once="withDelay('fadeInUpScale', 200).visible"
         >
-          <TiltCard :max-tilt="6" :scale="1.02" class="value-card value-card--featured">
-            <div class="value-icon-wrap" v-motion :initial="animationPresets.iconHover.initial" :hover="animationPresets.iconHover.hover">
-              <UIcon :name="values[0].icon" class="value-icon" aria-hidden="true" />
+          <TiltCard
+            :max-tilt="6"
+            :scale="1.02"
+            class="value-card value-card--featured"
+          >
+            <div
+              class="value-icon-wrap"
+              v-motion
+              :initial="animationPresets.iconHover.initial"
+              :hover="animationPresets.iconHover.hover"
+            >
+              <UIcon
+                :name="values[0].icon"
+                class="value-icon"
+                aria-hidden="true"
+              />
             </div>
             <div class="value-text">
               <h3 class="value-title">{{ values[0].title }}</h3>
@@ -68,7 +86,12 @@ const values = computed(() =>
           :visible-once="withDelay('staggerItem', 350 + index * 120).visible"
         >
           <TiltCard :max-tilt="8" :scale="1.03" class="value-card">
-            <div class="value-icon-wrap" v-motion :initial="animationPresets.iconHover.initial" :hover="animationPresets.iconHover.hover">
+            <div
+              class="value-icon-wrap"
+              v-motion
+              :initial="animationPresets.iconHover.initial"
+              :hover="animationPresets.iconHover.hover"
+            >
               <UIcon :name="value.icon" class="value-icon" aria-hidden="true" />
             </div>
             <h3 class="value-title">{{ value.title }}</h3>
@@ -83,7 +106,7 @@ const values = computed(() =>
 <style lang="scss" scoped>
 .about-values {
   padding: 6rem 1.5rem;
-  background: var(--color-section-light);
+  background: var(--color-primary-200);
 
   @media (min-width: 768px) {
     padding: 8rem 2rem;
