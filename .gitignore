@@ -53,6 +53,7 @@ Thumbs.db
 .husky/_
 
 content/
+tegetec/
 
 # Lock files (optional – ignore if using one lock manager across the team)
 # package-lock.json

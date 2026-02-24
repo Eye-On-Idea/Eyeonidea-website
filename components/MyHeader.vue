@@ -191,6 +191,12 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
 <template>
   <UHeader
     class="header-main sticky top-0 z-50 bg-primary-900 dark:bg-primary-950"
+    :ui="{
+      root: 'bg-transparent border-b-0',
+      content: 'bg-primary-800 dark:bg-primary-950',
+      header: 'bg-primary-800 dark:bg-primary-950',
+      toggle: 'text-primary-50',
+    }"
     ><div
       class="absolute -bottom-4.5 left-0 right-0 w-full h-auto z-49 bg-transparent"
     ></div>
@@ -199,7 +205,12 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
         <img
           src="/public-material/logo-center-shadow.svg"
           alt="Eye On Idea"
-          class="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+          class="hidden lg:block h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+        />
+        <img
+          src="/public-material/img/logo-nobg_dark.png"
+          alt="Eye On Idea"
+          class="lg:hidden h-10 w-auto transition-transform duration-300 group-hover:scale-105 invert"
         />
       </NuxtLink>
     </template>

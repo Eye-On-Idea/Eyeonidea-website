@@ -245,11 +245,12 @@
 
   /* Text Gradients — warm browns only (Nordic) */
   --gradient-text-primary: linear-gradient(
-    135deg,
-    #d39a69 0%,
-    #995226 50%,
-    #7d3412 100%
+    115deg,
+    #ffe4cf 0%,
+    #d39a69 50%,
+    #ffeddf 100%
   );
+
   --gradient-text-accent: linear-gradient(135deg, #64c6b7 0%, #9eddd2 100%);
 
   /* Glass Morphism - Light Mode (reduced for Nordic minimalism) */

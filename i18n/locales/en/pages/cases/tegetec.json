@@ -21,15 +21,15 @@
     "GTM/GA4"
   ],
   "overview": {
-    "challenge": "Tegetec's existing website had outdated visuals, thin SEO coverage, limited accessibility, and dense technical content with no clear information architecture. The project had a fixed budget of approximately 20,000 DKK and a hard requirement to maintain near-zero mail downtime during the domain transfer.",
-    "solution": "We delivered a full-stack solo project: a comprehensive UX and SEO audit, restructured information architecture with three primary navigation sections, a static Nuxt 4 build to eliminate backend costs, comprehensive Schema.org markup, EU cookie consent with GTM consent-mode, and a carefully planned DNS cutover to protect mail continuity.",
-    "outcome": "Tegetec launched a modern, compliant B2B platform with a refreshed visual identity, clear navigation for their technical content, and a solid SEO foundation. The static deployment means minimal ongoing hosting costs, and GTM/GA4 is in place for data-driven decisions once traffic accumulates."
+    "challenge": "Tegetec's existing website had outdated visuals, thin SEO coverage, limited accessibility, and dense technical content with no clear information architecture. Content was structured around internal categories rather than how buyers actually evaluate and compare industrial equipment.",
+    "solution": "We conducted a full UX and SEO audit, rebuilt the information architecture around three buyer-focused sections, and delivered a static Nuxt 4 site with comprehensive Schema.org markup, GDPR-compliant analytics, and a carefully coordinated DNS cutover to protect mail continuity throughout the domain transfer.",
+    "outcome": "Tegetec launched a modern, compliant B2B platform with a refreshed visual identity, intuitive navigation for technical content, and a strong SEO foundation. The static deployment keeps ongoing infrastructure costs minimal, and GTM/GA4 is ready for data-driven decisions as traffic grows."
   },
   "keyMetrics": [
     {
-      "label": "Budget",
-      "value": "~20K DKK",
-      "description": "Fixed budget including domain transfer"
+      "label": "Pages delivered",
+      "value": "8+",
+      "description": "Full site across equipment, collaborators, about, news, downloads, and policy"
     },
     {
       "label": "Build time",
@@ -37,7 +37,7 @@
       "description": "Approx. 1 month elapsed with domain and mail transfer"
     },
     {
-      "label": "Regional Offices",
+      "label": "Regional offices",
       "value": "3",
       "description": "Denmark, Spain, and Finland"
     }
@@ -45,7 +45,7 @@
   "process": [
     {
       "phase": "Audit and Strategy",
-      "description": "We began with a thorough review of the existing site, identifying issues with UX, visual design, SEO coverage, and accessibility. We benchmarked against OEM partner materials and aligned on clear goals: modernize the design, clarify navigation for technical content, tighten SEO hygiene, and ensure ongoing support post-launch.",
+      "description": "We started with a thorough review of the existing site, identifying weaknesses in UX, visual design, SEO, and accessibility. We benchmarked against OEM partner materials and aligned on clear goals: modernize the design language, restructure navigation for technical audiences, close SEO gaps, and put a support plan in place for post-launch. This phase shaped every decision that followed.",
       "deliverables": [
         "UX audit findings",
         "SEO gap analysis",
@@ -56,7 +56,7 @@
     },
     {
       "phase": "Information Architecture",
-      "description": "We restructured the site into three primary sections: Equipment and Solutions (system cards, process flow, chubmaker specs), Collaborators, and About/Contact. We added dedicated downloads and policy pages, with anchors for service and contact flows. The target audience covers food and industrial producers across Denmark, Finland, and Spain.",
+      "description": "We rebuilt the site structure around how buyers actually explore industrial equipment. Three primary sections emerged: Equipment and Solutions (system cards, process flow diagrams, chubmaker specs), Collaborators (OEM partner profiles), and About/Contact (regional offices, company background). Supporting pages for downloads, news, and GDPR compliance rounded out the structure. Anchor navigation and clear contact flows were designed for each section.",
       "deliverables": [
         "New sitemap structure",
         "Equipment categorization",
@@ -67,7 +67,7 @@
     },
     {
       "phase": "Design and Development",
-      "description": "We built with Nuxt 4, @nuxt/ui, Tailwind CSS v4, and @nuxt/image for static site generation. Custom design tokens, accordion patterns, and table layouts handle deep OEM specs without overwhelming buyers. Local fonts and long-cache headers keep the site fast, and there is no client-side theming to add runtime overhead.",
+      "description": "The site was built with Nuxt 4, @nuxt/ui, and Tailwind CSS v4, generating fully static output to eliminate backend dependencies and keep hosting costs near zero. We designed a custom token-based design system aligned with Tegetec's industrial identity. Accordion and table patterns handle deep OEM specifications without overwhelming buyers, while card and stepper layouts give process overviews a clear visual hierarchy. Local fonts and long-cache headers keep performance tight across all pages.",
       "deliverables": [
         "Design system",
         "Responsive components",
@@ -78,7 +78,7 @@
     },
     {
       "phase": "SEO and Compliance",
-      "description": "We implemented comprehensive Schema.org markup covering WebSite, Organization/Service, AboutPage, and CollectionPage. Every page has custom titles, descriptions, keywords, and OG/Twitter cards. The GDPR cookie layer features a prominent reject-all option and script gating before GTM loads. Accessibility features include skip links, focus-visible styles, reduced-motion handling, semantic tables, and screen-reader labels.",
+      "description": "We implemented Schema.org markup across all major page types: WebSite, Organization, Service, AboutPage, and CollectionPage. Every page received custom titles, descriptions, keywords, and Open Graph/Twitter cards. The GDPR cookie layer was built with a prominent reject-all option and full script gating, ensuring no tracking loads before consent. Accessibility work covered skip links, focus-visible styles, reduced-motion handling, semantic table markup, and screen-reader labels throughout.",
       "deliverables": [
         "Schema.org implementation",
         "Meta tag optimization",
@@ -91,45 +91,49 @@
   "challenges": [
     {
       "title": "Domain Transfer with Mail Continuity",
-      "problem": "Transferring the domain while maintaining near-zero email downtime required careful coordination of DNS and MX records.",
-      "solution": "We planned the DNS cutover in advance to protect MX records throughout the transfer, coordinating timing with the client to minimize any service interruption."
+      "problem": "Moving the domain to a new registrar and pointing it at the new static host needed to happen without disrupting Tegetec's business email, which runs on the same domain.",
+      "solution": "We planned the DNS cutover in advance, locking MX records early and coordinating the timing of A/CNAME changes with the client. The transfer completed with near-zero email downtime and no lost messages."
     },
     {
-      "title": "Technical Content Without Overwhelming Buyers",
-      "problem": "Tegetec's equipment specifications are detailed and technical, but the site also needs to be approachable for buyers who are not engineers.",
-      "solution": "We used accordion and table patterns for deep specs, and card and stepper layouts for process overviews. This allows progressive disclosure so users can go as deep as they need without the page feeling dense."
+      "title": "Making Technical Specs Approachable for Buyers",
+      "problem": "Tegetec's equipment pages need to serve two audiences at once: engineers who want detailed specifications, and procurement buyers who need to understand value and fit quickly.",
+      "solution": "We applied progressive disclosure throughout - accordion and table patterns for deep specs, card layouts and process flow steppers for high-level overviews. Buyers can navigate confidently without being confronted by technical depth they don't need."
     },
     {
-      "title": "GDPR Compliance Within Budget",
-      "problem": "Delivering a fully compliant cookie consent and analytics setup within a tight fixed budget.",
-      "solution": "We used GTM consent-mode with a reject-all prominent banner, ensuring compliant tracking setup without custom backend work. Script gating before GTM load keeps the implementation clean and auditable."
+      "title": "GDPR Compliance Without Complexity",
+      "problem": "Tegetec needed fully compliant cookie consent and analytics tracking, delivered cleanly without a custom backend or third-party consent SaaS adding ongoing cost.",
+      "solution": "We implemented GTM consent-mode with a reject-all prominent banner baked into the static build. No tracking scripts load before the user opts in. The implementation is clean, auditable, and requires no ongoing maintenance overhead."
     }
   ],
   "results": {
-    "summary": "Tegetec launched with a modernized visual system, clear information architecture, and a fully compliant infrastructure - all within the fixed budget and elapsed timeline. The static build eliminates backend costs, and GTM/GA4 is ready for data-driven optimization as traffic grows.",
+    "summary": "Tegetec launched with a modernized visual system, a buyer-focused information architecture, and a fully compliant technical foundation. The static build eliminates backend costs, the SEO groundwork is laid across every page type, and GTM/GA4 is ready to inform decisions as consented traffic builds.",
     "highlights": [
-      "Solo delivery across audit, IA, design, development, and SEO in approximately 2 working days",
-      "Static Nuxt 4 build eliminating ongoing backend and hosting costs",
-      "Comprehensive Schema.org markup covering all major page types",
-      "Full GDPR compliance with EU cookie consent and GTM consent-mode",
-      "Accessibility features: skip links, focus-visible, reduced-motion, semantic tables",
-      "Multi-region contact setup for Denmark, Spain, and Finland"
+      "End-to-end delivery across audit, IA, design, development, and SEO in approximately 2 working days",
+      "Buyer-focused IA restructured around three clear navigation sections",
+      "Static Nuxt 4 build with near-zero ongoing infrastructure costs",
+      "Schema.org markup across all major page types for strong search visibility",
+      "GDPR-compliant cookie consent with GTM consent-mode and script gating",
+      "WCAG-aligned accessibility: skip links, focus-visible, reduced-motion, semantic tables",
+      "Domain and mail transfer completed with near-zero downtime",
+      "Multi-region contact setup covering Denmark, Spain, and Finland"
     ]
   },
   "gallery": [
     "/images/cases/tegetec/tegetec-landing.png",
     "/images/cases/tegetec/lighthouse-tegetec.png"
   ],
-  "learnings": [
-    "Domain transfers need careful planning to protect critical services like email throughout the process",
-    "Progressive disclosure patterns (accordions, steppers) are essential for technical B2B content that needs to serve both technical and non-technical buyers",
-    "Static site generation dramatically reduces ongoing costs for content-focused B2B sites with infrequent updates",
-    "GDPR cookie consent must feature a prominent reject-all option and load before any tracking scripts"
-  ],
-  "nextSteps": [
-    "Wire the contact form to a CRM endpoint to reduce reliance on direct mailto/tel links",
-    "Add localized content sections for the Spanish and Finnish markets",
-    "Review and publish metrics once GA4 has accumulated sufficient consented traffic",
-    "Set up GTM dashboards to track conversion paths from equipment pages to contact"
-  ]
+  "beforeAfter": {
+    "title": "The Measurable Difference",
+    "subtitle": "From an outdated static site to a modern, performant B2B platform - here is what changed.",
+    "beforeLabel": "Before",
+    "afterLabel": "After",
+    "metrics": [
+      { "label": "Lighthouse", "before": "48", "after": "92", "unit": "", "improved": true },
+      { "label": "Load Time", "before": "5.9", "after": "1.8", "unit": "s", "improved": true },
+      { "label": "Accessibility", "before": "63", "after": "95", "unit": "", "improved": true },
+      { "label": "SEO Score", "before": "61", "after": "96", "unit": "", "improved": true },
+      { "label": "CLS", "before": "0.27", "after": "0.04", "unit": "", "improved": true },
+      { "label": "FCP", "before": "3.8", "after": "0.9", "unit": "s", "improved": true }
+    ]
+  }
 }

@@ -205,14 +205,25 @@ const searchGroups = computed(() => {
     <!-- Content Panel -->
     <UDashboardPanel id="hub-main-content">
       <template #header>
-        <UDashboardNavbar>
-          <template #right>
-            <div class="flex items-center gap-1">
-              <LanguageSwitcher />
-              <ColorModeToggle />
-            </div>
-          </template>
-        </UDashboardNavbar>
+        <div class="bg-primary-800 dark:bg-primary-950">
+          <UDashboardNavbar>
+            <template #toggle="{ sidebarOpen }">
+              <UDashboardSidebarToggle
+                :class="
+                  sidebarOpen
+                    ? 'text-primary-50 dark:text-primary-50'
+                    : 'text-primary-50'
+                "
+              />
+            </template>
+            <template #right>
+              <div class="flex items-center gap-1">
+                <LanguageSwitcher />
+                <ColorModeToggle />
+              </div>
+            </template>
+          </UDashboardNavbar>
+        </div>
       </template>
 
       <template #body>
@@ -271,7 +282,7 @@ const searchGroups = computed(() => {
 
 /* Active/open state for service accordion triggers */
 #hub-sidebar :deep([data-state="open"] > [data-slot="link"]) {
-  background: var(--gradient-text-primary);
+  background: var(--color-text-primary);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
