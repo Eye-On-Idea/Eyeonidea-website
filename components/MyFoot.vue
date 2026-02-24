@@ -105,43 +105,80 @@
           <h3 class="text-xl font-semibold mb-5 text-primary-50">
             {{ t("footer.siteNav.heading") }}
           </h3>
-          <ul class="grid gap-3 min-w-60">
-            <li>
-              <NuxtLink class="footer-nav-link" to="/">
-                {{ t("footer.siteNav.home") }}
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink class="footer-nav-link" to="/services">
-                {{ t("footer.siteNav.services") }}
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink class="footer-nav-link" to="/about">
-                {{ t("footer.siteNav.about") }}
-              </NuxtLink>
-            </li>
-            <!-- News page <li>
-              <NuxtLink class="footer-nav-link" to="/news">
-                {{ t("footer.siteNav.news") }}
-              </NuxtLink>
-            </li> -->
-            <li>
-              <NuxtLink class="footer-nav-link" to="/contact">
-                {{ t("footer.siteNav.contact") }}
-              </NuxtLink>
-            </li>
-            <li class="mt-3 pt-3 border-t border-primary-800">
-              <NuxtLink class="footer-nav-link text-sm" to="/about/legal">
-                {{ t("footer.siteNav.legal") }}
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink class="footer-nav-link text-sm" to="/about/policies">
-                {{ t("footer.siteNav.policies") }}
-              </NuxtLink>
-            </li>
-          </ul>
+          <div class="footer-nav-layout">
+            <!-- Main nav -->
+            <ul class="grid gap-3 min-w-52">
+              <li>
+                <NuxtLink class="footer-nav-link" to="/">
+                  {{ t("footer.siteNav.home") }}
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink class="footer-nav-link" to="/services">
+                  {{ t("footer.siteNav.services") }}
+                </NuxtLink>
+                <ul class="footer-nav-sub">
+                  <li>
+                    <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/services/website-packages">
+                      {{ t("footer.siteNav.websitePackages") }}
+                    </NuxtLink>
+                  </li>
+                  <li>
+                    <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/services/visual-identity">
+                      {{ t("footer.siteNav.visualIdentity") }}
+                    </NuxtLink>
+                  </li>
+                  <li>
+                    <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/services/additional-services">
+                      {{ t("footer.siteNav.additionalServices") }}
+                    </NuxtLink>
+                  </li>
+                  <li>
+                    <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/services/process">
+                      {{ t("footer.siteNav.process") }}
+                    </NuxtLink>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <NuxtLink class="footer-nav-link" to="/cases">
+                  {{ t("footer.siteNav.cases") }}
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink class="footer-nav-link" to="/about">
+                  {{ t("footer.siteNav.about") }}
+                </NuxtLink>
+              </li>
+              <!-- News page <li>
+                <NuxtLink class="footer-nav-link" to="/news">
+                  {{ t("footer.siteNav.news") }}
+                </NuxtLink>
+              </li> -->
+              <li>
+                <NuxtLink class="footer-nav-link" to="/contact">
+                  {{ t("footer.siteNav.contact") }}
+                </NuxtLink>
+              </li>
+            </ul>
+
+            <!-- Legal / compliance — separate column -->
+            <ul class="grid gap-3 content-start">
+              <li>
+                <span class="footer-nav-subheading">{{ t("footer.siteNav.legalHeading") }}</span>
+              </li>
+              <li>
+                <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/about/legal">
+                  {{ t("footer.siteNav.legal") }}
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/about/policies">
+                  {{ t("footer.siteNav.policies") }}
+                </NuxtLink>
+              </li>
+            </ul>
+          </div>
         </nav>
       </div>
     </UContainer>
@@ -149,7 +186,7 @@
     <!-- Bottom: copyright -->
     <div class="footer-bottom">
       <UContainer
-        class="max-w-[90rem] py-5 text-sm text-primary-300 flex items-center justify-center gap-4"
+        class="max-w-360 py-5 text-sm text-primary-300 flex items-center justify-center gap-4"
       >
         <p>{{ t("footer.copyright", { year: new Date().getFullYear() }) }}</p>
       </UContainer>
@@ -205,6 +242,36 @@ const { t } = useI18n();
 
   &:hover {
     color: var(--color-primary-100);
+  }
+}
+
+/* Nav + legal two-column layout */
+.footer-nav-layout {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Nested service sub-links */
+.footer-nav-sub {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 0.25rem 1rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  padding-left: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.footer-nav-link--sub {
+  font-size: var(--text-sm);
+  color: var(--color-primary-400);
+  min-height: 36px;
+
+  &:hover {
+    color: var(--color-primary-200);
   }
 }
 

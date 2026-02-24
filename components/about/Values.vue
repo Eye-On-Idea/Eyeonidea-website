@@ -159,12 +159,16 @@ const values = computed(
 
 .value-card {
   position: relative;
-  padding: 2rem;
+  padding: 1.25rem;
   height: 100%;
   background: var(--color-surface-1);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
   transition: box-shadow 0.2s var(--ease-smooth);
+
+  @media (min-width: 480px) {
+    padding: 2rem;
+  }
 
   &:hover {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
@@ -179,6 +183,10 @@ const values = computed(
 // Featured card spans all 3 columns on desktop
 .value-card--featured {
   overflow: hidden;
+
+  @media (min-width: 480px) {
+    padding: 2rem;
+  }
 
   @media (min-width: 640px) {
     grid-column: 1 / -1;

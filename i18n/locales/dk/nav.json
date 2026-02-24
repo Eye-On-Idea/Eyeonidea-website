@@ -1,11 +1,15 @@
 {
   "home": "Hjem",
   "services": "Ydelser",
+  "cases": "Sager",
   "about": "Om os",
   "contact": "Kontakt",
   "news": "Nyheder",
   "legal": "Juridisk",
   "policies": "Politikker",
   "process": "Vores proces",
+  "websitepackages": "Hjemmesidepakker",
+  "visualidentity": "Visuel identitet",
+  "additionalservices": "Yderligere tjenester",
   "clientHub": "Kundehub"
 }

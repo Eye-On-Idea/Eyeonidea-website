@@ -17,11 +17,18 @@
   "siteNav": {
     "heading": "Navigation",
     "home": "Accueil",
-    "services": "Services",
+    "services": "Prestations",
+    "servicesSubheading": "Prestations",
+    "websitePackages": "Forfaits Site Web",
+    "visualIdentity": "Identité visuelle",
+    "additionalServices": "Services supplémentaires",
+    "process": "Notre processus",
+    "cases": "Cas",
     "about": "À propos",
     "news": "Actualités",
-    "contact": "Contact",
+    "contact": "Contacter",
+    "legalHeading": "Mentions légales",
     "legal": "Mentions légales",
-    "policies": "Politiques"
+    "policies": "Politique de confidentialité"
   }
 }

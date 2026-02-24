@@ -1,0 +1,345 @@
+{
+  "websitePackages": {
+    "meta": {
+      "title": "Hjemmesidepakker - Eye On Idea",
+      "description": "Tre hjemmesidepakker bygget op omkring det sted, hvor din virksomhed er lige nu. Klare priser, ærligt omfang og ingen unødvendige ekstraudstyr. Sammenlign lancering, vækst og platform."
+    },
+    "hero": {
+      "badge": "Hjemmesidepakker",
+      "title": "En hjemmeside, der passer til din virksomhed",
+      "subtitle": "Fra et første websted til en fuld indholdsplatform, er hver pakke tilpasset til reelle behov. Tre klare muligheder, ærlige priser og intet unødvendigt ekstraudstyr."
+    },
+    "breadcrumb": {
+      "services": "Ydelser",
+      "current": "Hjemmesidepakker"
+    },
+    "nav": {
+      "packages": "Pakker",
+      "comparison": "Sammenlign",
+      "cms": "Content Management",
+      "hosting": "Hosting og domæne",
+      "results": "Resultater"
+    },
+    "hosting": {
+      "id": "hosting-section",
+      "badge": "Hosting og domæne",
+      "title": "Alt hvad du behøver for at gå live",
+      "subtitle": "Hosting og domæne håndteres for dig. Ingen separate udbydere, ingen konfigurationshovedpine.",
+      "hostingCard": {
+        "badge": "EU Hosting",
+        "title": "Pålidelig EU-baseret hosting",
+        "description": "Pålidelig EU-baseret hosting. Pris fra €20 pr. måned.",
+        "bullets": [
+          "EU-baseret infrastruktur",
+          "Overvågning og grundlæggende vedligeholdelse",
+          "Sikkerhedskopier tilgængelige afhængigt af opsætning"
+        ],
+        "price": "20",
+        "currency": "€",
+        "unit": "om måneden",
+        "vatNote": "ekskl. moms"
+      },
+      "domainCard": {
+        "title": "Domæne inkluderet",
+        "description": "Et brugerdefineret domæne med en 1-årig licens er inkluderet i alle pakker. Fornyelser, yderligere domæner og DNS-ændringer er tilgængelige som tilføjelser.",
+        "includedNote": "1 domæne inkluderet i alle pakker",
+        "linkText": "Se domænetilføjelser",
+        "linkHref": "/services/additional-services"
+      }
+    },
+    "cta": {
+      "badge": "Klar til at starte?",
+      "title": "Lad os finde den rigtige pakke",
+      "description": "Hvert projekt starter med en samtale om, hvad din virksomhed rent faktisk har brug for. Kontakt os, så finder vi ud af det sammen.",
+      "primaryText": "Tag kontakt",
+      "secondaryText": "Udforsk tilføjelser"
+    }
+  },
+  "visualIdentity": {
+    "meta": {
+      "title": "Visuel identitet - Eye On Idea",
+      "description": "Logo, farve, typografi og brandretningslinjer for virksomheder, der ønsker at se troværdige og konsekvente ud. Visuel identitetsdesign fra Eye On Idea i Aalborg."
+    },
+    "hero": {
+      "badge": "Visuel identitet",
+      "title": "Se delen fra dag ét",
+      "subtitle": "Din visuelle identitet er ofte det første, folk dømmer dig på. Vi hjælper dig med at få det rigtigt, fra logo til brandretningslinjer, så din virksomhed ser troværdig og konsistent ud på tværs af din hjemmeside, print og præsentationer."
+    },
+    "breadcrumb": {
+      "services": "Ydelser",
+      "current": "Visuel identitet"
+    },
+    "nav": {
+      "overview": "Oversigt",
+      "deliverables": "Hvad du får",
+      "process": "Hvordan det virker",
+      "pricing": "Prissætning",
+      "pricingId": "identitet-prissætning-sektion"
+    },
+    "deliverables": {
+      "badge": "Hvad du får",
+      "title": "Et komplet visuelt fundament",
+      "subtitle": "Alt hvad du behøver for at præsentere din virksomhed konsekvent, på tværs af digitalt og print.",
+      "items": [
+        {
+          "title": "Logo og variationer",
+          "description": "Et primært logo med de variationer, der er nødvendige for forskellige sammenhænge: lyse og mørke baggrunde, vandrette og stablede layouts og kun ikonbrug.",
+          "placeholderDescription": "Logo primære og variation eksempler"
+        },
+        {
+          "title": "Farvepalet",
+          "description": "Et defineret sæt mærkefarver med brugsvejledning. Du ved præcis, hvilken farve du skal bruge og hvor, så dit brand forbliver konsistent på tværs af alle berøringspunkter.",
+          "placeholderDescription": "Farvepalet med eksempler på brug"
+        },
+        {
+          "title": "Typografi",
+          "description": "Et klart typografisk system, der dækker overskrifter, brødtekst og understøttende kopi. Udvalgt for læsbarhed og personlighed, med vejledning i, hvordan man anvender det.",
+          "placeholderDescription": "Typografieksemplar, der viser overskrift og kropsstil"
+        },
+        {
+          "title": "Brand retningslinjer",
+          "description": "Et kortfattet referencedokument, der samler det hele. Dækker logobrug, farver, typografi og mellemrum, så alle, der arbejder på dit brand, kan gøre det korrekt.",
+          "placeholderDescription": "Brand retningslinjer dokumenterer spredning"
+        }
+      ]
+    },
+    "process": {
+      "badge": "Hvordan det virker",
+      "title": "En enkel, overskuelig proces",
+      "subtitle": "Tre etaper, ingen overraskelser.",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Kort",
+          "description": "Vi starter med en samtale om din virksomhed, dit publikum, og hvad du vil have dit brand til at kommunikere. Ingen formularer, kun en diskussion."
+        },
+        {
+          "number": "02",
+          "title": "Design",
+          "description": "Vi udvikler koncepter baseret på briefen og præsenterer dem til feedback. Du anmelder, vi forfiner, indtil resultatet er rigtigt."
+        },
+        {
+          "number": "03",
+          "title": "Overdragelse",
+          "description": "Du modtager alle endelige filer i de formater, du har brug for, plus brandretningslinjerne for at bruge dem trygt fremover."
+        }
+      ]
+    },
+    "pricing": {
+      "badge": "Prissætning",
+      "title": "Hvad det koster",
+      "subtitle": "Prisen afhænger af omfanget af dit projekt. Nedenfor er de mest almindelige udgangspunkter.",
+      "currency": "€",
+      "vatNote": "Alle priser ekskl. moms",
+      "highlights": [
+        {
+          "name": "Logodesign (primært og variationer)",
+          "price": "500",
+          "unit": "én gang"
+        },
+        {
+          "name": "Farvepalet og typografi",
+          "price": "250",
+          "unit": "én gang"
+        },
+        {
+          "name": "Brand retningslinjer dokument",
+          "price": "400",
+          "unit": "én gang"
+        },
+        {
+          "name": "Sociale mediers brandaktiver",
+          "price": "200",
+          "unit": "én gang"
+        },
+        {
+          "name": "Præsentations skabeloner",
+          "price": "300",
+          "unit": "én gang"
+        }
+      ],
+      "fullListNote": "Leder du efter den fulde opdeling af individuelle leverancer og ekstramateriale?",
+      "fullListLinkText": "Se alle priser for visuelle identiteter",
+      "fullListHref": "/services/additional-services"
+    },
+    "cta": {
+      "badge": "Klar til at opbygge dit brand?",
+      "title": "Lad os tale om din identitet",
+      "description": "Uanset om du starter fra bunden eller genopfrisker et eksisterende brand, så kontakt os, så finder vi sammen det rigtige omfang.",
+      "primaryText": "Diskuter dit brand",
+      "secondaryText": "Se webstedspakker"
+    }
+  },
+  "additionalServices": {
+    "meta": {
+      "title": "Yderligere tjenester - Eye On Idea",
+      "description": "Domæne, e-mail, copywriting, SEO og løbende supportplaner. Alt omkring din hjemmeside, håndteret ét sted af Eye On Idea i Aalborg."
+    },
+    "hero": {
+      "badge": "Yderligere tjenester",
+      "title": "Alt omkring din hjemmeside",
+      "subtitle": "Din hjemmeside er centrum for din digitale tilstedeværelse. Disse tjenester hjælper dig med at bygge op omkring det.",
+      "intro": [
+        "Nogle ting hører til i ethvert projekt: et domæne, en professionel e-mailadresse, indhold, der rent faktisk konverterer. Andre bliver først relevante, når du er live: en SEO-gennemgang, en anden mening om din informationsarkitektur eller en konsulentsession, når noget ikke fungerer.",
+        "Denne side dækker, hvad vi tilbyder uden for kernewebstedspakkerne. Hver service kan føjes til et projekt eller bestilles alene."
+      ]
+    },
+    "breadcrumb": {
+      "services": "Ydelser",
+      "current": "Yderligere tjenester"
+    },
+    "nav": {
+      "addons": "Tilføjelser",
+      "content": "Indhold",
+      "domain": "Domæne",
+      "email": "E-mail",
+      "seoConsulting": "SEO og rådgivning",
+      "support": "Supportplaner"
+    },
+    "sections": {
+      "content": {
+        "badge": "Indhold & Sprog",
+        "title": "Indhold & Sprog",
+        "intro": [
+          "Godt indhold handler ikke kun om at fylde sider. Det handler om at være overskuelig, direkte og nem at scanne - på hver enhed, på alle sprog, du skal nå.",
+          "Vi skriver, redigerer og udarbejder hjemmesidetekst, der passer til designet og kommunikerer, hvad din virksomhed rent faktisk laver. Vi hjælper også, når et websted skal fungere på mere end ét sprog."
+        ],
+        "items": [
+          {
+            "name": "Tekstforfatning på hjemmesiden",
+            "price": "100",
+            "unit": "per side",
+            "description": "Side for side kopi skrevet til at passe til din struktur og tone. Inkluderer en revisionsrunde."
+          },
+          {
+            "name": "Indholdsredigering og forfining",
+            "price": "75",
+            "unit": "i timen",
+            "description": "Du har udkast til tekst, der skal strammes, omstruktureres eller tilpasses til nettet. Vi arbejder igennem det sammen med dig."
+          },
+          {
+            "name": "Flersproget opsætning (2 sprog)",
+            "price": "350",
+            "unit": "én gang",
+            "description": "Teknisk opsætning af et tosproget websted: routing, skift af landestandard og CMS-konfiguration for to sprog."
+          },
+          {
+            "name": "Yderligere sprogversion",
+            "price": "125",
+            "unit": "pr. sprog",
+            "description": "Udvid en eksisterende flersproget opsætning til at dække et ekstra sprog."
+          }
+        ]
+      },
+      "domain": {
+        "badge": "Domæne",
+        "title": "Domæne",
+        "intro": [
+          "Hver pakke inkluderer et brugerdefineret domæne med en 1-årig licens. Det, du ser nedenfor, dækker alt andet: yderligere domæner, fornyelser efter år ét og overførsler, hvis du flytter et domæne fra en anden udbyder.",
+          "Domænepriserne varierer efter udvidelse (.com, .dk, .io og så videre) og efter registrator. Vi fortæller dig altid omkostningerne, før noget bliver registreret."
+        ],
+        "items": [
+          {
+            "name": "Yderligere domæneregistrering",
+            "price": "15-50",
+            "unit": "om året",
+            "description": "Registrer et ekstra domæne - nyttigt til brandbeskyttelse, regionale varianter eller omdirigeringer."
+          },
+          {
+            "name": "Hjælp til domæneoverførsel",
+            "price": "50",
+            "unit": "én gang",
+            "description": "Vi håndterer overførselsprocessen, hvis du flytter et eksisterende domæne fra en anden registrator."
+          },
+          {
+            "name": "Domænefornyelse (efter år 1)",
+            "price": "15-50",
+            "unit": "om året",
+            "description": "Årlig fornyelse for ethvert domæne, der er registreret gennem os. Håndteres på dine vegne med forudgående varsel før fornyelse."
+          }
+        ]
+      },
+      "email": {
+        "badge": "E-mail",
+        "title": "E-mail",
+        "intro": [
+          "En professionel e-mailadresse på dit eget domæne er en af de enkleste måder at se troværdig ud på. Vi opsætter og administrerer virksomheds-e-mail på EU-baseret infrastruktur.",
+          "Begge planer bruger dit domæne (dig{'@'}dinvirksomhed.com) og inkluderer standardfunktioner: webmailadgang, spamfiltrering og grundlæggende kalenderfunktionalitet."
+        ],
+        "items": [
+          {
+            "name": "E-mail starter (15 GB pr. konto)",
+            "price": "1",
+            "unit": "pr konto/måned",
+            "description": "En ren, professionel e-mailadresse på dit domæne. Velegnet til de fleste små hold."
+          },
+          {
+            "name": "Email Pro (50 GB pr. konto)",
+            "price": "4",
+            "unit": "pr konto/måned",
+            "description": "Mere lagerplads og yderligere funktioner til teams, der bruger e-mail i høj grad."
+          }
+        ]
+      },
+      "seoConsulting": {
+        "badge": "SEO og rådgivning",
+        "title": "SEO og rådgivning",
+        "intro": [
+          "Disse er engangsydelser, ikke retainere. Hver enkelt adresserer et specifikt spørgsmål: er webstedet struktureret korrekt til søgning, gør metadataene sit arbejde, er der noget teknisk galt, der holder synlighed tilbage?",
+          "Rådgivningsmødet er åbent. Medbring et spørgsmål, et problem eller noget du er usikker på. Vi arbejder igennem det sammen."
+        ],
+        "items": [
+          {
+            "name": "SEO struktur gennemgang",
+            "price": "200",
+            "unit": "én gang",
+            "description": "En gennemgang af, hvordan dit websted er organiseret til søgning: overskriftshierarki, URL-struktur, interne links og crawlbarhed."
+          },
+          {
+            "name": "Metadata optimering",
+            "price": "150",
+            "unit": "én gang",
+            "description": "Vi gennemgår og omskriver dine sidetitler og metabeskrivelser for at forbedre klikfrekvensen i søgeresultaterne."
+          },
+          {
+            "name": "Intern koblingsstrategi",
+            "price": "150",
+            "unit": "én gang",
+            "description": "En plan for, hvordan sider på dit websted skal linke til hinanden for at give autoritet og hjælpe besøgende med at finde det, de har brug for."
+          },
+          {
+            "name": "Rådgivningsmøde (1 time)",
+            "price": "100",
+            "unit": "pr session",
+            "description": "En fokuseret samtale om alt, hvad du tænker på: strategi, retning, en beslutning, du vægter, eller et problem, du ikke kan løse."
+          },
+          {
+            "name": "Teknisk revision",
+            "price": "300",
+            "unit": "én gang",
+            "description": "En struktureret gennemgang af ydeevne, tilgængelighed og teknisk SEO. Leveres som en prioriteret liste over problemstillinger og anbefalinger."
+          },
+          {
+            "name": "Gennemgang af QA før lancering",
+            "price": "200",
+            "unit": "én gang",
+            "description": "Et tjek før lancering på tværs af browsere, enheder og nøglebrugerrejser. Vi leder efter ødelagte links, layoutproblemer og alt, hvad der bør rettes, før det går live."
+          },
+          {
+            "name": "Second opinion review",
+            "price": "150",
+            "unit": "én gang",
+            "description": "Ikke sikker på en designbeslutning, en CMS-struktur eller en teknisk tilgang? Vi gennemgår, hvad du har, og giver dig en direkte, ærlig vurdering."
+          }
+        ]
+      }
+    },
+    "cta": {
+      "badge": "Ikke sikker på, hvad du har brug for?",
+      "title": "Lad os finde ud af det sammen",
+      "description": "Hver virksomhed har forskellige behov. Kontakt os, så sammensætter vi den rigtige kombination af ydelser til dit projekt.",
+      "primaryText": "Tag kontakt",
+      "secondaryText": "Se webstedspakker"
+    }
+  }
+}

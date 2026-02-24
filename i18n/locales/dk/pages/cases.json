@@ -1,0 +1,61 @@
+{
+  "metaTitle": "Vores arbejde | Eye On Idea",
+  "metaDescription": "Udforsk, hvordan Eye On Idea designer og bygger hjemmesider til små og mellemstore virksomheder - fra strategi og visuel identitet til lancering og løbende support.",
+  "hero": {
+    "title": "Vores arbejde",
+    "subtitle": "Strategi, design og udvikling - leveret.",
+    "description": "Et kig på de projekter, vi har designet og bygget for vores kunder og vores egne brands, fra idé til produktion."
+  },
+  "categories": {
+    "myCompanies": "Vores mærker",
+    "clientWork": "Klientarbejde",
+    "sideProjects": "Sideprojekter"
+  },
+  "filter": {
+    "all": "Alle projekter",
+    "webDev": "Webudvikling",
+    "uxui": "UX/UI design",
+    "branding": "Branding",
+    "seo": "SEO"
+  },
+  "cta": {
+    "viewCase": "Se casestudie",
+    "visitSite": "Besøg hjemmesiden",
+    "readMore": "Læs mere"
+  },
+  "badges": {
+    "eyeOnIdea": "Eye On Idea",
+    "herqulez": "Partnerprojekt",
+    "schoolProject": "Skoleprojekt",
+    "featured": "Udvalgte"
+  },
+  "stats": {
+    "role": "Vores rolle",
+    "duration": "Varighed",
+    "year": "år",
+    "technologies": "teknologier"
+  },
+  "sections": {
+    "overview": "Oversigt",
+    "challenge": "Udfordringen",
+    "solution": "Vores løsning",
+    "outcome": "Udfaldet",
+    "process": "Vores proces",
+    "keyMetrics": "Nøglemålinger",
+    "challenges": "Udfordringer og løsninger",
+    "results": "Resultater",
+    "learnings": "Nøglelæringer",
+    "nextSteps": "Næste trin",
+    "gallery": "Galleri"
+  },
+  "navigation": {
+    "backToCases": "Tilbage til vores arbejde",
+    "nextCase": "Næste casestudie",
+    "previousCase": "Tidligere casestudie"
+  },
+  "contact": {
+    "title": "Klar til at starte dit projekt?",
+    "description": "Vi arbejder med små og mellemstore virksomheder for at bygge hjemmesider, der ser flotte ud og yder endnu bedre. Lad os tale om, hvad vi kan gøre for dig.",
+    "button": "Tag kontakt"
+  }
+}

@@ -708,10 +708,11 @@ onMounted(() => {
 
 .tooltip {
   position: absolute;
-  left: 1rem;
+  left: 0;
   top: 100%;
   z-index: 20;
-  max-width: 280px;
+  width: max-content;
+  max-width: min(280px, calc(100vw - 2rem));
   padding: 0.75rem 1rem;
   background: var(--color-primary-900);
   color: white;

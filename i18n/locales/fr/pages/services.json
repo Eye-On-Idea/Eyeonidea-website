@@ -1,12 +1,61 @@
 {
   "meta": {
-    "title": "Services - Eye On Idea",
+    "title": "Prestations - Eye On Idea",
     "description": "Forfaits de sites Web professionnels, identité visuelle, solutions CMS et support continu. Solutions numériques sur mesure pour les entreprises B2B à travers l'Europe."
   },
   "hero": {
     "badge": "Nos prestations",
     "title": "Des solutions numériques qui évoluent avec vous",
     "subtitle": "Eye On Idea aide les entreprises à établir et à développer une présence numérique claire et professionnelle. Tous les projets sont définis individuellement, en fonction de besoins réels et non de modèles."
+  },
+  "overview": {
+    "title": "Ce que nous faisons",
+    "subtitle": "Chaque service que nous proposons est construit autour de la même idée : qu'une entreprise mérite une présence numérique qui lui convient réellement.",
+    "nav": {
+      "websites": "Forfaits Site Web",
+      "identity": "Identité visuelle",
+      "additional": "Services supplémentaires",
+      "support": "Assistance continue",
+      "howWeWork": "Comment nous travaillons"
+    },
+    "services": [
+      {
+        "id": "overview-websites",
+        "label": "Forfaits Site Web",
+        "heading": "Un site Internet construit autour de votre entreprise",
+        "body": "Il ne s'agit pas d'un modèle adapté, mais d'un site Web adapté à la situation actuelle de votre entreprise. Que vous ayez besoin d'une première présence solide ou d'une plateforme conçue pour évoluer avec vous, nous déterminons la bonne portée avant que quoi que ce soit ne soit construit.",
+        "linkText": "Explorer les forfaits",
+        "linkHref": "/services/website-packages",
+        "icon": "i-heroicons-computer-desktop"
+      },
+      {
+        "id": "overview-identity",
+        "label": "Identité visuelle",
+        "heading": "Ayez l'air crédible dès le premier jour",
+        "body": "Votre logo, vos couleurs et votre typographie sont souvent la première chose sur laquelle les gens vous jugent. Nous concevons des identités visuelles qui tiennent sur votre site Web, vos présentations et vos imprimés, afin que votre marque ait l'air intentionnelle partout où elle apparaît.",
+        "linkText": "Voir notre approche",
+        "linkHref": "/services/visual-identity",
+        "icon": "i-heroicons-swatch"
+      },
+      {
+        "id": "overview-additional",
+        "label": "Services supplémentaires",
+        "heading": "Tout autour de votre site Web",
+        "body": "Enregistrement de domaine, courrier électronique professionnel, copie de site Web, évaluations SEO et séances de conseil. Ce sont les services qui entourent votre site Web et permettent à l’ensemble de fonctionner correctement, disponibles individuellement ou dans le cadre d’un projet.",
+        "linkText": "Voir toutes les prestations",
+        "linkHref": "/services/additional-services",
+        "icon": "i-heroicons-puzzle-piece"
+      },
+      {
+        "id": "overview-support",
+        "label": "Assistance continue",
+        "heading": "Un site Web n'est pas un produit ponctuel",
+        "body": "Après le lancement, les choses changent. Le contenu doit être mis à jour, des questions surviennent et le site devrait continuer à s'améliorer. Nos plans d'assistance vous offrent une ligne directe et une durée définie chaque mois, afin que vous ne soyez jamais laissé seul.",
+        "linkText": "Afficher les plans d'assistance",
+        "linkHref": "/services/additional-services#support-plans",
+        "icon": "i-heroicons-shield-check"
+      }
+    ]
   },
   "packages": {
     "badge": "Forfaits Site Web",
@@ -233,71 +282,26 @@
   },
   "addons": {
     "badge": "Modules complémentaires et extras",
-    "title": "Prolongez votre forfait",
-    "subtitle": "Services optionnels pour valoriser votre projet de site internet",
-    "categories": {
-      "identity": {
-        "title": "Identité visuelle",
-        "icon": "i-heroicons-paint-brush",
-        "items": [
-          {
-            "name": "Création de logo (primaire + variantes)",
-            "price": "500",
-            "unit": "une fois"
-          },
-          {
-            "name": "Variations de logo étendues",
-            "price": "200",
-            "unit": "une fois"
-          },
-          {
-            "name": "Palette de couleurs et typographie",
-            "price": "250",
-            "unit": "une fois"
-          },
-          {
-            "name": "Conception de carte de visite",
-            "price": "150",
-            "unit": "une fois"
-          },
-          {
-            "name": "Modèles de papier à en-tête",
-            "price": "150",
-            "unit": "une fois"
-          },
-          {
-            "name": "Modèles de présentation",
-            "price": "300",
-            "unit": "une fois"
-          },
-          {
-            "name": "Actifs de marque sur les réseaux sociaux",
-            "price": "200",
-            "unit": "une fois"
-          },
-          {
-            "name": "Document sur les lignes directrices de la marque",
-            "price": "400",
-            "unit": "une fois"
-          }
-        ]
-      },
+    "title": "Prolongez votre projet",
+    "subtitle": "Services supplémentaires que vous pouvez ajouter à n'importe quel projet ou commander séparément.",
+    "sections": {
       "content": {
+        "id": "content-section",
         "title": "Contenu et langue",
-        "icon": "i-heroicons-document-text",
+        "description": "Aide à la rédaction, à l'édition et à la préparation du contenu de votre site Web dans plusieurs langues.",
         "items": [
           {
-            "name": "Rédaction de sites Web (par page)",
+            "name": "Rédaction de sites Web",
             "price": "100",
             "unit": "par page"
           },
           {
-            "name": "Édition et raffinement du contenu",
+            "name": "Édition et affinement du contenu",
             "price": "75",
             "unit": "par heure"
           },
           {
-            "name": "Fondements multilingues (2 langues par défaut)",
+            "name": "Configuration multilingue (2 langues)",
             "price": "350",
             "unit": "une fois"
           },
@@ -309,8 +313,10 @@
         ]
       },
       "domain": {
-        "title": "Domaine et e-mail",
-        "icon": "i-heroicons-globe-alt",
+        "id": "domain-section",
+        "title": "Domaine",
+        "description": "Tous les forfaits incluent un domaine avec une licence d'un an. Ces modules complémentaires couvrent les extras, les renouvellements et les transferts.",
+        "note": "Le prix du domaine varie selon l'extension et le registraire.",
         "items": [
           {
             "name": "Enregistrement de domaine supplémentaire",
@@ -323,20 +329,33 @@
             "unit": "une fois"
           },
           {
-            "name": "E-mail de démarrage (15 Go)",
-            "price": "1",
-            "unit": "par compte/mois"
-          },
-          {
-            "name": "E-mail Pro (50 Go)",
-            "price": "4",
-            "unit": "par compte/mois"
+            "name": "Renouvellement de domaine (après la première année)",
+            "price": "15-50",
+            "unit": "par an"
           }
         ]
       },
-      "seo": {
-        "title": "Référencement et visibilité",
-        "icon": "i-heroicons-magnifying-glass",
+      "email": {
+        "id": "email-section",
+        "title": "E-mail",
+        "description": "Adresses e-mail professionnelles sur votre propre domaine. Hébergé sur l’infrastructure de l’UE.",
+        "items": [
+          {
+            "name": "Email Starter (15 Go par compte)",
+            "price": "1",
+            "unit": "par compte / mois"
+          },
+          {
+            "name": "Email Pro (50 Go par compte)",
+            "price": "4",
+            "unit": "par compte / mois"
+          }
+        ]
+      },
+      "seoConsulting": {
+        "id": "seo-consulting-section",
+        "title": "Référencement et conseil",
+        "description": "Examens ponctuels et séances de conseil pour améliorer la visibilité, les performances et la qualité technique.",
         "items": [
           {
             "name": "Révision de la structure SEO",
@@ -352,24 +371,7 @@
             "name": "Stratégie de maillage interne",
             "price": "150",
             "unit": "une fois"
-          }
-        ]
-      },
-      "hosting": {
-        "title": "Hébergement et infrastructure",
-        "icon": "i-heroicons-server",
-        "items": [
-          {
-            "name": "Hébergement de sites Web basés dans l'UE",
-            "price": "20",
-            "unit": "par mois"
-          }
-        ]
-      },
-      "consulting": {
-        "title": "Conseil et assurance qualité",
-        "icon": "i-heroicons-chat-bubble-left-right",
-        "items": [
+          },
           {
             "name": "Séance consultative (1 heure)",
             "price": "100",
@@ -461,7 +463,7 @@
         "price": {
           "amount": "99",
           "currency": "€",
-          "unit": "/mois",
+          "unit": "/month",
           "vatNote": "excl. TVA"
         }
       },
@@ -479,7 +481,7 @@
         "price": {
           "amount": "249",
           "currency": "€",
-          "unit": "/mois",
+          "unit": "/month",
           "vatNote": "excl. TVA"
         }
       },
@@ -497,7 +499,7 @@
         "price": {
           "amount": "499",
           "currency": "€",
-          "unit": "/mois",
+          "unit": "/month",
           "vatNote": "excl. TVA"
         }
       }

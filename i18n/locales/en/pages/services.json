@@ -8,6 +8,55 @@
     "title": "Digital Solutions That Grow With You",
     "subtitle": "Eye On Idea helps companies establish and grow a clear, professional digital presence. All projects are scoped individually, based on real needs - not templates."
   },
+  "overview": {
+    "title": "What We Do",
+    "subtitle": "Every service we offer is built around the same idea: that a business deserves a digital presence that actually works for it.",
+    "nav": {
+      "websites": "Website Packages",
+      "identity": "Visual Identity",
+      "additional": "Additional Services",
+      "support": "Ongoing Support",
+      "howWeWork": "How We Work"
+    },
+    "services": [
+      {
+        "id": "overview-websites",
+        "label": "Website Packages",
+        "heading": "A website built around your business",
+        "body": "Not a template adjusted to fit, but a website scoped to where your company is right now. Whether you need a solid first presence or a platform built to grow with you, we work out the right scope before anything gets built.",
+        "linkText": "Explore packages",
+        "linkHref": "/services/website-packages",
+        "icon": "i-heroicons-computer-desktop"
+      },
+      {
+        "id": "overview-identity",
+        "label": "Visual Identity",
+        "heading": "Look credible from day one",
+        "body": "Your logo, colours, and typography are often the first thing people judge you on. We design visual identities that hold up across your website, presentations, and print, so your brand looks intentional wherever it appears.",
+        "linkText": "See our approach",
+        "linkHref": "/services/visual-identity",
+        "icon": "i-heroicons-swatch"
+      },
+      {
+        "id": "overview-additional",
+        "label": "Additional Services",
+        "heading": "Everything around your website",
+        "body": "Domain registration, professional email, website copy, SEO reviews, and advisory sessions. These are the services that sit around your website and make the whole thing work properly, available individually or as part of a project.",
+        "linkText": "See all services",
+        "linkHref": "/services/additional-services",
+        "icon": "i-heroicons-puzzle-piece"
+      },
+      {
+        "id": "overview-support",
+        "label": "Ongoing Support",
+        "heading": "A website is not a one-time product",
+        "body": "After launch, things change. Content needs updating, questions come up, and the site should keep improving. Our support plans give you a direct line and a set amount of time each month, so you are never left figuring things out alone.",
+        "linkText": "View support plans",
+        "linkHref": "/services/additional-services#support-plans",
+        "icon": "i-heroicons-shield-check"
+      }
+    ]
+  },
   "packages": {
     "badge": "Website Packages",
     "title": "Choose Your Foundation",
@@ -229,71 +278,26 @@
   },
   "addons": {
     "badge": "Add-ons & Extras",
-    "title": "Extend Your Package",
-    "subtitle": "Optional services to enhance your website project",
-    "categories": {
-      "identity": {
-        "title": "Visual Identity",
-        "icon": "i-heroicons-paint-brush",
-        "items": [
-          {
-            "name": "Logo design (primary + variations)",
-            "price": "500",
-            "unit": "one-time"
-          },
-          {
-            "name": "Extended logo variations",
-            "price": "200",
-            "unit": "one-time"
-          },
-          {
-            "name": "Color palette & typography",
-            "price": "250",
-            "unit": "one-time"
-          },
-          {
-            "name": "Business card design",
-            "price": "150",
-            "unit": "one-time"
-          },
-          {
-            "name": "Letterhead templates",
-            "price": "150",
-            "unit": "one-time"
-          },
-          {
-            "name": "Presentation templates",
-            "price": "300",
-            "unit": "one-time"
-          },
-          {
-            "name": "Social media brand assets",
-            "price": "200",
-            "unit": "one-time"
-          },
-          {
-            "name": "Brand guidelines document",
-            "price": "400",
-            "unit": "one-time"
-          }
-        ]
-      },
+    "title": "Extend Your Project",
+    "subtitle": "Additional services you can add to any project, or order separately.",
+    "sections": {
       "content": {
+        "id": "content-section",
         "title": "Content & Language",
-        "icon": "i-heroicons-document-text",
+        "description": "Help with writing, editing, and preparing your website content in multiple languages.",
         "items": [
           {
-            "name": "Website copywriting (per page)",
+            "name": "Website copywriting",
             "price": "100",
             "unit": "per page"
           },
           {
-            "name": "Content editing & refinement",
+            "name": "Content editing and refinement",
             "price": "75",
             "unit": "per hour"
           },
           {
-            "name": "Multilingual foundations (2 languages default)",
+            "name": "Multilingual setup (2 languages)",
             "price": "350",
             "unit": "one-time"
           },
@@ -305,8 +309,10 @@
         ]
       },
       "domain": {
-        "title": "Domain & Email",
-        "icon": "i-heroicons-globe-alt",
+        "id": "domain-section",
+        "title": "Domain",
+        "description": "All packages include one domain with a 1-year licence. These add-ons cover extras, renewals, and transfers.",
+        "note": "Domain pricing varies by extension and registrar.",
         "items": [
           {
             "name": "Additional domain registration",
@@ -319,20 +325,33 @@
             "unit": "one-time"
           },
           {
-            "name": "Email Starter (15 GB)",
-            "price": "1",
-            "unit": "per account/month"
-          },
-          {
-            "name": "Email Pro (50 GB)",
-            "price": "4",
-            "unit": "per account/month"
+            "name": "Domain renewal (after year 1)",
+            "price": "15-50",
+            "unit": "per year"
           }
         ]
       },
-      "seo": {
-        "title": "SEO & Visibility",
-        "icon": "i-heroicons-magnifying-glass",
+      "email": {
+        "id": "email-section",
+        "title": "Email",
+        "description": "Professional email addresses on your own domain. Hosted on EU infrastructure.",
+        "items": [
+          {
+            "name": "Email Starter (15 GB per account)",
+            "price": "1",
+            "unit": "per account / month"
+          },
+          {
+            "name": "Email Pro (50 GB per account)",
+            "price": "4",
+            "unit": "per account / month"
+          }
+        ]
+      },
+      "seoConsulting": {
+        "id": "seo-consulting-section",
+        "title": "SEO and Consulting",
+        "description": "One-time reviews and advisory sessions to improve visibility, performance, and technical quality.",
         "items": [
           {
             "name": "SEO structure review",
@@ -340,7 +359,7 @@
             "unit": "one-time"
           },
           {
-            "name": "Metadata optimization",
+            "name": "Metadata optimisation",
             "price": "150",
             "unit": "one-time"
           },
@@ -348,24 +367,7 @@
             "name": "Internal linking strategy",
             "price": "150",
             "unit": "one-time"
-          }
-        ]
-      },
-      "hosting": {
-        "title": "Hosting & Infrastructure",
-        "icon": "i-heroicons-server",
-        "items": [
-          {
-            "name": "EU-based website hosting",
-            "price": "20",
-            "unit": "per month"
-          }
-        ]
-      },
-      "consulting": {
-        "title": "Consulting & QA",
-        "icon": "i-heroicons-chat-bubble-left-right",
-        "items": [
+          },
           {
             "name": "Advisory session (1 hour)",
             "price": "100",

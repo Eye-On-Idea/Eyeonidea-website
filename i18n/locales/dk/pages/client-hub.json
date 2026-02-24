@@ -48,7 +48,7 @@
         "title": "Start tidslinje",
         "beforeLaunch": "Før lanceringen gennemgår du alt sideindhold, kontaktoplysninger, billeder, juridiske sider, formularer, navigation og SEO-felter. Du bekræfter godkendelsen. Endelig betaling forfalder på lanceringsdagen.",
         "launchDay": "På lanceringsdagen går hjemmesiden live på dit domæne. SSL er aktiv, hosting overvåges, analysesporing er aktiv (hvis inkluderet), og alle leverancer afleveres.",
-        "afterLaunch": "Efter lanceringen går du ind i et 2-ugers supportvindue. This includes small text edits, image replacements, typo corrections, and contact info adjustments. It does not include new pages, layout changes, design adjustments, or new features. Større ændringer kræver en ny aftale eller supportplan."
+        "afterLaunch": "Efter lanceringen går du ind i et 2-ugers supportvindue. Dette omfatter små tekstredigeringer, billederstatninger, stavefejlrettelser og justeringer af kontaktoplysninger. Det inkluderer ikke nye sider, layoutændringer, designjusteringer eller nye funktioner. Større ændringer kræver en ny aftale eller supportplan."
       },
       "accessCredentials": {
         "title": "Adgang og legitimationsoplysninger",
@@ -67,7 +67,7 @@
       },
       "monitoring": {
         "title": "Overvågning & Vedligeholdelse",
-        "content": "Efter lanceringen udføres der ugentlige oppetidstjek, kritiske sikkerhedsproblemer vil blive løst, hvis de opdages, og kompatibilitetsopdateringer udføres kun, når det er nødvendigt. Ongoing optimization and extended support require a support plan."
+        "content": "Efter lanceringen udføres der ugentlige oppetidstjek, kritiske sikkerhedsproblemer vil blive løst, hvis de opdages, og kompatibilitetsopdateringer udføres kun, når det er nødvendigt. Løbende optimering og udvidet support kræver en supportplan."
       },
       "launchChecklist": {
         "title": "Start tjekliste",
@@ -431,7 +431,7 @@
         "publishStep2": "Bekræft, hvis du bliver bedt om det",
         "publishStep3": "Hjemmesiden opdateres automatisk - det kan tage kort tid, før ændringer vises",
         "checkTitle": "Tjek resultatet",
-        "checkText": "After publishing, open the page on your live website and verify:",
+        "checkText": "Efter udgivelsen skal du åbne siden på dit live-websted og bekræfte:",
         "check1": "Tekstflow og læsbarhed",
         "check2": "Retskrivning og grammatik",
         "check3": "Mobil visning",
@@ -524,7 +524,7 @@
         "altTextGood": "Godt eksempel: \"Kommercielt tagdækningsteam lægger fladt tag i Aarhus\"",
         "altTextBad": "Dårligt eksempel: \"image123.jpg\"",
         "publishTitle": "Udgiv og anmeld",
-        "publishText": "After publishing, open the page on your website and check desktop view, mobile view, and loading speed. Hvis det føles langsomt, kan billedet være for stort.",
+        "publishText": "Efter udgivelsen skal du åbne siden på dit websted og kontrollere skrivebordsvisning, mobilvisning og indlæsningshastighed. Hvis det føles langsomt, kan billedet være for stort.",
         "filesTitle": "Filupload (PDF'er og dokumenter)",
         "filesText": "Hvis dit studie tillader filupload, skal du følge disse retningslinjer:",
         "file1": "Hold PDF-filer under 5 MB, hvis det er muligt",

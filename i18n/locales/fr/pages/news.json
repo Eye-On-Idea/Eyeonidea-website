@@ -13,7 +13,7 @@
     "searchLabel": "Rechercher",
     "allTypes": "Tous types",
     "news": "Actualités",
-    "article": "Article",
+    "article": "Articles",
     "announcement": "Annonce",
     "caseStudy": "Étude de cas",
     "clear": "Effacer les filtres",
@@ -33,7 +33,7 @@
     "notFound": "Article introuvable",
     "notFoundText": "L'article que vous recherchez n'existe pas ou a été supprimé.",
     "backToNews": "Retour aux Actualités",
-    "defaultTitle": "Article",
+    "defaultTitle": "Articles",
     "share": "Partagez cet article",
     "shareLinkedIn": "Partager sur LinkedIn",
     "shareTwitter": "Partager sur X (Twitter)",
@@ -47,7 +47,7 @@
   },
   "categories": {
     "news": "Actualités",
-    "article": "Article",
+    "article": "Articles",
     "announcement": "Annonce",
     "caseStudy": "Étude de cas"
   }

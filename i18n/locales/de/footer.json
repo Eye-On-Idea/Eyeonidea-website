@@ -18,10 +18,17 @@
     "heading": "Navigation",
     "home": "Startseite",
     "services": "Leistungen",
+    "servicesSubheading": "Leistungen",
+    "websitePackages": "Website-Pakete",
+    "visualIdentity": "Visuelle Identität",
+    "additionalServices": "Zusätzliche Dienstleistungen",
+    "process": "Unser Prozess",
+    "cases": "Fälle",
     "about": "Über uns",
-    "news": "News",
+    "news": "Nachrichten",
     "contact": "Kontakt",
-    "legal": "Rechtliches",
-    "policies": "Richtlinien"
+    "legalHeading": "Rechtliches",
+    "legal": "Rechtlicher Hinweis",
+    "policies": "Datenschutzrichtlinie"
   }
 }

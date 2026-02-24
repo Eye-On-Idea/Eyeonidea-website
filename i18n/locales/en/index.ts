@@ -4,6 +4,7 @@ import footer from "./footer.json";
 import index from "./pages/index.json";
 import news from "./pages/news.json";
 import services from "./pages/services.json";
+import servicesSubpages from "./pages/services-subpages.json";
 import contact from "./pages/contact.json";
 import about from "./pages/about.json";
 import legal from "./pages/legal.json";
@@ -22,6 +23,7 @@ export default {
   landing: index,
   news,
   services,
+  servicesSubpages,
   contact,
   about,
   legal,

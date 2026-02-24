@@ -18,10 +18,17 @@
     "heading": "Navigation",
     "home": "Hjem",
     "services": "Ydelser",
+    "servicesSubheading": "Ydelser",
+    "websitePackages": "Hjemmesidepakker",
+    "visualIdentity": "Visuel identitet",
+    "additionalServices": "Yderligere tjenester",
+    "process": "Vores proces",
+    "cases": "Sager",
     "about": "Om os",
     "news": "Nyheder",
     "contact": "Kontakt",
-    "legal": "Juridisk",
-    "policies": "Politikker"
+    "legalHeading": "Juridisk",
+    "legal": "Juridisk meddelelse",
+    "policies": "Privatlivspolitik"
   }
 }

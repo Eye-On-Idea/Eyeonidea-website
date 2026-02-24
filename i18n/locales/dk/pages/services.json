@@ -8,6 +8,55 @@
     "title": "Digitale løsninger, der vokser med dig",
     "subtitle": "Eye On Idea hjælper virksomheder med at etablere og udvikle en klar, professionel digital tilstedeværelse. Alle projekter scopes individuelt, baseret på reelle behov - ikke skabeloner."
   },
+  "overview": {
+    "title": "Hvad vi gør",
+    "subtitle": "Hver service, vi tilbyder, er bygget op omkring den samme idé: at en virksomhed fortjener en digital tilstedeværelse, der faktisk fungerer for den.",
+    "nav": {
+      "websites": "Hjemmesidepakker",
+      "identity": "Visuel identitet",
+      "additional": "Yderligere tjenester",
+      "support": "Løbende support",
+      "howWeWork": "Hvordan vi arbejder"
+    },
+    "services": [
+      {
+        "id": "overview-websites",
+        "label": "Hjemmesidepakker",
+        "heading": "En hjemmeside bygget op omkring din virksomhed",
+        "body": "Ikke en skabelon, der er tilpasset til at passe, men en hjemmeside, der er tilpasset, hvor din virksomhed er lige nu. Uanset om du har brug for en solid første tilstedeværelse eller en platform bygget til at vokse med dig, finder vi det rigtige omfang, før noget bliver bygget.",
+        "linkText": "Udforsk pakker",
+        "linkHref": "/services/website-packages",
+        "icon": "i-heroicons-computer-desktop"
+      },
+      {
+        "id": "overview-identity",
+        "label": "Visuel identitet",
+        "heading": "Se troværdig ud fra dag ét",
+        "body": "Dit logo, farver og typografi er ofte det første, folk bedømmer dig på. Vi designer visuelle identiteter, der holder på tværs af din hjemmeside, præsentationer og print, så dit brand ser tilsigtet ud, uanset hvor det vises.",
+        "linkText": "Se vores tilgang",
+        "linkHref": "/services/visual-identity",
+        "icon": "i-heroicons-swatch"
+      },
+      {
+        "id": "overview-additional",
+        "label": "Yderligere tjenester",
+        "heading": "Alt omkring din hjemmeside",
+        "body": "Domæneregistrering, professionel e-mail, hjemmesidekopi, SEO-anmeldelser og rådgivningssessioner. Det er de tjenester, der sidder omkring din hjemmeside og får det hele til at fungere ordentligt, tilgængeligt individuelt eller som en del af et projekt.",
+        "linkText": "Se alle tjenester",
+        "linkHref": "/services/additional-services",
+        "icon": "i-heroicons-puzzle-piece"
+      },
+      {
+        "id": "overview-support",
+        "label": "Løbende support",
+        "heading": "En hjemmeside er ikke et engangsprodukt",
+        "body": "Efter lanceringen ændrer tingene sig. Indhold skal opdateres, spørgsmål dukker op, og webstedet bør blive ved med at blive bedre. Vores supportplaner giver dig en direkte linje og en fast mængde tid hver måned, så du aldrig står tilbage med at finde ud af tingene alene.",
+        "linkText": "Se supportplaner",
+        "linkHref": "/services/additional-services#support-plans",
+        "icon": "i-heroicons-shield-check"
+      }
+    ]
+  },
   "packages": {
     "badge": "Hjemmesidepakker",
     "title": "Vælg dit fundament",
@@ -233,61 +282,16 @@
   },
   "addons": {
     "badge": "Tilføjelser og ekstramateriale",
-    "title": "Forlæng din pakke",
-    "subtitle": "Valgfri tjenester til at forbedre dit webstedsprojekt",
-    "categories": {
-      "identity": {
-        "title": "Visuel identitet",
-        "icon": "i-heroicons-paint-brush",
-        "items": [
-          {
-            "name": "Logodesign (primært + variationer)",
-            "price": "500",
-            "unit": "én gang"
-          },
-          {
-            "name": "Udvidede logovarianter",
-            "price": "200",
-            "unit": "én gang"
-          },
-          {
-            "name": "Farvepalet & typografi",
-            "price": "250",
-            "unit": "én gang"
-          },
-          {
-            "name": "Visitkort design",
-            "price": "150",
-            "unit": "én gang"
-          },
-          {
-            "name": "Skabeloner til brevpapir",
-            "price": "150",
-            "unit": "én gang"
-          },
-          {
-            "name": "Præsentations skabeloner",
-            "price": "300",
-            "unit": "én gang"
-          },
-          {
-            "name": "Sociale mediers brandaktiver",
-            "price": "200",
-            "unit": "én gang"
-          },
-          {
-            "name": "Brand retningslinjer dokument",
-            "price": "400",
-            "unit": "én gang"
-          }
-        ]
-      },
+    "title": "Udvid dit projekt",
+    "subtitle": "Yderligere tjenester, du kan tilføje til ethvert projekt, eller bestille separat.",
+    "sections": {
       "content": {
+        "id": "content-section",
         "title": "Indhold & Sprog",
-        "icon": "i-heroicons-document-text",
+        "description": "Hjælp med at skrive, redigere og forberede dit webstedsindhold på flere sprog.",
         "items": [
           {
-            "name": "Website copywriting (pr. side)",
+            "name": "Tekstforfatning på hjemmesiden",
             "price": "100",
             "unit": "per side"
           },
@@ -297,7 +301,7 @@
             "unit": "i timen"
           },
           {
-            "name": "Flersprogede fundamenter (standard på 2 sprog)",
+            "name": "Flersproget opsætning (2 sprog)",
             "price": "350",
             "unit": "én gang"
           },
@@ -309,8 +313,10 @@
         ]
       },
       "domain": {
-        "title": "Domæne og e-mail",
-        "icon": "i-heroicons-globe-alt",
+        "id": "domain-section",
+        "title": "Domæne",
+        "description": "Alle pakker inkluderer et domæne med en 1-årig licens. Disse tilføjelser dækker ekstramateriale, fornyelser og overførsler.",
+        "note": "Domænepriserne varierer efter udvidelse og registrator.",
         "items": [
           {
             "name": "Yderligere domæneregistrering",
@@ -323,20 +329,33 @@
             "unit": "én gang"
           },
           {
-            "name": "E-mail starter (15 GB)",
+            "name": "Domænefornyelse (efter år 1)",
+            "price": "15-50",
+            "unit": "om året"
+          }
+        ]
+      },
+      "email": {
+        "id": "email-section",
+        "title": "E-mail",
+        "description": "Professionelle e-mailadresser på dit eget domæne. Hostet på EU-infrastruktur.",
+        "items": [
+          {
+            "name": "E-mail starter (15 GB pr. konto)",
             "price": "1",
             "unit": "pr konto/måned"
           },
           {
-            "name": "Email Pro (50 GB)",
+            "name": "Email Pro (50 GB pr. konto)",
             "price": "4",
             "unit": "pr konto/måned"
           }
         ]
       },
-      "seo": {
-        "title": "SEO og synlighed",
-        "icon": "i-heroicons-magnifying-glass",
+      "seoConsulting": {
+        "id": "seo-consulting-section",
+        "title": "SEO og rådgivning",
+        "description": "Engangsgennemgange og rådgivningssessioner for at forbedre synlighed, ydeevne og teknisk kvalitet.",
         "items": [
           {
             "name": "SEO struktur gennemgang",
@@ -352,24 +371,7 @@
             "name": "Intern koblingsstrategi",
             "price": "150",
             "unit": "én gang"
-          }
-        ]
-      },
-      "hosting": {
-        "title": "Hosting & Infrastruktur",
-        "icon": "i-heroicons-server",
-        "items": [
-          {
-            "name": "EU-baseret webstedshosting",
-            "price": "20",
-            "unit": "om måneden"
-          }
-        ]
-      },
-      "consulting": {
-        "title": "Rådgivning & QA",
-        "icon": "i-heroicons-chat-bubble-left-right",
-        "items": [
+          },
           {
             "name": "Rådgivningsmøde (1 time)",
             "price": "100",
@@ -461,7 +463,7 @@
         "price": {
           "amount": "99",
           "currency": "€",
-          "unit": "/måned",
+          "unit": "/month",
           "vatNote": "ekskl. moms"
         }
       },
@@ -479,7 +481,7 @@
         "price": {
           "amount": "249",
           "currency": "€",
-          "unit": "/måned",
+          "unit": "/month",
           "vatNote": "ekskl. moms"
         }
       },
@@ -497,7 +499,7 @@
         "price": {
           "amount": "499",
           "currency": "€",
-          "unit": "/måned",
+          "unit": "/month",
           "vatNote": "ekskl. moms"
         }
       }

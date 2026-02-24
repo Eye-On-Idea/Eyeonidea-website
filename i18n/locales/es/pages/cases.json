@@ -1,0 +1,61 @@
+{
+  "metaTitle": "Nuestro Trabajo | Eye On Idea",
+  "metaDescription": "Explore cómo Eye On Idea diseña y crea sitios web para pequeñas y medianas empresas, desde la estrategia y la identidad visual hasta el lanzamiento y el soporte continuo.",
+  "hero": {
+    "title": "Nuestro Trabajo",
+    "subtitle": "Estrategia, diseño y desarrollo: entregado.",
+    "description": "Una mirada a los proyectos que hemos diseñado y construido para nuestros clientes y nuestras propias marcas, desde el concepto hasta la producción."
+  },
+  "categories": {
+    "myCompanies": "Nuestras Marcas",
+    "clientWork": "Trabajo del cliente",
+    "sideProjects": "Proyectos paralelos"
+  },
+  "filter": {
+    "all": "Todos los proyectos",
+    "webDev": "Desarrollo web",
+    "uxui": "Diseño UX/UI",
+    "branding": "Marca",
+    "seo": "SEO"
+  },
+  "cta": {
+    "viewCase": "Ver estudio de caso",
+    "visitSite": "Visitar sitio web",
+    "readMore": "Leer más"
+  },
+  "badges": {
+    "eyeOnIdea": "Eye On Idea",
+    "herqulez": "Proyecto Socio",
+    "schoolProject": "Proyecto Escolar",
+    "featured": "Destacado"
+  },
+  "stats": {
+    "role": "Nuestro papel",
+    "duration": "Duración",
+    "year": "Año",
+    "technologies": "Tecnologías"
+  },
+  "sections": {
+    "overview": "Descripción general",
+    "challenge": "El desafío",
+    "solution": "Nuestra solución",
+    "outcome": "El resultado",
+    "process": "Nuestro proceso",
+    "keyMetrics": "Métricas clave",
+    "challenges": "Desafíos y Soluciones",
+    "results": "Resultados",
+    "learnings": "Aprendizajes clave",
+    "nextSteps": "Próximos pasos",
+    "gallery": "Galería"
+  },
+  "navigation": {
+    "backToCases": "Volver a nuestro trabajo",
+    "nextCase": "Próximo estudio de caso",
+    "previousCase": "Estudio de caso anterior"
+  },
+  "contact": {
+    "title": "¿Listo para comenzar tu proyecto?",
+    "description": "Trabajamos con pequeñas y medianas empresas para crear sitios web que se vean geniales y funcionen aún mejor. Hablemos de lo que podemos hacer por usted.",
+    "button": "Ponte en contacto"
+  }
+}

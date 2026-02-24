@@ -25,7 +25,7 @@
         ],
         "cta": {
           "label": "Ponte en contacto",
-          "to": "/contacto"
+          "to": "/contact"
         }
       },
       "discovery": {
@@ -53,7 +53,7 @@
         "note": "La propuesta establece claramente qué datos personales se procesarán, con qué finalidad y bajo qué base jurídica, de conformidad con el RGPD. Tus datos nunca se comparten con terceros más allá de lo que requiere el proyecto.",
         "cta": {
           "label": "Ver nuestros paquetes",
-          "to": "/servicios#sección-paquetes"
+          "to": "/services#packages-section"
         }
       },
       "kickoff": {
@@ -78,7 +78,7 @@
         "note": "El acceso temprano al servidor de desarrollo es un complemento opcional. Requiere implementación y mantenimiento más frecuentes, por lo que se ofrece como un servicio independiente.",
         "cta": {
           "label": "Ver complementos y extras",
-          "to": "/servicios#sección-complementos"
+          "to": "/services#addons-section"
         }
       },
       "preview": {
@@ -127,7 +127,7 @@
         ],
         "cta": {
           "label": "Ver planes de soporte",
-          "to": "/servicios#planes-de-soporte"
+          "to": "/services#support-plans"
         }
       }
     }

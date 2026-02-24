@@ -16,12 +16,19 @@
   },
   "siteNav": {
     "heading": "Navigazione",
-    "home": "Home",
+    "home": "Casa",
     "services": "Servizi",
+    "servicesSubheading": "Servizi",
+    "websitePackages": "Pacchetti sito web",
+    "visualIdentity": "Identità visiva",
+    "additionalServices": "Servizi aggiuntivi",
+    "process": "Il nostro processo",
+    "cases": "Casi",
     "about": "Chi siamo",
     "news": "Notizie",
     "contact": "Contatti",
-    "legal": "Legale",
-    "policies": "Politiche"
+    "legalHeading": "Legale",
+    "legal": "Avviso legale",
+    "policies": "Informativa sulla privacy"
   }
 }

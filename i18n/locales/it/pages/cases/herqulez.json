@@ -1,0 +1,123 @@
+{
+  "slug": "herqulez",
+  "category": "myCompanies",
+  "title": "Herqulez",
+  "subtitle": "Piattaforma modulare per l'ecosistema del fitness",
+  "company": "Herqulez",
+  "projectType": "Sito web di marketing per startup di tecnologia sanitaria",
+  "year": "2025",
+  "role": "Web design, sviluppo, SEO, hosting",
+  "duration": "Novembre 2025 - In corso",
+  "url": "https://herqulez.com",
+  "thumbnail": "/images/cases/herqulez/squared-dark-yellow.png",
+  "hero": "/images/cases/herqulez/herq-landing.png",
+  "tags": [
+    "Sviluppo Web",
+    "Progettazione dell'esperienza utente/interfaccia utente",
+    "Tecnologia sanitaria",
+    "Nuxt.js",
+    "SEO"
+  ],
+  "technologies": [
+    "Successivo 4",
+    "Vue.js",
+    "CSS vento in coda",
+    "Gestione tag di Google"
+  ],
+  "overview": {
+    "challenge": "Herqulez è una piattaforma di fitness modulare che copre sei aree: Core Fitness, Nutrizione, Sonno/Recupero, Abitudini, Sport e Viaggi, ciascuna con la propria identità di prodotto. Il sito web di marketing doveva comunicare chiaramente un ecosistema complesso e multimodulo senza sovraccaricare i visitatori, creando al tempo stesso fiducia prima del lancio dell'app.",
+    "solution": "Abbiamo progettato e realizzato un sito Web di marketing ad alte prestazioni con Nuxt 4 che introduce l'ecosistema Herqulez in modo chiaro e visivamente accattivante. L'architettura dà priorità alle prestazioni e alla SEO, con supporto multilingue (inglese e danese live, con altre pianificate) e una configurazione di analisi conforme al GDPR tramite la modalità di consenso GTM.",
+    "outcome": "Il sito di marketing ha ottenuto punteggi Lighthouse pari a 99 (prestazioni), 93 (accessibilità), 96 (migliori pratiche) e 100 (SEO). Posiziona Herqulez per il lancio MVP previsto all'inizio del 2026, con una base scalabile pronta per lingue e contenuti aggiuntivi."
+  },
+  "keyMetrics": [
+    {
+      "label": "Lighthouse Prestazioni",
+      "value": "99",
+      "description": "Punteggio di prestazione quasi perfetto"
+    },
+    {
+      "label": "LighthouseSEO",
+      "value": "100",
+      "description": "Punteggio SEO perfetto"
+    },
+    {
+      "label": "Lingue",
+      "value": "2 dal vivo",
+      "description": "Inglese e danese, con previsti tedesco, spagnolo, francese e svedese"
+    }
+  ],
+  "process": [
+    {
+      "phase": "Scoperta e pianificazione",
+      "description": "Abbiamo lavorato a stretto contatto con i fondatori di Herqulez per comprendere la roadmap del prodotto, il pubblico di destinazione e la strategia di go-to-market. Le priorità chiave erano una comunicazione chiara del concetto modulare, la credibilità del marchio prima del lancio e un'architettura multilingue scalabile.",
+      "deliverables": [
+        "Ambito e obiettivi del progetto",
+        "Mappa del sito e struttura dei contenuti",
+        "Decisioni tecnologiche",
+        "Piano multilingue"
+      ]
+    },
+    {
+      "phase": "Progettazione",
+      "description": "Abbiamo progettato un'identità visiva ad alto contrasto ed energetica per il sito Web che si allinea con il sistema di progettazione dell'app Herqulez. Il layout guida i visitatori dalla presentazione del marchio attraverso panoramiche dei moduli fino a un chiaro invito all'azione, mantenendo accessibile il complesso ecosistema.",
+      "deliverables": [
+        "Layout di pagina e design visivo",
+        "Sistema di progettazione dei componenti",
+        "Punti di interruzione reattivi",
+        "Revisione dell'accessibilità"
+      ]
+    },
+    {
+      "phase": "Sviluppo e SEO",
+      "description": "We built the site with Nuxt 4 and configured it for static site generation, delivering fast load times without ongoing server costs. Sono stati implementati markup completo di Schema.org, tag canonici e meta contenuti a livello di pagina. GTM con modalità di consenso garantisce analisi conformi fin dal lancio.",
+      "deliverables": [
+        "Applicazione Next 4",
+        "Generazione di siti statici",
+        "Implementazione di Schema.org",
+        "GTM/GA4 con modalità di consenso",
+        "Multilingue (EN/DA)"
+      ]
+    }
+  ],
+  "challenges": [
+    {
+      "title": "Comunicare la complessità dell’ecosistema",
+      "problem": "Presentare sei moduli fitness interconnessi senza sovraccaricare i visitatori che potrebbero essere interessati solo a un'area.",
+      "solution": "Abbiamo strutturato il sito per guidare con la proposta di valore generale, quindi abbiamo introdotto progressivamente ciascun modulo. La chiara separazione visiva e il testo mirato mantengono l'esperienza navigabile."
+    },
+    {
+      "title": "Credibilità pre-lancio",
+      "problem": "L'app non è ancora stata lanciata, quindi il sito web deve creare fiducia e catturare l'interesse iniziale senza un prodotto live da mostrare.",
+      "solution": "Ci siamo concentrati su messaggi chiari, immagini forti del marchio, prestazioni verificate da Lighthouse e una storia di prodotto credibile fondata sul lavoro di convalida già svolto dai fondatori."
+    }
+  ],
+  "results": {
+    "summary": "Il sito Web di marketing di Herqulez è stato lanciato con punteggi tecnici quasi perfetti e una presenza del marchio chiara e sicura. È posizionata per supportare il lancio dell'app all'inizio del 2026 ed è progettata per adattarsi a lingue e sezioni di contenuti aggiuntive man mano che il prodotto cresce.",
+    "highlights": [
+      "Lighthouse: 99 Prestazioni, 93 Accessibilità, 96 Best Practice, 100 SEO",
+      "Inglese e danese saranno attivi al momento del lancio",
+      "Build statico di Nuxt 4 con distribuzione CDN per costi di hosting minimi",
+      "Analisi conformi al GDPR tramite la modalità di consenso GTM",
+      "Markup di Schema.org per risultati di ricerca avanzati",
+      "Pronto per l'espansione tedesca, spagnola, francese e svedese"
+    ]
+  },
+  "gallery": [
+    "/images/cases/herqulez/herq-landing.png",
+    "/images/cases/herqulez/herq-fullsystem.png",
+    "/images/cases/herqulez/herq-fitness.png",
+    "/images/cases/herqulez/lighthouse-herqulez.png"
+  ],
+  "learnings": [
+    "Un sito di marketing ben strutturato può stabilire credibilità per un prodotto non ancora lanciato, se la storia del marchio è chiara",
+    "È meglio pianificare l'architettura multilingue fin dall'inizio: aggiornarla successivamente richiede molto più lavoro",
+    "La generazione di siti statici offre prestazioni eccellenti con costi infrastrutturali minimi per i siti di marketing",
+    "La configurazione dell'analisi in modalità di consenso fin dal primo giorno implica una raccolta dati conforme non appena arrivano i visitatori"
+  ],
+  "nextSteps": [
+    "Aggiorna il sito con gli screenshot dell'app man mano che l'MVP si avvicina al lancio",
+    "Espandi il supporto linguistico a tedesco, spagnolo, francese e svedese",
+    "Aggiungi un blog o una sezione di approfondimento per supportare la crescita SEO",
+    "Integra una lista d'attesa o una registrazione con accesso anticipato una volta che il prodotto è pronto"
+  ]
+}

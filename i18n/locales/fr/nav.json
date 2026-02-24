@@ -1,11 +1,15 @@
 {
   "home": "Accueil",
-  "services": "Services",
+  "services": "Prestations",
+  "cases": "Cas",
   "about": "À propos",
-  "contact": "Contact",
+  "contact": "Contacter",
   "news": "Actualités",
   "legal": "Mentions légales",
   "policies": "Politiques",
   "process": "Notre processus",
+  "websitepackages": "Forfaits Site Web",
+  "visualidentity": "Identité visuelle",
+  "additionalservices": "Services supplémentaires",
   "clientHub": "Espace client"
 }

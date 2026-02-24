@@ -41,5 +41,6 @@
     "light": "Heller Modus",
     "dark": "Dunkler Modus",
     "system": "Systemeinstellung"
-  }
+  },
+  "imagePlaceholder": "Bild kommt bald"
 }

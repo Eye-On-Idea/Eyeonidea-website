@@ -1,0 +1,345 @@
+{
+  "websitePackages": {
+    "meta": {
+      "title": "Website Packages - Eye On Idea",
+      "description": "Three website packages built around where your business is right now. Clear pricing, honest scope, and no unnecessary extras. Compare Launch, Growth, and Platform."
+    },
+    "hero": {
+      "badge": "Website Packages",
+      "title": "A Website That Fits Your Business",
+      "subtitle": "From a first website to a full content platform, each package is scoped to real needs. Three clear options, honest pricing, and no unnecessary extras."
+    },
+    "breadcrumb": {
+      "services": "Services",
+      "current": "Website Packages"
+    },
+    "nav": {
+      "packages": "Packages",
+      "comparison": "Compare",
+      "cms": "Content Management",
+      "hosting": "Hosting and Domain",
+      "results": "Results"
+    },
+    "hosting": {
+      "id": "hosting-section",
+      "badge": "Hosting and Domain",
+      "title": "Everything You Need to Go Live",
+      "subtitle": "Hosting and domain are handled for you. No separate providers, no configuration headaches.",
+      "hostingCard": {
+        "badge": "EU Hosting",
+        "title": "Reliable EU-Based Hosting",
+        "description": "Reliable EU-based hosting. Pricing from €20 per month.",
+        "bullets": [
+          "EU-based infrastructure",
+          "Monitoring and basic maintenance",
+          "Backups available depending on setup"
+        ],
+        "price": "20",
+        "currency": "€",
+        "unit": "per month",
+        "vatNote": "excl. VAT"
+      },
+      "domainCard": {
+        "title": "Domain Included",
+        "description": "One custom domain with a 1-year licence is included in all packages. Renewals, additional domains, and DNS changes are available as add-ons.",
+        "includedNote": "1 domain included in all packages",
+        "linkText": "See domain add-ons",
+        "linkHref": "/services/additional-services"
+      }
+    },
+    "cta": {
+      "badge": "Ready to Start?",
+      "title": "Let's Find the Right Package",
+      "description": "Every project starts with a conversation about what your business actually needs. Get in touch and we will scope it together.",
+      "primaryText": "Get in Touch",
+      "secondaryText": "Explore Add-ons"
+    }
+  },
+  "visualIdentity": {
+    "meta": {
+      "title": "Visual Identity - Eye On Idea",
+      "description": "Logo, colour, typography, and brand guidelines for companies that want to look credible and consistent. Visual identity design from Eye On Idea in Aalborg."
+    },
+    "hero": {
+      "badge": "Visual Identity",
+      "title": "Look the Part From Day One",
+      "subtitle": "Your visual identity is often the first thing people judge you on. We help you get it right, from logo to brand guidelines, so your business looks credible and consistent across your website, print, and presentations."
+    },
+    "breadcrumb": {
+      "services": "Services",
+      "current": "Visual Identity"
+    },
+    "nav": {
+      "overview": "Overview",
+      "deliverables": "What You Get",
+      "process": "How It Works",
+      "pricing": "Pricing",
+      "pricingId": "identity-pricing-section"
+    },
+    "deliverables": {
+      "badge": "What You Get",
+      "title": "A Complete Visual Foundation",
+      "subtitle": "Everything you need to present your business consistently, across digital and print.",
+      "items": [
+        {
+          "title": "Logo and Variations",
+          "description": "A primary logo with the variations needed for different contexts: light and dark backgrounds, horizontal and stacked layouts, and icon-only use.",
+          "placeholderDescription": "Logo primary and variation examples"
+        },
+        {
+          "title": "Colour Palette",
+          "description": "A defined set of brand colours with usage guidance. You will know exactly which colour to use and where, so your brand stays consistent across every touchpoint.",
+          "placeholderDescription": "Colour palette with usage examples"
+        },
+        {
+          "title": "Typography",
+          "description": "A clear typographic system covering headings, body text, and supporting copy. Selected for readability and personality, with guidance on how to apply it.",
+          "placeholderDescription": "Typography specimen showing heading and body styles"
+        },
+        {
+          "title": "Brand Guidelines",
+          "description": "A concise reference document that brings it all together. Covers logo use, colours, typography, and spacing so anyone working on your brand can do it correctly.",
+          "placeholderDescription": "Brand guidelines document spread"
+        }
+      ]
+    },
+    "process": {
+      "badge": "How It Works",
+      "title": "A Simple, Clear Process",
+      "subtitle": "Three stages, no surprises.",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Brief",
+          "description": "We start with a conversation about your business, your audience, and what you want your brand to communicate. No forms, just a discussion."
+        },
+        {
+          "number": "02",
+          "title": "Design",
+          "description": "We develop concepts based on the brief and present them for feedback. You review, we refine, until the result is right."
+        },
+        {
+          "number": "03",
+          "title": "Handover",
+          "description": "You receive all final files in the formats you need, plus the brand guidelines to use them confidently going forward."
+        }
+      ]
+    },
+    "pricing": {
+      "badge": "Pricing",
+      "title": "What It Costs",
+      "subtitle": "Pricing depends on the scope of your project. Below are the most common starting points.",
+      "currency": "€",
+      "vatNote": "All prices excl. VAT",
+      "highlights": [
+        {
+          "name": "Logo design (primary and variations)",
+          "price": "500",
+          "unit": "one-time"
+        },
+        {
+          "name": "Colour palette and typography",
+          "price": "250",
+          "unit": "one-time"
+        },
+        {
+          "name": "Brand guidelines document",
+          "price": "400",
+          "unit": "one-time"
+        },
+        {
+          "name": "Social media brand assets",
+          "price": "200",
+          "unit": "one-time"
+        },
+        {
+          "name": "Presentation templates",
+          "price": "300",
+          "unit": "one-time"
+        }
+      ],
+      "fullListNote": "Looking for the full breakdown of individual deliverables and extras?",
+      "fullListLinkText": "See all visual identity pricing",
+      "fullListHref": "/services/additional-services"
+    },
+    "cta": {
+      "badge": "Ready to Build Your Brand?",
+      "title": "Let's Talk About Your Identity",
+      "description": "Whether you are starting from scratch or refreshing an existing brand, get in touch and we will figure out the right scope together.",
+      "primaryText": "Discuss Your Brand",
+      "secondaryText": "See Website Packages"
+    }
+  },
+  "additionalServices": {
+    "meta": {
+      "title": "Additional Services - Eye On Idea",
+      "description": "Domain, email, copywriting, SEO, and ongoing support plans. Everything around your website, handled in one place by Eye On Idea in Aalborg."
+    },
+    "hero": {
+      "badge": "Additional Services",
+      "title": "Everything Around Your Website",
+      "subtitle": "Your website is the centre of your digital presence. These services help you build around it.",
+      "intro": [
+        "Some things belong on every project: a domain, a professional email address, content that actually converts. Others only become relevant once you are live: an SEO review, a second opinion on your information architecture, or a consulting session when something is not working.",
+        "This page covers what we offer outside the core website packages. Each service can be added to a project or ordered on its own."
+      ]
+    },
+    "breadcrumb": {
+      "services": "Services",
+      "current": "Additional Services"
+    },
+    "nav": {
+      "addons": "Add-ons",
+      "content": "Content",
+      "domain": "Domain",
+      "email": "Email",
+      "seoConsulting": "SEO and Consulting",
+      "support": "Support Plans"
+    },
+    "sections": {
+      "content": {
+        "badge": "Content & Language",
+        "title": "Content & Language",
+        "intro": [
+          "Good content is not just about filling pages. It is about being clear, direct, and easy to scan - on every device, in every language you need to reach.",
+          "We write, edit, and prepare website copy that fits the design and communicates what your business actually does. We also help when a site needs to work in more than one language."
+        ],
+        "items": [
+          {
+            "name": "Website copywriting",
+            "price": "100",
+            "unit": "per page",
+            "description": "Page-by-page copy written to fit your structure and tone. Includes one revision round."
+          },
+          {
+            "name": "Content editing and refinement",
+            "price": "75",
+            "unit": "per hour",
+            "description": "You have draft text that needs tightening, restructuring, or adapting for the web. We work through it with you."
+          },
+          {
+            "name": "Multilingual setup (2 languages)",
+            "price": "350",
+            "unit": "one-time",
+            "description": "Technical setup for a bilingual website: routing, locale switching, and CMS configuration for two languages."
+          },
+          {
+            "name": "Additional language version",
+            "price": "125",
+            "unit": "per language",
+            "description": "Extend an existing multilingual setup to cover an additional language."
+          }
+        ]
+      },
+      "domain": {
+        "badge": "Domain",
+        "title": "Domain",
+        "intro": [
+          "Every package includes one custom domain with a 1-year licence. What you see below covers everything else: additional domains, renewals after year one, and transfers if you are moving a domain from another provider.",
+          "Domain pricing varies by extension (.com, .dk, .io, and so on) and by registrar. We always tell you the cost before anything is registered."
+        ],
+        "items": [
+          {
+            "name": "Additional domain registration",
+            "price": "15-50",
+            "unit": "per year",
+            "description": "Register an extra domain - useful for brand protection, regional variants, or redirects."
+          },
+          {
+            "name": "Domain transfer assistance",
+            "price": "50",
+            "unit": "one-time",
+            "description": "We handle the transfer process if you are moving an existing domain from another registrar."
+          },
+          {
+            "name": "Domain renewal (after year 1)",
+            "price": "15-50",
+            "unit": "per year",
+            "description": "Annual renewal for any domain registered through us. Handled on your behalf, with advance notice before renewal."
+          }
+        ]
+      },
+      "email": {
+        "badge": "Email",
+        "title": "Email",
+        "intro": [
+          "A professional email address on your own domain is one of the simplest ways to look credible. We set up and manage business email on EU-based infrastructure.",
+          "Both plans use your domain (you{'@'}yourcompany.com) and include standard features: webmail access, spam filtering, and basic calendar functionality."
+        ],
+        "items": [
+          {
+            "name": "Email Starter (15 GB per account)",
+            "price": "1",
+            "unit": "per account / month",
+            "description": "A clean, professional email address on your domain. Suitable for most small teams."
+          },
+          {
+            "name": "Email Pro (50 GB per account)",
+            "price": "4",
+            "unit": "per account / month",
+            "description": "More storage and additional features for teams that use email heavily."
+          }
+        ]
+      },
+      "seoConsulting": {
+        "badge": "SEO and Consulting",
+        "title": "SEO and Consulting",
+        "intro": [
+          "These are one-off services, not retainers. Each one addresses a specific question: is the site structured correctly for search, is the metadata doing its job, is there something technically wrong that is holding back visibility?",
+          "The advisory session is open-ended. Bring a question, a problem, or something you are unsure about. We work through it together."
+        ],
+        "items": [
+          {
+            "name": "SEO structure review",
+            "price": "200",
+            "unit": "one-time",
+            "description": "A review of how your site is organised for search: heading hierarchy, URL structure, internal linking, and crawlability."
+          },
+          {
+            "name": "Metadata optimisation",
+            "price": "150",
+            "unit": "one-time",
+            "description": "We review and rewrite your page titles and meta descriptions to improve click-through rate in search results."
+          },
+          {
+            "name": "Internal linking strategy",
+            "price": "150",
+            "unit": "one-time",
+            "description": "A plan for how pages on your site should link to each other to pass authority and help visitors find what they need."
+          },
+          {
+            "name": "Advisory session (1 hour)",
+            "price": "100",
+            "unit": "per session",
+            "description": "A focused conversation about whatever is on your mind: strategy, direction, a decision you are weighing, or a problem you cannot solve."
+          },
+          {
+            "name": "Technical audit",
+            "price": "300",
+            "unit": "one-time",
+            "description": "A structured review of performance, accessibility, and technical SEO. Delivered as a prioritised list of issues and recommendations."
+          },
+          {
+            "name": "Pre-launch QA review",
+            "price": "200",
+            "unit": "one-time",
+            "description": "A pre-launch check across browsers, devices, and key user journeys. We look for broken links, layout issues, and anything that should be fixed before go-live."
+          },
+          {
+            "name": "Second-opinion review",
+            "price": "150",
+            "unit": "one-time",
+            "description": "Not sure about a design decision, a CMS structure, or a technical approach? We review what you have and give you a direct, honest assessment."
+          }
+        ]
+      }
+    },
+    "cta": {
+      "badge": "Not Sure What You Need?",
+      "title": "Let's Work It Out Together",
+      "description": "Every business has different needs. Get in touch and we will put together the right combination of services for your project.",
+      "primaryText": "Get in Touch",
+      "secondaryText": "See Website Packages"
+    }
+  }
+}

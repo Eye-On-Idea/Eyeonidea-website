@@ -199,6 +199,7 @@ onMounted(() => {
   display: inline-block;
   padding: 0.375rem 1rem;
   background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   color: var(--color-accent-300);
   font-size: var(--text-xs);
@@ -315,6 +316,7 @@ onMounted(() => {
 .addons-card {
   padding: 2rem;
   background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-xl);
@@ -394,6 +396,7 @@ onMounted(() => {
   color: rgba(255, 255, 255, 0.7);
   border-color: rgba(255, 255, 255, 0.15);
   background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 
   &:hover:not(:disabled) {
@@ -414,8 +417,33 @@ onMounted(() => {
     transition: none;
   }
 
+  .cta-button,
+  .cta-icon {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
   .carousel :deep(.carousel-dot) {
     transition: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .section-badge,
+  .addons-card {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .carousel :deep([data-slot="prev"]),
+  .carousel :deep([data-slot="next"]) {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(0, 0, 0, 0.5);
   }
 }
 </style>

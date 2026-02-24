@@ -1,0 +1,181 @@
+{
+  "slug": "tegetec",
+  "category": "klientarbejde",
+  "title": "Tegetec",
+  "subtitle": "Udbyder af industrielt fødevareforarbejdningsudstyr",
+  "company": "Tegetec",
+  "projectType": "Komplet redesign og udvikling af hjemmesiden",
+  "year": "2025",
+  "role": "Revision, IA, Design, Udvikling, SEO",
+  "duration": "Ca. 2 working days build, 1 month elapsed",
+  "url": "https://tegetec.com",
+  "thumbnail": "/images/cases/tegetec/tegetec.svg",
+  "hero": "/images/cases/tegetec/tegetec-landing.png",
+  "tags": [
+    "Web redesign",
+    "SEO",
+    "B2B",
+    "Statisk websted",
+    "Industriel"
+  ],
+  "technologies": [
+    "Nuxt 4",
+    "@nuxt/ui",
+    "Tailwind CSS v4",
+    "@nuxt/image (IPX)",
+    "Schema.org",
+    "GTM/GA4"
+  ],
+  "overview": {
+    "challenge": "Tegetecs eksisterende hjemmeside havde forældede billeder, tynd SEO-dækning, begrænset tilgængelighed og tæt teknisk indhold uden klar informationsarkitektur. Indholdet var struktureret omkring interne kategorier snarere end hvordan købere faktisk vurderer og sammenligner industrielt udstyr.",
+    "solution": "Vi gennemførte en komplet UX- og SEO-audit, genopbyggede informationsarkitekturen omkring tre køberfokuserede sektioner og leverede et statisk Nuxt 4-websted med omfattende Schema.org-opmærkning, GDPR-kompatibel analyse og en omhyggeligt koordineret DNS-cutover for at beskytte mailkontinuitet gennem hele domæneoverførslen.",
+    "outcome": "Tegetec lancerede en moderne, kompatibel B2B-platform med en opdateret visuel identitet, intuitiv navigation til teknisk indhold og et stærkt SEO-grundlag. Den statiske udrulning holder de løbende infrastrukturomkostninger minimale, og GTM/GA4 er klar til datadrevne beslutninger, efterhånden som trafikken vokser."
+  },
+  "keyMetrics": [
+    {
+      "label": "Sider leveret",
+      "value": "8+",
+      "description": "Fuldt websted på tværs af udstyr, samarbejdspartnere, om, nyheder, downloads og politik"
+    },
+    {
+      "label": "Byg tid",
+      "value": "2 dage",
+      "description": "Ca. Der gik 1 måned med domæne- og mailoverførsel"
+    },
+    {
+      "label": "Regionskontorer",
+      "value": "3",
+      "description": "Danmark, Spanien og Finland"
+    }
+  ],
+  "process": [
+    {
+      "phase": "Revision og strategi",
+      "description": "Vi startede med en grundig gennemgang af det eksisterende websted, hvor vi identificerede svagheder i UX, visuelt design, SEO og tilgængelighed. Vi benchmarkede i forhold til OEM-partnermaterialer og afstemte efter klare mål: modernisere designsproget, omstrukturere navigationen for tekniske målgrupper, lukke SEO huller og lægge en supportplan på plads for post-lancering. Denne fase formede enhver beslutning, der fulgte.",
+      "deliverables": [
+        "UX-revisionsresultater",
+        "SEO gap analyse",
+        "Krav til tillidssignal",
+        "IA moderniseringsplan",
+        "OEM materiale gennemgang"
+      ]
+    },
+    {
+      "phase": "Informationsarkitektur",
+      "description": "Vi genopbyggede webstedets struktur omkring, hvordan købere faktisk udforsker industrielt udstyr. Tre primære sektioner dukkede op: Udstyr og løsninger (systemkort, procesflowdiagrammer, chubmaker-specifikationer), Samarbejdspartnere (OEM-partnerprofiler) og Om/Kontakt (regionale kontorer, virksomhedsbaggrund). Støttesider til downloads, nyheder og GDPR-overholdelse afrundede strukturen. Ankernavigation og klare kontaktstrømme blev designet til hver sektion.",
+      "deliverables": [
+        "Ny sitemapstruktur",
+        "Udstyrskategorisering",
+        "Kontakt flow design",
+        "Downloads sektion",
+        "Regional kontor opsætning"
+      ]
+    },
+    {
+      "phase": "Design og udvikling",
+      "description": "Siden blev bygget med Nuxt 4, @nuxt/ui og Tailwind CSS v4, hvilket genererer fuldt statisk output for at eliminere backend-afhængigheder og holde hostingomkostningerne tæt på nul. Vi designede et brugerdefineret token-baseret designsystem, der er tilpasset Tegetecs industrielle identitet. Harmonika- og bordmønstre håndterer dybe OEM-specifikationer uden at overvælde købere, mens kort- og step-layout giver procesoversigter et klart visuelt hierarki. Lokale skrifttyper og lange cache-overskrifter holder ydeevnen stram på tværs af alle sider.",
+      "deliverables": [
+        "Design system",
+        "Responsive komponenter",
+        "Statisk webstedsgenerering",
+        "Aktiv optimering",
+        "Ydeevnejustering"
+      ]
+    },
+    {
+      "phase": "SEO og compliance",
+      "description": "Vi implementerede Schema.org-markering på tværs af alle større sidetyper: Websted, Organisation, Service, AboutPage og CollectionPage. Hver side modtog tilpassede titler, beskrivelser, nøgleord og Open Graph/Twitter-kort. GDPR-cookielaget blev bygget med en fremtrædende mulighed for afvisning af alle og fuld script-indgang, hvilket sikrer, at der ikke er sporingsindlæsninger før samtykke. Tilgængelighedsarbejde dækkede overspringslinks, fokus-synlige stilarter, håndtering af reduceret bevægelse, semantisk tabelmarkering og skærmlæseretiketter overalt.",
+      "deliverables": [
+        "Schema.org implementering",
+        "Meta tag optimering",
+        "EU-cookiesamtykke (GDPR)",
+        "GTM/GA4 integration",
+        "Tilgængelighedsfunktioner"
+      ]
+    }
+  ],
+  "challenges": [
+    {
+      "title": "Domæneoverførsel med Mail Continuity",
+      "problem": "At flytte domænet til en ny registrator og pege det mod den nye statiske vært skulle ske uden at forstyrre Tegetecs forretningsmail, som kører på det samme domæne.",
+      "solution": "Vi planlagde DNS-afskæringen på forhånd, låste MX-poster tidligt og koordinerede timingen af A/CNAME-ændringer med klienten. Overførslen fuldført med næsten nul e-mail-nedetid og ingen mistede beskeder."
+    },
+    {
+      "title": "Gør tekniske specifikationer tilgængelige for købere",
+      "problem": "Tegetecs udstyrssider skal betjene to målgrupper på én gang: ingeniører, der ønsker detaljerede specifikationer, og indkøbskøbere, der skal forstå værdi og hurtigt passe.",
+      "solution": "Vi anvendte progressiv afsløring hele vejen igennem - harmonika- og bordmønstre til dybe specifikationer, kortlayouts og procesflow-steppere til oversigter på højt niveau. Købere kan navigere trygt uden at blive konfronteret med teknisk dybde, de ikke har brug for."
+    },
+    {
+      "title": "GDPR Overholdelse uden kompleksitet",
+      "problem": "Tegetec havde brug for fuldt kompatibelt cookiesamtykke og analysesporing, leveret rent uden en tilpasset backend eller tredjepartssamtykke SaaS, hvilket tilføjede løbende omkostninger.",
+      "solution": "Vi implementerede GTM-samtykketilstand med et afvis-alle fremtrædende banner indbygget i den statiske build. Ingen sporingsscripts indlæses, før brugeren tilmelder sig. Implementeringen er ren, kontrollerbar og kræver ingen løbende vedligeholdelsesomkostninger."
+    }
+  ],
+  "results": {
+    "summary": "Tegetec lanceret med et moderniseret visuelt system, en køberfokuseret informationsarkitektur og et fuldt kompatibelt teknisk fundament. Den statiske build eliminerer backend-omkostninger, SEO-grundlaget er lagt på tværs af hver sidetype, og GTM/GA4 er klar til at informere beslutninger, efterhånden som godkendt trafik opbygges.",
+    "highlights": [
+      "End-to-end levering på tværs af revision, IA, design, udvikling og SEO på cirka 2 arbejdsdage",
+      "Køberfokuseret IA omstruktureret omkring tre klare navigationssektioner",
+      "Static Nuxt 4 bygger med næsten nul løbende infrastrukturomkostninger",
+      "Schema.org-markering på tværs af alle større sidetyper for stærk søgesynlighed",
+      "GDPR-kompatibelt cookie-samtykke med GTM-samtykketilstand og script-gating",
+      "WCAG-justeret tilgængelighed: spring over links, fokus-synlig, reduceret bevægelse, semantiske tabeller",
+      "Domæne- og mailoverførsel gennemført med næsten nul nedetid",
+      "Multi-region kontakt opsætning, der dækker Danmark, Spanien og Finland"
+    ]
+  },
+  "gallery": [
+    "/images/cases/tegetec/tegetec-landing.png",
+    "/images/cases/tegetec/lighthouse-tegetec.png"
+  ],
+  "beforeAfter": {
+    "title": "Den målbare forskel",
+    "subtitle": "Fra et forældet statisk websted til en moderne, effektiv B2B-platform - her er, hvad der ændrede sig.",
+    "beforeLabel": "før",
+    "afterLabel": "Efter",
+    "metrics": [
+      {
+        "label": "Lighthouse",
+        "before": "48",
+        "after": "92",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "Indlæsningstid",
+        "before": "5.9",
+        "after": "1.8",
+        "unit": "s",
+        "improved": true
+      },
+      {
+        "label": "Tilgængelighed",
+        "before": "63",
+        "after": "95",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "SEO-score",
+        "before": "61",
+        "after": "96",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "CLS",
+        "before": "0.27",
+        "after": "0.04",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "FCP",
+        "before": "3.8",
+        "after": "0.9",
+        "unit": "s",
+        "improved": true
+      }
+    ]
+  }
+}

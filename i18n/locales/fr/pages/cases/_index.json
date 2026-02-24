@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "herqulez",
+    "category": "mesEntreprises",
+    "title": "Herqulez",
+    "subtitle": "Plateforme modulaire d'écosystème de remise en forme",
+    "company": "Herqulez",
+    "year": "2025",
+    "thumbnail": "/images/cases/herqulez/squared-dark-yellow.png",
+    "tags": [
+      "Développement Web",
+      "Conception UX/UI",
+      "Technologie de la santé",
+      "Nuxt.js",
+      "Référencement"
+    ]
+  },
+  {
+    "slug": "tegetec",
+    "category": "clientTravail",
+    "title": "Tégétec",
+    "subtitle": "Fournisseur d'équipements de transformation des aliments industriels",
+    "company": "Tégétec",
+    "year": "2025",
+    "thumbnail": "/images/cases/tegetec/tegetec.svg",
+    "tags": [
+      "Refonte du site Web",
+      "Référencement",
+      "B2B",
+      "Site statique",
+      "Industriel"
+    ]
+  }
+]

@@ -25,7 +25,7 @@
         ],
         "cta": {
           "label": "Mettiti in contatto",
-          "to": "/contatto"
+          "to": "/contact"
         }
       },
       "discovery": {
@@ -53,7 +53,7 @@
         "note": "La proposta indica chiaramente quali dati personali saranno trattati, per quale scopo e in base a quale base giuridica, in conformità con il GDPR. I tuoi dati non vengono mai condivisi con terze parti oltre quanto richiesto dal progetto.",
         "cta": {
           "label": "Visualizza i nostri pacchetti",
-          "to": "/services#packages-sezione"
+          "to": "/services#packages-section"
         }
       },
       "kickoff": {
@@ -78,7 +78,7 @@
         "note": "L'accesso anticipato al server di sviluppo è un componente aggiuntivo facoltativo. Richiede implementazione e manutenzione più frequenti, motivo per cui viene offerto come servizio separato.",
         "cta": {
           "label": "Vedi Componenti aggiuntivi ed extra",
-          "to": "/services#addon-sezione"
+          "to": "/services#addons-section"
         }
       },
       "preview": {
@@ -127,7 +127,7 @@
         ],
         "cta": {
           "label": "Visualizza i piani di supporto",
-          "to": "/services#support-piani"
+          "to": "/services#support-plans"
         }
       }
     }

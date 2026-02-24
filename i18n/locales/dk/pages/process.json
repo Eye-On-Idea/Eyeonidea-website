@@ -25,7 +25,7 @@
         ],
         "cta": {
           "label": "Tag kontakt",
-          "to": "/kontakt"
+          "to": "/contact"
         }
       },
       "discovery": {
@@ -53,7 +53,7 @@
         "note": "Forslaget angiver klart, hvilke personoplysninger der vil blive behandlet, til hvilket formål og under hvilket retsgrundlag, i overensstemmelse med GDPR. Dine data deles aldrig med tredjeparter ud over, hvad projektet kræver.",
         "cta": {
           "label": "Se vores pakker",
-          "to": "/services#pakker-sektion"
+          "to": "/services#packages-section"
         }
       },
       "kickoff": {
@@ -78,7 +78,7 @@
         "note": "Tidlig dev-serveradgang er en valgfri tilføjelse. Det kræver hyppigere implementering og vedligeholdelse, hvorfor det tilbydes som en separat service.",
         "cta": {
           "label": "Se Tilføjelser og ekstramateriale",
-          "to": "/services#addons-sektion"
+          "to": "/services#addons-section"
         }
       },
       "preview": {
@@ -106,7 +106,7 @@
       "postlaunch": {
         "number": "08",
         "title": "Support efter lancering",
-        "description": "After launch, you have a 2-week support window where we monitor the site and handle any small corrections you find.",
+        "description": "Efter lanceringen har du et 2-ugers supportvindue, hvor vi overvåger siden og håndterer eventuelle små rettelser, du finder.",
         "details": [
           "Vi overvåger løst siden for fejl",
           "Små tekstredigeringer, billedbytninger, rettelser af tastefejl, rettelser af kontaktoplysninger",
@@ -127,7 +127,7 @@
         ],
         "cta": {
           "label": "Se supportplaner",
-          "to": "/services#support-planer"
+          "to": "/services#support-plans"
         }
       }
     }

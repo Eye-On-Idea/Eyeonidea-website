@@ -8,6 +8,55 @@
     "title": "Digitale Lösungen, die mit Ihnen wachsen",
     "subtitle": "Eye On Idea unterstützt Unternehmen beim Aufbau und Ausbau einer klaren, professionellen digitalen Präsenz. Der Umfang aller Projekte richtet sich individuell nach tatsächlichen Bedürfnissen – nicht nach Vorlagen."
   },
+  "overview": {
+    "title": "Was wir tun",
+    "subtitle": "Jeder Service, den wir anbieten, basiert auf der gleichen Idee: dass ein Unternehmen eine digitale Präsenz verdient, die tatsächlich zu ihm passt.",
+    "nav": {
+      "websites": "Website-Pakete",
+      "identity": "Visuelle Identität",
+      "additional": "Zusätzliche Dienstleistungen",
+      "support": "Laufende Unterstützung",
+      "howWeWork": "Wie wir arbeiten"
+    },
+    "services": [
+      {
+        "id": "overview-websites",
+        "label": "Website-Pakete",
+        "heading": "Eine Website, die rund um Ihr Unternehmen aufgebaut ist",
+        "body": "Keine angepasste Vorlage, sondern eine Website, die sich an der aktuellen Situation Ihres Unternehmens orientiert. Ganz gleich, ob Sie eine solide Erstpräsenz oder eine Plattform benötigen, die mit Ihnen wächst, wir erarbeiten den richtigen Umfang, bevor etwas gebaut wird.",
+        "linkText": "Entdecken Sie Pakete",
+        "linkHref": "/services/website-packages",
+        "icon": "i-heroicons-computer-desktop"
+      },
+      {
+        "id": "overview-identity",
+        "label": "Visuelle Identität",
+        "heading": "Wirken Sie vom ersten Tag an glaubwürdig",
+        "body": "Ihr Logo, Ihre Farben und Ihre Typografie sind oft das Erste, worüber Sie beurteilt werden. Wir entwerfen visuelle Identitäten, die auf Ihrer Website, in Ihren Präsentationen und in Ihren Printmedien Bestand haben, sodass Ihre Marke überall dort, wo sie erscheint, gewollt wirkt.",
+        "linkText": "Sehen Sie sich unseren Ansatz an",
+        "linkHref": "/services/visual-identity",
+        "icon": "i-heroicons-swatch"
+      },
+      {
+        "id": "overview-additional",
+        "label": "Zusätzliche Dienstleistungen",
+        "heading": "Alles rund um Ihre Website",
+        "body": "Domainregistrierung, professionelle E-Mail, Website-Kopie, SEO-Überprüfungen und Beratungsgespräche. Dies sind die Dienste, die Ihre Website umgeben und dafür sorgen, dass das Ganze ordnungsgemäß funktioniert. Sie sind einzeln oder als Teil eines Projekts verfügbar.",
+        "linkText": "Alle Dienste anzeigen",
+        "linkHref": "/services/additional-services",
+        "icon": "i-heroicons-puzzle-piece"
+      },
+      {
+        "id": "overview-support",
+        "label": "Laufende Unterstützung",
+        "heading": "Eine Website ist kein einmaliges Produkt",
+        "body": "Nach dem Start ändern sich die Dinge. Der Inhalt muss aktualisiert werden, es tauchen Fragen auf und die Website sollte sich weiter verbessern. Mit unseren Support-Plänen haben Sie jeden Monat einen direkten Draht und eine festgelegte Zeitspanne, sodass Sie nie allein gelassen werden, um Dinge herauszufinden.",
+        "linkText": "Supportpläne anzeigen",
+        "linkHref": "/services/additional-services#support-plans",
+        "icon": "i-heroicons-shield-check"
+      }
+    ]
+  },
   "packages": {
     "badge": "Website-Pakete",
     "title": "Wählen Sie Ihre Stiftung",
@@ -233,61 +282,16 @@
   },
   "addons": {
     "badge": "Add-ons und Extras",
-    "title": "Verlängern Sie Ihr Paket",
-    "subtitle": "Optionale Services zur Verbesserung Ihres Website-Projekts",
-    "categories": {
-      "identity": {
-        "title": "Visuelle Identität",
-        "icon": "i-heroicons-paint-brush",
-        "items": [
-          {
-            "name": "Logo-Design (primär + Variationen)",
-            "price": "500",
-            "unit": "einmalig"
-          },
-          {
-            "name": "Erweiterte Logo-Variationen",
-            "price": "200",
-            "unit": "einmalig"
-          },
-          {
-            "name": "Farbpalette und Typografie",
-            "price": "250",
-            "unit": "einmalig"
-          },
-          {
-            "name": "Visitenkartendesign",
-            "price": "150",
-            "unit": "einmalig"
-          },
-          {
-            "name": "Briefkopfvorlagen",
-            "price": "150",
-            "unit": "einmalig"
-          },
-          {
-            "name": "Präsentationsvorlagen",
-            "price": "300",
-            "unit": "einmalig"
-          },
-          {
-            "name": "Social-Media-Markenwerte",
-            "price": "200",
-            "unit": "einmalig"
-          },
-          {
-            "name": "Dokument mit Markenrichtlinien",
-            "price": "400",
-            "unit": "einmalig"
-          }
-        ]
-      },
+    "title": "Erweitern Sie Ihr Projekt",
+    "subtitle": "Zusätzliche Dienstleistungen können Sie zu jedem Projekt hinzufügen oder separat bestellen.",
+    "sections": {
       "content": {
+        "id": "content-section",
         "title": "Inhalt & Sprache",
-        "icon": "i-heroicons-document-text",
+        "description": "Hilfe beim Schreiben, Bearbeiten und Vorbereiten Ihrer Website-Inhalte in mehreren Sprachen.",
         "items": [
           {
-            "name": "Website-Copywriting (pro Seite)",
+            "name": "Website-Texterstellung",
             "price": "100",
             "unit": "pro Seite"
           },
@@ -297,7 +301,7 @@
             "unit": "pro Stunde"
           },
           {
-            "name": "Mehrsprachige Grundlagen (standardmäßig 2 Sprachen)",
+            "name": "Mehrsprachige Einrichtung (2 Sprachen)",
             "price": "350",
             "unit": "einmalig"
           },
@@ -309,8 +313,10 @@
         ]
       },
       "domain": {
-        "title": "Domain und E-Mail",
-        "icon": "i-heroicons-globe-alt",
+        "id": "domain-section",
+        "title": "Domäne",
+        "description": "Alle Pakete beinhalten eine Domain mit einer 1-Jahres-Lizenz. Diese Add-ons umfassen Extras, Verlängerungen und Übertragungen.",
+        "note": "Die Domainpreise variieren je nach Erweiterung und Registrar.",
         "items": [
           {
             "name": "Zusätzliche Domainregistrierung",
@@ -323,20 +329,33 @@
             "unit": "einmalig"
           },
           {
-            "name": "E-Mail-Starter (15 GB)",
+            "name": "Domain-Erneuerung (nach Jahr 1)",
+            "price": "15-50",
+            "unit": "pro Jahr"
+          }
+        ]
+      },
+      "email": {
+        "id": "email-section",
+        "title": "E-Mail",
+        "description": "Professionelle E-Mail-Adressen auf Ihrer eigenen Domain. Gehostet auf EU-Infrastruktur.",
+        "items": [
+          {
+            "name": "E-Mail-Starter (15 GB pro Konto)",
             "price": "1",
             "unit": "pro Konto/Monat"
           },
           {
-            "name": "E-Mail Pro (50 GB)",
+            "name": "Email Pro (50 GB pro Konto)",
             "price": "4",
             "unit": "pro Konto/Monat"
           }
         ]
       },
-      "seo": {
-        "title": "SEO & Sichtbarkeit",
-        "icon": "i-heroicons-magnifying-glass",
+      "seoConsulting": {
+        "id": "seo-consulting-section",
+        "title": "SEO und Beratung",
+        "description": "Einmalige Überprüfungen und Beratungsgespräche zur Verbesserung der Sichtbarkeit, Leistung und technischen Qualität.",
         "items": [
           {
             "name": "Überprüfung der SEO-Struktur",
@@ -352,24 +371,7 @@
             "name": "Interne Verlinkungsstrategie",
             "price": "150",
             "unit": "einmalig"
-          }
-        ]
-      },
-      "hosting": {
-        "title": "Hosting und Infrastruktur",
-        "icon": "i-heroicons-server",
-        "items": [
-          {
-            "name": "Website-Hosting in der EU",
-            "price": "20",
-            "unit": "pro Monat"
-          }
-        ]
-      },
-      "consulting": {
-        "title": "Beratung & Qualitätssicherung",
-        "icon": "i-heroicons-chat-bubble-left-right",
-        "items": [
+          },
           {
             "name": "Beratungsgespräch (1 Stunde)",
             "price": "100",
@@ -461,7 +463,7 @@
         "price": {
           "amount": "99",
           "currency": "€",
-          "unit": "/Monat",
+          "unit": "/month",
           "vatNote": "exkl. MwSt"
         }
       },
@@ -479,7 +481,7 @@
         "price": {
           "amount": "249",
           "currency": "€",
-          "unit": "/Monat",
+          "unit": "/month",
           "vatNote": "exkl. MwSt"
         }
       },
@@ -497,7 +499,7 @@
         "price": {
           "amount": "499",
           "currency": "€",
-          "unit": "/Monat",
+          "unit": "/month",
           "vatNote": "exkl. MwSt"
         }
       }

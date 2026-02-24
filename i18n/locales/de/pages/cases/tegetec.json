@@ -1,0 +1,181 @@
+{
+  "slug": "tegetec",
+  "category": "clientWork",
+  "title": "Tegetec",
+  "subtitle": "Anbieter von industriellen Geräten für die Lebensmittelverarbeitung",
+  "company": "Tegetec",
+  "projectType": "Komplette Neugestaltung und Entwicklung der Website",
+  "year": "2025",
+  "role": "Audit, IA, Design, Entwicklung, SEO",
+  "duration": "Ca. 2 Arbeitstage Bauzeit, 1 Monat vergangen",
+  "url": "https://tegetec.com",
+  "thumbnail": "/images/cases/tegetec/tegetec.svg",
+  "hero": "/images/cases/tegetec/tegetec-landing.png",
+  "tags": [
+    "Web-Neugestaltung",
+    "SEO",
+    "B2B",
+    "Statische Site",
+    "Industriell"
+  ],
+  "technologies": [
+    "Nuxt 4",
+    "@nuxt/ui",
+    "Rückenwind CSS v4",
+    "@nuxt/image (IPX)",
+    "Schema.org",
+    "GTM/GA4"
+  ],
+  "overview": {
+    "challenge": "Die bestehende Website von Tegetec wies veraltete Grafiken, eine dürftige SEO-Abdeckung, eingeschränkte Zugänglichkeit und einen dichten technischen Inhalt ohne klare Informationsarchitektur auf. Der Inhalt orientierte sich an internen Kategorien und nicht daran, wie Käufer Industrieanlagen tatsächlich bewerten und vergleichen.",
+    "solution": "Wir führten ein vollständiges UX- und SEO-Audit durch, bauten die Informationsarchitektur um drei käuferorientierte Abschnitte herum neu auf und lieferten eine statische Nuxt 4-Site mit umfassendem Schema.org-Markup, DSGVO-konformen Analysen und einer sorgfältig koordinierten DNS-Umstellung, um die E-Mail-Kontinuität während der Domainübertragung zu schützen.",
+    "outcome": "Tegetec hat eine moderne, konforme B2B-Plattform mit einer aktualisierten visuellen Identität, intuitiver Navigation für technische Inhalte und einer starken SEO-Grundlage eingeführt. Durch die statische Bereitstellung bleiben die laufenden Infrastrukturkosten minimal und GTM/GA4 ist bereit für datengesteuerte Entscheidungen, wenn der Datenverkehr wächst."
+  },
+  "keyMetrics": [
+    {
+      "label": "Seiten geliefert",
+      "value": "8+",
+      "description": "Vollständige Website mit Informationen zu Geräten, Mitarbeitern, Informationen, Neuigkeiten, Downloads und Richtlinien"
+    },
+    {
+      "label": "Bauzeit",
+      "value": "2 Tage",
+      "description": "Ca. 1 Monat ist mit Domain- und Mail-Transfer vergangen"
+    },
+    {
+      "label": "Regionalbüros",
+      "value": "3",
+      "description": "Dänemark, Spanien und Finnland"
+    }
+  ],
+  "process": [
+    {
+      "phase": "Audit und Strategie",
+      "description": "Wir begannen mit einer gründlichen Überprüfung der bestehenden Website und identifizierten Schwachstellen in UX, visuellem Design, SEO und Zugänglichkeit. Wir haben ein Benchmarking mit Materialien von OEM-Partnern durchgeführt und uns auf klare Ziele geeinigt: Modernisierung der Designsprache, Umstrukturierung der Navigation für technische Zielgruppen, Schließung von SEO-Lücken und Aufstellung eines Supportplans für die Zeit nach der Markteinführung. Diese Phase prägte jede weitere Entscheidung.",
+      "deliverables": [
+        "UX-Audit-Ergebnisse",
+        "SEO-Lückenanalyse",
+        "Anforderungen an Vertrauenssignale",
+        "IA-Modernisierungsplan",
+        "Überprüfung des OEM-Materials"
+      ]
+    },
+    {
+      "phase": "Informationsarchitektur",
+      "description": "Wir haben die Struktur der Website so umgestaltet, dass sie darauf ausgerichtet ist, wie Käufer Industrieanlagen tatsächlich erkunden. Es entstanden drei Hauptabschnitte: Geräte und Lösungen (Systemkarten, Prozessablaufdiagramme, Chubmaker-Spezifikationen), Mitarbeiter (OEM-Partnerprofile) und Über/Kontakt (Regionalbüros, Unternehmenshintergrund). Unterstützende Seiten für Downloads, Neuigkeiten und DSGVO-Konformität rundeten die Struktur ab. Für jeden Abschnitt wurden Ankernavigation und klare Kontaktabläufe entworfen.",
+      "deliverables": [
+        "Neue Sitemap-Struktur",
+        "Kategorisierung der Ausrüstung",
+        "Kontaktflussdesign",
+        "Download-Bereich",
+        "Einrichtung eines Regionalbüros"
+      ]
+    },
+    {
+      "phase": "Design und Entwicklung",
+      "description": "Die Website wurde mit Nuxt 4, @nuxt/ui und Tailwind CSS v4 erstellt und generiert eine vollständig statische Ausgabe, um Backend-Abhängigkeiten zu beseitigen und die Hosting-Kosten nahe Null zu halten. Wir haben ein individuelles tokenbasiertes Designsystem entwickelt, das auf die industrielle Identität von Tegetec abgestimmt ist. Akkordeon- und Tischmuster erfüllen tiefgreifende OEM-Spezifikationen, ohne die Käufer zu überfordern, während Karten- und Stepper-Layouts den Prozessübersichten eine klare visuelle Hierarchie verleihen. Lokale Schriftarten und Header mit langem Cache sorgen für eine hohe Leistung auf allen Seiten.",
+      "deliverables": [
+        "Designsystem",
+        "Reaktionsfähige Komponenten",
+        "Statische Site-Generierung",
+        "Vermögensoptimierung",
+        "Leistungsoptimierung"
+      ]
+    },
+    {
+      "phase": "SEO und Compliance",
+      "description": "Wir haben Schema.org-Markup für alle wichtigen Seitentypen implementiert: Website, Organisation, Service, AboutPage und CollectionPage. Jede Seite erhielt benutzerdefinierte Titel, Beschreibungen, Schlüsselwörter und Open Graph/Twitter-Karten. The GDPR cookie layer was built with a prominent reject-all option and full script gating, ensuring no tracking loads before consent. Die Arbeiten zur Barrierefreiheit umfassten durchgehend Skip-Links, Fokus-sichtbare Stile, bewegungsreduzierte Handhabung, semantisches Tabellen-Markup und Screenreader-Beschriftungen.",
+      "deliverables": [
+        "Schema.org-Implementierung",
+        "Meta-Tag-Optimierung",
+        "EU-Cookie-Einwilligung (DSGVO)",
+        "GTM/GA4-Integration",
+        "Barrierefreiheitsfunktionen"
+      ]
+    }
+  ],
+  "challenges": [
+    {
+      "title": "Domain-Transfer mit Mail-Kontinuität",
+      "problem": "Das Verschieben der Domäne zu einem neuen Registrar und die Weiterleitung auf den neuen statischen Host musste erfolgen, ohne dass die Geschäfts-E-Mail von Tegetec, die auf derselben Domäne läuft, unterbrochen wird.",
+      "solution": "Wir haben die DNS-Umstellung im Voraus geplant, MX-Einträge frühzeitig gesperrt und den Zeitpunkt von A/CNAME-Änderungen mit dem Kunden abgestimmt. Die Übertragung wurde mit nahezu keiner E-Mail-Ausfallzeit und ohne verlorene Nachrichten abgeschlossen."
+    },
+    {
+      "title": "Technische Spezifikationen für Käufer zugänglich machen",
+      "problem": "Die Ausrüstungsseiten von Tegetec müssen zwei Zielgruppen gleichzeitig bedienen: Ingenieure, die detaillierte Spezifikationen wünschen, und Einkäufer, die den Wert und die Passform schnell verstehen müssen.",
+      "solution": "Wir haben durchgängig progressive Offenlegung angewendet – Akkordeon- und Tabellenmuster für detaillierte Spezifikationen, Kartenlayouts und Prozessablaufsteuerungen für allgemeine Übersichten. Käufer können souverän navigieren, ohne mit technischer Tiefe konfrontiert zu werden, die sie nicht benötigen."
+    },
+    {
+      "title": "DSGVO-Konformität ohne Komplexität",
+      "problem": "Tegetec benötigte eine vollständig konforme Cookie-Einwilligung und Analyseverfolgung, die sauber bereitgestellt werden konnte, ohne dass ein benutzerdefiniertes Backend oder ein Einwilligungs-SaaS eines Drittanbieters laufende Kosten verursachte.",
+      "solution": "Wir haben den GTM-Zustimmungsmodus mit einem prominenten Banner zum Ablehnen aller Elemente implementiert, das in den statischen Build integriert ist. Es werden keine Tracking-Skripte geladen, bevor der Benutzer sich dafür entscheidet. Die Implementierung ist sauber, überprüfbar und erfordert keinen laufenden Wartungsaufwand."
+    }
+  ],
+  "results": {
+    "summary": "Tegetec startete mit einem modernisierten visuellen System, einer käuferorientierten Informationsarchitektur und einer vollständig konformen technischen Grundlage. Der statische Aufbau eliminiert Backend-Kosten, die SEO-Grundlage wird für jeden Seitentyp gelegt und GTM/GA4 ist bereit, Entscheidungen zu treffen, wenn der genehmigte Datenverkehr steigt.",
+    "highlights": [
+      "End-to-End-Bereitstellung in den Bereichen Audit, IA, Design, Entwicklung und SEO in ca. 2 Arbeitstagen",
+      "Die käuferorientierte Folgenabschätzung wurde um drei klare Navigationsabschnitte herum neu strukturiert",
+      "Statischer Nuxt 4-Build mit nahezu null laufenden Infrastrukturkosten",
+      "Schema.org-Markup für alle wichtigen Seitentypen für eine starke Sichtbarkeit in der Suche",
+      "DSGVO-konforme Cookie-Einwilligung mit GTM-Einwilligungsmodus und Script-Gating",
+      "WCAG-ausgerichtete Barrierefreiheit: Links überspringen, Fokus-sichtbar, reduzierte Bewegung, semantische Tabellen",
+      "Domain- und E-Mail-Übertragung nahezu ohne Ausfallzeiten abgeschlossen",
+      "Kontakteinrichtung für mehrere Regionen, die Dänemark, Spanien und Finnland abdecken"
+    ]
+  },
+  "gallery": [
+    "/images/cases/tegetec/tegetec-landing.png",
+    "/images/cases/tegetec/lighthouse-tegetec.png"
+  ],
+  "beforeAfter": {
+    "title": "Der messbare Unterschied",
+    "subtitle": "Von einer veralteten statischen Website zu einer modernen, leistungsstarken B2B-Plattform – hier ist, was sich geändert hat.",
+    "beforeLabel": "Vorher",
+    "afterLabel": "Nachher",
+    "metrics": [
+      {
+        "label": "Lighthouse",
+        "before": "48",
+        "after": "92",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "Ladezeit",
+        "before": "5.9",
+        "after": "1.8",
+        "unit": "s",
+        "improved": true
+      },
+      {
+        "label": "Barrierefreiheit",
+        "before": "63",
+        "after": "95",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "SEO-Score",
+        "before": "61",
+        "after": "96",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "CLS",
+        "before": "0.27",
+        "after": "0.04",
+        "unit": "",
+        "improved": true
+      },
+      {
+        "label": "FCP",
+        "before": "3.8",
+        "after": "0.9",
+        "unit": "s",
+        "improved": true
+      }
+    ]
+  }
+}

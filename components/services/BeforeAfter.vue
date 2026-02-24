@@ -127,7 +127,10 @@ onMounted(() => {
         <!-- After panel (clipped by slider position) -->
         <div
           class="panel panel--after"
-          :style="{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }"
+          :style="{
+            clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
+            WebkitClipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
+          }"
         >
           <div class="panel__label">
             {{ t("services.beforeAfter.afterLabel") }}

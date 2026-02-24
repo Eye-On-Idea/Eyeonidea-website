@@ -13,6 +13,18 @@ const navLinks = computed(() => [
     to: "/services",
     children: [
       {
+        label: t("nav.websitepackages"),
+        to: "/services/website-packages",
+      },
+      {
+        label: t("nav.visualidentity"),
+        to: "/services/visual-identity",
+      },
+      {
+        label: t("nav.additionalservices"),
+        to: "/services/additional-services",
+      },
+      {
         label: t("nav.process"),
         to: "/services/process",
       },

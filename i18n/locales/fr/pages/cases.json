@@ -1,0 +1,61 @@
+{
+  "metaTitle": "Notre travail | Eye On Idea",
+  "metaDescription": "Découvrez comment Eye On Idea conçoit et crée des sites Web pour les petites et moyennes entreprises - de la stratégie et de l'identité visuelle au lancement et au support continu.",
+  "hero": {
+    "title": "Notre travail",
+    "subtitle": "Stratégie, conception et développement - livrés.",
+    "description": "Un regard sur les projets que nous avons conçus et construits pour nos clients et nos propres marques, de la conception à la production."
+  },
+  "categories": {
+    "myCompanies": "Nos marques",
+    "clientWork": "Travail client",
+    "sideProjects": "Projets parallèles"
+  },
+  "filter": {
+    "all": "Tous les projets",
+    "webDev": "Développement Web",
+    "uxui": "Conception UX/UI",
+    "branding": "Image de marque",
+    "seo": "Référencement"
+  },
+  "cta": {
+    "viewCase": "Voir l'étude de cas",
+    "visitSite": "Visitez le site Web",
+    "readMore": "Lire la suite"
+  },
+  "badges": {
+    "eyeOnIdea": "Eye On Idea",
+    "herqulez": "Projet partenaire",
+    "schoolProject": "Projet scolaire",
+    "featured": "En vedette"
+  },
+  "stats": {
+    "role": "Notre rôle",
+    "duration": "Durée",
+    "year": "Année",
+    "technologies": "Technologies"
+  },
+  "sections": {
+    "overview": "Aperçu",
+    "challenge": "Le défi",
+    "solution": "Notre solution",
+    "outcome": "Le résultat",
+    "process": "Notre processus",
+    "keyMetrics": "Indicateurs clés",
+    "challenges": "Défis et solutions",
+    "results": "Résultats",
+    "learnings": "Apprentissages clés",
+    "nextSteps": "Prochaines étapes",
+    "gallery": "Galerie"
+  },
+  "navigation": {
+    "backToCases": "Retour à notre travail",
+    "nextCase": "Étude de cas suivante",
+    "previousCase": "Étude de cas précédente"
+  },
+  "contact": {
+    "title": "Prêt à démarrer votre projet ?",
+    "description": "Nous travaillons avec des petites et moyennes entreprises pour créer des sites Web qui ont fière allure et sont encore plus performants. Parlons de ce que nous pouvons faire pour vous.",
+    "button": "Entrez en contact"
+  }
+}

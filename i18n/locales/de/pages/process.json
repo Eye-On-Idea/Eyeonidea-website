@@ -25,7 +25,7 @@
         ],
         "cta": {
           "label": "Nehmen Sie Kontakt auf",
-          "to": "/Kontakt"
+          "to": "/contact"
         }
       },
       "discovery": {
@@ -53,7 +53,7 @@
         "note": "Im Vorschlag wird klar dargelegt, welche personenbezogenen Daten zu welchem Zweck und auf welcher Rechtsgrundlage im Einklang mit der DSGVO verarbeitet werden. Ihre Daten werden niemals über die Projektanforderungen hinaus an Dritte weitergegeben.",
         "cta": {
           "label": "Sehen Sie sich unsere Pakete an",
-          "to": "/services#packages-Abschnitt"
+          "to": "/services#packages-section"
         }
       },
       "kickoff": {
@@ -78,7 +78,7 @@
         "note": "Der frühe Zugriff auf den Entwicklungsserver ist ein optionales Add-on. Es erfordert eine häufigere Bereitstellung und Wartung, weshalb es als separater Service angeboten wird.",
         "cta": {
           "label": "Siehe Add-ons und Extras",
-          "to": "/services#addons-Abschnitt"
+          "to": "/services#addons-section"
         }
       },
       "preview": {

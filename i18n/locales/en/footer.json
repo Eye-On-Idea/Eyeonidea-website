@@ -18,10 +18,17 @@
     "heading": "Navigate",
     "home": "Home",
     "services": "Services",
+    "servicesSubheading": "Services",
+    "websitePackages": "Website Packages",
+    "visualIdentity": "Visual Identity",
+    "additionalServices": "Additional Services",
+    "process": "Our Process",
+    "cases": "Cases",
     "about": "About",
     "news": "News",
     "contact": "Contact",
-    "legal": "Legal",
-    "policies": "Policies"
+    "legalHeading": "Legal",
+    "legal": "Legal Notice",
+    "policies": "Privacy Policy"
   }
 }

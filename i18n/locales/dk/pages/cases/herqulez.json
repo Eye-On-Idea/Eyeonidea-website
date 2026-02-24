@@ -1,0 +1,123 @@
+{
+  "slug": "herqulez",
+  "category": "mine Virksomheder",
+  "title": "Herqulez",
+  "subtitle": "Modulær Fitness Ecosystem Platform",
+  "company": "Herqulez",
+  "projectType": "Marketinghjemmeside for Health Tech Startup",
+  "year": "2025",
+  "role": "Webdesign, udvikling, SEO, hosting",
+  "duration": "november 2025 - Igangværende",
+  "url": "https://herqulez.com",
+  "thumbnail": "/images/cases/herqulez/squared-dark-yellow.png",
+  "hero": "/images/cases/herqulez/herq-landing.png",
+  "tags": [
+    "Webudvikling",
+    "UX/UI design",
+    "Health Tech",
+    "Nuxt.js",
+    "SEO"
+  ],
+  "technologies": [
+    "Nuxt 4",
+    "Vue.js",
+    "Medvind CSS",
+    "Google Tag Manager"
+  ],
+  "overview": {
+    "challenge": "Herqulez er en modulær fitnessplatform, der dækker seks områder - Core Fitness, Nutrition, Sleep/Recovery, Habits, Sport og Travel - hver med sin egen produktidentitet. Markedsføringswebstedet skulle kommunikere et komplekst økosystem med flere moduler klart uden at overvælde besøgende, og samtidig etablere tillid forud for applanceringen.",
+    "solution": "Vi har designet og bygget et højtydende marketingwebsted med Nuxt 4, der introducerer Herqulez-økosystemet på en klar, visuelt engagerende måde. Arkitekturen prioriterer ydeevne og SEO, med support på flere sprog (engelsk og dansk live, med mere planlagt) og en GDPR-kompatibel analyseopsætning via GTM consent-mode.",
+    "outcome": "Marketingwebstedet opnåede Lighthouse-score på 99 (Ydeevne), 93 (Tilgængelighed), 96 (Bedste praksis) og 100 (SEO). Det placerer Herqulez til den planlagte MVP-lancering i begyndelsen af ​​2026, med et skalerbart fundament klar til yderligere sprog og indhold."
+  },
+  "keyMetrics": [
+    {
+      "label": "Lighthouse Ydelse",
+      "value": "99",
+      "description": "Næsten perfekt præstationsscore"
+    },
+    {
+      "label": "Lighthouse SEO",
+      "value": "100",
+      "description": "Perfekt SEO-score"
+    },
+    {
+      "label": "Sprog",
+      "value": "2 live",
+      "description": "Engelsk og dansk, med tysk, spansk, fransk og svensk planlagt"
+    }
+  ],
+  "process": [
+    {
+      "phase": "Opdagelse og planlægning",
+      "description": "Vi arbejdede tæt sammen med Herqulez-grundlæggerne for at forstå produktkøreplanen, målgruppen og go-to-market-strategien. Nøgleprioriteter var klar kommunikation af det modulære koncept, brand-troværdighed forud for lanceringen og en skalerbar flersproget arkitektur.",
+      "deliverables": [
+        "Projektets omfang og mål",
+        "Sitemap og indholdsstruktur",
+        "Teknologiske beslutninger",
+        "Flersproget plan"
+      ]
+    },
+    {
+      "phase": "Design",
+      "description": "Vi designede en visuel identitet med høj kontrast, energifremadrettet til webstedet, der er tilpasset Herqulez app-designsystemet. Layoutet guider besøgende fra brandintroduktion gennem moduloversigter til en klar opfordring til handling, der holder det komplekse økosystem tilgængeligt.",
+      "deliverables": [
+        "Sidelayout og visuelt design",
+        "Komponentdesignsystem",
+        "Responsive brudpunkter",
+        "Tilgængelighedsgennemgang"
+      ]
+    },
+    {
+      "phase": "Udvikling og SEO",
+      "description": "Vi byggede webstedet med Nuxt 4 og konfigurerede det til statisk webstedsgenerering, hvilket leverede hurtige indlæsningstider uden løbende serveromkostninger. Omfattende Schema.org-markering, kanoniske tags og metaindhold på sideniveau blev implementeret. GTM med samtykketilstand sikrer kompatible analyser fra lancering.",
+      "deliverables": [
+        "Nuxt 4 applikation",
+        "Statisk webstedsgenerering",
+        "Schema.org implementering",
+        "GTM/GA4 med samtykketilstand",
+        "Flersproget (EN/DA)"
+      ]
+    }
+  ],
+  "challenges": [
+    {
+      "title": "Kommunikation af økosystemkompleksitet",
+      "problem": "Præsenterer seks indbyrdes forbundne fitnessmoduler uden at overvælde besøgende, som måske kun er interesserede i ét område.",
+      "solution": "Vi strukturerede webstedet til at lede med det overordnede værdiforslag, og introducerede derefter gradvist hvert modul. Klar visuel adskillelse og fokuseret kopi holder oplevelsen navigerbar."
+    },
+    {
+      "title": "Troværdighed før lancering",
+      "problem": "Appen er endnu ikke lanceret, så hjemmesiden skal opbygge tillid og fange tidlig interesse uden et live produkt at vise.",
+      "solution": "Vi fokuserede på klare budskaber, stærke varemærkevisualiseringer, Lighthouse-verificeret ydeevne og en troværdig produkthistorie baseret på det valideringsarbejde, som grundlæggerne allerede havde udført."
+    }
+  ],
+  "results": {
+    "summary": "Herqulez-marketingwebstedet lanceret med næsten perfekte tekniske resultater og en klar, selvsikker brandtilstedeværelse. Den er placeret til at understøtte applanceringen i begyndelsen af ​​2026 og bygget til at skalere med yderligere sprog og indholdssektioner, efterhånden som produktet vokser.",
+    "highlights": [
+      "Lighthouse: 99 Ydelse, 93 Tilgængelighed, 96 Best Practices, 100 SEO",
+      "Engelsk og dansk live ved lanceringen",
+      "Static Nuxt 4 build med CDN-levering til minimale hostingomkostninger",
+      "GDPR-kompatible analyser via GTM-samtykketilstand",
+      "Schema.org markup for omfattende søgeresultater",
+      "Klar til tysk, spansk, fransk og svensk udvidelse"
+    ]
+  },
+  "gallery": [
+    "/images/cases/herqulez/herq-landing.png",
+    "/images/cases/herqulez/herq-fullsystem.png",
+    "/images/cases/herqulez/herq-fitness.png",
+    "/images/cases/herqulez/lighthouse-herqulez.png"
+  ],
+  "learnings": [
+    "Et velstruktureret marketingsite kan skabe troværdighed for et produkt, der endnu ikke er lanceret, hvis brandhistorien er klar",
+    "Flersproget arkitektur planlægges bedst fra starten - at eftermontere den senere er betydeligt mere arbejde",
+    "Statisk webstedsgenerering leverer fremragende ydeevne med minimale infrastrukturomkostninger til marketingwebsteder",
+    "Opsætning af samtykketilstandsanalyse fra dag ét betyder kompatibel dataindsamling, så snart besøgende ankommer"
+  ],
+  "nextSteps": [
+    "Opdater webstedet med app-skærmbilleder, når MVP'en nærmer sig lanceringen",
+    "Udvid sprogunderstøttelse til tysk, spansk, fransk og svensk",
+    "Tilføj en blog eller en indsigtssektion for at understøtte SEO-vækst",
+    "Integrer en venteliste eller tilmelding med tidlig adgang, når produktet er klar"
+  ]
+}

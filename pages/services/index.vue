@@ -25,37 +25,10 @@ useHead({
 
 <template>
   <div class="services-page">
-    <!-- Hero Section -->
     <ServicesHero />
-
-    <!-- Sticky Section Navigation — Services-only: only page with 8+ scrollable sections -->
     <ServicesSectionNav />
-
-    <!-- Website Packages Cards -->
-    <ServicesPackagesSection />
-
-    <!-- Feature Comparison Table — Services-only: plan comparison specific to offerings -->
-    <ServicesComparisonTable />
-
-    <!-- Add-ons & Extras -->
-    <ServicesAddonsSection />
-
-    <!-- Visual Identity -->
-    <ServicesIdentitySection />
-
-    <!-- CMS Solutions -->
-    <ServicesCMSSection />
-
-    <!-- Support Plans -->
-    <ServicesSupportPlans />
-
-    <!-- How We Work -->
+    <ServicesOverviewSection />
     <ServicesHowWeWorkSection />
-
-    <!-- Before/After Results — Services-only: results showcase unique to services -->
-    <ServicesBeforeAfter />
-
-    <!-- CTA Section -->
     <ServicesCTA />
   </div>
 </template>
@@ -65,15 +38,11 @@ useHead({
   min-height: 100vh;
 }
 
-/* Offset smooth-scroll targets for sticky header + section nav */
-:deep(#packages-section),
-:deep(#comparison-section),
-:deep(#addons-section),
-:deep(#identity-section),
-:deep(#cms-section),
-:deep(#support-plans),
-:deep(#how-we-work-section),
-:deep(#before-after-section) {
+:deep(#overview-websites),
+:deep(#overview-identity),
+:deep(#overview-additional),
+:deep(#overview-support),
+:deep(#how-we-work-section) {
   scroll-margin-top: 136px;
 }
 </style>

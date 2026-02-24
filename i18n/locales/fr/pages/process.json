@@ -25,7 +25,7 @@
         ],
         "cta": {
           "label": "Entrez en contact",
-          "to": "/contacter"
+          "to": "/contact"
         }
       },
       "discovery": {
@@ -53,7 +53,7 @@
         "note": "La proposition indique clairement quelles données personnelles seront traitées, dans quel but et sur quelle base juridique, conformément au RGPD. Vos données ne sont jamais partagées avec des tiers au-delà de ce que nécessite le projet.",
         "cta": {
           "label": "Voir nos forfaits",
-          "to": "/services#section-packages"
+          "to": "/services#packages-section"
         }
       },
       "kickoff": {
@@ -78,7 +78,7 @@
         "note": "L'accès anticipé au serveur de développement est un module complémentaire facultatif. Il nécessite un déploiement et une maintenance plus fréquents, c'est pourquoi il est proposé en tant que service distinct.",
         "cta": {
           "label": "Voir les modules complémentaires et extras",
-          "to": "/services#section-addons"
+          "to": "/services#addons-section"
         }
       },
       "preview": {
@@ -127,7 +127,7 @@
         ],
         "cta": {
           "label": "Voir les plans d'assistance",
-          "to": "/services#plans-de-support"
+          "to": "/services#support-plans"
         }
       }
     }

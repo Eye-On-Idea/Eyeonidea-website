@@ -1,0 +1,345 @@
+{
+  "websitePackages": {
+    "meta": {
+      "title": "Forfaits Web - Eye On Idea",
+      "description": "Trois packages de sites Web construits autour de la situation actuelle de votre entreprise. Des prix clairs, une portée honnête et aucun extra inutile. Comparez le lancement, la croissance et la plate-forme."
+    },
+    "hero": {
+      "badge": "Forfaits Site Web",
+      "title": "Un site Web adapté à votre entreprise",
+      "subtitle": "Du premier site Web à la plateforme de contenu complet, chaque package est adapté aux besoins réels. Trois options claires, des prix honnêtes et aucun extra inutile."
+    },
+    "breadcrumb": {
+      "services": "Prestations",
+      "current": "Forfaits Site Web"
+    },
+    "nav": {
+      "packages": "Forfaits",
+      "comparison": "Comparez",
+      "cms": "Gestion de contenu",
+      "hosting": "Hébergement et domaine",
+      "results": "Résultats"
+    },
+    "hosting": {
+      "id": "hosting-section",
+      "badge": "Hébergement et domaine",
+      "title": "Tout ce dont vous avez besoin pour passer en direct",
+      "subtitle": "L'hébergement et le domaine sont gérés pour vous. Pas de fournisseurs distincts, pas de problèmes de configuration.",
+      "hostingCard": {
+        "badge": "Hébergement dans l'UE",
+        "title": "Hébergement fiable basé dans l'UE",
+        "description": "Hébergement fiable basé dans l’UE. Tarif à partir de 20 € par mois.",
+        "bullets": [
+          "Infrastructure basée dans l'UE",
+          "Surveillance et maintenance de base",
+          "Sauvegardes disponibles en fonction de la configuration"
+        ],
+        "price": "20",
+        "currency": "€",
+        "unit": "par mois",
+        "vatNote": "excl. TVA"
+      },
+      "domainCard": {
+        "title": "Domaine inclus",
+        "description": "Un domaine personnalisé avec une licence d'un an est inclus dans tous les forfaits. Les renouvellements, les domaines supplémentaires et les modifications DNS sont disponibles sous forme de modules complémentaires.",
+        "includedNote": "1 domaine inclus dans tous les forfaits",
+        "linkText": "Voir les modules complémentaires de domaine",
+        "linkHref": "/services/additional-services"
+      }
+    },
+    "cta": {
+      "badge": "Prêt à commencer ?",
+      "title": "Trouvons le bon forfait",
+      "description": "Chaque projet commence par une conversation sur les besoins réels de votre entreprise. Contactez-nous et nous étudierons le problème ensemble.",
+      "primaryText": "Entrez en contact",
+      "secondaryText": "Explorer les modules complémentaires"
+    }
+  },
+  "visualIdentity": {
+    "meta": {
+      "title": "Identité visuelle - Eye On Idea",
+      "description": "Logo, couleur, typographie et directives de marque pour les entreprises qui souhaitent paraître crédibles et cohérentes. Conception d'identité visuelle de Eye On Idea à Aalborg."
+    },
+    "hero": {
+      "badge": "Identité visuelle",
+      "title": "Regardez la pièce dès le premier jour",
+      "subtitle": "Votre identité visuelle est souvent la première chose sur laquelle les gens vous jugent. Nous vous aidons à bien faire les choses, du logo aux directives de la marque, afin que votre entreprise paraisse crédible et cohérente sur votre site Web, vos impressions et vos présentations."
+    },
+    "breadcrumb": {
+      "services": "Prestations",
+      "current": "Identité visuelle"
+    },
+    "nav": {
+      "overview": "Aperçu",
+      "deliverables": "Ce que vous obtenez",
+      "process": "Comment ça marche",
+      "pricing": "Tarifs",
+      "pricingId": "section-tarification-identité"
+    },
+    "deliverables": {
+      "badge": "Ce que vous obtenez",
+      "title": "Une base visuelle complète",
+      "subtitle": "Tout ce dont vous avez besoin pour présenter votre entreprise de manière cohérente, sur le plan numérique et imprimé.",
+      "items": [
+        {
+          "title": "Logo et variantes",
+          "description": "Un logo principal avec les variations nécessaires pour différents contextes : arrière-plans clairs et sombres, dispositions horizontales et empilées et utilisation uniquement d'icônes.",
+          "placeholderDescription": "Exemples de logos principaux et de variantes"
+        },
+        {
+          "title": "Palette de couleurs",
+          "description": "Un ensemble défini de couleurs de marque avec des conseils d'utilisation. Vous saurez exactement quelle couleur utiliser et où, afin que votre marque reste cohérente sur chaque point de contact.",
+          "placeholderDescription": "Palette de couleurs avec exemples d'utilisation"
+        },
+        {
+          "title": "Typographie",
+          "description": "Un système typographique clair couvrant les titres, le corps du texte et les textes justificatifs. Sélectionné pour sa lisibilité et sa personnalité, avec des conseils sur la façon de l'appliquer.",
+          "placeholderDescription": "Spécimen de typographie montrant les styles de titre et de corps"
+        },
+        {
+          "title": "Lignes directrices de la marque",
+          "description": "Un document de référence concis qui rassemble le tout. Couvre l'utilisation du logo, les couleurs, la typographie et l'espacement afin que toute personne travaillant sur votre marque puisse le faire correctement.",
+          "placeholderDescription": "Diffusion du document sur les lignes directrices de la marque"
+        }
+      ]
+    },
+    "process": {
+      "badge": "Comment ça marche",
+      "title": "Un processus simple et clair",
+      "subtitle": "Trois étapes, pas de surprise.",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Bref",
+          "description": "Nous commençons par une conversation sur votre entreprise, votre public et ce que vous souhaitez que votre marque communique. Pas de formulaire, juste une discussion."
+        },
+        {
+          "number": "02",
+          "title": "Conception",
+          "description": "Nous développons des concepts basés sur le brief et les présentons pour commentaires. Vous révisez, nous affinons, jusqu'à ce que le résultat soit bon."
+        },
+        {
+          "number": "03",
+          "title": "Remise de transfert",
+          "description": "Vous recevez tous les fichiers finaux dans les formats dont vous avez besoin, ainsi que les directives de la marque pour les utiliser en toute confiance à l'avenir."
+        }
+      ]
+    },
+    "pricing": {
+      "badge": "Tarifs",
+      "title": "Ce que ça coûte",
+      "subtitle": "Le prix dépend de la portée de votre projet. Vous trouverez ci-dessous les points de départ les plus courants.",
+      "currency": "€",
+      "vatNote": "Tous les prix excl. TVA",
+      "highlights": [
+        {
+          "name": "Création de logo (primaire et variantes)",
+          "price": "500",
+          "unit": "une fois"
+        },
+        {
+          "name": "Palette de couleurs et typographie",
+          "price": "250",
+          "unit": "une fois"
+        },
+        {
+          "name": "Document sur les lignes directrices de la marque",
+          "price": "400",
+          "unit": "une fois"
+        },
+        {
+          "name": "Actifs de marque sur les réseaux sociaux",
+          "price": "200",
+          "unit": "une fois"
+        },
+        {
+          "name": "Modèles de présentation",
+          "price": "300",
+          "unit": "une fois"
+        }
+      ],
+      "fullListNote": "Vous recherchez la répartition complète des livrables individuels et des extras ?",
+      "fullListLinkText": "Voir tous les tarifs d'identité visuelle",
+      "fullListHref": "/services/additional-services"
+    },
+    "cta": {
+      "badge": "Prêt à développer votre marque ?",
+      "title": "Parlons de votre identité",
+      "description": "Que vous partiez de zéro ou que vous rafraîchissiez une marque existante, contactez-nous et nous déterminerons ensemble la bonne portée.",
+      "primaryText": "Discutez de votre marque",
+      "secondaryText": "Voir les forfaits du site Web"
+    }
+  },
+  "additionalServices": {
+    "meta": {
+      "title": "Services supplémentaires - Eye On Idea",
+      "description": "Domaines, e-mails, rédaction, référencement et plans d'assistance continue. Tout autour de votre site Web, géré en un seul endroit par Eye On Idea à Aalborg."
+    },
+    "hero": {
+      "badge": "Services supplémentaires",
+      "title": "Tout autour de votre site Web",
+      "subtitle": "Votre site Web est le centre de votre présence numérique. Ces services vous aident à construire autour de lui.",
+      "intro": [
+        "Certaines choses appartiennent à chaque projet : un domaine, une adresse e-mail professionnelle, un contenu qui convertit réellement. D’autres ne deviennent pertinents qu’une fois que vous êtes en direct : une revue SEO, un deuxième avis sur votre architecture d’information ou une séance de conseil lorsque quelque chose ne fonctionne pas.",
+        "Cette page couvre ce que nous proposons en dehors des packages de base du site Web. Chaque service peut être ajouté à un projet ou commandé seul."
+      ]
+    },
+    "breadcrumb": {
+      "services": "Prestations",
+      "current": "Services supplémentaires"
+    },
+    "nav": {
+      "addons": "Modules complémentaires",
+      "content": "Contenu",
+      "domain": "Domaine",
+      "email": "E-mail",
+      "seoConsulting": "Référencement et conseil",
+      "support": "Plans d'assistance"
+    },
+    "sections": {
+      "content": {
+        "badge": "Contenu et langue",
+        "title": "Contenu et langue",
+        "intro": [
+          "Un bon contenu ne consiste pas seulement à remplir des pages. Il s'agit d'être clair, direct et facile à analyser, sur tous les appareils et dans toutes les langues accessibles.",
+          "Nous rédigeons, modifions et préparons une copie de site Web qui correspond à la conception et communique ce que fait réellement votre entreprise. Nous aidons également lorsqu'un site doit fonctionner dans plusieurs langues."
+        ],
+        "items": [
+          {
+            "name": "Rédaction de sites Web",
+            "price": "100",
+            "unit": "par page",
+            "description": "Copie page par page rédigée pour s'adapter à votre structure et à votre ton. Comprend un cycle de révision."
+          },
+          {
+            "name": "Édition et affinement du contenu",
+            "price": "75",
+            "unit": "par heure",
+            "description": "Vous avez un brouillon de texte qui doit être resserré, restructuré ou adapté au Web. Nous y travaillons avec vous."
+          },
+          {
+            "name": "Configuration multilingue (2 langues)",
+            "price": "350",
+            "unit": "une fois",
+            "description": "Configuration technique pour un site Web bilingue : routage, changement de paramètres régionaux et configuration CMS pour deux langues."
+          },
+          {
+            "name": "Version linguistique supplémentaire",
+            "price": "125",
+            "unit": "par langue",
+            "description": "Étendez une configuration multilingue existante pour couvrir une langue supplémentaire."
+          }
+        ]
+      },
+      "domain": {
+        "badge": "Domaine",
+        "title": "Domaine",
+        "intro": [
+          "Chaque forfait comprend un domaine personnalisé avec une licence d'un an. Ce que vous voyez ci-dessous couvre tout le reste : domaines supplémentaires, renouvellements après la première année et transferts si vous déplacez un domaine d'un autre fournisseur.",
+          "Le prix du domaine varie selon l'extension (.com, .dk, .io, etc.) et selon le registraire. Nous vous informons toujours du coût avant que quoi que ce soit ne soit enregistré."
+        ],
+        "items": [
+          {
+            "name": "Enregistrement de domaine supplémentaire",
+            "price": "15-50",
+            "unit": "par an",
+            "description": "Enregistrez un domaine supplémentaire - utile pour la protection de la marque, les variantes régionales ou les redirections."
+          },
+          {
+            "name": "Aide au transfert de domaine",
+            "price": "50",
+            "unit": "une fois",
+            "description": "Nous gérons le processus de transfert si vous déplacez un domaine existant depuis un autre registraire."
+          },
+          {
+            "name": "Renouvellement de domaine (après la première année)",
+            "price": "15-50",
+            "unit": "par an",
+            "description": "Renouvellement annuel pour tout domaine enregistré par notre intermédiaire. Géré en votre nom, avec préavis avant le renouvellement."
+          }
+        ]
+      },
+      "email": {
+        "badge": "E-mail",
+        "title": "E-mail",
+        "intro": [
+          "Une adresse e-mail professionnelle sur votre propre domaine est l’un des moyens les plus simples de paraître crédible. Nous mettons en place et gérons la messagerie professionnelle sur une infrastructure basée dans l'UE.",
+          "Les deux forfaits utilisent votre domaine (vous{'@'}votreentreprise.com) et incluent des fonctionnalités standard : accès à la messagerie Web, filtrage du spam et fonctionnalités de calendrier de base."
+        ],
+        "items": [
+          {
+            "name": "Email Starter (15 Go par compte)",
+            "price": "1",
+            "unit": "par compte / mois",
+            "description": "Une adresse e-mail propre et professionnelle sur votre domaine. Convient à la plupart des petites équipes."
+          },
+          {
+            "name": "Email Pro (50 Go par compte)",
+            "price": "4",
+            "unit": "par compte / mois",
+            "description": "Plus de stockage et des fonctionnalités supplémentaires pour les équipes qui utilisent beaucoup le courrier électronique."
+          }
+        ]
+      },
+      "seoConsulting": {
+        "badge": "Référencement et conseil",
+        "title": "Référencement et conseil",
+        "intro": [
+          "Il s’agit de services ponctuels et non de mandats. Chacun répond à une question spécifique : le site est-il correctement structuré pour la recherche, les métadonnées font-elles leur travail, y a-t-il quelque chose qui ne va pas techniquement qui freine la visibilité ?",
+          "La séance consultative est ouverte. Apportez une question, un problème ou quelque chose dont vous n'êtes pas sûr. Nous y travaillons ensemble."
+        ],
+        "items": [
+          {
+            "name": "Révision de la structure SEO",
+            "price": "200",
+            "unit": "une fois",
+            "description": "Un examen de la façon dont votre site est organisé pour la recherche : hiérarchie des titres, structure des URL, liens internes et capacité d'exploration."
+          },
+          {
+            "name": "Optimisation des métadonnées",
+            "price": "150",
+            "unit": "une fois",
+            "description": "Nous examinons et réécrivons les titres de vos pages et les méta descriptions pour améliorer le taux de clics dans les résultats de recherche."
+          },
+          {
+            "name": "Stratégie de maillage interne",
+            "price": "150",
+            "unit": "une fois",
+            "description": "Un plan sur la manière dont les pages de votre site doivent être liées les unes aux autres pour transmettre l'autorité et aider les visiteurs à trouver ce dont ils ont besoin."
+          },
+          {
+            "name": "Séance consultative (1 heure)",
+            "price": "100",
+            "unit": "par séance",
+            "description": "Une conversation ciblée sur tout ce qui vous préoccupe : une stratégie, une direction, une décision que vous envisagez ou un problème que vous ne pouvez pas résoudre."
+          },
+          {
+            "name": "Audit technique",
+            "price": "300",
+            "unit": "une fois",
+            "description": "Un examen structuré des performances, de l’accessibilité et du référencement technique. Présenté sous la forme d’une liste prioritaire de problèmes et de recommandations."
+          },
+          {
+            "name": "Examen de l'assurance qualité avant le lancement",
+            "price": "200",
+            "unit": "une fois",
+            "description": "Une vérification préalable au lancement sur les navigateurs, les appareils et les parcours des utilisateurs clés. Nous recherchons les liens rompus, les problèmes de mise en page et tout ce qui devrait être corrigé avant la mise en ligne."
+          },
+          {
+            "name": "Examen du deuxième avis",
+            "price": "150",
+            "unit": "une fois",
+            "description": "Vous n'êtes pas sûr d'une décision de conception, d'une structure CMS ou d'une approche technique ? Nous examinons ce que vous possédez et vous donnons une évaluation directe et honnête."
+          }
+        ]
+      }
+    },
+    "cta": {
+      "badge": "Vous ne savez pas ce dont vous avez besoin ?",
+      "title": "Travaillons ensemble",
+      "description": "Chaque entreprise a des besoins différents. Contactez-nous et nous élaborerons la bonne combinaison de services pour votre projet.",
+      "primaryText": "Entrez en contact",
+      "secondaryText": "Voir les forfaits du site Web"
+    }
+  }
+}

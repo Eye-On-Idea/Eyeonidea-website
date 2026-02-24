@@ -41,5 +41,6 @@
     "light": "Modo claro",
     "dark": "Modo oscuro",
     "system": "Preferencia del sistema"
-  }
+  },
+  "imagePlaceholder": "Imagen próximamente"
 }

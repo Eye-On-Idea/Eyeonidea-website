@@ -1,0 +1,61 @@
+{
+  "metaTitle": "Unsere Arbeit | Eye On Idea",
+  "metaDescription": "Entdecken Sie, wie Eye On Idea Websites für kleine und mittlere Unternehmen entwirft und erstellt – von der Strategie und der visuellen Identität bis hin zur Einführung und dem laufenden Support.",
+  "hero": {
+    "title": "Unsere Arbeit",
+    "subtitle": "Strategie, Design und Entwicklung – geliefert.",
+    "description": "Ein Blick auf die Projekte, die wir für unsere Kunden und unsere eigenen Marken entworfen und gebaut haben, vom Konzept bis zur Produktion."
+  },
+  "categories": {
+    "myCompanies": "Unsere Marken",
+    "clientWork": "Kundenarbeit",
+    "sideProjects": "Nebenprojekte"
+  },
+  "filter": {
+    "all": "Alle Projekte",
+    "webDev": "Webentwicklung",
+    "uxui": "UX/UI-Design",
+    "branding": "Branding",
+    "seo": "SEO"
+  },
+  "cta": {
+    "viewCase": "Fallstudie ansehen",
+    "visitSite": "Besuchen Sie die Website",
+    "readMore": "Mehr lesen"
+  },
+  "badges": {
+    "eyeOnIdea": "Eye On Idea",
+    "herqulez": "Partnerprojekt",
+    "schoolProject": "Schulprojekt",
+    "featured": "Hervorgehoben"
+  },
+  "stats": {
+    "role": "Unsere Rolle",
+    "duration": "Dauer",
+    "year": "Jahr",
+    "technologies": "Technologien"
+  },
+  "sections": {
+    "overview": "Übersicht",
+    "challenge": "Die Herausforderung",
+    "solution": "Unsere Lösung",
+    "outcome": "Das Ergebnis",
+    "process": "Unser Prozess",
+    "keyMetrics": "Schlüsselkennzahlen",
+    "challenges": "Herausforderungen und Lösungen",
+    "results": "Ergebnisse",
+    "learnings": "Wichtige Erkenntnisse",
+    "nextSteps": "Nächste Schritte",
+    "gallery": "Galerie"
+  },
+  "navigation": {
+    "backToCases": "Zurück zu unserer Arbeit",
+    "nextCase": "Nächste Fallstudie",
+    "previousCase": "Vorherige Fallstudie"
+  },
+  "contact": {
+    "title": "Sind Sie bereit, Ihr Projekt zu starten?",
+    "description": "Wir arbeiten mit kleinen und mittleren Unternehmen zusammen, um Websites zu erstellen, die gut aussehen und noch leistungsfähiger sind. Lassen Sie uns darüber sprechen, was wir für Sie tun können.",
+    "button": "Nehmen Sie Kontakt auf"
+  }
+}

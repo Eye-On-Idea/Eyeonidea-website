@@ -41,5 +41,6 @@
     "light": "Modalità chiara",
     "dark": "Modalità scura",
     "system": "Preferenza di sistema"
-  }
+  },
+  "imagePlaceholder": "Immagine in arrivo"
 }

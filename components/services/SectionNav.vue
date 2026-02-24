@@ -4,44 +4,56 @@ import { ref, computed, onMounted, onUnmounted, nextTick, watch } from "vue";
 
 const { t } = useI18n();
 
-// Section definitions — order matches page layout
-const sections = computed(() => [
+export interface SectionNavItem {
+  id: string;
+  label: string;
+  icon?: string;
+}
+
+const props = withDefaults(
+  defineProps<{
+    /** Override the default section list. Defaults to the full /services index sections. */
+    sections?: SectionNavItem[];
+    /** aria-label for the nav element */
+    ariaLabel?: string;
+  }>(),
   {
-    id: "packages-section",
-    label: t("services.packages.badge"),
-    icon: "i-heroicons-cube",
+    sections: undefined,
+    ariaLabel: undefined,
+  }
+);
+
+// Default section definitions for /services index — order matches page layout
+const defaultSections = computed<SectionNavItem[]>(() => [
+  {
+    id: "overview-websites",
+    label: t("services.overview.nav.websites"),
+    icon: "i-heroicons-computer-desktop",
   },
   {
-    id: "comparison-section",
-    label: t("services.comparison.badge"),
-    icon: "i-heroicons-table-cells",
+    id: "overview-identity",
+    label: t("services.overview.nav.identity"),
+    icon: "i-heroicons-swatch",
   },
   {
-    id: "addons-section",
-    label: t("services.addons.badge"),
+    id: "overview-additional",
+    label: t("services.overview.nav.additional"),
     icon: "i-heroicons-puzzle-piece",
   },
   {
-    id: "identity-section",
-    label: t("services.identity.badge"),
-    icon: "i-heroicons-paint-brush",
-  },
-  {
-    id: "cms-section",
-    label: t("services.cms.badge"),
-    icon: "i-heroicons-square-3-stack-3d",
-  },
-  {
-    id: "support-plans",
-    label: t("services.support.badge"),
+    id: "overview-support",
+    label: t("services.overview.nav.support"),
     icon: "i-heroicons-shield-check",
   },
   {
     id: "how-we-work-section",
-    label: t("services.howWeWork.badge"),
+    label: t("services.overview.nav.howWeWork"),
     icon: "i-heroicons-arrow-path",
   },
 ]);
+
+const sections = computed<SectionNavItem[]>(() => props.sections ?? defaultSections.value);
+const navAriaLabel = computed(() => props.ariaLabel ?? t("services.hero.badge"));
 
 const activeId = ref<string | null>(null);
 const navRef = ref<HTMLElement | null>(null);
@@ -161,14 +173,14 @@ onUnmounted(() => {
     ref="navRef"
     class="section-nav"
     role="navigation"
-    :aria-label="t('services.hero.badge')"
+    :aria-label="navAriaLabel"
   >
     <div class="section-nav__container">
       <div
         ref="scrollContainerRef"
         class="section-nav__scroll"
         role="tablist"
-        :aria-label="t('services.hero.badge')"
+        :aria-label="navAriaLabel"
       >
         <!-- Animated pill indicator -->
         <span class="section-nav__pill" :style="pillStyle" aria-hidden="true" />
@@ -188,6 +200,7 @@ onUnmounted(() => {
           @keydown="handleKeydown($event, index)"
         >
           <UIcon
+            v-if="section.icon"
             :name="section.icon"
             class="section-nav__icon"
             aria-hidden="true"

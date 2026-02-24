@@ -41,5 +41,6 @@
     "light": "Light mode",
     "dark": "Dark mode",
     "system": "System preference"
-  }
+  },
+  "imagePlaceholder": "Image coming soon"
 }

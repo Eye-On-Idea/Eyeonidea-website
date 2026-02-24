@@ -1,0 +1,61 @@
+{
+  "metaTitle": "Il nostro lavoro | Eye On Idea",
+  "metaDescription": "Scopri come Eye On Idea progetta e realizza siti web per le piccole e medie imprese: dalla strategia e identità visiva al lancio e al supporto continuo.",
+  "hero": {
+    "title": "Il nostro lavoro",
+    "subtitle": "Strategia, progettazione e sviluppo - consegnati.",
+    "description": "Uno sguardo ai progetti che abbiamo ideato e realizzato per i nostri clienti e i nostri marchi, dall'ideazione alla produzione."
+  },
+  "categories": {
+    "myCompanies": "I nostri marchi",
+    "clientWork": "Lavoro del cliente",
+    "sideProjects": "Progetti collaterali"
+  },
+  "filter": {
+    "all": "Tutti i progetti",
+    "webDev": "Sviluppo Web",
+    "uxui": "Progettazione dell'esperienza utente/interfaccia utente",
+    "branding": "Marchio",
+    "seo": "SEO"
+  },
+  "cta": {
+    "viewCase": "Visualizza il caso di studio",
+    "visitSite": "Visita il sito web",
+    "readMore": "Leggi di più"
+  },
+  "badges": {
+    "eyeOnIdea": "Eye On Idea",
+    "herqulez": "Progetto partner",
+    "schoolProject": "Progetto Scuola",
+    "featured": "In primo piano"
+  },
+  "stats": {
+    "role": "Il nostro ruolo",
+    "duration": "Durata",
+    "year": "Anno",
+    "technologies": "Tecnologie"
+  },
+  "sections": {
+    "overview": "Panoramica",
+    "challenge": "La sfida",
+    "solution": "La nostra soluzione",
+    "outcome": "Il risultato",
+    "process": "Il nostro processo",
+    "keyMetrics": "Metriche chiave",
+    "challenges": "Sfide e soluzioni",
+    "results": "Risultati",
+    "learnings": "Apprendimenti chiave",
+    "nextSteps": "Passaggi successivi",
+    "gallery": "Galleria"
+  },
+  "navigation": {
+    "backToCases": "Torniamo al nostro lavoro",
+    "nextCase": "Prossimo caso di studio",
+    "previousCase": "Caso di studio precedente"
+  },
+  "contact": {
+    "title": "Pronto per iniziare il tuo progetto?",
+    "description": "Collaboriamo con piccole e medie imprese per creare siti Web dall'aspetto fantastico e dalle prestazioni ancora migliori. Parliamo di cosa possiamo fare per te.",
+    "button": "Mettiti in contatto"
+  }
+}
