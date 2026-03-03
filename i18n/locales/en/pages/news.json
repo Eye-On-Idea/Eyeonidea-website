@@ -50,5 +50,22 @@
     "article": "Article",
     "announcement": "Announcement",
     "caseStudy": "Case Study"
+  },
+  "postTypes": {
+    "news": "News",
+    "article": "Article",
+    "announcement": "Announcement",
+    "caseStudy": "Case Study",
+    "event": "Event",
+    "product_update": "Product Update",
+    "press_release": "Press Release"
+  },
+  "postsList": {
+    "noResults": "No articles found",
+    "noResultsText": "Try adjusting your search or filters",
+    "loadMore": "Load more articles",
+    "loading": "Loading articles...",
+    "allLoaded": "All articles loaded",
+    "showingCount": "Showing {shown} of {total} articles"
   }
 }

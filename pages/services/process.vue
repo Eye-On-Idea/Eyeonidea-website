@@ -1,25 +1,37 @@
 <script setup lang="ts">
-const { t } = useI18n();
+const { t, tm } = useI18n();
 
-useSeoMeta({
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+useSeo({
   title: () => t("process.meta.title"),
   description: () => t("process.meta.description"),
-  ogTitle: () => t("process.meta.title"),
-  ogDescription: () => t("process.meta.description"),
-  ogType: "website",
-  ogUrl: "https://eyeonidea.com/services/process",
-  twitterCard: "summary_large_image",
-  twitterTitle: () => t("process.meta.title"),
-  twitterDescription: () => t("process.meta.description"),
-});
-
-useHead({
-  link: [
+  type: "website",
+  schemaType: "WebPage",
+  includeWebSiteSchema: false,
+  breadcrumbs: [
+    { name: "Home", url: "https://eyeonidea.com" },
+    { name: "Services", url: "https://eyeonidea.com/services" },
     {
-      rel: "canonical",
-      href: "https://eyeonidea.com/services/process",
+      name: t("process.meta.title"),
+      url: "https://eyeonidea.com/services/process",
     },
   ],
+  structuredData: {
+    "@type": "FAQPage",
+    "@id": "https://eyeonidea.com/services/process#faq",
+    mainEntity: (tm("process.faq.items") as FAQItem[]).map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  },
 });
 </script>
 

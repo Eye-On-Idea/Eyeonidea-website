@@ -104,7 +104,7 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
     baseUrl,
   );
   const defaultImage = resolveUrl(
-    config.public.ogImage || "/android-chrome-512x512.png",
+    config.public.ogImage || "/public-material/company-page-banner.png",
     baseUrl,
   );
   const siteTwitter = config.public.twitterHandle || "@eyeonidea";
@@ -120,12 +120,23 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
     const pageUrl = resolveUrl(routePath, baseUrl);
     const canonicalUrl = resolveUrl(resolved.canonical || pageUrl, baseUrl);
 
-    const titleHasBrand = resolved.title
+    // Resolve title and description — they may be getter functions when passed
+    // as reactive i18n values (e.g. `title: () => t("page.meta.title")`)
+    const titleRaw =
+      typeof resolved.title === "function"
+        ? (resolved.title as () => string)()
+        : (resolved.title as string);
+    const descriptionRaw =
+      typeof resolved.description === "function"
+        ? (resolved.description as () => string)()
+        : (resolved.description as string);
+
+    const titleHasBrand = (titleRaw || "")
       .toLowerCase()
       .includes(siteName.toLowerCase());
     const metaTitle = titleHasBrand
-      ? resolved.title
-      : `${resolved.title} | ${siteName}`;
+      ? titleRaw
+      : `${titleRaw} | ${siteName}`;
     const resolvedTitleTemplate =
       resolved.titleTemplate === undefined
         ? titleHasBrand
@@ -196,6 +207,8 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
 
     return {
       resolved,
+      titleRaw,
+      descriptionRaw,
       canonicalUrl,
       metaTitle,
       resolvedTitleTemplate,
@@ -224,12 +237,12 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
         lang: ctx.lang,
         ...(ctx.dir ? { dir: ctx.dir } : {}),
       },
-      title: resolved.title,
+      title: ctx.titleRaw,
       ...(ctx.resolvedTitleTemplate === undefined
         ? {}
         : { titleTemplate: ctx.resolvedTitleTemplate }),
       meta: [
-        { name: "description", content: resolved.description },
+        { name: "description", content: ctx.descriptionRaw },
         ...(resolved.keywords?.length
           ? [{ name: "keywords", content: resolved.keywords.join(", ") }]
           : []),
@@ -251,7 +264,7 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
         { property: "og:site_name", content: siteName },
         { property: "og:url", content: ctx.canonicalUrl },
         { property: "og:title", content: ctx.metaTitle },
-        { property: "og:description", content: resolved.description },
+        { property: "og:description", content: ctx.descriptionRaw },
         { property: "og:image", content: ctx.ogImage },
         { property: "og:image:alt", content: ctx.imageAlt },
         ...(ctx.imageWidth && ctx.imageHeight
@@ -306,7 +319,7 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
           content: resolved.twitterCard || "summary_large_image",
         },
         { name: "twitter:title", content: ctx.metaTitle },
-        { name: "twitter:description", content: resolved.description },
+        { name: "twitter:description", content: ctx.descriptionRaw },
         { name: "twitter:image", content: ctx.ogImage },
         { name: "twitter:image:alt", content: ctx.imageAlt },
         { name: "twitter:url", content: ctx.canonicalUrl },
@@ -427,7 +440,7 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
       "@id": ctx.canonicalUrl,
       url: ctx.canonicalUrl,
       name: ctx.metaTitle,
-      description: resolved.description,
+      description: ctx.descriptionRaw,
       inLanguage: ctx.lang,
       isPartOf: { "@id": `${baseUrl}/#website` },
       primaryImageOfPage: imageObject,
@@ -466,8 +479,8 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
       const articleSchema: SchemaNode = {
         "@type": "Article",
         "@id": `${ctx.canonicalUrl}#article`,
-        headline: resolved.title,
-        description: resolved.description,
+        headline: ctx.titleRaw,
+        description: ctx.descriptionRaw,
         image: imageObject,
         datePublished: resolved.publishedTime,
         dateModified: resolved.modifiedTime || resolved.publishedTime,
@@ -500,8 +513,8 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
       const productSchema: SchemaNode = {
         "@type": "Product",
         "@id": `${ctx.canonicalUrl}#product`,
-        name: resolved.title,
-        description: resolved.description,
+        name: ctx.titleRaw,
+        description: ctx.descriptionRaw,
         image: ctx.ogImage,
         brand: { "@type": "Brand", name: siteName },
         url: ctx.canonicalUrl,
@@ -513,8 +526,8 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
       const creativeWorkSchema: SchemaNode = {
         "@type": "CreativeWork",
         "@id": `${ctx.canonicalUrl}#work`,
-        name: resolved.title,
-        description: resolved.description,
+        name: ctx.titleRaw,
+        description: ctx.descriptionRaw,
         image: ctx.ogImage,
         creator: { "@id": `${baseUrl}/#organization` },
         inLanguage: ctx.lang,

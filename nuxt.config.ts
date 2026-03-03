@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   modules: [
+    "@nuxtjs/seo",
     "@nuxt/image",
     "@nuxt/ui",
     "@dargmuesli/nuxt-cookie-control",
@@ -148,7 +149,6 @@ export default defineNuxtConfig({
         lang: "en",
       },
       title: "Eye On Idea",
-      titleTemplate: "%s | Eye On Idea",
       link: [
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
         {
@@ -189,36 +189,6 @@ export default defineNuxtConfig({
         { name: "author", content: "Eye On Idea" },
         { property: "og:site_name", content: "Eye On Idea" },
         { property: "og:locale", content: "en_US" },
-      ],
-      script: [
-        {
-          type: "application/ld+json",
-          innerHTML: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            name: "Eye On Idea",
-            url: "https://eyeonidea.com",
-            description:
-              "Helping businesses across Europe, build digital products that are reliable, accessible, and easy to use",
-            potentialAction: {
-              "@type": "SearchAction",
-              target: {
-                "@type": "EntryPoint",
-                urlTemplate:
-                  "https://eyeonidea.com/search?q={search_term_string}",
-              },
-              "query-input": "required name=search_term_string",
-            },
-            publisher: {
-              "@type": "Organization",
-              name: "Eye On Idea",
-              logo: {
-                "@type": "ImageObject",
-                url: "https://eyeonidea.com/public-material/profile-picture.png",
-              },
-            },
-          }),
-        },
       ],
     },
   },
@@ -346,6 +316,30 @@ export default defineNuxtConfig({
   // Compatibility fixes
   alias: {
     "@nuxt/kit": "@nuxt/kit",
+  },
+
+  // ---------- Link Checker ----------
+  linkChecker: {
+    // Only run during build/generate — never in production runtime
+    runOnBuild: true,
+    // Do not fail the build on broken links (report only).
+    // Set to true once all current issues are resolved.
+    failOnError: false,
+    // Do not fetch external URLs during CI — avoids rate-limiting and
+    // network-dependent build failures. Review external links manually.
+    fetchRemoteUrls: false,
+    // Show live inspections in Nuxt DevTools during development
+    showLiveInspections: true,
+    // Exclude private/auth-gated routes from inspection
+    excludeLinks: [
+      "/client-hub/**",
+      "/about/legal",
+      "/about/policies",
+    ],
+    // Generate a JSON report alongside the build for CI archiving
+    report: {
+      json: true,
+    },
   },
 
   routeRules: {

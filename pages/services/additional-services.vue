@@ -4,25 +4,18 @@ import type { SectionNavItem } from "~/components/services/SectionNav.vue";
 
 const { t, tm } = useI18n();
 
-useSeoMeta({
+useSeo({
   title: () => t("servicesSubpages.additionalServices.meta.title"),
   description: () => t("servicesSubpages.additionalServices.meta.description"),
-  ogTitle: () => t("servicesSubpages.additionalServices.meta.title"),
-  ogDescription: () =>
-    t("servicesSubpages.additionalServices.meta.description"),
-  ogType: "website",
-  ogUrl: "https://eyeonidea.com/services/additional-services",
-  twitterCard: "summary_large_image",
-  twitterTitle: () => t("servicesSubpages.additionalServices.meta.title"),
-  twitterDescription: () =>
-    t("servicesSubpages.additionalServices.meta.description"),
-});
-
-useHead({
-  link: [
+  type: "website",
+  schemaType: "WebPage",
+  includeWebSiteSchema: false,
+  breadcrumbs: [
+    { name: "Home", url: "https://eyeonidea.com" },
+    { name: t("servicesSubpages.additionalServices.breadcrumb.services"), url: "https://eyeonidea.com/services" },
     {
-      rel: "canonical",
-      href: "https://eyeonidea.com/services/additional-services",
+      name: t("servicesSubpages.additionalServices.breadcrumb.current"),
+      url: "https://eyeonidea.com/services/additional-services",
     },
   ],
 });

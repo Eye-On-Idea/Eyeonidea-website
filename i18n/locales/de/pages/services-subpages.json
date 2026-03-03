@@ -73,7 +73,7 @@
       "deliverables": "Was Sie bekommen",
       "process": "Wie es funktioniert",
       "pricing": "Preise",
-      "pricingId": "identity-pricing-section",
+      "pricingId": "Abschnitt „Identitätspreise“.",
       "faq": "FAQ",
       "contact": "Kontakt"
     },
@@ -213,7 +213,7 @@
         },
         {
           "icon": "i-heroicons-globe-alt",
-          "title": "Domain",
+          "title": "Domäne",
           "body": "Registrierung, Verlängerungen und Transfers. Eine Domain ist in jedem Website-Paket enthalten."
         },
         {

@@ -33,24 +33,18 @@ let typographyTimer: ReturnType<typeof setInterval> | null = null;
 
 const { t, tm } = useI18n();
 
-useSeoMeta({
+useSeo({
   title: () => t("servicesSubpages.visualIdentity.meta.title"),
   description: () => t("servicesSubpages.visualIdentity.meta.description"),
-  ogTitle: () => t("servicesSubpages.visualIdentity.meta.title"),
-  ogDescription: () => t("servicesSubpages.visualIdentity.meta.description"),
-  ogType: "website",
-  ogUrl: "https://eyeonidea.com/services/visual-identity",
-  twitterCard: "summary_large_image",
-  twitterTitle: () => t("servicesSubpages.visualIdentity.meta.title"),
-  twitterDescription: () =>
-    t("servicesSubpages.visualIdentity.meta.description"),
-});
-
-useHead({
-  link: [
+  type: "website",
+  schemaType: "WebPage",
+  includeWebSiteSchema: false,
+  breadcrumbs: [
+    { name: "Home", url: "https://eyeonidea.com" },
+    { name: t("servicesSubpages.visualIdentity.breadcrumb.services"), url: "https://eyeonidea.com/services" },
     {
-      rel: "canonical",
-      href: "https://eyeonidea.com/services/visual-identity",
+      name: t("servicesSubpages.visualIdentity.breadcrumb.current"),
+      url: "https://eyeonidea.com/services/visual-identity",
     },
   ],
 });

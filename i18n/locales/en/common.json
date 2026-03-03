@@ -35,7 +35,8 @@
   "accessibility": {
     "scrollProgress": "Page scroll progress",
     "selectLanguage": "Select language",
-    "toggleColorMode": "Toggle color mode"
+    "toggleColorMode": "Toggle color mode",
+    "externalLink": "Opens in new tab"
   },
   "colorMode": {
     "light": "Light mode",

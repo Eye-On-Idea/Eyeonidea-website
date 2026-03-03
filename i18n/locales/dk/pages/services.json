@@ -88,7 +88,7 @@
       "idealFor": "Virksomheder, der aktivt opdaterer indhold og ønsker en hjemmeside, der udvikler sig med virksomheden.",
       "includes": [
         "Alt i lancering",
-        "Content management system",
+        "Indholdsstyringssystem",
         "Blog eller nyhedssektion",
         "SEO-optimeret struktur",
         "Tydelig adskillelse mellem indhold og design",
@@ -178,7 +178,7 @@
         "title": "Content Management",
         "features": [
           {
-            "name": "Content management system",
+            "name": "Indholdsstyringssystem",
             "tooltip": "Sanity CMS til uafhængig indholdsredigering",
             "launch": false,
             "growth": true,

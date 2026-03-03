@@ -213,7 +213,7 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
       class="absolute -bottom-4.5 left-0 right-0 w-full h-auto z-49 bg-transparent"
     ></div>
     <template #title>
-      <NuxtLink to="/" class="flex items-center gap-3 group logo-container">
+      <NuxtLink to="/" aria-label="Eye On Idea - Home" class="flex items-center gap-3 group logo-container">
         <img
           src="/public-material/logo-center-shadow.svg"
           alt="Eye On Idea"

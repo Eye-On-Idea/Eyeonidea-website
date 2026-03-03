@@ -1,7 +1,7 @@
 [
   {
     "slug": "herqulez",
-    "category": "mine Virksomheder",
+    "category": "myCompanies",
     "title": "Herqulez",
     "subtitle": "Modulær Fitness Ecosystem Platform",
     "company": "Herqulez",
@@ -17,7 +17,7 @@
   },
   {
     "slug": "tegetec",
-    "category": "klientarbejde",
+    "category": "clientWork",
     "title": "Tegetec",
     "subtitle": "Udbyder af industrielt fødevareforarbejdningsudstyr",
     "company": "Tegetec",

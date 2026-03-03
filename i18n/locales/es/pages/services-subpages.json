@@ -74,13 +74,13 @@
       "process": "Cómo funciona",
       "pricing": "Precios",
       "pricingId": "sección de precios de identidad",
-      "faq": "FAQ",
+      "faq": "Preguntas frecuentes",
       "contact": "Contacto"
     },
     "intro": {
-      "eyebrow": "Visual Identity",
-      "heading": "Your brand speaks before you do.",
-      "body": "A well-designed logo, a consistent colour palette, and clear typography signal professionalism and build trust that is difficult to achieve any other way. At Eye On Idea, we approach visual identity as a practical foundation - delivering a complete, usable system that works consistently across your website, printed materials, and anywhere else your audience finds you."
+      "eyebrow": "Identidad Visual",
+      "heading": "Tu marca habla antes que tú.",
+      "body": "Un logotipo bien diseñado, una paleta de colores consistente y una tipografía clara indican profesionalismo y generan una confianza que es difícil de lograr de otra manera. En Eye On Idea, abordamos la identidad visual como una base práctica: brindamos un sistema completo y utilizable que funciona de manera consistente en su sitio web, materiales impresos y en cualquier otro lugar donde su audiencia lo encuentre."
     },
     "deliverables": {
       "badge": "Lo que obtienes",

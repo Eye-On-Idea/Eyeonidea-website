@@ -1,6 +1,6 @@
 {
   "slug": "tegetec",
-  "category": "clientTravail",
+  "category": "clientWork",
   "title": "Tégétec",
   "subtitle": "Fournisseur d'équipements de transformation des aliments industriels",
   "company": "Tégétec",
@@ -135,7 +135,7 @@
     "afterLabel": "Après",
     "metrics": [
       {
-        "label": "Performance",
+        "label": "Performances",
         "before": "48",
         "after": "83",
         "unit": "",

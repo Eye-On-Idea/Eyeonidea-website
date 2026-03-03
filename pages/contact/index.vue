@@ -1,25 +1,28 @@
 <script setup lang="ts">
 const { t } = useI18n();
 
-useSeoMeta({
+useSeo({
   title: () => t("contact.meta.title"),
   description: () => t("contact.meta.description"),
-  ogTitle: () => t("contact.meta.title"),
-  ogDescription: () => t("contact.meta.description"),
-  ogType: "website",
-  ogUrl: "https://eyeonidea.com/contact",
-  twitterCard: "summary_large_image",
-  twitterTitle: () => t("contact.meta.title"),
-  twitterDescription: () => t("contact.meta.description"),
-});
-
-useHead({
-  link: [
-    {
-      rel: "canonical",
-      href: "https://eyeonidea.com/contact",
+  type: "website",
+  schemaType: "ContactPage",
+  includeWebSiteSchema: false,
+  structuredData: {
+    "@type": ["LocalBusiness", "ProfessionalService"],
+    "@id": "https://eyeonidea.com/#localbusiness",
+    name: "Eye On Idea",
+    url: "https://eyeonidea.com",
+    telephone: "+4529930583",
+    email: "hello@eyeonidea.com",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Aalborg",
+      addressRegion: "North Jutland",
+      addressCountry: "DK",
     },
-  ],
+    areaServed: ["Denmark", "Nordic Countries", "European Union"],
+    priceRange: "$$",
+  },
 });
 </script>
 

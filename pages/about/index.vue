@@ -1,25 +1,12 @@
 <script setup lang="ts">
 const { t } = useI18n();
 
-useSeoMeta({
+useSeo({
   title: () => t("about.meta.title"),
   description: () => t("about.meta.description"),
-  ogTitle: () => t("about.meta.title"),
-  ogDescription: () => t("about.meta.description"),
-  ogType: "website",
-  ogUrl: "https://eyeonidea.com/about",
-  twitterCard: "summary_large_image",
-  twitterTitle: () => t("about.meta.title"),
-  twitterDescription: () => t("about.meta.description"),
-});
-
-useHead({
-  link: [
-    {
-      rel: "canonical",
-      href: "https://eyeonidea.com/about",
-    },
-  ],
+  type: "website",
+  schemaType: "AboutPage",
+  includeWebSiteSchema: false,
 });
 </script>
 

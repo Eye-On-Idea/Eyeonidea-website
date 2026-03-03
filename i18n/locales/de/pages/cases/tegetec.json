@@ -135,7 +135,7 @@
     "afterLabel": "Nachher",
     "metrics": [
       {
-        "label": "Performance",
+        "label": "Leistung",
         "before": "48",
         "after": "83",
         "unit": "",
