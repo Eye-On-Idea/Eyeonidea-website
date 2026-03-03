@@ -23,7 +23,7 @@ const { t } = useI18n();
       icon="i-heroicons-envelope"
     />
 
-    <ClientHubArticleImage alt="Zimbra webmail inbox interface" caption="The Zimbra webmail inbox" />
+    <ClientHubArticleImage src="/images/client-hub/email/webmail-inbox.png" alt="Zimbra webmail inbox interface" caption="The Zimbra webmail inbox" />
 
     <div class="note-box">
       <strong>{{ t("clientHub.article.noteLabel") }}:</strong>

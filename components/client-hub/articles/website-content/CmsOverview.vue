@@ -7,7 +7,7 @@ const { t } = useI18n();
     <h2>{{ t("clientHub.article.content.cmsOverview.introTitle") }}</h2>
     <p>{{ t("clientHub.article.content.cmsOverview.introText") }}</p>
 
-    <ClientHubArticleImage alt="CMS Studio dashboard overview" caption="The Sanity Studio dashboard" />
+    <ClientHubArticleImage src="/images/client-hub/website-content/cms-overview-dashboard.png" alt="CMS Studio dashboard overview" caption="The Sanity Studio dashboard" />
 
     <h2>{{ t("clientHub.article.content.cmsOverview.whatYouCanDoTitle") }}</h2>
     <ul>

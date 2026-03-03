@@ -32,7 +32,7 @@ const { t } = useI18n();
     <h3>{{ t("clientHub.article.content.emailAppSetup.appsTitle") }}</h3>
     <p>{{ t("clientHub.article.content.emailAppSetup.appsText") }}</p>
 
-    <ClientHubArticleImage alt="Email app IMAP settings configuration" caption="Example IMAP settings in an email app" />
+    <ClientHubArticleImage src="/images/client-hub/email/email-app-imap-settings.png" alt="Email app IMAP settings configuration" caption="Example IMAP settings in an email app" />
 
     <h2>{{ t("clientHub.article.content.emailAppSetup.testTitle") }}</h2>
     <ol>

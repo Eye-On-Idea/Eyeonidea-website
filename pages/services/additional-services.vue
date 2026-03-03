@@ -8,31 +8,78 @@ useSeoMeta({
   title: () => t("servicesSubpages.additionalServices.meta.title"),
   description: () => t("servicesSubpages.additionalServices.meta.description"),
   ogTitle: () => t("servicesSubpages.additionalServices.meta.title"),
-  ogDescription: () => t("servicesSubpages.additionalServices.meta.description"),
+  ogDescription: () =>
+    t("servicesSubpages.additionalServices.meta.description"),
   ogType: "website",
   ogUrl: "https://eyeonidea.com/services/additional-services",
   twitterCard: "summary_large_image",
   twitterTitle: () => t("servicesSubpages.additionalServices.meta.title"),
-  twitterDescription: () => t("servicesSubpages.additionalServices.meta.description"),
+  twitterDescription: () =>
+    t("servicesSubpages.additionalServices.meta.description"),
 });
 
 useHead({
-  link: [{ rel: "canonical", href: "https://eyeonidea.com/services/additional-services" }],
+  link: [
+    {
+      rel: "canonical",
+      href: "https://eyeonidea.com/services/additional-services",
+    },
+  ],
 });
 
 const breadcrumbs = computed(() => [
   { label: "Home", to: "/" },
-  { label: t("servicesSubpages.additionalServices.breadcrumb.services"), to: "/services" },
+  {
+    label: t("servicesSubpages.additionalServices.breadcrumb.services"),
+    to: "/services",
+  },
   { label: t("servicesSubpages.additionalServices.breadcrumb.current") },
 ]);
 
 const navSections = computed<SectionNavItem[]>(() => [
-  { id: "content-section",        label: t("servicesSubpages.additionalServices.nav.content"),       icon: "i-heroicons-document-text" },
-  { id: "domain-section",         label: t("servicesSubpages.additionalServices.nav.domain"),        icon: "i-heroicons-globe-alt" },
-  { id: "email-section",          label: t("servicesSubpages.additionalServices.nav.email"),         icon: "i-heroicons-envelope" },
-  { id: "seo-consulting-section", label: t("servicesSubpages.additionalServices.nav.seoConsulting"), icon: "i-heroicons-magnifying-glass" },
-  { id: "support-plans",          label: t("servicesSubpages.additionalServices.nav.support"),       icon: "i-heroicons-shield-check" },
+  {
+    id: "addons-intro-section",
+    label: t("servicesSubpages.additionalServices.nav.intro"),
+    icon: "i-heroicons-squares-2x2",
+  },
+  {
+    id: "content-section",
+    label: t("servicesSubpages.additionalServices.nav.content"),
+    icon: "i-heroicons-document-text",
+  },
+  {
+    id: "domain-section",
+    label: t("servicesSubpages.additionalServices.nav.domain"),
+    icon: "i-heroicons-globe-alt",
+  },
+  {
+    id: "email-section",
+    label: t("servicesSubpages.additionalServices.nav.email"),
+    icon: "i-heroicons-envelope",
+  },
+  {
+    id: "seo-consulting-section",
+    label: t("servicesSubpages.additionalServices.nav.seoConsulting"),
+    icon: "i-heroicons-magnifying-glass",
+  },
+  {
+    id: "support-plans",
+    label: t("servicesSubpages.additionalServices.nav.support"),
+    icon: "i-heroicons-shield-check",
+  },
 ]);
+
+// ─── Intro tiles ──────────────────────────────────────────────────────────────
+
+interface IntroTile {
+  icon: string;
+  title: string;
+  body: string;
+}
+
+const introTiles = computed(
+  () => tm("servicesSubpages.additionalServices.intro.tiles") as IntroTile[],
+);
 
 // ─── Section data ─────────────────────────────────────────────────────────────
 
@@ -63,8 +110,12 @@ const sectionIds: Record<SectionKey, string> = {
 const getSectionData = (key: SectionKey): SectionData => ({
   badge: t(`servicesSubpages.additionalServices.sections.${key}.badge`),
   title: t(`servicesSubpages.additionalServices.sections.${key}.title`),
-  intro: tm(`servicesSubpages.additionalServices.sections.${key}.intro`) as string[],
-  items: tm(`servicesSubpages.additionalServices.sections.${key}.items`) as SectionItem[],
+  intro: tm(
+    `servicesSubpages.additionalServices.sections.${key}.intro`,
+  ) as string[],
+  items: tm(
+    `servicesSubpages.additionalServices.sections.${key}.items`,
+  ) as SectionItem[],
 });
 
 const sections = computed(() =>
@@ -72,11 +123,11 @@ const sections = computed(() =>
     key,
     id: sectionIds[key],
     ...getSectionData(key),
-  }))
+  })),
 );
 
 const currency = computed(() => t("services.addons.currency"));
-const vatNote  = computed(() => t("services.addons.vatNote"));
+const vatNote = computed(() => t("services.addons.vatNote"));
 
 // ─── Mobile collapse ──────────────────────────────────────────────────────────
 
@@ -135,14 +186,14 @@ onMounted(() => {
 
 const formatUnit = (unit: string): string => {
   const map: Record<string, string> = {
-    "one-time":            "",
-    "per page":            "/ page",
-    "per hour":            "/ hr",
-    "per language":        "/ language",
-    "per year":            "/ year",
-    "per month":           "/ mo",
+    "one-time": "",
+    "per page": "/ page",
+    "per hour": "/ hr",
+    "per language": "/ language",
+    "per year": "/ year",
+    "per month": "/ mo",
     "per account / month": "/ account / mo",
-    "per session":         "/ session",
+    "per session": "/ session",
   };
   return map[unit] ?? unit;
 };
@@ -150,7 +201,6 @@ const formatUnit = (unit: string): string => {
 
 <template>
   <div class="additional-services-page">
-
     <!-- Hero -->
     <BaseHero
       :badge="t('servicesSubpages.additionalServices.hero.badge')"
@@ -160,17 +210,11 @@ const formatUnit = (unit: string): string => {
       variant="dark"
     >
       <template #after-subtitle>
-        <div class="hero-intro">
-          <p
-            v-for="(para, i) in (tm('servicesSubpages.additionalServices.hero.intro') as string[])"
-            :key="i"
-            class="hero-intro__para"
-          >
-            {{ para }}
-          </p>
-        </div>
         <div class="hero-breadcrumb">
-          <Breadcrumb :crumbs="breadcrumbs" aria-label="Breadcrumb navigation" />
+          <Breadcrumb
+            :crumbs="breadcrumbs"
+            aria-label="Breadcrumb navigation"
+          />
         </div>
       </template>
     </BaseHero>
@@ -180,6 +224,33 @@ const formatUnit = (unit: string): string => {
       :sections="navSections"
       :aria-label="t('servicesSubpages.additionalServices.hero.badge')"
     />
+
+    <!-- Intro / TLDR section -->
+    <section id="addons-intro-section" class="addons-intro-section" aria-labelledby="addons-intro-heading">
+      <div class="addons-intro-inner">
+        <div class="addons-intro-header">
+          <p class="addons-intro-badge">
+            {{ t("servicesSubpages.additionalServices.intro.badge") }}
+          </p>
+          <h2 id="addons-intro-heading" class="addons-intro-title">
+            {{ t("servicesSubpages.additionalServices.intro.title") }}
+          </h2>
+        </div>
+        <ul class="addons-intro-tiles" role="list">
+          <li
+            v-for="(tile, i) in introTiles"
+            :key="i"
+            class="addons-intro-tile"
+          >
+            <UIcon :name="tile.icon" class="addons-intro-tile__icon" aria-hidden="true" />
+            <div>
+              <p class="addons-intro-tile__title">{{ tile.title }}</p>
+              <p class="addons-intro-tile__body">{{ tile.body }}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
 
     <!-- Service sections — one full-width section per category -->
     <section
@@ -192,7 +263,6 @@ const formatUnit = (unit: string): string => {
       :aria-labelledby="`section-heading-${section.key}`"
     >
       <div class="section-inner">
-
         <!-- Left: label, heading, intro, mobile toggle -->
         <div class="section-left">
           <button
@@ -203,18 +273,16 @@ const formatUnit = (unit: string): string => {
             @click="toggleSection(section.key)"
           >
             <div class="section-toggle__text">
-              <span class="section-badge">{{ section.badge }}</span>
-              <h2
-                :id="`section-heading-${section.key}`"
-                class="section-title"
-              >
+              <h2 :id="`section-heading-${section.key}`" class="section-title">
                 {{ section.title }}
               </h2>
             </div>
             <UIcon
               name="i-heroicons-chevron-down"
               class="section-chevron"
-              :class="{ 'section-chevron--open': isSectionExpanded(section.key) }"
+              :class="{
+                'section-chevron--open': isSectionExpanded(section.key),
+              }"
               aria-hidden="true"
             />
           </button>
@@ -245,7 +313,9 @@ const formatUnit = (unit: string): string => {
               <div class="price-row__top">
                 <span class="price-row__name">{{ item.name }}</span>
                 <span class="price-row__price">
-                  <span class="price-row__value">{{ currency }}{{ item.price }}</span>
+                  <span class="price-row__value"
+                    >{{ currency }}{{ item.price }}</span
+                  >
                   <span v-if="formatUnit(item.unit)" class="price-row__unit">
                     {{ formatUnit(item.unit) }}
                   </span>
@@ -255,7 +325,6 @@ const formatUnit = (unit: string): string => {
             </li>
           </ul>
         </div>
-
       </div>
     </section>
 
@@ -266,7 +335,7 @@ const formatUnit = (unit: string): string => {
 
     <!-- Support Plans -->
     <ServicesSupportPlans />
-
+    <ProcessFAQ />
     <!-- CTA -->
     <BaseCTASection
       :badge="t('servicesSubpages.additionalServices.cta.badge')"
@@ -274,7 +343,9 @@ const formatUnit = (unit: string): string => {
       :description="t('servicesSubpages.additionalServices.cta.description')"
       :primary-text="t('servicesSubpages.additionalServices.cta.primaryText')"
       primary-to="/contact"
-      :secondary-text="t('servicesSubpages.additionalServices.cta.secondaryText')"
+      :secondary-text="
+        t('servicesSubpages.additionalServices.cta.secondaryText')
+      "
       secondary-to="/services/website-packages"
       heading-id="additional-cta-heading"
     />
@@ -286,34 +357,125 @@ const formatUnit = (unit: string): string => {
   min-height: 100vh;
 }
 
-// ─── Hero intro ───────────────────────────────────────────────────────────────
-
-.hero-intro {
-  margin-top: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.875rem;
-  max-width: 640px;
-}
-
-.hero-intro__para {
-  font-size: var(--text-base);
-  line-height: 1.75;
-  color: color-mix(in srgb, #fff 80%, transparent);
-}
-
 .hero-breadcrumb {
   margin-top: 2rem;
+  display: flex;
+  justify-content: center;
 }
 
 // ─── Scroll-margin for sticky header + section nav ────────────────────────────
 
+#addons-intro-section,
 #content-section,
 #domain-section,
 #email-section,
 #seo-consulting-section,
 :deep(#support-plans) {
   scroll-margin-top: 136px;
+}
+
+// ─── Intro / TLDR section ─────────────────────────────────────────────────────
+
+.addons-intro-section {
+  padding: 4rem 1.5rem;
+  background: var(--color-section-alt, var(--color-surface-2));
+  border-bottom: 1px solid var(--color-border);
+
+  @media (min-width: 768px) {
+    padding: 5rem 2rem;
+  }
+}
+
+.addons-intro-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+
+  @media (min-width: 900px) {
+    grid-template-columns: auto 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+}
+
+.addons-intro-header {
+  @media (min-width: 900px) {
+    max-width: 260px;
+  }
+}
+
+.addons-intro-badge {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent-500);
+  margin-bottom: 0.75rem;
+}
+
+.addons-intro-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+  margin: 0;
+
+  @media (min-width: 768px) {
+    font-size: var(--text-3xl);
+  }
+}
+
+.addons-intro-tiles {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1100px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.addons-intro-tile {
+  display: flex;
+  gap: 0.875rem;
+  align-items: flex-start;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--color-border);
+
+  @media (min-width: 640px) {
+    padding: 1.25rem 1.5rem 1.25rem 0;
+  }
+}
+
+.addons-intro-tile__icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+  color: var(--color-accent-500);
+  margin-top: 0.2rem;
+}
+
+.addons-intro-tile__title {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.addons-intro-tile__body {
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 0;
 }
 
 // ─── Individual service sections ─────────────────────────────────────────────
@@ -587,6 +749,15 @@ const formatUnit = (unit: string): string => {
 // ─── Dark mode ────────────────────────────────────────────────────────────────
 
 :root.dark {
+  .addons-intro-section {
+    background: var(--color-section-dark);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .addons-intro-tile {
+    border-top-color: rgba(255, 255, 255, 0.08);
+  }
+
   .service-section {
     background: var(--color-section-dark);
     border-top-color: rgba(255, 255, 255, 0.08);

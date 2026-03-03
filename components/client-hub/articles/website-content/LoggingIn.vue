@@ -9,7 +9,7 @@ const { t } = useI18n();
     <p><code>{{ t("clientHub.article.content.loggingIn.openStudioUrl") }}</code></p>
     <p>{{ t("clientHub.article.content.loggingIn.openStudioBookmark") }}</p>
 
-    <ClientHubArticleImage alt="Studio URL in browser address bar" caption="Your Studio URL in the browser" />
+    <ClientHubArticleImage src="/images/client-hub/website-content/logging-in-browser-url.png" alt="Studio URL in browser address bar" caption="Your Studio URL in the browser" />
 
     <h2>{{ t("clientHub.article.content.loggingIn.signInTitle") }}</h2>
     <ol>
@@ -18,7 +18,7 @@ const { t } = useI18n();
       <li>{{ t("clientHub.article.content.loggingIn.signInStep3") }}</li>
     </ol>
 
-    <ClientHubArticleImage alt="Studio sign-in screen" caption="The Studio sign-in page" />
+    <ClientHubArticleImage src="/images/client-hub/website-content/logging-in-sign-in-screen.png" alt="Studio sign-in screen" caption="The Studio sign-in page" />
 
     <h3>{{ t("clientHub.article.content.loggingIn.noInviteTitle") }}</h3>
     <p>{{ t("clientHub.article.content.loggingIn.noInviteText") }}</p>

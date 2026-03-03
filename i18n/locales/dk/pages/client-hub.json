@@ -29,7 +29,16 @@
     "welcomeTitle": "Velkommen til din klienthub",
     "welcomeDescription": "Find vejledninger og ressourcer til de tjenester, vi leverer. Vælg en tjeneste nedenfor for at komme i gang.",
     "servicesTitle": "Gennemse efter tjeneste",
-    "gettingStartedHighlight": "Ny her? Start med onboarding-guiden ovenfor for at forstå, hvad du kan forvente."
+    "gettingStartedHighlight": "Ny her? Start med onboarding-guiden ovenfor for at forstå, hvad du kan forvente.",
+    "heroTagline": "Alt hvad du behoever for at styre din hjemmeside, dit brand og din digitale tilstedevaerelse - samlet eet sted.",
+    "heroCta1": "Start onboarding",
+    "heroCta2": "Udforsk guider",
+    "introTitle": "Hvad er Klienthub'et?",
+    "introBody": "Denne hub er dit private ressourcecenter. Her finder du trin-for-trin guider til alle de services Eye On Idea leverer, fra styring af dit webindhold og domæne til arbejdet med din visuelle identitet. Brug sidebjælken til at navigere efter emne, eller søg med Cmd+K.",
+    "contactTitle": "Brug for hjælp?",
+    "contactBody": "Kontakt din Eye On Idea projektleder i Aalborg direkte.",
+    "contactEmail": "Skriv til os",
+    "contactPhone": "Ring til os"
   },
   "onboarding": {
     "title": "Kom godt i gang  -  Onboarding Guide",
@@ -364,6 +373,8 @@
     "nextArticle": "Næste",
     "backToCategory": "Tilbage til {category}",
     "screenshotPlaceholder": "Skærmbillede vil blive tilføjet her",
+    "viewFullSize": "Se i fuld storrelse",
+    "closeFullSize": "Luk fuldskærmsbillede",
     "studioMayDiffer": "Dit studie kan se lidt anderledes ud afhængigt af din projektkonfiguration.",
     "tipLabel": "Tip",
     "noteLabel": "Bemærk",
@@ -883,5 +894,12 @@
   },
   "breadcrumb": {
     "hub": "Klienthub"
+  },
+  "disclaimer": {
+    "title": "Privat klientområde",
+    "subtitle": "Dette område er udelukkende beregnet til Eye On Idea-klienter.",
+    "body": "Ressourcerne her stilles til rådighed som en del af din serviceaftale. Del venligst ikke links til dette område med andre.",
+    "continueButton": "Fortsæt til klienthub",
+    "backToSite": "Tilbage til webstedet"
   }
 }

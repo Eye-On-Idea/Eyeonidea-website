@@ -70,11 +70,17 @@
       "current": "Visuelle Identität"
     },
     "nav": {
-      "overview": "Übersicht",
       "deliverables": "Was Sie bekommen",
       "process": "Wie es funktioniert",
       "pricing": "Preise",
-      "pricingId": "Abschnitt „Identitätspreise“."
+      "pricingId": "identity-pricing-section",
+      "faq": "FAQ",
+      "contact": "Kontakt"
+    },
+    "intro": {
+      "eyebrow": "Visuelle Identität",
+      "heading": "Ihre Marke spricht, bevor Sie es tun.",
+      "body": "Ein gut gestaltetes Logo, eine konsistente Farbpalette und klare Typografie signalisieren Professionalität und schaffen Vertrauen, das auf anderem Wege kaum zu erreichen ist. Bei Eye On Idea verstehen wir visuelle Identität als praktisches Fundament - und liefern ein vollständiges, einsetzbares System, das konsistent auf Ihrer Website, Ihren Druckmaterialien und überall dort funktioniert, wo Ihr Publikum Sie findet."
     },
     "deliverables": {
       "badge": "Was Sie bekommen",
@@ -131,6 +137,10 @@
       "subtitle": "Die Preise richten sich nach dem Umfang Ihres Projekts. Nachfolgend finden Sie die häufigsten Ausgangspunkte.",
       "currency": "€",
       "vatNote": "Alle Preise zzgl. MwSt",
+      "startsAt": "ab",
+      "introTitle": "So funktioniert es",
+      "introBody": "Jedes Projekt zur visuellen Identität beginnt mit Ihrem Unternehmen. Manche Unternehmen benoetigen ein fokussiertes Logo und Farbsystem. Andere benoetigen ein vollstaendiges Markenfundament mit Richtlinien und sofort einsetzbaren Assets, die langfristiges Wachstum unterstuetzen.\n\nDie hier gezeigten Preise beginnen beim angegebenen Betrag und spiegeln den Mindestumfang jedes Dienstes wider. Die endgueltige Investition haengt von Ihren Zielen, dem Zeitrahmen und dem Detailgrad ab. Alle Arbeiten sind projektbasiert und klar definiert, sodass Sie eine strukturierte visuelle Identitaet erhalten, die Ihr Unternehmen jetzt und in Zukunft unterstuetzt.",
+      "footnote": "* Alle Projekte zur visuellen Identitaet beinhalten eine definierte Anzahl von Revisionsrunden. Zusaetzliche Revisionen oder wesentliche Aenderungen ueber den vereinbarten Umfang hinaus koennen den Endpreis beeinflussen. Falls innerhalb des vereinbarten Rahmens keine Einigung erzielt werden kann, kann ein neuer Umfang vorgeschlagen oder das Projekt auf Basis der abgeschlossenen Arbeiten beendet werden.",
       "highlights": [
         {
           "name": "Logo-Design (primär und Variationen)",
@@ -178,23 +188,50 @@
     "hero": {
       "badge": "Zusätzliche Dienstleistungen",
       "title": "Alles rund um Ihre Website",
-      "subtitle": "Ihre Website ist das Zentrum Ihrer digitalen Präsenz. Diese Dienste helfen Ihnen, darauf aufzubauen.",
-      "intro": [
-        "Einige Dinge gehören zu jedem Projekt: eine Domain, eine professionelle E-Mail-Adresse, Inhalte, die tatsächlich konvertieren. Andere werden erst relevant, wenn Sie live sind: eine SEO-Überprüfung, eine zweite Meinung zu Ihrer Informationsarchitektur oder eine Beratungssitzung, wenn etwas nicht funktioniert.",
-        "Auf dieser Seite erfahren Sie, was wir außerhalb der Kernpakete der Website anbieten. Jeder Service kann zu einem Projekt hinzugefügt oder einzeln bestellt werden."
-      ]
+      "subtitle": "Ihre Website ist das Zentrum Ihrer digitalen Präsenz. Diese Dienste helfen Ihnen, darauf aufzubauen."
     },
     "breadcrumb": {
       "services": "Leistungen",
       "current": "Zusätzliche Dienstleistungen"
     },
     "nav": {
-      "addons": "Add-ons",
+      "intro": "Übersicht",
       "content": "Inhalt",
       "domain": "Domäne",
       "email": "E-Mail",
       "seoConsulting": "SEO und Beratung",
       "support": "Support-Pläne"
+    },
+    "intro": {
+      "badge": "Was verfügbar ist",
+      "title": "Leistungen, die Sie jedem Projekt hinzufügen können",
+      "tiles": [
+        {
+          "icon": "i-heroicons-document-text",
+          "title": "Inhalt und Sprache",
+          "body": "Seitentexte, Bearbeitung und mehrsprachige Einrichtung. Geschrieben, um zu Ihrer Struktur und Ihrem Ton zu passen."
+        },
+        {
+          "icon": "i-heroicons-globe-alt",
+          "title": "Domain",
+          "body": "Registrierung, Verlängerungen und Transfers. Eine Domain ist in jedem Website-Paket enthalten."
+        },
+        {
+          "icon": "i-heroicons-envelope",
+          "title": "E-Mail",
+          "body": "Professionelle E-Mail auf Ihrer eigenen Domain. EU-gehostet, spam-gefiltert und einsatzbereit."
+        },
+        {
+          "icon": "i-heroicons-magnifying-glass",
+          "title": "SEO und Beratung",
+          "body": "Einmalige Überprüfungen, technische Audits und Beratungssitzungen. Keine Abonnements, keine Bindung."
+        },
+        {
+          "icon": "i-heroicons-shield-check",
+          "title": "Support-Pläne",
+          "body": "Laufende Abdeckung für Inhaltsaktualisierungen, Überwachung und priorisierten Support nach dem Start."
+        }
+      ]
     },
     "sections": {
       "content": {

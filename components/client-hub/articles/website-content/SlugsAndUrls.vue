@@ -10,7 +10,7 @@ const { t } = useI18n();
     <h3>{{ t("clientHub.article.content.slugsAndUrls.exampleTitle") }}</h3>
     <p><code>{{ t("clientHub.article.content.slugsAndUrls.exampleText") }}</code></p>
 
-    <ClientHubArticleImage alt="Slug field in the Studio document editor" caption="The slug field for a document" />
+    <ClientHubArticleImage src="/images/client-hub/website-content/slugs-field-editor.png" alt="Slug field in the Studio document editor" caption="The slug field for a document" />
 
     <h2>{{ t("clientHub.article.content.slugsAndUrls.bestPracticesTitle") }}</h2>
     <ul>

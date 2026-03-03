@@ -14,7 +14,7 @@ const { t } = useI18n();
       <li>{{ t("clientHub.article.content.creatingAPost.createStep3") }}</li>
     </ol>
 
-    <ClientHubArticleImage alt="Creating a new document in the Studio" caption="Creating a new post document" />
+    <ClientHubArticleImage src="/images/client-hub/website-content/creating-post-new-document.png" alt="Creating a new document in the Studio" caption="Creating a new post document" />
 
     <h2>{{ t("clientHub.article.content.creatingAPost.titleSectionTitle") }}</h2>
     <p>{{ t("clientHub.article.content.creatingAPost.titleText") }}</p>
@@ -26,7 +26,7 @@ const { t } = useI18n();
       <li>{{ t("clientHub.article.content.creatingAPost.imageStep3") }}</li>
     </ol>
 
-    <ClientHubArticleImage alt="Image upload dialog in the Studio" caption="Uploading a featured image" />
+    <ClientHubArticleImage src="/images/client-hub/website-content/creating-post-image-upload.png" alt="Image upload dialog in the Studio" caption="Uploading a featured image" />
 
     <div class="tip-box">
       <strong>{{ t("clientHub.article.tipLabel") }}:</strong>

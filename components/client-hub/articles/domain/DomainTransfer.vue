@@ -14,7 +14,7 @@ const { t } = useI18n();
       <li>{{ t("clientHub.article.content.domainTransfer.processStep3") }}</li>
     </ol>
 
-    <ClientHubArticleImage alt="Domain transfer authorization process" caption="Authorizing a domain transfer" />
+    <ClientHubArticleImage src="/images/client-hub/domain/domain-transfer-auth.png" alt="Domain transfer authorization process" caption="Authorizing a domain transfer" />
 
     <div class="note-box">
       <p><strong>{{ t("clientHub.article.noteLabel") }}:</strong> {{ t("clientHub.article.content.domainTransfer.note") }}</p>

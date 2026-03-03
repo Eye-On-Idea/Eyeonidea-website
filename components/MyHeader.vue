@@ -469,13 +469,11 @@ html.dark span {
 /* Client Hub link - accent-tinted pill */
 .header-hub-link {
   color: var(--nav-link-text, var(--ui-text));
-  background: color-mix(in srgb, var(--color-accent-500) 12%, transparent);
-  border: 1px solid color-mix(in srgb, var(--color-accent-500) 20%, transparent);
 }
 
 .header-hub-link:hover {
-  background: color-mix(in srgb, var(--color-accent-500) 22%, transparent);
-  border-color: color-mix(in srgb, var(--color-accent-500) 35%, transparent);
+  background: color-mix(in srgb, var(--color-primary-500) 22%, transparent);
+  border-color: color-mix(in srgb, var(--color-primary-500) 35%, transparent);
 }
 
 .header-hub-link:focus-visible {

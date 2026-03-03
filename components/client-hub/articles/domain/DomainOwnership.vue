@@ -10,7 +10,7 @@ const { t } = useI18n();
     <h2>{{ t("clientHub.article.content.domainOwnership.ownershipTitle") }}</h2>
     <p>{{ t("clientHub.article.content.domainOwnership.ownershipText") }}</p>
 
-    <ClientHubArticleImage alt="Domain registrar ownership panel" caption="Domain ownership information in the registrar" />
+    <ClientHubArticleImage src="/images/client-hub/domain/domain-ownership-panel.png" alt="Domain registrar ownership panel" caption="Domain ownership information in the registrar" />
 
     <h2>{{ t("clientHub.article.content.domainOwnership.eoiTitle") }}</h2>
     <ul>

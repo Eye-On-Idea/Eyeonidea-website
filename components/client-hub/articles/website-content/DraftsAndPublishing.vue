@@ -7,7 +7,7 @@ const { t } = useI18n();
     <h2>{{ t("clientHub.article.content.draftsAndPublishing.draftsTitle") }}</h2>
     <p>{{ t("clientHub.article.content.draftsAndPublishing.draftsText") }}</p>
 
-    <ClientHubArticleImage alt="Draft indicator in the Studio" caption="A document in draft state" />
+    <ClientHubArticleImage src="/images/client-hub/website-content/drafts-indicator.png" alt="Draft indicator in the Studio" caption="A document in draft state" />
 
     <h2>{{ t("clientHub.article.content.draftsAndPublishing.publishTitle") }}</h2>
     <ol>
@@ -16,7 +16,7 @@ const { t } = useI18n();
       <li>{{ t("clientHub.article.content.draftsAndPublishing.publishStep3") }}</li>
     </ol>
 
-    <ClientHubArticleImage alt="Publish button in the Studio" caption="The publish button and confirmation" />
+    <ClientHubArticleImage src="/images/client-hub/website-content/drafts-publish-button.png" alt="Publish button in the Studio" caption="The publish button and confirmation" />
 
     <h2>{{ t("clientHub.article.content.draftsAndPublishing.checkTitle") }}</h2>
     <p>{{ t("clientHub.article.content.draftsAndPublishing.checkText") }}</p>

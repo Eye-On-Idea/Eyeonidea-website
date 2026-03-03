@@ -7,7 +7,7 @@ const { t } = useI18n();
     <h2>{{ t("clientHub.article.content.analyticsReporting.introTitle") }}</h2>
     <p>{{ t("clientHub.article.content.analyticsReporting.introText") }}</p>
 
-    <ClientHubArticleImage alt="Analytics dashboard overview" caption="Example analytics dashboard" />
+    <ClientHubArticleImage src="/images/client-hub/hosting/analytics-dashboard.png" alt="Analytics dashboard overview" caption="Example analytics dashboard" />
 
     <h3>{{ t("clientHub.article.content.analyticsReporting.optionsTitle") }}</h3>
     <ul>

@@ -187,7 +187,7 @@ const handleSubmit = async (event: Event) => {
         <form
           id="contact-form"
           class="contact-form"
-          action="https://formsubmit.co/hello@eyeonidea.com"
+          action="https://formsubmit.co/ajax/hello@eyeonidea.com"
           method="POST"
           @submit="handleSubmit"
         >

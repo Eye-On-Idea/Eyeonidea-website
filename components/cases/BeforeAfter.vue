@@ -258,23 +258,18 @@ onMounted(() => {
 }
 
 .cs-ba__metrics {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem 1.5rem;
-
-  @media (min-width: 480px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(6, 1fr);
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem 2rem;
 }
 
 .cs-ba__metric {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  min-width: 6rem;
+  text-align: center;
 }
 
 .cs-ba__metric-value {

@@ -10,7 +10,7 @@ const { t } = useI18n();
     <h2>{{ t("clientHub.article.content.publishingAPost.publishTitle") }}</h2>
     <p>{{ t("clientHub.article.content.publishingAPost.publishText") }}</p>
 
-    <ClientHubArticleImage alt="Publishing a post in the Studio" caption="The publish action for a blog post" />
+    <ClientHubArticleImage src="/images/client-hub/website-content/publishing-post-action.png" alt="Publishing a post in the Studio" caption="The publish action for a blog post" />
 
     <h2>{{ t("clientHub.article.content.publishingAPost.reviewTitle") }}</h2>
     <p>{{ t("clientHub.article.content.publishingAPost.reviewText") }}</p>

@@ -7,7 +7,7 @@ const { t } = useI18n();
     <h2>{{ t("clientHub.article.content.emailBackup.introTitle") }}</h2>
     <p>{{ t("clientHub.article.content.emailBackup.introText") }}</p>
 
-    <ClientHubArticleImage alt="Email backup options overview" caption="Email backup methods" />
+    <ClientHubArticleImage src="/images/client-hub/email/email-backup-methods.png" alt="Email backup options overview" caption="Email backup methods" />
 
     <h2>{{ t("clientHub.article.content.emailBackup.optionsTitle") }}</h2>
     <ul>

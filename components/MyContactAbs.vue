@@ -23,13 +23,16 @@
           :aria-labelledby="titleId"
           ref="panelRef"
           tabindex="-1"
-          class="absolute top-0 right-0 origin-top-right z-[60]"
+          class="absolute top-0 right-0 origin-top-right z-60"
           style="transform-origin: top right"
         >
           <!-- Top padding leaves space under the overlapping button -->
           <div class="w-72 rounded-2xl border p-4 pt-14 pr-4 cont">
             <!-- Headline -->
-            <h3 :id="titleId" class="text-lg font-semibold text-neutral-900 mb-3">
+            <h3
+              :id="titleId"
+              class="text-lg font-semibold text-primary-950 bg-primary-50/10 p-1 w-full rounded-lg dark:text-primary-50 dark:bg-primary-50/0"
+            >
               {{ t("common.contact.title") }}
               <span>{{ t("common.contact.titleHighlight") }}</span>
             </h3>
@@ -38,11 +41,11 @@
             <div class="flex flex-col gap-2">
               <a
                 href="mailto:hello@eyeonidea.com"
-                class="flex items-center gap-3 p-2 rounded-xl border border-transparent hover:ring-2 hover:ring-primary-50 hover:ring-offset-0 dark:hover:ring-primary-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 bg-primary-100/25 hover:bg-primary-100/75"
+                class="flex items-center gap-3 p-2 rounded-xl border border-transparent hover:ring-2 hover:ring-primary-50 hover:ring-offset-0 dark:hover:ring-primary-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 bg-primary-100/25 hover:bg-primary-100/75 dark:hover:bg-primary-950/75"
               >
                 <UIcon
                   name="i-heroicons-envelope"
-                  class="w-5 h-5 shrink-0 text-neutral-900"
+                  class="w-5 h-5 shrink-0 text-neutral-900 dark:text-primary-50"
                   aria-hidden="true"
                 />
                 <div class="min-w-0">
@@ -61,11 +64,11 @@
 
               <a
                 href="tel:+4529930583"
-                class="flex items-center gap-3 p-2 rounded-xl border border-transparent hover:ring-2 hover:ring-primary-50 hover:ring-offset-0 dark:hover:ring-primary-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 bg-primary-100/25 hover:bg-primary-100/75"
+                class="flex items-center gap-3 p-2 rounded-xl border border-transparent hover:ring-2 hover:ring-primary-50 hover:ring-offset-0 dark:hover:ring-primary-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 bg-primary-100/25 hover:bg-primary-100/75 dark:hover:bg-primary-950/75"
               >
                 <UIcon
                   name="i-heroicons-phone"
-                  class="w-5 h-5 shrink-0 text-neutral-900"
+                  class="w-5 h-5 shrink-0 text-neutral-900 dark:text-primary-50"
                   aria-hidden="true"
                 />
                 <div class="min-w-0">
@@ -233,10 +236,9 @@ button {
 h3 {
   position: absolute;
   top: 15px;
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading);
   span {
-    color: var(--color-primary-200);
-    font-family: "Kanit", sans-serif;
+    font-family: var(--font-heading);
   }
 }
 .email-text {

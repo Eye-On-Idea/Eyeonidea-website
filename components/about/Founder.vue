@@ -5,10 +5,7 @@ const { t, tm } = useI18n();
 </script>
 
 <template>
-  <section
-    class="about-founder"
-    aria-labelledby="founder-heading"
-  >
+  <section class="about-founder" aria-labelledby="founder-heading">
     <div class="section-container">
       <div class="founder-grid">
         <!-- Photo Side -->
@@ -20,12 +17,11 @@ const { t, tm } = useI18n();
         >
           <div class="photo-container">
             <img
-              src="/public-material/profile-picture.png"
+              src="/public/images/desk/rune_desk2.png"
               :alt="t('about.founder.name')"
               class="founder-photo"
               loading="lazy"
             />
-            <div class="photo-backdrop" aria-hidden="true" />
           </div>
         </div>
 
@@ -37,7 +33,11 @@ const { t, tm } = useI18n();
           :visible-once="withDelay('slideInRight', 200).visible"
         >
           <span class="section-badge">{{ t("about.founder.badge") }}</span>
-          <h2 id="founder-heading" class="founder-name" style="text-wrap: balance">
+          <h2
+            id="founder-heading"
+            class="founder-name"
+            style="text-wrap: balance"
+          >
             {{ t("about.founder.name") }}
           </h2>
           <p class="founder-role">{{ t("about.founder.role") }}</p>
@@ -54,7 +54,9 @@ const { t, tm } = useI18n();
 
           <!-- Philosophy Quote -->
           <div class="philosophy-block">
-            <h3 class="philosophy-title">{{ t("about.founder.philosophy.title") }}</h3>
+            <h3 class="philosophy-title">
+              {{ t("about.founder.philosophy.title") }}
+            </h3>
             <blockquote class="philosophy-quote">
               "{{ t("about.founder.philosophy.text") }}"
             </blockquote>
@@ -67,7 +69,11 @@ const { t, tm } = useI18n();
             rel="noopener noreferrer"
             class="linkedin-link"
           >
-            <UIcon name="i-lucide-linkedin" class="linkedin-icon" aria-hidden="true" />
+            <UIcon
+              name="i-lucide-linkedin"
+              class="linkedin-icon"
+              aria-hidden="true"
+            />
             {{ t("about.founder.connect") }}
           </a>
         </div>
@@ -133,19 +139,6 @@ const { t, tm } = useI18n();
   border: 3px solid rgba(255, 255, 255, 0.1);
 }
 
-.photo-backdrop {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    var(--color-primary-500) 0%,
-    var(--color-accent-500) 100%
-  );
-  border-radius: var(--radius-xl);
-  transform: translate(12px, 12px);
-  opacity: 0.3;
-}
-
 // Scroll-driven parallax on photo (progressive enhancement)
 @supports (animation-timeline: view()) {
   .photo-container {
@@ -155,8 +148,12 @@ const { t, tm } = useI18n();
   }
 
   @keyframes founderFloat {
-    from { transform: translateY(20px); }
-    to { transform: translateY(-20px); }
+    from {
+      transform: translateY(20px);
+    }
+    to {
+      transform: translateY(-20px);
+    }
   }
 }
 
@@ -247,7 +244,9 @@ const { t, tm } = useI18n();
   text-decoration: none;
   font-size: var(--text-sm);
   font-weight: 500;
-  transition: background 0.2s var(--ease-smooth), border-color 0.2s var(--ease-smooth);
+  transition:
+    background 0.2s var(--ease-smooth),
+    border-color 0.2s var(--ease-smooth);
 
   &:hover {
     background: rgba(255, 255, 255, 0.1);

@@ -18,7 +18,7 @@ const { t } = useI18n();
     />
 
     <ClientHubArticleImage
-      alt="Zimbra webmail login page"
+      src="/images/client-hub/email/first-login-webmail.png" alt="Zimbra webmail login page"
       caption="The webmail login screen"
     />
 
@@ -30,6 +30,7 @@ const { t } = useI18n();
     </ol>
 
     <ClientHubArticleImage
+      src="/images/client-hub/email/first-login-password-change.png"
       alt="Changing password in webmail settings"
       caption="The password change screen"
     />

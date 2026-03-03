@@ -22,7 +22,7 @@ const { t } = useI18n();
       <li>{{ t("clientHub.article.content.imageBestPractices.uploadStep3") }}</li>
     </ol>
 
-    <ClientHubArticleImage alt="Image upload interface in the Studio" caption="Uploading an image in the Studio" />
+    <ClientHubArticleImage src="/images/client-hub/website-content/image-upload-interface.png" alt="Image upload interface in the Studio" caption="Uploading an image in the Studio" />
 
     <div class="warning-box">
       <strong>{{ t("clientHub.article.warningLabel") }}:</strong>

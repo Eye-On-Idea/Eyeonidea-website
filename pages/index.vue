@@ -182,7 +182,7 @@ useHead({
 
     <!-- CTA Section -->
     <HomeCTASection />
-
+    <ProcessFAQ />
     <!-- Cookie Control -->
     <CookieControl locale="en" />
   </div>

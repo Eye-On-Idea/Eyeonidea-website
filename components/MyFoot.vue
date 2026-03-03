@@ -1,8 +1,8 @@
 <template>
   <footer class="footer-main">
-    <!-- Top: Logo + Contacts + Site nav -->
-    <UContainer class="max-w-480 py-16">
-      <div class="grid gap-12 lg:grid-cols-[320px_1fr_320px] items-start">
+    <!-- Top row: Brand + Contact cards -->
+    <UContainer class="max-w-480 pt-16 pb-10">
+      <div class="footer-top">
         <!-- Brand / intro -->
         <div class="space-y-5">
           <NuxtLink
@@ -21,8 +21,8 @@
           </p>
         </div>
 
-        <!-- Contact (single office) -->
-        <div class="flex flex-row flex-wrap gap-4 justify-center">
+        <!-- Contact cards -->
+        <div class="footer-cards">
           <div class="office-card">
             <h3 class="text-xl font-semibold text-primary-50 mb-4">
               {{ t("footer.offices.denmark.title") }}
@@ -99,74 +99,78 @@
             </div>
           </div>
         </div>
+      </div>
+    </UContainer>
 
-        <!-- Site nav (full) -->
-        <nav class="lg:justify-self-end" aria-label="footer-nav">
-          <h3 class="text-xl font-semibold mb-5 text-primary-50">
-            {{ t("footer.siteNav.heading") }}
-          </h3>
-          <div class="footer-nav-layout">
-            <!-- Main nav -->
-            <ul class="grid gap-3 min-w-52">
+    <!-- Divider -->
+    <div class="footer-divider" aria-hidden="true"></div>
+
+    <!-- Site nav: full-width horizontal columns -->
+    <UContainer class="max-w-480 py-10">
+      <nav aria-label="footer-nav">
+        <p class="footer-nav-heading">{{ t("footer.siteNav.heading") }}</p>
+        <div class="footer-nav-grid">
+          <!-- Home -->
+          <div class="footer-nav-col">
+            <NuxtLink class="footer-nav-link footer-nav-link--top" to="/">
+              {{ t("footer.siteNav.home") }}
+            </NuxtLink>
+          </div>
+
+          <!-- Services column -->
+          <div class="footer-nav-col">
+            <NuxtLink class="footer-nav-link footer-nav-link--top" to="/services">
+              {{ t("footer.siteNav.services") }}
+            </NuxtLink>
+            <ul class="footer-nav-sub">
               <li>
-                <NuxtLink class="footer-nav-link" to="/">
-                  {{ t("footer.siteNav.home") }}
+                <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/services/website-packages">
+                  {{ t("footer.siteNav.websitePackages") }}
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink class="footer-nav-link" to="/services">
-                  {{ t("footer.siteNav.services") }}
-                </NuxtLink>
-                <ul class="footer-nav-sub">
-                  <li>
-                    <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/services/website-packages">
-                      {{ t("footer.siteNav.websitePackages") }}
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/services/visual-identity">
-                      {{ t("footer.siteNav.visualIdentity") }}
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/services/additional-services">
-                      {{ t("footer.siteNav.additionalServices") }}
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/services/process">
-                      {{ t("footer.siteNav.process") }}
-                    </NuxtLink>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <NuxtLink class="footer-nav-link" to="/cases">
-                  {{ t("footer.siteNav.cases") }}
+                <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/services/visual-identity">
+                  {{ t("footer.siteNav.visualIdentity") }}
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink class="footer-nav-link" to="/about">
-                  {{ t("footer.siteNav.about") }}
+                <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/services/additional-services">
+                  {{ t("footer.siteNav.additionalServices") }}
                 </NuxtLink>
               </li>
-              <!-- News page <li>
-                <NuxtLink class="footer-nav-link" to="/news">
-                  {{ t("footer.siteNav.news") }}
-                </NuxtLink>
-              </li> -->
               <li>
-                <NuxtLink class="footer-nav-link" to="/contact">
-                  {{ t("footer.siteNav.contact") }}
+                <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/services/process">
+                  {{ t("footer.siteNav.process") }}
                 </NuxtLink>
               </li>
             </ul>
+          </div>
 
-            <!-- Legal / compliance — separate column -->
-            <ul class="grid gap-3 content-start">
-              <li>
-                <span class="footer-nav-subheading">{{ t("footer.siteNav.legalHeading") }}</span>
-              </li>
+          <!-- Cases -->
+          <div class="footer-nav-col">
+            <NuxtLink class="footer-nav-link footer-nav-link--top" to="/cases">
+              {{ t("footer.siteNav.cases") }}
+            </NuxtLink>
+          </div>
+
+          <!-- About -->
+          <div class="footer-nav-col">
+            <NuxtLink class="footer-nav-link footer-nav-link--top" to="/about">
+              {{ t("footer.siteNav.about") }}
+            </NuxtLink>
+          </div>
+
+          <!-- Contact -->
+          <div class="footer-nav-col">
+            <NuxtLink class="footer-nav-link footer-nav-link--top" to="/contact">
+              {{ t("footer.siteNav.contact") }}
+            </NuxtLink>
+          </div>
+
+          <!-- Legal column -->
+          <div class="footer-nav-col">
+            <span class="footer-nav-col-heading">{{ t("footer.siteNav.legalHeading") }}</span>
+            <ul class="footer-nav-sub">
               <li>
                 <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/about/legal">
                   {{ t("footer.siteNav.legal") }}
@@ -179,8 +183,8 @@
               </li>
             </ul>
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
     </UContainer>
 
     <!-- Bottom: copyright -->
@@ -209,6 +213,29 @@ const { t } = useI18n();
   color: var(--color-primary-100);
 }
 
+/* ── Top row: brand left, cards right ── */
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+}
+
+/* Cards container — always horizontal, wraps on very narrow screens only */
+.footer-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  flex: 1;
+}
+
 /* Logo container with dark background for visibility */
 .logo-container {
   background: rgba(0, 0, 0, 0.3);
@@ -216,24 +243,71 @@ const { t } = useI18n();
   padding: 1rem;
 }
 
-/* Office cards - solid surface */
+/* Office cards - no visual card, just spacing */
 .office-card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
   padding: 1.5rem;
-  width: 340px;
-  min-height: 220px;
-  transition: all var(--duration-normal) var(--ease-smooth);
+  flex: 1 1 240px;
+}
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.09);
-    border-color: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
+/* Divider between top and nav strip */
+.footer-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ── Nav strip ── */
+.footer-nav-heading {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary-500);
+  margin-bottom: 1.25rem;
+}
+
+/* Horizontal grid of nav columns — auto-fill so it wraps naturally */
+.footer-nav-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 3rem;
+
+  @media (min-width: 640px) {
+    gap: 2rem 4rem;
   }
 }
 
-/* Footer links */
+.footer-nav-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 100px;
+}
+
+/* Column heading (non-link, e.g. "Legal") */
+.footer-nav-col-heading {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary-400);
+  padding: 0.375rem 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: var(--text-xs);
+}
+
+/* Sub-link list */
+.footer-nav-sub {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Footer links (contact cards) */
 .footer-link {
   color: var(--color-primary-200);
   text-decoration: underline;
@@ -245,50 +319,21 @@ const { t } = useI18n();
   }
 }
 
-/* Nav + legal two-column layout */
-.footer-nav-layout {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 2.5rem;
-  align-items: start;
-}
-
-/* Nested service sub-links */
-.footer-nav-sub {
-  list-style: none;
-  padding: 0;
-  margin: 0.25rem 0 0.25rem 1rem;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
-  padding-left: 0.875rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.footer-nav-link--sub {
-  font-size: var(--text-sm);
-  color: var(--color-primary-400);
-  min-height: 36px;
-
-  &:hover {
-    color: var(--color-primary-200);
-  }
-}
-
-/* Footer navigation links */
+/* Nav top-level links */
 .footer-nav-link {
   color: var(--color-primary-300);
   transition: color var(--duration-fast) var(--ease-smooth);
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   padding: 0.375rem 0;
   min-height: 44px;
-  line-height: 1.6;
+  line-height: 1.4;
 
   &::after {
     content: "";
     position: absolute;
-    bottom: -2px;
+    bottom: 0;
     left: 0;
     width: 0;
     height: 1px;
@@ -301,6 +346,27 @@ const { t } = useI18n();
 
     &::after {
       width: 100%;
+    }
+  }
+
+  &--top {
+    font-weight: 600;
+    color: var(--color-primary-200);
+    font-size: var(--text-sm);
+
+    &:hover {
+      color: var(--color-primary-50);
+    }
+  }
+
+  &--sub {
+    font-size: var(--text-sm);
+    color: var(--color-primary-400);
+    min-height: 36px;
+    font-weight: 400;
+
+    &:hover {
+      color: var(--color-primary-200);
     }
   }
 }
@@ -323,10 +389,4 @@ address {
   outline-offset: 3px;
 }
 
-/* Respect reduced transparency */
-@media (prefers-reduced-transparency: reduce) {
-  .office-card {
-    background: var(--color-primary-900);
-  }
-}
 </style>

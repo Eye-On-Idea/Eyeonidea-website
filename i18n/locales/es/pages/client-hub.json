@@ -29,7 +29,16 @@
     "welcomeTitle": "Bienvenido a su Centro de Clientes",
     "welcomeDescription": "Encuentre guías y recursos para los servicios que brindamos. Elija un servicio a continuación para comenzar.",
     "servicesTitle": "Navegar por servicio",
-    "gettingStartedHighlight": "¿Nuevo aquí? Comience con la guía de incorporación anterior para comprender qué esperar."
+    "gettingStartedHighlight": "¿Nuevo aquí? Comience con la guía de incorporación anterior para comprender qué esperar.",
+    "heroTagline": "Everything you need to manage your website, brand, and digital presence - all in one place.",
+    "heroCta1": "Start Onboarding",
+    "heroCta2": "Explore Guides",
+    "introTitle": "What is the Client Hub?",
+    "introBody": "This hub is your private resource centre. You will find step-by-step guides for every service Eye On Idea delivers, from managing your website content and domain to working with your visual identity. Use the sidebar to navigate by topic, or search with Cmd+K.",
+    "contactTitle": "Need help?",
+    "contactBody": "Reach out directly to your Eye On Idea project manager in Aalborg.",
+    "contactEmail": "Email us",
+    "contactPhone": "Call us"
   },
   "onboarding": {
     "title": "Primeros pasos: guía de incorporación",
@@ -364,6 +373,8 @@
     "nextArticle": "Siguiente",
     "backToCategory": "Volver a {category}",
     "screenshotPlaceholder": "La captura de pantalla se agregará aquí",
+    "viewFullSize": "Ver en tamano completo",
+    "closeFullSize": "Cerrar imagen en tamano completo",
     "studioMayDiffer": "Su estudio puede verse ligeramente diferente dependiendo de la configuración de su proyecto.",
     "tipLabel": "consejo",
     "noteLabel": "Nota",
@@ -883,5 +894,12 @@
   },
   "breadcrumb": {
     "hub": "Centro de clientes"
+  },
+  "disclaimer": {
+    "title": "Área privada de clientes",
+    "subtitle": "Esta sección está destinada exclusivamente a los clientes de Eye On Idea.",
+    "body": "Los recursos aquí proporcionados forman parte de su acuerdo de servicio. Por favor, no comparta enlaces a esta área con terceros.",
+    "continueButton": "Acceder al centro de clientes",
+    "backToSite": "Volver al sitio"
   }
 }

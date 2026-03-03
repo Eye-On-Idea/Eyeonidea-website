@@ -15,7 +15,7 @@ const { t } = useI18n();
       <li>{{ t("clientHub.article.content.seoBasics.field4") }}</li>
     </ul>
 
-    <ClientHubArticleImage alt="SEO fields in the Studio document editor" caption="SEO fields in the document editor" />
+    <ClientHubArticleImage src="/images/client-hub/website-content/seo-fields-editor.png" alt="SEO fields in the Studio document editor" caption="SEO fields in the document editor" />
 
     <h2>{{ t("clientHub.article.content.seoBasics.titleTitle") }}</h2>
     <p>{{ t("clientHub.article.content.seoBasics.titleText") }}</p>

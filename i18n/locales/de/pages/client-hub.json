@@ -29,7 +29,16 @@
     "welcomeTitle": "Willkommen in Ihrem Kunden-Hub",
     "welcomeDescription": "Hier finden Sie Leitfäden und Ressourcen für die von uns angebotenen Dienste. Wählen Sie unten einen Dienst aus, um loszulegen.",
     "servicesTitle": "Nach Dienst durchsuchen",
-    "gettingStartedHighlight": "Neu hier? Beginnen Sie mit dem Onboarding-Leitfaden oben, um zu verstehen, was Sie erwartet."
+    "gettingStartedHighlight": "Neu hier? Beginnen Sie mit dem Onboarding-Leitfaden oben, um zu verstehen, was Sie erwartet.",
+    "heroTagline": "Alles, was Sie benoetigen, um Ihre Website, Ihre Marke und Ihre digitale Praesenz zu verwalten - an einem Ort.",
+    "heroCta1": "Onboarding starten",
+    "heroCta2": "Leitfaeden erkunden",
+    "introTitle": "Was ist der Kunden-Hub?",
+    "introBody": "Dieser Hub ist Ihr privates Ressourcenzentrum. Sie finden hier Schritt-fuer-Schritt-Anleitungen fuer alle Dienste von Eye On Idea, von der Verwaltung Ihrer Website-Inhalte und Domaene bis hin zur Arbeit mit Ihrer visuellen Identitaet. Nutzen Sie die Seitenleiste zur Navigation nach Thema oder suchen Sie mit Cmd+K.",
+    "contactTitle": "Brauchen Sie Hilfe?",
+    "contactBody": "Wenden Sie sich direkt an Ihren Eye On Idea Projektmanager in Aalborg.",
+    "contactEmail": "E-Mail senden",
+    "contactPhone": "Anrufen"
   },
   "onboarding": {
     "title": "Erste Schritte – Onboarding-Leitfaden",
@@ -364,6 +373,8 @@
     "nextArticle": "Als nächstes",
     "backToCategory": "Zurück zu {category}",
     "screenshotPlaceholder": "Screenshot wird hier hinzugefügt",
+    "viewFullSize": "In voller Grosse anzeigen",
+    "closeFullSize": "Vollbild schliessen",
     "studioMayDiffer": "Je nach Projektkonfiguration sieht Ihr Studio möglicherweise etwas anders aus.",
     "tipLabel": "Tipp",
     "noteLabel": "Hinweis",
@@ -883,5 +894,12 @@
   },
   "breadcrumb": {
     "hub": "Kunden-Hub"
+  },
+  "disclaimer": {
+    "title": "Privater Kundenbereich",
+    "subtitle": "Dieser Bereich ist ausschließlich für Kunden von Eye On Idea bestimmt.",
+    "body": "Diese Ressourcen werden im Rahmen Ihres Servicevertrags bereitgestellt. Bitte teilen Sie Links zu diesem Bereich nicht mit anderen.",
+    "continueButton": "Weiter zum Kunden-Hub",
+    "backToSite": "Zurück zur Website"
   }
 }

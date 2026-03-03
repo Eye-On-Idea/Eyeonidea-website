@@ -29,7 +29,16 @@
     "welcomeTitle": "Welcome to your Client Hub",
     "welcomeDescription": "Find guides and resources for the services we provide. Choose a service below to get started.",
     "servicesTitle": "Browse by Service",
-    "gettingStartedHighlight": "New here? Start with the onboarding guide above to understand what to expect."
+    "gettingStartedHighlight": "New here? Start with the onboarding guide above to understand what to expect.",
+    "heroTagline": "Everything you need to manage your website, brand, and digital presence - all in one place.",
+    "heroCta1": "Start Onboarding",
+    "heroCta2": "Explore Guides",
+    "introTitle": "What is the Client Hub?",
+    "introBody": "This hub is your private resource centre. You will find step-by-step guides for every service Eye On Idea delivers, from managing your website content and domain to working with your visual identity. Use the sidebar to navigate by topic, or search with Cmd+K.",
+    "contactTitle": "Need help?",
+    "contactBody": "Reach out directly to your Eye On Idea project manager in Aalborg.",
+    "contactEmail": "Email us",
+    "contactPhone": "Call us"
   },
   "onboarding": {
     "title": "Getting Started — Onboarding Guide",
@@ -364,6 +373,8 @@
     "nextArticle": "Next",
     "backToCategory": "Back to {category}",
     "screenshotPlaceholder": "Screenshot will be added here",
+    "viewFullSize": "View full size",
+    "closeFullSize": "Close full size image",
     "studioMayDiffer": "Your studio may look slightly different depending on your project configuration.",
     "tipLabel": "Tip",
     "noteLabel": "Note",
@@ -883,5 +894,12 @@
   },
   "breadcrumb": {
     "hub": "Client Hub"
+  },
+  "disclaimer": {
+    "title": "Private Client Area",
+    "subtitle": "This section is intended for Eye On Idea clients only.",
+    "body": "The resources here are provided as part of your service agreement. Please do not share links to this area with others.",
+    "continueButton": "Continue to Client Hub",
+    "backToSite": "Back to site"
   }
 }

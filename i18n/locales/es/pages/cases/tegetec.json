@@ -135,45 +135,31 @@
     "afterLabel": "después",
     "metrics": [
       {
-        "label": "Lighthouse",
+        "label": "Rendimiento",
         "before": "48",
-        "after": "92",
+        "after": "83",
         "unit": "",
-        "improved": true
-      },
-      {
-        "label": "Tiempo de carga",
-        "before": "5.9",
-        "after": "1.8",
-        "unit": "s",
         "improved": true
       },
       {
         "label": "Accesibilidad",
         "before": "63",
-        "after": "95",
+        "after": "96",
         "unit": "",
         "improved": true
       },
       {
-        "label": "Puntuación SEO",
+        "label": "Buenas prácticas",
         "before": "61",
         "after": "96",
         "unit": "",
         "improved": true
       },
       {
-        "label": "CLS",
-        "before": "0.27",
-        "after": "0.04",
+        "label": "Puntuación SEO",
+        "before": "61",
+        "after": "92",
         "unit": "",
-        "improved": true
-      },
-      {
-        "label": "FCP",
-        "before": "3.8",
-        "after": "0.9",
-        "unit": "s",
         "improved": true
       }
     ]

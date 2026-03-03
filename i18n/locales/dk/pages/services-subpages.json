@@ -70,11 +70,17 @@
       "current": "Visuel identitet"
     },
     "nav": {
-      "overview": "Oversigt",
       "deliverables": "Hvad du får",
       "process": "Hvordan det virker",
       "pricing": "Prissætning",
-      "pricingId": "identitet-prissætning-sektion"
+      "pricingId": "identitet-prissætning-sektion",
+      "faq": "FAQ",
+      "contact": "Kontakt"
+    },
+    "intro": {
+      "eyebrow": "Visuel identitet",
+      "heading": "Dit brand taler, inden du gør det.",
+      "body": "Et veldesignet logo, en konsistent farvepalette og klar typografi signalerer professionalisme og opbygger tillid, som er svær at opnå på andre måder. Hos Eye On Idea tilgår vi visuel identitet som et praktisk fundament - og leverer et komplet, brugbart system, der fungerer konsistent på din hjemmeside, dine trykte materialer og overalt, hvor dit publikum finder dig."
     },
     "deliverables": {
       "badge": "Hvad du får",
@@ -131,6 +137,10 @@
       "subtitle": "Prisen afhænger af omfanget af dit projekt. Nedenfor er de mest almindelige udgangspunkter.",
       "currency": "€",
       "vatNote": "Alle priser ekskl. moms",
+      "startsAt": "fra",
+      "introTitle": "Saadan virker det",
+      "introBody": "Hvert visuel identitetsprojekt tager udgangspunkt i din virksomhed. Nogle virksomheder har brug for et fokuseret logo og farvesystem. Andre har brug for et fuldt brandfundament med retningslinjer og klar-til-brug aktiver, der understotter langsigtet vaekst.\n\nPriserne vist her starter ved det angivne belob og afspejler minimumsomfanget af hver service. Den endelige investering afhaenger af dine mal, tidsplan og detaljeniveau. Alt arbejde er projektbaseret og tydeligt defineret, saa du modtager en struktureret visuel identitet, der er bygget til at understotte din virksomhed nu og i fremtiden.",
+      "footnote": "* Alle visuelle identitetsprojekter inkluderer et defineret antal revisionsrunder. Yderligere revisioner eller vaesentlige aendringer ud over det aftalte omfang kan pavirke den endelige pris. Hvis godkendelse ikke kan opnaas inden for den aftalte ramme, kan et nyt omfang foreslas, eller projektet kan afsluttes baseret pa det udforte arbejde.",
       "highlights": [
         {
           "name": "Logodesign (primært og variationer)",
@@ -178,23 +188,50 @@
     "hero": {
       "badge": "Yderligere tjenester",
       "title": "Alt omkring din hjemmeside",
-      "subtitle": "Din hjemmeside er centrum for din digitale tilstedeværelse. Disse tjenester hjælper dig med at bygge op omkring det.",
-      "intro": [
-        "Nogle ting hører til i ethvert projekt: et domæne, en professionel e-mailadresse, indhold, der rent faktisk konverterer. Andre bliver først relevante, når du er live: en SEO-gennemgang, en anden mening om din informationsarkitektur eller en konsulentsession, når noget ikke fungerer.",
-        "Denne side dækker, hvad vi tilbyder uden for kernewebstedspakkerne. Hver service kan føjes til et projekt eller bestilles alene."
-      ]
+      "subtitle": "Din hjemmeside er centrum for din digitale tilstedeværelse. Disse tjenester hjælper dig med at bygge op omkring det."
     },
     "breadcrumb": {
       "services": "Ydelser",
       "current": "Yderligere tjenester"
     },
     "nav": {
-      "addons": "Tilføjelser",
+      "intro": "Oversigt",
       "content": "Indhold",
       "domain": "Domæne",
       "email": "E-mail",
       "seoConsulting": "SEO og rådgivning",
       "support": "Supportplaner"
+    },
+    "intro": {
+      "badge": "Hvad er tilgængeligt",
+      "title": "Tjenester du kan tilføje til et hvert projekt",
+      "tiles": [
+        {
+          "icon": "i-heroicons-document-text",
+          "title": "Indhold og sprog",
+          "body": "Sidetekster, redigering og flersproglig opsætning. Skrevet til at passe til din struktur og tone."
+        },
+        {
+          "icon": "i-heroicons-globe-alt",
+          "title": "Domæne",
+          "body": "Registrering, fornyelse og overførsler. Et domæne er inkluderet i alle hjemmesidepakker."
+        },
+        {
+          "icon": "i-heroicons-envelope",
+          "title": "E-mail",
+          "body": "Professionel e-mail på dit eget domæne. EU-hostet, spamfiltreret og klar til brug."
+        },
+        {
+          "icon": "i-heroicons-magnifying-glass",
+          "title": "SEO og rådgivning",
+          "body": "Engangsvurderinger, tekniske audits og rådgivningssessioner. Ingen abonnementer, ingen binding."
+        },
+        {
+          "icon": "i-heroicons-shield-check",
+          "title": "Supportplaner",
+          "body": "Løbende dækning for indholdsopdateringer, overvågning og prioriteret support efter lancering."
+        }
+      ]
     },
     "sections": {
       "content": {

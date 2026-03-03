@@ -70,11 +70,17 @@
       "current": "Visual Identity"
     },
     "nav": {
-      "overview": "Overview",
       "deliverables": "What You Get",
       "process": "How It Works",
       "pricing": "Pricing",
-      "pricingId": "identity-pricing-section"
+      "pricingId": "identity-pricing-section",
+      "faq": "FAQ",
+      "contact": "Contact"
+    },
+    "intro": {
+      "eyebrow": "Visual Identity",
+      "heading": "Your brand speaks before you do.",
+      "body": "A well-designed logo, a consistent colour palette, and clear typography signal professionalism and build trust that is difficult to achieve any other way. At Eye On Idea, we approach visual identity as a practical foundation - delivering a complete, usable system that works consistently across your website, printed materials, and anywhere else your audience finds you."
     },
     "deliverables": {
       "badge": "What You Get",
@@ -131,6 +137,10 @@
       "subtitle": "Pricing depends on the scope of your project. Below are the most common starting points.",
       "currency": "€",
       "vatNote": "All prices excl. VAT",
+      "startsAt": "starts at",
+      "introTitle": "How It Works",
+      "introBody": "Every visual identity project starts with your business. Some companies need a focused logo and colour system. Others need a full brand foundation with guidelines and ready-to-use assets that support long-term growth.\n\nThe prices shown here start at the listed amount and reflect the minimum scope of each service. Final investment depends on your goals, timeline and level of detail. All work is project-based and clearly defined, so you receive a structured visual identity built to support your business now and as it grows.",
+      "footnote": "* All visual identity projects include a defined number of revision rounds. Additional revisions or significant changes beyond the agreed scope may affect the final price. If approval cannot be reached within the agreed framework, a new scope can be proposed or the project may be concluded based on completed work.",
       "highlights": [
         {
           "name": "Logo design (primary and variations)",
@@ -178,23 +188,50 @@
     "hero": {
       "badge": "Additional Services",
       "title": "Everything Around Your Website",
-      "subtitle": "Your website is the centre of your digital presence. These services help you build around it.",
-      "intro": [
-        "Some things belong on every project: a domain, a professional email address, content that actually converts. Others only become relevant once you are live: an SEO review, a second opinion on your information architecture, or a consulting session when something is not working.",
-        "This page covers what we offer outside the core website packages. Each service can be added to a project or ordered on its own."
-      ]
+      "subtitle": "Your website is the centre of your digital presence. These services help you build around it."
     },
     "breadcrumb": {
       "services": "Services",
       "current": "Additional Services"
     },
     "nav": {
-      "addons": "Add-ons",
+      "intro": "Overview",
       "content": "Content",
       "domain": "Domain",
       "email": "Email",
       "seoConsulting": "SEO and Consulting",
       "support": "Support Plans"
+    },
+    "intro": {
+      "badge": "What's Available",
+      "title": "Services you can add to any project",
+      "tiles": [
+        {
+          "icon": "i-heroicons-document-text",
+          "title": "Content and Language",
+          "body": "Page copy, editing, and multilingual setup. Written to fit your structure and tone."
+        },
+        {
+          "icon": "i-heroicons-globe-alt",
+          "title": "Domain",
+          "body": "Registration, renewals, and transfers. One domain is included with every website package."
+        },
+        {
+          "icon": "i-heroicons-envelope",
+          "title": "Email",
+          "body": "Professional email on your own domain. EU-hosted, spam-filtered, and ready to use."
+        },
+        {
+          "icon": "i-heroicons-magnifying-glass",
+          "title": "SEO and Consulting",
+          "body": "One-off reviews, technical audits, and advisory sessions. No retainers, no lock-in."
+        },
+        {
+          "icon": "i-heroicons-shield-check",
+          "title": "Support Plans",
+          "body": "Ongoing cover for content updates, monitoring, and priority support after launch."
+        }
+      ]
     },
     "sections": {
       "content": {

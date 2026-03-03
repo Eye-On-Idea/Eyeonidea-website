@@ -128,12 +128,10 @@
     "beforeLabel": "Before",
     "afterLabel": "After",
     "metrics": [
-      { "label": "Lighthouse", "before": "48", "after": "92", "unit": "", "improved": true },
-      { "label": "Load Time", "before": "5.9", "after": "1.8", "unit": "s", "improved": true },
-      { "label": "Accessibility", "before": "63", "after": "95", "unit": "", "improved": true },
-      { "label": "SEO Score", "before": "61", "after": "96", "unit": "", "improved": true },
-      { "label": "CLS", "before": "0.27", "after": "0.04", "unit": "", "improved": true },
-      { "label": "FCP", "before": "3.8", "after": "0.9", "unit": "s", "improved": true }
+      { "label": "Performance", "before": "48", "after": "83", "unit": "", "improved": true },
+      { "label": "Accessibility", "before": "63", "after": "96", "unit": "", "improved": true },
+      { "label": "Best Practices", "before": "61", "after": "96", "unit": "", "improved": true },
+      { "label": "SEO Score", "before": "61", "after": "92", "unit": "", "improved": true }
     ]
   }
 }

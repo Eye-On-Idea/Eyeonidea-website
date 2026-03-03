@@ -70,11 +70,17 @@
       "current": "Identidad Visual"
     },
     "nav": {
-      "overview": "Descripción general",
       "deliverables": "Lo que obtienes",
       "process": "Cómo funciona",
       "pricing": "Precios",
-      "pricingId": "sección de precios de identidad"
+      "pricingId": "sección de precios de identidad",
+      "faq": "FAQ",
+      "contact": "Contacto"
+    },
+    "intro": {
+      "eyebrow": "Visual Identity",
+      "heading": "Your brand speaks before you do.",
+      "body": "A well-designed logo, a consistent colour palette, and clear typography signal professionalism and build trust that is difficult to achieve any other way. At Eye On Idea, we approach visual identity as a practical foundation - delivering a complete, usable system that works consistently across your website, printed materials, and anywhere else your audience finds you."
     },
     "deliverables": {
       "badge": "Lo que obtienes",
@@ -131,6 +137,10 @@
       "subtitle": "El precio depende del alcance de su proyecto. A continuación se muestran los puntos de partida más comunes.",
       "currency": "€",
       "vatNote": "Todos los precios excl. IVA",
+      "startsAt": "desde",
+      "introTitle": "Como funciona",
+      "introBody": "Cada proyecto de identidad visual comienza con su empresa. Algunas empresas necesitan un logotipo enfocado y un sistema de colores. Otras necesitan una base de marca completa con directrices y activos listos para usar que respalden el crecimiento a largo plazo.\n\nLos precios que se muestran aqui comienzan en la cantidad indicada y reflejan el alcance minimo de cada servicio. La inversion final depende de sus objetivos, cronograma y nivel de detalle. Todo el trabajo esta basado en proyectos y claramente definido, por lo que recibe una identidad visual estructurada construida para apoyar su negocio ahora y a medida que crece.",
+      "footnote": "* Todos los proyectos de identidad visual incluyen un numero definido de rondas de revision. Las revisiones adicionales o los cambios significativos mas alla del alcance acordado pueden afectar el precio final. Si no se puede llegar a un acuerdo dentro del marco acordado, se puede proponer un nuevo alcance o el proyecto puede concluirse en base al trabajo completado.",
       "highlights": [
         {
           "name": "Diseño de logotipo (principal y variaciones)",
@@ -178,23 +188,50 @@
     "hero": {
       "badge": "Servicios adicionales",
       "title": "Todo lo relacionado con su sitio web",
-      "subtitle": "Su sitio web es el centro de su presencia digital. Estos servicios le ayudarán a construir a su alrededor.",
-      "intro": [
-        "Algunas cosas pertenecen a cada proyecto: un dominio, una dirección de correo electrónico profesional, contenido que realmente convierta. Otros sólo se vuelven relevantes una vez que estás en vivo: una revisión de SEO, una segunda opinión sobre tu arquitectura de información o una sesión de consultoría cuando algo no funciona.",
-        "Esta página cubre lo que ofrecemos fuera de los paquetes principales del sitio web. Cada servicio se puede agregar a un proyecto o solicitarse por separado."
-      ]
+      "subtitle": "Su sitio web es el centro de su presencia digital. Estos servicios le ayudarán a construir a su alrededor."
     },
     "breadcrumb": {
       "services": "Servicios",
       "current": "Servicios adicionales"
     },
     "nav": {
-      "addons": "Complementos",
+      "intro": "Descripción general",
       "content": "Contenido",
       "domain": "Dominio",
       "email": "Correo electrónico",
       "seoConsulting": "SEO y Consultoría",
       "support": "Planes de soporte"
+    },
+    "intro": {
+      "badge": "Qué está disponible",
+      "title": "Servicios que puede añadir a cualquier proyecto",
+      "tiles": [
+        {
+          "icon": "i-heroicons-document-text",
+          "title": "Contenido e idioma",
+          "body": "Textos de páginas, edición y configuración multilingüe. Escritos para adaptarse a su estructura y tono."
+        },
+        {
+          "icon": "i-heroicons-globe-alt",
+          "title": "Dominio",
+          "body": "Registro, renovaciones y transferencias. Un dominio está incluido en cada paquete de sitio web."
+        },
+        {
+          "icon": "i-heroicons-envelope",
+          "title": "Correo electrónico",
+          "body": "Correo electrónico profesional en su propio dominio. Alojado en la UE, filtrado y listo para usar."
+        },
+        {
+          "icon": "i-heroicons-magnifying-glass",
+          "title": "SEO y consultoría",
+          "body": "Revisiones puntuales, auditorías técnicas y sesiones de asesoramiento. Sin suscripciones ni compromisos."
+        },
+        {
+          "icon": "i-heroicons-shield-check",
+          "title": "Planes de soporte",
+          "body": "Cobertura continua para actualizaciones de contenido, supervisión y soporte prioritario tras el lanzamiento."
+        }
+      ]
     },
     "sections": {
       "content": {

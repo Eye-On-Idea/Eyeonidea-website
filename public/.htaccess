@@ -1,0 +1,86 @@
+# ============================================================
+# Eye On Idea - Apache Security & Routing Configuration
+# For OVH multisite static hosting
+# ============================================================
+
+Options -Indexes
+
+# ---- Security Headers ----------------------------------------
+
+<IfModule mod_headers.c>
+
+  # Prevent MIME-type sniffing
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Prevent clickjacking (don't allow framing by other domains)
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # Legacy XSS filter for older browsers
+  Header always set X-XSS-Protection "1; mode=block"
+
+  # Referrer: send full URL on same-origin, only origin on cross-origin
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Permissions: disable features this site does not use
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+
+  # Content Security Policy (permissive but meaningful)
+  # - 'unsafe-inline' for scripts: required for Nuxt hydration inline scripts
+  # - GTM and GA explicitly allowed
+  # - Google Fonts explicitly allowed
+  # - No runtime Sanity calls (content baked in at build time)
+  # - No iframes used on this site
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://cdn.sanity.io https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com; frame-src 'none'; object-src 'none'; base-uri 'self';"
+
+  # Remove server fingerprinting headers
+  Header always unset X-Powered-By
+  Header always unset Server
+
+</IfModule>
+
+# ---- Static Site Routing -------------------------------------
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Serve existing files and directories directly
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Try /path/index.html for clean URLs (e.g. /about -> /about/index.html)
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}/index.html -f
+  RewriteRule ^(.*)$ $1/index.html [L]
+
+  # Try /path.html for flat static output
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+
+  # Fallback to 404
+  RewriteRule ^ 404.html [L]
+</IfModule>
+
+# ---- Cache Control -------------------------------------------
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Nuxt hashed assets - cache for 1 year (filename changes when content changes)
+  <FilesMatch "\.(js|css|woff2|woff|ttf|otf)$">
+    ExpiresDefault "access plus 1 year"
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Images
+  <FilesMatch "\.(png|jpg|jpeg|gif|svg|webp|ico|avif)$">
+    ExpiresDefault "access plus 30 days"
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+
+  # HTML - always revalidate so users get fresh content on deploy
+  <FilesMatch "\.html$">
+    ExpiresDefault "access plus 0 seconds"
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>

@@ -70,11 +70,17 @@
       "current": "Identité visuelle"
     },
     "nav": {
-      "overview": "Aperçu",
       "deliverables": "Ce que vous obtenez",
       "process": "Comment ça marche",
       "pricing": "Tarifs",
-      "pricingId": "section-tarification-identité"
+      "pricingId": "section-tarification-identité",
+      "faq": "FAQ",
+      "contact": "Contact"
+    },
+    "intro": {
+      "eyebrow": "Visual Identity",
+      "heading": "Your brand speaks before you do.",
+      "body": "A well-designed logo, a consistent colour palette, and clear typography signal professionalism and build trust that is difficult to achieve any other way. At Eye On Idea, we approach visual identity as a practical foundation - delivering a complete, usable system that works consistently across your website, printed materials, and anywhere else your audience finds you."
     },
     "deliverables": {
       "badge": "Ce que vous obtenez",
@@ -131,6 +137,10 @@
       "subtitle": "Le prix dépend de la portée de votre projet. Vous trouverez ci-dessous les points de départ les plus courants.",
       "currency": "€",
       "vatNote": "Tous les prix excl. TVA",
+      "startsAt": "à partir de",
+      "introTitle": "Comment ça fonctionne",
+      "introBody": "Chaque projet d'identité visuelle part de votre entreprise. Certaines entreprises ont besoin d'un logo ciblé et d'un système de couleurs. D'autres ont besoin d'une base de marque complète avec des directives et des actifs prêts à l'emploi qui soutiennent la croissance à long terme.\n\nLes prix indiqués ici commencent au montant indiqué et reflètent le périmètre minimum de chaque service. L'investissement final dépend de vos objectifs, de votre calendrier et du niveau de détail. Tout le travail est basé sur des projets et clairement défini, de sorte que vous recevez une identité visuelle structurée conçue pour soutenir votre entreprise maintenant et à mesure qu'elle se développe.",
+      "footnote": "* Tous les projets d'identité visuelle comprennent un nombre défini de tours de révision. Des révisions supplémentaires ou des modifications importantes dépassant le périmètre convenu peuvent affecter le prix final. Si un accord ne peut être atteint dans le cadre convenu, un nouveau périmètre peut être proposé ou le projet peut être conclu sur la base des travaux réalisés.",
       "highlights": [
         {
           "name": "Création de logo (primaire et variantes)",
@@ -178,23 +188,50 @@
     "hero": {
       "badge": "Services supplémentaires",
       "title": "Tout autour de votre site Web",
-      "subtitle": "Votre site Web est le centre de votre présence numérique. Ces services vous aident à construire autour de lui.",
-      "intro": [
-        "Certaines choses appartiennent à chaque projet : un domaine, une adresse e-mail professionnelle, un contenu qui convertit réellement. D’autres ne deviennent pertinents qu’une fois que vous êtes en direct : une revue SEO, un deuxième avis sur votre architecture d’information ou une séance de conseil lorsque quelque chose ne fonctionne pas.",
-        "Cette page couvre ce que nous proposons en dehors des packages de base du site Web. Chaque service peut être ajouté à un projet ou commandé seul."
-      ]
+      "subtitle": "Votre site Web est le centre de votre présence numérique. Ces services vous aident à construire autour de lui."
     },
     "breadcrumb": {
       "services": "Prestations",
       "current": "Services supplémentaires"
     },
     "nav": {
-      "addons": "Modules complémentaires",
+      "intro": "Aperçu",
       "content": "Contenu",
       "domain": "Domaine",
       "email": "E-mail",
       "seoConsulting": "Référencement et conseil",
-      "support": "Plans d'assistance"
+      "support": "Plans d’assistance"
+    },
+    "intro": {
+      "badge": "Ce qui est disponible",
+      "title": "Services que vous pouvez ajouter à n’importe quel projet",
+      "tiles": [
+        {
+          "icon": "i-heroicons-document-text",
+          "title": "Contenu et langue",
+          "body": "Textes de pages, édition et configuration multilingue. Rédigés pour correspondre à votre structure et à votre ton."
+        },
+        {
+          "icon": "i-heroicons-globe-alt",
+          "title": "Domaine",
+          "body": "Enregistrement, renouvellements et transferts. Un domaine est inclus dans chaque forfait de site Web."
+        },
+        {
+          "icon": "i-heroicons-envelope",
+          "title": "E-mail",
+          "body": "E-mail professionnel sur votre propre domaine. Hébergé en UE, filtré contre le spam et prêt à l’emploi."
+        },
+        {
+          "icon": "i-heroicons-magnifying-glass",
+          "title": "Référencement et conseil",
+          "body": "Révisions ponctuelles, audits techniques et séances de conseil. Pas d’abonnements, pas d’engagement."
+        },
+        {
+          "icon": "i-heroicons-shield-check",
+          "title": "Plans d’assistance",
+          "body": "Couverture continue pour les mises à jour de contenu, la surveillance et le support prioritaire après le lancement."
+        }
+      ]
     },
     "sections": {
       "content": {
