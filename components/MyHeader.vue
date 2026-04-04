@@ -203,12 +203,12 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
 
 <template>
   <UHeader
-    class="header-main fixed top-11 left-1/2 -translate-x-1/2 z-50 bg-linear-to-bl from-primary-200/80 via-primary-300/80 to-primary-200/80 dark:bg-linear-to-bl dark:from-primary-950 dark:via-primary-950 dark:to-primary-950 max-w-360 min-w-[80%] w-[98%] rounded-3xl"
+    class="header-main fixed top-11 left-1/2 -translate-x-1/2 z-50 bg-primary-50/80 dark:bg-linear-to-bl dark:from-primary-950 dark:via-primary-950 dark:to-primary-950 max-w-360 min-w-[80%] w-[98%] rounded-3xl"
     :ui="{
       root: 'bg-transparent border-b-0',
-      content: 'bg-primary-800 dark:bg-primary-950',
-      header: 'bg-primary-800 dark:bg-primary-950',
-      toggle: 'text-primary-50',
+      content: 'bg-primary-50/90 dark:bg-primary-950',
+      header: 'bg-primary-50/90 dark:bg-primary-950',
+      toggle: 'text-primary-800 dark:text-primary-50',
     }"
   >
     <!-- Art deco edge lines -->
@@ -229,7 +229,7 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
         <img
           src="/public-material/img/logo-nobg_dark.png"
           alt="Eye On Idea"
-          class="hidden lg:block h-10 w-auto transition-transform duration-300 group-hover:scale-105 pt-0.5 invert brightness-0"
+          class="hidden lg:block h-10 w-auto transition-transform duration-300 group-hover:scale-105 pt-0.5 dark:invert dark:brightness-0"
         />
         <img
           src="/public-material/logo-center-shadow.svg"
@@ -507,9 +507,7 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
   padding: 0.5rem 0.75rem;
 }
 
-span {
-  color: var(--color-primary-50);
-}
+/* Dark mode: span text is cream */
 html.dark span {
   color: var(--color-primary-50);
 }
@@ -534,6 +532,36 @@ html.dark span {
     0 0 0 2px var(--focus-ring),
     0 0 0 4px var(--ring-offset);
 }
+/* ── Light mode overrides ─────────────────────────────────────── */
+html:not(.dark) {
+  .header-main {
+    background: rgba(255, 247, 240, 0.9); /* primary-50 at 90% */
+    box-shadow:
+      0 0 0 1px rgba(153, 82, 38, 0.2),
+      0 0 0 3px rgba(153, 82, 38, 0.05),
+      0 2px 16px rgba(153, 82, 38, 0.08);
+  }
+
+  .header-edge-line {
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(153, 82, 38, 0.18) 15%,
+      rgba(153, 82, 38, 0.18) 85%,
+      transparent
+    );
+  }
+
+  .nav-sep {
+    background: rgba(153, 82, 38, 0.35);
+  }
+
+  /* Allow nav token system to control span color instead of forcing cream */
+  span {
+    color: inherit;
+  }
+}
+
 /* Respect reduced transparency */
 @media (prefers-reduced-transparency: reduce) {
   .header-main {

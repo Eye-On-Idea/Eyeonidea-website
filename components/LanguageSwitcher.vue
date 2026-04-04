@@ -200,12 +200,12 @@ onUnmounted(() => {
           <UIcon name="i-heroicons-language" class="lang-switcher__flag" />
         </template>
       </ClientOnly>
-      <span class="lang-switcher__code text-primary-50">{{
+      <span class="lang-switcher__code text-primary-800 dark:text-primary-50">{{
         currentLanguage.code.toUpperCase()
       }}</span>
       <UIcon
         name="i-lucide-chevron-down"
-        class="lang-switcher__chevron text-primary-50"
+        class="lang-switcher__chevron text-primary-800 dark:text-primary-50"
         :class="{ 'lang-switcher__chevron--open': isOpen }"
       />
     </button>

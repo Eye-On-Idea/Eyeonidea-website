@@ -98,7 +98,7 @@ const currentLabel = computed(() =>
       <UIcon
         :key="currentIcon"
         :name="currentIcon"
-        class="w-5 h-5 bg-primary-50 dark:text-neutral-300 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
+        class="w-5 h-5 text-primary-800 dark:text-primary-50 group-hover:text-primary-600 dark:group-hover:text-primary-300 transition-colors"
       />
     </Transition>
   </button>
