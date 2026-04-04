@@ -1,5 +1,5 @@
 <template>
-  <article class="post-card" :class="{ 'post-card--featured': featured }">
+  <article v-if="post?.slug?.current" class="post-card" :class="{ 'post-card--featured': featured }">
     <NuxtLink :to="`/news/${post.slug.current}`" class="post-card-link">
       <!-- Image -->
       <div class="post-card-image">

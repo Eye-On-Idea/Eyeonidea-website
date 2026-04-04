@@ -198,7 +198,7 @@ const seoTitle = computed(() => {
 
 const seoDescription = computed(() => {
   if (!post.value) return "";
-  return post.value.seo?.metaDescription || post.value.excerpt;
+  return post.value.seo?.metaDescription || post.value.excerpt || "";
 });
 
 const seoImage = computed(() => {
@@ -224,7 +224,7 @@ const seoOptions = computed(() => ({
   imageHeight: 630,
   url: `/news/${slug.value}`,
   canonical: canonicalUrl.value,
-  type: "article",
+  type: "article" as const,
   publishedTime: post.value?.publishedAt,
   modifiedTime: post.value?._updatedAt,
   noindex: post.value?.seo?.noIndex,
@@ -236,15 +236,15 @@ const seoOptions = computed(() => ({
       url: `/news/${slug.value}`,
     },
   ],
-  twitterCard: "summary_large_image",
-  schemaType: "ItemPage",
+  twitterCard: "summary_large_image" as const,
+  schemaType: "ItemPage" as const,
   includeWebSiteSchema: false,
   // Article-specific metadata for enhanced SEO
   articleSection: post.value?.postType || "News",
   articleTags:
     post.value?.tags
-      ?.map((tag: { title?: string }) => tag.title)
-      .filter(Boolean) || [],
+      ?.map((tag) => tag.title)
+      .filter((tag): tag is string => Boolean(tag)) || [],
 }));
 
 useSeo(seoOptions);

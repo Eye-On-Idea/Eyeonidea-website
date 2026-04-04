@@ -2,6 +2,7 @@
 import { ref, onMounted, onUnmounted } from "vue";
 
 const { t, tm } = useI18n();
+const localePath = useLocalePath();
 
 const sectionRef = ref<HTMLElement | null>(null);
 const isVisible = ref(false);
@@ -23,7 +24,6 @@ const carouselImages = [
 
 onMounted(() => {
   if (!sectionRef.value) return;
-
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -35,12 +35,8 @@ onMounted(() => {
     },
     { threshold: 0.1 },
   );
-
   observer.observe(sectionRef.value);
-
-  onUnmounted(() => {
-    observer.disconnect();
-  });
+  onUnmounted(() => observer.disconnect());
 });
 </script>
 
@@ -51,65 +47,67 @@ onMounted(() => {
     class="identity-section"
     aria-labelledby="identity-heading"
   >
+    <!-- Section label row -->
+    <div class="section-label-row" aria-hidden="true">
+      <span class="sep-line" />
+      <span class="sep-diamond" />
+      <span class="sep-text">{{ t("services.identity.title") }}</span>
+      <span class="sep-diamond" />
+      <span class="sep-line" />
+    </div>
+
     <div class="section-container">
       <div class="content-grid" :class="{ 'animate-in': isVisible }">
-        <!-- Left: Main Content -->
+        <!-- Left: text content -->
         <div class="main-content">
           <h2 id="identity-heading" class="section-title">
             {{ t("services.identity.title") }}
           </h2>
-          <p class="section-description">
-            {{ t("services.identity.description") }}
-          </p>
 
-          <!-- Core Includes -->
-          <div class="includes-card">
-            <h3 class="card-heading">Core Deliverables</h3>
+          <!-- Deco divider -->
+          <div class="deco-divider" aria-hidden="true">
+            <span class="deco-line" />
+            <span class="deco-diamond" />
+            <span class="deco-line" />
+          </div>
+
+          <p class="section-description">{{ t("services.identity.description") }}</p>
+
+          <!-- Includes list -->
+          <div class="includes-block">
             <ul class="includes-list">
               <li
-                v-for="(item, index) in tm(
-                  'services.identity.includes',
-                ) as string[]"
+                v-for="(item, index) in (tm('services.identity.includes') as string[])"
                 :key="index"
                 class="include-item"
               >
-                <svg
-                  class="check-icon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
+                <span class="include-diamond" aria-hidden="true" />
                 <span>{{ item }}</span>
               </li>
             </ul>
           </div>
 
-          <NuxtLink to="/contact" class="cta-button">
+          <AppCtaButton
+            variant="primary"
+            :to="localePath('/contact')"
+            :show-icon="true"
+            class="identity-cta"
+          >
             {{ t("services.identity.cta") }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              class="cta-icon"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </NuxtLink>
+          </AppCtaButton>
         </div>
 
-        <!-- Right: Add-ons -->
-        <div class="addons-panel">
-          <div class="addons-card">
+        <!-- Right: carousel -->
+        <div class="carousel-panel">
+          <div class="carousel-frame">
+            <!-- Corner frame -->
+            <div class="deco-frame" aria-hidden="true">
+              <span class="corner corner--tl" />
+              <span class="corner corner--tr" />
+              <span class="corner corner--bl" />
+              <span class="corner corner--br" />
+            </div>
+
             <UCarousel
               :items="carouselImages"
               arrows
@@ -149,35 +147,63 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+/* ── Section ──────────────────────────────────────────────────── */
 .identity-section {
-  padding: 6rem 1.5rem;
-  background: var(--color-hero-bg-gradient);
-  position: relative;
-  overflow: hidden;
-
-  @media (min-width: 768px) {
-    padding: 8rem 2rem;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 10rem 2rem;
-  }
+  background: #0d0908;
+  padding-bottom: 0;
 }
 
-.section-container {
-  max-width: 1200px;
+/* ── Section label row ────────────────────────────────────────── */
+.section-label-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 80rem;
   margin: 0 auto;
+  padding: 5rem 2rem 3rem;
 }
 
+.sep-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.12);
+}
+
+.sep-diamond {
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.35);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.sep-text {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.45);
+  flex-shrink: 0;
+}
+
+/* ── Container ────────────────────────────────────────────────── */
+.section-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem 5rem;
+}
+
+/* ── Two-column grid ──────────────────────────────────────────── */
 .content-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(24px);
   transition:
-    opacity 0.8s var(--ease-smooth),
-    transform 0.8s var(--ease-smooth);
+    opacity 0.7s var(--ease-smooth),
+    transform 0.7s var(--ease-smooth);
 
   &.animate-in {
     opacity: 1;
@@ -185,68 +211,63 @@ onMounted(() => {
   }
 
   @media (min-width: 1024px) {
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 4rem;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 5rem;
     align-items: start;
   }
 }
 
+/* ── Text column ──────────────────────────────────────────────── */
 .main-content {
-  color: var(--color-hero-text);
-}
-
-.section-badge {
-  display: inline-block;
-  padding: 0.375rem 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  color: var(--color-accent-300);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border-radius: 9999px;
-  margin-bottom: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .section-title {
-  font-size: var(--text-3xl);
-  color: var(--color-hero-text);
-  margin-bottom: 1.25rem;
-  line-height: 1.2;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: #ffeddf;
+  margin: 0 0 1.25rem;
+}
 
-  @media (min-width: 768px) {
-    font-size: var(--text-4xl);
-  }
+/* ── Deco divider ─────────────────────────────────────────────── */
+.deco-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.deco-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.15);
+}
+
+.deco-diamond {
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.4);
+  transform: rotate(45deg);
+  flex-shrink: 0;
 }
 
 .section-description {
-  font-size: var(--text-base);
-  line-height: 1.7;
-  color: var(--color-hero-text-muted);
-  margin-bottom: 2rem;
-  max-width: 540px;
-
-  @media (min-width: 768px) {
-    font-size: var(--text-lg);
-  }
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.75;
+  color: rgba(255, 237, 223, 0.55);
+  max-width: 46ch;
+  margin: 0 0 2rem;
 }
 
-.includes-card {
-  padding: 1.5rem;
-  border-radius: var(--radius-lg);
-  margin-bottom: 2rem;
-}
-
-.card-heading {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-hero-text);
-  margin-bottom: 1rem;
+/* ── Includes block ───────────────────────────────────────────── */
+.includes-block {
+  margin-bottom: 2.25rem;
 }
 
 .includes-list {
@@ -255,114 +276,67 @@ onMounted(() => {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.625rem;
 }
 
 .include-item {
   display: flex;
-  align-items: flex-start;
-  gap: 0.625rem;
-  font-size: var(--text-sm);
-  color: var(--color-hero-text-muted);
-  line-height: 1.4;
-}
-
-.check-icon {
-  width: 1.125rem;
-  height: 1.125rem;
-  flex-shrink: 0;
-  color: var(--color-accent-400);
-  margin-top: 0.0625rem;
-}
-
-.cta-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.875rem 1.75rem;
-  background: var(--color-accent-500);
-  color: white;
-  font-size: var(--text-sm);
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: var(--radius-md);
-  transition:
-    background 0.2s var(--ease-smooth),
-    transform 0.2s var(--ease-smooth);
-
-  &:hover {
-    background: var(--color-accent-600);
-    transform: translateX(4px);
-  }
-}
-
-.cta-icon {
-  width: 1rem;
-  height: 1rem;
-  transition: transform 0.2s var(--ease-smooth);
-
-  .cta-button:hover & {
-    transform: translateX(2px);
-  }
-}
-
-.addons-panel {
-  @media (min-width: 1024px) {
-    position: sticky;
-    top: 6rem;
-  }
-}
-
-.addons-card {
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-xl);
-}
-
-.addons-heading {
-  font-size: var(--text-lg);
-  font-weight: 600;
-  color: var(--color-hero-text);
-  margin-bottom: 1.5rem;
-}
-
-.addons-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.addon-item {
-  display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: var(--text-sm);
-  color: var(--color-hero-text-muted);
-  padding: 0.75rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: var(--radius-md);
-  transition: background 0.2s var(--ease-smooth);
+  font-family: var(--font-text);
+  font-size: 0.875rem;
+  color: rgba(255, 237, 223, 0.6);
+  line-height: 1.45;
+}
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.08);
+.include-diamond {
+  flex-shrink: 0;
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.45);
+  transform: rotate(45deg);
+}
+
+/* ── Carousel panel ───────────────────────────────────────────── */
+.carousel-panel {
+  @media (min-width: 1024px) {
+    position: sticky;
+    top: 7rem;
   }
 }
 
-.plus-icon {
+.carousel-frame {
+  position: relative;
+  background: #161210;
+  border: 1px solid rgba(223, 175, 133, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+  padding: 1.5rem;
+}
+
+/* ── Corner frame ─────────────────────────────────────────────── */
+.deco-frame {
+  position: absolute;
+  inset: 0.75rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.corner {
+  position: absolute;
   width: 1rem;
   height: 1rem;
-  flex-shrink: 0;
-  color: var(--color-primary-400);
+  border-color: rgba(223, 175, 133, 0.2);
+  border-style: solid;
+
+  &--tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
+  &--tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
+  &--bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+  &--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
 }
 
 .carousel {
-  border-radius: var(--radius-lg);
+  border-radius: 0;
   overflow: hidden;
 }
 
@@ -376,40 +350,42 @@ onMounted(() => {
   height: auto;
   display: block;
   object-fit: cover;
-  border-radius: var(--radius-md);
 }
 
 .carousel :deep(.carousel-dot) {
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.3);
-  transition: background 0.2s var(--ease-smooth);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: rgba(223, 175, 133, 0.2);
+  cursor: pointer;
+  transition: background 0.2s ease;
+  min-height: 0;
 
   &[data-state="active"] {
-    background: var(--color-accent-400);
+    background: rgba(223, 175, 133, 0.7);
   }
 }
 
 .carousel :deep([data-slot="prev"]),
 .carousel :deep([data-slot="next"]) {
-  color: rgba(255, 255, 255, 0.7);
-  border-color: rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.05);
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
+  color: rgba(223, 175, 133, 0.6);
+  border-color: rgba(223, 175, 133, 0.15);
+  background: rgba(13, 9, 8, 0.8);
 
   &:hover:not(:disabled) {
-    color: white;
-    border-color: rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.1);
+    color: #dfaf85;
+    border-color: rgba(223, 175, 133, 0.3);
+    background: rgba(30, 18, 10, 0.9);
   }
 
   &:disabled {
-    opacity: 0.3;
+    opacity: 0.25;
   }
 }
 
+/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .content-grid {
     opacity: 1;
@@ -417,33 +393,51 @@ onMounted(() => {
     transition: none;
   }
 
-  .cta-button,
-  .cta-icon {
-    transition: none;
-
-    &:hover {
-      transform: none;
-    }
-  }
-
   .carousel :deep(.carousel-dot) {
     transition: none;
   }
 }
 
-@media (prefers-reduced-transparency: reduce) {
-  .section-badge,
-  .addons-card {
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-    background: rgba(0, 0, 0, 0.4);
+/* ── Light mode overrides ─────────────────────────────────────── */
+html:not(.dark) {
+  .identity-section { background: var(--color-section-alt); }
+
+  .sep-line    { background: var(--deco-line); }
+  .sep-diamond { background: var(--deco-diamond); }
+  .sep-text    { color: var(--deco-text); }
+
+  .section-title    { color: var(--color-text-primary); }
+  .deco-line        { background: var(--deco-line); }
+  .deco-diamond     { background: var(--deco-diamond); }
+  .section-description { color: var(--color-text-subtle); }
+
+  .include-item   { color: var(--color-text-secondary); }
+  .include-diamond { background: rgba(153, 82, 38, 0.45); }
+
+  .carousel-frame {
+    background: rgba(255, 255, 255, 0.80);
+    border-color: var(--deco-line);
+  }
+
+  .corner { border-color: var(--deco-border); }
+
+  .carousel :deep(.carousel-dot) {
+    background: rgba(153, 82, 38, 0.2);
+
+    &[data-state="active"] { background: rgba(153, 82, 38, 0.65); }
   }
 
   .carousel :deep([data-slot="prev"]),
   .carousel :deep([data-slot="next"]) {
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-    background: rgba(0, 0, 0, 0.5);
+    color: var(--color-primary-600);
+    border-color: var(--deco-line);
+    background: rgba(255, 255, 255, 0.85);
+
+    &:hover:not(:disabled) {
+      color: var(--color-primary-700);
+      border-color: var(--deco-line-strong);
+      background: rgba(255, 255, 255, 0.95);
+    }
   }
 }
 </style>

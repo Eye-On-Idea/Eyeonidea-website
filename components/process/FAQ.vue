@@ -5,11 +5,10 @@ const { t, tm } = useI18n();
 
 const sectionRef = ref<HTMLElement | null>(null);
 const isVisible = ref(false);
-const openIndex = ref<number | null>(0); // First item open by default
+const openIndex = ref<number | null>(0);
 
 onMounted(() => {
   if (!sectionRef.value) return;
-
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -19,14 +18,10 @@ onMounted(() => {
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.08 },
   );
-
   observer.observe(sectionRef.value);
-
-  onUnmounted(() => {
-    observer.disconnect();
-  });
+  onUnmounted(() => observer.disconnect());
 });
 
 interface FAQItem {
@@ -42,84 +37,107 @@ const toggleItem = (index: number) => {
 </script>
 
 <template>
-  <section
-    ref="sectionRef"
-    class="process-faq"
-    aria-labelledby="faq-heading"
-  >
+  <section ref="sectionRef" class="process-faq" aria-labelledby="faq-heading">
+    <!-- Section label row -->
+    <div class="section-label-row" aria-hidden="true">
+      <span class="sep-line" />
+      <span class="sep-diamond" />
+      <span class="sep-text">{{ t("process.faq.title") }}</span>
+      <span class="sep-diamond" />
+      <span class="sep-line" />
+    </div>
+
     <div class="section-container">
       <!-- Header -->
       <div class="section-header" :class="{ 'animate-in': isVisible }">
-        <span class="section-badge">{{ t("process.faq.title") }}</span>
         <h2 id="faq-heading" class="section-title">
           {{ t("process.faq.subtitle") }}
         </h2>
       </div>
 
       <!-- Accordion -->
-      <div
-        class="faq-list"
-        :class="{ 'animate-in': isVisible }"
-        role="list"
-      >
-        <div
+      <div class="faq-list" :class="{ 'animate-in': isVisible }">
+        <details
           v-for="(item, index) in items"
           :key="index"
           class="faq-item"
-          :class="{ 'faq-item--open': openIndex === index }"
-          role="listitem"
+          :open="openIndex === index"
         >
-          <button
-            type="button"
-            class="faq-trigger"
-            :aria-expanded="openIndex === index"
-            :aria-controls="`faq-panel-${index}`"
-            @click="toggleItem(index)"
-          >
+          <summary class="faq-trigger" @click.prevent="toggleItem(index)">
             <span class="faq-question">{{ item.question }}</span>
-            <UIcon
-              name="i-heroicons-chevron-down"
+            <span
               class="faq-chevron"
               :class="{ 'faq-chevron--open': openIndex === index }"
               aria-hidden="true"
-            />
-          </button>
+              >▾</span
+            >
+          </summary>
 
           <div
-            :id="`faq-panel-${index}`"
-            class="faq-panel"
-            :class="{ 'faq-panel--open': openIndex === index }"
-            role="region"
-            :aria-label="item.question"
+            class="faq-answer-wrapper"
+            :class="{ 'faq-answer-wrapper--open': openIndex === index }"
           >
             <p class="faq-answer">{{ item.answer }}</p>
           </div>
-        </div>
+        </details>
       </div>
     </div>
   </section>
 </template>
 
 <style lang="scss" scoped>
+/* ── Section ──────────────────────────────────────────────────── */
 .process-faq {
-  padding: 5rem 1.5rem;
-  background: var(--color-section-alt);
-
-  @media (min-width: 768px) {
-    padding: 7rem 2rem;
-  }
+  background: #0d0908;
+  padding-bottom: 0;
 }
 
-.section-container {
-  max-width: 800px;
+/* ── Section label row ────────────────────────────────────────── */
+.section-label-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 80rem;
   margin: 0 auto;
+  padding: 5rem 2rem 3rem;
 }
 
+.sep-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.12);
+}
+
+.sep-diamond {
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.35);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.sep-text {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.45);
+  flex-shrink: 0;
+}
+
+/* ── Container ────────────────────────────────────────────────── */
+.section-container {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0 2rem 5rem;
+}
+
+/* ── Header ───────────────────────────────────────────────────── */
 .section-header {
-  text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(20px);
   transition:
     opacity 0.6s var(--ease-smooth),
     transform 0.6s var(--ease-smooth);
@@ -130,38 +148,26 @@ const toggleItem = (index: number) => {
   }
 }
 
-.section-badge {
-  display: inline-block;
-  padding: 0.375rem 1rem;
-  background: var(--badge-accent-bg);
-  color: var(--badge-accent-text);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border-radius: 9999px;
-  margin-bottom: 1rem;
-}
-
 .section-title {
-  font-size: var(--text-2xl);
-  color: var(--color-text);
-
-  @media (min-width: 768px) {
-    font-size: var(--text-3xl);
-  }
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  line-height: 1.1;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.02em;
 }
 
-/* ── FAQ list ── */
+/* ── FAQ list ─────────────────────────────────────────────────── */
 .faq-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0;
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(20px);
   transition:
-    opacity 0.6s var(--ease-smooth) 0.2s,
-    transform 0.6s var(--ease-smooth) 0.2s;
+    opacity 0.6s var(--ease-smooth) 0.15s,
+    transform 0.6s var(--ease-smooth) 0.15s;
 
   &.animate-in {
     opacity: 1;
@@ -169,110 +175,153 @@ const toggleItem = (index: number) => {
   }
 }
 
+/* ── FAQ item ─────────────────────────────────────────────────── */
 .faq-item {
-  border-radius: 12px;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  overflow: hidden;
-  transition: box-shadow var(--duration-fast) var(--ease-smooth);
+  border-bottom: 1px solid rgba(223, 175, 133, 0.08);
+  transition: background 0.2s ease;
+
+  &:first-child {
+    border-top: 1px solid rgba(223, 175, 133, 0.08);
+  }
+
+  &--open {
+    background: rgba(223, 175, 133, 0.02);
+  }
 }
 
-.faq-item--open {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-}
-
+/* ── Trigger ──────────────────────────────────────────────────── */
 .faq-trigger {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 1rem;
   width: 100%;
-  padding: 16px 20px;
+  padding: 1.25rem 0;
   min-height: 56px;
   background: none;
   border: none;
   font: inherit;
   cursor: pointer;
   text-align: left;
-}
 
-.faq-trigger:focus-visible {
-  outline: 2px solid var(--focus-ring);
-  outline-offset: -2px;
+  &:focus-visible {
+    outline: 2px solid rgba(223, 175, 133, 0.5);
+    outline-offset: 2px;
+  }
 }
 
 .faq-question {
-  font-size: var(--text-sm);
+  font-family: var(--font-heading);
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
   font-weight: 600;
-  color: var(--color-text);
+  color: rgba(255, 237, 223, 0.75);
   line-height: 1.4;
+  letter-spacing: -0.01em;
 
-  @media (min-width: 768px) {
-    font-size: var(--text-base);
+  .faq-item--open & {
+    color: #ffeddf;
   }
 }
 
 .faq-chevron {
-  width: 20px;
-  height: 20px;
-  color: var(--color-text-muted);
-  transition: transform var(--duration-fast) var(--ease-smooth);
+  font-size: 1.1rem;
+  color: rgba(223, 175, 133, 0.35);
   flex-shrink: 0;
-}
-
-.faq-chevron--open {
-  transform: rotate(180deg);
-}
-
-/* ── Panel (collapsible) ── */
-.faq-panel {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
+  line-height: 1;
   transition:
-    max-height 0.3s var(--ease-smooth),
-    opacity 0.3s var(--ease-smooth);
+    transform 0.35s var(--ease-smooth),
+    color 0.35s var(--ease-smooth);
+
+  &--open {
+    transform: rotate(180deg);
+    color: rgba(223, 175, 133, 0.75);
+  }
 }
 
-.faq-panel--open {
-  max-height: 500px;
-  opacity: 1;
+/* ── Answer panel ─────────────────────────────────────────────── */
+/*
+ * Baseline (all browsers incl. Safari):
+ * Grid-row expansion trick — forces the wrapper to always render
+ * (overriding UA display:none on details:not([open]) children)
+ * then animates grid-template-rows 0fr → 1fr for smooth height.
+ * The inner <p> fades + slides in separately for a layered feel.
+ */
+.faq-answer-wrapper {
+  display: grid !important;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.38s var(--ease-smooth);
+
+  &--open {
+    grid-template-rows: 1fr;
+  }
 }
 
 .faq-answer {
-  padding: 0 20px 20px;
-  font-size: var(--text-sm);
-  line-height: 1.7;
-  color: var(--color-text-muted);
+  overflow: hidden; /* required for the grid-row clip */
+  padding: 0 0 1.5rem;
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: clamp(0.875rem, 1vw, 0.95rem);
+  line-height: 1.75;
+  color: rgba(255, 237, 223, 0.5);
   margin: 0;
+  max-width: 56ch;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity 0.3s var(--ease-smooth) 0.08s,
+    transform 0.3s var(--ease-smooth) 0.08s;
 
-  @media (min-width: 768px) {
-    font-size: var(--text-base);
+  .faq-answer-wrapper--open & {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* ── Dark mode ── */
-:root.dark {
-  .process-faq {
-    background: var(--color-section-dark);
+/*
+ * Enhancement (Chrome 129+, Firefox 131+):
+ * Uses ::details-content + interpolate-size to animate height: 0 → auto
+ * natively, plus content-visibility allow-discrete so the closing
+ * fade-out plays before the element disappears.
+ * The wrapper div becomes layout-transparent (display: contents).
+ */
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
   }
 
-  .section-badge {
-    background: var(--color-accent-900);
-    color: var(--color-accent-300);
+  /* Neutralise the wrapper — ::details-content takes over layout */
+  .faq-answer-wrapper {
+    display: contents !important;
+    transition: none;
   }
 
-  .faq-item {
-    background: var(--card-bg);
-    border-color: var(--card-border);
+  /* Reset inner text — ::details-content handles opacity now */
+  .faq-answer {
+    overflow: visible;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 
-  .faq-item--open {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  /* The native pseudo-element: height + opacity + discrete visibility */
+  .faq-item::details-content {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition:
+      opacity 0.35s var(--ease-smooth),
+      height 0.38s var(--ease-smooth),
+      content-visibility 0.38s allow-discrete;
+  }
+
+  .faq-item[open]::details-content {
+    opacity: 1;
+    height: auto;
   }
 }
 
-/* ── Reduced motion ── */
+/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .section-header,
   .faq-list {
@@ -281,12 +330,66 @@ const toggleItem = (index: number) => {
     transition: none;
   }
 
-  .faq-panel {
-    transition: none;
-  }
-
   .faq-chevron {
     transition: none;
   }
+
+  /* Baseline: snap open, no animation */
+  .faq-answer-wrapper {
+    transition: none;
+  }
+
+  .faq-answer-wrapper--open {
+    grid-template-rows: 1fr;
+  }
+
+  .faq-answer-wrapper--open .faq-answer {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  /* Enhanced: snap open, no animation */
+  @supports (interpolate-size: allow-keywords) {
+    .faq-item::details-content {
+      transition: none;
+      opacity: 1;
+      height: auto;
+    }
+  }
+}
+
+/* ── Light mode overrides ─────────────────────────────────────── */
+html:not(.dark) {
+  .process-faq { background: var(--color-section-alt); }
+
+  .sep-line    { background: var(--deco-line); }
+  .sep-diamond { background: var(--deco-diamond); }
+  .sep-text    { color: var(--deco-text); }
+
+  .section-title { color: var(--color-text-primary); }
+
+  .faq-item {
+    border-bottom-color: var(--deco-line);
+
+    &:first-child { border-top-color: var(--deco-line); }
+  }
+
+  .faq-trigger:focus-visible { outline-color: var(--color-primary-500); }
+
+  .faq-question {
+    color: var(--color-text-secondary);
+
+    .faq-item--open & { color: var(--color-text-primary); }
+  }
+
+  .faq-chevron {
+    color: var(--color-primary-500);
+    opacity: 0.5;
+
+    &--open { color: var(--color-primary-600); opacity: 1; }
+  }
+
+  .faq-answer { color: var(--color-text-subtle); }
 }
 </style>

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Eye On Idea - Sites Web professionnels B2B",
-    "description": "Eye On Idea aide les entreprises de toute l'Europe à établir une présence numérique claire et professionnelle. Développement de sites internet, identité visuelle et accompagnement sur le long terme."
+    "title": "Eye On Idea – Agence numérique pour les marques B2B",
+    "description": "Eye On Idea aide les entreprises B2B européennes à construire leur présence numérique complète — sites web, identité de marque, contenu, SEO, e-mail, domaine et assurance qualité."
   },
   "hero": {
     "headline": "Votre présence numérique",
@@ -34,22 +34,51 @@
     "cta": "En savoir plus sur nous"
   },
   "services": {
-    "badge": "Ce que nous proposons",
-    "title": "Forfaits Site Web",
-    "subtitle": "Des solutions sur mesure pour chaque étape de votre entreprise",
-    "additionalServices": {
-      "title": "Services supplémentaires",
+    "badge": "Ce que nous faisons",
+    "title": "Tout ce dont votre marque a besoin en ligne",
+    "subtitle": "Un seul partenaire pour votre présence numérique complète — de la première impression à la croissance continue.",
+    "categories": {
+      "websites": {
+        "title": "Sites web",
+        "need": "Votre entreprise a besoin d'une présence en ligne professionnelle qui inspire confiance et convertit les visiteurs.",
+        "skill": "Nous concevons et développons des sites web rapides et accessibles, adaptés à votre marque et à vos objectifs.",
+        "cta": "Explorer les forfaits web"
+      },
       "identity": {
-        "title": "Identité visuelle",
-        "description": "Logo, couleurs, typographie et orientation de marque pour les plateformes numériques."
+        "title": "Identité visuelle & Design",
+        "need": "Une image incohérente nuit à votre crédibilité avant même qu'un mot soit lu.",
+        "skill": "Nous créons logos, palettes de couleurs, typographies et chartes graphiques adaptés au numérique.",
+        "cta": "Services d'identité visuelle"
       },
-      "cms": {
-        "title": "Solutions CMS",
-        "description": "Configuration personnalisée de Sanity CMS pour une gestion de contenu indépendante."
+      "content": {
+        "title": "Création de contenu",
+        "need": "Des pages vides ou un texte générique ne transmettent pas pourquoi vous comptez.",
+        "skill": "Nous rédigeons et structurons du contenu qui parle clairement à votre audience, dans n'importe quelle langue.",
+        "cta": "Services de contenu"
       },
-      "support": {
-        "title": "Assistance continue",
-        "description": "Maintenance, mises à jour et conseils pour votre présence numérique."
+      "seo": {
+        "title": "SEO & Réseaux sociaux",
+        "need": "Un excellent travail passe inaperçu sans stratégie de référencement et de présence sociale.",
+        "skill": "Nous optimisons votre visibilité sur les moteurs de recherche et construisons votre présence là où se trouvent vos clients.",
+        "cta": "Services SEO & Social"
+      },
+      "email": {
+        "title": "Email professionnel",
+        "need": "Les adresses email gratuites signalent un manque de sérieux aux clients B2B.",
+        "skill": "Nous configurons une messagerie d'entreprise sécurisée et branded qui renforce votre identité professionnelle.",
+        "cta": "Configuration email"
+      },
+      "domain": {
+        "title": "Gestion de domaine",
+        "need": "Votre domaine est votre adresse numérique — il doit être possédé, protégé et bien configuré.",
+        "skill": "Nous enregistrons, sécurisons et gérons votre domaine pour que vous ne perdiez jamais le contrôle de votre marque.",
+        "cta": "Services de domaine"
+      },
+      "qa": {
+        "title": "Assurance qualité",
+        "need": "Des parcours brisés, des pages lentes et des problèmes d'accessibilité vous coûtent discrètement des clients.",
+        "skill": "Nous auditons et testons vos produits numériques de bout en bout — avant que vos utilisateurs ne rencontrent des problèmes.",
+        "cta": "Conseil QA"
       }
     },
     "cta": {

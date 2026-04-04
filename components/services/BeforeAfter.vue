@@ -56,8 +56,9 @@ function onKeyDown(e: KeyboardEvent) {
 onMounted(() => {
   if (!sectionRef.value) return;
   const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
+    (entries) => {
+      const entry = entries[0];
+      if (entry?.isIntersecting) {
         isVisible.value = true;
         observer.disconnect();
       }
@@ -65,7 +66,6 @@ onMounted(() => {
     { threshold: 0.15 },
   );
   observer.observe(sectionRef.value);
-
   onUnmounted(() => observer.disconnect());
 });
 </script>
@@ -77,15 +77,22 @@ onMounted(() => {
     class="before-after"
     aria-labelledby="before-after-heading"
   >
+    <!-- Section label row -->
+    <div class="section-label-row" aria-hidden="true">
+      <span class="sep-line" />
+      <span class="sep-diamond" />
+      <span class="sep-text">{{ t("services.beforeAfter.title") }}</span>
+      <span class="sep-diamond" />
+      <span class="sep-line" />
+    </div>
+
     <div class="section-container">
       <!-- Header -->
       <div class="section-header" :class="{ 'animate-in': isVisible }">
         <h2 id="before-after-heading" class="section-title">
           {{ t("services.beforeAfter.title") }}
         </h2>
-        <p class="section-subtitle">
-          {{ t("services.beforeAfter.subtitle") }}
-        </p>
+        <p class="section-subtitle">{{ t("services.beforeAfter.subtitle") }}</p>
       </div>
 
       <!-- Comparison slider -->
@@ -107,24 +114,16 @@ onMounted(() => {
       >
         <!-- Before panel -->
         <div class="panel panel--before">
-          <div class="panel__label">
-            {{ t("services.beforeAfter.beforeLabel") }}
-          </div>
+          <div class="panel__label">{{ t("services.beforeAfter.beforeLabel") }}</div>
           <div class="panel__metrics">
-            <div
-              v-for="(metric, i) in metrics"
-              :key="`before-${i}`"
-              class="metric"
-            >
-              <span class="metric__value metric__value--poor"
-                >{{ metric.before }}{{ metric.unit }}</span
-              >
+            <div v-for="(metric, i) in metrics" :key="`before-${i}`" class="metric">
+              <span class="metric__value metric__value--poor">{{ metric.before }}{{ metric.unit }}</span>
               <span class="metric__label">{{ metric.label }}</span>
             </div>
           </div>
         </div>
 
-        <!-- After panel (clipped by slider position) -->
+        <!-- After panel (clipped by slider) -->
         <div
           class="panel panel--after"
           :style="{
@@ -132,35 +131,20 @@ onMounted(() => {
             WebkitClipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
           }"
         >
-          <div class="panel__label">
-            {{ t("services.beforeAfter.afterLabel") }}
-          </div>
+          <div class="panel__label">{{ t("services.beforeAfter.afterLabel") }}</div>
           <div class="panel__metrics">
-            <div
-              v-for="(metric, i) in metrics"
-              :key="`after-${i}`"
-              class="metric"
-            >
-              <span class="metric__value metric__value--good"
-                >{{ metric.after }}{{ metric.unit }}</span
-              >
+            <div v-for="(metric, i) in metrics" :key="`after-${i}`" class="metric">
+              <span class="metric__value metric__value--good">{{ metric.after }}{{ metric.unit }}</span>
               <span class="metric__label">{{ metric.label }}</span>
             </div>
           </div>
         </div>
 
         <!-- Slider handle -->
-        <div
-          class="slider-handle"
-          :style="{ left: `${sliderPosition}%` }"
-          aria-hidden="true"
-        >
+        <div class="slider-handle" :style="{ left: `${sliderPosition}%` }" aria-hidden="true">
           <div class="slider-line" />
           <div class="slider-grip">
-            <UIcon
-              name="i-heroicons-arrows-right-left"
-              class="slider-grip__icon"
-            />
+            <span class="grip-arrows">&#8592;&#8594;</span>
           </div>
         </div>
       </div>
@@ -169,25 +153,58 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+/* ── Section ──────────────────────────────────────────────────── */
 .before-after {
-  padding: 6rem 1.5rem;
-  background: var(--color-section-light);
-
-  @media (min-width: 768px) {
-    padding: 8rem 2rem;
-  }
+  background: #0d0908;
+  padding-bottom: 0;
 }
 
-.section-container {
-  max-width: 900px;
+/* ── Section label row ────────────────────────────────────────── */
+.section-label-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 80rem;
   margin: 0 auto;
+  padding: 5rem 2rem 3rem;
 }
 
+.sep-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.12);
+}
+
+.sep-diamond {
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.35);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.sep-text {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.45);
+  flex-shrink: 0;
+}
+
+/* ── Container ────────────────────────────────────────────────── */
+.section-container {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0 2rem 5rem;
+}
+
+/* ── Header ───────────────────────────────────────────────────── */
 .section-header {
-  text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(20px);
   transition:
     opacity 0.6s var(--ease-smooth),
     transform 0.6s var(--ease-smooth);
@@ -198,54 +215,40 @@ onMounted(() => {
   }
 }
 
-.section-badge {
-  display: inline-block;
-  padding: 0.375rem 1rem;
-  background: var(--badge-accent-bg);
-  color: var(--badge-accent-text);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border-radius: 9999px;
-  margin-bottom: 1rem;
-}
-
 .section-title {
-  font-size: var(--text-3xl);
-  color: var(--color-text);
-  margin-bottom: 0.75rem;
-
-  @media (min-width: 768px) {
-    font-size: var(--text-4xl);
-  }
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  line-height: 1.1;
+  color: #fff;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
 }
 
 .section-subtitle {
-  font-size: var(--text-base);
-  line-height: 1.7;
-  color: var(--color-text-muted);
-  max-width: 600px;
-  margin: 0 auto;
-
-  @media (min-width: 768px) {
-    font-size: var(--text-lg);
-  }
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  line-height: 1.75;
+  color: rgba(255, 237, 223, 0.5);
+  max-width: 48ch;
+  margin: 0;
 }
 
-// Slider
+/* ── Slider wrapper ───────────────────────────────────────────── */
 .comparison-slider {
   position: relative;
-  border-radius: var(--radius-xl);
+  border: 1px solid rgba(223, 175, 133, 0.12);
+  border-radius: 2px;
   overflow: hidden;
   cursor: ew-resize;
   user-select: none;
   touch-action: none;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(16px);
   transition:
-    opacity 0.6s var(--ease-smooth) 0.2s,
-    transform 0.6s var(--ease-smooth) 0.2s;
+    opacity 0.6s var(--ease-smooth) 0.15s,
+    transform 0.6s var(--ease-smooth) 0.15s;
 
   &.animate-in {
     opacity: 1;
@@ -253,69 +256,65 @@ onMounted(() => {
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-primary-400);
+    outline: 2px solid rgba(223, 175, 133, 0.6);
     outline-offset: 4px;
   }
 }
 
-// Panels
+/* ── Panels ───────────────────────────────────────────────────── */
 .panel {
   padding: 2.5rem 2rem;
-  min-height: 320px;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
 
   @media (min-width: 768px) {
     padding: 3rem;
-    min-height: 360px;
+    min-height: 340px;
   }
 }
 
 .panel--before {
-  background: var(--color-surface-1);
-  border: 1px solid var(--glass-border-subtle);
+  background: #161210;
 }
 
 .panel--after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--color-primary-500) 8%, var(--color-surface-1)),
-    var(--color-surface-1)
-  );
-  border: 1px solid
-    color-mix(in srgb, var(--color-primary-500) 25%, transparent);
+  background: linear-gradient(135deg, #1e120a 0%, #161210 60%);
+  border-right: 1px solid rgba(223, 175, 133, 0.2);
   z-index: 1;
 }
 
 .panel__label {
-  font-size: var(--text-sm);
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.18em;
   margin-bottom: 2rem;
 }
 
 .panel--before .panel__label {
-  color: var(--color-text-muted);
+  color: rgba(255, 237, 223, 0.3);
 }
 
 .panel--after .panel__label {
-  color: var(--color-primary-600);
+  color: rgba(223, 175, 133, 0.8);
 }
 
+/* ── Metrics ──────────────────────────────────────────────────── */
 .panel__metrics {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem 2rem;
   flex: 1;
+
   @media (min-width: 640px) {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-// Metrics
 .metric {
   display: flex;
   flex-direction: column;
@@ -323,35 +322,31 @@ onMounted(() => {
 }
 
 .metric__value {
-  font-size: var(--text-2xl);
-  font-weight: 800;
   font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
   line-height: 1.2;
-
-  @media (min-width: 768px) {
-    font-size: var(--text-3xl);
-  }
+  letter-spacing: -0.02em;
 }
 
 .metric__value--poor {
-  color: color-mix(in srgb, var(--color-text-muted) 70%, transparent);
+  color: rgba(255, 237, 223, 0.25);
 }
 
 .metric__value--good {
-  color: var(--color-primary-600);
+  color: #dfaf85;
 }
 
 .metric__label {
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
-  font-weight: 500;
-
-  @media (min-width: 768px) {
-    font-size: var(--text-sm);
-  }
+  font-family: var(--font-text);
+  font-size: 0.7rem;
+  color: rgba(255, 237, 223, 0.35);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
-// Slider handle
+/* ── Slider handle ────────────────────────────────────────────── */
 .slider-handle {
   position: absolute;
   top: 0;
@@ -367,7 +362,7 @@ onMounted(() => {
   bottom: 0;
   left: -1px;
   width: 2px;
-  background: var(--color-primary-500);
+  background: rgba(223, 175, 133, 0.6);
 }
 
 .slider-grip {
@@ -375,61 +370,28 @@ onMounted(() => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: var(--color-primary-500);
-  border: 3px solid var(--color-surface-1);
+  background: #1e120a;
+  border: 1px solid rgba(223, 175, 133, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
   pointer-events: auto;
   cursor: ew-resize;
 }
 
-.slider-grip__icon {
-  width: 20px;
-  height: 20px;
-  color: white;
+.grip-arrows {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  color: rgba(223, 175, 133, 0.7);
+  letter-spacing: -0.05em;
+  line-height: 1;
 }
 
-// Dark mode
-:root.dark {
-  .before-after {
-    background: var(--color-section-dark);
-  }
-
-  .panel--before {
-    background: var(--color-surface-2);
-  }
-
-  .panel--after {
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--color-primary-500) 10%, var(--color-surface-2)),
-      var(--color-surface-2)
-    );
-  }
-
-  .panel--after .panel__label {
-    color: var(--color-primary-400);
-  }
-
-  .metric__value--good {
-    color: var(--color-primary-400);
-  }
-
-  .section-badge {
-    background: var(--color-primary-900);
-    color: var(--color-primary-300);
-  }
-
-  .slider-grip {
-    border-color: var(--color-surface-2);
-  }
-}
-
+/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .section-header,
   .comparison-slider {
@@ -438,4 +400,21 @@ onMounted(() => {
     transition: none;
   }
 }
+
+/* ── Light mode overrides ─────────────────────────────────────── */
+html:not(.dark) {
+  .before-after { background: var(--color-section-alt); }
+
+  .sep-line    { background: var(--deco-line); }
+  .sep-diamond { background: var(--deco-diamond); }
+  .sep-text    { color: var(--deco-text); }
+
+  .section-title    { color: var(--color-text-primary); }
+  .section-subtitle { color: var(--color-text-subtle); }
+
+  /* The comparison slider widget stays dark — it's a functional demo element */
+  .comparison-slider { border-color: var(--deco-line); }
+}
 </style>
+
+

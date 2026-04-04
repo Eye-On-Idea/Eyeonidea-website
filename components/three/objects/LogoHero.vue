@@ -1,0 +1,222 @@
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from "vue";
+import { useLoop } from "@tresjs/core";
+import * as THREE from "three";
+import { SVGLoader } from "three/addons/loaders/SVGLoader.js";
+
+const props = defineProps<{
+  opacity?: number;
+  reducedMotion?: boolean;
+}>();
+
+const emit = defineEmits<{ assemblyComplete: [] }>();
+
+// ──────────────────────────────────────────────────────────────────────────────
+// SVG source — logo_svg.svg inlined so no runtime file fetch is needed
+// path-a (fill #DFAF85): O N I D EA A — bottom half (letters ONIДEA)
+// path-b (fill #FFEDDF): left-E Y right-E — top half (EYE wordmark)
+// ──────────────────────────────────────────────────────────────────────────────
+const SVG_SOURCE = `<svg viewBox="0 0 704 427" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M28.8208 419.02C37.7261 424.036 47.7648 426.463 58.9369 426.463C69.9471 426.463 79.9858 424.036 89.0531 419.02C97.9584 414.166 104.921 407.208 110.102 398.471C115.283 389.733 117.874 380.025 117.874 369.022C117.874 358.18 115.283 348.31 110.102 339.573C104.921 330.835 97.9584 324.039 89.0531 319.023C79.9858 314.169 69.9471 311.58 58.9369 311.58C47.7648 311.58 37.7261 314.169 28.8208 319.185C19.7535 324.201 12.7913 330.997 7.60999 339.734C2.42871 348.472 0 358.342 0 369.022C0 379.863 2.42871 389.571 7.60999 398.309C12.7913 407.046 19.7535 414.004 28.8208 419.02ZM84.6814 412.386C76.9095 416.755 68.328 418.858 58.9369 418.858C49.3839 418.858 40.8025 416.755 33.0306 412.386C25.2586 408.179 19.2679 402.192 14.8962 394.587C10.3626 386.982 8.2576 378.406 8.2576 369.022C8.2576 359.637 10.3626 351.223 14.8962 343.618C19.2679 336.013 25.2586 330.026 33.0306 325.657C40.8025 321.45 49.3839 319.185 58.9369 319.185C68.328 319.185 76.9095 321.45 84.6814 325.657C92.2915 330.026 98.2822 336.013 102.816 343.618C107.188 351.223 109.454 359.637 109.454 369.022C109.454 378.406 107.188 386.982 102.816 394.587C98.2822 402.192 92.2915 408.179 84.6814 412.386Z" fill="#DFAF85"/>
+<path d="M238.807 312.389H230.549V410.768L153.478 312.389H146.515V425.654H154.773V327.275L232.006 425.654H238.807V312.389Z" fill="#DFAF85"/>
+<path d="M320.131 312.389V425.654H328.389V312.389H320.131Z" fill="#DFAF85"/>
+<path d="M465.356 339.896C460.175 331.32 453.05 324.686 443.983 319.67C434.916 314.816 424.392 312.389 412.734 312.389H367.883V319.832H412.086C422.449 319.832 431.678 321.936 439.774 326.143C447.707 330.35 453.86 336.175 458.232 343.456C462.442 350.899 464.708 359.475 464.708 369.022C464.708 378.73 462.442 387.144 458.232 394.587C453.86 402.03 447.707 407.855 439.774 412.062C431.678 416.269 422.449 418.211 412.086 418.211H376.141V369.022H367.883V425.654H412.734C424.392 425.654 434.916 423.227 443.983 418.373C453.05 413.519 460.175 406.885 465.356 398.309C470.376 389.733 472.966 380.025 472.966 369.022C472.966 358.18 470.376 348.472 465.356 339.896Z" fill="#DFAF85"/>
+<path d="M575 364.491H501.653V371.772H575V364.491ZM575 312.389H501.653V319.832H575V312.389ZM501.653 418.211V425.654H575V418.211H501.653Z" fill="#DFAF85"/>
+<path d="M651.573 312.389H643.316L591.179 425.654H600.084L647.363 321.45L694.805 425.654H703.71L651.573 312.389Z" fill="#DFAF85"/>
+<path d="M185.33 117.23H0V133.613H185.33V117.23ZM244.959 0H0V16.7471L256.459 16.7471L244.959 0ZM0 238.1V254.847H185.33V238.1H0Z" fill="#FFEDDF"/>
+<path d="M358.45 167.107L473.821 0H452.138L348.631 149.996L245.125 0H222.214L337.585 167.107V254.847H358.45V167.107Z" fill="#FFEDDF"/>
+<path d="M703.917 117.23H518.587V133.613H703.917V117.23ZM703.917 0H452.458L440.958 16.8182L703.917 16.7471V0ZM518.587 238.1V254.847H703.917V238.1H518.587Z" fill="#FFEDDF"/>
+</svg>`;
+
+// ──────────────────────────────────────────────────────────────────────────────
+// Materials
+// path-a: warm gold/copper (ONIДEA letters)
+// path-b: bright cream (EYE wordmark)
+// ──────────────────────────────────────────────────────────────────────────────
+const matA = new THREE.MeshPhysicalMaterial({
+  color: 0xdfaf85,
+  metalness: 0.6,
+  roughness: 0.2,
+  envMapIntensity: 2.5,
+  transparent: true,
+  depthWrite: false,
+  opacity: 1,
+});
+
+const matB = new THREE.MeshPhysicalMaterial({
+  color: 0xffeddf,
+  metalness: 0.3,
+  roughness: 0.35,
+  envMapIntensity: 2.0,
+  transparent: true,
+  depthWrite: false,
+  opacity: 1,
+});
+
+// ──────────────────────────────────────────────────────────────────────────────
+// Geometry: parse SVG paths → ExtrudeGeometry, transform to Three.js space
+// Scale: 1/70  |  Center: subtract (352, 213.5)  |  Flip Y
+// Depth in SVG units so it is scaled with the rest: 12 SVG units → 0.17 world
+// ──────────────────────────────────────────────────────────────────────────────
+const SCALE = 1 / 110;
+
+const EXTRUDE_SETTINGS: THREE.ExtrudeGeometryOptions = {
+  depth: 12,
+  bevelEnabled: true,
+  bevelThickness: 3,
+  bevelSize: 1.5,
+  bevelOffset: 0,
+  bevelSegments: 3,
+};
+
+const loader = new SVGLoader();
+const svgData = loader.parse(SVG_SOURCE);
+
+// Transformation matrix: scale XY by 1/70, flip Y, scale Z for correct depth
+const transformMatrix = new THREE.Matrix4().makeScale(SCALE, -SCALE, SCALE);
+const centerMatrix = new THREE.Matrix4().makeTranslation(
+  -352 * SCALE,
+  213.5 * SCALE,
+  0
+);
+
+// Meshes are created once — primitive components keep references to them
+const meshes: THREE.Mesh[] = [];
+const geometries: THREE.ExtrudeGeometry[] = [];
+
+svgData.paths.forEach((svgPath, pathIndex) => {
+  const isCream = pathIndex >= 6; // paths 6-8 are EYE (#FFEDDF)
+  const shapes = SVGLoader.createShapes(svgPath);
+
+  shapes.forEach((shape) => {
+    const geo = new THREE.ExtrudeGeometry(shape, EXTRUDE_SETTINGS);
+    geo.applyMatrix4(transformMatrix);
+    geo.applyMatrix4(centerMatrix);
+    geometries.push(geo);
+    meshes.push(new THREE.Mesh(geo, isCream ? matB : matA));
+  });
+});
+
+// ──────────────────────────────────────────────────────────────────────────────
+// Assembly animation: scatter → assembled
+// Scatter positions use golden-angle spread (deterministic, SSR safe)
+// ──────────────────────────────────────────────────────────────────────────────
+const ASSEMBLED_POS = new THREE.Vector3(0, 0, 0);
+const ASSEMBLED_QUAT = new THREE.Quaternion();
+const GOLDEN_RAD = 137.508 * (Math.PI / 180);
+
+const scatterPositions = meshes.map((_, i) => {
+  const phi = i * GOLDEN_RAD;
+  const r = 3.5 + (i % 4) * 0.8;
+  return new THREE.Vector3(
+    Math.cos(phi) * r,
+    Math.sin(phi * 0.77) * 2.5,
+    -2 - (i % 5) * 0.6
+  );
+});
+
+const scatterQuats = meshes.map((_, i) => {
+  const phi = i * GOLDEN_RAD;
+  return new THREE.Quaternion().setFromEuler(
+    new THREE.Euler(
+      Math.sin(phi * 1.2) * 1.5,
+      Math.cos(phi * 0.7) * 1.5,
+      Math.sin(phi * 1.9) * 0.8
+    )
+  );
+});
+
+// ──────────────────────────────────────────────────────────────────────────────
+// State
+// ──────────────────────────────────────────────────────────────────────────────
+const groupRef = ref<THREE.Group | null>(null);
+const assemblyDone = ref(false);
+const assemblyStartMs = ref(-1);
+const ASSEMBLY_MS = 1500;
+
+// Mouse parallax
+const mouseTarget = new THREE.Vector2(0, 0);
+const mouseCurrent = new THREE.Vector2(0, 0);
+
+const onMouseMove = (e: MouseEvent) => {
+  mouseTarget.x = (e.clientX / window.innerWidth - 0.5) * 2;
+  mouseTarget.y = -(e.clientY / window.innerHeight - 0.5) * 2;
+};
+
+onMounted(() => {
+  window.addEventListener("mousemove", onMouseMove, { passive: true });
+  if (props.reducedMotion) {
+    // Show assembled immediately, no scatter
+    assemblyDone.value = true;
+    emit("assemblyComplete");
+  }
+});
+
+onUnmounted(() => {
+  window.removeEventListener("mousemove", onMouseMove);
+  geometries.forEach((g) => g.dispose());
+  matA.dispose();
+  matB.dispose();
+});
+
+// ──────────────────────────────────────────────────────────────────────────────
+// Render loop
+// ──────────────────────────────────────────────────────────────────────────────
+const { onBeforeRender } = useLoop();
+
+onBeforeRender(({ delta, elapsed }) => {
+  if (!groupRef.value) return;
+
+  // Sync opacity from parent
+  const op = props.opacity ?? 1;
+  matA.opacity = op;
+  matB.opacity = op;
+
+  if (!assemblyDone.value) {
+    if (assemblyStartMs.value < 0) assemblyStartMs.value = performance.now();
+    const raw = Math.min(
+      (performance.now() - assemblyStartMs.value) / ASSEMBLY_MS,
+      1
+    );
+    // Ease-out cubic
+    const eased = 1 - Math.pow(1 - raw, 3);
+
+    meshes.forEach((mesh, i) => {
+      const scatterPosition = scatterPositions[i];
+      const scatterQuat = scatterQuats[i];
+      if (!scatterPosition || !scatterQuat) return;
+
+      mesh.position.lerpVectors(scatterPosition, ASSEMBLED_POS, eased);
+      mesh.quaternion.slerpQuaternions(scatterQuat, ASSEMBLED_QUAT, eased);
+    });
+
+    if (raw >= 1) {
+      assemblyDone.value = true;
+      emit("assemblyComplete");
+    }
+    return;
+  }
+
+  if (props.reducedMotion) return;
+
+  // Idle: gentle float only — no Y rotation (would turn logo edge-on)
+  groupRef.value.position.y = Math.sin(elapsed * 0.35) * 0.06;
+  groupRef.value.rotation.z = Math.sin(elapsed * 0.22) * 0.012;
+
+  // Mouse parallax tilt
+  mouseCurrent.x += (mouseTarget.x - mouseCurrent.x) * 0.04;
+  mouseCurrent.y += (mouseTarget.y - mouseCurrent.y) * 0.04;
+  groupRef.value.rotation.x = mouseCurrent.y * 0.04;
+  groupRef.value.rotation.y = mouseCurrent.x * 0.04;
+});
+</script>
+
+<template>
+  <TresGroup ref="groupRef">
+    <primitive
+      v-for="(mesh, i) in meshes"
+      :key="i"
+      :object="mesh"
+    />
+  </TresGroup>
+</template>

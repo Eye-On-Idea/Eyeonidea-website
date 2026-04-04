@@ -25,7 +25,7 @@
         "heading": "Eine Website, die rund um Ihr Unternehmen aufgebaut ist",
         "body": "Keine angepasste Vorlage, sondern eine Website, die sich an der aktuellen Situation Ihres Unternehmens orientiert. Ganz gleich, ob Sie eine solide Erstpräsenz oder eine Plattform benötigen, die mit Ihnen wächst, wir erarbeiten den richtigen Umfang, bevor etwas gebaut wird.",
         "linkText": "Entdecken Sie Pakete",
-        "linkHref": "/services/website-packages",
+        "linkHref": "/solutions/website-packages",
         "icon": "i-heroicons-computer-desktop"
       },
       {
@@ -34,7 +34,7 @@
         "heading": "Wirken Sie vom ersten Tag an glaubwürdig",
         "body": "Ihr Logo, Ihre Farben und Ihre Typografie sind oft das Erste, worüber Sie beurteilt werden. Wir entwerfen visuelle Identitäten, die auf Ihrer Website, in Ihren Präsentationen und in Ihren Printmedien Bestand haben, sodass Ihre Marke überall dort, wo sie erscheint, gewollt wirkt.",
         "linkText": "Sehen Sie sich unseren Ansatz an",
-        "linkHref": "/services/visual-identity",
+        "linkHref": "/solutions/visual-identity",
         "icon": "i-heroicons-swatch"
       },
       {
@@ -43,7 +43,7 @@
         "heading": "Alles rund um Ihre Website",
         "body": "Domainregistrierung, professionelle E-Mail, Website-Kopie, SEO-Überprüfungen und Beratungsgespräche. Dies sind die Dienste, die Ihre Website umgeben und dafür sorgen, dass das Ganze ordnungsgemäß funktioniert. Sie sind einzeln oder als Teil eines Projekts verfügbar.",
         "linkText": "Alle Dienste anzeigen",
-        "linkHref": "/services/additional-services",
+        "linkHref": "/solutions/additional-services",
         "icon": "i-heroicons-puzzle-piece"
       },
       {
@@ -52,7 +52,7 @@
         "heading": "Eine Website ist kein einmaliges Produkt",
         "body": "Nach dem Start ändern sich die Dinge. Der Inhalt muss aktualisiert werden, es tauchen Fragen auf und die Website sollte sich weiter verbessern. Mit unseren Support-Plänen haben Sie jeden Monat einen direkten Draht und eine festgelegte Zeitspanne, sodass Sie nie allein gelassen werden, um Dinge herauszufinden.",
         "linkText": "Supportpläne anzeigen",
-        "linkHref": "/services/additional-services#support-plans",
+        "linkHref": "/solutions/additional-services#support-plans",
         "icon": "i-heroicons-shield-check"
       }
     ]

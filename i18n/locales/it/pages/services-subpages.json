@@ -44,7 +44,7 @@
         "description": "In tutti i pacchetti è incluso un dominio personalizzato con licenza di 1 anno. Rinnovi, domini aggiuntivi e modifiche DNS sono disponibili come componenti aggiuntivi.",
         "includedNote": "1 dominio incluso in tutti i pacchetti",
         "linkText": "Visualizza i componenti aggiuntivi del dominio",
-        "linkHref": "/services/additional-services"
+        "linkHref": "/solutions/additional-services"
       }
     },
     "cta": {
@@ -170,7 +170,7 @@
       ],
       "fullListNote": "Cerchi la ripartizione completa dei singoli risultati finali e degli extra?",
       "fullListLinkText": "Vedi tutti i prezzi dell'identità visiva",
-      "fullListHref": "/services/additional-services"
+      "fullListHref": "/solutions/additional-services"
     },
     "cta": {
       "badge": "Pronto a costruire il tuo marchio?",

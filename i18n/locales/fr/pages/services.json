@@ -25,7 +25,7 @@
         "heading": "Un site Internet construit autour de votre entreprise",
         "body": "Il ne s'agit pas d'un modèle adapté, mais d'un site Web adapté à la situation actuelle de votre entreprise. Que vous ayez besoin d'une première présence solide ou d'une plateforme conçue pour évoluer avec vous, nous déterminons la bonne portée avant que quoi que ce soit ne soit construit.",
         "linkText": "Explorer les forfaits",
-        "linkHref": "/services/website-packages",
+        "linkHref": "/solutions/website-packages",
         "icon": "i-heroicons-computer-desktop"
       },
       {
@@ -34,7 +34,7 @@
         "heading": "Ayez l'air crédible dès le premier jour",
         "body": "Votre logo, vos couleurs et votre typographie sont souvent la première chose sur laquelle les gens vous jugent. Nous concevons des identités visuelles qui tiennent sur votre site Web, vos présentations et vos imprimés, afin que votre marque ait l'air intentionnelle partout où elle apparaît.",
         "linkText": "Voir notre approche",
-        "linkHref": "/services/visual-identity",
+        "linkHref": "/solutions/visual-identity",
         "icon": "i-heroicons-swatch"
       },
       {
@@ -43,7 +43,7 @@
         "heading": "Tout autour de votre site Web",
         "body": "Enregistrement de domaine, courrier électronique professionnel, copie de site Web, évaluations SEO et séances de conseil. Ce sont les services qui entourent votre site Web et permettent à l’ensemble de fonctionner correctement, disponibles individuellement ou dans le cadre d’un projet.",
         "linkText": "Voir toutes les prestations",
-        "linkHref": "/services/additional-services",
+        "linkHref": "/solutions/additional-services",
         "icon": "i-heroicons-puzzle-piece"
       },
       {
@@ -52,7 +52,7 @@
         "heading": "Un site Web n'est pas un produit ponctuel",
         "body": "Après le lancement, les choses changent. Le contenu doit être mis à jour, des questions surviennent et le site devrait continuer à s'améliorer. Nos plans d'assistance vous offrent une ligne directe et une durée définie chaque mois, afin que vous ne soyez jamais laissé seul.",
         "linkText": "Afficher les plans d'assistance",
-        "linkHref": "/services/additional-services#support-plans",
+        "linkHref": "/solutions/additional-services#support-plans",
         "icon": "i-heroicons-shield-check"
       }
     ]

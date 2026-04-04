@@ -1,5 +1,5 @@
 <template>
-  <article v-if="post" class="featured-post">
+  <article v-if="post?.slug?.current" class="featured-post">
     <NuxtLink :to="`/news/${post.slug.current}`" class="featured-post-link">
       <!-- Image -->
       <div class="featured-image-container">

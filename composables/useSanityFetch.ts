@@ -1,4 +1,5 @@
 // /composables/useSanityFetch.ts
+import type { AsyncData } from "#app";
 
 export type SanityFetchOptions = {
   /**
@@ -43,7 +44,7 @@ export function useSanityFetch<T>(
   query: string,
   params?: Record<string, unknown>,
   options: SanityFetchOptions = {}
-) {
+): AsyncData<T, Error | null> {
   const key = options.key ?? makeKey(query, params);
   const server = options.server ?? true;
   const lazy = options.lazy ?? false;
@@ -65,7 +66,7 @@ export function useSanityFetch<T>(
               method: "POST",
               body: { query, params: params ?? {} },
             });
-            return result;
+            return result as T;
           } catch (error) {
             console.error("[sanity] fresh-fetch-failed", {
               code: "SANITY_FRESH_FETCH_FAILED",
@@ -146,7 +147,7 @@ export function useSanityFetch<T>(
               if (result === null || result === undefined) {
                 throw new Error("api-fetch-empty");
               }
-              return result;
+              return result as T;
             },
             2,
             250
@@ -164,7 +165,6 @@ export function useSanityFetch<T>(
       }
       const sanity = useSanity();
       return sanity.client.fetch<T>(query, params ?? {}, {
-        perspective: "published",
         useCdn: false,
       });
     },
@@ -173,6 +173,5 @@ export function useSanityFetch<T>(
       lazy,
       default: () => null as T,
     }
-  );
+  ) as AsyncData<T, Error | null>;
 }
-

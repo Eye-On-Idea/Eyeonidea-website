@@ -1,17 +1,18 @@
 {
   "meta": {
-    "title": "Eye On Idea - Professional B2B Websites",
-    "description": "Eye On Idea helps companies across Europe build a clear and professional digital presence. Website development, visual identity, and long-term support."
+    "title": "Eye On Idea — Digital Agency for B2B Brands",
+    "description": "Eye On Idea helps European B2B companies build and manage their complete digital presence — websites, brand identity, content, SEO, email, domain, and quality assurance."
   },
   "hero": {
-    "headline": "Your digital presence",
-    "headlineAccent": "built for growth",
-    "subheadline": "We help companies build professional websites that support growth and build trust.",
+    "headline": "Your business deserves a brand presence",
+    "headlineAccent": "that earns trust",
+    "subheadline": "We help SMB B2B companies build a credible digital foundation — anchored by a professional website and supported by visual identity, content, and ongoing management.",
     "cta": {
-      "primary": "Start Your Project",
-      "secondary": "Explore Services"
+      "primary": "Explore Our Packages",
+      "secondary": "View Our Work"
     },
-    "scrollIndicator": "Scroll to explore"
+    "scrollIndicator": "Scroll to explore",
+    "orbLabel": "Our services — hover to explore"
   },
   "about": {
     "badge": "Who We Are",
@@ -34,26 +35,62 @@
     "cta": "Learn About Us"
   },
   "services": {
-    "badge": "What We Offer",
-    "title": "Website Packages",
-    "subtitle": "Tailored solutions for every stage of your business",
-    "additionalServices": {
-      "title": "Additional Services",
+    "badge": "Our Solution Tiers",
+    "title": "Find Your Level of Digital Presence",
+    "subtitle": "Three package tiers designed around where your business is right now — and where it needs to go.",
+    "categories": {
+      "websites": {
+        "title": "Foundation",
+        "orbNote": "Your first serious digital presence.",
+        "need": "Your business needs a credible digital presence that makes the right first impression.",
+        "skill": "A professionally built website scoped to where your company is right now — structured, fast, and designed to grow.",
+        "cta": "Explore Foundation"
+      },
       "identity": {
-        "title": "Visual Identity",
-        "description": "Logo, colors, typography, and brand direction for digital platforms."
+        "title": "Growth",
+        "orbNote": "A website that keeps pace as you grow.",
+        "need": "You have traction, and your website needs to keep pace — with content, visibility, and evolving audiences.",
+        "skill": "A CMS-enabled platform with structured content, SEO readiness, and the flexibility to evolve as you do.",
+        "cta": "Explore Growth"
       },
-      "cms": {
-        "title": "CMS Solutions",
-        "description": "Custom Sanity CMS setup for independent content management."
+      "content": {
+        "title": "Brand Partner",
+        "orbNote": "Ongoing brand management, monthly.",
+        "need": "You want more than a launch team — you want a partner who helps manage and evolve your brand presence over time.",
+        "skill": "A long-term working relationship where Eye On Idea acts as your ongoing digital and brand management partner.",
+        "cta": "Explore Brand Partner"
       },
-      "support": {
-        "title": "Ongoing Support",
-        "description": "Maintenance, updates, and advisory for your digital presence."
+      "seo": {
+        "title": "SEO & Social Media",
+        "orbNote": "Be found by the clients who matter.",
+        "need": "Great work goes unseen without a strategy for search and social discovery.",
+        "skill": "We optimise your visibility on search engines and build your presence where your clients are.",
+        "cta": "SEO & Social Services"
+      },
+      "email": {
+        "title": "Professional Email",
+        "orbNote": "Branded email builds B2B credibility.",
+        "need": "Free-tier email addresses signal a lack of seriousness to B2B clients.",
+        "skill": "We set up branded, secure business email that reinforces your professional identity.",
+        "cta": "Email Setup"
+      },
+      "domain": {
+        "title": "Domain Management",
+        "orbNote": "Own and protect your digital address.",
+        "need": "Your domain is your digital address — it needs to be owned, protected, and properly configured.",
+        "skill": "We register, secure, and manage your domain so you never lose control of your brand online.",
+        "cta": "Domain Services"
+      },
+      "qa": {
+        "title": "Quality Assurance",
+        "orbNote": "Catch issues before your clients do.",
+        "need": "Broken flows, slow pages, and accessibility failures silently cost you clients.",
+        "skill": "We audit and test digital products end-to-end — identifying issues before your users do.",
+        "cta": "QA Consulting"
       }
     },
     "cta": {
-      "viewAll": "View All Services"
+      "viewAll": "Compare all packages"
     }
   },
   "process": {
@@ -79,11 +116,118 @@
     }
   },
   "cta": {
-    "badge": "Ready to Start?",
-    "title": "Let's Build Something Great Together",
-    "description": "Whether you're starting something new, improving what you have, or need a second opinion - we're here to help.",
-    "primary": "Start a Conversation",
-    "secondary": "View Our Work"
+    "badge": "Ready to Find Your Fit?",
+    "title": "Let's figure out the right scope together",
+    "description": "You don't need a finished brief to start. Tell us where you are — we'll help work out what you actually need.",
+    "primary": "Start the Conversation",
+    "secondary": "See Our Work"
+  },
+  "audience": {
+    "badge": "Who This Is For",
+    "title": "Eye On Idea is built for SMB B2B companies that need a clearer, more credible digital presence.",
+    "subtitle": "You are likely a good fit if your business is in one of these situations.",
+    "situations": [
+      {
+        "icon": "i-heroicons-building-storefront",
+        "heading": "You have outgrown your current digital presence",
+        "body": "Owner-led or lean B2B companies that have relied on a placeholder site, a DIY setup, or no real brand system. You need your first serious foundation — something that looks deliberate, earns trust, and reflects the quality of your actual work."
+      },
+      {
+        "icon": "i-heroicons-arrow-trending-down",
+        "heading": "Your website or brand no longer reflects who you are",
+        "body": "Your business has grown and improved, but your online presence hasn't kept pace. What you have online makes you look less credible than you really are — and you know it costs you opportunities."
+      },
+      {
+        "icon": "i-heroicons-chart-bar-square",
+        "heading": "You need more than a one-off build",
+        "body": "Growing companies that want structure, clearer content, and a long-term digital partner. You are not looking for a freelancer to hand off to — you want someone who stays involved and helps your digital presence improve over time."
+      }
+    ]
+  },
+  "packages": {
+    "badge": "What We Offer",
+    "title": "Find Your Starting Point",
+    "subtitle": "Every business is different. These three packages are where we start — each one scoped and tailored to where you are right now.",
+    "items": [
+      {
+        "numeral": "I",
+        "name": "Get Started",
+        "tagline": "Your website and logo, done right from day one.",
+        "description": "For new businesses and anyone building their first serious digital presence. You get a professionally designed website and logo — everything you need to show up, look credible, and start winning clients.",
+        "includes": [
+          "Logo design",
+          "Website — up to 5 pages",
+          "Brand colour palette & typography",
+          "Professional email setup",
+          "Mobile-responsive build",
+          "Basic SEO setup"
+        ],
+        "price": "1,500",
+        "currency": "€",
+        "priceNote": "excl. VAT"
+      },
+      {
+        "numeral": "II",
+        "name": "Look the Part",
+        "tagline": "A brand that reflects the quality of your work.",
+        "description": "For businesses that already exist but look inconsistent or dated. We rebuild your visual identity — logo, colours, typography, and the materials to put it all to use.",
+        "includes": [
+          "Logo design or redesign",
+          "Colour palette & typography system",
+          "Brand guidelines document",
+          "Business card & letterhead templates",
+          "Social media profile assets"
+        ],
+        "price": "2,000",
+        "currency": "€",
+        "priceNote": "excl. VAT"
+      },
+      {
+        "numeral": "III",
+        "name": "Stay Ahead",
+        "tagline": "Your brand, kept current. Every month.",
+        "description": "For businesses that want ongoing support — not just a one-off project. We stay involved, create content, and make sure everything you have continues to work as well as the day it launched.",
+        "includes": [
+          "Monthly content creation",
+          "Ongoing website updates & improvements",
+          "Brand consistency checks",
+          "Social media strategy & assets",
+          "Priority support",
+          "Quarterly brand direction"
+        ],
+        "price": "1,200",
+        "currency": "€",
+        "pricePer": "/mo",
+        "priceNote": "excl. VAT"
+      }
+    ],
+    "cta": "Start a Conversation",
+    "ctaHref": "/contact",
+    "footerCta": "See all services",
+    "footerCtaHref": "/solutions"
+  },
+  "cases": {
+    "badge": "Case Studies",
+    "title": "Real Work. Measurable Results.",
+    "subtitle": "A selection of companies Eye On Idea has helped build a more credible, structured digital presence.",
+    "featured": [
+      {
+        "title": "Tegetec",
+        "category": "B2B Web Redesign",
+        "year": "2025",
+        "outcome": "Industrial equipment provider rebuilt with a clean, SEO-structured presence that communicates credibility to professional buyers.",
+        "slug": "tegetec"
+      },
+      {
+        "title": "Herqulez",
+        "category": "Brand & Web",
+        "year": "2025",
+        "outcome": "Modular fitness platform built from the ground up — full identity, architecture, and content infrastructure.",
+        "slug": "herqulez"
+      }
+    ],
+    "cta": "View all our work",
+    "ctaHref": "/cases"
   },
   "stats": {
     "clients": {

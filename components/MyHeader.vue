@@ -5,48 +5,49 @@ import { ref, watch, onMounted, onBeforeUnmount, nextTick } from "vue";
 const route = useRoute();
 const router = useRouter();
 const { t } = useI18n();
+const localePath = useLocalePath();
 
 const navLinks = computed(() => [
-  { label: t("nav.home"), to: "/" },
+  { label: t("nav.home"), to: localePath("/") },
   {
     label: t("nav.services"),
-    to: "/services",
+    to: localePath("/solutions"),
     children: [
       {
         label: t("nav.websitepackages"),
-        to: "/services/website-packages",
+        to: localePath("/solutions/website-packages"),
       },
       {
         label: t("nav.visualidentity"),
-        to: "/services/visual-identity",
+        to: localePath("/solutions/visual-identity"),
       },
       {
         label: t("nav.additionalservices"),
-        to: "/services/additional-services",
+        to: localePath("/solutions/additional-services"),
       },
       {
         label: t("nav.process"),
-        to: "/services/process",
+        to: localePath("/solutions/process"),
       },
     ],
   },
-  { label: t("nav.cases"), to: "/cases" },
-  // { label: t("nav.news"), to: "/news" },
+  { label: t("nav.cases"), to: localePath("/cases") },
+  // { label: t("nav.news"), to: localePath("/news") },
   {
     label: t("nav.about"),
-    to: "/about",
+    to: localePath("/about"),
     children: [
       {
         label: t("nav.legal"),
-        to: "/about/legal",
+        to: localePath("/about/legal"),
       },
       {
         label: t("nav.policies"),
-        to: "/about/policies",
+        to: localePath("/about/policies"),
       },
     ],
   },
-  { label: t("nav.contact"), to: "/contact" },
+  { label: t("nav.contact"), to: localePath("/contact") },
 ]);
 
 type NavLink = {
@@ -202,27 +203,38 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
 
 <template>
   <UHeader
-    class="header-main sticky top-0 z-50 bg-primary-900 dark:bg-primary-950"
+    class="header-main fixed top-11 left-1/2 -translate-x-1/2 z-50 bg-linear-to-bl from-primary-200/80 via-primary-300/80 to-primary-200/80 dark:bg-linear-to-bl dark:from-primary-950 dark:via-primary-950 dark:to-primary-950 max-w-360 min-w-[80%] w-[98%] rounded-3xl"
     :ui="{
       root: 'bg-transparent border-b-0',
       content: 'bg-primary-800 dark:bg-primary-950',
       header: 'bg-primary-800 dark:bg-primary-950',
       toggle: 'text-primary-50',
     }"
-    ><div
+  >
+    <!-- Art deco edge lines -->
+    <span class="header-edge-line header-edge-line--top" aria-hidden="true" />
+    <span
+      class="header-edge-line header-edge-line--bottom"
+      aria-hidden="true"
+    />
+    <div
       class="absolute -bottom-4.5 left-0 right-0 w-full h-auto z-49 bg-transparent"
     ></div>
     <template #title>
-      <NuxtLink to="/" aria-label="Eye On Idea - Home" class="flex items-center gap-3 group logo-container">
-        <img
-          src="/public-material/logo-center-shadow.svg"
-          alt="Eye On Idea"
-          class="hidden lg:block h-10 w-auto transition-transform duration-300 group-hover:scale-105"
-        />
+      <NuxtLink
+        :to="localePath('/')"
+        aria-label="Eye On Idea - Home"
+        class="flex items-center justify-center gap-3 group logo-container"
+      >
         <img
           src="/public-material/img/logo-nobg_dark.png"
           alt="Eye On Idea"
-          class="lg:hidden h-10 w-auto transition-transform duration-300 group-hover:scale-105 invert"
+          class="hidden lg:block h-10 w-auto transition-transform duration-300 group-hover:scale-105 pt-0.5 invert brightness-0"
+        />
+        <img
+          src="/public-material/logo-center-shadow.svg"
+          alt="Eye On Idea"
+          class="lg:hidden h-10 w-auto transition-transform duration-300 pt-0.5"
         />
       </NuxtLink>
     </template>
@@ -230,6 +242,7 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
     <!-- Desktop Navigation -->
     <nav class="hidden lg:flex items-center gap-1">
       <template v-for="(link, index) in navLinks" :key="link.to">
+        <span v-if="index > 0" class="nav-sep" aria-hidden="true" />
         <!-- Links without children -->
         <NuxtLink
           v-if="!link.children"
@@ -323,7 +336,7 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
     <template #right>
       <div class="flex items-center gap-2">
         <NuxtLink
-          to="/client-hub"
+          :to="localePath('/client-hub')"
           class="header-hub-link hidden sm:inline-flex items-center gap-1.5 px-3 py-2 min-h-9 text-sm font-bold rounded-lg transition-all duration-300"
           :aria-label="t('nav.clientHub')"
         >
@@ -415,7 +428,7 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
           <!-- Client Hub link (mobile) -->
           <div class="mt-2 pt-2 border-t border-(--glass-border-subtle)">
             <NuxtLink
-              to="/client-hub"
+              :to="localePath('/client-hub')"
               class="header-mobile-link flex items-center gap-2 px-4 py-3 rounded-xl text-base font-bold transition-all duration-300"
             >
               <Icon
@@ -435,12 +448,51 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
 <style lang="scss" scoped>
 /* Header base styles */
 .header-main {
-  background: color-mix(in srgb, var(--color-hero-bg) 95%, transparent);
+  background: color-mix(in srgb, var(--color-hero-bg) 55%, transparent);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--glass-border-subtle);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  /* Art deco double ring — outer amber line + inner softer echo */
+  box-shadow:
+    0 0 0 1px rgba(223, 175, 133, 0.28),
+    0 0 0 3px rgba(223, 175, 133, 0.07),
+    0 2px 12px rgba(0, 0, 0, 0.12);
+  overflow: visible;
   transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+/* ── Art deco edge lines ──────────────────────────────────────── */
+.header-edge-line {
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  height: 1px;
+  pointer-events: none;
+  z-index: 60;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(223, 175, 133, 0.3) 15%,
+    rgba(223, 175, 133, 0.3) 85%,
+    transparent
+  );
+
+  &--top {
+    top: 0;
+  }
+  &--bottom {
+    bottom: 0;
+  }
+}
+
+/* ── Nav diamond separator ────────────────────────────────────── */
+.nav-sep {
+  display: block;
+  width: 4px;
+  height: 4px;
+  background: rgba(223, 175, 133, 0.35);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  margin: 0 0.125rem;
 }
 
 /* Slightly more opaque when scrolled */

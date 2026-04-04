@@ -203,12 +203,17 @@ export function withDelay(
   delay: number
 ): any {
   const basePreset = animationPresets[preset];
+  if (!("visible" in basePreset)) {
+    return basePreset;
+  }
+
+  const visiblePreset = basePreset.visible;
   return {
     ...basePreset,
     visible: {
-      ...basePreset.visible,
+      ...visiblePreset,
       transition: {
-        ...(basePreset.visible.transition || {}),
+        ...("transition" in visiblePreset ? (visiblePreset.transition || {}) : {}),
         delay: delay / 1000, // Convert to seconds for motion library
       },
     },

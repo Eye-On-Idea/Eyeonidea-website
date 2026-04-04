@@ -1,10 +1,6 @@
 {
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "paths": {
-      "~/*": ["./*"],
-      "@/*": ["./*"]
-    },
     "moduleResolution": "bundler" // TS 5-friendly in Vite/Nuxt
   },
   "vueCompilerOptions": {

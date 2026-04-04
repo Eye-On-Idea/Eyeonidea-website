@@ -6,6 +6,7 @@ definePageMeta({
 
 const { t } = useI18n();
 const route = useRoute();
+const localePath = useLocalePath();
 const { getService, getCategory, getArticle, getAdjacentArticles } = useClientHub();
 
 const serviceSlug = computed(() => route.params.service as string);
@@ -220,7 +221,7 @@ useHead({
       <div class="mt-8 flex items-center justify-between gap-4">
         <NuxtLink
           v-if="adjacent.previous"
-          :to="`/client-hub/${service.slug}/${category.slug}/${adjacent.previous.slug}`"
+          :to="localePath(`/client-hub/${service.slug}/${category.slug}/${adjacent.previous.slug}`)"
           class="flex items-center gap-2 min-h-11 text-sm text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors"
         >
           <Icon name="i-heroicons-arrow-left" class="w-4 h-4" aria-hidden="true" />
@@ -233,7 +234,7 @@ useHead({
 
         <NuxtLink
           v-if="adjacent.next"
-          :to="`/client-hub/${service.slug}/${category.slug}/${adjacent.next.slug}`"
+          :to="localePath(`/client-hub/${service.slug}/${category.slug}/${adjacent.next.slug}`)"
           class="flex items-center gap-2 min-h-11 text-sm text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors"
         >
           <div class="text-right">

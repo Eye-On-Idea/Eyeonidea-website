@@ -25,7 +25,7 @@
         "heading": "En hjemmeside bygget op omkring din virksomhed",
         "body": "Ikke en skabelon, der er tilpasset til at passe, men en hjemmeside, der er tilpasset, hvor din virksomhed er lige nu. Uanset om du har brug for en solid første tilstedeværelse eller en platform bygget til at vokse med dig, finder vi det rigtige omfang, før noget bliver bygget.",
         "linkText": "Udforsk pakker",
-        "linkHref": "/services/website-packages",
+        "linkHref": "/solutions/website-packages",
         "icon": "i-heroicons-computer-desktop"
       },
       {
@@ -34,7 +34,7 @@
         "heading": "Se troværdig ud fra dag ét",
         "body": "Dit logo, farver og typografi er ofte det første, folk bedømmer dig på. Vi designer visuelle identiteter, der holder på tværs af din hjemmeside, præsentationer og print, så dit brand ser tilsigtet ud, uanset hvor det vises.",
         "linkText": "Se vores tilgang",
-        "linkHref": "/services/visual-identity",
+        "linkHref": "/solutions/visual-identity",
         "icon": "i-heroicons-swatch"
       },
       {
@@ -43,7 +43,7 @@
         "heading": "Alt omkring din hjemmeside",
         "body": "Domæneregistrering, professionel e-mail, hjemmesidekopi, SEO-anmeldelser og rådgivningssessioner. Det er de tjenester, der sidder omkring din hjemmeside og får det hele til at fungere ordentligt, tilgængeligt individuelt eller som en del af et projekt.",
         "linkText": "Se alle tjenester",
-        "linkHref": "/services/additional-services",
+        "linkHref": "/solutions/additional-services",
         "icon": "i-heroicons-puzzle-piece"
       },
       {
@@ -52,7 +52,7 @@
         "heading": "En hjemmeside er ikke et engangsprodukt",
         "body": "Efter lanceringen ændrer tingene sig. Indhold skal opdateres, spørgsmål dukker op, og webstedet bør blive ved med at blive bedre. Vores supportplaner giver dig en direkte linje og en fast mængde tid hver måned, så du aldrig står tilbage med at finde ud af tingene alene.",
         "linkText": "Se supportplaner",
-        "linkHref": "/services/additional-services#support-plans",
+        "linkHref": "/solutions/additional-services#support-plans",
         "icon": "i-heroicons-shield-check"
       }
     ]

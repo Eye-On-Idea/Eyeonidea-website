@@ -2,6 +2,7 @@
 const { t } = useI18n();
 const route = useRoute();
 const router = useRouter();
+const localePath = useLocalePath();
 const { getServices, getOnboardingSections, getService } = useClientHub();
 
 useHead({
@@ -11,7 +12,7 @@ useHead({
 // ─── Route-based active state (persists on navigation) ────────────────────────
 
 const activeServiceSlug = computed<string | null>(() => {
-  const match = route.path.match(/^\/client-hub\/([^/]+)/);
+  const match = route.path.match(/^(?:\/[a-z]{2})?\/client-hub\/([^/]+)/);
   const slug = match?.[1] ?? null;
   if (!slug || slug === "login" || slug === "onboarding") return null;
   const service = getService(slug);
@@ -19,7 +20,7 @@ const activeServiceSlug = computed<string | null>(() => {
 });
 
 const activeCategorySlug = computed<string | null>(() => {
-  const match = route.path.match(/^\/client-hub\/[^/]+\/([^/]+)/);
+  const match = route.path.match(/^(?:\/[a-z]{2})?\/client-hub\/[^/]+\/([^/]+)/);
   return match?.[1] ?? null;
 });
 
@@ -207,7 +208,7 @@ const searchGroups = computed(() => {
       <!-- Logo -->
       <template #header="{ collapsed }">
         <NuxtLink
-          to="/client-hub"
+          :to="localePath('/client-hub')"
           class="flex items-center min-h-11"
           :class="collapsed ? 'justify-center px-0' : 'gap-3 px-1'"
           :aria-label="
@@ -356,7 +357,7 @@ const searchGroups = computed(() => {
                   "
                   @click="
                     router.push(
-                      `/client-hub/${displayService!.slug}/${category.slug}/${category.articles[0]?.slug ?? ''}`,
+                      localePath(`/client-hub/${displayService!.slug}/${category.slug}/${category.articles[0]?.slug ?? ''}`),
                     )
                   "
                 >
@@ -404,7 +405,7 @@ const searchGroups = computed(() => {
                     :key="article.slug"
                   >
                     <NuxtLink
-                      :to="`/client-hub/${displayService!.slug}/${displayCategory!.slug}/${article.slug}`"
+                      :to="localePath(`/client-hub/${displayService!.slug}/${displayCategory!.slug}/${article.slug}`)"
                       class="flyout__item flyout__item--article"
                       :class="{
                         'flyout__item--active': route.path.endsWith(
@@ -434,7 +435,7 @@ const searchGroups = computed(() => {
         <div class="flex flex-col gap-1">
           <NuxtLink
             v-if="!collapsed"
-            to="/"
+            :to="localePath('/')"
             class="hub-footer-link flex items-center gap-2 min-h-11 px-3 py-2 text-sm rounded-lg transition-colors"
           >
             <Icon

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n();
+const localePath = useLocalePath();
 
 const props = defineProps<{
   slug: string;
@@ -15,7 +16,7 @@ const iconName = computed(() => t(props.iconKey));
 
 <template>
   <NuxtLink
-    :to="`/client-hub/${serviceSlug}/${slug}`"
+    :to="localePath(`/client-hub/${serviceSlug}/${slug}`)"
     class="category-card group cursor-pointer"
   >
     <GlassCard

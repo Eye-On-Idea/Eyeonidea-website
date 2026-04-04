@@ -18,48 +18,75 @@ useSeo({
     "@id": "https://eyeonidea.com/#service",
     name: "Eye On Idea",
     description:
-      "Digital consultancy helping B2B companies establish professional web presence",
+      "Full-service digital agency helping European B2B companies build and manage their complete online presence",
     priceRange: "$$",
     url: "https://eyeonidea.com",
     areaServed: { "@type": "Place", name: "Europe" },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Website Services",
+      name: "Digital Agency Services",
       itemListElement: [
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Website Launch",
+            name: "Website Design & Development",
             description:
-              "Professional website for companies establishing their online presence",
+              "Fast, accessible B2B websites tailored to brand and business goals",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Website Growth",
+            name: "Visual Identity & Design",
             description:
-              "Flexible website designed for content updates and business growth",
+              "Logos, colour palettes, typography, and brand guidelines built for digital",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Website Platform",
+            name: "Content Creation",
             description:
-              "Long-term digital platform for structured content and multiple audiences",
+              "Structured content and copywriting that communicates clearly to B2B audiences",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Visual Identity",
+            name: "SEO & Social Media",
             description:
-              "Logo, colors, typography, and brand direction for digital platforms",
+              "Search engine optimisation and social media presence management for B2B brands",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Professional Email Setup",
+            description:
+              "Branded, secure business email configuration that reinforces professional identity",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Domain Management",
+            description:
+              "Domain registration, security, and configuration for complete brand control",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Quality Assurance Consulting",
+            description:
+              "End-to-end auditing and testing of digital products to identify issues before launch",
           },
         },
       ],
@@ -70,18 +97,14 @@ useSeo({
 
 <template>
   <div class="homepage">
-    <!-- Hero Section -->
     <HomeHeroSection />
-
-    <!-- About Section -->
+    <HomeAudienceSection />
+    <HomePackagesSection />
+    <HomeCasesSection />
+    <HomeProcessSection />
     <HomeAboutSection />
-
-    <!-- Services Section -->
-    <HomeServicesSection />
-
-    <!-- CTA Section -->
     <HomeCTASection />
-    <ProcessFAQ />
+
     <!-- Cookie Control -->
     <CookieControl locale="en" />
   </div>
@@ -89,7 +112,7 @@ useSeo({
 
 <style lang="scss" scoped>
 .homepage {
+  overflow-x: clip;
   position: relative;
-  overflow-x: hidden;
 }
 </style>

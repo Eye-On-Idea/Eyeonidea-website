@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, nextTick } from "vue";
+import { withDelay } from "~/composables/useAccessibleMotion";
 
 const { tm } = useI18n();
+const localePath = useLocalePath();
 
 const services = computed(
   () =>
@@ -11,39 +12,35 @@ const services = computed(
       body: string;
       linkText: string;
       linkHref: string;
-      icon: string;
       id: string;
     }>,
 );
 
 const visibleSections = ref(new Set<number>());
 const sectionRefs = ref<(HTMLElement | null)[]>([]);
+const observers: IntersectionObserver[] = [];
 
 function setSectionRef(el: unknown, index: number) {
   sectionRefs.value[index] = (el as HTMLElement) ?? null;
 }
 
-const observers: IntersectionObserver[] = [];
-
 onMounted(() => {
   nextTick(() => {
     sectionRefs.value.forEach((el, index) => {
       if (!el) return;
-
-      const observer = new IntersectionObserver(
+      const obs = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               visibleSections.value = new Set([...visibleSections.value, index]);
-              observer.disconnect();
+              obs.disconnect();
             }
           });
         },
-        { threshold: 0, rootMargin: "0px 0px -60px 0px" },
+        { threshold: 0, rootMargin: "0px 0px -80px 0px" },
       );
-
-      observer.observe(el);
-      observers.push(observer);
+      obs.observe(el);
+      observers.push(obs);
     });
   });
 });
@@ -51,6 +48,34 @@ onMounted(() => {
 onUnmounted(() => {
   observers.forEach((o) => o.disconnect());
 });
+
+// Color-adaptive gradient palettes for placeholder image blocks
+const isDark = ref(true); // SSR-safe default
+onMounted(() => {
+  const update = () => {
+    isDark.value = document.documentElement.classList.contains("dark");
+  };
+  update();
+  const obs = new MutationObserver(update);
+  obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+  onUnmounted(() => obs.disconnect());
+});
+
+const gradients = computed(() =>
+  isDark.value
+    ? [
+        "linear-gradient(145deg, #481f0a 0%, #1a0904 60%, #0d0908 100%)",
+        "linear-gradient(145deg, #3a1508 0%, #200b03 60%, #0d0908 100%)",
+        "linear-gradient(145deg, #2a1105 0%, #1a0904 60%, #0d0908 100%)",
+        "linear-gradient(145deg, #5c2810 0%, #2a1005 60%, #0d0908 100%)",
+      ]
+    : [
+        "linear-gradient(145deg, #b87343 0%, #d39a69 55%, #ffe4cf 100%)",
+        "linear-gradient(145deg, #9a5226 0%, #b87343 55%, #ffeddf 100%)",
+        "linear-gradient(145deg, #d39a69 0%, #dfaf85 55%, #fff3e8 100%)",
+        "linear-gradient(145deg, #7d3412 0%, #b87343 55%, #ffd4a8 100%)",
+      ],
+);
 </script>
 
 <template>
@@ -61,72 +86,128 @@ onUnmounted(() => {
       :id="service.id"
       :ref="(el) => setSectionRef(el, index)"
       class="service-section"
-      :class="[
-        index % 2 === 0 ? 'service-section--light' : 'service-section--alt',
-        { 'animate-in': visibleSections.has(index) },
-      ]"
       :aria-labelledby="`overview-heading-${index}`"
     >
-      <div class="section-inner">
-        <!-- Left: text content -->
-        <div class="section-left">
-          <span class="service-label">{{ service.label }}</span>
+      <!-- Section separator / label -->
+      <div class="section-label-row" aria-hidden="true">
+        <span class="sep-line" />
+        <span class="sep-diamond" />
+        <span class="sep-text">{{ service.label }}</span>
+        <span class="sep-diamond" />
+        <span class="sep-line" />
+      </div>
+
+      <!-- Editorial two-column row -->
+      <div
+        class="section-inner"
+        :class="[
+          `section-inner--${index % 2 === 0 ? 'ltr' : 'rtl'}`,
+          { 'animate-in': visibleSections.has(index) },
+        ]"
+      >
+        <!-- Text column -->
+        <div class="section-text">
           <h2
             :id="`overview-heading-${index}`"
             class="service-heading"
           >
             {{ service.heading }}
           </h2>
+
+          <div class="deco-divider" aria-hidden="true">
+            <span class="deco-line" />
+            <span class="deco-diamond" />
+            <span class="deco-line" />
+          </div>
+
           <p class="service-body">{{ service.body }}</p>
-          <NuxtLink :to="service.linkHref" class="service-link">
-            <span>{{ service.linkText }}</span>
-            <UIcon
-              name="i-heroicons-arrow-right"
-              class="service-link__arrow"
-              aria-hidden="true"
-            />
-          </NuxtLink>
+
+          <AppCtaButton
+            variant="primary"
+            :to="localePath(service.linkHref)"
+            :show-icon="true"
+            class="service-cta"
+          >
+            {{ service.linkText }}
+          </AppCtaButton>
         </div>
 
-        <!-- Right: decorative icon -->
-        <div class="section-right" aria-hidden="true">
-          <div class="icon-display">
-            <UIcon :name="service.icon" class="icon-display__symbol" />
+        <!-- Gradient image placeholder -->
+        <div class="section-visual" aria-hidden="true">
+          <div
+            class="visual-gradient"
+            :style="{ background: gradients[index % gradients.length] }"
+          />
+          <div class="visual-deco-frame">
+            <span class="corner corner--tl" />
+            <span class="corner corner--tr" />
+            <span class="corner corner--bl" />
+            <span class="corner corner--br" />
           </div>
         </div>
+      </div>
+
+      <!-- Bottom rule before next section -->
+      <div class="section-bottom-rule" aria-hidden="true">
+        <span class="rule-line" />
+        <span class="rule-diamond" />
+        <span class="rule-line" />
       </div>
     </section>
   </div>
 </template>
 
 <style lang="scss" scoped>
-// ─── Section wrapper ──────────────────────────────────────────────────────────
-
-.service-section {
-  padding: 6rem 1.5rem;
-
-  @media (min-width: 768px) {
-    padding: 8rem 2rem;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 10rem 2rem;
-  }
-
-  &--light {
-    background: var(--color-section-light);
-  }
-
-  &--alt {
-    background: var(--color-section-alt);
-  }
+/* ── Outer container ──────────────────────────────────────────── */
+.overview-sections {
+  background: #0d0908;
 }
 
-// ─── Inner two-column grid ────────────────────────────────────────────────────
+/* ── Service section ──────────────────────────────────────────── */
+.service-section {
+  background: #0d0908;
+  padding-bottom: 0;
+}
 
-.section-inner {
-  max-width: 1200px;
+/* ── Section label row ────────────────────────────────────────── */
+.section-label-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 80rem;
   margin: 0 auto;
+  padding: 4.5rem 2rem 2.5rem;
+}
+
+.sep-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.12);
+}
+
+.sep-diamond {
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.35);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.sep-text {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.45);
+  flex-shrink: 0;
+}
+
+/* ── Editorial inner layout ───────────────────────────────────── */
+.section-inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
@@ -136,190 +217,182 @@ onUnmounted(() => {
     grid-template-columns: 1fr 1fr;
     gap: 6rem;
   }
+
+  /* Alternating: image left on odd rows */
+  &--rtl {
+    @media (min-width: 1024px) {
+      .section-text { order: 2; }
+      .section-visual { order: 1; }
+    }
+  }
 }
 
-// ─── Entrance animation (triggered per-section) ───────────────────────────────
-
-.section-left {
+/* ── Entrance animation ───────────────────────────────────────── */
+.section-text {
   opacity: 0;
-  transform: translateX(-24px);
+  transform: translateX(-20px);
   transition:
     opacity 0.7s var(--ease-smooth),
     transform 0.7s var(--ease-smooth);
 }
 
-.section-right {
+.section-visual {
   opacity: 0;
-  transform: translateX(24px);
+  transform: translateX(20px);
   transition:
     opacity 0.7s var(--ease-smooth) 0.1s,
     transform 0.7s var(--ease-smooth) 0.1s;
 
-  // Stack below text on mobile — swap to side-by-side on desktop
   @media (max-width: 1023px) {
     display: none;
   }
 }
 
 .animate-in {
-  .section-left {
+  .section-text {
     opacity: 1;
     transform: translateX(0);
   }
 
-  .section-right {
+  .section-visual {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
-// ─── Text content ─────────────────────────────────────────────────────────────
-
-.service-label {
-  display: inline-block;
-  font-size: var(--text-xs);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-primary-600);
-  margin-bottom: 1rem;
-}
-
+/* ── Text content ─────────────────────────────────────────────── */
 .service-heading {
-  font-size: var(--text-3xl);
+  font-family: var(--font-heading);
   font-weight: 700;
-  color: var(--color-text);
-  line-height: 1.2;
-  margin-bottom: 1.25rem;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: #ffeddf;
+  margin: 0 0 1.25rem;
+}
 
-  @media (min-width: 768px) {
-    font-size: var(--text-4xl);
-  }
+.deco-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.deco-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.15);
+}
+
+.deco-diamond {
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.4);
+  transform: rotate(45deg);
+  flex-shrink: 0;
 }
 
 .service-body {
-  font-size: var(--text-base);
-  line-height: 1.8;
-  color: var(--color-text-muted);
-  max-width: 52ch;
-  margin-bottom: 2rem;
-
-  @media (min-width: 768px) {
-    font-size: var(--text-lg);
-  }
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.75;
+  color: rgba(255, 237, 223, 0.55);
+  max-width: 46ch;
+  margin: 0 0 2.25rem;
 }
 
-// ─── Link ─────────────────────────────────────────────────────────────────────
-
-.service-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.875rem 1.75rem;
-  min-height: 44px;
-  background: var(--color-primary-500);
-  color: white;
-  font-size: var(--text-sm);
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: var(--radius-md);
-  transition:
-    background 0.2s var(--ease-smooth),
-    transform 0.2s var(--ease-smooth);
-
-  &:hover {
-    background: var(--color-primary-600);
-    transform: translateY(-2px);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--focus-ring);
-    outline-offset: 4px;
-  }
+.service-cta {
+  align-self: flex-start;
 }
 
-.service-link__arrow {
-  width: 1rem;
-  height: 1rem;
-  flex-shrink: 0;
-  transition: transform 0.2s var(--ease-smooth);
-
-  .service-link:hover & {
-    transform: translateX(3px);
-  }
+/* ── Gradient visual block ────────────────────────────────────── */
+.section-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 2px;
+  overflow: hidden;
 }
 
-// ─── Decorative icon ──────────────────────────────────────────────────────────
+.visual-gradient {
+  position: absolute;
+  inset: 0;
+}
 
-.icon-display {
+.visual-deco-frame {
+  position: absolute;
+  inset: 1rem;
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-color: rgba(223, 175, 133, 0.22);
+  border-style: solid;
+
+  &--tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
+  &--tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
+  &--bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+  &--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+}
+
+/* ── Bottom rule ──────────────────────────────────────────────── */
+.section-bottom-rule {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  aspect-ratio: 1;
-  max-width: 320px;
+  gap: 1rem;
+  max-width: 80rem;
   margin: 0 auto;
-  background: color-mix(in srgb, var(--color-primary-500) 6%, transparent);
-  border: 1px solid color-mix(in srgb, var(--color-primary-400) 15%, transparent);
-  border-radius: 32px;
+  padding: 0 2rem 2rem;
 }
 
-.icon-display__symbol {
-  width: 40%;
-  height: 40%;
-  color: color-mix(in srgb, var(--color-primary-500) 35%, transparent);
+.rule-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.08);
 }
 
-// ─── Dark mode ────────────────────────────────────────────────────────────────
-
-:root.dark {
-  .service-section--light {
-    background: var(--color-section-light);
-  }
-
-  .service-section--alt {
-    background: var(--color-section-alt);
-  }
-
-  .service-label {
-    color: var(--color-primary-400);
-  }
-
-  .service-link {
-    background: var(--color-primary-600);
-
-    &:hover {
-      background: var(--color-primary-500);
-    }
-  }
-
-  .icon-display {
-    background: color-mix(in srgb, var(--color-primary-400) 8%, transparent);
-    border-color: color-mix(in srgb, var(--color-primary-400) 12%, transparent);
-  }
-
-  .icon-display__symbol {
-    color: color-mix(in srgb, var(--color-primary-400) 30%, transparent);
-  }
+.rule-diamond {
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.2);
+  transform: rotate(45deg);
+  flex-shrink: 0;
 }
 
-// ─── Reduced motion ───────────────────────────────────────────────────────────
-
+/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .section-left,
-  .section-right {
+  .section-text,
+  .section-visual {
     opacity: 1;
     transform: none;
     transition: none;
   }
+}
 
-  .service-link,
-  .service-link__arrow {
-    transition: none;
+/* ── Light mode overrides ─────────────────────────────────────── */
+html:not(.dark) {
+  .overview-sections { background: var(--color-section-light); }
 
-    &:hover {
-      transform: none;
-    }
-  }
+  .service-section { background: var(--color-section-light); }
+
+  .sep-line    { background: var(--deco-line); }
+  .sep-diamond { background: var(--deco-diamond); }
+  .sep-text    { color: var(--deco-text); }
+
+  .service-heading { color: var(--color-text-primary); }
+
+  .deco-line    { background: var(--deco-line); }
+  .deco-diamond { background: var(--deco-diamond); }
+
+  .service-body { color: var(--color-text-subtle); }
+
+  .corner { border-color: var(--deco-border); }
+
+  .rule-line   { background: var(--deco-line); }
+  .rule-diamond { background: var(--deco-diamond-sm); }
 }
 </style>

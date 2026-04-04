@@ -1,37 +1,33 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { withDelay } from "~/composables/useAccessibleMotion";
 
 const { t } = useI18n();
 
 const sectionRef = ref<HTMLElement | null>(null);
-const isVisible = ref(false);
+const visible    = ref(false);
+const observer   = ref<IntersectionObserver | null>(null);
 
 onMounted(() => {
-  if (!sectionRef.value) return;
-
-  const observer = new IntersectionObserver(
+  observer.value = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true;
-          observer.disconnect();
-        }
-      });
+      const entry = entries[0];
+      if (entry?.isIntersecting) {
+        visible.value = true;
+        observer.value?.disconnect();
+      }
     },
-    { threshold: 0.1 },
+    { threshold: 0.08 }
   );
-
-  observer.observe(sectionRef.value);
-
-  onUnmounted(() => {
-    observer.disconnect();
-  });
+  if (sectionRef.value) observer.value.observe(sectionRef.value);
 });
+onUnmounted(() => observer.value?.disconnect());
+
+const headMotion = withDelay("fadeInUp", 80);
 
 const packages = [
-  { key: "launch" as const, featured: false },
-  { key: "growth" as const, featured: true },
-  { key: "platform" as const, featured: false },
+  { key: "launch"   as const, featured: false, numeral: "I"   },
+  { key: "growth"   as const, featured: true,  numeral: "II"  },
+  { key: "platform" as const, featured: false, numeral: "III" },
 ];
 </script>
 
@@ -42,178 +38,155 @@ const packages = [
     class="packages-section"
     aria-labelledby="packages-heading"
   >
-    <div class="section-container">
-      <!-- Header -->
-      <div class="section-header" :class="{ 'animate-in': isVisible }">
-        <h2 id="packages-heading" class="section-title">
-          {{ t("services.packages.title") }}
-        </h2>
-        <p class="section-subtitle">
-          {{ t("services.packages.subtitle") }}
-        </p>
-      </div>
+    <!-- Section separator / label -->
+    <div class="section-label-row" aria-hidden="true">
+      <span class="sep-line" />
+      <span class="sep-diamond" />
+      <span class="sep-text">{{ t("services.packages.title") }}</span>
+      <span class="sep-diamond" />
+      <span class="sep-line" />
+    </div>
 
-      <!-- Package Cards -->
-      <div class="packages-grid" :class="{ 'animate-in': isVisible }">
-        <ServicesPackageCard
-          v-for="(pkg, index) in packages"
-          :key="pkg.key"
-          :package-key="pkg.key"
-          :featured="pkg.featured"
-          class="package-item"
-          :class="`stagger-${index + 1}`"
-        />
-      </div>
+    <!-- Header -->
+    <div
+      class="section-header"
+      :key="`pkg-header-${visible}`"
+      v-motion
+      :initial="headMotion.initial"
+      :enter="visible ? headMotion.visible : headMotion.initial"
+    >
+      <h2 id="packages-heading" class="section-title">
+        {{ t("services.packages.subtitle") }}
+      </h2>
+    </div>
 
-      <!-- Pricing Note -->
-      <p class="pricing-note" :class="{ 'animate-in': isVisible }">
-        {{ t("services.packages.pricingNote") }}
-      </p>
+    <!-- Packages grid — full-width columns -->
+    <div class="packages-grid">
+      <ServicesPackageCard
+        v-for="(pkg, i) in packages"
+        :key="pkg.key"
+        :package-key="pkg.key"
+        :featured="pkg.featured"
+        :numeral="pkg.numeral"
+        v-motion
+        :initial="{ opacity: 0, y: 30 }"
+        :visible-once="{ opacity: 1, y: 0, transition: { delay: 120 + i * 100 } }"
+      />
+    </div>
+
+    <!-- Footer pricing note -->
+    <div class="pricing-note-row" aria-hidden="false">
+      <span class="sep-line" />
+      <span class="pricing-note">{{ t("services.packages.pricingNote") }}</span>
+      <span class="sep-line" />
     </div>
   </section>
 </template>
 
 <style lang="scss" scoped>
+/* ── Section ──────────────────────────────────────────────────── */
 .packages-section {
-  padding: 6rem 1.5rem;
-  background: var(--color-section-light);
-
-  @media (min-width: 768px) {
-    padding: 8rem 2rem;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 10rem 2rem;
-  }
+  background: #0d0908;
+  padding-bottom: 0;
 }
 
-.section-container {
-  max-width: 1200px;
+/* ── Section separator / label ────────────────────────────────── */
+.section-label-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 80rem;
   margin: 0 auto;
+  padding: 5rem 2rem 3rem;
 }
 
-.section-header {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 4rem;
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity 0.6s var(--ease-smooth),
-    transform 0.6s var(--ease-smooth);
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.sep-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.12);
 }
 
-.section-badge {
-  display: inline-block;
-  padding: 0.375rem 1rem;
-  background: var(--color-primary-100);
-  color: var(--color-primary-700);
-  font-size: var(--text-xs);
-  font-weight: 600;
+.sep-diamond {
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.35);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.sep-text {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border-radius: 9999px;
-  margin-bottom: 1rem;
+  color: rgba(223, 175, 133, 0.45);
+  flex-shrink: 0;
+}
+
+/* ── Header ───────────────────────────────────────────────────── */
+.section-header {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem 3rem;
 }
 
 .section-title {
-  font-size: var(--text-3xl);
-  color: var(--color-text);
-  margin-bottom: 1rem;
-
-  @media (min-width: 768px) {
-    font-size: var(--text-4xl);
-  }
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.02em;
 }
 
-.section-subtitle {
-  font-size: var(--text-base);
-  line-height: 1.6;
-  color: var(--color-text-muted);
-
-  @media (min-width: 768px) {
-    font-size: var(--text-lg);
-  }
-}
-
+/* ── Packages grid ────────────────────────────────────────────── */
 .packages-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-bottom: 2rem;
+  border-top: 1px solid rgba(223, 175, 133, 0.08);
 
   @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  &.animate-in .package-item {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 
-.package-item {
-  opacity: 0;
-  transform: translateY(40px);
-  transition:
-    opacity 0.6s var(--ease-smooth),
-    transform 0.6s var(--ease-smooth);
-
-  &.stagger-1 {
-    transition-delay: 100ms;
-  }
-  &.stagger-2 {
-    transition-delay: 200ms;
-  }
-  &.stagger-3 {
-    transition-delay: 300ms;
-  }
+/* ── Footer note ──────────────────────────────────────────────── */
+.pricing-note-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(223, 175, 133, 0.08);
 }
 
 .pricing-note {
-  text-align: center;
-  font-size: var(--text-sm);
-  color: var(--color-text-subtle);
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.6s var(--ease-smooth) 0.4s,
-    transform 0.6s var(--ease-smooth) 0.4s;
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  font-family: var(--font-text);
+  font-size: 0.75rem;
+  color: rgba(255, 237, 223, 0.3);
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
-// Dark mode
-:root.dark {
-  .packages-section {
-    background: var(--color-section-dark);
-  }
+/* ── Light mode overrides ─────────────────────────────────────── */
+html:not(.dark) {
+  .packages-section { background: var(--color-section-light); }
 
-  .section-badge {
-    background: var(--color-primary-900);
-    color: var(--color-primary-300);
-  }
-}
+  .sep-line    { background: var(--deco-line); }
+  .sep-diamond { background: var(--deco-diamond); }
+  .sep-text    { color: var(--deco-text); }
 
-@media (prefers-reduced-motion: reduce) {
-  .section-header,
-  .package-item,
-  .pricing-note {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+  .section-title { color: var(--color-text-primary); }
+
+  .packages-grid { border-top-color: var(--deco-line); }
+
+  .pricing-note-row { border-top-color: var(--deco-line); }
+  .sep-line { background: var(--deco-line); }
+  .pricing-note { color: var(--color-text-subtle); opacity: 0.6; }
 }
 </style>
+
+

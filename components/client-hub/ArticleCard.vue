@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n();
+const localePath = useLocalePath();
 
 defineProps<{
   slug: string;
@@ -13,7 +14,7 @@ defineProps<{
 
 <template>
   <NuxtLink
-    :to="`/client-hub/${serviceSlug}/${categorySlug}/${slug}`"
+    :to="localePath(`/client-hub/${serviceSlug}/${categorySlug}/${slug}`)"
     class="article-card group block"
   >
     <div class="flex items-start gap-4 p-4 min-h-11 rounded-xl border border-(--glass-border-subtle) hover:border-primary-400/30 hover:bg-(--color-surface-2) transition-all">

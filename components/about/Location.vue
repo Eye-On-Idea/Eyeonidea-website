@@ -1,30 +1,59 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { animationPresets, withDelay } from "~/composables/useAccessibleMotion";
+import { ref, onMounted, onUnmounted } from "vue";
 
 const { t, tm } = useI18n();
+const localePath = useLocalePath();
 
-const quickFacts = computed(() =>
-  tm("about.quickFacts.items") as Array<{ icon: string; label: string; value: string }>
+const sectionRef = ref<HTMLElement | null>(null);
+const isVisible = ref(false);
+
+onMounted(() => {
+  if (!sectionRef.value) return;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const entry = entries[0];
+      if (entry?.isIntersecting) {
+        isVisible.value = true;
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.06 },
+  );
+  observer.observe(sectionRef.value);
+  onUnmounted(() => observer.disconnect());
+});
+
+const quickFacts = computed(
+  () =>
+    tm("about.quickFacts.items") as Array<{
+      icon: string;
+      label: string;
+      value: string;
+    }>,
 );
 </script>
 
 <template>
   <section
+    ref="sectionRef"
     class="about-location"
     aria-labelledby="location-heading"
   >
-    <div class="section-container">
+    <!-- Section label row -->
+    <div class="section-label-row" aria-hidden="true">
+      <span class="sep-line" />
+      <span class="sep-diamond" />
+      <span class="sep-text">{{ t("about.location.badge") }}</span>
+      <span class="sep-diamond" />
+      <span class="sep-line" />
+    </div>
+
+    <div class="section-container" :class="{ 'animate-in': isVisible }">
       <div class="location-grid">
-        <!-- Left: Location details -->
-        <div
-          class="location-col"
-          v-motion
-          :initial="animationPresets.slideInLeft.initial"
-          :visible-once="animationPresets.slideInLeft.visible"
-        >
-          <span class="section-badge">{{ t("about.location.badge") }}</span>
-          <h2 id="location-heading" class="section-title" style="text-wrap: balance">
+
+        <!-- Left: location details -->
+        <div class="location-col">
+          <h2 id="location-heading" class="section-title">
             {{ t("about.location.title") }}
           </h2>
           <p class="location-description">
@@ -34,275 +63,415 @@ const quickFacts = computed(() =>
           <dl class="location-details">
             <div class="detail-row">
               <dt class="detail-label">
-                <UIcon name="i-heroicons-map-pin" class="detail-icon" aria-hidden="true" />
+                <span class="detail-diamond" aria-hidden="true" />
                 Headquarters
               </dt>
               <dd class="detail-value">{{ t("about.location.details.headquarters") }}</dd>
             </div>
             <div class="detail-row">
               <dt class="detail-label">
-                <UIcon name="i-heroicons-globe-alt" class="detail-icon" aria-hidden="true" />
+                <span class="detail-diamond" aria-hidden="true" />
                 Coverage
               </dt>
               <dd class="detail-value">{{ t("about.location.details.coverage") }}</dd>
             </div>
             <div class="detail-row">
               <dt class="detail-label">
-                <UIcon name="i-heroicons-language" class="detail-icon" aria-hidden="true" />
+                <span class="detail-diamond" aria-hidden="true" />
                 Languages
               </dt>
               <dd class="detail-value">{{ t("about.location.details.languages") }}</dd>
             </div>
           </dl>
 
-          <NuxtLink to="/services/process" class="process-link">
+          <NuxtLink :to="localePath('/solutions/process')" class="process-link">
             {{ t("about.location.processLink") }}
-            <UIcon name="i-heroicons-arrow-right" class="link-icon" aria-hidden="true" />
+            <span aria-hidden="true" class="link-arrow">→</span>
           </NuxtLink>
         </div>
 
-        <!-- Right: Quick Facts -->
-        <div
-          class="facts-col"
-          v-motion
-          :initial="animationPresets.slideInRight.initial"
-          :visible-once="withDelay('slideInRight', 200).visible"
-        >
-          <h3 class="facts-title">{{ t("about.quickFacts.title") }}</h3>
-          <div class="facts-grid">
-            <div
+        <!-- Right: quick facts as editorial stat rows -->
+        <div class="facts-col">
+          <div class="facts-header" aria-hidden="true">
+            <span class="facts-rule" />
+            <span class="facts-label">{{ t("about.quickFacts.title") }}</span>
+            <span class="facts-rule" />
+          </div>
+
+          <ol class="facts-list" aria-label="{{ t('about.quickFacts.title') }}">
+            <li
               v-for="(fact, index) in quickFacts"
               :key="index"
-              class="fact-card hover-lift"
-              v-motion
-              :initial="animationPresets.scaleIn.initial"
-              :visible-once="withDelay('scaleIn', 400 + index * 100).visible"
+              class="fact-row"
+              :style="{ transitionDelay: `${index * 80}ms` }"
             >
-              <div class="fact-icon-wrap">
-                <UIcon :name="fact.icon" class="fact-icon" aria-hidden="true" />
-              </div>
-              <span class="fact-label">{{ fact.label }}</span>
+              <span class="fact-numeral" aria-hidden="true">{{ ["I", "II", "III", "IV"][index] }}</span>
               <span class="fact-value">{{ fact.value }}</span>
+              <span class="fact-label">{{ fact.label }}</span>
+            </li>
+          </ol>
+
+          <!-- Map / location visual placeholder -->
+          <div class="map-placeholder" aria-hidden="true">
+            <div class="map-inner">
+              <span class="map-label">Map coming soon</span>
+            </div>
+            <div class="deco-frame">
+              <span class="corner corner--tl" />
+              <span class="corner corner--tr" />
+              <span class="corner corner--bl" />
+              <span class="corner corner--br" />
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 </template>
 
 <style lang="scss" scoped>
+/* ── Section ──────────────────────────────────────────────────── */
 .about-location {
-  padding: 6rem 1.5rem;
-  background: var(--color-section-dark);
-
-  @media (min-width: 768px) {
-    padding: 8rem 2rem;
-  }
+  background: #120703;
+  padding-bottom: 0;
 }
 
-.section-container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.location-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
-
-  @media (min-width: 768px) {
-    grid-template-columns: 1.2fr 1fr;
-    gap: 4rem;
-    align-items: start;
-  }
-}
-
-.section-badge {
-  display: inline-block;
-  padding: 0.375rem 1rem;
-  background: var(--color-primary-900);
-  color: var(--color-primary-300);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border-radius: 9999px;
-  margin-bottom: 1rem;
-}
-
-.section-title {
-  font-size: var(--text-3xl);
-  color: var(--color-text);
-  line-height: 1.15;
-  margin-bottom: 1.25rem;
-
-  @media (min-width: 768px) {
-    font-size: var(--text-4xl);
-  }
-}
-
-.location-description {
-  font-size: var(--text-base);
-  line-height: 1.7;
-  color: var(--color-text-muted);
-  margin-bottom: 2rem;
-
-  @media (min-width: 768px) {
-    font-size: var(--text-lg);
-  }
-}
-
-.location-details {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.detail-row {
+/* ── Section label row ────────────────────────────────────────── */
+.section-label-row {
   display: flex;
   align-items: center;
   gap: 1rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 6rem 2rem 4rem;
+}
+
+.sep-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.12);
+}
+
+.sep-diamond {
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.35);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.sep-text {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.45);
+  flex-shrink: 0;
+}
+
+/* ── Container ────────────────────────────────────────────────── */
+.section-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem 6rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s var(--ease-smooth),
+    transform 0.7s var(--ease-smooth);
+
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Grid ─────────────────────────────────────────────────────── */
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: start;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 5rem;
+  }
+}
+
+/* ── Left col ─────────────────────────────────────────────────── */
+.section-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #ffeddf;
+  margin: 0 0 1.25rem;
+  text-wrap: balance;
+}
+
+.location-description {
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  line-height: 1.8;
+  color: rgba(255, 237, 223, 0.5);
+  margin: 0 0 2.5rem;
+}
+
+/* ── Detail rows ──────────────────────────────────────────────── */
+.location-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0 0 2.5rem;
+  border-top: 1px solid rgba(223, 175, 133, 0.08);
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(223, 175, 133, 0.08);
 }
 
 .detail-label {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--color-text-muted);
-  min-width: 140px;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.4);
 }
 
-.detail-icon {
-  width: 1.125rem;
-  height: 1.125rem;
-  color: var(--color-accent-500);
+.detail-diamond {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: rgba(223, 175, 133, 0.3);
+  transform: rotate(45deg);
   flex-shrink: 0;
 }
 
 .detail-value {
-  font-size: var(--text-sm);
-  color: var(--color-text);
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  color: rgba(255, 237, 223, 0.65);
 }
 
+/* ── Process link ─────────────────────────────────────────────── */
 .process-link {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--color-accent-500);
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.55);
   text-decoration: none;
-  min-height: 48px;
-  padding: 0.5rem 0;
-  transition: color 0.2s var(--ease-smooth);
+  min-height: 44px;
+  transition: color 0.2s ease;
 
   &:hover {
-    color: var(--color-accent-400);
+    color: rgba(223, 175, 133, 0.9);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-accent-400);
+    outline: 2px solid rgba(223, 175, 133, 0.5);
     outline-offset: 4px;
-    border-radius: var(--radius-sm);
   }
 }
 
-.link-icon {
-  width: 1rem;
-  height: 1rem;
-  transition: transform 0.2s var(--ease-smooth);
+.link-arrow {
+  transition: transform 0.2s ease;
 
   .process-link:hover & {
     transform: translateX(3px);
   }
 }
 
-// Right column - Quick Facts
-.facts-col {
-  @media (min-width: 768px) {
-    padding-top: 0.5rem;
+/* ── Right col ────────────────────────────────────────────────── */
+.facts-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0;
+}
+
+.facts-rule {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.1);
+}
+
+.facts-label {
+  font-family: var(--font-heading);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.35);
+  flex-shrink: 0;
+}
+
+/* ── Fact rows ────────────────────────────────────────────────── */
+.facts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5rem;
+  border-top: 1px solid rgba(223, 175, 133, 0.08);
+}
+
+.fact-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(223, 175, 133, 0.08);
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.5s var(--ease-smooth),
+    transform 0.5s var(--ease-smooth);
+
+  .animate-in & {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.facts-title {
-  font-size: var(--text-lg);
-  font-weight: 600;
-  color: var(--color-text);
-  margin-bottom: 1.25rem;
-}
-
-.facts-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.fact-card {
-  padding: 1.5rem;
-  background: var(--color-surface-1);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  text-align: center;
-}
-
-.fact-icon-wrap {
-  width: 2.5rem;
-  height: 2.5rem;
-  margin: 0 auto 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-primary-100);
-  border-radius: var(--radius-lg);
-}
-
-.fact-icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  color: var(--color-primary-600);
-}
-
-.fact-label {
-  display: block;
-  font-size: var(--text-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-text-muted);
-  margin-bottom: 0.25rem;
+.fact-numeral {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(223, 175, 133, 0.25);
 }
 
 .fact-value {
-  display: block;
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  color: #ffeddf;
+  letter-spacing: -0.01em;
 }
 
-// Light mode
-:root:not(.dark) {
-  .about-location {
-    background: var(--color-section-light);
-  }
+.fact-label {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.35);
+}
 
-  .section-badge {
-    background: var(--color-primary-100);
-    color: var(--color-primary-700);
+/* ── Map placeholder ──────────────────────────────────────────── */
+.map-placeholder {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: rgba(13, 9, 8, 0.6);
+  border: 1px solid rgba(223, 175, 133, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.map-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-label {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.15);
+}
+
+/* ── Corner frame ─────────────────────────────────────────────── */
+.deco-frame {
+  position: absolute;
+  inset: 0.75rem;
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-color: rgba(223, 175, 133, 0.12);
+  border-style: solid;
+
+  &--tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
+  &--tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
+  &--bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+  &--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-container,
+  .fact-row {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 
-// Dark mode
-:root.dark {
-  .fact-icon {
-    color: var(--color-primary-300);
+/* ── Light mode overrides ─────────────────────────────────────── */
+html:not(.dark) {
+  .about-location { background: var(--color-section-light); }
+
+  .sep-line    { background: var(--deco-line); }
+  .sep-diamond { background: var(--deco-diamond); }
+  .sep-text    { color: var(--deco-text); }
+
+  .section-title       { color: var(--color-text-primary); }
+  .location-description { color: var(--color-text-subtle); }
+
+  .location-details { border-top-color: var(--deco-line); }
+  .detail-row       { border-bottom-color: var(--deco-line); }
+  .detail-label     { color: var(--color-primary-500); opacity: 0.6; }
+  .detail-diamond   { background: var(--deco-diamond-sm); }
+  .detail-value     { color: var(--color-text-secondary); }
+
+  .process-link {
+    color: var(--color-primary-600);
+    &:hover { color: var(--color-primary-700); }
+    &:focus-visible { outline-color: var(--color-primary-500); }
   }
 
-  .fact-icon-wrap {
-    background: var(--color-primary-800);
+  .facts-rule  { background: var(--deco-line); }
+  .facts-label { color: var(--deco-text); opacity: 0.6; }
+  .facts-list  { border-top-color: var(--deco-line); }
+  .fact-row    { border-bottom-color: var(--deco-line); }
+  .fact-numeral { color: rgba(153, 82, 38, 0.30); }
+  .fact-value  { color: var(--color-text-primary); }
+  .fact-label  { color: var(--color-primary-500); opacity: 0.5; }
+
+  .map-placeholder {
+    background: var(--color-surface-3);
+    border-color: var(--color-border);
   }
+  .map-label { color: rgba(153, 82, 38, 0.18); }
+  .corner    { border-color: var(--deco-border); }
 }
 </style>
+
+

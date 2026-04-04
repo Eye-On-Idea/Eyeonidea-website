@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-wrap gap-2">
-    <UButton color="brand" variant="solid" @click="acceptAll"
+    <UButton color="primary" variant="solid" @click="acceptAll"
       >Accept all</UButton
     >
     <UButton variant="ghost" @click="rejectAll">Reject all</UButton>
@@ -11,11 +11,16 @@
 </template>
 
 <script setup lang="ts">
-const cc = useCookieControl();
+const cc = useCookieControl() as {
+  acceptAll?: () => void;
+  declineAll?: () => void;
+  acceptNecessary?: () => void;
+  accept?: (cookies: string[]) => void;
+};
 // These method names are stable across versions; if TS complains,
 // fallback to cc.toggle and cc.accept/cc.decline patterns your version exposes.
-const acceptAll = () => cc.acceptAll();
-const rejectAll = () => cc.declineAll();
+const acceptAll = () => cc.acceptAll?.();
+const rejectAll = () => cc.declineAll?.();
 const acceptOnlyNecessary = () =>
-  cc.acceptNecessary?.() ?? cc.accept(["ncc-essential"]);
+  cc.acceptNecessary?.() ?? cc.accept?.(["ncc-essential"]);
 </script>

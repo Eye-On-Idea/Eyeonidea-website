@@ -1,15 +1,15 @@
 {
   "meta": {
-    "title": "Contact - Eye On Idea",
-    "description": "Get in touch with Eye On Idea. Let's discuss your digital project needs - websites, visual identity, CMS solutions, or ongoing support."
+    "title": "Start a Conversation - Eye On Idea",
+    "description": "You don't need a finished brief to reach out. Tell Eye On Idea where you are and we'll help work out what you actually need — websites, brand presence, or ongoing management."
   },
   "hero": {
-    "badge": "Get In Touch",
-    "title": "Let's Build Something Together",
-    "subtitle": "Have a project in mind? Questions about our services? We're here to help you find the right digital solution for your business."
+    "badge": "Start the Conversation",
+    "title": "You don't need a perfect brief",
+    "subtitle": "Tell us where your business is right now and what feels unclear or unresolved. We'll work out the right next step together — no pressure, no commitment."
   },
   "form": {
-    "heading": "Send Us a Message",
+    "heading": "Tell us about your situation",
     "name": {
       "label": "Name",
       "placeholder": "Your full name"
@@ -44,11 +44,11 @@
     },
     "message": {
       "label": "Message",
-      "placeholder": "Tell us about your project or question..."
+      "placeholder": "Describe your situation, what you're trying to solve, or what feels unclear. There's no wrong answer here."
     },
-    "submit": "Send Message",
+    "submit": "Start the Conversation",
     "submitting": "Sending...",
-    "successMessage": "Thank you! Your message has been sent. We'll get back to you within 24 hours.",
+    "successMessage": "Message received — thank you. We'll review it and get back to you within one business day with a clear next step.",
     "errorMessage": "Something went wrong. Please try again or contact us directly at hello@eyeonidea.com.",
     "gdprNotice": "By contacting Eye On Idea, you consent to be contacted via the information provided regarding your inquiry. Under the EU's GDPR regulation, your data will only be used for communication related to your inquiry and will never be shared with third parties."
   },
@@ -82,9 +82,9 @@
     }
   },
   "cta": {
-    "title": "Not Sure Where to Start?",
-    "description": "Browse our services to learn more about what we offer, or check out our latest news and insights.",
-    "services": "View Services",
-    "news": "Read Our News"
+    "title": "Want to understand the packages first?",
+    "description": "See how Foundation, Growth, and Brand Partner are structured — and which level fits where your business is right now.",
+    "services": "Compare Packages",
+    "news": "View Our Work"
   }
 }

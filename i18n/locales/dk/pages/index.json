@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Eye On Idea - Professionelle B2B-hjemmesider",
-    "description": "Eye On Idea hjælper virksomheder i hele Europa med at opbygge en klar og professionel digital tilstedeværelse. Websiteudvikling, visuel identitet og langsigtet support."
+    "title": "Eye On Idea – Digitalt bureau for B2B-brands",
+    "description": "Eye On Idea hjælper europæiske B2B-virksomheder med at opbygge deres samlede digitale tilstedeværelse — hjemmesider, brandidentitet, indhold, SEO, e-mail, domæne og kvalitetssikring."
   },
   "hero": {
     "headline": "Din digitale tilstedeværelse",
@@ -34,22 +34,51 @@
     "cta": "Lær om os"
   },
   "services": {
-    "badge": "Hvad vi tilbyder",
-    "title": "Hjemmesidepakker",
-    "subtitle": "Skræddersyede løsninger til alle faser af din virksomhed",
-    "additionalServices": {
-      "title": "Yderligere tjenester",
+    "badge": "Hvad vi gør",
+    "title": "Alt hvad dit brand behøver online",
+    "subtitle": "Én partner til din samlede digitale tilstedeværelse — fra første indtryk til vedvarende vækst.",
+    "categories": {
+      "websites": {
+        "title": "Hjemmesider",
+        "need": "Din virksomhed har brug for en professionel online tilstedeværelse, der skaber tillid og konverterer besøgende.",
+        "skill": "Vi designer og udvikler hurtige, tilgængelige hjemmesider, der er skræddersyet til dit brand og dine forretningsmål.",
+        "cta": "Udforsk hjemmesidepakker"
+      },
       "identity": {
-        "title": "Visuel identitet",
-        "description": "Logo, farver, typografi og brandretning for digitale platforme."
+        "title": "Visuel identitet & Design",
+        "need": "Inkonsekvent visuel identitet underminerer troværdighed, før et eneste ord er læst.",
+        "skill": "Vi skaber logoer, farvepaletter, typografi og brandretningslinjer bygget til digitale medier.",
+        "cta": "Se identitetstjenester"
       },
-      "cms": {
-        "title": "CMS løsninger",
-        "description": "Custom Sanity CMS-opsætning til uafhængig indholdsstyring."
+      "content": {
+        "title": "Indholdsskabelse",
+        "need": "Tomme sider og generisk tekst formår ikke at kommunikere, hvorfor du er relevant.",
+        "skill": "Vi skriver og strukturerer indhold, der taler klart til din målgruppe på ethvert sprog.",
+        "cta": "Indholdstjenester"
       },
-      "support": {
-        "title": "Løbende support",
-        "description": "Vedligeholdelse, opdateringer og rådgivning til din digitale tilstedeværelse."
+      "seo": {
+        "title": "SEO & Sociale medier",
+        "need": "Godt arbejde forbliver uset uden en strategi for søgning og sociale medier.",
+        "skill": "Vi optimerer din synlighed på søgemaskiner og opbygger din tilstedeværelse, hvor dine kunder befinder sig.",
+        "cta": "SEO & Social-tjenester"
+      },
+      "email": {
+        "title": "Professionel e-mail",
+        "need": "Gratis e-mailadresser signalerer manglende seriøsitet over for B2B-kunder.",
+        "skill": "Vi opsætter branded, sikre virksomhedse-mails, der styrker din professionelle identitet.",
+        "cta": "E-mail opsætning"
+      },
+      "domain": {
+        "title": "Domænestyring",
+        "need": "Dit domæne er din digitale adresse — det skal ejes, beskyttes og konfigureres korrekt.",
+        "skill": "Vi registrerer, sikrer og administrerer dit domæne, så du aldrig mister kontrollen over dit brand online.",
+        "cta": "Domænetjenester"
+      },
+      "qa": {
+        "title": "Kvalitetssikring",
+        "need": "Brudte flows, langsomme sider og tilgængelhedsfejl koster dig stille og roligt kunder.",
+        "skill": "Vi auditerer og tester digitale produkter fra ende til ende — og identificerer problemer, før dine brugere gør det.",
+        "cta": "QA-rådgivning"
       }
     },
     "cta": {

@@ -1,15 +1,15 @@
 {
   "meta": {
-    "title": "Our Process - Eye On Idea",
-    "description": "From first contact to launch and beyond. Learn how Eye On Idea delivers professional website projects with clear timelines, transparent pricing, and ongoing support."
+    "title": "How Projects Work - Eye On Idea",
+    "description": "A complete walkthrough of how Eye On Idea scopes, builds, and launches projects — including payment stages, approval checkpoints, and what happens after launch."
   },
   "hero": {
-    "badge": "Our Process",
-    "title": "From Idea to Launch",
-    "subtitle": "Every project follows a clear, transparent process designed to keep you informed and in control at every stage."
+    "badge": "How We Work",
+    "title": "What to expect before, during, and after",
+    "subtitle": "This page exists to make contact feel safer. If you know exactly how a project is scoped, approved, and delivered — there is no reason to hesitate."
   },
   "intro": {
-    "text": "We believe great websites are built on clear communication and mutual understanding. Here's exactly what to expect when you work with Eye On Idea."
+    "text": "Many people wait too long to reach out because they're unsure what happens next. This page answers every question you're likely to have before and during a project — from the first message to what support looks like after launch."
   },
   "timeline": {
     "title": "Your Project Journey",
@@ -53,7 +53,7 @@
         "note": "The proposal clearly states what personal data will be processed, for what purpose, and under which legal basis, in compliance with GDPR. Your data is never shared with third parties beyond what the project requires.",
         "cta": {
           "label": "View Our Packages",
-          "to": "/services#packages-section"
+          "to": "/solutions#packages-section"
         }
       },
       "kickoff": {
@@ -78,7 +78,7 @@
         "note": "Early dev server access is an optional add-on. It requires more frequent deployment and maintenance, which is why it's offered as a separate service.",
         "cta": {
           "label": "See Add-ons & Extras",
-          "to": "/services#addons-section"
+          "to": "/solutions#addons-section"
         }
       },
       "preview": {
@@ -127,7 +127,7 @@
         ],
         "cta": {
           "label": "View Support Plans",
-          "to": "/services#support-plans"
+          "to": "/solutions#support-plans"
         }
       }
     }
@@ -172,9 +172,9 @@
   },
   "cta": {
     "badge": "Ready to Begin?",
-    "title": "Let's Start Your Project",
-    "description": "The first step is a conversation. Tell us about your project and we'll take it from there.",
+    "title": "Contact us when you're ready",
+    "description": "There is no commitment at the first conversation — just a chance to understand your situation and whether Eye On Idea is the right fit.",
     "primary": "Start a Conversation",
-    "secondary": "View Our Services"
+    "secondary": "Compare Packages"
   }
 }

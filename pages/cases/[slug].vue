@@ -4,6 +4,7 @@ import { useWindowScroll, usePreferredReducedMotion } from "@vueuse/core";
 
 const route = useRoute();
 const { t, tm, locale } = useI18n();
+const localePath = useLocalePath();
 
 interface BeforeAfterMetric {
   label: string;
@@ -94,7 +95,7 @@ const caseStudies = computed<CaseStudy[]>(() => {
 });
 
 if (import.meta.client && !caseStudy.value) {
-  navigateTo("/cases");
+  navigateTo(localePath("/cases"));
 }
 
 const config = useRuntimeConfig();
@@ -180,7 +181,7 @@ const getBadgeLabel = (company: string) => {
     role="status"
     aria-live="polite"
   >
-    <UIcon name="i-lucide-loader-2" class="cs-loading__icon" />
+    <span class="cs-loading__spinner" aria-hidden="true" />
     <p class="cs-loading__text">Loading case study...</p>
   </div>
 
@@ -188,25 +189,18 @@ const getBadgeLabel = (company: string) => {
 
     <!-- ─── HERO ─────────────────────────────────────────────── -->
     <section class="cs-hero" aria-labelledby="cs-hero-title">
-      <!-- Parallax background layer -->
-      <div class="cs-hero__bg" aria-hidden="true" :style="{ transform: orbParallax }">
-        <div class="cs-hero__orb cs-hero__orb--1" />
-        <div class="cs-hero__orb cs-hero__orb--2" />
-        <div class="cs-hero__orb cs-hero__orb--3" />
-        <div class="cs-hero__grain" />
-      </div>
+      <div class="cs-hero__bg" aria-hidden="true" :style="{ transform: orbParallax }" />
 
       <UContainer class="max-w-360 cs-hero__container">
         <!-- Back link -->
-        <NuxtLink to="/cases" class="cs-back">
-          <UIcon name="i-lucide-arrow-left" class="w-4 h-4" />
+        <NuxtLink :to="localePath('/cases')" class="cs-back">
+          <span aria-hidden="true">←</span>
           {{ t("cases.navigation.backToCases") }}
         </NuxtLink>
 
         <div class="cs-hero__body">
           <!-- Left: text content -->
           <div class="cs-hero__text">
-            <!-- Badge -->
             <div
               v-motion
               :initial="animationPresets.fadeIn.initial"
@@ -269,7 +263,7 @@ const getBadgeLabel = (company: string) => {
                 class="cs-visit-link"
               >
                 {{ t("cases.cta.visitSite") }}
-                <UIcon name="i-lucide-external-link" class="w-3.5 h-3.5" />
+                <span aria-hidden="true">↗</span>
               </a>
             </div>
           </div>
@@ -339,9 +333,9 @@ const getBadgeLabel = (company: string) => {
             <div class="cs-overview">
               <div
                 v-for="(item, i) in [
-                  { key: 'challenge', label: t('cases.sections.challenge'), icon: 'i-lucide-target', text: caseStudy.overview.challenge },
-                  { key: 'solution', label: t('cases.sections.solution'), icon: 'i-lucide-lightbulb', text: caseStudy.overview.solution },
-                  { key: 'outcome', label: t('cases.sections.outcome'), icon: 'i-lucide-trending-up', text: caseStudy.overview.outcome },
+                  { key: 'challenge', label: t('cases.sections.challenge'), text: caseStudy.overview.challenge },
+                  { key: 'solution', label: t('cases.sections.solution'), text: caseStudy.overview.solution },
+                  { key: 'outcome', label: t('cases.sections.outcome'), text: caseStudy.overview.outcome },
                 ]"
                 :key="item.key"
                 class="cs-overview__card"
@@ -349,9 +343,7 @@ const getBadgeLabel = (company: string) => {
                 :initial="animationPresets.fadeInUpScale.initial"
                 :visible-once="withDelay('fadeInUpScale', i * 120).visible"
               >
-                <div class="cs-overview__icon-wrap" aria-hidden="true">
-                  <UIcon :name="item.icon" class="cs-overview__icon" />
-                </div>
+                <span class="overview-diamond" aria-hidden="true" />
                 <h3 class="cs-overview__heading">{{ item.label }}</h3>
                 <p class="cs-overview__text">{{ item.text }}</p>
               </div>
@@ -415,7 +407,7 @@ const getBadgeLabel = (company: string) => {
                       :key="d"
                       class="cs-deliverable"
                     >
-                      <UIcon name="i-lucide-check" class="w-3 h-3" aria-hidden="true" />
+                      <span class="deliverable-diamond" aria-hidden="true" />
                       {{ d }}
                     </span>
                   </div>
@@ -441,11 +433,9 @@ const getBadgeLabel = (company: string) => {
             </h2>
 
             <div class="cs-challenges">
-              <TiltCard
+              <div
                 v-for="(challenge, i) in caseStudy.challenges"
                 :key="challenge.title"
-                :max-tilt="4"
-                :scale="1.02"
                 class="cs-challenge"
                 v-motion
                 :initial="animationPresets.fadeInUpScale.initial"
@@ -463,7 +453,7 @@ const getBadgeLabel = (company: string) => {
                     <p class="cs-challenge__block-text">{{ challenge.solution }}</p>
                   </div>
                 </div>
-              </TiltCard>
+              </div>
             </div>
           </section>
 
@@ -520,7 +510,7 @@ const getBadgeLabel = (company: string) => {
                   :initial="animationPresets.slideInLeft.initial"
                   :visible-once="withDelay('slideInLeft', 150 + i * 70).visible"
                 >
-                  <UIcon name="i-lucide-check-circle-2" class="cs-results__icon" aria-hidden="true" />
+                  <span class="result-diamond" aria-hidden="true" />
                   <span>{{ highlight }}</span>
                 </li>
               </ul>
@@ -561,9 +551,7 @@ const getBadgeLabel = (company: string) => {
                   class="cs-gallery__image"
                 />
                 <div class="cs-gallery__overlay" aria-hidden="true">
-                  <div class="cs-gallery__expand">
-                    <UIcon name="i-lucide-maximize-2" class="w-5 h-5" />
-                  </div>
+                  <div class="cs-gallery__expand" aria-hidden="true">⤡</div>
                 </div>
               </button>
             </div>
@@ -591,44 +579,70 @@ const getBadgeLabel = (company: string) => {
     >
       <UContainer class="max-w-360">
         <div class="cs-nav__grid">
-          <NuxtLink :to="`/cases/${previousCase.slug}`" class="cs-nav__link cs-nav__link--prev">
-            <UIcon name="i-lucide-arrow-left" class="w-4 h-4 cs-nav__arrow" aria-hidden="true" />
+          <NuxtLink :to="localePath('/cases/' + previousCase.slug)" class="cs-nav__link cs-nav__link--prev">
+            <span class="cs-nav__arrow" aria-hidden="true">←</span>
             <div>
               <p class="cs-nav__direction">{{ t("cases.navigation.previousCase") }}</p>
               <h3 class="cs-nav__case-title">{{ previousCase.title }}</h3>
             </div>
           </NuxtLink>
-          <NuxtLink :to="`/cases/${nextCase.slug}`" class="cs-nav__link cs-nav__link--next">
+          <NuxtLink :to="localePath('/cases/' + nextCase.slug)" class="cs-nav__link cs-nav__link--next">
             <div>
               <p class="cs-nav__direction">{{ t("cases.navigation.nextCase") }}</p>
               <h3 class="cs-nav__case-title">{{ nextCase.title }}</h3>
             </div>
-            <UIcon name="i-lucide-arrow-right" class="w-4 h-4 cs-nav__arrow" aria-hidden="true" />
+            <span class="cs-nav__arrow" aria-hidden="true">→</span>
           </NuxtLink>
         </div>
       </UContainer>
     </nav>
 
     <!-- ─── CTA ─────────────────────────────────────────────── -->
-    <section class="cs-cta-wrap">
-      <UContainer class="max-w-360">
-        <BaseCTASection
-          :title="t('cases.contact.title')"
-          :description="t('cases.contact.description')"
-          :primary-text="t('cases.contact.button')"
-          primary-to="/contact"
-        />
-      </UContainer>
+    <section class="cs-cta-wrap" aria-labelledby="cs-cta-heading">
+      <div class="cta-bg-radial" aria-hidden="true" />
+      <div class="cta-container">
+        <div class="cta-inner">
+          <div class="deco-frame-cta" aria-hidden="true">
+            <span class="cta-corner cta-corner--tl" />
+            <span class="cta-corner cta-corner--tr" />
+            <span class="cta-corner cta-corner--bl" />
+            <span class="cta-corner cta-corner--br" />
+          </div>
+          <div class="cta-label-row" aria-hidden="true">
+            <span class="cta-sep-line" />
+            <span class="cta-sep-diamond" />
+            <span class="cta-sep-text">{{ t("cases.contact.title") }}</span>
+            <span class="cta-sep-diamond" />
+            <span class="cta-sep-line" />
+          </div>
+          <h2 id="cs-cta-heading" class="cta-heading">{{ t("cases.contact.title") }}</h2>
+          <div class="cta-deco-divider" aria-hidden="true">
+            <span class="cta-div-line" />
+            <span class="cta-div-diamond cta-div-diamond--sm" />
+            <span class="cta-div-line cta-div-line--inner" />
+            <span class="cta-div-diamond" />
+            <span class="cta-div-line cta-div-line--inner" />
+            <span class="cta-div-diamond cta-div-diamond--sm" />
+            <span class="cta-div-line" />
+          </div>
+          <p class="cta-description">{{ t("cases.contact.description") }}</p>
+          <div class="cta-actions">
+            <AppCtaButton variant="primary" :to="localePath('/contact')" :show-icon="true">
+              {{ t("cases.contact.button") }}
+            </AppCtaButton>
+          </div>
+        </div>
+      </div>
     </section>
 
   </div>
 </template>
 
 <style lang="scss" scoped>
-/* ── Loading ───────────────────────────────────────────── */
+/* ── Loading ──────────────────────────────────────────────────── */
 .cs-loading {
   min-height: 100vh;
-  background: var(--color-bg);
+  background: #0d0908;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -636,31 +650,36 @@ const getBadgeLabel = (company: string) => {
   gap: 1rem;
 }
 
-.cs-loading__icon {
-  width: 3rem;
-  height: 3rem;
-  color: var(--color-primary-500);
-  animation: spin 1s linear infinite;
+.cs-loading__spinner {
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid rgba(223, 175, 133, 0.15);
+  border-top-color: rgba(223, 175, 133, 0.6);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
 }
 
 .cs-loading__text {
-  color: var(--color-text-secondary);
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 237, 223, 0.3);
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
+@keyframes spin { to { transform: rotate(360deg); } }
 
-/* ── Page ──────────────────────────────────────────────── */
+/* ── Page ─────────────────────────────────────────────────────── */
 .cs-page {
   min-height: 100vh;
-  background: var(--color-bg);
+  background: #0d0908;
 }
 
-/* ── Hero ──────────────────────────────────────────────── */
+/* ── Hero ─────────────────────────────────────────────────────── */
 .cs-hero {
   position: relative;
-  background: var(--color-hero-bg);
+  background: #0d0908;
   overflow: hidden;
   padding: 5rem 0 6rem;
 
@@ -669,7 +688,6 @@ const getBadgeLabel = (company: string) => {
   }
 }
 
-// Scroll-driven parallax on the whole hero (progressive enhancement)
 @supports (animation-timeline: scroll()) {
   .cs-hero {
     animation: heroFade linear both;
@@ -677,9 +695,7 @@ const getBadgeLabel = (company: string) => {
     animation-range: 0px 400px;
   }
 
-  @keyframes heroFade {
-    to { opacity: 0.6; }
-  }
+  @keyframes heroFade { to { opacity: 0.7; } }
 }
 
 .cs-hero__bg {
@@ -687,47 +703,7 @@ const getBadgeLabel = (company: string) => {
   inset: 0;
   pointer-events: none;
   will-change: transform;
-}
-
-.cs-hero__orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(70px);
-
-  &--1 {
-    width: 28rem;
-    height: 28rem;
-    background: radial-gradient(circle, var(--color-primary-600), transparent 70%);
-    top: -6rem;
-    right: -4rem;
-    opacity: 0.5;
-  }
-
-  &--2 {
-    width: 20rem;
-    height: 20rem;
-    background: radial-gradient(circle, var(--color-primary-400), transparent 70%);
-    bottom: -4rem;
-    left: 10%;
-    opacity: 0.3;
-  }
-
-  &--3 {
-    width: 16rem;
-    height: 16rem;
-    background: radial-gradient(circle, color-mix(in srgb, var(--color-accent-500) 40%, var(--color-primary-700)), transparent 70%);
-    top: 30%;
-    left: 40%;
-    opacity: 0.2;
-  }
-}
-
-.cs-hero__grain {
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  opacity: 0.4;
-  mix-blend-mode: overlay;
+  background: radial-gradient(ellipse 70% 60% at 65% 0%, rgba(223, 175, 133, 0.07) 0%, transparent 65%);
 }
 
 .cs-hero__container {
@@ -739,20 +715,21 @@ const getBadgeLabel = (company: string) => {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--color-primary-200);
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.45);
   text-decoration: none;
   margin-bottom: 3rem;
-  opacity: 0.8;
-  transition: opacity 200ms var(--ease-smooth);
+  transition: color 0.2s ease;
 
-  &:hover { opacity: 1; }
+  &:hover { color: rgba(223, 175, 133, 0.75); }
 
   &:focus-visible {
-    outline: 2px solid var(--color-primary-300);
+    outline: 2px solid rgba(223, 175, 133, 0.5);
     outline-offset: 4px;
-    border-radius: 4px;
   }
 }
 
@@ -767,9 +744,7 @@ const getBadgeLabel = (company: string) => {
   }
 }
 
-.cs-hero__text {
-  max-width: 36rem;
-}
+.cs-hero__text { max-width: 36rem; }
 
 .cs-hero__badges {
   display: flex;
@@ -781,38 +756,42 @@ const getBadgeLabel = (company: string) => {
 .cs-badge {
   display: inline-flex;
   align-items: center;
-  padding: 0.375rem 0.875rem;
-  border-radius: 9999px;
-  font-size: 0.8125rem;
-  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 
   &--category {
-    background: color-mix(in srgb, var(--color-primary-300) 20%, transparent);
-    color: var(--color-primary-100);
-    border: 1px solid color-mix(in srgb, var(--color-primary-300) 30%, transparent);
+    background: rgba(223, 175, 133, 0.08);
+    color: rgba(223, 175, 133, 0.75);
+    border: 1px solid rgba(223, 175, 133, 0.2);
   }
 
   &--tag {
-    background: color-mix(in srgb, var(--color-primary-950) 40%, transparent);
-    color: var(--color-primary-200);
-    border: 1px solid color-mix(in srgb, var(--color-primary-200) 15%, transparent);
-    font-weight: 500;
+    background: rgba(223, 175, 133, 0.04);
+    color: rgba(223, 175, 133, 0.45);
+    border: 1px solid rgba(223, 175, 133, 0.1);
   }
 }
 
 .cs-hero__title {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 800;
-  color: var(--color-primary-50);
-  line-height: 1.05;
+  font-family: var(--font-heading);
+  font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+  font-weight: 700;
+  color: #ffeddf;
+  line-height: 1.06;
   margin-bottom: 1rem;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 .cs-hero__subtitle {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  color: var(--color-primary-200);
-  line-height: 1.6;
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  color: rgba(255, 237, 223, 0.5);
+  line-height: 1.7;
   margin-bottom: 2rem;
 }
 
@@ -830,51 +809,56 @@ const getBadgeLabel = (company: string) => {
 }
 
 .cs-meta-item__label {
-  font-size: 0.6875rem;
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-size: 0.55rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-primary-400);
+  letter-spacing: 0.15em;
+  color: rgba(223, 175, 133, 0.4);
 }
 
 .cs-meta-item__value {
-  font-size: 0.9375rem;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
   font-weight: 600;
-  color: var(--color-primary-100);
+  color: rgba(255, 237, 223, 0.7);
 }
 
 .cs-meta-divider {
   width: 1px;
   height: 2rem;
-  background: color-mix(in srgb, var(--color-primary-300) 25%, transparent);
+  background: rgba(223, 175, 133, 0.12);
 }
 
 .cs-visit-link {
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.125rem;
   min-height: 44px;
-  background: var(--color-primary-500);
-  color: var(--color-primary-50);
-  font-size: 0.875rem;
-  font-weight: 600;
+  background: rgba(223, 175, 133, 0.08);
+  border: 1px solid rgba(223, 175, 133, 0.2);
+  color: rgba(223, 175, 133, 0.7);
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   text-decoration: none;
-  border-radius: 0.5rem;
-  transition: background 200ms var(--ease-smooth), transform 200ms var(--ease-smooth);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 
   &:hover {
-    background: var(--color-primary-400);
-    transform: translateY(-1px);
+    background: rgba(223, 175, 133, 0.12);
+    border-color: rgba(223, 175, 133, 0.35);
+    color: rgba(223, 175, 133, 0.9);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-primary-300);
+    outline: 2px solid rgba(223, 175, 133, 0.5);
     outline-offset: 2px;
   }
 }
 
-// Hero image
 .cs-hero__visual {
   @media (max-width: 1023px) {
     max-width: 36rem;
@@ -884,20 +868,16 @@ const getBadgeLabel = (company: string) => {
 
 .cs-hero__image-frame {
   position: relative;
-  border-radius: 1rem;
   overflow: hidden;
+  border: 1px solid rgba(223, 175, 133, 0.12);
 }
 
 .cs-hero__image-glow {
   position: absolute;
-  inset: -2px;
-  border-radius: inherit;
-  background: linear-gradient(135deg,
-    color-mix(in srgb, var(--color-primary-400) 40%, transparent),
-    color-mix(in srgb, var(--color-primary-600) 20%, transparent)
-  );
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(223, 175, 133, 0.06) 0%, transparent 60%);
   z-index: 0;
-  filter: blur(12px);
+  pointer-events: none;
 }
 
 .cs-hero__image {
@@ -906,18 +886,14 @@ const getBadgeLabel = (company: string) => {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 0.875rem;
-  border: 1px solid color-mix(in srgb, var(--color-primary-400) 30%, transparent);
-  box-shadow:
-    0 0 0 1px color-mix(in srgb, var(--color-primary-300) 10%, transparent),
-    0 32px 64px -16px rgba(0, 0, 0, 0.5);
   will-change: transform;
 }
 
-/* ── Metrics strip ─────────────────────────────────────── */
+/* ── Metrics strip ────────────────────────────────────────────── */
 .cs-metrics-strip {
-  background: var(--color-primary-900);
-  border-bottom: 1px solid color-mix(in srgb, var(--color-primary-700) 40%, transparent);
+  background: #120703;
+  border-top: 1px solid rgba(223, 175, 133, 0.08);
+  border-bottom: 1px solid rgba(223, 175, 133, 0.08);
   padding: 2rem 0;
 }
 
@@ -933,36 +909,40 @@ const getBadgeLabel = (company: string) => {
   flex-direction: column;
   gap: 0.25rem;
   padding: 1.25rem 1rem;
-  border-right: 1px solid color-mix(in srgb, var(--color-primary-700) 30%, transparent);
+  border-right: 1px solid rgba(223, 175, 133, 0.07);
 
   &:last-child { border-right: none; }
 }
 
 .cs-metric-item__value {
+  font-family: var(--font-heading);
   font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 800;
-  color: var(--color-primary-100);
+  font-weight: 700;
+  color: rgba(223, 175, 133, 0.85);
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
 
 .cs-metric-item__label {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--color-primary-400);
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: rgba(255, 237, 223, 0.4);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
 }
 
 .cs-metric-item__desc {
+  font-family: var(--font-text);
   font-size: 0.75rem;
-  color: var(--color-primary-500);
+  color: rgba(255, 237, 223, 0.3);
   margin-top: 0.125rem;
   line-height: 1.4;
 }
 
-/* ── Main content ──────────────────────────────────────── */
+/* ── Main content ─────────────────────────────────────────────── */
 .cs-main {
+  background: #0d0908;
   padding: 5rem 0 3rem;
 
   @media (min-width: 768px) {
@@ -977,120 +957,77 @@ const getBadgeLabel = (company: string) => {
   flex-direction: column;
   gap: 5rem;
 
-  @media (min-width: 768px) {
-    gap: 6rem;
-  }
+  @media (min-width: 768px) { gap: 6rem; }
 }
 
-/* ── Section heading ───────────────────────────────────── */
+/* ── Section eyebrow ──────────────────────────────────────────── */
 .cs-section__eyebrow {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--color-primary-600);
-  margin-bottom: 1.75rem;
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(223, 175, 133, 0.45);
+  margin-bottom: 1.75rem;
 
+  &::before,
   &::after {
     content: '';
-    flex: 1;
+    flex: 0 0 3rem;
     height: 1px;
-    background: color-mix(in srgb, var(--color-primary-500) 20%, transparent);
-    max-width: 3rem;
+    background: rgba(223, 175, 133, 0.1);
   }
 }
 
-:global(.dark) .cs-section__eyebrow {
-  color: var(--color-primary-400);
-
-  &::after {
-    background: color-mix(in srgb, var(--color-primary-400) 25%, transparent);
-  }
-}
-
-/* ── Overview ──────────────────────────────────────────── */
+/* ── Overview ─────────────────────────────────────────────────── */
 .cs-overview {
   display: grid;
   gap: 1rem;
 
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  @media (min-width: 768px) { grid-template-columns: repeat(3, 1fr); }
 }
 
 .cs-overview__card {
   padding: 1.75rem;
-  background: var(--color-surface-1);
-  border: 1px solid var(--color-border);
-  border-radius: 1rem;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 300ms var(--ease-smooth), box-shadow 300ms var(--ease-smooth);
+  background: #161210;
+  border: 1px solid rgba(223, 175, 133, 0.1);
+  transition: border-color 0.3s ease;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-primary-500), var(--color-primary-300));
-    opacity: 0;
-    transition: opacity 300ms var(--ease-smooth);
-  }
-
-  &:hover {
-    border-color: color-mix(in srgb, var(--color-primary-500) 30%, transparent);
-    box-shadow: 0 8px 32px -8px color-mix(in srgb, var(--color-primary-500) 10%, transparent);
-
-    &::before { opacity: 1; }
-  }
+  &:hover { border-color: rgba(223, 175, 133, 0.22); }
 }
 
-.cs-overview__icon-wrap {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 0.625rem;
-  background: color-mix(in srgb, var(--color-primary-500) 10%, transparent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.overview-diamond {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: rgba(223, 175, 133, 0.35);
+  transform: rotate(45deg);
   margin-bottom: 1rem;
 }
 
-.cs-overview__icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  color: var(--color-primary-600);
-}
-
-:global(.dark) .cs-overview__icon {
-  color: var(--color-primary-400);
-}
-
 .cs-overview__heading {
-  font-size: 0.875rem;
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
   font-weight: 700;
-  color: var(--color-primary-600);
+  color: rgba(223, 175, 133, 0.6);
   margin-bottom: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-:global(.dark) .cs-overview__heading {
-  color: var(--color-primary-400);
+  letter-spacing: 0.12em;
 }
 
 .cs-overview__text {
-  font-size: 0.9375rem;
-  color: var(--color-text-secondary);
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: rgba(255, 237, 223, 0.5);
   line-height: 1.75;
+  margin: 0;
 }
 
-/* ── Technologies ──────────────────────────────────────── */
+/* ── Technologies ─────────────────────────────────────────────── */
 .cs-tech-section {
   display: flex;
   flex-wrap: wrap;
@@ -1099,11 +1036,12 @@ const getBadgeLabel = (company: string) => {
 }
 
 .cs-tech-section__label {
-  font-size: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--color-text-muted);
+  letter-spacing: 0.15em;
+  color: rgba(255, 237, 223, 0.3);
   white-space: nowrap;
 }
 
@@ -1114,36 +1052,31 @@ const getBadgeLabel = (company: string) => {
 }
 
 .cs-tech-tag {
-  padding: 0.375rem 0.875rem;
-  background: color-mix(in srgb, var(--color-primary-500) 8%, var(--color-surface-1));
-  border: 1px solid color-mix(in srgb, var(--color-primary-500) 20%, transparent);
-  border-radius: 0.5rem;
-  font-size: 0.8125rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(223, 175, 133, 0.05);
+  border: 1px solid rgba(223, 175, 133, 0.12);
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
   font-weight: 600;
-  color: var(--color-primary-700);
-  transition: background 200ms var(--ease-smooth);
+  letter-spacing: 0.06em;
+  color: rgba(223, 175, 133, 0.55);
+  transition: background 0.2s ease, border-color 0.2s ease;
 
   &:hover {
-    background: color-mix(in srgb, var(--color-primary-500) 14%, var(--color-surface-1));
+    background: rgba(223, 175, 133, 0.08);
+    border-color: rgba(223, 175, 133, 0.22);
   }
 }
 
-:global(.dark) .cs-tech-tag {
-  color: var(--color-primary-300);
-  background: color-mix(in srgb, var(--color-primary-500) 10%, var(--color-surface-2));
-  border-color: color-mix(in srgb, var(--color-primary-400) 20%, transparent);
-}
-
-/* ── Process ───────────────────────────────────────────── */
+/* ── Process timeline ─────────────────────────────────────────── */
 .cs-process {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .cs-phase {
   display: grid;
-  grid-template-columns: 3.5rem 1fr;
+  grid-template-columns: 3rem 1fr;
   gap: 0 1.5rem;
 }
 
@@ -1157,53 +1090,47 @@ const getBadgeLabel = (company: string) => {
 .cs-phase__number {
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: 50%;
-  background: var(--color-primary-800);
-  color: var(--color-primary-100);
-  font-size: 0.8125rem;
-  font-weight: 800;
+  background: rgba(223, 175, 133, 0.06);
+  border: 1px solid rgba(223, 175, 133, 0.2);
+  color: rgba(223, 175, 133, 0.55);
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 2px solid var(--color-primary-600);
   position: relative;
   z-index: 1;
 }
 
 .cs-phase__connector {
   flex: 1;
-  width: 2px;
-  background: linear-gradient(to bottom,
-    var(--color-primary-600),
-    color-mix(in srgb, var(--color-primary-500) 20%, transparent)
-  );
+  width: 1px;
+  background: rgba(223, 175, 133, 0.1);
   margin: 0.5rem 0;
   min-height: 2rem;
 }
 
-.cs-phase:last-child .cs-phase__connector {
-  display: none;
-}
+.cs-phase:last-child .cs-phase__connector { display: none; }
 
-.cs-phase__body {
-  padding-bottom: 2.5rem;
-}
-
-.cs-phase:last-child .cs-phase__body {
-  padding-bottom: 0;
-}
+.cs-phase__body { padding-bottom: 2.5rem; }
+.cs-phase:last-child .cs-phase__body { padding-bottom: 0; }
 
 .cs-phase__title {
-  font-size: 1.125rem;
+  font-family: var(--font-heading);
   font-weight: 700;
-  color: var(--color-text-heading);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  color: #ffeddf;
   margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
 }
 
 .cs-phase__desc {
-  font-size: 0.9375rem;
-  color: var(--color-text-secondary);
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: rgba(255, 237, 223, 0.5);
   line-height: 1.75;
   margin-bottom: 1rem;
 }
@@ -1217,27 +1144,24 @@ const getBadgeLabel = (company: string) => {
 .cs-deliverable {
   display: inline-flex;
   align-items: center;
-  gap: 0.375rem;
-  padding: 0.25rem 0.75rem;
-  background: color-mix(in srgb, var(--color-primary-500) 8%, var(--color-surface-1));
-  border: 1px solid color-mix(in srgb, var(--color-primary-500) 15%, transparent);
-  border-radius: 9999px;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--color-primary-700);
-
-  svg { color: var(--color-primary-500); }
+  gap: 0.5rem;
+  padding: 0.2rem 0.625rem;
+  background: rgba(223, 175, 133, 0.04);
+  border: 1px solid rgba(223, 175, 133, 0.1);
+  font-family: var(--font-text);
+  font-size: 0.75rem;
+  color: rgba(255, 237, 223, 0.45);
 }
 
-:global(.dark) .cs-deliverable {
-  color: var(--color-primary-300);
-  background: color-mix(in srgb, var(--color-primary-500) 10%, var(--color-surface-2));
-  border-color: color-mix(in srgb, var(--color-primary-400) 18%, transparent);
-
-  svg { color: var(--color-primary-400); }
+.deliverable-diamond {
+  flex-shrink: 0;
+  width: 4px;
+  height: 4px;
+  background: rgba(223, 175, 133, 0.4);
+  transform: rotate(45deg);
 }
 
-/* ── Challenges ────────────────────────────────────────── */
+/* ── Challenges ───────────────────────────────────────────────── */
 .cs-challenges {
   display: flex;
   flex-direction: column;
@@ -1246,26 +1170,23 @@ const getBadgeLabel = (company: string) => {
 
 .cs-challenge {
   padding: 2rem;
-  background: var(--color-surface-1);
-  border: 1px solid var(--color-border);
-  border-radius: 1rem;
+  background: #161210;
+  border: 1px solid rgba(223, 175, 133, 0.1);
   position: relative;
   overflow: hidden;
-  transition: border-color 200ms var(--ease-smooth), box-shadow 200ms var(--ease-smooth);
+  transition: border-color 0.3s ease;
 
-  &:hover {
-    border-color: color-mix(in srgb, var(--color-primary-500) 35%, transparent);
-    box-shadow: 0 12px 40px -12px color-mix(in srgb, var(--color-primary-500) 12%, transparent);
-  }
+  &:hover { border-color: rgba(223, 175, 133, 0.22); }
 }
 
 .cs-challenge__number {
   position: absolute;
   top: 1.25rem;
   right: 1.5rem;
+  font-family: var(--font-heading);
   font-size: 3.5rem;
   font-weight: 900;
-  color: color-mix(in srgb, var(--color-primary-500) 8%, transparent);
+  color: rgba(223, 175, 133, 0.04);
   line-height: 1;
   pointer-events: none;
   user-select: none;
@@ -1273,69 +1194,63 @@ const getBadgeLabel = (company: string) => {
 }
 
 .cs-challenge__title {
-  font-size: 1.125rem;
+  font-family: var(--font-heading);
   font-weight: 700;
-  color: var(--color-text-heading);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  color: #ffeddf;
   margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
 }
 
 .cs-challenge__pair {
   display: grid;
   gap: 1rem;
 
-  @media (min-width: 640px) {
-    grid-template-columns: 1fr 1fr;
-  }
+  @media (min-width: 640px) { grid-template-columns: 1fr 1fr; }
 }
 
 .cs-challenge__block {
   padding: 1rem 1.25rem;
-  border-radius: 0.625rem;
-  border-left: 3px solid;
+  border-left: 2px solid;
 
   &--problem {
-    background: color-mix(in srgb, #dc2626 5%, var(--color-surface-2));
-    border-color: color-mix(in srgb, #dc2626 50%, transparent);
+    background: rgba(220, 38, 38, 0.04);
+    border-color: rgba(220, 38, 38, 0.3);
   }
 
   &--solution {
-    background: color-mix(in srgb, var(--color-primary-500) 7%, var(--color-surface-2));
-    border-color: var(--color-primary-500);
+    background: rgba(223, 175, 133, 0.04);
+    border-color: rgba(223, 175, 133, 0.25);
   }
 }
 
 .cs-challenge__block-label {
   display: block;
-  font-size: 0.6875rem;
+  font-family: var(--font-heading);
+  font-size: 0.55rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   margin-bottom: 0.5rem;
 
-  .cs-challenge__block--problem & { color: #dc2626; }
-  .cs-challenge__block--solution & { color: var(--color-primary-600); }
-}
-
-:global(.dark) .cs-challenge__block-label {
-  .cs-challenge__block--solution & { color: var(--color-primary-400); }
+  .cs-challenge__block--problem & { color: rgba(220, 38, 38, 0.7); }
+  .cs-challenge__block--solution & { color: rgba(223, 175, 133, 0.6); }
 }
 
 .cs-challenge__block-text {
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: 0.875rem;
+  color: rgba(255, 237, 223, 0.5);
   line-height: 1.65;
+  margin: 0;
 }
 
-/* ── Results ───────────────────────────────────────────── */
+/* ── Results ──────────────────────────────────────────────────── */
 .cs-results {
   padding: 2.5rem;
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--color-primary-800) 95%, transparent),
-    color-mix(in srgb, var(--color-primary-900) 95%, transparent)
-  );
-  border: 1px solid color-mix(in srgb, var(--color-primary-600) 30%, transparent);
-  border-radius: 1.25rem;
+  background: #161210;
+  border: 1px solid rgba(223, 175, 133, 0.12);
   position: relative;
   overflow: hidden;
 
@@ -1343,18 +1258,20 @@ const getBadgeLabel = (company: string) => {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 3px;
+    height: 1px;
     background: linear-gradient(90deg,
-      var(--color-primary-500),
-      var(--color-primary-300),
-      var(--color-primary-500)
+      transparent,
+      rgba(223, 175, 133, 0.4),
+      transparent
     );
   }
 }
 
 .cs-results__summary {
-  font-size: 1.0625rem;
-  color: var(--color-primary-100);
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  color: rgba(255, 237, 223, 0.65);
   line-height: 1.75;
   margin-bottom: 1.75rem;
 }
@@ -1370,43 +1287,44 @@ const getBadgeLabel = (company: string) => {
 
 .cs-results__item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.75rem;
-  font-size: 0.9375rem;
-  color: var(--color-primary-200);
+  font-family: var(--font-text);
+  font-size: 0.9rem;
+  color: rgba(255, 237, 223, 0.55);
   line-height: 1.6;
 }
 
-.cs-results__icon {
-  width: 1.125rem;
-  height: 1.125rem;
-  color: var(--color-primary-400);
+.result-diamond {
   flex-shrink: 0;
-  margin-top: 0.2rem;
+  width: 6px;
+  height: 6px;
+  background: rgba(223, 175, 133, 0.45);
+  transform: rotate(45deg);
 }
 
-/* ── Gallery ───────────────────────────────────────────── */
+/* ── Gallery ──────────────────────────────────────────────────── */
 .cs-gallery {
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr;
 
-  @media (min-width: 640px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  @media (min-width: 640px) { grid-template-columns: repeat(2, 1fr); }
 }
 
 .cs-gallery__item {
   position: relative;
   overflow: hidden;
-  border-radius: 0.875rem;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface-1);
+  border: 1px solid rgba(223, 175, 133, 0.1);
+  background: #161210;
   cursor: pointer;
   padding: 0;
+  transition: border-color 0.3s ease;
+
+  &:hover { border-color: rgba(223, 175, 133, 0.25); }
 
   &:focus-visible {
-    outline: 2px solid var(--color-primary-500);
+    outline: 2px solid rgba(223, 175, 133, 0.5);
     outline-offset: 2px;
   }
 }
@@ -1415,11 +1333,9 @@ const getBadgeLabel = (company: string) => {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 400ms var(--ease-smooth);
+  transition: transform 0.4s var(--ease-smooth);
 
-  .cs-gallery__item:hover & {
-    transform: scale(1.04);
-  }
+  .cs-gallery__item:hover & { transform: scale(1.04); }
 }
 
 .cs-gallery__overlay {
@@ -1429,23 +1345,26 @@ const getBadgeLabel = (company: string) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 250ms var(--ease-smooth);
+  transition: background 0.25s ease;
 
-  .cs-gallery__item:hover & {
-    background: color-mix(in srgb, var(--color-primary-900) 50%, transparent);
-  }
+  .cs-gallery__item:hover & { background: rgba(13, 9, 8, 0.55); }
 }
 
 .cs-gallery__expand {
-  padding: 0.875rem;
-  border-radius: 50%;
-  background: var(--color-primary-500);
-  color: #fff;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(223, 175, 133, 0.12);
+  border: 1px solid rgba(223, 175, 133, 0.3);
+  color: rgba(223, 175, 133, 0.8);
+  font-size: 1.1rem;
   opacity: 0;
   transform: scale(0.85);
   transition:
-    opacity 250ms var(--ease-smooth),
-    transform 250ms var(--ease-smooth);
+    opacity 0.25s ease,
+    transform 0.25s ease;
 
   .cs-gallery__item:hover & {
     opacity: 1;
@@ -1453,10 +1372,10 @@ const getBadgeLabel = (company: string) => {
   }
 }
 
-/* ── Case navigation ───────────────────────────────────── */
+/* ── Case navigation ──────────────────────────────────────────── */
 .cs-nav {
-  background: var(--color-surface-1);
-  border-top: 1px solid var(--color-border);
+  background: #120703;
+  border-top: 1px solid rgba(223, 175, 133, 0.08);
   padding: 3rem 0;
 }
 
@@ -1464,9 +1383,7 @@ const getBadgeLabel = (company: string) => {
   display: grid;
   gap: 1rem;
 
-  @media (min-width: 640px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  @media (min-width: 640px) { grid-template-columns: repeat(2, 1fr); }
 }
 
 .cs-nav__link {
@@ -1474,22 +1391,20 @@ const getBadgeLabel = (company: string) => {
   align-items: center;
   gap: 1rem;
   padding: 1.5rem;
-  border-radius: 0.875rem;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(223, 175, 133, 0.08);
+  background: #161210;
   text-decoration: none;
   transition:
-    border-color 200ms var(--ease-smooth),
-    background 200ms var(--ease-smooth),
-    box-shadow 200ms var(--ease-smooth);
+    border-color 0.2s ease,
+    background 0.2s ease;
 
   &:hover {
-    border-color: color-mix(in srgb, var(--color-primary-500) 40%, transparent);
-    background: color-mix(in srgb, var(--color-primary-500) 4%, var(--color-surface-1));
-    box-shadow: 0 8px 24px -8px color-mix(in srgb, var(--color-primary-500) 12%, transparent);
+    border-color: rgba(223, 175, 133, 0.2);
+    background: rgba(223, 175, 133, 0.03);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-primary-500);
+    outline: 2px solid rgba(223, 175, 133, 0.5);
     outline-offset: 2px;
   }
 
@@ -1500,100 +1415,363 @@ const getBadgeLabel = (company: string) => {
 }
 
 .cs-nav__arrow {
-  color: var(--color-primary-500);
+  font-size: 1rem;
+  color: rgba(223, 175, 133, 0.4);
   flex-shrink: 0;
-  transition: transform 200ms var(--ease-smooth);
+  transition: color 0.2s ease, transform 0.2s ease;
 
+  .cs-nav__link:hover & { color: rgba(223, 175, 133, 0.7); }
   .cs-nav__link--prev:hover & { transform: translateX(-3px); }
   .cs-nav__link--next:hover & { transform: translateX(3px); }
 }
 
 .cs-nav__direction {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-size: 0.55rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-text-muted);
+  letter-spacing: 0.15em;
+  color: rgba(255, 237, 223, 0.3);
   margin-bottom: 0.375rem;
 }
 
 .cs-nav__case-title {
-  font-size: 1.0625rem;
+  font-family: var(--font-heading);
   font-weight: 700;
-  color: var(--color-text-heading);
-  transition: color 200ms var(--ease-smooth);
+  font-size: clamp(0.875rem, 1.1vw, 0.95rem);
+  color: rgba(255, 237, 223, 0.65);
+  transition: color 0.2s ease;
+  letter-spacing: -0.01em;
 
-  .cs-nav__link:hover & {
-    color: var(--color-primary-600);
-  }
+  .cs-nav__link:hover & { color: rgba(223, 175, 133, 0.8); }
 }
 
-:global(.dark) .cs-nav__case-title {
-  .cs-nav__link:hover & {
-    color: var(--color-primary-400);
-  }
-}
-
-/* ── CTA ───────────────────────────────────────────────── */
+/* ── CTA section ──────────────────────────────────────────────── */
 .cs-cta-wrap {
-  padding: 0 0 5rem;
+  position: relative;
+  background: #0d0908;
+  overflow: hidden;
+  padding: 5rem 2rem;
 
-  @media (min-width: 768px) {
-    padding: 0 0 6rem;
+  @media (min-width: 768px) { padding: 7rem 2rem; }
+}
+
+.cta-bg-radial {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 60% 80% at 50% 100%,
+    rgba(223, 175, 133, 0.05) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+.cta-container {
+  position: relative;
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+.cta-inner {
+  position: relative;
+  padding: 3rem 2.5rem;
+  border: 1px solid rgba(223, 175, 133, 0.12);
+  text-align: center;
+
+  @media (min-width: 768px) { padding: 4rem 3.5rem; }
+}
+
+.deco-frame-cta {
+  position: absolute;
+  inset: 0.875rem;
+  pointer-events: none;
+}
+
+.cta-corner {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-color: rgba(223, 175, 133, 0.18);
+  border-style: solid;
+
+  &--tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
+  &--tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
+  &--bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+  &--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+}
+
+.cta-label-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-sep-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.12);
+}
+
+.cta-sep-diamond {
+  width: 4px;
+  height: 4px;
+  background: rgba(223, 175, 133, 0.35);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.cta-sep-text {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.5);
+  flex-shrink: 0;
+}
+
+.cta-heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  line-height: 1.1;
+  color: #ffeddf;
+  margin: 0 0 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.cta-deco-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.cta-div-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.1);
+
+  &--inner { flex: 0 0 0.75rem; }
+}
+
+.cta-div-diamond {
+  width: 6px;
+  height: 6px;
+  background: rgba(223, 175, 133, 0.35);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+
+  &--sm {
+    width: 3px;
+    height: 3px;
+    background: rgba(223, 175, 133, 0.2);
   }
 }
 
-/* ── Dark mode overrides ───────────────────────────────── */
-:global(.dark) {
-  .cs-metrics-strip {
-    background: color-mix(in srgb, var(--color-primary-950) 90%, var(--color-surface-2));
-    border-color: color-mix(in srgb, var(--color-primary-800) 50%, transparent);
-  }
-
-  .cs-metric-item {
-    border-color: color-mix(in srgb, var(--color-primary-800) 40%, transparent);
-  }
-
-  .cs-results {
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--color-primary-950) 95%, var(--color-surface-2)),
-      var(--color-surface-2)
-    );
-    border-color: color-mix(in srgb, var(--color-primary-700) 30%, transparent);
-  }
-
-  .cs-challenge__block--problem {
-    background: color-mix(in srgb, #dc2626 6%, var(--color-surface-2));
-  }
-
-  .cs-challenge__block--solution {
-    background: color-mix(in srgb, var(--color-primary-500) 8%, var(--color-surface-2));
-  }
-
-  .cs-overview__card {
-    background: var(--color-surface-2);
-  }
+.cta-description {
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  line-height: 1.75;
+  color: rgba(255, 237, 223, 0.5);
+  max-width: 44ch;
+  margin: 0 auto 2.5rem;
 }
 
-/* ── Reduced motion ────────────────────────────────────── */
+.cta-actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
+  .cs-loading__spinner { animation: none; }
+
   .cs-hero__image,
   .cs-gallery__image,
   .cs-gallery__expand,
   .cs-nav__link,
   .cs-nav__arrow,
-  .cs-visit-link {
+  .cs-visit-link,
+  .cs-overview__card,
+  .cs-tech-tag,
+  .cs-challenge,
+  .cs-gallery__item {
     transition: none;
   }
 
-  .cs-gallery__item:hover .cs-gallery__image {
-    transform: none;
+  .cs-gallery__item:hover .cs-gallery__image { transform: none; }
+  .cs-gallery__expand { opacity: 1; transform: none; }
+}
+
+/* ── Light mode ───────────────────────────────────────────────── */
+html:not(.dark) {
+  /* Page shell */
+  .cs-loading { background: var(--color-section-light); }
+  .cs-loading__text { color: var(--color-text-subtle); }
+  .cs-page { background: var(--color-section-light); }
+
+  /* Hero */
+  .cs-hero { background: var(--color-hero-bg); }
+  .cs-hero__bg {
+    background: radial-gradient(ellipse 70% 60% at 65% 0%, rgba(153, 82, 38, 0.06) 0%, transparent 65%);
   }
 
-  .cs-gallery__expand {
-    opacity: 1;
-    transform: none;
+  .cs-back {
+    color: var(--color-primary-600);
+    &:hover { color: var(--color-primary-800); }
   }
+
+  .cs-badge {
+    &--category {
+      background: rgba(153, 82, 38, 0.06);
+      color: var(--color-primary-700);
+      border-color: rgba(153, 82, 38, 0.2);
+    }
+    &--tag {
+      background: rgba(153, 82, 38, 0.03);
+      color: var(--color-primary-500);
+      border-color: rgba(153, 82, 38, 0.12);
+    }
+  }
+
+  .cs-hero__title    { color: #441a08; }
+  .cs-hero__subtitle { color: var(--color-text-subtle); }
+
+  .cs-meta-item__label { color: var(--color-primary-500); }
+  .cs-meta-item__value { color: var(--color-text-secondary); }
+  .cs-meta-divider     { background: var(--deco-line); }
+
+  .cs-hero__image-frame { border-color: var(--deco-line); }
+  .cs-hero__image-glow {
+    background: radial-gradient(ellipse at 50% 0%, rgba(153, 82, 38, 0.04) 0%, transparent 60%);
+  }
+
+  .cs-visit-link {
+    background: rgba(153, 82, 38, 0.05);
+    border-color: rgba(153, 82, 38, 0.18);
+    color: var(--color-primary-600);
+    &:hover {
+      background: rgba(153, 82, 38, 0.08);
+      border-color: rgba(153, 82, 38, 0.3);
+      color: var(--color-primary-700);
+    }
+  }
+
+  /* Metrics strip */
+  .cs-metrics-strip {
+    background: linear-gradient(175deg, #ffe4cf 0%, #ffeddf 100%);
+    border-top-color: var(--deco-line);
+    border-bottom-color: var(--deco-line);
+  }
+  .cs-metric-item         { border-right-color: var(--deco-line); }
+  .cs-metric-item__value  { color: var(--color-primary-700); }
+  .cs-metric-item__label  { color: var(--color-text-subtle); }
+  .cs-metric-item__desc   { color: var(--color-text-muted); }
+
+  /* Main content */
+  .cs-main { background: var(--color-section-light); }
+  .cs-section__eyebrow { color: var(--color-primary-500); &::before, &::after { background: var(--deco-line); } }
+
+  /* Overview cards */
+  .cs-overview__card {
+    background: linear-gradient(175deg, #ffffff 0%, #fff7f0 100%);
+    border-color: var(--deco-line);
+    &:hover { border-color: rgba(153, 82, 38, 0.25); }
+  }
+  .overview-diamond      { background: rgba(153, 82, 38, 0.4); }
+  .cs-overview__heading  { color: var(--color-primary-600); }
+  .cs-overview__text     { color: var(--color-text-secondary); }
+
+  /* Technologies */
+  .cs-tech-section__label { color: var(--color-text-muted); }
+  .cs-tech-tag {
+    background: rgba(153, 82, 38, 0.04);
+    border-color: rgba(153, 82, 38, 0.12);
+    color: var(--color-primary-600);
+    &:hover { background: rgba(153, 82, 38, 0.07); border-color: rgba(153, 82, 38, 0.22); }
+  }
+
+  /* Process */
+  .cs-phase__number {
+    background: rgba(153, 82, 38, 0.05);
+    border-color: rgba(153, 82, 38, 0.2);
+    color: var(--color-primary-600);
+  }
+  .cs-phase__connector { background: var(--deco-line); }
+  .cs-phase__title     { color: var(--color-text-primary); }
+  .cs-phase__desc      { color: var(--color-text-subtle); }
+  .cs-deliverable {
+    background: rgba(153, 82, 38, 0.03);
+    border-color: rgba(153, 82, 38, 0.1);
+    color: var(--color-text-secondary);
+  }
+  .deliverable-diamond { background: rgba(153, 82, 38, 0.4); }
+
+  /* Challenges */
+  .cs-challenge {
+    background: linear-gradient(175deg, #ffffff 0%, #fff7f0 100%);
+    border-color: var(--deco-line);
+    &:hover { border-color: rgba(153, 82, 38, 0.25); }
+  }
+  .cs-challenge__number { color: rgba(153, 82, 38, 0.06); }
+  .cs-challenge__title  { color: var(--color-text-primary); }
+  .cs-challenge__block--problem {
+    background: rgba(220, 38, 38, 0.04);
+    border-color: rgba(220, 38, 38, 0.28);
+  }
+  .cs-challenge__block--solution {
+    background: rgba(153, 82, 38, 0.04);
+    border-color: rgba(153, 82, 38, 0.22);
+  }
+  .cs-challenge__block-text { color: var(--color-text-secondary); }
+
+  /* Results */
+  .cs-results {
+    background: linear-gradient(175deg, #ffe4cf 0%, #ffeddf 60%, #faf7f4 100%);
+    border-color: var(--deco-line-strong);
+    &::before { background: linear-gradient(90deg, transparent, rgba(153, 82, 38, 0.35), transparent); }
+  }
+  .cs-results__summary { color: var(--color-text-secondary); }
+  .cs-results__item    { color: var(--color-text-secondary); }
+  .result-diamond      { background: rgba(153, 82, 38, 0.45); }
+
+  /* Gallery */
+  .cs-gallery__item {
+    background: #f5efe8;
+    border-color: var(--deco-line);
+    &:hover { border-color: rgba(153, 82, 38, 0.28); }
+  }
+  .cs-gallery__overlay .cs-gallery__item:hover & { background: rgba(245, 239, 232, 0.55); }
+
+  /* Case nav */
+  .cs-nav { background: var(--color-section-alt); border-top-color: var(--deco-line); }
+  .cs-nav__link {
+    background: linear-gradient(175deg, #ffffff 0%, #fff7f0 100%);
+    border-color: var(--deco-line);
+    &:hover { border-color: rgba(153, 82, 38, 0.25); background: rgba(153, 82, 38, 0.02); }
+  }
+  .cs-nav__arrow     { color: var(--color-primary-400); }
+  .cs-nav__direction { color: var(--color-text-muted); }
+  .cs-nav__case-title { color: var(--color-text-secondary); }
+  .cs-nav__link:hover .cs-nav__case-title { color: var(--color-primary-700); }
+
+  /* CTA */
+  .cs-cta-wrap { background: var(--color-section-alt); }
+  .cta-bg-radial {
+    background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(153, 82, 38, 0.04) 0%, transparent 65%);
+  }
+  .cta-inner         { border-color: var(--deco-line-strong); }
+  .cta-corner        { border-color: var(--deco-border); }
+  .cta-sep-line      { background: var(--deco-line); }
+  .cta-sep-diamond   { background: var(--deco-diamond); }
+  .cta-sep-text      { color: var(--deco-text); }
+  .cta-heading       { color: var(--color-text-primary); }
+  .cta-div-line      { background: var(--deco-line); &--inner { background: var(--deco-line); } }
+  .cta-div-diamond   { background: var(--deco-diamond); &--sm { background: var(--deco-diamond-sm); } }
+  .cta-description   { color: var(--color-text-subtle); }
 }
 </style>

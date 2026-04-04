@@ -2,47 +2,64 @@
  * SEO composable tailored for eyeonidea.com.
  * Generates meta tags, canonical URLs, Open Graph/Twitter, and JSON-LD.
  */
+import type { MaybeRefOrGetter as VueMaybeRefOrGetter } from "vue";
 
 type SchemaNode = Record<string, unknown>;
+type ResolvableString = string | (() => string);
+type MaybeRefOrGetter<T> = VueMaybeRefOrGetter<T>;
+type AlternateLocaleEntry = { code: string; iso?: string; href: string };
+
+interface PublicSeoRuntimeConfig {
+  siteUrl?: string;
+  siteName?: string;
+  siteLegalName?: string;
+  siteDescription?: string;
+  siteLogo?: string;
+  ogImage?: string;
+  twitterHandle?: string;
+  linkedinUrl?: string;
+  industry?: string;
+  ogImageWidth?: number | string;
+  ogImageHeight?: number | string;
+}
 
 interface SeoOptions {
-  title: string;
-  description: string;
-  image?: string;
-  imageAlt?: string;
-  imageWidth?: number;
-  imageHeight?: number;
-  url?: string;
-  canonical?: string;
-  type?: "website" | "article" | "profile" | "product" | "portfolio";
-  noindex?: boolean;
-  keywords?: string[];
-  author?: string;
-  publishedTime?: string;
-  modifiedTime?: string;
-  structuredData?: SchemaNode | SchemaNode[];
-  breadcrumbs?: Array<{ name: string; url: string }>;
-  ogType?: string;
-  twitterCard?: "summary" | "summary_large_image" | "app" | "player";
-  twitterSite?: string;
-  twitterCreator?: string;
-  titleTemplate?: string | null;
+  title: ResolvableString;
+  description: ResolvableString;
+  image?: string | undefined;
+  imageAlt?: string | undefined;
+  imageWidth?: number | undefined;
+  imageHeight?: number | undefined;
+  url?: string | undefined;
+  canonical?: string | undefined;
+  type?: "website" | "article" | "profile" | "product" | "portfolio" | undefined;
+  noindex?: boolean | undefined;
+  keywords?: string[] | undefined;
+  author?: string | undefined;
+  publishedTime?: string | undefined;
+  modifiedTime?: string | undefined;
+  structuredData?: SchemaNode | SchemaNode[] | undefined;
+  breadcrumbs?: Array<{ name: string; url: string }> | undefined;
+  ogType?: string | undefined;
+  twitterCard?: "summary" | "summary_large_image" | "app" | "player" | undefined;
+  twitterSite?: string | undefined;
+  twitterCreator?: string | undefined;
+  titleTemplate?: string | null | undefined;
   schemaType?:
     | "WebPage"
     | "AboutPage"
     | "ContactPage"
     | "CollectionPage"
     | "ItemPage"
-    | "ProfilePage";
-  includeOrganizationSchema?: boolean;
-  includeWebSiteSchema?: boolean;
+    | "ProfilePage"
+    | undefined;
+  includeOrganizationSchema?: boolean | undefined;
+  includeWebSiteSchema?: boolean | undefined;
   // Article-specific fields for enhanced SEO
-  articleSection?: string;
-  articleTags?: string[];
-  wordCount?: number;
+  articleSection?: string | undefined;
+  articleTags?: string[] | undefined;
+  wordCount?: number | undefined;
 }
-
-type MaybeRefOrGetter<T> = T | { value: T } | (() => T);
 
 const resolveUrl = (input: string, baseUrl: string) => {
   try {
@@ -55,9 +72,8 @@ const resolveUrl = (input: string, baseUrl: string) => {
 const toOgLocale = (locale: string) => locale.replace("-", "_");
 
 const getImageMimeType = (url: string) => {
-  const extension = url
-    .split("?")[0]
-    .split("#")[0]
+  const extension = ((url.split("?")[0] ?? "")
+    .split("#")[0] ?? "")
     .split(".")
     .pop()
     ?.toLowerCase();
@@ -80,8 +96,9 @@ const getImageMimeType = (url: string) => {
 export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
   const route = useRoute();
   const { locale, locales, localeProperties } = useI18n();
-  const localePath = useLocalePath();
+  const localePath = useLocalePath() as (path: string, locale?: string) => string;
   const config = useRuntimeConfig();
+  const publicConfig = config.public as PublicSeoRuntimeConfig;
 
   const resolveOptions = () => {
     if (typeof options === "function") {
@@ -90,30 +107,30 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
     return unref(options);
   };
 
-  const baseUrl = (config.public.siteUrl || "https://eyeonidea.com").replace(
+  const baseUrl = (publicConfig.siteUrl || "https://eyeonidea.com").replace(
     /\/$/,
     "",
   );
-  const siteName = config.public.siteName || "Eye On Idea";
-  const siteLegalName = config.public.siteLegalName || "Eye On Idea";
+  const siteName = publicConfig.siteName || "Eye On Idea";
+  const siteLegalName = publicConfig.siteLegalName || "Eye On Idea";
   const siteDescription =
-    config.public.siteDescription ||
+    publicConfig.siteDescription ||
     "Danish digital consultancy helping B2B companies across Europe establish professional digital presence";
   const siteLogo = resolveUrl(
-    config.public.siteLogo || "/android-chrome-512x512.png",
+    publicConfig.siteLogo || "/android-chrome-512x512.png",
     baseUrl,
   );
   const defaultImage = resolveUrl(
-    config.public.ogImage || "/public-material/company-page-banner.png",
+    publicConfig.ogImage || "/public-material/company-page-banner.png",
     baseUrl,
   );
-  const siteTwitter = config.public.twitterHandle || "@eyeonidea";
+  const siteTwitter = publicConfig.twitterHandle || "@eyeonidea";
   const siteLinkedIn =
-    config.public.linkedinUrl ||
+    publicConfig.linkedinUrl ||
     "https://www.linkedin.com/company/eye-on-idea/";
-  const industry = config.public.industry || "Digital Agency";
-  const defaultImageWidth = Number(config.public.ogImageWidth) || 1200;
-  const defaultImageHeight = Number(config.public.ogImageHeight) || 630;
+  const industry = publicConfig.industry || "Digital Agency";
+  const defaultImageWidth = Number(publicConfig.ogImageWidth) || 1200;
+  const defaultImageHeight = Number(publicConfig.ogImageHeight) || 630;
   const getSeoContext = () => {
     const resolved = resolveOptions();
     const routePath = resolved.url ?? route.path;
@@ -124,12 +141,12 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
     // as reactive i18n values (e.g. `title: () => t("page.meta.title")`)
     const titleRaw =
       typeof resolved.title === "function"
-        ? (resolved.title as () => string)()
-        : (resolved.title as string);
+        ? resolved.title()
+        : resolved.title;
     const descriptionRaw =
       typeof resolved.description === "function"
-        ? (resolved.description as () => string)()
-        : (resolved.description as string);
+        ? resolved.description()
+        : resolved.description;
 
     const titleHasBrand = (titleRaw || "")
       .toLowerCase()
@@ -151,7 +168,7 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
     const imageHeight =
       resolved.imageHeight ?? (resolved.image ? undefined : defaultImageHeight);
 
-    const lang = localeProperties.value?.iso || locale.value || "en";
+    const lang = String(localeProperties.value?.iso || locale.value || "en");
     const dir = localeProperties.value?.dir;
     const ogLocale = toOgLocale(lang);
 
@@ -159,21 +176,22 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
       ? (locales.value as Array<string | { code?: string; iso?: string }>)
       : [];
 
-    const alternateCandidates = localeEntries
-      .map((entry) => {
-        const code = typeof entry === "string" ? entry : entry.code;
-        if (!code) return null;
-        const iso = typeof entry === "string" ? undefined : entry.iso;
-        const href = resolveUrl(localePath(route.path, code), baseUrl);
-        return {
-          code,
-          iso,
-          href,
-        };
-      })
-      .filter((entry): entry is { code: string; iso?: string; href: string } =>
-        Boolean(entry),
-      );
+    const alternateCandidates: AlternateLocaleEntry[] = [];
+    localeEntries.forEach((entry) => {
+      const codeValue = typeof entry === "string" ? entry : entry.code;
+      if (!codeValue) return;
+
+      const code = String(codeValue);
+      const isoValue = typeof entry === "string" ? undefined : entry.iso;
+      const iso = typeof isoValue === "string" ? isoValue : undefined;
+      const href = resolveUrl(localePath(route.path, code), baseUrl);
+
+      alternateCandidates.push({
+        code,
+        iso,
+        href,
+      });
+    });
 
     const uniqueHrefs = new Set(alternateCandidates.map((entry) => entry.href));
     const hasAlternateUrls = uniqueHrefs.size > 1;

@@ -23,14 +23,14 @@ function goHome() {
 // Build “report issue” mailto with context
 const mailto = computed(() => {
   const subject = encodeURIComponent(
-    `[EOI] ${is404 ? "404" : "Fejl"} på ${route.fullPath}`
+    `[EOI] ${is404 ? "404" : "Fejl"} på ${route.fullPath}`,
   );
   const body = encodeURIComponent(
     `Hej EOI,\n\nDer opstod en ${
       is404 ? "404 (side ikke fundet)" : "fejl"
     } på følgende adresse:\n${location.origin}${
       route.fullPath
-    }\n\nBeskriv hvad du forsøgte at gøre:\n- \n\nBrowser/Enhed:\n- \n`
+    }\n\nBeskriv hvad du forsøgte at gøre:\n- \n\nBrowser/Enhed:\n- \n`,
   );
   return `mailto:rune-ceo@eyeonidea.com?subject=${subject}&body=${body}`;
 });
@@ -47,7 +47,7 @@ const mailto = computed(() => {
         <div class="space-y-6">
           <!-- Helpful actions -->
           <div class="flex flex-wrap gap-3">
-            <UButton color="black" icon="i-heroicons-home" @click="goHome">
+            <UButton color="neutral" icon="i-heroicons-home" @click="goHome">
               Til forsiden
             </UButton>
 
@@ -60,14 +60,14 @@ const mailto = computed(() => {
               Prøv igen
             </UButton>
 
-            <UButton color="gray" icon="i-heroicons-envelope" :to="mailto">
+            <UButton color="neutral" icon="i-heroicons-envelope" :to="mailto">
               Rapportér problem
             </UButton>
 
             <UButton
-              color="gray"
+              color="neutral"
               icon="i-heroicons-squares-2x2"
-              to="/services"
+              to="/solutions"
               variant="ghost"
             >
               Se ydelser
@@ -79,7 +79,7 @@ const mailto = computed(() => {
             icon="i-heroicons-information-circle"
             title="Teknisk info"
             :description="`Adresse: ${route.fullPath}`"
-            color="gray"
+            color="neutral"
             variant="subtle"
           />
 

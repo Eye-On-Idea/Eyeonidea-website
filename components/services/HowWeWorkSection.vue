@@ -1,37 +1,36 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { withDelay } from "~/composables/useAccessibleMotion";
 
 const { t, tm } = useI18n();
+const localePath = useLocalePath();
 
 const sectionRef = ref<HTMLElement | null>(null);
-const isVisible = ref(false);
+const visible    = ref(false);
+const observer   = ref<IntersectionObserver | null>(null);
 
 onMounted(() => {
-  if (!sectionRef.value) return;
-
-  const observer = new IntersectionObserver(
+  observer.value = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true;
-          observer.disconnect();
-        }
-      });
+      const entry = entries[0];
+      if (entry?.isIntersecting) {
+        visible.value = true;
+        observer.value?.disconnect();
+      }
     },
-    { threshold: 0.1 },
+    { threshold: 0.08 }
   );
-
-  observer.observe(sectionRef.value);
-
-  onUnmounted(() => {
-    observer.disconnect();
-  });
+  if (sectionRef.value) observer.value.observe(sectionRef.value);
 });
+onUnmounted(() => observer.value?.disconnect());
+
+const headMotion = withDelay("fadeInUp", 80);
+const stepMotion = (i: number) => withDelay("fadeInUp", 160 + i * 100);
+
+const numerals = ["I", "II", "III", "IV"];
 
 const steps = computed(
   () =>
     tm("services.howWeWork.steps") as Array<{
-      icon: string;
       title: string;
       description: string;
     }>,
@@ -45,121 +44,154 @@ const steps = computed(
     class="how-we-work-section"
     aria-labelledby="how-we-work-heading"
   >
-    <div class="section-container">
-      <!-- Header -->
-      <div class="section-header" :class="{ 'animate-in': isVisible }">
-        <h2 id="how-we-work-heading" class="section-title">
-          {{ t("services.howWeWork.title") }}
-        </h2>
-        <p class="section-subtitle">
-          {{ t("services.howWeWork.subtitle") }}
-        </p>
-      </div>
-
-      <!-- Steps Grid -->
-      <div class="steps-grid" :class="{ 'animate-in': isVisible }">
-        <div
-          v-for="(step, index) in steps"
-          :key="index"
-          class="step-card"
-          :class="`stagger-${index + 1}`"
-        >
-          <div class="step-number">{{ index + 1 }}</div>
-          <div class="step-icon-wrap">
-            <UIcon :name="step.icon" class="step-icon" aria-hidden="true" />
-          </div>
-          <h3 class="step-title">{{ step.title }}</h3>
-          <p class="step-description">{{ step.description }}</p>
-        </div>
-      </div>
-
-      <!-- CTA Link -->
-      <div class="section-cta" :class="{ 'animate-in': isVisible }">
-        <NuxtLink to="/services/process" class="cta-link">
-          {{ t("services.howWeWork.cta") }}
-          <UIcon
-            name="i-heroicons-arrow-right"
-            class="cta-icon"
-            aria-hidden="true"
-          />
-        </NuxtLink>
-      </div>
+    <!-- Section separator / label -->
+    <div class="section-label-row" aria-hidden="true">
+      <span class="sep-line" />
+      <span class="sep-diamond" />
+      <span class="sep-text">{{ t("services.howWeWork.title") }}</span>
+      <span class="sep-diamond" />
+      <span class="sep-line" />
     </div>
+
+    <!-- Header -->
+    <div
+      class="section-header"
+      :key="`hww-header-${visible}`"
+      v-motion
+      :initial="headMotion.initial"
+      :enter="visible ? headMotion.visible : headMotion.initial"
+    >
+      <h2 id="how-we-work-heading" class="section-title">
+        {{ t("services.howWeWork.subtitle") }}
+      </h2>
+    </div>
+
+    <!-- Steps grid -->
+    <ol class="steps-grid" role="list">
+      <li
+        v-for="(step, index) in steps"
+        :key="`step-${index}-${visible}`"
+        class="step-item"
+        v-motion
+        :initial="stepMotion(index).initial"
+        :enter="visible ? stepMotion(index).visible : stepMotion(index).initial"
+      >
+        <!-- Numeral row -->
+        <div class="step-numeral-row" aria-hidden="true">
+          <span class="step-rule" />
+          <span class="step-numeral">{{ numerals[index] }}</span>
+          <span class="step-rule" />
+        </div>
+
+        <!-- Deco divider -->
+        <div class="step-deco-divider" aria-hidden="true">
+          <span class="deco-line" />
+          <span class="deco-diamond" />
+          <span class="deco-line" />
+        </div>
+
+        <h3 class="step-heading">{{ step.title }}</h3>
+        <p class="step-body">{{ step.description }}</p>
+      </li>
+    </ol>
+
+    <!-- Footer strip CTA -->
+    <NuxtLink
+      :to="localePath('/solutions/process')"
+      class="footer-strip"
+    >
+      <span class="strip-deco" aria-hidden="true">
+        <span class="strip-line" />
+        <span class="strip-diamond strip-diamond--sm" />
+        <span class="strip-line strip-line--inner" />
+        <span class="strip-diamond" />
+        <span class="strip-line strip-line--inner" />
+        <span class="strip-diamond strip-diamond--sm" />
+        <span class="strip-line" />
+      </span>
+      <span class="strip-label">
+        {{ t("services.howWeWork.cta") }}
+        <UIcon name="i-heroicons-arrow-right-20-solid" class="strip-icon" />
+      </span>
+      <span class="strip-deco" aria-hidden="true">
+        <span class="strip-line" />
+        <span class="strip-diamond strip-diamond--sm" />
+        <span class="strip-line strip-line--inner" />
+        <span class="strip-diamond" />
+        <span class="strip-line strip-line--inner" />
+        <span class="strip-diamond strip-diamond--sm" />
+        <span class="strip-line" />
+      </span>
+    </NuxtLink>
   </section>
 </template>
 
 <style lang="scss" scoped>
+/* ── Section ──────────────────────────────────────────────────── */
 .how-we-work-section {
-  padding: 6rem 1.5rem;
-  background: var(--color-section-light);
-
-  @media (min-width: 768px) {
-    padding: 8rem 2rem;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 10rem 2rem;
-  }
+  background: #0d0908;
+  padding-bottom: 0;
 }
 
-.section-container {
-  max-width: 1200px;
+/* ── Section separator / label ────────────────────────────────── */
+.section-label-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 80rem;
   margin: 0 auto;
+  padding: 5rem 2rem 3rem;
 }
 
-.section-header {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 4rem;
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity 0.6s var(--ease-smooth),
-    transform 0.6s var(--ease-smooth);
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.sep-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.12);
 }
 
-.section-badge {
-  display: inline-block;
-  padding: 0.375rem 1rem;
-  background: var(--color-primary-100);
-  color: var(--color-primary-700);
-  font-size: var(--text-xs);
-  font-weight: 600;
+.sep-diamond {
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.35);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.sep-text {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border-radius: 9999px;
-  margin-bottom: 1rem;
+  color: rgba(223, 175, 133, 0.45);
+  flex-shrink: 0;
+}
+
+/* ── Header ───────────────────────────────────────────────────── */
+.section-header {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem 3rem;
 }
 
 .section-title {
-  font-size: var(--text-3xl);
-  color: var(--color-text);
-  margin-bottom: 1rem;
-
-  @media (min-width: 768px) {
-    font-size: var(--text-4xl);
-  }
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.02em;
 }
 
-.section-subtitle {
-  font-size: var(--text-base);
-  line-height: 1.6;
-  color: var(--color-text-muted);
-
-  @media (min-width: 768px) {
-    font-size: var(--text-lg);
-  }
-}
-
+/* ── Steps grid ───────────────────────────────────────────────── */
 .steps-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  border-top: 1px solid rgba(223, 175, 133, 0.08);
 
   @media (min-width: 640px) {
     grid-template-columns: repeat(2, 1fr);
@@ -168,178 +200,253 @@ const steps = computed(
   @media (min-width: 1024px) {
     grid-template-columns: repeat(4, 1fr);
   }
-
-  &.animate-in .step-card {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
-.step-card {
-  position: relative;
-  padding: 2rem 1.5rem;
-  text-align: center;
-  background: var(--color-surface-1);
-  border: 1px solid var(--glass-border-subtle);
-  border-radius: var(--radius-xl);
-  opacity: 0;
-  transform: translateY(40px);
-  transition:
-    opacity 0.6s var(--ease-smooth),
-    transform 0.6s var(--ease-smooth),
-    box-shadow 0.2s var(--ease-smooth);
+/* ── Step item ────────────────────────────────────────────────── */
+.step-item {
+  padding: 2.5rem 2rem 3rem;
+  border-right: 1px solid rgba(223, 175, 133, 0.08);
+  border-bottom: 1px solid rgba(223, 175, 133, 0.08);
+  transition: background 0.3s ease;
 
   &:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    background: rgba(223, 175, 133, 0.02);
+
+    .step-numeral { opacity: 1; }
+    .deco-diamond { background: rgba(223, 175, 133, 0.65); }
   }
 
-  &.stagger-1 {
-    transition-delay: 100ms;
+  @media (min-width: 1024px) {
+    &:last-child { border-right: none; }
   }
-  &.stagger-2 {
-    transition-delay: 200ms;
+
+  @media (min-width: 640px) and (max-width: 1023px) {
+    &:nth-child(2n) { border-right: none; }
   }
-  &.stagger-3 {
-    transition-delay: 300ms;
-  }
-  &.stagger-4 {
-    transition-delay: 400ms;
+
+  @media (max-width: 639px) {
+    border-right: none;
   }
 }
 
-.step-number {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 1.75rem;
-  height: 1.75rem;
+/* ── Numeral row ──────────────────────────────────────────────── */
+.step-numeral-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: var(--text-xs);
-  font-weight: 700;
-  color: var(--color-primary-500);
-  background: var(--color-primary-100);
-  border-radius: 9999px;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
 }
 
-.step-icon-wrap {
-  width: 3rem;
-  height: 3rem;
-  margin: 0 auto 1.25rem;
+.step-rule {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.15);
+}
+
+.step-numeral {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #dfaf85;
+  opacity: 0.45;
+  flex-shrink: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* ── Deco divider ─────────────────────────────────────────────── */
+.step-deco-divider {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--color-primary-500) 12%, transparent),
-    color-mix(in srgb, var(--color-accent-500) 12%, transparent)
-  );
-  border-radius: var(--radius-lg);
-}
-
-.step-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  color: var(--color-primary-600);
-}
-
-.step-title {
-  font-size: var(--text-base);
-  font-weight: 700;
-  color: var(--color-text);
-  margin-bottom: 0.5rem;
-}
-
-.step-description {
-  font-size: var(--text-sm);
-  line-height: 1.6;
-  color: var(--color-text-muted);
-}
-
-.section-cta {
-  text-align: center;
-  margin-top: 3rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.6s var(--ease-smooth) 0.5s,
-    transform 0.6s var(--ease-smooth) 0.5s;
-
-  &.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.cta-link {
-  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.875rem 2rem;
-  background: var(--color-primary-500);
-  color: white;
-  font-size: var(--text-sm);
+  margin-bottom: 1.25rem;
+}
+
+.deco-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.1);
+}
+
+.deco-diamond {
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.3);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  transition: background 0.3s ease;
+}
+
+/* ── Step content ─────────────────────────────────────────────── */
+.step-heading {
+  font-family: var(--font-heading);
   font-weight: 600;
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  line-height: 1.3;
+  color: #fff;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.step-body {
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: clamp(0.85rem, 0.9vw, 0.9rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+/* ── Footer strip ─────────────────────────────────────────────── */
+.footer-strip {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  background: #120703;
+  border-top: 1px solid rgba(223, 175, 133, 0.12);
   text-decoration: none;
-  border-radius: var(--radius-md);
-  transition:
-    background 0.2s var(--ease-smooth),
-    transform 0.2s var(--ease-smooth);
+  transition: background 0.35s ease;
 
   &:hover {
-    background: var(--color-primary-600);
-    transform: translateY(-2px);
+    background: #1e0b04;
+
+    .strip-diamond { background: rgba(223, 175, 133, 0.7); }
+    .strip-diamond--sm { background: rgba(223, 175, 133, 0.4); }
+    .strip-label { color: #dfaf85; }
+    .strip-icon { transform: translateX(4px); }
   }
 
   &:focus-visible {
-    outline: 2px solid var(--focus-ring);
-    outline-offset: 4px;
+    outline: 2px solid #dfaf85;
+    outline-offset: -2px;
   }
 }
 
-.cta-icon {
-  width: 1.125rem;
-  height: 1.125rem;
-  transition: transform 0.2s var(--ease-smooth);
+.strip-deco {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
 
-  .cta-link:hover & {
-    transform: translateX(3px);
+  @media (max-width: 767px) { display: none; }
+}
+
+.strip-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.2);
+
+  &--inner { flex: 0 0 1.25rem; }
+}
+
+.strip-diamond {
+  width: 7px;
+  height: 7px;
+  background: rgba(223, 175, 133, 0.4);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  transition: background 0.35s ease;
+
+  &--sm {
+    width: 4px;
+    height: 4px;
+    background: rgba(223, 175, 133, 0.22);
   }
 }
 
-// Dark mode
-:root.dark {
-  .how-we-work-section {
-    background: var(--color-section-dark);
-  }
+.strip-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.7);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 0.35s ease;
 
-  .section-badge {
-    background: var(--color-primary-900);
-    color: var(--color-primary-300);
-  }
-
-  .step-number {
-    background: var(--color-primary-900);
-    color: var(--color-primary-300);
-  }
-
-  .step-card:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  }
-
-  .step-icon {
-    color: var(--color-primary-400);
+  @media (max-width: 767px) {
+    width: 100%;
+    justify-content: center;
   }
 }
 
+.strip-icon {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.25s ease;
+}
+
+/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .section-header,
-  .step-card,
-  .section-cta {
-    opacity: 1;
-    transform: none;
+  .step-item,
+  .step-numeral,
+  .deco-diamond,
+  .footer-strip,
+  .strip-diamond,
+  .strip-label,
+  .strip-icon {
     transition: none;
   }
 }
+
+/* ── Light mode overrides ─────────────────────────────────────── */
+html:not(.dark) {
+  .how-we-work-section { background: var(--color-section-alt); }
+
+  .sep-line    { background: var(--deco-line); }
+  .sep-diamond { background: var(--deco-diamond); }
+  .sep-text    { color: var(--deco-text); }
+
+  .section-title { color: var(--color-text-primary); }
+
+  .steps-grid { border-top-color: var(--deco-line); }
+
+  .step-item {
+    border-right-color: var(--deco-line);
+    border-bottom-color: var(--deco-line);
+
+    &:hover {
+      background: rgba(153, 82, 38, 0.02);
+
+      .deco-diamond { background: rgba(153, 82, 38, 0.6); }
+    }
+  }
+
+  .step-rule    { background: var(--deco-line); }
+  .step-numeral { color: var(--color-primary-500); opacity: 0.6; }
+  .deco-line    { background: var(--deco-line); }
+  .deco-diamond { background: var(--deco-diamond); }
+  .step-heading { color: var(--color-text-primary); }
+  .step-body    { color: var(--color-text-subtle); }
+
+  .footer-strip {
+    background: var(--color-surface-2);
+    border-top-color: var(--deco-line);
+
+    &:hover {
+      background: var(--color-surface-3);
+
+      .strip-diamond     { background: rgba(153, 82, 38, 0.6); }
+      .strip-diamond--sm { background: rgba(153, 82, 38, 0.35); }
+      .strip-label       { color: var(--color-primary-700); }
+    }
+
+    &:focus-visible { outline-color: var(--color-primary-500); }
+  }
+
+  .strip-line    { background: var(--deco-line); }
+  .strip-diamond {
+    background: var(--deco-diamond);
+
+    &--sm { background: var(--deco-diamond-sm); }
+  }
+  .strip-label   { color: var(--color-primary-600); }
+}
 </style>
+
+

@@ -44,7 +44,7 @@
         "description": "Un domaine personnalisé avec une licence d'un an est inclus dans tous les forfaits. Les renouvellements, les domaines supplémentaires et les modifications DNS sont disponibles sous forme de modules complémentaires.",
         "includedNote": "1 domaine inclus dans tous les forfaits",
         "linkText": "Voir les modules complémentaires de domaine",
-        "linkHref": "/services/additional-services"
+        "linkHref": "/solutions/additional-services"
       }
     },
     "cta": {
@@ -170,7 +170,7 @@
       ],
       "fullListNote": "Vous recherchez la répartition complète des livrables individuels et des extras ?",
       "fullListLinkText": "Voir tous les tarifs d'identité visuelle",
-      "fullListHref": "/services/additional-services"
+      "fullListHref": "/solutions/additional-services"
     },
     "cta": {
       "badge": "Prêt à développer votre marque ?",

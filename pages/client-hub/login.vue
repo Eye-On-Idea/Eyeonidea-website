@@ -6,6 +6,7 @@ definePageMeta({
 const { t } = useI18n();
 const route = useRoute();
 const router = useRouter();
+const localePath = useLocalePath();
 
 useHead({
   meta: [{ name: "robots", content: "noindex, nofollow" }],
@@ -13,7 +14,7 @@ useHead({
 
 const handleContinue = () => {
   localStorage.setItem("client-hub-acknowledged", "1");
-  const redirect = (route.query.redirect as string) || "/client-hub";
+  const redirect = (route.query.redirect as string) || localePath("/client-hub");
   router.replace(redirect);
 };
 </script>
@@ -28,7 +29,7 @@ const handleContinue = () => {
     <div class="relative z-10 w-full max-w-md">
       <!-- Logo -->
       <div class="flex justify-center mb-8">
-        <NuxtLink to="/" class="flex items-center gap-3 min-h-11">
+        <NuxtLink :to="localePath('/')" class="flex items-center gap-3 min-h-11">
           <img
             src="/public-material/logo-center-shadow.svg"
             alt="Eye On Idea"
@@ -82,7 +83,7 @@ const handleContinue = () => {
       <!-- Back to site -->
       <div class="flex justify-center mt-6">
         <NuxtLink
-          to="/"
+          :to="localePath('/')"
           class="flex items-center gap-1.5 min-h-11 text-sm text-(--color-text-tertiary) hover:text-(--color-text-secondary) transition-colors"
         >
           <UIcon

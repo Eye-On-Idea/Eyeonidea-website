@@ -2,6 +2,7 @@
 import { animationPresets, withDelay } from "~/composables/useAccessibleMotion";
 
 const { t, tm } = useI18n();
+const localePath = useLocalePath();
 
 // v-motion presets
 const heroMotion = animationPresets.fadeInUp;
@@ -81,7 +82,7 @@ const sectionKeys = [
 
         <!-- Back Link -->
         <div class="back-link-wrapper">
-          <NuxtLink to="/about" class="back-link">
+          <NuxtLink :to="localePath('/about')" class="back-link">
             <UIcon name="i-heroicons-arrow-left" class="back-icon" aria-hidden="true" />
             {{ t("common.cta.backToAbout") }}
           </NuxtLink>

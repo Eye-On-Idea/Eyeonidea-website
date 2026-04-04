@@ -102,14 +102,18 @@ const drawConnections = (ctx: CanvasRenderingContext2D) => {
 
   for (let i = 0; i < particles.value.length; i++) {
     for (let j = i + 1; j < particles.value.length; j++) {
-      const dx = particles.value[i].x - particles.value[j].x;
-      const dy = particles.value[i].y - particles.value[j].y;
+      const particleA = particles.value[i];
+      const particleB = particles.value[j];
+      if (!particleA || !particleB) continue;
+
+      const dx = particleA.x - particleB.x;
+      const dy = particleA.y - particleB.y;
       const distance = Math.sqrt(dx * dx + dy * dy);
 
       if (distance < connectionDistance) {
         ctx.beginPath();
-        ctx.moveTo(particles.value[i].x, particles.value[i].y);
-        ctx.lineTo(particles.value[j].x, particles.value[j].y);
+        ctx.moveTo(particleA.x, particleA.y);
+        ctx.lineTo(particleB.x, particleB.y);
         ctx.strokeStyle = props.primaryColor;
         ctx.globalAlpha = (1 - distance / connectionDistance) * 0.15;
         ctx.lineWidth = 0.5;

@@ -45,11 +45,6 @@ export const usePreferencesStore = defineStore("preferences", {
       if (import.meta.client) {
         // Store in localStorage for client-side persistence
         localStorage.setItem("user_language", language);
-
-        // Also set the i18n cookie for SSR and cross-session persistence
-        // This cookie will be read by Nuxt i18n on page load
-        const maxAge = 365 * 24 * 60 * 60; // 1 year in seconds
-        document.cookie = `i18n_locale=${language}; path=/; max-age=${maxAge}; SameSite=Lax; Secure`;
       }
     },
 

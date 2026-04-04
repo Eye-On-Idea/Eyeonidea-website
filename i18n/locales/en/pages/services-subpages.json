@@ -2,15 +2,15 @@
   "websitePackages": {
     "meta": {
       "title": "Website Packages - Eye On Idea",
-      "description": "Three website packages built around where your business is right now. Clear pricing, honest scope, and no unnecessary extras. Compare Launch, Growth, and Platform."
+      "description": "Three website packages built around where your business is right now. Foundation, Growth, and Brand Partner — clear pricing, honest scope, and no unnecessary extras."
     },
     "hero": {
       "badge": "Website Packages",
-      "title": "A Website That Fits Your Business",
-      "subtitle": "From a first website to a full content platform, each package is scoped to real needs. Three clear options, honest pricing, and no unnecessary extras."
+      "title": "Foundation. Growth. Brand Partner.",
+      "subtitle": "Three packages scoped to business maturity — not just budget. Each one is built to give your company a credible digital presence at the right level, with room to grow."
     },
     "breadcrumb": {
-      "services": "Services",
+      "services": "Solutions",
       "current": "Website Packages"
     },
     "nav": {
@@ -44,7 +44,7 @@
         "description": "One custom domain with a 1-year licence is included in all packages. Renewals, additional domains, and DNS changes are available as add-ons.",
         "includedNote": "1 domain included in all packages",
         "linkText": "See domain add-ons",
-        "linkHref": "/services/additional-services"
+        "linkHref": "/solutions/additional-services"
       }
     },
     "cta": {
@@ -62,11 +62,11 @@
     },
     "hero": {
       "badge": "Visual Identity",
-      "title": "Look the Part From Day One",
-      "subtitle": "Your visual identity is often the first thing people judge you on. We help you get it right, from logo to brand guidelines, so your business looks credible and consistent across your website, print, and presentations."
+      "title": "Make your business look as good as it is",
+      "subtitle": "A coherent visual identity is not just aesthetics — it is the first signal that your business is serious and competent. We build logo, colour, typography, and brand guidelines that hold up across your website, documents, and every other touchpoint."
     },
     "breadcrumb": {
-      "services": "Services",
+      "services": "Solutions",
       "current": "Visual Identity"
     },
     "nav": {
@@ -170,13 +170,13 @@
       ],
       "fullListNote": "Looking for the full breakdown of individual deliverables and extras?",
       "fullListLinkText": "See all visual identity pricing",
-      "fullListHref": "/services/additional-services"
+      "fullListHref": "/solutions/additional-services"
     },
     "cta": {
       "badge": "Ready to Build Your Brand?",
-      "title": "Let's Talk About Your Identity",
-      "description": "Whether you are starting from scratch or refreshing an existing brand, get in touch and we will figure out the right scope together.",
-      "primaryText": "Discuss Your Brand",
+      "title": "Identity works best alongside a website",
+      "description": "Visual identity is most effective when it is built as part of a complete digital foundation. If you are also considering a website, let's scope both together.",
+      "primaryText": "Start the Conversation",
       "secondaryText": "See Website Packages"
     }
   },
@@ -191,7 +191,7 @@
       "subtitle": "Your website is the centre of your digital presence. These services help you build around it."
     },
     "breadcrumb": {
-      "services": "Services",
+      "services": "Solutions",
       "current": "Additional Services"
     },
     "nav": {

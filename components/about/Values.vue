@@ -1,17 +1,28 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { animationPresets, withDelay } from "~/composables/useAccessibleMotion";
-import { useStrokeDraw } from "~/composables/useStrokeDraw";
+import { ref, onMounted, onUnmounted } from "vue";
 
 const { t, tm } = useI18n();
-const gridRef = ref<HTMLElement | null>(null);
 
-useStrokeDraw(gridRef, {
-  delay: 200,
-  stagger: 120,
-  duration: 600,
-  selector: ".value-icon-wrap",
+const sectionRef = ref<HTMLElement | null>(null);
+const isVisible = ref(false);
+
+onMounted(() => {
+  if (!sectionRef.value) return;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const entry = entries[0];
+      if (entry?.isIntersecting) {
+        isVisible.value = true;
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.06 },
+  );
+  observer.observe(sectionRef.value);
+  onUnmounted(() => observer.disconnect());
 });
+
+const numerals = ["I", "II", "III", "IV"];
 
 const values = computed(
   () =>
@@ -24,258 +35,285 @@ const values = computed(
 </script>
 
 <template>
-  <section class="about-values" aria-labelledby="values-heading">
+  <section
+    ref="sectionRef"
+    class="about-values"
+    aria-labelledby="values-heading"
+  >
+    <!-- Section label row -->
+    <div class="section-label-row" aria-hidden="true">
+      <span class="sep-line" />
+      <span class="sep-diamond" />
+      <span class="sep-text">{{ t("about.values.badge") }}</span>
+      <span class="sep-diamond" />
+      <span class="sep-line" />
+    </div>
+
     <div class="section-container">
-      <!-- Header -->
-      <div
-        class="section-header"
-        v-motion
-        :initial="animationPresets.fadeInUp.initial"
-        :visible-once="animationPresets.fadeInUp.visible"
-      >
-        <span class="section-badge">{{ t("about.values.badge") }}</span>
-        <br />
-        <h2
-          id="values-heading"
-          class="section-title"
-          style="text-wrap: balance"
-        >
+      <!-- Heading -->
+      <div class="section-header" :class="{ 'animate-in': isVisible }">
+        <h2 id="values-heading" class="section-title">
           {{ t("about.values.title") }}
         </h2>
       </div>
 
-      <!-- Bento Values Grid — About-only: TiltCard + cursor shine for featured value highlight -->
-      <div ref="gridRef" class="values-bento">
-        <!-- First value: featured / larger -->
-        <div
-          v-if="values[0]"
-          v-motion
-          :initial="animationPresets.fadeInUpScale.initial"
-          :visible-once="withDelay('fadeInUpScale', 200).visible"
+      <!-- Values as editorial rows -->
+      <ol class="values-list" :class="{ 'animate-in': isVisible }">
+        <li
+          v-for="(value, index) in values"
+          :key="index"
+          class="value-row"
+          :style="{ transitionDelay: `${index * 100}ms` }"
         >
-          <TiltCard
-            :max-tilt="6"
-            :scale="1.02"
-            class="value-card value-card--featured"
-          >
-            <div
-              class="value-icon-wrap"
-              v-motion
-              :initial="animationPresets.iconHover.initial"
-              :hover="animationPresets.iconHover.hover"
-            >
-              <UIcon
-                :name="values[0].icon"
-                class="value-icon"
-                aria-hidden="true"
-              />
-            </div>
-            <div class="value-text">
-              <h3 class="value-title">{{ values[0].title }}</h3>
-              <p class="value-description">{{ values[0].description }}</p>
-            </div>
-          </TiltCard>
-        </div>
+          <!-- Left: numeral -->
+          <div class="value-numeral-col" aria-hidden="true">
+            <span class="value-rule" />
+            <span class="value-numeral">{{ numerals[index] }}</span>
+            <span class="value-rule" />
+          </div>
 
-        <!-- Remaining values: smaller cards -->
-        <div
-          v-for="(value, index) in values.slice(1)"
-          :key="index + 1"
-          v-motion
-          :initial="animationPresets.staggerItem.initial"
-          :visible-once="withDelay('staggerItem', 350 + index * 120).visible"
-          class="h-full"
-        >
-          <TiltCard :max-tilt="8" :scale="1.03" class="value-card h-full">
-            <div
-              class="value-icon-wrap"
-              v-motion
-              :initial="animationPresets.iconHover.initial"
-              :hover="animationPresets.iconHover.hover"
-            >
-              <UIcon :name="value.icon" class="value-icon" aria-hidden="true" />
-            </div>
+          <!-- Center: title + description -->
+          <div class="value-body">
             <h3 class="value-title">{{ value.title }}</h3>
             <p class="value-description">{{ value.description }}</p>
-          </TiltCard>
-        </div>
-      </div>
+          </div>
+
+          <!-- Right: amber diamond accent -->
+          <div class="value-accent" aria-hidden="true">
+            <span class="accent-diamond" />
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 </template>
 
 <style lang="scss" scoped>
+/* ── Section ──────────────────────────────────────────────────── */
 .about-values {
-  padding: 6rem 1.5rem;
-  background: var(--color-primary-200);
-
-  @media (min-width: 768px) {
-    padding: 8rem 2rem;
-  }
+  background: #0d0908;
+  padding-bottom: 0;
 }
 
-.section-container {
-  max-width: 1100px;
+/* ── Section label row ────────────────────────────────────────── */
+.section-label-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 80rem;
   margin: 0 auto;
+  padding: 6rem 2rem 4rem;
 }
 
-.section-header {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 3.5rem;
+.sep-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.12);
 }
 
-.section-badge {
-  display: inline-block;
-  padding: 0.375rem 1rem;
-  background: var(--color-primary-100);
-  color: var(--color-primary-700);
-  font-size: var(--text-xs);
-  font-weight: 600;
+.sep-diamond {
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.35);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.sep-text {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border-radius: 9999px;
-  margin-bottom: 1rem;
+  color: rgba(223, 175, 133, 0.45);
+  flex-shrink: 0;
+}
+
+/* ── Container ────────────────────────────────────────────────── */
+.section-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem 6rem;
+}
+
+/* ── Header ───────────────────────────────────────────────────── */
+.section-header {
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s var(--ease-smooth),
+    transform 0.6s var(--ease-smooth);
+
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .section-title {
-  font-size: var(--text-3xl);
-  color: var(--color-text);
-
-  @media (min-width: 768px) {
-    font-size: var(--text-4xl);
-  }
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #ffeddf;
+  margin: 0;
 }
 
-.values-bento {
+/* ── Values list ──────────────────────────────────────────────── */
+.values-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(223, 175, 133, 0.08);
+}
+
+.value-row {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
+  grid-template-columns: 5rem 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.25rem 0;
+  border-bottom: 1px solid rgba(223, 175, 133, 0.08);
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.5s var(--ease-smooth),
+    transform 0.5s var(--ease-smooth),
+    background 0.25s ease;
 
-  @media (min-width: 640px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.value-card {
-  position: relative;
-  padding: 1.25rem;
-  height: 100%;
-  background: var(--color-surface-1);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  transition: box-shadow 0.2s var(--ease-smooth);
-
-  @media (min-width: 480px) {
-    padding: 2rem;
+  .values-list.animate-in & {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   &:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    background: rgba(223, 175, 133, 0.02);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: 8rem 1fr auto;
+    gap: 3rem;
+    padding: 2.75rem 0;
   }
 }
 
-// Ensure TiltCard wrapper stretches to fill grid cell height for non-featured cards
-.values-bento > :not(:first-child) :deep(.tilt-card-wrapper) {
-  height: 100%;
-}
-
-// Featured card spans all 3 columns on desktop
-.value-card--featured {
-  overflow: hidden;
-
-  @media (min-width: 480px) {
-    padding: 2rem;
-  }
-
-  @media (min-width: 640px) {
-    grid-column: 1 / -1;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    padding: 2.5rem;
-  }
-
-  .value-text {
-    flex: 1;
-  }
-
-  .value-icon-wrap {
-    @media (min-width: 640px) {
-      width: 4rem;
-      height: 4rem;
-      flex-shrink: 0;
-    }
-  }
-
-  .value-icon {
-    @media (min-width: 640px) {
-      width: 2rem;
-      height: 2rem;
-    }
-  }
-
-  .value-title {
-    @media (min-width: 640px) {
-      font-size: var(--text-xl);
-    }
-  }
-}
-
-// Featured card parent spans full width in the grid
-.values-bento > :first-child {
-  @media (min-width: 640px) {
-    grid-column: 1 / -1;
-  }
-}
-
-.value-icon-wrap {
-  width: 3rem;
-  height: 3rem;
-  margin-bottom: 1.25rem;
+/* ── Numeral column ───────────────────────────────────────────── */
+.value-numeral-col {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: var(--color-primary-100);
-  border-radius: var(--radius-lg);
+  gap: 0.5rem;
 }
 
-.value-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  color: var(--color-primary-600);
+.value-rule {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.1);
+}
+
+.value-numeral {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(223, 175, 133, 0.35);
+  flex-shrink: 0;
+}
+
+/* ── Value body ───────────────────────────────────────────────── */
+.value-body {
+  display: grid;
+  gap: 0.375rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: 10rem 1fr;
+    gap: 2rem;
+    align-items: baseline;
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 12rem 1fr;
+  }
 }
 
 .value-title {
-  font-size: var(--text-lg);
-  font-weight: 600;
-  color: var(--color-text);
-  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  color: #ffeddf;
+  margin: 0;
+  letter-spacing: -0.01em;
 }
 
 .value-description {
-  font-size: var(--text-sm);
-  line-height: 1.6;
-  color: var(--color-text-muted);
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  line-height: 1.7;
+  color: rgba(255, 237, 223, 0.45);
+  margin: 0;
 }
 
-// Dark mode
-:root.dark {
-  .about-values {
-    background: var(--color-section-dark);
+/* ── Right accent ─────────────────────────────────────────────── */
+.value-accent {
+  flex-shrink: 0;
+}
+
+.accent-diamond {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: rgba(223, 175, 133, 0.2);
+  transform: rotate(45deg);
+  transition: background 0.25s ease;
+
+  .value-row:hover & {
+    background: rgba(223, 175, 133, 0.5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-header,
+  .value-row {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ── Light mode overrides ─────────────────────────────────────── */
+html:not(.dark) {
+  .about-values { background: var(--color-section-light); }
+
+  .sep-line    { background: var(--deco-line); }
+  .sep-diamond { background: var(--deco-diamond); }
+  .sep-text    { color: var(--deco-text); }
+
+  .section-title { color: var(--color-text-primary); }
+
+  .values-list { border-top-color: var(--deco-line); }
+
+  .value-row {
+    border-bottom-color: var(--deco-line);
+
+    &:hover { background: rgba(153, 82, 38, 0.02); }
   }
 
-  .section-badge {
-    background: var(--color-primary-900);
-    color: var(--color-primary-300);
-  }
+  .value-rule    { background: var(--deco-line); }
+  .value-numeral { color: var(--color-primary-500); opacity: 0.4; }
 
-  .value-icon {
-    color: var(--color-primary-300);
-  }
+  .value-title       { color: var(--color-text-primary); }
+  .value-description { color: var(--color-text-subtle); }
 
-  .value-card:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  .accent-diamond {
+    background: var(--deco-diamond-sm);
+
+    .value-row:hover & { background: var(--deco-diamond); }
   }
 }
 </style>
+
+

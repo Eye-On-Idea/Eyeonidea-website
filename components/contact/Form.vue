@@ -1,12 +1,33 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, nextTick } from "vue";
-import { animationPresets } from "~/composables/useAccessibleMotion";
 
 const { t } = useI18n();
 
+const sectionRef = ref<HTMLElement | null>(null);
+const isVisible = ref(false);
 const isSubmitting = ref(false);
 const submitSuccess = ref(false);
 const submitError = ref(false);
+
+onMounted(() => {
+  if (!sectionRef.value) return;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const entry = entries[0];
+      if (entry?.isIntersecting) {
+        isVisible.value = true;
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.05 },
+  );
+  observer.observe(sectionRef.value);
+  document.addEventListener("click", handleClickOutside);
+  onUnmounted(() => {
+    observer.disconnect();
+    document.removeEventListener("click", handleClickOutside);
+  });
+});
 
 // Form data
 const formData = ref({
@@ -18,9 +39,6 @@ const formData = ref({
   subject: "",
   message: "",
 });
-
-// v-motion preset
-const formMotion = animationPresets.fadeInUp;
 
 // Interest dropdown
 const interestOptions = computed(() => [
@@ -38,7 +56,7 @@ const focusedOptionIndex = ref(-1);
 
 const selectedLabel = computed(() => {
   const selected = interestOptions.value.find(
-    (opt) => opt.value === formData.value.interest
+    (opt) => opt.value === formData.value.interest,
   );
   return selected?.label || "";
 });
@@ -47,7 +65,7 @@ const toggleDropdown = () => {
   isDropdownOpen.value = !isDropdownOpen.value;
   if (isDropdownOpen.value) {
     focusedOptionIndex.value = interestOptions.value.findIndex(
-      (opt) => opt.value === formData.value.interest
+      (opt) => opt.value === formData.value.interest,
     );
   }
 };
@@ -55,7 +73,6 @@ const toggleDropdown = () => {
 const selectOption = (value: string) => {
   formData.value.interest = value;
   isDropdownOpen.value = false;
-  // Return focus to trigger
   nextTick(() => {
     dropdownRef.value?.querySelector<HTMLElement>(".dropdown-trigger")?.focus();
   });
@@ -63,13 +80,15 @@ const selectOption = (value: string) => {
 
 const handleDropdownKeydown = (event: KeyboardEvent) => {
   const options = interestOptions.value;
-
   switch (event.key) {
     case "Enter":
     case " ":
       event.preventDefault();
       if (isDropdownOpen.value && focusedOptionIndex.value >= 0) {
-        selectOption(options[focusedOptionIndex.value].value);
+        const selectedOption = options[focusedOptionIndex.value];
+        if (selectedOption) {
+          selectOption(selectedOption.value);
+        }
       } else {
         toggleDropdown();
       }
@@ -82,7 +101,7 @@ const handleDropdownKeydown = (event: KeyboardEvent) => {
       } else {
         focusedOptionIndex.value = Math.min(
           focusedOptionIndex.value + 1,
-          options.length - 1
+          options.length - 1,
         );
       }
       break;
@@ -111,7 +130,6 @@ const handleDropdownKeydown = (event: KeyboardEvent) => {
   }
 };
 
-// Close dropdown on outside click
 const handleClickOutside = (event: MouseEvent) => {
   if (
     dropdownRef.value &&
@@ -120,14 +138,6 @@ const handleClickOutside = (event: MouseEvent) => {
     isDropdownOpen.value = false;
   }
 };
-
-onMounted(() => {
-  document.addEventListener("click", handleClickOutside);
-});
-
-onUnmounted(() => {
-  document.removeEventListener("click", handleClickOutside);
-});
 
 // Form submission
 const handleSubmit = async (event: Event) => {
@@ -141,13 +151,10 @@ const handleSubmit = async (event: Event) => {
   try {
     const form = event.target as HTMLFormElement;
     const data = new FormData(form);
-
     const response = await fetch(form.action, {
       method: "POST",
       body: data,
-      headers: {
-        Accept: "application/json",
-      },
+      headers: { Accept: "application/json" },
     });
 
     if (response.ok) {
@@ -174,16 +181,21 @@ const handleSubmit = async (event: Event) => {
 
 <template>
   <section
+    ref="sectionRef"
     class="contact-form-section"
     aria-labelledby="contact-form-heading"
   >
+    <!-- Section label row -->
+    <div class="section-label-row" aria-hidden="true">
+      <span class="sep-line" />
+      <span class="sep-diamond" />
+      <span class="sep-text">{{ t("contact.form.heading") }}</span>
+      <span class="sep-diamond" />
+      <span class="sep-line" />
+    </div>
+
     <div class="section-container">
-      <div
-        class="form-wrapper"
-        v-motion
-        :initial="formMotion.initial"
-        :visible-once="formMotion.visible"
-      >
+      <div class="form-wrapper" :class="{ 'animate-in': isVisible }">
         <form
           id="contact-form"
           class="contact-form"
@@ -191,36 +203,18 @@ const handleSubmit = async (event: Event) => {
           method="POST"
           @submit="handleSubmit"
         >
-          <h2 id="contact-form-heading" class="form-heading">
-            {{ t("contact.form.heading") }}
-          </h2>
-
           <!-- Success Message -->
-          <Transition
-            enter-active-class="transition-all duration-300 ease-out"
-            leave-active-class="transition-all duration-200 ease-in"
-            enter-from-class="opacity-0 -translate-y-2"
-            enter-to-class="opacity-100 translate-y-0"
-            leave-from-class="opacity-100 translate-y-0"
-            leave-to-class="opacity-0 -translate-y-2"
-          >
+          <Transition name="alert">
             <div v-if="submitSuccess" class="form-alert form-alert--success" role="alert">
-              <UIcon name="i-heroicons-check-circle" class="alert-icon" aria-hidden="true" />
+              <span class="alert-icon" aria-hidden="true">✓</span>
               <span>{{ t("contact.form.successMessage") }}</span>
             </div>
           </Transition>
 
           <!-- Error Message -->
-          <Transition
-            enter-active-class="transition-all duration-300 ease-out"
-            leave-active-class="transition-all duration-200 ease-in"
-            enter-from-class="opacity-0 -translate-y-2"
-            enter-to-class="opacity-100 translate-y-0"
-            leave-from-class="opacity-100 translate-y-0"
-            leave-to-class="opacity-0 -translate-y-2"
-          >
+          <Transition name="alert">
             <div v-if="submitError" class="form-alert form-alert--error" role="alert">
-              <UIcon name="i-heroicons-exclamation-triangle" class="alert-icon" aria-hidden="true" />
+              <span class="alert-icon" aria-hidden="true">✕</span>
               <span>{{ t("contact.form.errorMessage") }}</span>
             </div>
           </Transition>
@@ -298,7 +292,6 @@ const handleSubmit = async (event: Event) => {
             <label id="interest-label" class="form-label">
               {{ t("contact.form.interest.label") }}
             </label>
-            <!-- Hidden input for form submission -->
             <input type="hidden" name="interest" :value="formData.interest" />
             <div ref="dropdownRef" class="custom-select">
               <button
@@ -316,22 +309,14 @@ const handleSubmit = async (event: Event) => {
                 <span class="dropdown-text">
                   {{ selectedLabel || t("contact.form.interest.placeholder") }}
                 </span>
-                <UIcon
-                  name="i-heroicons-chevron-down"
+                <span
                   class="dropdown-chevron"
                   :class="{ 'dropdown-chevron--open': isDropdownOpen }"
                   aria-hidden="true"
-                />
+                >↓</span>
               </button>
 
-              <Transition
-                enter-active-class="transition-all duration-200 ease-out"
-                leave-active-class="transition-all duration-150 ease-in"
-                enter-from-class="opacity-0 -translate-y-1 scale-y-95"
-                enter-to-class="opacity-100 translate-y-0 scale-y-100"
-                leave-from-class="opacity-100 translate-y-0 scale-y-100"
-                leave-to-class="opacity-0 -translate-y-1 scale-y-95"
-              >
+              <Transition name="dropdown">
                 <ul
                   v-if="isDropdownOpen"
                   id="interest-listbox"
@@ -353,12 +338,11 @@ const handleSubmit = async (event: Event) => {
                     @mouseenter="focusedOptionIndex = index"
                   >
                     <span>{{ option.label }}</span>
-                    <UIcon
+                    <span
                       v-if="formData.interest === option.value"
-                      name="i-heroicons-check"
                       class="option-check"
                       aria-hidden="true"
-                    />
+                    >◆</span>
                   </li>
                 </ul>
               </Transition>
@@ -411,17 +395,14 @@ const handleSubmit = async (event: Event) => {
               class="submit-button"
               :disabled="isSubmitting"
             >
-              <span v-if="!isSubmitting">{{ t("contact.form.submit") }}</span>
+              <span v-if="!isSubmitting" class="submit-inner">
+                {{ t("contact.form.submit") }}
+                <span class="submit-arrow" aria-hidden="true">→</span>
+              </span>
               <span v-else class="submitting-content">
-                <UIcon name="i-heroicons-arrow-path" class="spinner" aria-hidden="true" />
+                <span class="spinner" aria-hidden="true" />
                 {{ t("contact.form.submitting") }}
               </span>
-              <UIcon
-                v-if="!isSubmitting"
-                name="i-heroicons-paper-airplane"
-                class="submit-icon"
-                aria-hidden="true"
-              />
             </button>
           </div>
 
@@ -436,82 +417,129 @@ const handleSubmit = async (event: Event) => {
 </template>
 
 <style lang="scss" scoped>
+/* ── Section ──────────────────────────────────────────────────── */
 .contact-form-section {
-  padding: 4rem 1.5rem 6rem;
-  background: var(--color-section-light);
-
-  @media (min-width: 768px) {
-    padding: 6rem 2rem 8rem;
-  }
+  background: #120703;
+  padding-bottom: 0;
 }
 
-.section-container {
-  max-width: 700px;
+/* ── Section label row ────────────────────────────────────────── */
+.section-label-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 80rem;
   margin: 0 auto;
+  padding: 6rem 2rem 4rem;
 }
 
-.form-wrapper {
-  // Animation handled by v-motion
+.sep-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.12);
 }
 
-.contact-form {
-  padding: 2rem;
-  border-radius: var(--radius-xl);
-
-  @media (min-width: 768px) {
-    padding: 3rem;
-  }
+.sep-diamond {
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.35);
+  transform: rotate(45deg);
+  flex-shrink: 0;
 }
 
-.form-heading {
-  font-size: var(--text-2xl);
+.sep-text {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
   font-weight: 700;
-  color: var(--color-text);
-  margin-bottom: 2rem;
-  text-align: center;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.45);
+  flex-shrink: 0;
+}
 
-  @media (min-width: 768px) {
-    font-size: var(--text-3xl);
+/* ── Container ────────────────────────────────────────────────── */
+.section-container {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0 2rem 6rem;
+}
+
+/* ── Form wrapper (animation) ─────────────────────────────────── */
+.form-wrapper {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s var(--ease-smooth),
+    transform 0.7s var(--ease-smooth);
+
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-// Alert messages
+/* ── Form panel ───────────────────────────────────────────────── */
+.contact-form {
+  padding: 2.5rem 2rem;
+  background: rgba(18, 7, 3, 0.5);
+  border: 1px solid rgba(223, 175, 133, 0.12);
+
+  @media (min-width: 640px) {
+    padding: 3rem 3rem;
+  }
+}
+
+/* ── Alerts ───────────────────────────────────────────────────── */
 .form-alert {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 1rem 1.25rem;
-  border-radius: var(--radius-md);
-  font-size: var(--text-sm);
-  font-weight: 500;
+  padding: 0.875rem 1.25rem;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   margin-bottom: 1.5rem;
+  border: 1px solid;
 }
 
 .form-alert--success {
-  background: color-mix(in srgb, var(--color-accent-500) 10%, transparent);
-  color: var(--color-accent-700);
-  border: 1px solid color-mix(in srgb, var(--color-accent-500) 25%, transparent);
+  background: rgba(223, 175, 133, 0.06);
+  color: rgba(223, 175, 133, 0.8);
+  border-color: rgba(223, 175, 133, 0.2);
 }
 
 .form-alert--error {
-  background: color-mix(in srgb, #ef4444 10%, transparent);
-  color: #dc2626;
-  border: 1px solid color-mix(in srgb, #ef4444 25%, transparent);
+  background: rgba(220, 38, 38, 0.06);
+  color: rgba(252, 165, 165, 0.9);
+  border-color: rgba(220, 38, 38, 0.2);
 }
 
 .alert-icon {
-  width: 1.25rem;
-  height: 1.25rem;
+  font-size: 0.9rem;
   flex-shrink: 0;
 }
 
+/* ── Alert transitions ────────────────────────────────────────── */
+.alert-enter-active,
+.alert-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.alert-enter-from,
+.alert-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+/* ── Form rows ────────────────────────────────────────────────── */
 .form-row {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 0;
 
   @media (min-width: 640px) {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 }
 
@@ -519,39 +547,49 @@ const handleSubmit = async (event: Event) => {
   margin-bottom: 1.5rem;
 }
 
+/* ── Labels ───────────────────────────────────────────────────── */
 .form-label {
   display: block;
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--color-text);
-  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.5);
+  margin-bottom: 0.625rem;
 }
 
 .required {
-  color: var(--color-primary-500);
+  color: rgba(223, 175, 133, 0.6);
+  margin-left: 0.125rem;
 }
 
+/* ── Inputs ───────────────────────────────────────────────────── */
 .form-input,
 .form-textarea {
   width: 100%;
   padding: 0.875rem 1rem;
   min-height: 48px;
-  font-size: var(--text-base);
-  font-family: inherit;
-  color: var(--color-text);
-  background: var(--color-surface-1);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  transition: border-color 0.2s var(--ease-smooth), box-shadow 0.2s var(--ease-smooth);
+  font-family: var(--font-text);
+  font-size: clamp(0.875rem, 1vw, 0.95rem);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(223, 175, 133, 0.03);
+  border: 1px solid rgba(223, 175, 133, 0.12);
+  border-radius: 0;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  appearance: none;
 
   &::placeholder {
-    color: var(--color-text-subtle);
+    color: rgba(255, 255, 255, 0.2);
   }
 
   &:focus-visible {
     outline: none;
-    border-color: var(--color-primary-400);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary-500) 15%, transparent);
+    border-color: rgba(223, 175, 133, 0.45);
+    box-shadow: 0 0 0 3px rgba(223, 175, 133, 0.06);
   }
 }
 
@@ -560,7 +598,7 @@ const handleSubmit = async (event: Event) => {
   min-height: 140px;
 }
 
-// Custom select dropdown
+/* ── Custom dropdown ──────────────────────────────────────────── */
 .custom-select {
   position: relative;
 }
@@ -572,28 +610,28 @@ const handleSubmit = async (event: Event) => {
   width: 100%;
   padding: 0.875rem 1rem;
   min-height: 48px;
-  font-size: var(--text-base);
-  font-family: inherit;
-  color: var(--color-text-subtle);
-  background: var(--color-surface-1);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  font-family: var(--font-text);
+  font-size: clamp(0.875rem, 1vw, 0.95rem);
+  font-weight: 300;
+  color: rgba(255, 237, 223, 0.25);
+  background: rgba(223, 175, 133, 0.03);
+  border: 1px solid rgba(223, 175, 133, 0.12);
   cursor: pointer;
   text-align: left;
-  transition: border-color 0.2s var(--ease-smooth), box-shadow 0.2s var(--ease-smooth);
+  transition: border-color 0.2s ease;
 
   &.has-value {
-    color: var(--color-text);
+    color: rgba(255, 255, 255, 0.88);
   }
 
   &:focus-visible {
     outline: none;
-    border-color: var(--color-primary-400);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary-500) 15%, transparent);
+    border-color: rgba(223, 175, 133, 0.45);
+    box-shadow: 0 0 0 3px rgba(223, 175, 133, 0.06);
   }
 
   &:hover {
-    border-color: var(--color-border-strong);
+    border-color: rgba(223, 175, 133, 0.25);
   }
 }
 
@@ -605,11 +643,11 @@ const handleSubmit = async (event: Event) => {
 }
 
 .dropdown-chevron {
-  width: 1.25rem;
-  height: 1.25rem;
   flex-shrink: 0;
-  color: var(--color-text-secondary);
-  transition: transform 0.2s var(--ease-smooth);
+  font-size: 0.75rem;
+  color: rgba(223, 175, 133, 0.35);
+  transition: transform 0.2s ease;
+  display: inline-block;
 
   &--open {
     transform: rotate(180deg);
@@ -619,16 +657,15 @@ const handleSubmit = async (event: Event) => {
 .dropdown-list {
   position: absolute;
   z-index: 50;
-  top: calc(100% + 4px);
+  top: calc(100% + 2px);
   left: 0;
   right: 0;
   list-style: none;
-  padding: 0.375rem;
+  padding: 0.25rem;
   margin: 0;
-  background: var(--color-surface-1);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  background: #1a0c07;
+  border: 1px solid rgba(223, 175, 133, 0.15);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
   max-height: 240px;
   overflow-y: auto;
   transform-origin: top;
@@ -640,30 +677,43 @@ const handleSubmit = async (event: Event) => {
   justify-content: space-between;
   padding: 0.75rem 1rem;
   min-height: 44px;
-  font-size: var(--text-sm);
-  color: var(--color-text);
-  border-radius: var(--radius-sm, 6px);
+  font-family: var(--font-text);
+  font-size: clamp(0.875rem, 1vw, 0.95rem);
+  font-weight: 300;
+  color: rgba(255, 237, 223, 0.65);
   cursor: pointer;
-  transition: background 0.15s var(--ease-smooth);
+  transition: background 0.15s ease;
 
   &--focused,
   &:hover {
-    background: var(--color-surface-3);
+    background: rgba(223, 175, 133, 0.05);
+    color: #ffeddf;
   }
 
   &--selected {
-    color: var(--color-primary-600);
-    font-weight: 600;
+    color: rgba(223, 175, 133, 0.85);
   }
 }
 
 .option-check {
-  width: 1rem;
-  height: 1rem;
-  color: var(--color-primary-500);
+  font-size: 0.4rem;
+  color: rgba(223, 175, 133, 0.6);
   flex-shrink: 0;
 }
 
+/* ── Dropdown transition ──────────────────────────────────────── */
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  transform-origin: top;
+}
+.dropdown-enter-from,
+.dropdown-leave-to {
+  opacity: 0;
+  transform: scaleY(0.95) translateY(-4px);
+}
+
+/* ── Submit ───────────────────────────────────────────────────── */
 .form-actions {
   margin-top: 2rem;
   text-align: center;
@@ -673,120 +723,191 @@ const handleSubmit = async (event: Event) => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
   padding: 1rem 2.5rem;
   min-height: 48px;
-  background: var(--color-primary-500);
-  color: white;
-  font-size: var(--text-base);
-  font-weight: 600;
-  border: none;
-  border-radius: var(--radius-md);
+  background: rgba(223, 175, 133, 0.12);
+  color: rgba(223, 175, 133, 0.9);
+  border: 1px solid rgba(223, 175, 133, 0.3);
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.2s var(--ease-smooth), transform 0.2s var(--ease-smooth);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 
   &:hover:not(:disabled) {
-    background: var(--color-primary-600);
-    transform: translateY(-2px);
+    background: rgba(223, 175, 133, 0.18);
+    border-color: rgba(223, 175, 133, 0.5);
+    color: #ffeddf;
   }
 
   &:focus-visible {
-    outline: 2px solid var(--focus-ring);
-    outline-offset: 4px;
+    outline: 2px solid rgba(223, 175, 133, 0.5);
+    outline-offset: 3px;
   }
 
   &:disabled {
-    opacity: 0.7;
+    opacity: 0.5;
     cursor: not-allowed;
+  }
+}
+
+.submit-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.submit-arrow {
+  transition: transform 0.2s ease;
+
+  .submit-button:hover:not(:disabled) & {
+    transform: translateX(3px);
   }
 }
 
 .submitting-content {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.625rem;
 }
 
 .spinner {
-  width: 1.125rem;
-  height: 1.125rem;
-  animation: spin 1s linear infinite;
+  display: inline-block;
+  width: 0.875rem;
+  height: 0.875rem;
+  border: 1px solid rgba(223, 175, 133, 0.2);
+  border-top-color: rgba(223, 175, 133, 0.7);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
-.submit-icon {
-  width: 1.125rem;
-  height: 1.125rem;
-}
-
+/* ── GDPR notice ──────────────────────────────────────────────── */
 .gdpr-notice {
   margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--color-border);
-  font-size: var(--text-xs);
+  border-top: 1px solid rgba(223, 175, 133, 0.08);
+  font-family: var(--font-text);
+  font-size: 0.75rem;
+  font-weight: 300;
   line-height: 1.6;
-  color: var(--color-text-subtle);
+  color: rgba(255, 237, 223, 0.25);
   text-align: center;
 }
 
-// Dark mode
-:root.dark {
-  .contact-form-section {
-    background: var(--color-section-dark);
-  }
-
-  .form-input,
-  .form-textarea,
-  .dropdown-trigger {
-    background: var(--color-surface-2);
-
-    &:focus-visible {
-      border-color: var(--color-primary-500);
-      box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary-500) 20%, transparent);
-    }
-  }
-
-  .dropdown-list {
-    background: var(--color-surface-2);
-    border-color: var(--color-border);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  }
-
-  .dropdown-option {
-    &--focused,
-    &:hover {
-      background: var(--color-surface-3);
-    }
-
-    &--selected {
-      color: var(--color-primary-400);
-    }
-  }
-
-  .option-check {
-    color: var(--color-primary-400);
-  }
-
-  .form-alert--success {
-    background: color-mix(in srgb, var(--color-accent-500) 12%, transparent);
-    color: var(--color-accent-300);
-    border-color: color-mix(in srgb, var(--color-accent-500) 20%, transparent);
-  }
-
-  .form-alert--error {
-    background: color-mix(in srgb, #ef4444 12%, transparent);
-    color: #fca5a5;
-    border-color: color-mix(in srgb, #ef4444 20%, transparent);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
+  .form-wrapper {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
   .spinner {
     animation: none;
   }
 }
+
+/* ── Light mode overrides ─────────────────────────────────────── */
+html:not(.dark) {
+  .contact-form-section { background: var(--color-section-light); }
+
+  .sep-line    { background: var(--deco-line); }
+  .sep-diamond { background: var(--deco-diamond); }
+  .sep-text    { color: var(--deco-text); }
+
+  .contact-form {
+    background: rgba(255, 255, 255, 0.75);
+    border-color: var(--deco-line);
+  }
+
+  .form-alert--success {
+    background: rgba(153, 82, 38, 0.05);
+    color: var(--color-primary-700);
+    border-color: rgba(153, 82, 38, 0.25);
+  }
+
+  .form-label { color: var(--color-primary-500); opacity: 0.7; }
+  .required   { color: var(--color-primary-600); opacity: 1; }
+
+  .form-input,
+  .form-textarea {
+    color: var(--color-text-primary);
+    background: rgba(255, 255, 255, 0.9);
+    border-color: var(--deco-line);
+
+    &::placeholder { color: var(--color-text-subtle); opacity: 0.5; }
+
+    &:focus-visible {
+      border-color: var(--color-primary-400);
+      box-shadow: 0 0 0 3px rgba(153, 82, 38, 0.08);
+    }
+  }
+
+  .dropdown-trigger {
+    color: var(--color-text-subtle);
+    background: rgba(255, 255, 255, 0.9);
+    border-color: var(--deco-line);
+
+    &.has-value { color: var(--color-text-primary); }
+
+    &:focus-visible {
+      border-color: var(--color-primary-400);
+      box-shadow: 0 0 0 3px rgba(153, 82, 38, 0.08);
+    }
+
+    &:hover { border-color: var(--deco-line-strong); }
+  }
+
+  .dropdown-chevron { color: var(--color-primary-500); opacity: 0.5; }
+
+  .dropdown-list {
+    background: #fff;
+    border-color: var(--deco-line);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  .dropdown-option {
+    color: var(--color-text-secondary);
+
+    &--focused,
+    &:hover {
+      background: rgba(153, 82, 38, 0.04);
+      color: var(--color-text-primary);
+    }
+
+    &--selected { color: var(--color-primary-600); }
+  }
+
+  .option-check { color: var(--color-primary-500); }
+
+  .submit-button {
+    background: rgba(153, 82, 38, 0.08);
+    color: var(--color-primary-700);
+    border-color: var(--deco-line-strong);
+
+    &:hover:not(:disabled) {
+      background: rgba(153, 82, 38, 0.14);
+      border-color: var(--color-primary-500);
+      color: var(--color-primary-800);
+    }
+
+    &:focus-visible { outline-color: var(--color-primary-500); }
+  }
+
+  .gdpr-notice {
+    border-top-color: var(--deco-line);
+    color: var(--color-text-subtle);
+    opacity: 0.6;
+  }
+}
 </style>
+
+

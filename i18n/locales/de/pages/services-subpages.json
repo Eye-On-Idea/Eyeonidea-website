@@ -44,7 +44,7 @@
         "description": "In allen Paketen ist eine benutzerdefinierte Domain mit einer 1-Jahres-Lizenz enthalten. Verlängerungen, zusätzliche Domains und DNS-Änderungen sind als Add-ons verfügbar.",
         "includedNote": "1 Domain in allen Paketen enthalten",
         "linkText": "Siehe Domain-Add-ons",
-        "linkHref": "/services/additional-services"
+        "linkHref": "/solutions/additional-services"
       }
     },
     "cta": {
@@ -170,7 +170,7 @@
       ],
       "fullListNote": "Suchen Sie nach einer vollständigen Aufschlüsselung der einzelnen Leistungen und Extras?",
       "fullListLinkText": "Sehen Sie sich alle Preise für visuelle Identität an",
-      "fullListHref": "/services/additional-services"
+      "fullListHref": "/solutions/additional-services"
     },
     "cta": {
       "badge": "Sind Sie bereit, Ihre Marke aufzubauen?",

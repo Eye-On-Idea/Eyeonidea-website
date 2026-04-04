@@ -1,303 +1,444 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import {
-  animationPresets,
-  withDelay,
-  staggeredFadeInUp,
-} from "~/composables/useAccessibleMotion";
-import { useStrokeDraw } from "~/composables/useStrokeDraw";
+import { withDelay } from "~/composables/useAccessibleMotion";
 
 const { t } = useI18n();
+const localePath = useLocalePath();
 
-const gridRef = ref<HTMLElement | null>(null);
+const sectionRef = ref<HTMLElement | null>(null);
+const visible = ref(false);
+const observer = ref<IntersectionObserver | null>(null);
 
-useStrokeDraw(gridRef, {
-  delay: 200,
-  stagger: 120,
-  duration: 600,
-  selector: ".value-icon-wrapper",
+onMounted(() => {
+  observer.value = new IntersectionObserver(
+    (entries) => {
+      const entry = entries[0];
+      if (entry?.isIntersecting) {
+        visible.value = true;
+        observer.value?.disconnect();
+      }
+    },
+    { threshold: 0.1 }
+  );
+  if (sectionRef.value) observer.value.observe(sectionRef.value);
 });
+onUnmounted(() => observer.value?.disconnect());
 
-// Value cards data using i18n
-const values = [
-  {
-    key: "clarity",
-    icon: "i-heroicons-light-bulb",
-  },
-  {
-    key: "partnership",
-    icon: "i-heroicons-users",
-  },
-  {
-    key: "quality",
-    icon: "i-heroicons-shield-check",
-  },
-];
+const leftMotion = withDelay("fadeInUp", 80);
+const rightMotion = withDelay("fadeInUp", 200);
 
-// v-motion presets
-const headerMotion = animationPresets.fadeInUp;
-const ctaMotion = withDelay("fadeInUp", 400);
+const values = ["clarity", "partnership", "quality"] as const;
 </script>
 
 <template>
   <section
+    ref="sectionRef"
     id="about-section"
     class="about-section"
     aria-labelledby="about-heading"
   >
-    <div class="about-container">
-      <!-- Section Header -->
+    <!-- Section separator / label -->
+    <div class="section-label-row" aria-hidden="true">
+      <span class="sep-line" />
+      <span class="sep-diamond" />
+      <span class="sep-text">{{ t("landing.about.badge") }}</span>
+      <span class="sep-diamond" />
+      <span class="sep-line" />
+    </div>
+
+    <!-- Two-column layout -->
+    <div class="about-inner">
+
+      <!-- Left column: text + CTA -->
       <div
-        class="section-header"
+        class="about-left"
+        :key="`about-left-${visible}`"
         v-motion
-        :initial="headerMotion.initial"
-        :visible-once="headerMotion.visible"
+        :initial="leftMotion.initial"
+        :enter="visible ? leftMotion.visible : leftMotion.initial"
       >
-        <h2 id="about-heading" class="section-title">
+        <h2 id="about-heading" class="about-title">
           {{ t("landing.about.title") }}
         </h2>
-        <p class="section-description">
-          {{ t("landing.about.description") }}
-        </p>
-      </div>
 
-      <!-- Value Cards -->
-      <div ref="gridRef" class="values-grid">
-        <GlassCard
-          v-for="(value, index) in values"
-          :key="value.key"
-          v-motion
-          :initial="staggeredFadeInUp(index).initial"
-          :visible-once="staggeredFadeInUp(index).visible"
-          variant="solid"
-          hover-effect="lift"
-          :gradient-border="false"
-          class="value-card"
+        <div class="about-deco-divider" aria-hidden="true">
+          <span class="deco-line" />
+          <span class="deco-diamond" />
+          <span class="deco-line" />
+        </div>
+
+        <p class="about-description">{{ t("landing.about.description") }}</p>
+
+        <AppCtaButton
+          variant="secondary"
+          :to="localePath('/about')"
+          class="about-cta"
         >
-          <div class="value-icon-wrapper">
-            <UIcon :name="value.icon" class="value-icon" />
-          </div>
-          <h3 class="value-title">
-            {{ t(`landing.about.values.${value.key}.title`) }}
-          </h3>
-          <p class="value-description">
-            {{ t(`landing.about.values.${value.key}.description`) }}
-          </p>
-        </GlassCard>
+          {{ t("landing.about.cta") }}
+        </AppCtaButton>
       </div>
 
-      <!-- CTA -->
+      <!-- Right column: gradient block + values list -->
       <div
-        class="about-cta"
+        class="about-right"
+        :key="`about-right-${visible}`"
         v-motion
-        :initial="ctaMotion.initial"
-        :visible-once="ctaMotion.visible"
+        :initial="rightMotion.initial"
+        :enter="visible ? rightMotion.visible : rightMotion.initial"
       >
-        <NuxtLink to="/about" class="cta-link">
-          {{ t("landing.about.cta") }}
-          <UIcon name="i-heroicons-arrow-right-20-solid" class="cta-icon" />
-        </NuxtLink>
+        <!-- Gradient accent block (image placeholder) -->
+        <div class="about-gradient-block" aria-hidden="true">
+          <div class="gradient-inner" />
+          <div class="deco-frame">
+            <span class="corner corner--tl" />
+            <span class="corner corner--tr" />
+            <span class="corner corner--bl" />
+            <span class="corner corner--br" />
+          </div>
+        </div>
+
+        <!-- Values list -->
+        <ul class="values-list" role="list">
+          <li
+            v-for="key in values"
+            :key="key"
+            class="value-item"
+          >
+            <div class="value-marker" aria-hidden="true">
+              <span class="marker-rule" />
+              <span class="marker-diamond" />
+            </div>
+            <div class="value-content">
+              <h3 class="value-title">{{ t(`landing.about.values.${key}.title`) }}</h3>
+              <p class="value-body">{{ t(`landing.about.values.${key}.description`) }}</p>
+            </div>
+          </li>
+        </ul>
       </div>
+    </div>
+
+    <!-- Bottom deco rule — transition into next section block -->
+    <div class="section-bottom-rule" aria-hidden="true">
+      <span class="sep-line" />
+      <span class="sep-diamond-lg" />
+      <span class="sep-line" />
     </div>
   </section>
 </template>
 
 <style lang="scss" scoped>
+/* ── Section ──────────────────────────────────────────────────── */
 .about-section {
-  position: relative;
-  padding: 6rem 1.5rem;
-  background: var(--color-section-light);
-  overflow: hidden;
-
-  @media (min-width: 768px) {
-    padding: 8rem 2rem;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 10rem 2rem;
-  }
-
-  // Subtle gradient overlay
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 200px;
-    background: linear-gradient(
-      to bottom,
-      var(--color-primary-800) 0%,
-      transparent 100%
-    );
-    opacity: 0.03;
-    pointer-events: none;
-  }
+  background: #0d0908;
+  padding-bottom: 0;
 }
 
-.about-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.section-header {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 4rem;
-}
-
-.section-badge {
-  display: inline-block;
-  padding: 0.375rem 1rem;
-  background: var(--badge-accent-bg);
-  color: var(--badge-accent-text);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border-radius: 9999px;
-  margin-bottom: 1rem;
-}
-
-.section-title {
-  font-size: var(--text-3xl);
-  color: var(--color-text);
-  margin-bottom: 1rem;
-
-  @media (min-width: 768px) {
-    font-size: var(--text-4xl);
-  }
-}
-
-.section-description {
-  font-size: var(--text-base);
-  line-height: 1.7;
-  color: var(--color-text-muted);
-
-  @media (min-width: 768px) {
-    font-size: var(--text-lg);
-  }
-}
-
-.values-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-
-  @media (min-width: 640px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-}
-
-.value-card {
-  background: var(--color-surface-1);
-}
-
-.value-icon-wrapper {
+/* ── Section separator / label ────────────────────────────────── */
+.section-label-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  background: var(--color-primary-100);
-  border-radius: 12px;
-  margin-bottom: 1.25rem;
+  gap: 1rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 5rem 2rem 3.5rem;
 }
 
-.value-icon {
-  width: 28px;
-  height: 28px;
-  color: var(--color-primary-600);
+.sep-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.12);
 }
 
-.value-title {
-  font-size: var(--text-lg);
-  font-weight: 600;
-  color: var(--color-text);
-  margin-bottom: 0.5rem;
+.sep-diamond {
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.35);
+  transform: rotate(45deg);
+  flex-shrink: 0;
 }
 
-.value-description {
-  font-size: var(--text-sm);
-  line-height: 1.6;
-  color: var(--color-text-muted);
+.sep-text {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.45);
+  flex-shrink: 0;
+}
+
+/* ── Inner layout ─────────────────────────────────────────────── */
+.about-inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem 5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+}
+
+/* ── Left column ──────────────────────────────────────────────── */
+.about-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  line-height: 1.15;
+  color: #fff;
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.about-deco-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.deco-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.15);
+}
+
+.deco-diamond {
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.4);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.about-description {
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 2.5rem;
 }
 
 .about-cta {
-  text-align: center;
+  align-self: flex-start;
 }
 
-.cta-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: var(--text-base);
-  font-weight: 600;
-  color: var(--color-primary-600);
-  text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  transition: all var(--duration-normal) var(--ease-smooth);
+/* ── Right column ─────────────────────────────────────────────── */
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
 
-  &:hover {
-    color: var(--color-primary-700);
-    background: var(--color-primary-50);
+/* ── Gradient block (image placeholder) ──────────────────────── */
+.about-gradient-block {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 2px;
+  overflow: hidden;
 
-    .cta-icon {
-      transform: translateX(4px);
-    }
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-primary-500);
-    outline-offset: 4px;
+  @media (min-width: 1024px) {
+    aspect-ratio: 4 / 3;
   }
 }
 
-.cta-icon {
+.gradient-inner {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #481f0a 0%, #200b03 55%, #0d0908 100%);
+  opacity: 0.9;
+}
+
+.deco-frame {
+  position: absolute;
+  inset: 0.875rem;
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
   width: 1.25rem;
   height: 1.25rem;
-  transition: transform var(--duration-fast) var(--ease-smooth);
+  border-color: rgba(223, 175, 133, 0.22);
+  border-style: solid;
+
+  &--tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
+  &--tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
+  &--bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+  &--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
 }
 
-// Dark mode adjustments
-:root.dark {
+/* ── Values list ──────────────────────────────────────────────── */
+.values-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.value-item {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(223, 175, 133, 0.08);
+
+  &:last-child {
+    border-bottom: 1px solid rgba(223, 175, 133, 0.08);
+  }
+}
+
+.value-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.3rem;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.marker-rule {
+  width: 1px;
+  height: 0.875rem;
+  background: rgba(223, 175, 133, 0.2);
+}
+
+.marker-diamond {
+  width: 6px;
+  height: 6px;
+  background: rgba(223, 175, 133, 0.45);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.value-content {
+  flex: 1;
+}
+
+.value-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(0.95rem, 1.1vw, 1rem);
+  line-height: 1.3;
+  color: #ffeddf;
+  margin: 0 0 0.4rem;
+}
+
+.value-body {
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+/* ── Bottom deco rule ─────────────────────────────────────────── */
+.section-bottom-rule {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+.sep-diamond-lg {
+  width: 7px;
+  height: 7px;
+  background: rgba(223, 175, 133, 0.25);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* ── Light mode overrides ─────────────────────────────────────── */
+html:not(.dark) {
   .about-section {
-    background: var(--color-section-dark);
+    background: var(--color-section-light);
   }
 
-  .section-badge {
-    background: var(--color-accent-900);
-    color: var(--color-accent-300);
+  /* Section separator */
+  .sep-line {
+    background: var(--deco-line);
   }
 
-  .value-card {
-    background: var(--color-surface-2);
+  .sep-diamond {
+    background: var(--deco-diamond);
   }
 
-  .value-icon-wrapper {
-    background: var(--color-primary-800);
+  .sep-text {
+    color: var(--deco-text);
   }
 
-  .value-icon {
-    color: var(--color-primary-300);
+  /* Title & body text */
+  .about-title {
+    color: var(--color-text-primary);
   }
 
-  .cta-link {
-    color: var(--color-primary-300);
+  .about-description {
+    color: var(--color-text-subtle);
+  }
 
-    &:hover {
-      color: var(--color-primary-200);
-      background: rgba(211, 154, 105, 0.1);
+  /* Deco divider */
+  .deco-line {
+    background: var(--deco-line);
+  }
+
+  .deco-diamond {
+    background: var(--deco-diamond);
+  }
+
+  /* Gradient block — flip to warm light */
+  .gradient-inner {
+    background: linear-gradient(145deg, #f5efe8 0%, #e8ddd2 55%, #faf7f4 100%);
+    opacity: 1;
+  }
+
+  /* Art deco corners on gradient block */
+  .corner {
+    border-color: var(--deco-border);
+  }
+
+  /* Values list */
+  .value-item {
+    border-top-color: var(--deco-line);
+
+    &:last-child {
+      border-bottom-color: var(--deco-line);
     }
   }
-}
 
-// prefers-reduced-motion handled by v-motion / useAccessibleMotion
+  .marker-rule {
+    background: var(--deco-line-strong);
+  }
+
+  .marker-diamond {
+    background: var(--deco-diamond);
+  }
+
+  .value-title {
+    color: var(--color-text-primary);
+  }
+
+  .value-body {
+    color: var(--color-text-subtle);
+  }
+
+  /* Bottom deco rule */
+  .sep-diamond-lg {
+    background: var(--deco-diamond-sm);
+  }
+}
 </style>
+
+

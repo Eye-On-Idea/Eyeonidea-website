@@ -1,6 +1,6 @@
 <template>
   <div class="flex align justify">
-    <a href="/" class="logo_a flex align justify">
+    <NuxtLink :to="localePath('/')" class="logo_a flex align justify">
       <svg
         width="704"
         height="427"
@@ -46,11 +46,13 @@
           d="M703.917 117.23H518.587V133.613H703.917V117.23ZM703.917 0H452.458L440.958 16.8182L703.917 16.7471V0ZM518.587 238.1V254.847H703.917V238.1H518.587Z"
         />
       </svg>
-    </a>
+    </NuxtLink>
   </div>
 </template>
 
-<script setup></script>
+<script setup lang="ts">
+const localePath = useLocalePath();
+</script>
 
 <style lang="scss">
 div {

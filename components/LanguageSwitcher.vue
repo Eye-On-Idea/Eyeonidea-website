@@ -37,10 +37,18 @@ const options = computed(() =>
   })),
 );
 
+const fallbackLanguage = {
+  code: "en" as SupportedLanguage,
+  nativeName: "English",
+  icon: "i-circle-flags-gb",
+  region: "GB",
+};
+
 const currentLanguage = computed(
   () =>
     options.value.find((lang) => lang.code === locale.value) ??
-    options.value[0],
+    options.value[0] ??
+    fallbackLanguage,
 );
 
 const switchLanguage = async (langCode: SupportedLanguage) => {
@@ -179,7 +187,7 @@ onUnmounted(() => {
     <button
       ref="buttonRef"
       type="button"
-      class="lang-switcher__trigger active:bg-primary-600 hover:bg-primary-600"
+      class="lang-switcher__trigger active:bg-primary-600 hover:bg-primary-500/25! bg-primary-950/1!"
       :aria-label="t('common.accessibility.selectLanguage')"
       :aria-expanded="isOpen"
       aria-haspopup="true"
@@ -254,9 +262,6 @@ onUnmounted(() => {
   padding: 10px 10px;
   min-height: 44px;
   border-radius: 12px;
-
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   cursor: pointer;
   transition: all var(--duration-fast) var(--ease-smooth);
 }

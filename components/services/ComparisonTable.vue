@@ -2,6 +2,7 @@
 import { ref, onMounted, onUnmounted } from "vue";
 
 const { t, tm } = useI18n();
+const localePath = useLocalePath();
 
 const sectionRef = ref<HTMLElement | null>(null);
 const isVisible = ref(false);
@@ -10,7 +11,6 @@ const expandedCategories = ref<Set<string>>(new Set());
 
 onMounted(() => {
   if (!sectionRef.value) return;
-
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -22,12 +22,8 @@ onMounted(() => {
     },
     { threshold: 0.1 },
   );
-
   observer.observe(sectionRef.value);
-
-  onUnmounted(() => {
-    observer.disconnect();
-  });
+  onUnmounted(() => observer.disconnect());
 });
 
 interface Feature {
@@ -83,10 +79,10 @@ const getFeatureValue = (
   return feature[pkg];
 };
 
-// Open first category by default on mount
 onMounted(() => {
-  if (categories.value.length > 0) {
-    expandedCategories.value = new Set([categories.value[0].key]);
+  const firstCategory = categories.value[0];
+  if (firstCategory) {
+    expandedCategories.value = new Set([firstCategory.key]);
   }
 });
 </script>
@@ -98,27 +94,28 @@ onMounted(() => {
     class="comparison-section"
     aria-labelledby="comparison-heading"
   >
+    <!-- Section label row -->
+    <div class="section-label-row" aria-hidden="true">
+      <span class="sep-line" />
+      <span class="sep-diamond" />
+      <span class="sep-text">{{ t("services.comparison.title") }}</span>
+      <span class="sep-diamond" />
+      <span class="sep-line" />
+    </div>
+
     <div class="section-container">
       <!-- Header -->
       <div class="section-header" :class="{ 'animate-in': isVisible }">
         <h2 id="comparison-heading" class="section-title">
           {{ t("services.comparison.title") }}
         </h2>
-        <p class="section-subtitle">
-          {{ t("services.comparison.subtitle") }}
-        </p>
+        <p class="section-subtitle">{{ t("services.comparison.subtitle") }}</p>
       </div>
 
-      <!-- ═══════════════════════════════════════════ -->
-      <!-- DESKTOP: Original table (hidden on mobile)  -->
-      <!-- ═══════════════════════════════════════════ -->
-      <div
-        class="table-wrapper desktop-only"
-        :class="{ 'animate-in': isVisible }"
-      >
+      <!-- DESKTOP TABLE -->
+      <div class="table-wrapper desktop-only" :class="{ 'animate-in': isVisible }">
         <div class="table-container">
           <table class="comparison-table" role="grid">
-            <!-- Sticky Header -->
             <thead class="table-header">
               <tr>
                 <th class="feature-header" scope="col">
@@ -137,52 +134,51 @@ onMounted(() => {
                     </span>
                     <span class="package-name">{{ getPackageName(pkg) }}</span>
                     <div class="package-price">
-                      <span class="price-currency">{{
-                        getPackageCurrency(pkg)
-                      }}</span>
-                      <span class="price-amount">{{
-                        getPackagePrice(pkg)
-                      }}</span>
+                      <span class="price-currency">{{ getPackageCurrency(pkg) }}</span>
+                      <span class="price-amount">{{ getPackagePrice(pkg) }}</span>
                     </div>
                   </div>
                 </th>
               </tr>
             </thead>
 
-            <!-- Table Body -->
             <tbody>
               <template v-for="category in categories" :key="category.key">
-                <!-- Category Header Row -->
                 <tr class="category-row">
-                  <th
-                    :colspan="packages.length + 1"
-                    class="category-header"
-                    scope="colgroup"
-                  >
-                    {{ category.title }}
+                  <th :colspan="packages.length + 1" class="category-header" scope="colgroup">
+                    <button
+                      type="button"
+                      class="category-toggle"
+                      :aria-expanded="isCategoryExpanded(category.key)"
+                      :aria-controls="`dt-cat-${category.key}`"
+                      @click="toggleCategory(category.key)"
+                    >
+                      <span class="cat-diamond" aria-hidden="true" />
+                      {{ category.title }}
+                      <span
+                        class="cat-chevron"
+                        :class="{ 'cat-chevron--open': isCategoryExpanded(category.key) }"
+                        aria-hidden="true"
+                      >▾</span>
+                    </button>
                   </th>
                 </tr>
 
-                <!-- Feature Rows -->
                 <tr
                   v-for="(feature, fIndex) in category.features"
                   :key="`${category.key}-${fIndex}`"
+                  v-show="isCategoryExpanded(category.key)"
                   class="feature-row"
                 >
                   <th class="feature-name" scope="row">
                     <button
                       type="button"
                       class="feature-name-button"
-                      :aria-expanded="
-                        activeTooltip === `${category.key}-${fIndex}`
-                      "
+                      :aria-expanded="activeTooltip === `${category.key}-${fIndex}`"
                       @click="toggleTooltip(`${category.key}-${fIndex}`)"
                     >
                       <span>{{ feature.name }}</span>
-                      <UIcon
-                        name="i-heroicons-information-circle"
-                        class="info-icon"
-                      />
+                      <span class="info-icon" aria-hidden="true">?</span>
                     </button>
                     <Transition name="tooltip">
                       <div
@@ -199,27 +195,13 @@ onMounted(() => {
                     v-for="pkg in packages"
                     :key="pkg"
                     class="feature-cell"
-                    :class="{
-                      'feature-cell--featured': pkg === 'growth',
-                    }"
+                    :class="{ 'feature-cell--featured': pkg === 'growth' }"
                   >
-                    <span
-                      v-if="getFeatureValue(feature, pkg) === true"
-                      class="feature-check"
-                    >
-                      <UIcon name="i-heroicons-check" class="check-icon" />
-                      <span class="sr-only">{{
-                        t("services.comparison.legend.included")
-                      }}</span>
+                    <span v-if="getFeatureValue(feature, pkg) === true" class="feature-check" aria-label="Included">
+                      <span class="check-diamond" aria-hidden="true" />
                     </span>
-                    <span
-                      v-else-if="getFeatureValue(feature, pkg) === false"
-                      class="feature-dash"
-                    >
-                      <UIcon name="i-heroicons-minus" class="dash-icon" />
-                      <span class="sr-only">{{
-                        t("services.comparison.legend.notIncluded")
-                      }}</span>
+                    <span v-else-if="getFeatureValue(feature, pkg) === false" class="feature-dash" aria-label="Not included">
+                      <span class="dash-line" aria-hidden="true" />
                     </span>
                     <span v-else class="feature-partial">
                       {{ getFeatureValue(feature, pkg) }}
@@ -229,26 +211,22 @@ onMounted(() => {
               </template>
             </tbody>
 
-            <!-- CTA Footer -->
             <tfoot>
               <tr class="cta-row">
-                <td class="cta-spacer"></td>
+                <td class="cta-spacer" />
                 <td
                   v-for="pkg in packages"
                   :key="pkg"
                   class="cta-cell"
                   :class="{ 'cta-cell--featured': pkg === 'growth' }"
                 >
-                  <NuxtLink
-                    to="/contact"
-                    class="cta-button"
-                    :class="{
-                      'cta-button--featured': pkg === 'growth',
-                      'cta-button--default': pkg !== 'growth',
-                    }"
+                  <AppCtaButton
+                    :variant="pkg === 'growth' ? 'primary' : 'secondary'"
+                    :to="localePath('/contact')"
+                    class="cta-pkg-btn"
                   >
                     {{ t("services.packages.cta") }}
-                  </NuxtLink>
+                  </AppCtaButton>
                 </td>
               </tr>
             </tfoot>
@@ -256,14 +234,8 @@ onMounted(() => {
         </div>
       </div>
 
-      <!-- ═══════════════════════════════════════════ -->
-      <!-- MOBILE: Accordion comparison view           -->
-      <!-- ═══════════════════════════════════════════ -->
-      <div
-        class="mobile-comparison mobile-only"
-        :class="{ 'animate-in': isVisible }"
-      >
-        <!-- Package header row (always visible) -->
+      <!-- MOBILE ACCORDION -->
+      <div class="mobile-comparison mobile-only" :class="{ 'animate-in': isVisible }">
         <div class="mobile-pkg-header">
           <div
             v-for="pkg in packages"
@@ -276,25 +248,18 @@ onMounted(() => {
             </span>
             <span class="mobile-pkg-name">{{ getPackageName(pkg) }}</span>
             <div class="mobile-pkg-price">
-              <span class="mobile-price-currency">{{
-                getPackageCurrency(pkg)
-              }}</span>
-              <span class="mobile-price-amount">{{
-                getPackagePrice(pkg)
-              }}</span>
+              <span class="mobile-price-currency">{{ getPackageCurrency(pkg) }}</span>
+              <span class="mobile-price-amount">{{ getPackagePrice(pkg) }}</span>
             </div>
           </div>
         </div>
 
-        <!-- Accordion categories -->
         <div class="mobile-categories">
           <div
             v-for="category in categories"
             :key="category.key"
             class="mobile-category"
-            :class="{
-              'mobile-category--expanded': isCategoryExpanded(category.key),
-            }"
+            :class="{ 'mobile-category--expanded': isCategoryExpanded(category.key) }"
           >
             <button
               type="button"
@@ -304,29 +269,18 @@ onMounted(() => {
               @click="toggleCategory(category.key)"
             >
               <span class="mobile-category__title">{{ category.title }}</span>
-              <span class="mobile-category__count">{{
-                category.features.length
-              }}</span>
-              <UIcon
-                name="i-heroicons-chevron-down"
+              <span class="mobile-category__count">{{ category.features.length }}</span>
+              <span
                 class="mobile-category__chevron"
-                :class="{
-                  'mobile-category__chevron--open': isCategoryExpanded(
-                    category.key,
-                  ),
-                }"
+                :class="{ 'mobile-category__chevron--open': isCategoryExpanded(category.key) }"
                 aria-hidden="true"
-              />
+              >▾</span>
             </button>
 
             <div
               :id="`mobile-cat-${category.key}`"
               class="mobile-category__panel"
-              :class="{
-                'mobile-category__panel--open': isCategoryExpanded(
-                  category.key,
-                ),
-              }"
+              :class="{ 'mobile-category__panel--open': isCategoryExpanded(category.key) }"
               role="region"
               :aria-label="category.title"
             >
@@ -340,16 +294,11 @@ onMounted(() => {
                   <button
                     type="button"
                     class="mobile-feature__info"
-                    :aria-expanded="
-                      activeTooltip === `m-${category.key}-${fIndex}`
-                    "
+                    :aria-expanded="activeTooltip === `m-${category.key}-${fIndex}`"
                     :aria-label="`Info: ${feature.name}`"
                     @click.stop="toggleTooltip(`m-${category.key}-${fIndex}`)"
                   >
-                    <UIcon
-                      name="i-heroicons-information-circle"
-                      class="mobile-feature__info-icon"
-                    />
+                    <span class="mobile-info-icon" aria-hidden="true">?</span>
                   </button>
                 </div>
 
@@ -363,42 +312,19 @@ onMounted(() => {
                   </div>
                 </Transition>
 
-                <!-- 3-column grid of values -->
                 <div class="mobile-feature__values">
                   <div
                     v-for="pkg in packages"
                     :key="pkg"
                     class="mobile-feature__value"
-                    :class="{
-                      'mobile-feature__value--featured': pkg === 'growth',
-                    }"
+                    :class="{ 'mobile-feature__value--featured': pkg === 'growth' }"
                   >
-                    <span class="mobile-feature__pkg-label">{{
-                      getPackageName(pkg)
-                    }}</span>
-                    <span
-                      v-if="getFeatureValue(feature, pkg) === true"
-                      class="feature-check feature-check--sm"
-                    >
-                      <UIcon
-                        name="i-heroicons-check"
-                        class="check-icon check-icon--sm"
-                      />
-                      <span class="sr-only">{{
-                        t("services.comparison.legend.included")
-                      }}</span>
+                    <span class="mobile-feature__pkg-label">{{ getPackageName(pkg) }}</span>
+                    <span v-if="getFeatureValue(feature, pkg) === true" class="feature-check feature-check--sm" aria-label="Included">
+                      <span class="check-diamond" aria-hidden="true" />
                     </span>
-                    <span
-                      v-else-if="getFeatureValue(feature, pkg) === false"
-                      class="feature-dash feature-dash--sm"
-                    >
-                      <UIcon
-                        name="i-heroicons-minus"
-                        class="dash-icon dash-icon--sm"
-                      />
-                      <span class="sr-only">{{
-                        t("services.comparison.legend.notIncluded")
-                      }}</span>
+                    <span v-else-if="getFeatureValue(feature, pkg) === false" class="feature-dash feature-dash--sm" aria-label="Not included">
+                      <span class="dash-line" aria-hidden="true" />
                     </span>
                     <span v-else class="feature-partial feature-partial--sm">
                       {{ getFeatureValue(feature, pkg) }}
@@ -410,35 +336,27 @@ onMounted(() => {
           </div>
         </div>
 
-        <!-- Mobile CTA -->
         <div class="mobile-cta-row">
-          <NuxtLink
+          <AppCtaButton
             v-for="pkg in packages"
             :key="pkg"
-            to="/contact"
-            class="mobile-cta-button"
-            :class="{
-              'mobile-cta-button--featured': pkg === 'growth',
-              'mobile-cta-button--default': pkg !== 'growth',
-            }"
+            :variant="pkg === 'growth' ? 'primary' : 'secondary'"
+            :to="localePath('/contact')"
+            class="mobile-cta-pkg-btn"
           >
             {{ getPackageName(pkg) }}
-          </NuxtLink>
+          </AppCtaButton>
         </div>
       </div>
 
       <!-- Legend -->
       <div class="legend" :class="{ 'animate-in': isVisible }">
         <div class="legend-item">
-          <span class="legend-check">
-            <UIcon name="i-heroicons-check" />
-          </span>
+          <span class="check-diamond legend-check-diamond" aria-hidden="true" />
           <span>{{ t("services.comparison.legend.included") }}</span>
         </div>
         <div class="legend-item">
-          <span class="legend-dash">
-            <UIcon name="i-heroicons-minus" />
-          </span>
+          <span class="dash-line legend-dash-line" aria-hidden="true" />
           <span>{{ t("services.comparison.legend.notIncluded") }}</span>
         </div>
       </div>
@@ -447,26 +365,58 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+/* ── Section ──────────────────────────────────────────────────── */
 .comparison-section {
-  padding: 6rem 1.5rem;
-  background: var(--color-section-light);
-
-  @media (min-width: 768px) {
-    padding: 8rem 2rem;
-  }
+  background: #0d0908;
+  padding-bottom: 0;
 }
 
-.section-container {
-  max-width: 1200px;
+/* ── Section label row ────────────────────────────────────────── */
+.section-label-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 80rem;
   margin: 0 auto;
+  padding: 5rem 2rem 3rem;
 }
 
+.sep-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.12);
+}
+
+.sep-diamond {
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.35);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.sep-text {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.45);
+  flex-shrink: 0;
+}
+
+/* ── Container ────────────────────────────────────────────────── */
+.section-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem 5rem;
+}
+
+/* ── Header ───────────────────────────────────────────────────── */
 .section-header {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 3rem;
+  margin-bottom: 3rem;
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(20px);
   transition:
     opacity 0.6s var(--ease-smooth),
     transform 0.6s var(--ease-smooth);
@@ -477,63 +427,44 @@ onMounted(() => {
   }
 }
 
-.section-badge {
-  display: inline-block;
-  padding: 0.375rem 1rem;
-  background: var(--badge-primary-bg);
-  color: var(--badge-primary-text);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border-radius: 9999px;
-  margin-bottom: 1rem;
-}
-
 .section-title {
-  font-size: var(--text-3xl);
-  color: var(--color-text);
-  margin-bottom: 1rem;
-
-  @media (min-width: 768px) {
-    font-size: var(--text-4xl);
-  }
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  line-height: 1.1;
+  color: #fff;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
 }
 
 .section-subtitle {
-  font-size: var(--text-base);
-  line-height: 1.6;
-  color: var(--color-text-muted);
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  line-height: 1.75;
+  color: rgba(255, 237, 223, 0.5);
+  max-width: 48ch;
+  margin: 0;
 }
 
-/* ══════════════════════════════════════════ */
-/* Visibility toggles                        */
-/* ══════════════════════════════════════════ */
+/* ── Desktop / Mobile breakpoints ────────────────────────────── */
 .desktop-only {
   display: none;
-
-  @media (min-width: 768px) {
-    display: block;
-  }
+  @media (min-width: 768px) { display: block; }
 }
 
 .mobile-only {
   display: block;
-
-  @media (min-width: 768px) {
-    display: none;
-  }
+  @media (min-width: 768px) { display: none; }
 }
 
-/* ══════════════════════════════════════════ */
-/* DESKTOP TABLE (unchanged)                 */
-/* ══════════════════════════════════════════ */
+/* ── Table wrapper ────────────────────────────────────────────── */
 .table-wrapper {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(20px);
   transition:
-    opacity 0.6s var(--ease-smooth) 0.2s,
-    transform 0.6s var(--ease-smooth) 0.2s;
+    opacity 0.6s var(--ease-smooth) 0.1s,
+    transform 0.6s var(--ease-smooth) 0.1s;
 
   &.animate-in {
     opacity: 1;
@@ -543,62 +474,42 @@ onMounted(() => {
 
 .table-container {
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  border-radius: 16px;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  box-shadow: var(--card-shadow);
-
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-primary-300) transparent;
-
-  &::-webkit-scrollbar {
-    height: 6px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: var(--color-primary-300);
-    border-radius: 3px;
-  }
+  border: 1px solid rgba(223, 175, 133, 0.1);
+  border-radius: 2px;
 }
 
 .comparison-table {
   width: 100%;
-  min-width: 700px;
   border-collapse: collapse;
+  min-width: 600px;
 }
 
+/* ── Table header ─────────────────────────────────────────────── */
 .table-header {
   position: sticky;
   top: 0;
-  z-index: 10;
-  background: var(--card-bg);
+  z-index: 2;
 }
 
 .feature-header {
-  padding: 1.5rem 1rem;
-  text-align: left;
-  min-width: 200px;
-  background: var(--card-bg);
+  background: #161210;
+  border-bottom: 1px solid rgba(223, 175, 133, 0.12);
+  padding: 1.25rem 1.5rem;
+  width: 35%;
 }
 
 .package-header {
-  padding: 1.5rem 1rem;
+  background: #161210;
+  border-bottom: 1px solid rgba(223, 175, 133, 0.12);
+  border-left: 1px solid rgba(223, 175, 133, 0.08);
+  padding: 1.25rem 1rem;
   text-align: center;
-  min-width: 140px;
-  background: var(--card-bg);
-  border-left: 1px solid var(--color-border);
+  width: 21.6%;
 
   &--featured {
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--color-accent-50) 50%, var(--card-bg)) 0%,
-      var(--card-bg) 100%
-    );
+    background: #1a1410;
+    border-left-color: rgba(223, 175, 133, 0.18);
+    border-right: 1px solid rgba(223, 175, 133, 0.18);
   }
 }
 
@@ -606,73 +517,121 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.35rem;
 }
 
 .popular-indicator {
-  font-size: var(--text-xs);
+  font-family: var(--font-heading);
+  font-size: 0.55rem;
   font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-accent-600);
-  background: var(--color-accent-100);
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  margin-bottom: 0.25rem;
+  color: rgba(223, 175, 133, 0.8);
+  padding: 0.2rem 0.6rem;
+  border: 1px solid rgba(223, 175, 133, 0.3);
+  border-radius: 100px;
 }
 
 .package-name {
-  font-size: var(--text-lg);
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
   font-weight: 700;
-  color: var(--color-text);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 237, 223, 0.8);
 }
 
 .package-price {
   display: flex;
   align-items: baseline;
-  gap: 0.125rem;
+  gap: 0.1rem;
+  justify-content: center;
 }
 
 .price-currency {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--color-text-muted);
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  color: rgba(223, 175, 133, 0.6);
+  align-self: flex-start;
+  margin-top: 3px;
 }
 
 .price-amount {
-  font-size: var(--text-xl);
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
   font-weight: 700;
-  color: var(--color-primary-600);
+  color: #dfaf85;
+  letter-spacing: -0.02em;
 }
 
-.category-row {
-  background: var(--color-surface-2);
-}
-
-.category-header {
-  padding: 0.875rem 1rem;
+/* ── Category row ─────────────────────────────────────────────── */
+.category-row .category-header {
+  background: #120f0d;
+  padding: 0;
+  border-top: 1px solid rgba(223, 175, 133, 0.08);
+  border-bottom: 1px solid rgba(223, 175, 133, 0.06);
   text-align: left;
-  font-size: var(--text-sm);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-text-muted);
 }
 
-.feature-row {
-  border-top: 1px solid var(--color-border);
+.category-toggle {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  background: none;
+  border: none;
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.5);
+  cursor: pointer;
+  text-align: left;
+  min-height: 44px;
+  transition: color 0.2s ease;
 
+  &:hover { color: rgba(223, 175, 133, 0.8); }
+
+  &:focus-visible {
+    outline: 2px solid rgba(223, 175, 133, 0.45);
+    outline-offset: -2px;
+  }
+}
+
+.cat-diamond {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: rgba(223, 175, 133, 0.4);
+  transform: rotate(45deg);
+  margin-right: 0.6rem;
+  flex-shrink: 0;
+}
+
+.cat-chevron {
+  margin-left: auto;
+  font-size: 1rem;
+  color: rgba(223, 175, 133, 0.4);
+  transition: transform 0.25s ease;
+  line-height: 1;
+
+  &--open { transform: rotate(180deg); }
+}
+
+/* ── Feature rows ─────────────────────────────────────────────── */
+.feature-row {
   &:hover {
-    background: var(--color-surface-2);
+    .feature-name, .feature-cell { background: rgba(223, 175, 133, 0.02); }
   }
 }
 
 .feature-name {
-  padding: 0.875rem 1rem;
-  text-align: left;
-  font-weight: 500;
-  color: var(--color-text);
+  padding: 0.85rem 1.5rem;
+  border-bottom: 1px solid rgba(223, 175, 133, 0.05);
+  vertical-align: middle;
   position: relative;
+  background: #0d0908;
 }
 
 .feature-name-button {
@@ -682,50 +641,56 @@ onMounted(() => {
   background: none;
   border: none;
   padding: 0;
-  font: inherit;
-  color: inherit;
-  cursor: pointer;
+  font-family: var(--font-text);
+  font-size: 0.85rem;
+  color: rgba(255, 237, 223, 0.65);
   text-align: left;
-
-  &:hover .info-icon,
-  &:focus .info-icon {
-    color: var(--color-primary-500);
-  }
+  cursor: pointer;
+  width: 100%;
+  min-height: 44px;
 
   &:focus-visible {
-    outline: 2px solid var(--focus-ring);
+    outline: 2px solid rgba(223, 175, 133, 0.5);
     outline-offset: 2px;
-    border-radius: 4px;
   }
 }
 
 .info-icon {
+  flex-shrink: 0;
   width: 16px;
   height: 16px;
-  color: var(--color-text-subtle);
-  transition: color var(--duration-fast) var(--ease-smooth);
+  border-radius: 50%;
+  border: 1px solid rgba(223, 175, 133, 0.25);
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: rgba(223, 175, 133, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
 .tooltip {
   position: absolute;
+  top: calc(100% + 4px);
   left: 0;
-  top: 100%;
-  z-index: 20;
-  width: max-content;
-  max-width: min(280px, calc(100vw - 2rem));
-  padding: 0.75rem 1rem;
-  background: var(--color-primary-900);
-  color: white;
-  font-size: var(--text-sm);
-  font-weight: 400;
-  line-height: 1.5;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  background: #1e150d;
+  border: 1px solid rgba(223, 175, 133, 0.2);
+  border-radius: 2px;
+  padding: 0.625rem 0.875rem;
+  font-family: var(--font-text);
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: rgba(255, 237, 223, 0.65);
+  max-width: 260px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 .tooltip-enter-active,
 .tooltip-leave-active {
-  transition: all 0.2s var(--ease-smooth);
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .tooltip-enter-from,
@@ -735,147 +700,85 @@ onMounted(() => {
 }
 
 .feature-cell {
-  padding: 0.875rem 1rem;
+  padding: 0.85rem 1rem;
   text-align: center;
-  border-left: 1px solid var(--color-border);
+  border-bottom: 1px solid rgba(223, 175, 133, 0.05);
+  border-left: 1px solid rgba(223, 175, 133, 0.05);
+  vertical-align: middle;
+  background: #0d0908;
 
   &--featured {
-    background: color-mix(in srgb, var(--color-accent-50) 20%, transparent);
+    background: rgba(223, 175, 133, 0.02);
+    border-left-color: rgba(223, 175, 133, 0.08);
+    border-right: 1px solid rgba(223, 175, 133, 0.08);
   }
 }
 
-.feature-check {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  background: var(--color-accent-500);
-  border-radius: 50%;
+/* ── Check / Dash indicators ──────────────────────────────────── */
+.check-diamond {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: rgba(223, 175, 133, 0.7);
+  transform: rotate(45deg);
 }
 
-.feature-check--sm {
-  width: 24px;
-  height: 24px;
-}
-
-.check-icon {
-  width: 16px;
-  height: 16px;
-  color: white;
-}
-
-.check-icon--sm {
-  width: 14px;
-  height: 14px;
-}
-
-.feature-dash {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  background: var(--color-surface-3);
-  border-radius: 50%;
-}
-
-.feature-dash--sm {
-  width: 24px;
-  height: 24px;
-}
-
-.dash-icon {
-  width: 14px;
-  height: 14px;
-  color: var(--color-text-subtle);
-}
-
-.dash-icon--sm {
+.dash-line {
+  display: inline-block;
   width: 12px;
-  height: 12px;
+  height: 1px;
+  background: rgba(255, 237, 223, 0.18);
+  vertical-align: middle;
+}
+
+.feature-check, .feature-dash {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 20px;
 }
 
 .feature-partial {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  background: var(--color-primary-100);
-  color: var(--color-primary-700);
-  font-size: var(--text-xs);
-  font-weight: 600;
-  border-radius: 9999px;
-  text-transform: capitalize;
+  font-family: var(--font-text);
+  font-size: 0.75rem;
+  color: rgba(223, 175, 133, 0.65);
+  line-height: 1.3;
 }
 
-.feature-partial--sm {
-  padding: 0.125rem 0.5rem;
-  font-size: 0.625rem;
-}
-
-.cta-row {
-  border-top: 1px solid var(--color-border);
-}
-
+/* ── CTA footer ───────────────────────────────────────────────── */
 .cta-spacer {
-  padding: 1.5rem 1rem;
+  background: #0d0908;
+  border-top: 1px solid rgba(223, 175, 133, 0.1);
+  padding: 1.25rem 1.5rem;
 }
 
 .cta-cell {
-  padding: 1.5rem 1rem;
+  background: #0d0908;
+  border-top: 1px solid rgba(223, 175, 133, 0.1);
+  border-left: 1px solid rgba(223, 175, 133, 0.05);
+  padding: 1.25rem 1rem;
   text-align: center;
-  border-left: 1px solid var(--color-border);
 
   &--featured {
-    background: color-mix(in srgb, var(--color-accent-50) 20%, transparent);
+    background: rgba(223, 175, 133, 0.02);
+    border-left-color: rgba(223, 175, 133, 0.1);
+    border-right: 1px solid rgba(223, 175, 133, 0.1);
   }
 }
 
-.cta-button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  font-weight: 600;
-  font-size: var(--text-sm);
-  text-decoration: none;
-  border-radius: 10px;
-  transition: all var(--duration-normal) var(--ease-smooth);
-
-  &--default {
-    background: transparent;
-    color: var(--color-primary-600);
-    border: 2px solid var(--color-primary-400);
-
-    &:hover {
-      background: var(--color-primary-50);
-      border-color: var(--color-primary-500);
-    }
-  }
-
-  &--featured {
-    background: var(--color-accent-500);
-    color: white;
-    border: 2px solid transparent;
-
-    &:hover {
-      background: var(--color-accent-600);
-      box-shadow: 0 4px 16px rgba(42, 147, 134, 0.3);
-    }
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--focus-ring);
-    outline-offset: 4px;
-  }
+.cta-pkg-btn {
+  width: 100%;
+  justify-content: center;
+  font-size: 0.75rem;
 }
 
-/* ══════════════════════════════════════════ */
-/* MOBILE: Accordion comparison view         */
-/* ══════════════════════════════════════════ */
+/* ── Mobile comparison ────────────────────────────────────────── */
 .mobile-comparison {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(20px);
   transition:
-    opacity 0.6s var(--ease-smooth) 0.2s,
-    transform 0.6s var(--ease-smooth) 0.2s;
+    opacity 0.6s var(--ease-smooth) 0.1s,
+    transform 0.6s var(--ease-smooth) 0.1s;
 
   &.animate-in {
     opacity: 1;
@@ -883,311 +786,263 @@ onMounted(() => {
   }
 }
 
-/* Package header strip */
 .mobile-pkg-header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin-bottom: 12px;
+  background: #161210;
+  border: 1px solid rgba(223, 175, 133, 0.1);
+  border-radius: 2px 2px 0 0;
 }
 
 .mobile-pkg-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  padding: 12px 8px;
-  border-radius: 12px;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
+  padding: 1rem 0.75rem;
   text-align: center;
-}
+  border-right: 1px solid rgba(223, 175, 133, 0.08);
 
-.mobile-pkg-col--featured {
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--color-accent-50) 50%, var(--card-bg)) 0%,
-    var(--card-bg) 100%
-  );
-  border-color: color-mix(
-    in srgb,
-    var(--color-accent-400) 30%,
-    var(--card-border)
-  );
+  &:last-child { border-right: none; }
+
+  &--featured {
+    background: rgba(223, 175, 133, 0.04);
+  }
 }
 
 .mobile-popular {
-  font-size: 0.625rem;
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.5rem;
   font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-accent-600);
-  background: var(--color-accent-100);
-  padding: 2px 8px;
-  border-radius: 9999px;
-  margin-bottom: 2px;
+  color: rgba(223, 175, 133, 0.7);
+  margin-bottom: 0.2rem;
 }
 
 .mobile-pkg-name {
-  font-size: var(--text-sm);
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
   font-weight: 700;
-  color: var(--color-text);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 237, 223, 0.75);
 }
 
 .mobile-pkg-price {
   display: flex;
   align-items: baseline;
-  gap: 1px;
+  gap: 0.1rem;
+  justify-content: center;
+  margin-top: 0.25rem;
 }
 
 .mobile-price-currency {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  color: var(--color-text-muted);
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  color: rgba(223, 175, 133, 0.55);
+  align-self: flex-start;
+  margin-top: 2px;
 }
 
 .mobile-price-amount {
-  font-size: var(--text-base);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
   font-weight: 700;
-  color: var(--color-primary-600);
+  color: #dfaf85;
+  letter-spacing: -0.02em;
 }
 
-/* Accordion categories */
+/* Mobile categories */
 .mobile-categories {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  border: 1px solid rgba(223, 175, 133, 0.1);
+  border-top: none;
 }
 
 .mobile-category {
-  border-radius: 12px;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  overflow: hidden;
-  transition: box-shadow var(--duration-fast) var(--ease-smooth);
-}
+  border-bottom: 1px solid rgba(223, 175, 133, 0.08);
 
-.mobile-category--expanded {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  &:last-child { border-bottom: none; }
 }
 
 .mobile-category__trigger {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.75rem;
   width: 100%;
-  padding: 14px 16px;
-  min-height: 48px;
-  background: none;
+  padding: 1rem 1.25rem;
+  background: #120f0d;
   border: none;
   font: inherit;
   cursor: pointer;
   text-align: left;
-}
+  min-height: 44px;
 
-.mobile-category__trigger:focus-visible {
-  outline: 2px solid var(--focus-ring);
-  outline-offset: -2px;
+  &:focus-visible {
+    outline: 2px solid rgba(223, 175, 133, 0.5);
+    outline-offset: -2px;
+  }
 }
 
 .mobile-category__title {
   flex: 1;
-  font-size: var(--text-sm);
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
   font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-text-muted);
+  color: rgba(223, 175, 133, 0.6);
 }
 
 .mobile-category__count {
-  font-size: var(--text-xs);
-  color: var(--color-text-subtle);
-  background: var(--color-surface-2);
-  padding: 2px 8px;
-  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  color: rgba(255, 237, 223, 0.25);
 }
 
 .mobile-category__chevron {
-  width: 18px;
-  height: 18px;
-  color: var(--color-text-muted);
-  transition: transform var(--duration-fast) var(--ease-smooth);
-  flex-shrink: 0;
+  font-size: 1rem;
+  color: rgba(223, 175, 133, 0.4);
+  transition: transform 0.25s ease;
+  line-height: 1;
+
+  &--open { transform: rotate(180deg); }
 }
 
-.mobile-category__chevron--open {
-  transform: rotate(180deg);
-}
-
-/* Panel (collapsible) */
 .mobile-category__panel {
   max-height: 0;
-  opacity: 0;
   overflow: hidden;
-  transition:
-    max-height 0.3s var(--ease-smooth),
-    opacity 0.3s var(--ease-smooth);
+  transition: max-height 0.4s var(--ease-smooth);
+
+  &--open { max-height: 3000px; }
 }
 
-.mobile-category__panel--open {
-  max-height: 2000px;
-  opacity: 1;
-}
-
-/* Feature row */
 .mobile-feature {
-  padding: 0 16px;
-  border-top: 1px solid var(--color-border);
-}
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(223, 175, 133, 0.05);
 
-.mobile-feature:last-child {
-  padding-bottom: 12px;
+  &:last-child { border-bottom: none; }
 }
 
 .mobile-feature__name {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 10px 0 6px;
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--color-text);
+  gap: 0.5rem;
+  font-family: var(--font-text);
+  font-size: 0.85rem;
+  color: rgba(255, 237, 223, 0.65);
+  margin-bottom: 0.75rem;
 }
 
 .mobile-feature__info {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
   background: none;
   border: none;
-  cursor: pointer;
   padding: 0;
-  border-radius: 6px;
-  flex-shrink: 0;
+  cursor: pointer;
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+
+  &:focus-visible {
+    outline: 2px solid rgba(223, 175, 133, 0.5);
+    outline-offset: 2px;
+  }
 }
 
-.mobile-feature__info:focus-visible {
-  outline: 2px solid var(--focus-ring);
-  outline-offset: -2px;
-}
-
-.mobile-feature__info-icon {
+.mobile-info-icon {
   width: 16px;
   height: 16px;
-  color: var(--color-text-subtle);
-  transition: color var(--duration-fast) var(--ease-smooth);
-}
-
-.mobile-feature__info:hover .mobile-feature__info-icon {
-  color: var(--color-primary-500);
+  border-radius: 50%;
+  border: 1px solid rgba(223, 175, 133, 0.25);
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: rgba(223, 175, 133, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mobile-feature__tooltip {
-  padding: 8px 12px;
-  margin-bottom: 6px;
-  background: var(--color-primary-900);
-  color: white;
-  font-size: var(--text-xs);
-  line-height: 1.5;
-  border-radius: 8px;
+  background: #1e150d;
+  border: 1px solid rgba(223, 175, 133, 0.2);
+  border-radius: 2px;
+  padding: 0.625rem 0.875rem;
+  font-family: var(--font-text);
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: rgba(255, 237, 223, 0.65);
+  margin-bottom: 0.75rem;
 }
 
-/* 3-column values grid */
 .mobile-feature__values {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-  padding-bottom: 10px;
+  gap: 0.5rem;
 }
 
 .mobile-feature__value {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  padding: 6px 4px;
-  border-radius: 8px;
-  background: var(--color-surface-2);
-}
+  gap: 0.3rem;
+  padding: 0.5rem 0.25rem;
+  border: 1px solid rgba(223, 175, 133, 0.06);
+  border-radius: 2px;
 
-.mobile-feature__value--featured {
-  background: color-mix(
-    in srgb,
-    var(--color-accent-50) 30%,
-    var(--color-surface-2)
-  );
+  &--featured {
+    border-color: rgba(223, 175, 133, 0.12);
+    background: rgba(223, 175, 133, 0.03);
+  }
 }
 
 .mobile-feature__pkg-label {
-  font-size: 0.625rem;
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
-  color: var(--color-text-subtle);
+  color: rgba(255, 237, 223, 0.3);
 }
 
-/* Mobile CTA row */
-.mobile-cta-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin-top: 16px;
-}
-
-.mobile-cta-button {
+.feature-check--sm, .feature-dash--sm {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 8px;
-  min-height: 44px;
-  font-weight: 600;
-  font-size: var(--text-xs);
-  text-decoration: none;
-  border-radius: 10px;
+}
+
+.feature-partial--sm {
+  font-family: var(--font-text);
+  font-size: 0.7rem;
+  color: rgba(223, 175, 133, 0.65);
   text-align: center;
-  transition: all var(--duration-normal) var(--ease-smooth);
 }
 
-.mobile-cta-button--default {
-  background: transparent;
-  color: var(--color-primary-600);
-  border: 2px solid var(--color-primary-400);
+/* Mobile CTA */
+.mobile-cta-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-top: 1.5rem;
 }
 
-.mobile-cta-button--default:hover {
-  background: var(--color-primary-50);
+.mobile-cta-pkg-btn {
+  font-size: 0.7rem;
+  padding: 0.6rem 0.5rem;
+  justify-content: center;
 }
 
-.mobile-cta-button--featured {
-  background: var(--color-accent-500);
-  color: white;
-  border: 2px solid transparent;
-}
-
-.mobile-cta-button--featured:hover {
-  background: var(--color-accent-600);
-}
-
-.mobile-cta-button:focus-visible {
-  outline: 2px solid var(--focus-ring);
-  outline-offset: 2px;
-}
-
-/* ══════════════════════════════════════════ */
-/* Legend + shared                            */
-/* ══════════════════════════════════════════ */
+/* ── Legend ───────────────────────────────────────────────────── */
 .legend {
   display: flex;
-  justify-content: center;
+  align-items: center;
   gap: 2rem;
+  padding-top: 1.5rem;
   margin-top: 1.5rem;
+  border-top: 1px solid rgba(223, 175, 133, 0.08);
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(12px);
   transition:
-    opacity 0.6s var(--ease-smooth) 0.4s,
-    transform 0.6s var(--ease-smooth) 0.4s;
+    opacity 0.6s var(--ease-smooth) 0.3s,
+    transform 0.6s var(--ease-smooth) 0.3s;
 
   &.animate-in {
     opacity: 1;
@@ -1199,198 +1054,20 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
+  font-family: var(--font-text);
+  font-size: 0.75rem;
+  color: rgba(255, 237, 223, 0.4);
 }
 
-.legend-check {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  background: var(--color-accent-500);
-  border-radius: 50%;
-  color: white;
-
-  :deep(svg) {
-    width: 12px;
-    height: 12px;
-  }
+.legend-check-diamond {
+  flex-shrink: 0;
 }
 
-.legend-dash {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  background: var(--color-surface-3);
-  border-radius: 50%;
-  color: var(--color-text-subtle);
-
-  :deep(svg) {
-    width: 10px;
-    height: 10px;
-  }
+.legend-dash-line {
+  flex-shrink: 0;
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* ══════════════════════════════════════════ */
-/* Dark mode                                 */
-/* ══════════════════════════════════════════ */
-:root.dark {
-  .comparison-section {
-    background: var(--color-section-dark);
-  }
-
-  .section-badge {
-    background: var(--color-primary-900);
-    color: var(--color-primary-300);
-  }
-
-  .table-container {
-    background: var(--card-bg);
-    border-color: var(--card-border);
-  }
-
-  .table-header,
-  .feature-header,
-  .package-header {
-    background: var(--card-bg);
-  }
-
-  .package-header--featured {
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--color-accent-900) 40%, var(--card-bg)) 0%,
-      var(--card-bg) 100%
-    );
-  }
-
-  .popular-indicator,
-  .mobile-popular {
-    background: var(--color-accent-900);
-    color: var(--color-accent-300);
-  }
-
-  .price-amount,
-  .mobile-price-amount {
-    color: var(--color-primary-300);
-  }
-
-  .category-row {
-    background: var(--color-surface-3);
-  }
-
-  .feature-row:hover {
-    background: var(--color-surface-3);
-  }
-
-  .feature-cell--featured {
-    background: color-mix(in srgb, var(--color-accent-900) 20%, transparent);
-  }
-
-  .tooltip,
-  .mobile-feature__tooltip {
-    background: var(--color-neutral-800);
-  }
-
-  .feature-partial {
-    background: var(--color-primary-900);
-    color: var(--color-primary-300);
-  }
-
-  .cta-cell--featured {
-    background: color-mix(in srgb, var(--color-accent-900) 20%, transparent);
-  }
-
-  .cta-button--default,
-  .mobile-cta-button--default {
-    color: var(--color-primary-300);
-    border-color: var(--color-primary-500);
-
-    &:hover {
-      background: rgba(211, 154, 105, 0.1);
-    }
-  }
-
-  .cta-button--featured,
-  .mobile-cta-button--featured {
-    background: var(--color-accent-400);
-
-    &:hover {
-      background: var(--color-accent-500);
-    }
-  }
-
-  .feature-dash {
-    background: var(--color-surface-4);
-  }
-
-  .legend-dash {
-    background: var(--color-surface-4);
-  }
-
-  // Mobile dark mode
-  .mobile-pkg-col {
-    background: var(--card-bg);
-    border-color: var(--card-border);
-  }
-
-  .mobile-pkg-col--featured {
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--color-accent-900) 40%, var(--card-bg)) 0%,
-      var(--card-bg) 100%
-    );
-    border-color: color-mix(
-      in srgb,
-      var(--color-accent-500) 25%,
-      var(--card-border)
-    );
-  }
-
-  .mobile-category {
-    background: var(--card-bg);
-    border-color: var(--card-border);
-  }
-
-  .mobile-category--expanded {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  }
-
-  .mobile-feature__value {
-    background: var(--color-surface-3);
-  }
-
-  .mobile-feature__value--featured {
-    background: color-mix(
-      in srgb,
-      var(--color-accent-900) 25%,
-      var(--color-surface-3)
-    );
-  }
-
-  .mobile-category__count {
-    background: var(--color-surface-3);
-  }
-}
-
-/* ══════════════════════════════════════════ */
-/* Reduced motion                            */
-/* ══════════════════════════════════════════ */
+/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .section-header,
   .table-wrapper,
@@ -1401,12 +1078,208 @@ onMounted(() => {
     transition: none;
   }
 
+  .mobile-category__chevron {
+    transition: none;
+  }
+
   .mobile-category__panel {
     transition: none;
   }
 
-  .mobile-category__chevron {
+  .tooltip-enter-active,
+  .tooltip-leave-active {
     transition: none;
   }
+}
+
+/* ── Light mode overrides ─────────────────────────────────────── */
+html:not(.dark) {
+  /* Section background + separator */
+  .comparison-section { background: var(--color-section-light); }
+
+  .sep-line    { background: var(--deco-line); }
+  .sep-diamond { background: var(--deco-diamond); }
+  .sep-text    { color: var(--deco-text); }
+
+  .section-title    { color: var(--color-text-primary); }
+  .section-subtitle { color: var(--color-text-secondary); }
+
+  /* ── Desktop table ────────────────────────────── */
+  .table-container {
+    border-color: rgba(153, 82, 38, 0.14);
+    background: #fff;
+  }
+
+  .feature-header {
+    background: linear-gradient(175deg, #ffffff 0%, #fff7f0 100%);
+    border-bottom-color: rgba(153, 82, 38, 0.12);
+  }
+
+  .package-header {
+    background: linear-gradient(175deg, #ffffff 0%, #fff7f0 100%);
+    border-bottom-color: rgba(153, 82, 38, 0.12);
+    border-left-color: rgba(153, 82, 38, 0.08);
+
+    &--featured {
+      background: linear-gradient(175deg, #ffe4cf 0%, #ffeddf 100%);
+      border-left-color: rgba(153, 82, 38, 0.22);
+      border-right-color: rgba(153, 82, 38, 0.22);
+    }
+  }
+
+  .popular-indicator {
+    color: var(--color-primary-700);
+    border-color: rgba(153, 82, 38, 0.35);
+  }
+
+  .package-name    { color: var(--color-text-primary); }
+  .price-currency  { color: var(--color-primary-600); }
+  .price-amount    { color: var(--color-primary-800); }
+
+  .category-row .category-header {
+    background: #faf6f2;
+    border-top-color: rgba(153, 82, 38, 0.08);
+    border-bottom-color: rgba(153, 82, 38, 0.06);
+  }
+
+  .category-toggle {
+    color: var(--color-primary-600);
+    &:hover { color: var(--color-primary-800); }
+    &:focus-visible { outline-color: rgba(153, 82, 38, 0.45); }
+  }
+
+  .cat-diamond  { background: rgba(153, 82, 38, 0.45); }
+  .cat-chevron  { color: rgba(153, 82, 38, 0.5); }
+
+  .feature-row {
+    &:hover {
+      .feature-name, .feature-cell { background: rgba(153, 82, 38, 0.025); }
+    }
+  }
+
+  .feature-name {
+    background: #ffffff;
+    border-bottom-color: rgba(153, 82, 38, 0.06);
+  }
+
+  .feature-name-button {
+    color: var(--color-text-secondary);
+
+    &:focus-visible { outline-color: rgba(153, 82, 38, 0.45); }
+  }
+
+  .info-icon {
+    border-color: rgba(153, 82, 38, 0.25);
+    color: var(--color-primary-600);
+  }
+
+  .tooltip {
+    background: #fff;
+    border-color: rgba(153, 82, 38, 0.2);
+    color: var(--color-text-secondary);
+    box-shadow: 0 4px 16px rgba(153, 82, 38, 0.1);
+  }
+
+  .feature-cell {
+    background: #ffffff;
+    border-bottom-color: rgba(153, 82, 38, 0.06);
+    border-left-color: rgba(153, 82, 38, 0.06);
+
+    &--featured {
+      background: rgba(255, 228, 207, 0.25);
+      border-left-color: rgba(153, 82, 38, 0.12);
+      border-right-color: rgba(153, 82, 38, 0.12);
+    }
+  }
+
+  .check-diamond { background: rgba(153, 82, 38, 0.65); }
+  .dash-line     { background: rgba(153, 82, 38, 0.2); }
+  .feature-partial { color: var(--color-primary-700); }
+
+  .cta-spacer {
+    background: #fff;
+    border-top-color: rgba(153, 82, 38, 0.1);
+  }
+
+  .cta-cell {
+    background: #ffffff;
+    border-top-color: rgba(153, 82, 38, 0.1);
+    border-left-color: rgba(153, 82, 38, 0.06);
+
+    &--featured {
+      background: rgba(255, 228, 207, 0.25);
+      border-left-color: rgba(153, 82, 38, 0.12);
+      border-right-color: rgba(153, 82, 38, 0.12);
+    }
+  }
+
+  /* ── Mobile accordion ─────────────────────────── */
+  .mobile-pkg-header {
+    background: linear-gradient(175deg, #ffffff 0%, #fff7f0 100%);
+    border-color: rgba(153, 82, 38, 0.14);
+  }
+
+  .mobile-pkg-col {
+    border-right-color: rgba(153, 82, 38, 0.08);
+
+    &--featured { background: rgba(255, 228, 207, 0.35); }
+  }
+
+  .mobile-popular         { color: var(--color-primary-700); }
+  .mobile-pkg-name        { color: var(--color-text-primary); }
+  .mobile-price-currency  { color: var(--color-primary-600); }
+  .mobile-price-amount    { color: var(--color-primary-800); }
+
+  .mobile-categories {
+    border-color: rgba(153, 82, 38, 0.12);
+    background: #fff;
+  }
+
+  .mobile-category {
+    border-bottom-color: rgba(153, 82, 38, 0.08);
+  }
+
+  .mobile-category__trigger {
+    background: #faf6f2;
+
+    &:focus-visible { outline-color: rgba(153, 82, 38, 0.45); }
+  }
+
+  .mobile-category__title   { color: var(--color-primary-600); }
+  .mobile-category__count   { color: var(--color-text-muted); }
+  .mobile-category__chevron { color: rgba(153, 82, 38, 0.5); }
+
+  .mobile-feature {
+    border-bottom-color: rgba(153, 82, 38, 0.05);
+  }
+
+  .mobile-feature__name { color: var(--color-text-secondary); }
+
+  .mobile-info-icon {
+    border-color: rgba(153, 82, 38, 0.25);
+    color: var(--color-primary-600);
+  }
+
+  .mobile-feature__tooltip {
+    background: #fff;
+    border-color: rgba(153, 82, 38, 0.18);
+    color: var(--color-text-secondary);
+  }
+
+  .mobile-feature__value {
+    border-color: rgba(153, 82, 38, 0.08);
+
+    &--featured {
+      border-color: rgba(153, 82, 38, 0.16);
+      background: rgba(255, 228, 207, 0.2);
+    }
+  }
+
+  .mobile-feature__pkg-label { color: var(--color-text-muted); }
+  .feature-partial--sm       { color: var(--color-primary-700); }
+
+  /* ── Legend ───────────────────────────────────── */
+  .legend       { border-top-color: var(--deco-line); }
+  .legend-item  { color: var(--color-text-subtle); opacity: 0.8; }
 }
 </style>

@@ -5,6 +5,7 @@ definePageMeta({
 });
 
 const { t } = useI18n();
+const localePath = useLocalePath();
 
 useSeoMeta({
   title: () => t("clientHub.meta.title"),
@@ -66,14 +67,14 @@ useHead({
         </p>
         <div class="hub-hero__ctas">
           <NuxtLink
-            to="/client-hub/onboarding"
+            :to="localePath('/client-hub/onboarding')"
             class="hub-cta hub-cta--accent"
           >
             <UIcon name="i-heroicons-academic-cap" class="w-4 h-4" aria-hidden="true" />
             {{ t("clientHub.hub.heroCta1") }}
           </NuxtLink>
           <NuxtLink
-            to="/client-hub/website-content"
+            :to="localePath('/client-hub/website-content')"
             class="hub-cta hub-cta--outline"
           >
             <UIcon name="i-heroicons-book-open" class="w-4 h-4" aria-hidden="true" />
@@ -93,7 +94,7 @@ useHead({
 
       <!-- ─── 2. ONBOARDING FEATURED CARD ──────────────────────────────── -->
       <NuxtLink
-        to="/client-hub/onboarding"
+        :to="localePath('/client-hub/onboarding')"
         class="hub-onboarding-card group"
         :aria-label="t('clientHub.onboarding.title')"
       >

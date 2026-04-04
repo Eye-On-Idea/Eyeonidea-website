@@ -7,10 +7,15 @@ definePageMeta({
 });
 
 const { t, tm } = useI18n();
+const localePath = useLocalePath();
 const route = useRoute();
 const { getOnboardingSections } = useClientHub();
 
 const sections = getOnboardingSections();
+const fallbackSection = sections[0] ?? {
+  key: "whereWeAre",
+  titleKey: "clientHub.onboarding.sections.whereWeAre.title",
+};
 
 const STORAGE_KEY = "client-hub-onboarding-v1";
 
@@ -80,23 +85,34 @@ const toggleCheckItem = (index: number) => {
   checkedItems.value = new Set(checkedItems.value);
 };
 
-const currentSection = computed(() => sections[currentIndex.value]);
+const markCurrentStepComplete = () => {
+  const section = sections[currentIndex.value];
+  if (section) {
+    completedSteps.value.add(section.key);
+  }
+};
+
+const currentSection = computed(() => sections[currentIndex.value] ?? fallbackSection);
 const isFirst = computed(() => currentIndex.value === 0);
 const isLast = computed(() => currentIndex.value === sections.length - 1);
 const progress = computed(
   () => ((currentIndex.value + 1) / sections.length) * 100
 );
+const progressLabelPrefix = computed(() => {
+  const firstSegment = String(t("clientHub.onboarding.title")).split("—")[0] ?? "";
+  return firstSegment.trim();
+});
 
 const goTo = (index: number) => {
   if (index === currentIndex.value) return;
   transitionDirection.value = index > currentIndex.value ? "forward" : "back";
-  completedSteps.value.add(sections[currentIndex.value].key);
+  markCurrentStepComplete();
   currentIndex.value = index;
 };
 
 const next = () => {
   if (isLast.value) {
-    completedSteps.value.add(sections[currentIndex.value].key);
+    markCurrentStepComplete();
     wizardComplete.value = true;
   } else {
     goTo(currentIndex.value + 1);
@@ -253,7 +269,7 @@ useHead({
         </div>
         <div class="wizard-progress__label">
           <span v-if="!wizardComplete">
-            {{ t("clientHub.onboarding.title").split("—")[0].trim() }} {{ currentIndex + 1 }} / {{ sections.length }}
+            {{ progressLabelPrefix }} {{ currentIndex + 1 }} / {{ sections.length }}
           </span>
           <span v-else class="wizard-complete-label">
             <UIcon name="i-heroicons-check-circle" class="w-4 h-4" aria-hidden="true" />
@@ -276,7 +292,7 @@ useHead({
               You've completed the onboarding guide. You now have a clear picture of your launch timeline, access, legal setup, and how support works going forward.
             </p>
             <div class="wizard-complete__actions">
-              <NuxtLink to="/client-hub" class="wizard-btn wizard-btn--primary">
+              <NuxtLink :to="localePath('/client-hub')" class="wizard-btn wizard-btn--primary">
                 <UIcon name="i-heroicons-home" class="w-4 h-4" aria-hidden="true" />
                 Back to Hub Home
               </NuxtLink>

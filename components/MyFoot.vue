@@ -6,7 +6,7 @@
         <!-- Brand / intro -->
         <div class="space-y-5">
           <NuxtLink
-            to="/"
+            :to="localePath('/')"
             class="inline-flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-(--focus-ring) focus-visible:ring-offset-2 ring-offset-(--ring-offset) group logo-container"
           >
             <img
@@ -112,34 +112,34 @@
         <div class="footer-nav-grid">
           <!-- Home -->
           <div class="footer-nav-col">
-            <NuxtLink class="footer-nav-link footer-nav-link--top" to="/">
+            <NuxtLink class="footer-nav-link footer-nav-link--top" :to="localePath('/')">
               {{ t("footer.siteNav.home") }}
             </NuxtLink>
           </div>
 
           <!-- Services column -->
           <div class="footer-nav-col">
-            <NuxtLink class="footer-nav-link footer-nav-link--top" to="/services">
+            <NuxtLink class="footer-nav-link footer-nav-link--top" :to="localePath('/solutions')">
               {{ t("footer.siteNav.services") }}
             </NuxtLink>
             <ul class="footer-nav-sub">
               <li>
-                <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/services/website-packages">
+                <NuxtLink class="footer-nav-link footer-nav-link--sub" :to="localePath('/solutions/website-packages')">
                   {{ t("footer.siteNav.websitePackages") }}
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/services/visual-identity">
+                <NuxtLink class="footer-nav-link footer-nav-link--sub" :to="localePath('/solutions/visual-identity')">
                   {{ t("footer.siteNav.visualIdentity") }}
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/services/additional-services">
+                <NuxtLink class="footer-nav-link footer-nav-link--sub" :to="localePath('/solutions/additional-services')">
                   {{ t("footer.siteNav.additionalServices") }}
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/services/process">
+                <NuxtLink class="footer-nav-link footer-nav-link--sub" :to="localePath('/solutions/process')">
                   {{ t("footer.siteNav.process") }}
                 </NuxtLink>
               </li>
@@ -148,21 +148,21 @@
 
           <!-- Cases -->
           <div class="footer-nav-col">
-            <NuxtLink class="footer-nav-link footer-nav-link--top" to="/cases">
+            <NuxtLink class="footer-nav-link footer-nav-link--top" :to="localePath('/cases')">
               {{ t("footer.siteNav.cases") }}
             </NuxtLink>
           </div>
 
           <!-- About -->
           <div class="footer-nav-col">
-            <NuxtLink class="footer-nav-link footer-nav-link--top" to="/about">
+            <NuxtLink class="footer-nav-link footer-nav-link--top" :to="localePath('/about')">
               {{ t("footer.siteNav.about") }}
             </NuxtLink>
           </div>
 
           <!-- Contact -->
           <div class="footer-nav-col">
-            <NuxtLink class="footer-nav-link footer-nav-link--top" to="/contact">
+            <NuxtLink class="footer-nav-link footer-nav-link--top" :to="localePath('/contact')">
               {{ t("footer.siteNav.contact") }}
             </NuxtLink>
           </div>
@@ -172,12 +172,12 @@
             <span class="footer-nav-col-heading">{{ t("footer.siteNav.legalHeading") }}</span>
             <ul class="footer-nav-sub">
               <li>
-                <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/about/legal">
+                <NuxtLink class="footer-nav-link footer-nav-link--sub" :to="localePath('/about/legal')">
                   {{ t("footer.siteNav.legal") }}
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink class="footer-nav-link footer-nav-link--sub" to="/about/policies">
+                <NuxtLink class="footer-nav-link footer-nav-link--sub" :to="localePath('/about/policies')">
                   {{ t("footer.siteNav.policies") }}
                 </NuxtLink>
               </li>
@@ -200,6 +200,7 @@
 
 <script setup lang="ts">
 const { t } = useI18n();
+const localePath = useLocalePath();
 </script>
 
 <style lang="scss" scoped>

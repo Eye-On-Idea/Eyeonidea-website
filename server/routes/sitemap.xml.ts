@@ -8,31 +8,31 @@ const STATIC_URLS = `
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://eyeonidea.com/services</loc>
+    <loc>https://eyeonidea.com/solutions</loc>
     <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://eyeonidea.com/services/website-packages</loc>
+    <loc>https://eyeonidea.com/solutions/website-packages</loc>
     <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://eyeonidea.com/services/visual-identity</loc>
+    <loc>https://eyeonidea.com/solutions/visual-identity</loc>
     <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://eyeonidea.com/services/additional-services</loc>
+    <loc>https://eyeonidea.com/solutions/additional-services</loc>
     <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://eyeonidea.com/services/process</loc>
+    <loc>https://eyeonidea.com/solutions/process</loc>
     <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

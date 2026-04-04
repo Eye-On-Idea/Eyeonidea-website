@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Eye On Idea - Sitios web B2B profesionales",
-    "description": "Eye On Idea ayuda a empresas de toda Europa a crear una presencia digital clara y profesional. Desarrollo de sitios web, identidad visual y soporte a largo plazo."
+    "title": "Eye On Idea – Agencia digital para marcas B2B",
+    "description": "Eye On Idea ayuda a empresas B2B europeas a construir su presencia digital completa — sitios web, identidad de marca, contenido, SEO, email, dominio y garantía de calidad."
   },
   "hero": {
     "headline": "Tu presencia digital",
@@ -34,22 +34,51 @@
     "cta": "Aprenda sobre nosotros"
   },
   "services": {
-    "badge": "Lo que ofrecemos",
-    "title": "Paquetes de sitios web",
-    "subtitle": "Soluciones personalizadas para cada etapa de su negocio",
-    "additionalServices": {
-      "title": "Servicios adicionales",
+    "badge": "Lo que hacemos",
+    "title": "Todo lo que tu marca necesita online",
+    "subtitle": "Un solo partner para toda tu presencia digital — desde la primera impresión hasta el crecimiento continuo.",
+    "categories": {
+      "websites": {
+        "title": "Sitios web",
+        "need": "Tu negocio necesita una presencia online profesional que genere confianza y convierta visitantes.",
+        "skill": "Diseñamos y desarrollamos sitios web rápidos y accesibles, adaptados a tu marca y objetivos.",
+        "cta": "Explorar paquetes web"
+      },
       "identity": {
-        "title": "Identidad Visual",
-        "description": "Logotipo, colores, tipografía y dirección de marca para plataformas digitales."
+        "title": "Identidad visual & Diseño",
+        "need": "Una imagen inconsistente daña la credibilidad antes de que se lea una sola palabra.",
+        "skill": "Creamos logos, paletas de color, tipografías y guías de marca orientadas al entorno digital.",
+        "cta": "Ver servicios de identidad"
       },
-      "cms": {
-        "title": "Soluciones CMS",
-        "description": "Configuración personalizada de Sanity CMS para la gestión de contenidos independiente."
+      "content": {
+        "title": "Creación de contenido",
+        "need": "Las páginas vacías y los textos genéricos no transmiten por qué eres relevante.",
+        "skill": "Escribimos y estructuramos contenido que habla con claridad a tu audiencia en cualquier idioma.",
+        "cta": "Servicios de contenido"
       },
-      "support": {
-        "title": "Soporte continuo",
-        "description": "Mantenimiento, actualizaciones y asesoría para tu presencia digital."
+      "seo": {
+        "title": "SEO & Redes sociales",
+        "need": "Un gran trabajo pasa desapercibido sin una estrategia de búsqueda y presencia social.",
+        "skill": "Optimizamos tu visibilidad en buscadores y construimos tu presencia donde están tus clientes.",
+        "cta": "Servicios SEO & Social"
+      },
+      "email": {
+        "title": "Email profesional",
+        "need": "Las direcciones de email gratuitas señalan falta de seriedad a los clientes B2B.",
+        "skill": "Configuramos correos corporativos seguros y con marca que refuerzan tu identidad profesional.",
+        "cta": "Configuración de email"
+      },
+      "domain": {
+        "title": "Gestión de dominio",
+        "need": "Tu dominio es tu dirección digital — debe estar registrado, protegido y bien configurado.",
+        "skill": "Registramos, aseguramos y gestionamos tu dominio para que nunca pierdas el control de tu marca.",
+        "cta": "Servicios de dominio"
+      },
+      "qa": {
+        "title": "Garantía de calidad",
+        "need": "Flujos rotos, páginas lentas y fallos de accesibilidad te cuestan clientes en silencio.",
+        "skill": "Auditamos y probamos productos digitales de extremo a extremo — antes de que tus usuarios encuentren problemas.",
+        "cta": "Consultoría QA"
       }
     },
     "cta": {

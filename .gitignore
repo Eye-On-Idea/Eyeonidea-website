@@ -54,7 +54,7 @@ Thumbs.db
 
 content/
 tegetec/
-
+plans/
 # Lock files (optional – ignore if using one lock manager across the team)
 # package-lock.json
 # yarn.lock

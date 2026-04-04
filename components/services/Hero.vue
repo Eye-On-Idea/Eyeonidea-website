@@ -1,15 +1,22 @@
 <script setup lang="ts">
 const { t } = useI18n();
+const localePath = useLocalePath();
 </script>
 
 <template>
-  <BaseHero
+  <PageHero
+    heading-id="solutions-hero-heading"
     :badge="t('services.hero.badge')"
     :title="t('services.hero.title')"
     :subtitle="t('services.hero.subtitle')"
-    heading-id="services-hero-heading"
-    min-height="50vh"
-    variant="light"
-    show-text-reveal
-  />
+  >
+    <template #cta>
+      <AppCtaButton variant="primary" :to="localePath('/contact')" :show-icon="true">
+        {{ t("services.cta.primary") }}
+      </AppCtaButton>
+      <AppCtaButton variant="secondary" :to="localePath('/cases')">
+        {{ t("services.cta.secondary") }}
+      </AppCtaButton>
+    </template>
+  </PageHero>
 </template>

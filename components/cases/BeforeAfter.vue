@@ -61,8 +61,9 @@ function onKeyDown(e: KeyboardEvent) {
 onMounted(() => {
   if (!sectionRef.value) return;
   const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
+    (entries) => {
+      const entry = entries[0];
+      if (entry?.isIntersecting) {
         isVisible.value = true;
         observer.disconnect();
       }
@@ -389,3 +390,5 @@ onMounted(() => {
   }
 }
 </style>
+
+

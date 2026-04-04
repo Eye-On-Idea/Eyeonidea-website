@@ -44,7 +44,7 @@
         "description": "Et brugerdefineret domæne med en 1-årig licens er inkluderet i alle pakker. Fornyelser, yderligere domæner og DNS-ændringer er tilgængelige som tilføjelser.",
         "includedNote": "1 domæne inkluderet i alle pakker",
         "linkText": "Se domænetilføjelser",
-        "linkHref": "/services/additional-services"
+        "linkHref": "/solutions/additional-services"
       }
     },
     "cta": {
@@ -170,7 +170,7 @@
       ],
       "fullListNote": "Leder du efter den fulde opdeling af individuelle leverancer og ekstramateriale?",
       "fullListLinkText": "Se alle priser for visuelle identiteter",
-      "fullListHref": "/services/additional-services"
+      "fullListHref": "/solutions/additional-services"
     },
     "cta": {
       "badge": "Klar til at opbygge dit brand?",

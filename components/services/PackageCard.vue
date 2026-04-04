@@ -2,6 +2,7 @@
 interface Props {
   packageKey: "launch" | "growth" | "platform";
   featured?: boolean;
+  numeral: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -9,9 +10,10 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const { t, tm } = useI18n();
+const localePath = useLocalePath();
 
-const includes = computed(() =>
-  tm(`services.packages.${props.packageKey}.includes`) as string[]
+const includes = computed(
+  () => tm(`services.packages.${props.packageKey}.includes`) as string[],
 );
 
 const price = computed(() => ({
@@ -23,442 +25,458 @@ const price = computed(() => ({
 </script>
 
 <template>
-  <article
-    class="package-card"
-    :class="{ 'package-card--featured': featured }"
-  >
-    <!-- Popular Badge -->
-    <div v-if="featured" class="popular-badge">
-      <UIcon name="i-heroicons-sparkles-solid" class="badge-icon" />
-      <span>{{ t(`services.packages.${packageKey}.popular`) }}</span>
+  <article class="pkg-panel" :class="{ 'pkg-panel--featured': featured }">
+    <!-- Hover gradient reveal layer -->
+    <div class="panel-gradient-layer" aria-hidden="true" />
+
+    <!-- Art deco corner frame -->
+    <div class="deco-frame" aria-hidden="true">
+      <span class="corner corner--tl" />
+      <span class="corner corner--tr" />
+      <span class="corner corner--bl" />
+      <span class="corner corner--br" />
     </div>
 
-    <!-- Header -->
-    <header class="package-header">
-      <h3 class="package-name">
-        {{ t(`services.packages.${packageKey}.name`) }}
-      </h3>
-      <p class="package-tagline">
-        {{ t(`services.packages.${packageKey}.tagline`) }}
-      </p>
-    </header>
+    <!-- Numeral row -->
+    <div class="numeral-row" aria-hidden="true">
+      <span class="num-rule" />
+      <span class="num-label">{{ numeral }}</span>
+      <span class="num-rule" />
+    </div>
 
-    <!-- Description -->
-    <p class="package-description">
+    <!-- Package name + tagline -->
+    <h3 class="pkg-name">{{ t(`services.packages.${packageKey}.name`) }}</h3>
+
+    <!-- Deco divider -->
+    <div class="pkg-deco-divider" aria-hidden="true">
+      <span class="deco-line" />
+      <span class="deco-diamond" />
+      <span class="deco-line" />
+    </div>
+
+    <p class="pkg-tagline">
+      {{ t(`services.packages.${packageKey}.tagline`) }}
+    </p>
+    <p class="pkg-description">
       {{ t(`services.packages.${packageKey}.description`) }}
     </p>
 
-    <!-- Ideal For - Highlighted value proposition -->
-    <div class="package-ideal">
-      <UIcon name="i-heroicons-user-group" class="ideal-icon" />
-      <span class="ideal-text">
-        {{ t(`services.packages.${packageKey}.idealFor`) }}
-      </span>
-    </div>
+    <!-- Ideal for -->
+    <p class="pkg-ideal">
+      <span class="ideal-label">Ideal for —</span>
+      {{ t(`services.packages.${packageKey}.idealFor`) }}
+    </p>
 
-    <!-- Features List - Clean checkmarks only -->
-    <ul class="feature-list" role="list">
-      <li
-        v-for="(item, index) in includes"
-        :key="index"
-        class="feature-item"
-      >
-        <span class="feature-check">
-          <UIcon name="i-heroicons-check" class="check-icon" />
-        </span>
-        <span class="feature-text">{{ item }}</span>
+    <!-- Includes list -->
+    <ul class="pkg-includes" role="list">
+      <li v-for="(item, i) in includes" :key="i" class="pkg-include-item">
+        <span class="include-diamond" aria-hidden="true" />
+        <span>{{ item }}</span>
       </li>
     </ul>
 
-    <!-- Pricing Section - Prominent at bottom -->
-    <div class="package-pricing">
-      <div class="price-container">
+    <!-- Spacer -->
+    <div class="pkg-spacer" />
+
+    <!-- Pricing -->
+    <div class="pkg-pricing">
+      <div class="pricing-rule" aria-hidden="true" />
+      <div class="price-row">
         <span class="price-prefix">{{ price.prefix }}</span>
-        <div class="price-main">
-          <span class="price-currency">{{ price.currency }}</span>
-          <span class="price-amount">{{ price.amount }}</span>
-        </div>
-        <span class="price-vat">{{ price.vatNote }}</span>
+        <span class="mb-auto">{{ price.currency }}</span>
+        <span class="price-amount">{{ price.amount }}</span>
       </div>
+      <span class="price-vat">{{ price.vatNote }}</span>
     </div>
 
     <!-- CTA -->
-    <div class="package-cta">
-      <NuxtLink
-        to="/contact"
-        class="cta-button"
-        :class="featured ? 'cta-button--featured' : 'cta-button--default'"
+    <div class="pkg-cta">
+      <AppCtaButton
+        :variant="featured ? 'primary' : 'secondary'"
+        :to="localePath('/contact')"
+        :show-icon="featured"
+        class="pkg-cta-btn"
       >
-        <span>{{ t("services.packages.cta") }}</span>
-        <UIcon name="i-heroicons-arrow-right" class="cta-icon" />
-      </NuxtLink>
+        {{ t("services.packages.cta") }}
+      </AppCtaButton>
     </div>
   </article>
 </template>
 
 <style lang="scss" scoped>
-.package-card {
+/* ── Panel base ───────────────────────────────────────────────── */
+.pkg-panel {
   position: relative;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  box-shadow: var(--card-shadow);
-  transition: all var(--duration-normal) var(--ease-smooth);
+  background: #161210;
+  border-right: 1px solid rgba(223, 175, 133, 0.08);
+  border-bottom: 1px solid rgba(223, 175, 133, 0.08);
+  padding: 2.5rem 2rem 2rem;
+  overflow: hidden;
+  transition: background 0.35s ease;
+
+  &:last-child {
+    border-right: none;
+  }
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    .panel-gradient-layer {
+      opacity: 1;
+    }
+    .num-label {
+      opacity: 1;
+    }
+    .deco-diamond {
+      background: rgba(223, 175, 133, 0.65);
+    }
+    .corner {
+      border-color: rgba(223, 175, 133, 0.4);
+    }
   }
 
   &--featured {
-    border: 2px solid var(--color-accent-500);
-    background: linear-gradient(
-      180deg,
-      var(--card-bg) 0%,
-      color-mix(in srgb, var(--color-accent-50) 30%, var(--card-bg)) 100%
-    );
+    background: #1a100a;
 
-    .package-name {
-      color: var(--color-accent-600);
+    .panel-gradient-layer {
+      opacity: 0.5;
     }
 
-    .feature-check {
-      background: var(--color-accent-500);
-    }
-
-    .price-amount {
-      color: var(--color-accent-600);
+    .pkg-name {
+      color: #dfaf85;
     }
   }
 }
 
-.popular-badge {
+/* ── Gradient hover layer ─────────────────────────────────────── */
+.panel-gradient-layer {
   position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  padding: 0.5rem 1rem;
-  background: linear-gradient(
-    135deg,
-    var(--color-accent-500) 0%,
-    var(--color-accent-600) 100%
-  );
-  color: white;
-  font-size: var(--text-xs);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  border-radius: 9999px;
-  box-shadow: 0 4px 16px rgba(42, 147, 134, 0.35);
-  white-space: nowrap;
+  inset: 0;
+  background: linear-gradient(160deg, #3a1508 0%, #1a0904 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
 }
 
-.badge-icon {
-  width: 14px;
-  height: 14px;
+/* ── Corner frame ─────────────────────────────────────────────── */
+.deco-frame {
+  position: absolute;
+  inset: 1rem;
+  pointer-events: none;
 }
 
-.package-header {
-  text-align: center;
-  margin-bottom: 1.25rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--color-border);
+.corner {
+  position: absolute;
+  width: 0.875rem;
+  height: 0.875rem;
+  border-color: rgba(223, 175, 133, 0.2);
+  border-style: solid;
+  transition: border-color 0.35s ease;
+
+  &--tl {
+    top: 0;
+    left: 0;
+    border-width: 1px 0 0 1px;
+  }
+  &--tr {
+    top: 0;
+    right: 0;
+    border-width: 1px 1px 0 0;
+  }
+  &--bl {
+    bottom: 0;
+    left: 0;
+    border-width: 0 0 1px 1px;
+  }
+  &--br {
+    bottom: 0;
+    right: 0;
+    border-width: 0 1px 1px 0;
+  }
 }
 
-.package-name {
-  font-family: var(--font-heading);
-  font-size: var(--text-2xl);
-  font-weight: 700;
-  color: var(--color-primary-600);
-  margin-bottom: 0.375rem;
-}
-
-.package-tagline {
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-  font-weight: 500;
-}
-
-.package-description {
-  font-size: var(--text-sm);
-  line-height: 1.7;
-  color: var(--color-text-muted);
-  margin-bottom: 1.25rem;
-  text-align: center;
-}
-
-.package-ideal {
+/* ── Numeral row ──────────────────────────────────────────────── */
+.numeral-row {
+  position: relative;
   display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 1rem;
-  background: var(--color-surface-2);
-  border-radius: 12px;
+  align-items: center;
+  gap: 0.6rem;
   margin-bottom: 1.5rem;
 }
 
-.ideal-icon {
+.num-rule {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.15);
+}
+
+.num-label {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #dfaf85;
+  opacity: 0.45;
   flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  color: var(--icon-accent);
-  margin-top: 2px;
+  transition: opacity 0.35s ease;
 }
 
-.ideal-text {
-  font-size: var(--text-sm);
+/* ── Deco divider ─────────────────────────────────────────────── */
+.pkg-deco-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.875rem 0 1rem;
+}
+
+.deco-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.1);
+}
+
+.deco-diamond {
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.3);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  transition: background 0.35s ease;
+}
+
+/* ── Text ─────────────────────────────────────────────────────── */
+.pkg-name {
+  position: relative;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2vw, 1.75rem);
+  line-height: 1.1;
+  color: #ffeddf;
+  margin: 0;
+  letter-spacing: -0.01em;
+  transition: color 0.35s ease;
+}
+
+.pkg-tagline {
+  position: relative;
+  font-family: var(--font-text);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: rgba(223, 175, 133, 0.7);
+  margin: 0 0 1rem;
   line-height: 1.5;
-  color: var(--color-text);
 }
 
-.feature-list {
+.pkg-description {
+  position: relative;
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: rgba(255, 237, 223, 0.5);
+  margin: 0 0 1.25rem;
+}
+
+.pkg-ideal {
+  position: relative;
+  font-family: var(--font-text);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: rgba(255, 237, 223, 0.4);
+  margin: 0 0 1.5rem;
+  padding: 0.875rem;
+  border: 1px solid rgba(223, 175, 133, 0.08);
+  border-radius: 2px;
+}
+
+.ideal-label {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.45);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* ── Includes list ────────────────────────────────────────────── */
+.pkg-includes {
+  position: relative;
   list-style: none;
   padding: 0;
-  margin: 0 0 auto;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.6rem;
 }
 
-.feature-item {
+.pkg-include-item {
   display: flex;
   align-items: flex-start;
-  gap: 0.75rem;
-}
-
-.feature-check {
-  flex-shrink: 0;
-  width: 22px;
-  height: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-primary-500);
-  border-radius: 50%;
-  margin-top: 1px;
-}
-
-.check-icon {
-  width: 14px;
-  height: 14px;
-  color: white;
-  stroke-width: 3;
-}
-
-.feature-text {
-  font-size: var(--text-sm);
+  gap: 0.625rem;
+  font-family: var(--font-text);
+  font-size: 0.825rem;
+  font-weight: 300;
+  color: rgba(255, 237, 223, 0.6);
   line-height: 1.5;
-  color: var(--color-text);
 }
 
-.package-pricing {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--color-border);
+.include-diamond {
+  width: 5px;
+  height: 5px;
+  min-width: 5px;
+  background: rgba(223, 175, 133, 0.4);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  margin-top: 0.45rem;
 }
 
-.price-container {
+.pkg-spacer {
+  flex: 1;
+  min-height: 1.5rem;
+}
+
+/* ── Pricing ──────────────────────────────────────────────────── */
+.pkg-pricing {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.pricing-rule {
+  height: 1px;
+  background: rgba(223, 175, 133, 0.1);
+  margin-bottom: 1.25rem;
+}
+
+.price-row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.25rem;
+  align-items: baseline;
+  gap: 0.375rem;
+  margin-bottom: 0.25rem;
 }
 
 .price-prefix {
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-  font-weight: 500;
-}
-
-.price-main {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.25rem;
-  line-height: 1;
-}
-
-.price-currency {
-  font-size: var(--text-xl);
-  font-weight: 600;
-  color: var(--color-text);
-  margin-top: 0.375rem;
+  font-family: var(--font-text);
+  font-size: 0.75rem;
+  color: rgba(255, 237, 223, 0.4);
+  font-weight: 400;
 }
 
 .price-amount {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 700;
-  color: var(--color-primary-600);
-  letter-spacing: -0.02em;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: #ffeddf;
+  letter-spacing: 0.02em;
+  line-height: 1;
 }
 
 .price-vat {
-  font-size: var(--text-xs);
-  color: var(--color-text-subtle);
-  font-weight: 500;
+  font-family: var(--font-text);
+  font-size: 0.7rem;
+  color: rgba(255, 237, 223, 0.3);
+  display: block;
 }
 
-.package-cta {
-  margin-top: 1.5rem;
+/* ── CTA ──────────────────────────────────────────────────────── */
+.pkg-cta {
+  position: relative;
 }
 
-.cta-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+.pkg-cta-btn {
   width: 100%;
-  padding: 1rem 1.5rem;
-  font-weight: 600;
-  font-size: var(--text-sm);
-  text-decoration: none;
-  border-radius: 12px;
-  transition: all var(--duration-normal) var(--ease-smooth);
-
-  &--default {
-    background: transparent;
-    color: var(--color-primary-600);
-    border: 2px solid var(--color-primary-400);
-
-    &:hover {
-      background: var(--color-primary-50);
-      border-color: var(--color-primary-500);
-      transform: translateY(-2px);
-    }
-  }
-
-  &--featured {
-    background: linear-gradient(
-      135deg,
-      var(--color-accent-500) 0%,
-      var(--color-accent-600) 100%
-    );
-    color: white;
-    border: 2px solid transparent;
-    box-shadow: 0 4px 16px rgba(42, 147, 134, 0.25);
-
-    &:hover {
-      background: linear-gradient(
-        135deg,
-        var(--color-accent-600) 0%,
-        var(--color-accent-700) 100%
-      );
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(42, 147, 134, 0.35);
-    }
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--focus-ring);
-    outline-offset: 4px;
-  }
 }
 
-.cta-icon {
-  width: 18px;
-  height: 18px;
-  transition: transform var(--duration-fast) var(--ease-smooth);
+/* ── Light mode overrides ─────────────────────────────────────── */
+/* Regular panels → clean white cards on the warm section gradient */
+/* Featured panel → stays dark for deliberate visual hierarchy     */
+html:not(.dark) {
+  .pkg-panel {
+    background: linear-gradient(175deg, #ffffff 0%, #fff7f0 100%);
+    border-right-color: var(--deco-line);
+    border-bottom-color: var(--deco-line);
+    box-shadow: 0 2px 12px rgba(153, 82, 38, 0.06);
 
-  .cta-button:hover & {
-    transform: translateX(4px);
-  }
-}
+    .num-rule     { background: var(--deco-line); }
+    .num-label    { color: var(--color-primary-500); opacity: 0.7; }
+    .deco-line    { background: var(--deco-line); }
+    .deco-diamond { background: var(--deco-diamond); }
+    .corner       { border-color: var(--deco-border); }
 
-// Dark mode
-:root.dark {
-  .package-card {
-    background: var(--card-bg);
-    border-color: var(--card-border);
-
-    &:hover {
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    .pkg-name        { color: var(--color-text-primary); }
+    .pkg-tagline     { color: var(--color-text-subtle); }
+    .pkg-description { color: var(--color-text-secondary); }
+    .pkg-ideal {
+      color: var(--color-text-tertiary);
+      border-color: var(--deco-line);
+      background: rgba(153, 82, 38, 0.025);
     }
+    .ideal-label     { color: var(--color-primary-600); }
+    .pkg-include-item { color: var(--color-text-secondary); }
+    .include-diamond  { background: rgba(153, 82, 38, 0.5); }
+    .pricing-rule     { background: var(--deco-line); }
+    .price-prefix     { color: var(--color-text-subtle); }
+    .price-amount     { color: var(--color-text-primary); }
+    .price-vat        { color: var(--color-text-muted); }
 
-    &--featured {
-      border-color: var(--color-accent-400);
+    /* Hover overlay — warm brand tint instead of dark gradient */
+    .panel-gradient-layer {
       background: linear-gradient(
-        180deg,
-        var(--card-bg) 0%,
-        color-mix(in srgb, var(--color-accent-900) 40%, var(--card-bg)) 100%
-      );
-
-      .package-name {
-        color: var(--color-accent-400);
-      }
-
-      .feature-check {
-        background: var(--color-accent-400);
-      }
-
-      .price-amount {
-        color: var(--color-accent-400);
-      }
-    }
-  }
-
-  .package-name {
-    color: var(--color-primary-300);
-  }
-
-  .package-ideal {
-    background: var(--color-surface-3);
-  }
-
-  .feature-check {
-    background: var(--color-primary-400);
-  }
-
-  .price-amount {
-    color: var(--color-primary-300);
-  }
-
-  .cta-button--default {
-    color: var(--color-primary-300);
-    border-color: var(--color-primary-500);
-
-    &:hover {
-      background: rgba(211, 154, 105, 0.1);
-    }
-  }
-
-  .cta-button--featured {
-    background: linear-gradient(
-      135deg,
-      var(--color-accent-400) 0%,
-      var(--color-accent-500) 100%
-    );
-
-    &:hover {
-      background: linear-gradient(
-        135deg,
-        var(--color-accent-500) 0%,
-        var(--color-accent-600) 100%
+        160deg,
+        rgba(153, 82, 38, 0.07) 0%,
+        rgba(184, 115, 67, 0.03) 100%
       );
     }
-  }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .package-card,
-  .cta-button,
-  .cta-icon {
-    transition: none;
+    &:hover {
+      .num-label    { opacity: 1; }
+      .deco-diamond { background: rgba(153, 82, 38, 0.6); }
+      .corner       { border-color: rgba(153, 82, 38, 0.35); }
+    }
   }
 
-  .package-card:hover,
-  .cta-button:hover {
-    transform: none;
-  }
+  /* Featured panel — warm cream; subtle differentiation from white panels */
+  .pkg-panel--featured {
+    background: linear-gradient(175deg, #ffe4cf 0%, #ffeddf 55%, #fff7f0 100%);
+    border-right-color: rgba(153, 82, 38, 0.28);
+    border-bottom-color: rgba(153, 82, 38, 0.28);
+    box-shadow: 0 4px 24px rgba(153, 82, 38, 0.12);
 
-  .cta-button:hover .cta-icon {
-    transform: none;
+    .pkg-name        { color: #441a08; }
+    .pkg-tagline     { color: var(--color-primary-700); }
+    .pkg-description { color: var(--color-text-secondary); }
+    .pkg-ideal {
+      color: var(--color-text-tertiary);
+      border-color: rgba(153, 82, 38, 0.12);
+      background: rgba(153, 82, 38, 0.04);
+    }
+    .ideal-label     { color: var(--color-primary-600); }
+    .num-rule        { background: rgba(153, 82, 38, 0.2); }
+    .num-label       { color: var(--color-primary-600); opacity: 0.85; }
+    .deco-line       { background: rgba(153, 82, 38, 0.15); }
+    .deco-diamond    { background: rgba(153, 82, 38, 0.45); }
+    .corner          { border-color: rgba(153, 82, 38, 0.25); }
+    .pkg-include-item { color: var(--color-text-secondary); }
+    .include-diamond  { background: rgba(153, 82, 38, 0.55); }
+    .pricing-rule     { background: rgba(153, 82, 38, 0.15); }
+    .price-prefix     { color: var(--color-text-subtle); }
+    .price-amount     { color: #441a08; }
+    .price-vat        { color: var(--color-text-muted); }
+
+    .panel-gradient-layer {
+      background: linear-gradient(
+        160deg,
+        rgba(153, 82, 38, 0.1) 0%,
+        rgba(184, 115, 67, 0.05) 100%
+      );
+    }
+
+    &:hover {
+      .num-label    { opacity: 1; }
+      .deco-diamond { background: rgba(153, 82, 38, 0.7); }
+      .corner       { border-color: rgba(153, 82, 38, 0.45); }
+    }
   }
 }
 </style>

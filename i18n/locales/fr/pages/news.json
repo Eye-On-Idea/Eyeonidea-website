@@ -11,6 +11,7 @@
   "filters": {
     "search": "Rechercher des articles...",
     "searchLabel": "Rechercher",
+    "filterByType": "Filtrer par type",
     "allTypes": "Tous types",
     "news": "Actualités",
     "article": "Articles",

@@ -53,7 +53,7 @@
         "note": "Forslaget angiver klart, hvilke personoplysninger der vil blive behandlet, til hvilket formål og under hvilket retsgrundlag, i overensstemmelse med GDPR. Dine data deles aldrig med tredjeparter ud over, hvad projektet kræver.",
         "cta": {
           "label": "Se vores pakker",
-          "to": "/services#packages-section"
+          "to": "/solutions#packages-section"
         }
       },
       "kickoff": {
@@ -78,7 +78,7 @@
         "note": "Tidlig dev-serveradgang er en valgfri tilføjelse. Det kræver hyppigere implementering og vedligeholdelse, hvorfor det tilbydes som en separat service.",
         "cta": {
           "label": "Se Tilføjelser og ekstramateriale",
-          "to": "/services#addons-section"
+          "to": "/solutions#addons-section"
         }
       },
       "preview": {
@@ -127,7 +127,7 @@
         ],
         "cta": {
           "label": "Se supportplaner",
-          "to": "/services#support-plans"
+          "to": "/solutions#support-plans"
         }
       }
     }

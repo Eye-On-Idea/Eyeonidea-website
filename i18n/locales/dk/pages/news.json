@@ -11,6 +11,7 @@
   "filters": {
     "search": "Søg i artikler...",
     "searchLabel": "Søg",
+    "filterByType": "Filtrer efter type",
     "allTypes": "Alle typer",
     "news": "Nyheder",
     "article": "Artikel",

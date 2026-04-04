@@ -74,8 +74,9 @@ export function useStrokeDraw(
     }
 
     observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && containerRef.value) {
+      (entries) => {
+        const entry = entries[0];
+        if (entry?.isIntersecting && containerRef.value) {
           animatePaths(containerRef.value);
           observer?.disconnect();
         }
@@ -92,3 +93,5 @@ export function useStrokeDraw(
 
   return { isDrawn };
 }
+
+

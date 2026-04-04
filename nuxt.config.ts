@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     "@vueuse/motion/nuxt",
     "@nuxtjs/sanity",
     "nuxt-auth-utils",
+    "@tresjs/nuxt",
   ],
 
   // Color mode configuration (included with @nuxt/ui)
@@ -34,8 +35,8 @@ export default defineNuxtConfig({
     prerender: {
       routes: [
         "/",
-        "/services",
-        "/services/process",
+        "/solutions",
+        "/solutions/process",
         "/about",
         "/about/legal",
         "/about/policies",
@@ -109,7 +110,7 @@ export default defineNuxtConfig({
     ],
     langDir: "locales",
     defaultLocale: "en",
-    strategy: "no_prefix",
+    strategy: "prefix_except_default",
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: "i18n_locale",
@@ -145,9 +146,7 @@ export default defineNuxtConfig({
     buildAssetsDir: "/_nuxt/",
     pageTransition: { name: "page", mode: "out-in" },
     head: {
-      htmlAttrs: {
-        lang: "en",
-      },
+      htmlAttrs: {},
       title: "Eye On Idea",
       link: [
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -331,11 +330,7 @@ export default defineNuxtConfig({
     // Show live inspections in Nuxt DevTools during development
     showLiveInspections: true,
     // Exclude private/auth-gated routes from inspection
-    excludeLinks: [
-      "/client-hub/**",
-      "/about/legal",
-      "/about/policies",
-    ],
+    excludeLinks: ["/client-hub/**", "/about/legal", "/about/policies"],
     // Generate a JSON report alongside the build for CI archiving
     report: {
       json: true,
@@ -345,8 +340,8 @@ export default defineNuxtConfig({
   routeRules: {
     // Prerender public marketing pages for performance
     "/": { prerender: true },
-    "/services": { prerender: true },
-    "/services/**": { prerender: true },
+    "/solutions": { prerender: true },
+    "/solutions/**": { prerender: true },
     "/about": { prerender: true },
     "/about/**": { prerender: true },
     "/contact": { prerender: true },

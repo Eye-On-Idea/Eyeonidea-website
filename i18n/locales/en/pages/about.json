@@ -1,20 +1,20 @@
 {
   "meta": {
-    "title": "About - Eye On Idea",
-    "description": "Learn about Eye On Idea, a Danish digital consultancy founded by Rune M. P. Pjetursson. We help B2B companies build a clear and professional digital presence across Europe."
+    "title": "About Eye On Idea",
+    "description": "Eye On Idea is a Danish digital consultancy run by Rune M. P. Pjetursson. We help SMB B2B companies build a credible digital foundation — website-led, brand-managed, and built for the long term."
   },
   "hero": {
-    "badge": "About Us",
-    "title": "Building Digital Foundations That Last",
-    "subtitle": "Eye On Idea is a Danish digital consultancy that helps B2B companies build a strong and professional online presence."
+    "badge": "About Eye On Idea",
+    "title": "A structured partner, not a broad agency",
+    "subtitle": "Eye On Idea is a focused digital consultancy for SMB B2B companies that need a more credible and coherent presence online — built deliberately, not assembled piece by piece."
   },
   "story": {
-    "badge": "Our Story",
-    "title": "From Idea to Reality",
+    "badge": "Why We Exist",
+    "title": "The problem most agencies don't solve",
     "paragraphs": [
-      "Eye On Idea was founded in 2025 with a simple belief. Every business deserves a digital presence that reflects who they are and what they offer.",
-      "Many companies end up with websites that do not fit their business, are difficult to update, or become expensive to maintain over time.",
-      "We take a different approach. Every project starts with understanding your goals and your situation. We build a solid digital foundation that supports your growth today and in the future."
+      "Most SMB B2B companies don't have a digital presence problem in isolation. They have a fragmentation problem: a website that doesn't reflect the quality of the business, a brand that feels inconsistent, content that doesn't explain what they actually do, and no clear owner for any of it.",
+      "Eye On Idea was founded in 2025 to fix that from the ground up. Not with a broad agency approach, but with a focused, package-structured model that maps to where a business actually is and what it genuinely needs.",
+      "Every project starts with understanding your situation. Every deliverable is built to last, to be manageable, and to make your business look the way it deserves to look."
     ]
   },
   "founder": {
@@ -22,12 +22,12 @@
     "name": "Rune M. P. Pjetursson",
     "role": "Founder and Lead Consultant",
     "bio": [
-      "Rune founded Eye On Idea to connect technical expertise with real business needs. His focus is always on results, clarity, and long-term value.",
-      "He has worked with companies across Europe and understands how to translate complex ideas into practical and reliable digital solutions."
+      "Rune founded Eye On Idea because he kept seeing the same problem: companies that had invested in websites or identities, but ended up with something that didn't fit, was hard to manage, or slowly drifted away from the business it was supposed to represent.",
+      "His background spans technical web development, UX design, brand strategy, and working directly with clients across Europe. He built Eye On Idea around the principle that a digital partner should take responsibility for the whole picture — not just the deliverable."
     ],
     "philosophy": {
-      "title": "Working Philosophy",
-      "text": "I believe in long-term partnerships, not one-time projects. When you work with Eye On Idea, you gain a partner who understands your business and works to support your success."
+      "title": "How I work",
+      "text": "When you work with Eye On Idea, you deal with one person who understands the full scope of what you need — technically, visually, and commercially. I don't disappear at launch. I stay involved because the work doesn't stop being useful when the project is technically finished."
     },
     "connect": "Connect on LinkedIn"
   },
@@ -94,10 +94,10 @@
     ]
   },
   "cta": {
-    "badge": "Ready to Start?",
-    "title": "Let Us Talk About Your Project",
-    "description": "Whether you have a clear plan or an early idea, we help you define the right next step.",
-    "primary": "Get in Touch",
-    "secondary": "View Our Services"
+    "badge": "Ready to Find Your Fit?",
+    "title": "See how the package model works",
+    "description": "Foundation, Growth, and Brand Partner are built around business maturity — not just budget. Understanding the tiers usually answers most questions before the first conversation.",
+    "primary": "Compare Packages",
+    "secondary": "Get in Touch"
   }
 }

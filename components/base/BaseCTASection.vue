@@ -273,4 +273,31 @@ withDefaults(
     transition: none;
   }
 }
+
+/* ── Light mode overrides ─────────────────────────────────────── */
+html:not(.dark) {
+  .bg-pattern {
+    background:
+      radial-gradient(
+        ellipse at 25% 30%,
+        rgba(153, 82, 38, 0.10) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 75% 70%,
+        rgba(153, 82, 38, 0.05) 0%,
+        transparent 50%
+      );
+  }
+
+  .btn-secondary {
+    border-color: rgba(153, 82, 38, 0.28);
+    color: var(--color-primary-700);
+
+    &:hover {
+      background: rgba(153, 82, 38, 0.05);
+      border-color: rgba(153, 82, 38, 0.5);
+    }
+  }
+}
 </style>

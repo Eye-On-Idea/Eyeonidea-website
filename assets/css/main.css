@@ -225,19 +225,39 @@
   --btn-ghost-text: #1f1f1f;
   --btn-ghost-hover: #f0ebe5;
 
-  /* Hero & Section Tokens */
-  --color-hero-bg: #481f0a; /* primary-800 */
-  --color-hero-bg-gradient: linear-gradient(
-    135deg,
-    #481f0a 0%,
-    #67280e 50%,
-    #7d3412 100%
+  /* Hero & Section Tokens - Light Mode */
+  /* Gradients: primary-100 (#ffe4cf) only at edges; primary-50 (#ffeddf) at
+     peak where text sits. text-primary 14.5:1 ✅  text-secondary 6.2:1 ✅
+     text-subtle ~4.2:1 — passes for large text; use text-primary/secondary
+     for small body copy on warm gradient areas.                             */
+  --color-hero-bg: linear-gradient(
+    175deg,
+    #ffe4cf 0%,
+    #ffeddf 40%,
+    #faf7f4 100%
   );
-  --color-hero-text: var(--color-primary-50);
-  --color-hero-text-muted: #e2e8f0;
-  --color-section-light: #faf7f4;
-  --color-section-alt: #f5efe8; /* warm neutral alt */
-  --color-section-dark: #481f0a; /* primary-800 */
+  --color-hero-bg-gradient: radial-gradient(
+    ellipse 130% 90% at 50% -10%,
+    #ffe4cf 0%,
+    #ffeddf 30%,
+    #faf7f4 72%,
+    #f5efe8 100%
+  );
+  --color-hero-text: #1f1f1f;         /* neutral-900 - high contrast on cream */
+  --color-hero-text-muted: #475569;   /* neutral-600 - WCAG AA on cream */
+  --color-section-light: linear-gradient(
+    155deg,
+    #faf7f4 0%,
+    #ffeddf 55%,
+    #f5efe8 100%
+  );
+  --color-section-alt: linear-gradient(
+    215deg,
+    #f5efe8 0%,
+    #ffeddf 50%,
+    #faf7f4 100%
+  );
+  --color-section-dark: #481f0a; /* primary-800 - still available for accent sections */
   --color-cta-primary: #995226; /* primary-500 */
   --color-cta-primary-hover: #7d3412; /* primary-600 */
   --color-cta-accent: #2a9386; /* accent-500 */
@@ -294,6 +314,14 @@
   --color-hero-badge-bg: #ffe4cf; /* primary-100 */
   --color-hero-badge-text: #67280e; /* primary-700, 7.2:1 contrast */
 
+  /* Art Deco Decorative Elements - Light Mode */
+  --deco-line: rgba(153, 82, 38, 0.20);       /* primary-500 based */
+  --deco-line-strong: rgba(153, 82, 38, 0.35);
+  --deco-diamond: rgba(153, 82, 38, 0.45);
+  --deco-diamond-sm: rgba(153, 82, 38, 0.22);
+  --deco-border: rgba(153, 82, 38, 0.22);
+  --deco-text: rgba(153, 82, 38, 0.65);
+
   /* Light Mode Card Backgrounds */
   --card-bg: #ffffff;
   --card-bg-elevated: #fefefe;
@@ -304,6 +332,67 @@
   --icon-primary: #7d3412; /* primary-600 */
   --icon-accent: #1a5d55; /* accent-700 */
   --icon-muted: #64748b; /* neutral-500 */
+
+  /* Neomorphism — Light Mode (flat base tone; section-light is now a gradient) */
+  --neo-bg: #faf7f4;
+  --neo-shadow:
+    6px 6px 14px rgba(0, 0, 0, 0.07), -4px -4px 10px rgba(255, 255, 255, 0.85);
+  --neo-shadow-sm:
+    3px 3px 8px rgba(0, 0, 0, 0.06), -2px -2px 6px rgba(255, 255, 255, 0.8);
+  --neo-shadow-inset:
+    inset 3px 3px 8px rgba(0, 0, 0, 0.06),
+    inset -2px -2px 6px rgba(255, 255, 255, 0.8);
+  --neo-shadow-pressed:
+    inset 4px 4px 10px rgba(0, 0, 0, 0.09),
+    inset -2px -2px 6px rgba(255, 255, 255, 0.7);
+}
+
+/* =========================
+   Light Mode — Global Hero H1 Word Color
+   Targets .word-amber spans produced by TextReveal inside all hero components.
+   Specificity: html:not(.dark) = (0,1,1) + .word-amber = (0,1,0) → (0,2,1)
+   This beats the component scoped :deep(.word-amber) = (0,2,0) → wins reliably.
+   ========================= */
+html:not(.dark) .word-amber {
+  color: #441a08; /* primary-900 — deep dark warm brown, WCAG AA+ on cream */
+}
+
+/* =========================
+   Hero Section — Always Dark Buttons
+   The home hero is dark in both light and dark mode.
+   #hero-section gives specificity (1,0,0) which beats AppCtaButton's
+   scoped light-mode override at (0,2,1) — so dark styles always win here.
+   ========================= */
+html:not(.dark) #hero-section .app-cta--primary {
+  border-color: rgba(223, 175, 133, 0.60);
+  background: linear-gradient(
+    156deg,
+    rgba(223, 175, 133, 0.22) 0%,
+    rgba(255, 237, 223, 0.10) 50%,
+    rgba(223, 175, 133, 0.22) 100%
+  );
+  color: #ffeddf;
+}
+html:not(.dark) #hero-section .app-cta--primary:hover {
+  background: linear-gradient(
+    156deg,
+    rgba(223, 175, 133, 0.35) 0%,
+    rgba(255, 237, 223, 0.16) 50%,
+    rgba(223, 175, 133, 0.35) 100%
+  );
+  border-color: rgba(223, 175, 133, 0.85);
+  box-shadow: 0 8px 28px rgba(223, 175, 133, 0.18);
+  color: #ffeddf;
+}
+html:not(.dark) #hero-section .app-cta--secondary {
+  border-color: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 237, 223, 0.75);
+  background: transparent;
+}
+html:not(.dark) #hero-section .app-cta--secondary:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffeddf;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 /* =========================
@@ -426,6 +515,14 @@ html.dark,
   --color-danger: #ef4444;
   --on-danger: #2a0b0c;
 
+  /* Art Deco Decorative Elements - Dark Mode */
+  --deco-line: rgba(223, 175, 133, 0.15);
+  --deco-line-strong: rgba(223, 175, 133, 0.30);
+  --deco-diamond: rgba(223, 175, 133, 0.45);
+  --deco-diamond-sm: rgba(223, 175, 133, 0.22);
+  --deco-border: rgba(223, 175, 133, 0.20);
+  --deco-text: rgba(223, 175, 133, 0.65);
+
   /* Dark Mode Badge/Tag Colors */
   --badge-primary-bg: #67280e; /* primary-700 */
   --badge-primary-text: #ffe4cf; /* primary-100 */
@@ -442,18 +539,52 @@ html.dark,
   --icon-primary: #d39a69; /* primary-300 */
   --icon-accent: #64c6b7; /* accent-300 */
   --icon-muted: #94a3b8; /* neutral-400 */
+
+  /* Neomorphism — Dark Mode (matches --color-section-light dark override: #161616) */
+  --neo-bg: #1a1a1a;
+  --neo-shadow:
+    5px 5px 12px rgba(0, 0, 0, 0.5), -3px -3px 8px rgba(255, 255, 255, 0.04);
+  --neo-shadow-sm:
+    3px 3px 7px rgba(0, 0, 0, 0.45), -2px -2px 5px rgba(255, 255, 255, 0.03);
+  --neo-shadow-inset:
+    inset 3px 3px 8px rgba(0, 0, 0, 0.5),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.03);
+  --neo-shadow-pressed:
+    inset 4px 4px 10px rgba(0, 0, 0, 0.55),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.025);
 }
 /* =========================
    Base Element Styles
    ========================= */
 html {
-  background-color: var(--ui-bg, #ffffff);
+  background-color: var(--color-background, #faf7f4);
   color-scheme: light;
+  /* Subtle warm ambient gradient anchored to the viewport */
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(153, 82, 38, 0.04) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 5% 70%, rgba(153, 82, 38, 0.02) 0%, transparent 50%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 html.dark {
-  background-color: var(--ui-bg, #161616);
+  /* Brand base — all section backgrounds key off this */
+  background-color: #0d0908;
   color-scheme: dark;
+
+  /*
+   * Fixed ambient gradient: stays locked to the viewport as the user scrolls.
+   * Sections with explicit backgrounds mask it; transparent gaps inherit it,
+   * giving a seamless ambient feel across the whole page.
+   */
+  background-image:
+    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(223, 175, 133, 0.065) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 10% 65%,  rgba(223, 175, 133, 0.025) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 35% at 90% 80%,  rgba(223, 175, 133, 0.018) 0%, transparent 50%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 body {
@@ -464,14 +595,15 @@ body {
 }
 
 html.dark body {
-  background-color: var(--ui-bg, #1f1f1f);
+  /* Transparent so the fixed html gradient shows through everywhere */
+  background: transparent;
   color: var(--ui-text, #e2e8f0);
 }
 
 main {
   margin: 0 auto;
   width: 100%;
-  min-width: 390px;
+  min-width: 320px;
   min-height: 99lvh;
 }
 
@@ -1696,5 +1828,53 @@ html.dark .cookieControl__BlockedIframe,
 
   .cookieControl__ModalContent input + button {
     border: 2px solid var(--color-text);
+  }
+}
+
+/* =========================
+   Split Section Layout Utility
+   Used by About, Services sections to create a 60/40 content|3D-window grid.
+   The right column is transparent so the fixed Three.js canvas shows through.
+   ========================= */
+.split-section {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .split-section {
+    grid-template-columns: 3fr 2fr;
+    min-height: 80vh;
+    align-items: center;
+  }
+}
+
+.split-section__content {
+  padding: 4rem 1.5rem;
+  background: var(--color-primary-800);
+}
+
+@media (min-width: 768px) {
+  .split-section__content {
+    padding: 5rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .split-section__content {
+    padding: 6rem 3rem 6rem 5vw;
+  }
+}
+
+/* Transparent right column — the fixed Three.js canvas shows through */
+.split-section__3d-window {
+  display: none;
+  min-height: 500px;
+  background: transparent;
+}
+
+@media (min-width: 1024px) {
+  .split-section__3d-window {
+    display: block;
   }
 }

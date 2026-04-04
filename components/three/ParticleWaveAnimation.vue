@@ -34,10 +34,12 @@ const { onBeforeRender } = useLoop();
 onBeforeRender(({ delta }) => {
   if (prefersReducedMotion.value) return;
   if (!props.geometry) return;
+  const positionAttribute = props.geometry.getAttribute("position");
+  if (!positionAttribute) return;
 
   time.value += delta * props.waveSpeed;
 
-  const positions = props.geometry.attributes.position.array as Float32Array;
+  const positions = positionAttribute.array as Float32Array;
   const originalPositions =
     props.geometry.userData.originalPositions as Float32Array;
 
@@ -48,16 +50,18 @@ onBeforeRender(({ delta }) => {
 
   for (let i = 0; i < positions.length; i += 3) {
     const x = originalPositions[i];
+    const y = originalPositions[i + 1];
     const z = originalPositions[i + 2];
+    if (x === undefined || y === undefined || z === undefined) continue;
 
     const waveX = Math.sin(x * 0.5 + time.value) * props.waveAmplitude;
     const waveZ = Math.cos(z * 0.5 + time.value * 0.8) * props.waveAmplitude;
 
     positions[i + 1] =
-      originalPositions[i + 1] + waveX * 0.5 + waveZ * 0.3;
+      y + waveX * 0.5 + waveZ * 0.3;
   }
 
-  props.geometry.attributes.position.needsUpdate = true;
+  positionAttribute.needsUpdate = true;
 });
 </script>
 

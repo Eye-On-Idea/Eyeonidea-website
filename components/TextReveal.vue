@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from "vue";
+import { ref, computed, watch, onMounted, onUnmounted } from "vue";
 import { STAGGER_TEXT } from "~/composables/useAccessibleMotion";
 
 const props = withDefaults(
@@ -16,6 +16,8 @@ const props = withDefaults(
     triggerOnMount?: boolean;
     /** CSS class to apply to each word span (e.g. for gradient text) */
     wordClass?: string;
+    /** External gate: when false, blocks reveal even if in view or mounted */
+    trigger?: boolean;
   }>(),
   {
     tag: "span",
@@ -23,15 +25,40 @@ const props = withDefaults(
     stagger: STAGGER_TEXT,
     triggerOnMount: false,
     wordClass: "",
+    trigger: true,
   }
 );
 
 const containerRef = ref<HTMLElement | null>(null);
 const isRevealed = ref(false);
+let pendingReveal = false;
 
 const words = computed(() => props.text.split(/\s+/).filter(Boolean));
 
 let observer: IntersectionObserver | null = null;
+
+const doReveal = () => {
+  if (!props.trigger) {
+    pendingReveal = true;
+    return;
+  }
+  setTimeout(() => {
+    isRevealed.value = true;
+  }, props.delay);
+};
+
+// When trigger flips to true, fire any pending reveal immediately
+watch(
+  () => props.trigger,
+  (val) => {
+    if (val && pendingReveal) {
+      pendingReveal = false;
+      setTimeout(() => {
+        isRevealed.value = true;
+      }, props.delay);
+    }
+  }
+);
 
 onMounted(() => {
   const prefersReduced = window.matchMedia(
@@ -44,18 +71,15 @@ onMounted(() => {
   }
 
   if (props.triggerOnMount) {
-    setTimeout(() => {
-      isRevealed.value = true;
-    }, props.delay);
+    doReveal();
     return;
   }
 
   observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          isRevealed.value = true;
-        }, props.delay);
+    (entries) => {
+      const entry = entries[0];
+      if (entry?.isIntersecting) {
+        doReveal();
         observer?.disconnect();
       }
     },
@@ -119,3 +143,5 @@ onUnmounted(() => {
   }
 }
 </style>
+
+

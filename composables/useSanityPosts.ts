@@ -124,6 +124,7 @@ export function usePostsList(params?: {
   const query = groq`
     *[
       _type == "post"
+      && defined(slug.current)
       && publishedAt <= now()
       && (!defined($postType) || $postType == "" || postType == $postType)
       && (!$featuredOnly || featured == true)
@@ -152,6 +153,7 @@ export function usePostsCount(params?: {
   const query = groq`
     count(*[
       _type == "post"
+      && defined(slug.current)
       && publishedAt <= now()
       && (!defined($postType) || $postType == "" || postType == $postType)
       && (!defined($searchQuery) || $searchQuery == "" || title match $searchQuery + "*" || excerpt match $searchQuery + "*")
@@ -171,6 +173,7 @@ export function useFeaturedPost() {
   const query = groq`
     *[
       _type == "post"
+      && defined(slug.current)
       && publishedAt <= now()
       && featured == true
       && (
@@ -196,6 +199,7 @@ export function useRecentPostsExcluding(excludeId: string, limit = 3) {
   const query = groq`
     *[
       _type == "post"
+      && defined(slug.current)
       && publishedAt <= now()
       && _id != $excludeId
     ]
@@ -216,6 +220,7 @@ export function usePostsByCollaboratorSlug(
   const query = groq`
     *[
       _type == "post"
+      && defined(slug.current)
       && publishedAt <= now()
       && references(*[_type == "collaborator" && slug.current == $collaboratorSlug][0]._id)
     ]

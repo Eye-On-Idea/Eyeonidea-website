@@ -25,7 +25,7 @@
         "heading": "Un sitio web creado en torno a su negocio",
         "body": "No es una plantilla ajustada a la medida, sino un sitio web adaptado al lugar donde se encuentra su empresa en este momento. Ya sea que necesite una primera presencia sólida o una plataforma diseñada para crecer con usted, determinamos el alcance correcto antes de construir algo.",
         "linkText": "Explorar paquetes",
-        "linkHref": "/services/website-packages",
+        "linkHref": "/solutions/website-packages",
         "icon": "i-heroicons-computer-desktop"
       },
       {
@@ -34,7 +34,7 @@
         "heading": "Parezca creíble desde el primer día",
         "body": "Tu logotipo, colores y tipografía suelen ser lo primero por lo que la gente te juzga. Diseñamos identidades visuales que se mantienen en su sitio web, presentaciones e impresiones, para que su marca parezca intencional dondequiera que aparezca.",
         "linkText": "Vea nuestro enfoque",
-        "linkHref": "/services/visual-identity",
+        "linkHref": "/solutions/visual-identity",
         "icon": "i-heroicons-swatch"
       },
       {
@@ -43,7 +43,7 @@
         "heading": "Todo lo que rodea tu sitio web",
         "body": "Registro de dominio, correo electrónico profesional, copia de sitios web, revisiones SEO y sesiones de asesoramiento. Estos son los servicios que rodean su sitio web y hacen que todo funcione correctamente, disponibles individualmente o como parte de un proyecto.",
         "linkText": "Ver todos los servicios",
-        "linkHref": "/services/additional-services",
+        "linkHref": "/solutions/additional-services",
         "icon": "i-heroicons-puzzle-piece"
       },
       {
@@ -52,7 +52,7 @@
         "heading": "Un sitio web no es un producto único",
         "body": "Después del lanzamiento, la cosa cambia. El contenido necesita actualización, surgen preguntas y el sitio debe seguir mejorando. Nuestros planes de soporte le brindan una línea directa y una cantidad de tiempo determinada cada mes, para que nunca se quede solo resolviendo las cosas.",
         "linkText": "Ver planes de soporte",
-        "linkHref": "/services/additional-services#support-plans",
+        "linkHref": "/solutions/additional-services#support-plans",
         "icon": "i-heroicons-shield-check"
       }
     ]
