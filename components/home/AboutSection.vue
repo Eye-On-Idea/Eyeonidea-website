@@ -36,91 +36,101 @@ const values = ["clarity", "partnership", "quality"] as const;
     class="about-section"
     aria-labelledby="about-heading"
   >
-    <!-- Section separator / label -->
-    <div class="section-label-row" aria-hidden="true">
-      <span class="sep-line" />
-      <span class="sep-diamond" />
-      <span class="sep-text">{{ t("landing.about.badge") }}</span>
-      <span class="sep-diamond" />
-      <span class="sep-line" />
+    <!-- Right-bleed split background: full-width top band on mobile,
+         right-half viewport fill on desktop                         -->
+    <div class="about-split-bg" aria-hidden="true">
+      <NuxtImg
+        src="/images/landing/about-panel.jpg"
+        alt=""
+        class="about-split-img"
+        width="1280"
+        height="960"
+        format="webp"
+        quality="80"
+        loading="lazy"
+        sizes="100vw md:50vw"
+      />
+      <!-- Overlay: fades bottom-to-top on mobile; left-to-right on desktop -->
+      <div class="about-split-overlay" />
     </div>
 
-    <!-- Two-column layout -->
-    <div class="about-inner">
+    <!-- All content sits above the split background -->
+    <div class="about-content-wrap">
 
-      <!-- Left column: text + CTA -->
-      <div
-        class="about-left"
-        :key="`about-left-${visible}`"
-        v-motion
-        :initial="leftMotion.initial"
-        :enter="visible ? leftMotion.visible : leftMotion.initial"
-      >
-        <h2 id="about-heading" class="about-title">
-          {{ t("landing.about.title") }}
-        </h2>
+      <!-- Section separator / label -->
+      <div class="section-label-row" aria-hidden="true">
+        <span class="sep-line" />
+        <span class="sep-diamond" />
+        <span class="sep-text">{{ t("landing.about.badge") }}</span>
+        <span class="sep-diamond" />
+        <span class="sep-line" />
+      </div>
 
-        <div class="about-deco-divider" aria-hidden="true">
-          <span class="deco-line" />
-          <span class="deco-diamond" />
-          <span class="deco-line" />
-        </div>
+      <!-- Two-column layout -->
+      <div class="about-inner">
 
-        <p class="about-description">{{ t("landing.about.description") }}</p>
-
-        <AppCtaButton
-          variant="secondary"
-          :to="localePath('/about')"
-          class="about-cta"
+        <!-- Left column: text + CTA — sits on solid dark background -->
+        <div
+          class="about-left"
+          :key="`about-left-${visible}`"
+          v-motion
+          :initial="leftMotion.initial"
+          :enter="visible ? leftMotion.visible : leftMotion.initial"
         >
-          {{ t("landing.about.cta") }}
-        </AppCtaButton>
-      </div>
+          <h2 id="about-heading" class="about-title">
+            {{ t("landing.about.title") }}
+          </h2>
 
-      <!-- Right column: gradient block + values list -->
-      <div
-        class="about-right"
-        :key="`about-right-${visible}`"
-        v-motion
-        :initial="rightMotion.initial"
-        :enter="visible ? rightMotion.visible : rightMotion.initial"
-      >
-        <!-- Gradient accent block (image placeholder) -->
-        <div class="about-gradient-block" aria-hidden="true">
-          <div class="gradient-inner" />
-          <div class="deco-frame">
-            <span class="corner corner--tl" />
-            <span class="corner corner--tr" />
-            <span class="corner corner--bl" />
-            <span class="corner corner--br" />
+          <div class="about-deco-divider" aria-hidden="true">
+            <span class="deco-line" />
+            <span class="deco-diamond" />
+            <span class="deco-line" />
           </div>
+
+          <p class="about-description">{{ t("landing.about.description") }}</p>
+
+          <AppCtaButton
+            variant="secondary"
+            :to="localePath('/about')"
+            class="about-cta"
+          >
+            {{ t("landing.about.cta") }}
+          </AppCtaButton>
         </div>
 
-        <!-- Values list -->
-        <ul class="values-list" role="list">
-          <li
-            v-for="key in values"
-            :key="key"
-            class="value-item"
-          >
-            <div class="value-marker" aria-hidden="true">
-              <span class="marker-rule" />
-              <span class="marker-diamond" />
-            </div>
-            <div class="value-content">
-              <h3 class="value-title">{{ t(`landing.about.values.${key}.title`) }}</h3>
-              <p class="value-body">{{ t(`landing.about.values.${key}.description`) }}</p>
-            </div>
-          </li>
-        </ul>
+        <!-- Right column: values list — sits over the image panel -->
+        <div
+          class="about-right"
+          :key="`about-right-${visible}`"
+          v-motion
+          :initial="rightMotion.initial"
+          :enter="visible ? rightMotion.visible : rightMotion.initial"
+        >
+          <ul class="values-list" role="list">
+            <li
+              v-for="key in values"
+              :key="key"
+              class="value-item"
+            >
+              <div class="value-marker" aria-hidden="true">
+                <span class="marker-rule" />
+                <span class="marker-diamond" />
+              </div>
+              <div class="value-content">
+                <h3 class="value-title">{{ t(`landing.about.values.${key}.title`) }}</h3>
+                <p class="value-body">{{ t(`landing.about.values.${key}.description`) }}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <!-- Bottom deco rule — transition into next section block -->
-    <div class="section-bottom-rule" aria-hidden="true">
-      <span class="sep-line" />
-      <span class="sep-diamond-lg" />
-      <span class="sep-line" />
+      <!-- Bottom deco rule — transition into next section block -->
+      <div class="section-bottom-rule" aria-hidden="true">
+        <span class="sep-line" />
+        <span class="sep-diamond-lg" />
+        <span class="sep-line" />
+      </div>
     </div>
   </section>
 </template>
@@ -128,8 +138,91 @@ const values = ["clarity", "partnership", "quality"] as const;
 <style lang="scss" scoped>
 /* ── Section ──────────────────────────────────────────────────── */
 .about-section {
+  position: relative;
   background: #0d0908;
   padding-bottom: 0;
+  overflow: hidden;
+}
+
+/* ── Split background panel ───────────────────────────────────── */
+/*
+ * Mobile: sits in normal flow as a full-width image band (~300px),
+ *         scrolls with content, fades to dark at the bottom.
+ * Desktop (≥1024px): becomes position:absolute covering the right
+ *         half of the viewport, from top to bottom of the section.
+ *         This means the image bleeds to the right viewport edge
+ *         regardless of max-width constraints.
+ */
+.about-split-bg {
+  position: relative;
+  width: 100%;
+  height: clamp(240px, 40vw, 340px);
+  overflow: hidden;
+
+  @media (min-width: 1024px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    height: auto;
+    width: auto;
+  }
+}
+
+.about-split-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* On mobile: show top-centre of image (workspace tabletop area) */
+  object-position: center 30%;
+
+  @media (min-width: 1024px) {
+    /* On desktop: show left edge of image (text-friendly composition side) */
+    object-position: left center;
+  }
+}
+
+/*
+ * Mobile overlay: transparent top → dark bottom, so the image
+ *   fades into the section background as content appears below.
+ * Desktop overlay: dark left edge → transparent right, so the
+ *   image transitions cleanly from the left text column.
+ */
+.about-split-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 20%,
+    rgba(13, 9, 8, 0.65) 70%,
+    rgba(13, 9, 8, 0.95) 100%
+  );
+
+  @media (min-width: 1024px) {
+    background:
+      /* Left-to-right fade for the text/image column transition */
+      linear-gradient(
+        to right,
+        rgba(13, 9, 8, 0.92) 0%,
+        rgba(13, 9, 8, 0.45) 35%,
+        rgba(13, 9, 8, 0.12) 70%,
+        transparent 100%
+      ),
+      /* Subtle bottom darkening for grounding */
+      linear-gradient(
+        to bottom,
+        transparent 60%,
+        rgba(13, 9, 8, 0.35) 100%
+      );
+  }
+}
+
+/* ── Content layer (sits above split background) ──────────────── */
+.about-content-wrap {
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Section separator / label ────────────────────────────────── */
@@ -139,7 +232,12 @@ const values = ["clarity", "partnership", "quality"] as const;
   gap: 1rem;
   max-width: 80rem;
   margin: 0 auto;
-  padding: 5rem 2rem 3.5rem;
+  /* Mobile: reduced top padding — image band provides visual above */
+  padding: 2.5rem 2rem 2.5rem;
+
+  @media (min-width: 1024px) {
+    padding: 5rem 2rem 3.5rem;
+  }
 }
 
 .sep-line {
@@ -173,7 +271,7 @@ const values = ["clarity", "partnership", "quality"] as const;
   padding: 0 2rem 5rem;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 4rem;
+  gap: 3rem;
 
   @media (min-width: 1024px) {
     grid-template-columns: 1fr 1fr;
@@ -232,50 +330,10 @@ const values = ["clarity", "partnership", "quality"] as const;
   align-self: flex-start;
 }
 
-/* ── Right column ─────────────────────────────────────────────── */
+/* ── Right column — floats over the image panel ───────────────── */
 .about-right {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-}
-
-/* ── Gradient block (image placeholder) ──────────────────────── */
-.about-gradient-block {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 2px;
-  overflow: hidden;
-
-  @media (min-width: 1024px) {
-    aspect-ratio: 4 / 3;
-  }
-}
-
-.gradient-inner {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(145deg, #481f0a 0%, #200b03 55%, #0d0908 100%);
-  opacity: 0.9;
-}
-
-.deco-frame {
-  position: absolute;
-  inset: 0.875rem;
-  pointer-events: none;
-}
-
-.corner {
-  position: absolute;
-  width: 1.25rem;
-  height: 1.25rem;
-  border-color: rgba(223, 175, 133, 0.22);
-  border-style: solid;
-
-  &--tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
-  &--tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
-  &--bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
-  &--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
 }
 
 /* ── Values list ──────────────────────────────────────────────── */
@@ -291,10 +349,10 @@ const values = ["clarity", "partnership", "quality"] as const;
   display: flex;
   gap: 1.25rem;
   padding: 1.5rem 0;
-  border-top: 1px solid rgba(223, 175, 133, 0.08);
+  border-top: 1px solid rgba(223, 175, 133, 0.12);
 
   &:last-child {
-    border-bottom: 1px solid rgba(223, 175, 133, 0.08);
+    border-bottom: 1px solid rgba(223, 175, 133, 0.12);
   }
 }
 
@@ -310,13 +368,13 @@ const values = ["clarity", "partnership", "quality"] as const;
 .marker-rule {
   width: 1px;
   height: 0.875rem;
-  background: rgba(223, 175, 133, 0.2);
+  background: rgba(223, 175, 133, 0.25);
 }
 
 .marker-diamond {
   width: 6px;
   height: 6px;
-  background: rgba(223, 175, 133, 0.45);
+  background: rgba(223, 175, 133, 0.5);
   transform: rotate(45deg);
   flex-shrink: 0;
 }
@@ -339,7 +397,7 @@ const values = ["clarity", "partnership", "quality"] as const;
   font-weight: 300;
   font-size: 0.875rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.55);
   margin: 0;
 }
 
@@ -361,84 +419,62 @@ const values = ["clarity", "partnership", "quality"] as const;
   flex-shrink: 0;
 }
 
+/* ── Reduced motion ───────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .about-split-img {
+    will-change: auto;
+  }
+}
+
 /* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .about-section {
     background: var(--color-section-light);
   }
 
-  /* Section separator */
-  .sep-line {
-    background: var(--deco-line);
-  }
+  /* Lighten overlay so image reads through in light mode */
+  .about-split-overlay {
+    background: linear-gradient(
+      to bottom,
+      transparent 20%,
+      rgba(250, 247, 244, 0.6) 70%,
+      rgba(250, 247, 244, 0.95) 100%
+    );
 
-  .sep-diamond {
-    background: var(--deco-diamond);
-  }
-
-  .sep-text {
-    color: var(--deco-text);
-  }
-
-  /* Title & body text */
-  .about-title {
-    color: var(--color-text-primary);
-  }
-
-  .about-description {
-    color: var(--color-text-subtle);
-  }
-
-  /* Deco divider */
-  .deco-line {
-    background: var(--deco-line);
-  }
-
-  .deco-diamond {
-    background: var(--deco-diamond);
-  }
-
-  /* Gradient block — flip to warm light */
-  .gradient-inner {
-    background: linear-gradient(145deg, #f5efe8 0%, #e8ddd2 55%, #faf7f4 100%);
-    opacity: 1;
-  }
-
-  /* Art deco corners on gradient block */
-  .corner {
-    border-color: var(--deco-border);
-  }
-
-  /* Values list */
-  .value-item {
-    border-top-color: var(--deco-line);
-
-    &:last-child {
-      border-bottom-color: var(--deco-line);
+    @media (min-width: 1024px) {
+      background:
+        linear-gradient(
+          to right,
+          rgba(250, 247, 244, 0.95) 0%,
+          rgba(250, 247, 244, 0.5) 35%,
+          rgba(250, 247, 244, 0.15) 70%,
+          transparent 100%
+        ),
+        linear-gradient(
+          to bottom,
+          transparent 60%,
+          rgba(250, 247, 244, 0.35) 100%
+        );
     }
   }
 
-  .marker-rule {
-    background: var(--deco-line-strong);
+  .sep-line        { background: var(--deco-line); }
+  .sep-diamond     { background: var(--deco-diamond); }
+  .sep-text        { color: var(--deco-text); }
+  .about-title     { color: var(--color-text-primary); }
+  .about-description { color: var(--color-text-subtle); }
+  .deco-line       { background: var(--deco-line); }
+  .deco-diamond    { background: var(--deco-diamond); }
+
+  .value-item {
+    border-top-color: var(--deco-line);
+    &:last-child { border-bottom-color: var(--deco-line); }
   }
 
-  .marker-diamond {
-    background: var(--deco-diamond);
-  }
-
-  .value-title {
-    color: var(--color-text-primary);
-  }
-
-  .value-body {
-    color: var(--color-text-subtle);
-  }
-
-  /* Bottom deco rule */
-  .sep-diamond-lg {
-    background: var(--deco-diamond-sm);
-  }
+  .marker-rule     { background: var(--deco-line-strong); }
+  .marker-diamond  { background: var(--deco-diamond); }
+  .value-title     { color: var(--color-text-primary); }
+  .value-body      { color: var(--color-text-subtle); }
+  .sep-diamond-lg  { background: var(--deco-diamond-sm); }
 }
 </style>
-
-

@@ -147,6 +147,7 @@ const formatUnit = (unit: string): string => {
       :badge="t('servicesSubpages.additionalServices.hero.badge')"
       :title="t('servicesSubpages.additionalServices.hero.title')"
       :subtitle="t('servicesSubpages.additionalServices.hero.subtitle')"
+      bg-image="/images/additional-services/hero.jpg"
     >
       <template #cta>
         <AppCtaButton variant="primary" :to="localePath('/contact')" :show-icon="true">

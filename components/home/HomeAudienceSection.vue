@@ -34,10 +34,16 @@ const situations = computed(
     }>,
 );
 
-const panelGradients = [
-  "linear-gradient(155deg, #481f0a 0%, #1a0904 100%)",
-  "linear-gradient(155deg, #7d3412 0%, #3a1508 100%)",
-  "linear-gradient(155deg, #995226 0%, #481f0a 100%)",
+const audienceImages = [
+  "/images/landing/audience-outgrown.jpg",
+  "/images/landing/audience-brand-misalignment.jpg",
+  "/images/landing/audience-long-term-partnership.jpg",
+];
+
+const audienceAlts = [
+  "Editorial studio scene showing a business transitioning from rough website sketches to a polished screen mockup",
+  "Brand print set contrasted with a modern cohesive identity system, illustrating a mismatch between company quality and current presentation",
+  "Modular project boards and timeline cards arranged as an ongoing system, representing a long-term digital partnership",
 ];
 
 const panelAccents = [
@@ -102,24 +108,29 @@ const numerals = ["I", "II", "III"];
         <!-- ── Visual column ──────────────────────────── -->
         <div
           class="row-visual"
-          :style="{
-            '--panel-gradient': panelGradients[i],
-            '--panel-accent': panelAccents[i],
-          }"
-          aria-hidden="true"
+          :style="{ '--panel-accent': panelAccents[i] }"
         >
+          <!-- Editorial row image -->
+          <NuxtImg
+            :src="audienceImages[i]"
+            :alt="audienceAlts[i]"
+            class="row-bg-image"
+            width="960"
+            height="540"
+            format="webp"
+            quality="80"
+            loading="lazy"
+          />
+          <!-- Dark tint overlay to blend with section atmosphere -->
+          <div class="row-overlay" aria-hidden="true" />
           <!-- Ambient glow orb -->
-          <div class="panel-orb" />
+          <div class="panel-orb" aria-hidden="true" />
           <!-- Art deco corner frame -->
-          <div class="deco-frame">
+          <div class="deco-frame" aria-hidden="true">
             <span class="corner corner--tl" />
             <span class="corner corner--tr" />
             <span class="corner corner--bl" />
             <span class="corner corner--br" />
-          </div>
-          <!-- Icon focal point -->
-          <div class="visual-icon-wrap">
-            <UIcon :name="item.icon" class="visual-icon" />
           </div>
         </div>
       </li>
@@ -315,7 +326,7 @@ const numerals = ["I", "II", "III"];
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--panel-gradient);
+  background: #1a0904; /* fallback while image loads */
   overflow: hidden;
   min-height: 260px;
 
@@ -324,6 +335,25 @@ const numerals = ["I", "II", "III"];
     mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
   }
+}
+
+/* ── Row image ────────────────────────────────────────────────── */
+.row-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+/* Dark tint to blend editorial image with dark section palette */
+.row-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 5, 3, 0.42);
+  z-index: 1;
 }
 
 /* ── Ambient glow orb ─────────────────────────────────────────── */
@@ -338,6 +368,8 @@ const numerals = ["I", "II", "III"];
     transparent 65%
   );
   pointer-events: none;
+  z-index: 2;
+  opacity: 0.55;
 
   /* Normal row — orb at top-right (away from fade zone) */
   .audience-row--normal & {
@@ -364,43 +396,20 @@ const numerals = ["I", "II", "III"];
   position: absolute;
   inset: 2rem;
   pointer-events: none;
-  z-index: 2;
+  z-index: 3;
 }
 
 .corner {
   position: absolute;
   width: 1.25rem;
   height: 1.25rem;
-  border-color: rgba(223, 175, 133, 0.16);
+  border-color: rgba(223, 175, 133, 0.22);
   border-style: solid;
 
   &--tl { top: 0; left: 0;     border-width: 1px 0 0 1px; }
   &--tr { top: 0; right: 0;    border-width: 1px 1px 0 0; }
   &--bl { bottom: 0; left: 0;  border-width: 0 0 1px 1px; }
   &--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
-}
-
-/* ── Icon focal point ─────────────────────────────────────────── */
-.visual-icon-wrap {
-  position: relative;
-  z-index: 1;
-  width: 5.5rem;
-  height: 5.5rem;
-  border-radius: 1.125rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(223, 175, 133, 0.1);
-  border: 1px solid rgba(223, 175, 133, 0.26);
-  box-shadow:
-    0 0 0 8px rgba(223, 175, 133, 0.05),
-    0 0 48px rgba(223, 175, 133, 0.12);
-}
-
-.visual-icon {
-  width: 2.25rem;
-  height: 2.25rem;
-  color: rgba(223, 175, 133, 0.82);
 }
 
 /* ── Reduced motion ───────────────────────────────────────────── */

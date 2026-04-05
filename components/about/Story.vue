@@ -60,12 +60,19 @@ onMounted(() => {
         </div>
       </div>
 
-      <!-- Image placeholder — ready for a photo -->
-      <div class="story-image-placeholder" aria-hidden="true">
-        <div class="placeholder-inner">
-          <span class="placeholder-label">Image coming soon</span>
-        </div>
-        <div class="deco-frame">
+      <!-- Story wide image -->
+      <div class="story-image-wrap">
+        <NuxtImg
+          src="/images/about/story.jpg"
+          alt="Brand and website elements converging from fragmentation into a cohesive, structured identity system"
+          class="story-image"
+          width="1920"
+          height="640"
+          format="webp"
+          quality="82"
+          loading="lazy"
+        />
+        <div class="deco-frame" aria-hidden="true">
           <span class="corner corner--tl" />
           <span class="corner corner--tr" />
           <span class="corner corner--bl" />
@@ -207,37 +214,25 @@ onMounted(() => {
   }
 }
 
-/* ── Image placeholder ────────────────────────────────────────── */
-.story-image-placeholder {
+/* ── Story wide image ─────────────────────────────────────────── */
+.story-image-wrap {
   position: relative;
   width: 100%;
   aspect-ratio: 21 / 7;
-  background: #120703;
-  border: 1px solid rgba(223, 175, 133, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
+  border: 1px solid rgba(223, 175, 133, 0.08);
 
   @media (min-width: 768px) {
     aspect-ratio: 21 / 6;
   }
 }
 
-.placeholder-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.placeholder-label {
-  font-family: var(--font-heading);
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(223, 175, 133, 0.2);
+.story-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* ── Corner frame ─────────────────────────────────────────────── */
@@ -297,12 +292,9 @@ html:not(.dark) {
 
   .story-paragraph { color: var(--color-text-subtle); }
 
-  .story-image-placeholder {
-    background: var(--color-surface-3);
+  .story-image-wrap {
     border-color: var(--color-border);
   }
-
-  .placeholder-label { color: rgba(153, 82, 38, 0.20); }
 
   .corner { border-color: var(--deco-border); }
 }

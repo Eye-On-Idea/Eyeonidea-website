@@ -17,6 +17,21 @@ const bgStyle = computed(() =>
 
 <template>
   <section class="about-hero" aria-labelledby="about-hero-heading">
+    <!-- Hero photo background -->
+    <NuxtImg
+      src="/images/about/hero.jpg"
+      alt=""
+      class="hero-image"
+      aria-hidden="true"
+      width="1920"
+      height="1080"
+      format="webp"
+      quality="82"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <!-- Dark overlay for centered text legibility -->
+    <div class="hero-image-overlay" aria-hidden="true" />
     <div class="hero-bg" aria-hidden="true" :style="bgStyle" />
 
     <div class="hero-content">
@@ -69,6 +84,24 @@ const bgStyle = computed(() =>
   }
 }
 
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  z-index: 0;
+}
+
+/* Even overlay for centered text */
+.hero-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 9, 8, 0.62);
+  z-index: 1;
+}
+
 .hero-bg {
   position: absolute;
   inset: -20% 0;
@@ -77,11 +110,12 @@ const bgStyle = computed(() =>
     radial-gradient(ellipse 40% 40% at 20% 80%, rgba(223, 175, 133, 0.03) 0%, transparent 50%);
   will-change: transform;
   pointer-events: none;
+  z-index: 2;
 }
 
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 10;
   max-width: 48rem;
   text-align: center;
 }

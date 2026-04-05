@@ -7,6 +7,8 @@ interface Props {
   badge: string;
   title: string;
   subtitle: string;
+  bgImage?: string;
+  bgImageAlt?: string;
 }
 
 defineProps<Props>();
@@ -24,7 +26,25 @@ const bgStyle = computed(() =>
 
 <template>
   <section class="page-hero" :aria-labelledby="headingId">
-    <!-- Parallax ambient layer -->
+    <!-- Hero photo background (if provided) -->
+    <NuxtImg
+      v-if="bgImage"
+      :src="bgImage"
+      :alt="bgImageAlt || ''"
+      class="hero-image"
+      aria-hidden="true"
+      width="1920"
+      height="1080"
+      format="webp"
+      quality="82"
+      loading="eager"
+      fetchpriority="high"
+    />
+
+    <!-- Dark directional overlay for text legibility over photo -->
+    <div v-if="bgImage" class="hero-image-overlay" aria-hidden="true" />
+
+    <!-- Parallax ambient layer (gradient atmosphere on top of photo) -->
     <div class="hero-bg" aria-hidden="true" :style="bgStyle" />
 
     <!-- Art deco corner brackets — anchored to section edges like landing page -->
@@ -98,6 +118,33 @@ const bgStyle = computed(() =>
   }
 }
 
+/* ── Hero photo background ────────────────────────────────────── */
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  z-index: 0;
+}
+
+/* Gradient overlay: dark left (text) → lighter right (image shows) */
+.hero-image-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to right,
+      rgba(13, 9, 8, 0.88) 0%,
+      rgba(13, 9, 8, 0.62) 40%,
+      rgba(13, 9, 8, 0.32) 65%,
+      rgba(13, 9, 8, 0.12) 100%
+    ),
+    linear-gradient(to bottom, rgba(13, 9, 8, 0.25) 0%, transparent 40%, rgba(13, 9, 8, 0.4) 100%);
+  z-index: 1;
+}
+
 /* ── Parallax background layer ────────────────────────────────── */
 .hero-bg {
   position: absolute;
@@ -107,6 +154,7 @@ const bgStyle = computed(() =>
     radial-gradient(ellipse 55% 40% at 80% 85%, rgba(223, 175, 133, 0.03) 0%, transparent 55%);
   will-change: transform;
   pointer-events: none;
+  z-index: 2;
 }
 
 /* ── Container — flex fill + corner frame anchor ──────────────── */
@@ -160,7 +208,7 @@ const bgStyle = computed(() =>
 /* ── Content (left-aligned) ───────────────────────────────────── */
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 10;
   max-width: 52rem;
   padding: 2rem 0;
 }

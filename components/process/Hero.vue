@@ -9,6 +9,7 @@ const localePath = useLocalePath();
     :badge="t('process.hero.badge')"
     :title="t('process.hero.title')"
     :subtitle="t('process.hero.subtitle')"
+    bg-image="/images/process/hero.jpg"
   >
     <template #cta>
       <AppCtaButton variant="primary" :to="localePath('/contact')" :show-icon="true">

@@ -38,6 +38,17 @@ const scrollMotion = withDelay("fadeIn", 1200);
     aria-labelledby="hero-heading"
   >
     <!-- ── Background layers ─────────────────────────────────────────── -->
+    <!-- Photo layer — sits beneath all gradient overlays -->
+    <img
+      src="/images/landing/hero.jpg"
+      alt=""
+      class="hero-bg-image"
+      aria-hidden="true"
+      loading="eager"
+      fetchpriority="high"
+      decoding="sync"
+    />
+    <!-- Directional dark overlay: heavy left (text) → lighter right (image) -->
     <div class="hero-bg-gradient" aria-hidden="true" />
     <div class="hero-bg-radial" aria-hidden="true" />
 
@@ -170,11 +181,28 @@ const scrollMotion = withDelay("fadeIn", 1200);
 }
 
 /* ── Background layers ────────────────────────────────────────── */
+.hero-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
 .hero-bg-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(145deg, #0a0706 0%, #0d0908 40%, #180e08 100%);
+  background: linear-gradient(
+    to right,
+    rgba(13, 9, 8, 0.92) 0%,
+    rgba(13, 9, 8, 0.65) 45%,
+    rgba(13, 9, 8, 0.35) 70%,
+    rgba(13, 9, 8, 0.18) 100%
+  );
   pointer-events: none;
+  z-index: 1;
 }
 
 .hero-bg-radial {
@@ -186,6 +214,7 @@ const scrollMotion = withDelay("fadeIn", 1200);
     transparent 70%
   );
   pointer-events: none;
+  z-index: 2;
 }
 
 /* ── Two-column layout ────────────────────────────────────────── */

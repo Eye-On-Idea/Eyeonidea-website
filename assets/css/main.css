@@ -79,7 +79,7 @@
   --color-neutral-900: #1f1f1f;
   --color-neutral-950: #161616;
 
-  /* Primary Scale (Brand Blue) */
+  /* Primary Scale */
   --color-primary-50: #ffeddf;
   --color-primary-100: #ffe4cf;
   --color-primary-200: #dfaf85;
@@ -243,8 +243,8 @@
     #faf7f4 72%,
     #f5efe8 100%
   );
-  --color-hero-text: #1f1f1f;         /* neutral-900 - high contrast on cream */
-  --color-hero-text-muted: #475569;   /* neutral-600 - WCAG AA on cream */
+  --color-hero-text: #1f1f1f; /* neutral-900 - high contrast on cream */
+  --color-hero-text-muted: #475569; /* neutral-600 - WCAG AA on cream */
   --color-section-light: linear-gradient(
     155deg,
     #faf7f4 0%,
@@ -315,7 +315,7 @@
   --color-hero-badge-text: #67280e; /* primary-700, 7.2:1 contrast */
 
   /* Art Deco Decorative Elements - Light Mode */
-  --deco-line: rgba(153, 82, 38, 0.20);       /* primary-500 based */
+  --deco-line: rgba(153, 82, 38, 0.2); /* primary-500 based */
   --deco-line-strong: rgba(153, 82, 38, 0.35);
   --deco-diamond: rgba(153, 82, 38, 0.45);
   --deco-diamond-sm: rgba(153, 82, 38, 0.22);
@@ -364,11 +364,11 @@ html:not(.dark) .word-amber {
    scoped light-mode override at (0,2,1) — so dark styles always win here.
    ========================= */
 html:not(.dark) #hero-section .app-cta--primary {
-  border-color: rgba(223, 175, 133, 0.60);
+  border-color: rgba(223, 175, 133, 0.6);
   background: linear-gradient(
     156deg,
     rgba(223, 175, 133, 0.22) 0%,
-    rgba(255, 237, 223, 0.10) 50%,
+    rgba(255, 237, 223, 0.1) 50%,
     rgba(223, 175, 133, 0.22) 100%
   );
   color: #ffeddf;
@@ -517,10 +517,10 @@ html.dark,
 
   /* Art Deco Decorative Elements - Dark Mode */
   --deco-line: rgba(223, 175, 133, 0.15);
-  --deco-line-strong: rgba(223, 175, 133, 0.30);
+  --deco-line-strong: rgba(223, 175, 133, 0.3);
   --deco-diamond: rgba(223, 175, 133, 0.45);
   --deco-diamond-sm: rgba(223, 175, 133, 0.22);
-  --deco-border: rgba(223, 175, 133, 0.20);
+  --deco-border: rgba(223, 175, 133, 0.2);
   --deco-text: rgba(223, 175, 133, 0.65);
 
   /* Dark Mode Badge/Tag Colors */
@@ -561,8 +561,16 @@ html {
   color-scheme: light;
   /* Subtle warm ambient gradient anchored to the viewport */
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(153, 82, 38, 0.04) 0%, transparent 55%),
-    radial-gradient(ellipse 40% 35% at 5% 70%, rgba(153, 82, 38, 0.02) 0%, transparent 50%);
+    radial-gradient(
+      ellipse 80% 50% at 50% 0%,
+      rgba(153, 82, 38, 0.04) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 40% 35% at 5% 70%,
+      rgba(153, 82, 38, 0.02) 0%,
+      transparent 50%
+    );
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -579,9 +587,21 @@ html.dark {
    * giving a seamless ambient feel across the whole page.
    */
   background-image:
-    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(223, 175, 133, 0.065) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 40% at 10% 65%,  rgba(223, 175, 133, 0.025) 0%, transparent 50%),
-    radial-gradient(ellipse 40% 35% at 90% 80%,  rgba(223, 175, 133, 0.018) 0%, transparent 50%);
+    radial-gradient(
+      ellipse 90% 55% at 50% 0%,
+      rgba(223, 175, 133, 0.065) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 10% 65%,
+      rgba(223, 175, 133, 0.025) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 40% 35% at 90% 80%,
+      rgba(223, 175, 133, 0.018) 0%,
+      transparent 50%
+    );
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -796,12 +816,12 @@ td {
 /* Light mode header */
 html:not(.dark) .header-main {
   /* Nav links */
-  --nav-link-text: #481f0a;        /* primary-800 */
-  --nav-link-hover: #441a08;       /* primary-900 */
+  --nav-link-text: #481f0a; /* primary-800 */
+  --nav-link-hover: #441a08; /* primary-900 */
   --nav-link-active: #441a08;
   --nav-link-bg-hover: rgba(153, 82, 38, 0.08);
   --nav-link-bg-active: rgba(153, 82, 38, 0.12);
-  --nav-icon: #7d3412;             /* primary-600 */
+  --nav-icon: #7d3412; /* primary-600 */
 
   /* Dropdown */
   --nav-dropdown-bg: rgba(255, 247, 240, 0.97);
@@ -819,7 +839,7 @@ html:not(.dark) .header-main {
   --nav-mobile-toggle-text: #7d3412;
   --nav-mobile-toggle-hover: rgba(153, 82, 38, 0.08);
   --nav-mobile-child-hover: rgba(153, 82, 38, 0.06);
-  --nav-mobile-child-active-bg: rgba(153, 82, 38, 0.10);
+  --nav-mobile-child-active-bg: rgba(153, 82, 38, 0.1);
   --nav-mobile-child-active-border: #7d3412;
 }
 

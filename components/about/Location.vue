@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 
 const { t, tm } = useI18n();
 const localePath = useLocalePath();
@@ -31,6 +31,7 @@ const quickFacts = computed(
       value: string;
     }>,
 );
+
 </script>
 
 <template>
@@ -39,92 +40,97 @@ const quickFacts = computed(
     class="about-location"
     aria-labelledby="location-heading"
   >
-    <!-- Section label row -->
-    <div class="section-label-row" aria-hidden="true">
-      <span class="sep-line" />
-      <span class="sep-diamond" />
-      <span class="sep-text">{{ t("about.location.badge") }}</span>
-      <span class="sep-diamond" />
-      <span class="sep-line" />
+    <!-- Full-section background: Denmark/Europe map image -->
+    <div class="location-bg" aria-hidden="true">
+      <img
+        src="/images/about/location.jpg"
+        alt=""
+        class="location-bg-img"
+        loading="lazy"
+        decoding="async"
+        fetchpriority="low"
+      />
     </div>
+    <!-- Dark overlay: uniform base + subtle vignette -->
+    <div class="location-overlay" aria-hidden="true" />
 
-    <div class="section-container" :class="{ 'animate-in': isVisible }">
-      <div class="location-grid">
+    <!-- Content layer -->
+    <div class="location-content-wrap">
 
-        <!-- Left: location details -->
-        <div class="location-col">
-          <h2 id="location-heading" class="section-title">
-            {{ t("about.location.title") }}
-          </h2>
-          <p class="location-description">
-            {{ t("about.location.description") }}
-          </p>
+      <!-- Section label row -->
+      <div class="section-label-row" aria-hidden="true">
+        <span class="sep-line" />
+        <span class="sep-diamond" />
+        <span class="sep-text">{{ t("about.location.badge") }}</span>
+        <span class="sep-diamond" />
+        <span class="sep-line" />
+      </div>
 
-          <dl class="location-details">
-            <div class="detail-row">
-              <dt class="detail-label">
-                <span class="detail-diamond" aria-hidden="true" />
-                Headquarters
-              </dt>
-              <dd class="detail-value">{{ t("about.location.details.headquarters") }}</dd>
-            </div>
-            <div class="detail-row">
-              <dt class="detail-label">
-                <span class="detail-diamond" aria-hidden="true" />
-                Coverage
-              </dt>
-              <dd class="detail-value">{{ t("about.location.details.coverage") }}</dd>
-            </div>
-            <div class="detail-row">
-              <dt class="detail-label">
-                <span class="detail-diamond" aria-hidden="true" />
-                Languages
-              </dt>
-              <dd class="detail-value">{{ t("about.location.details.languages") }}</dd>
-            </div>
-          </dl>
+      <div class="section-container" :class="{ 'animate-in': isVisible }">
+        <div class="location-grid">
 
-          <NuxtLink :to="localePath('/solutions/process')" class="process-link">
-            {{ t("about.location.processLink") }}
-            <span aria-hidden="true" class="link-arrow">→</span>
-          </NuxtLink>
-        </div>
+          <!-- Left: location details -->
+          <div class="location-col">
+            <h2 id="location-heading" class="section-title">
+              {{ t("about.location.title") }}
+            </h2>
+            <p class="location-description">
+              {{ t("about.location.description") }}
+            </p>
 
-        <!-- Right: quick facts as editorial stat rows -->
-        <div class="facts-col">
-          <div class="facts-header" aria-hidden="true">
-            <span class="facts-rule" />
-            <span class="facts-label">{{ t("about.quickFacts.title") }}</span>
-            <span class="facts-rule" />
+            <dl class="location-details">
+              <div class="detail-row">
+                <dt class="detail-label">
+                  <span class="detail-diamond" aria-hidden="true" />
+                  Headquarters
+                </dt>
+                <dd class="detail-value">{{ t("about.location.details.headquarters") }}</dd>
+              </div>
+              <div class="detail-row">
+                <dt class="detail-label">
+                  <span class="detail-diamond" aria-hidden="true" />
+                  Coverage
+                </dt>
+                <dd class="detail-value">{{ t("about.location.details.coverage") }}</dd>
+              </div>
+              <div class="detail-row">
+                <dt class="detail-label">
+                  <span class="detail-diamond" aria-hidden="true" />
+                  Languages
+                </dt>
+                <dd class="detail-value">{{ t("about.location.details.languages") }}</dd>
+              </div>
+            </dl>
+
+            <NuxtLink :to="localePath('/solutions/process')" class="process-link">
+              {{ t("about.location.processLink") }}
+              <span aria-hidden="true" class="link-arrow">→</span>
+            </NuxtLink>
           </div>
 
-          <ol class="facts-list" aria-label="{{ t('about.quickFacts.title') }}">
-            <li
-              v-for="(fact, index) in quickFacts"
-              :key="index"
-              class="fact-row"
-              :style="{ transitionDelay: `${index * 80}ms` }"
-            >
-              <span class="fact-numeral" aria-hidden="true">{{ ["I", "II", "III", "IV"][index] }}</span>
-              <span class="fact-value">{{ fact.value }}</span>
-              <span class="fact-label">{{ fact.label }}</span>
-            </li>
-          </ol>
+          <!-- Right: quick facts -->
+          <div class="facts-col">
+            <div class="facts-header" aria-hidden="true">
+              <span class="facts-rule" />
+              <span class="facts-label">{{ t("about.quickFacts.title") }}</span>
+              <span class="facts-rule" />
+            </div>
 
-          <!-- Map / location visual placeholder -->
-          <div class="map-placeholder" aria-hidden="true">
-            <div class="map-inner">
-              <span class="map-label">Map coming soon</span>
-            </div>
-            <div class="deco-frame">
-              <span class="corner corner--tl" />
-              <span class="corner corner--tr" />
-              <span class="corner corner--bl" />
-              <span class="corner corner--br" />
-            </div>
+            <ol class="facts-list" :aria-label="t('about.quickFacts.title')">
+              <li
+                v-for="(fact, index) in quickFacts"
+                :key="index"
+                class="fact-row"
+                :style="{ transitionDelay: `${index * 80}ms` }"
+              >
+                <span class="fact-numeral" aria-hidden="true">{{ ["I", "II", "III", "IV"][index] }}</span>
+                <span class="fact-value">{{ fact.value }}</span>
+                <span class="fact-label">{{ fact.label }}</span>
+              </li>
+            </ol>
           </div>
-        </div>
 
+        </div>
       </div>
     </div>
   </section>
@@ -133,8 +139,55 @@ const quickFacts = computed(
 <style lang="scss" scoped>
 /* ── Section ──────────────────────────────────────────────────── */
 .about-location {
+  position: relative;
   background: #120703;
   padding-bottom: 0;
+  overflow: hidden;
+}
+
+/* ── Background image ─────────────────────────────────────────── */
+.location-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.location-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/*
+ * Overlay: dark enough to read all text, light enough to
+ * let the amber map lines read through as atmosphere.
+ * Vignette (radial) darkens edges, focuses the centre.
+ */
+.location-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 90% 70% at 50% 50%,
+      rgba(18, 7, 3, 0.55) 0%,
+      rgba(18, 7, 3, 0.82) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(18, 7, 3, 0.45) 0%,
+      rgba(18, 7, 3, 0.3) 50%,
+      rgba(18, 7, 3, 0.6) 100%
+    );
+  pointer-events: none;
+}
+
+/* ── Content layer ────────────────────────────────────────────── */
+.location-content-wrap {
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Section label row ────────────────────────────────────────── */
@@ -150,13 +203,13 @@ const quickFacts = computed(
 .sep-line {
   flex: 1;
   height: 1px;
-  background: rgba(223, 175, 133, 0.12);
+  background: rgba(223, 175, 133, 0.15);
 }
 
 .sep-diamond {
   width: 5px;
   height: 5px;
-  background: rgba(223, 175, 133, 0.35);
+  background: rgba(223, 175, 133, 0.4);
   transform: rotate(45deg);
   flex-shrink: 0;
 }
@@ -167,7 +220,7 @@ const quickFacts = computed(
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(223, 175, 133, 0.45);
+  color: rgba(223, 175, 133, 0.5);
   flex-shrink: 0;
 }
 
@@ -218,7 +271,7 @@ const quickFacts = computed(
   font-weight: 300;
   font-size: clamp(0.95rem, 1.2vw, 1.05rem);
   line-height: 1.8;
-  color: rgba(255, 237, 223, 0.5);
+  color: rgba(255, 237, 223, 0.55);
   margin: 0 0 2.5rem;
 }
 
@@ -228,7 +281,7 @@ const quickFacts = computed(
   flex-direction: column;
   gap: 0;
   margin: 0 0 2.5rem;
-  border-top: 1px solid rgba(223, 175, 133, 0.08);
+  border-top: 1px solid rgba(223, 175, 133, 0.12);
 }
 
 .detail-row {
@@ -237,7 +290,7 @@ const quickFacts = computed(
   gap: 1.5rem;
   align-items: baseline;
   padding: 1rem 0;
-  border-bottom: 1px solid rgba(223, 175, 133, 0.08);
+  border-bottom: 1px solid rgba(223, 175, 133, 0.12);
 }
 
 .detail-label {
@@ -249,14 +302,14 @@ const quickFacts = computed(
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(223, 175, 133, 0.4);
+  color: rgba(223, 175, 133, 0.45);
 }
 
 .detail-diamond {
   display: inline-block;
   width: 4px;
   height: 4px;
-  background: rgba(223, 175, 133, 0.3);
+  background: rgba(223, 175, 133, 0.35);
   transform: rotate(45deg);
   flex-shrink: 0;
 }
@@ -265,7 +318,7 @@ const quickFacts = computed(
   font-family: var(--font-text);
   font-weight: 300;
   font-size: clamp(0.85rem, 1vw, 0.95rem);
-  color: rgba(255, 237, 223, 0.65);
+  color: rgba(255, 237, 223, 0.7);
 }
 
 /* ── Process link ─────────────────────────────────────────────── */
@@ -278,14 +331,12 @@ const quickFacts = computed(
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(223, 175, 133, 0.55);
+  color: rgba(223, 175, 133, 0.6);
   text-decoration: none;
   min-height: 44px;
   transition: color 0.2s ease;
 
-  &:hover {
-    color: rgba(223, 175, 133, 0.9);
-  }
+  &:hover { color: rgba(223, 175, 133, 0.95); }
 
   &:focus-visible {
     outline: 2px solid rgba(223, 175, 133, 0.5);
@@ -295,10 +346,7 @@ const quickFacts = computed(
 
 .link-arrow {
   transition: transform 0.2s ease;
-
-  .process-link:hover & {
-    transform: translateX(3px);
-  }
+  .process-link:hover & { transform: translateX(3px); }
 }
 
 /* ── Right col ────────────────────────────────────────────────── */
@@ -312,7 +360,7 @@ const quickFacts = computed(
 .facts-rule {
   flex: 1;
   height: 1px;
-  background: rgba(223, 175, 133, 0.1);
+  background: rgba(223, 175, 133, 0.12);
 }
 
 .facts-label {
@@ -321,7 +369,7 @@ const quickFacts = computed(
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(223, 175, 133, 0.35);
+  color: rgba(223, 175, 133, 0.4);
   flex-shrink: 0;
 }
 
@@ -329,8 +377,8 @@ const quickFacts = computed(
 .facts-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 2.5rem;
-  border-top: 1px solid rgba(223, 175, 133, 0.08);
+  margin: 0;
+  border-top: 1px solid rgba(223, 175, 133, 0.12);
 }
 
 .fact-row {
@@ -339,7 +387,7 @@ const quickFacts = computed(
   gap: 1rem;
   align-items: baseline;
   padding: 1.25rem 0;
-  border-bottom: 1px solid rgba(223, 175, 133, 0.08);
+  border-bottom: 1px solid rgba(223, 175, 133, 0.12);
   opacity: 0;
   transform: translateY(10px);
   transition:
@@ -357,7 +405,7 @@ const quickFacts = computed(
   font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: rgba(223, 175, 133, 0.25);
+  color: rgba(223, 175, 133, 0.28);
 }
 
 .fact-value {
@@ -374,57 +422,10 @@ const quickFacts = computed(
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(223, 175, 133, 0.35);
+  color: rgba(223, 175, 133, 0.38);
 }
 
-/* ── Map placeholder ──────────────────────────────────────────── */
-.map-placeholder {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  background: rgba(13, 9, 8, 0.6);
-  border: 1px solid rgba(223, 175, 133, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.map-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.map-label {
-  font-family: var(--font-heading);
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(223, 175, 133, 0.15);
-}
-
-/* ── Corner frame ─────────────────────────────────────────────── */
-.deco-frame {
-  position: absolute;
-  inset: 0.75rem;
-  pointer-events: none;
-}
-
-.corner {
-  position: absolute;
-  width: 1rem;
-  height: 1rem;
-  border-color: rgba(223, 175, 133, 0.12);
-  border-style: solid;
-
-  &--tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
-  &--tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
-  &--bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
-  &--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
-}
-
+/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .section-container,
   .fact-row {
@@ -438,11 +439,27 @@ const quickFacts = computed(
 html:not(.dark) {
   .about-location { background: var(--color-section-light); }
 
+  /* Lighten overlay so map image reads through in light mode */
+  .location-overlay {
+    background:
+      radial-gradient(
+        ellipse 90% 70% at 50% 50%,
+        rgba(250, 247, 244, 0.45) 0%,
+        rgba(250, 247, 244, 0.78) 100%
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(250, 247, 244, 0.35) 0%,
+        rgba(250, 247, 244, 0.2) 50%,
+        rgba(250, 247, 244, 0.55) 100%
+      );
+  }
+
   .sep-line    { background: var(--deco-line); }
   .sep-diamond { background: var(--deco-diamond); }
   .sep-text    { color: var(--deco-text); }
 
-  .section-title       { color: var(--color-text-primary); }
+  .section-title        { color: var(--color-text-primary); }
   .location-description { color: var(--color-text-subtle); }
 
   .location-details { border-top-color: var(--deco-line); }
@@ -464,14 +481,5 @@ html:not(.dark) {
   .fact-numeral { color: rgba(153, 82, 38, 0.30); }
   .fact-value  { color: var(--color-text-primary); }
   .fact-label  { color: var(--color-primary-500); opacity: 0.5; }
-
-  .map-placeholder {
-    background: var(--color-surface-3);
-    border-color: var(--color-border);
-  }
-  .map-label { color: rgba(153, 82, 38, 0.18); }
-  .corner    { border-color: var(--deco-border); }
 }
 </style>
-
-

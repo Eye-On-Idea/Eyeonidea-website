@@ -21,6 +21,30 @@ const stepKeys = [
   "handoff",
 ] as const;
 
+const stepImages: Record<string, string> = {
+  contact:     "/images/process/step-initial-contact.jpg",
+  discovery:   "/images/process/step-discovery-meeting.jpg",
+  proposal:    "/images/process/step-proposal-agreement.jpg",
+  kickoff:     "/images/process/step-project-kickoff.jpg",
+  development: "/images/process/step-development-progress.jpg",
+  preview:     "/images/process/step-pre-launch-preview.jpg",
+  payment:     "/images/process/step-final-payment-launch.jpg",
+  postlaunch:  "/images/process/step-post-launch-support.jpg",
+  handoff:     "/images/process/step-handoff-beyond.jpg",
+};
+
+const stepImageAlts: Record<string, string> = {
+  contact:     "Step 1 — inbox view with meeting invitation and project note cards representing the initial contact phase",
+  discovery:   "Step 2 — discovery workshop materials with audience profile cards, asset audit checklist, and timeline worksheet",
+  proposal:    "Step 3 — finalized proposal pack with scope map, deliverable matrix, pricing summary, and GDPR compliance note",
+  kickoff:     "Step 4 — project board setup with sprint calendar and communication channels representing the project kickoff",
+  development: "Step 5 — staged website interface build with version notes and optional preview server indicator",
+  preview:     "Step 6 — test URL preview on screen with feedback annotations and final approval checklist",
+  payment:     "Step 7 — final invoice card with go-live checklist and deployment confirmation markers",
+  postlaunch:  "Step 8 — monitoring dashboard and two-week stability tracker representing the post-launch support phase",
+  handoff:     "Step 9 — completed project archive with ongoing support plan options and future roadmap cards",
+};
+
 interface StepCTA {
   label: string;
   to: string;
@@ -185,6 +209,26 @@ onMounted(() => {
             </div>
 
             <p class="step-description">{{ step.description }}</p>
+
+            <!-- Step visual -->
+            <div class="step-image-wrap">
+              <NuxtImg
+                :src="stepImages[step.key]"
+                :alt="stepImageAlts[step.key]"
+                class="step-image"
+                width="960"
+                height="540"
+                format="webp"
+                quality="78"
+                loading="lazy"
+              />
+              <div class="step-img-deco" aria-hidden="true">
+                <span class="si-corner si-corner--tl" />
+                <span class="si-corner si-corner--tr" />
+                <span class="si-corner si-corner--bl" />
+                <span class="si-corner si-corner--br" />
+              </div>
+            </div>
 
             <!-- Details list -->
             <ul class="step-details" role="list">
@@ -546,6 +590,43 @@ onMounted(() => {
 /* ── Step CTA ─────────────────────────────────────────────────── */
 .step-cta-wrapper {
   margin-top: 0.5rem;
+}
+
+/* ── Step image ───────────────────────────────────────────────── */
+.step-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin: 0 0 1.25rem;
+  border: 1px solid rgba(223, 175, 133, 0.06);
+}
+
+.step-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.step-img-deco {
+  position: absolute;
+  inset: 0.5rem;
+  pointer-events: none;
+}
+
+.si-corner {
+  position: absolute;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-color: rgba(223, 175, 133, 0.18);
+  border-style: solid;
+
+  &--tl { top: 0; left: 0;  border-width: 1px 0 0 1px; }
+  &--tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
+  &--bl { bottom: 0; left: 0;  border-width: 0 0 1px 1px; }
+  &--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
 }
 
 /* ── Reduced motion ───────────────────────────────────────────── */

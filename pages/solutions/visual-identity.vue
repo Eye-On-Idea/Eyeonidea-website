@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
 import type { SectionNavItem } from "~/components/services/SectionNav.vue";
-import { staggeredFadeInUp } from "~/composables/useAccessibleMotion";
 
 // ─── Deliverable media ───────────────────────────────────────────
 const logoImages = [
@@ -142,6 +141,7 @@ onMounted(() => {
       :badge="t('servicesSubpages.visualIdentity.hero.badge')"
       :title="t('servicesSubpages.visualIdentity.hero.title')"
       :subtitle="t('servicesSubpages.visualIdentity.hero.subtitle')"
+      bg-image="/images/visual-identity/hero.jpg"
     >
       <template #cta>
         <AppCtaButton variant="primary" :to="localePath('/contact')" :show-icon="true">
@@ -927,74 +927,104 @@ onMounted(() => {
   }
 }
 
+/* ── Separator rows — dark mode base (not defined above) ──────── */
+.sep-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.15);
+}
+.sep-diamond {
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.4);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+.sep-text {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.55);
+  flex-shrink: 0;
+}
+
 /* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .visual-identity-page { background: var(--color-section-light); }
 
-  /* Shared separator rows */
-  .sep-line    { background: var(--deco-line); }
-  .sep-diamond { background: var(--deco-diamond); }
-  .sep-text    { color: var(--deco-text); }
+  /* Shared separator rows — explicit warm brand values */
+  .sep-line    { background: rgba(153, 82, 38, 0.20); }
+  .sep-diamond { background: rgba(153, 82, 38, 0.45); }
+  .sep-text    { color: rgba(153, 82, 38, 0.65); }
 
-  .section-title    { color: var(--color-text-primary); }
-  .section-subtitle { color: var(--color-text-subtle); }
+  /* Section headings — dark warm brown */
+  .section-title    { color: #441a08; }
+  .section-subtitle { color: #67280e; }
 
-  /* Deliverables section — alt gradient */
+  /* Deliverables section */
   .deliverables-section { background: var(--color-section-alt); }
 
-  .deliverable-title       { color: var(--color-text-primary); }
-  .deliverable-description { color: var(--color-text-subtle); }
+  .deliverable-title       { color: #441a08; }
+  .deliverable-description { color: #67280e; }
 
-  /* Image containers — white instead of near-black */
+  /* Image containers */
   .deliverable-image {
     background: linear-gradient(145deg, #ffffff 0%, #fffaf7 100%);
-    border-color: var(--deco-line);
+    border-color: rgba(153, 82, 38, 0.12);
   }
 
   .deliverable-carousel__dot {
     background: rgba(153, 82, 38, 0.2);
-    &--active {
-      background: rgba(153, 82, 38, 0.65);
-    }
+    &--active { background: rgba(153, 82, 38, 0.65); }
   }
 
-  /* Process section */
+  /* Process / How It Works section */
   .identity-process-section { background: var(--color-section-light); }
 
-  .process-steps   { border-top-color: var(--deco-line); }
-  .process-step    { border-right-color: var(--deco-line); border-bottom-color: var(--deco-line); }
-  .step-rule       { background: var(--deco-line); }
-  .step-numeral    { color: var(--color-primary-500); opacity: 0.7; }
-  .deco-line       { background: var(--deco-line); }
-  .deco-diamond    { background: var(--deco-diamond); }
-  .step-heading    { color: var(--color-text-primary); }
-  .step-body       { color: var(--color-text-subtle); }
+  .process-steps { border-top-color: rgba(153, 82, 38, 0.12); }
+  .process-step  {
+    border-right-color:  rgba(153, 82, 38, 0.12);
+    border-bottom-color: rgba(153, 82, 38, 0.12);
+  }
 
-  /* Pricing section — alt gradient */
+  .step-rule    { background: rgba(153, 82, 38, 0.15); }
+  .step-numeral { color: #7d3412; opacity: 0.85; }
+  .deco-line    { background: rgba(153, 82, 38, 0.12); }
+  .deco-diamond { background: rgba(153, 82, 38, 0.40); }
+  .step-heading { color: #441a08; }  /* primary-900 — deep warm dark */
+  .step-body    { color: #67280e; }  /* primary-700 — readable warm brown */
+
+  /* Pricing section */
   .pricing-section { background: var(--color-section-alt); }
 
-  /* Pricing card — white card with brand border */
   .pricing-card {
     background: linear-gradient(175deg, #ffffff 0%, #fff7f0 100%);
-    border-color: var(--deco-line);
+    border-color: rgba(153, 82, 38, 0.14);
     box-shadow: 0 2px 12px rgba(153, 82, 38, 0.06);
   }
 
-  .price-row { border-bottom-color: var(--deco-line); }
+  .pricing-intro__body p   { color: #67280e; }
+  .pricing-intro__footnote {
+    color: rgba(103, 40, 14, 0.55);
+    border-top-color: rgba(153, 82, 38, 0.12);
+  }
 
-  .price-row__name     { color: var(--color-text-secondary); }
-  .price-row__currency { color: var(--color-primary-600); }
-  .price-row__value    { color: var(--color-primary-700); }
-  .price-row__starts-at { color: var(--color-text-subtle); }
+  .price-row           { border-bottom-color: rgba(153, 82, 38, 0.10); }
+  .price-row__name     { color: #481f0a; }
+  .price-row__currency { color: #7d3412; }
+  .price-row__value    { color: #67280e; }
+  .price-row__starts-at { color: rgba(103, 40, 14, 0.55); }
 
-  .pricing-footer    { border-top-color: var(--deco-line); }
-  .pricing-vat       { color: var(--color-text-muted); }
-  .pricing-full-list { color: var(--color-text-secondary); }
+  .pricing-footer { border-top-color: rgba(153, 82, 38, 0.10); }
+  .pricing-vat    { color: rgba(103, 40, 14, 0.5); }
+  .pricing-full-list { color: #67280e; }
 
   .pricing-full-list__link {
-    color: var(--color-primary-600);
-    &:hover { color: var(--color-primary-700); }
-    &:focus-visible { outline-color: var(--color-primary-500); }
+    color: #7d3412;
+    &:hover { color: #441a08; }
+    &:focus-visible { outline-color: rgba(153, 82, 38, 0.6); }
   }
 }
 </style>

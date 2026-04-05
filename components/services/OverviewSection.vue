@@ -49,33 +49,20 @@ onUnmounted(() => {
   observers.forEach((o) => o.disconnect());
 });
 
-// Color-adaptive gradient palettes for placeholder image blocks
-const isDark = ref(true); // SSR-safe default
-onMounted(() => {
-  const update = () => {
-    isDark.value = document.documentElement.classList.contains("dark");
-  };
-  update();
-  const obs = new MutationObserver(update);
-  obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-  onUnmounted(() => obs.disconnect());
-});
+// Images mapped to service order: websites, identity, additional, support
+const serviceImages = [
+  "/images/solutions/overview-website-packages.jpg",
+  "/images/solutions/overview-visual-identity.jpg",
+  "/images/solutions/overview-additional-services.jpg",
+  "/images/solutions/overview-ongoing-support.jpg",
+];
 
-const gradients = computed(() =>
-  isDark.value
-    ? [
-        "linear-gradient(145deg, #481f0a 0%, #1a0904 60%, #0d0908 100%)",
-        "linear-gradient(145deg, #3a1508 0%, #200b03 60%, #0d0908 100%)",
-        "linear-gradient(145deg, #2a1105 0%, #1a0904 60%, #0d0908 100%)",
-        "linear-gradient(145deg, #5c2810 0%, #2a1005 60%, #0d0908 100%)",
-      ]
-    : [
-        "linear-gradient(145deg, #b87343 0%, #d39a69 55%, #ffe4cf 100%)",
-        "linear-gradient(145deg, #9a5226 0%, #b87343 55%, #ffeddf 100%)",
-        "linear-gradient(145deg, #d39a69 0%, #dfaf85 55%, #fff3e8 100%)",
-        "linear-gradient(145deg, #7d3412 0%, #b87343 55%, #ffd4a8 100%)",
-      ],
-);
+const serviceImageAlts = [
+  "Custom website planning setup with structured wireframes, content architecture notes, and a refined screen prototype",
+  "Brand studio arrangement with logo plates, typography specimens, colour swatches, and material samples",
+  "Modular digital operations toolkit representing domain, email, content, and SEO services around a central website",
+  "Dark workspace with monitoring dashboards, maintenance notes, and iterative improvement markers representing ongoing website support",
+];
 </script>
 
 <template>
@@ -132,13 +119,19 @@ const gradients = computed(() =>
           </AppCtaButton>
         </div>
 
-        <!-- Gradient image placeholder -->
-        <div class="section-visual" aria-hidden="true">
-          <div
-            class="visual-gradient"
-            :style="{ background: gradients[index % gradients.length] }"
+        <!-- Service visual image -->
+        <div class="section-visual">
+          <NuxtImg
+            :src="serviceImages[index % serviceImages.length]"
+            :alt="serviceImageAlts[index % serviceImageAlts.length]"
+            class="visual-image"
+            width="960"
+            height="720"
+            format="webp"
+            quality="82"
+            loading="lazy"
           />
-          <div class="visual-deco-frame">
+          <div class="visual-deco-frame" aria-hidden="true">
             <span class="corner corner--tl" />
             <span class="corner corner--tr" />
             <span class="corner corner--bl" />
@@ -306,7 +299,7 @@ const gradients = computed(() =>
   align-self: flex-start;
 }
 
-/* ── Gradient visual block ────────────────────────────────────── */
+/* ── Visual image block ───────────────────────────────────────── */
 .section-visual {
   position: relative;
   width: 100%;
@@ -315,9 +308,12 @@ const gradients = computed(() =>
   overflow: hidden;
 }
 
-.visual-gradient {
-  position: absolute;
-  inset: 0;
+.visual-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .visual-deco-frame {
