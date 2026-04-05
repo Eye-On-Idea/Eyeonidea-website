@@ -142,6 +142,8 @@ onMounted(() => {
       :title="t('servicesSubpages.visualIdentity.hero.title')"
       :subtitle="t('servicesSubpages.visualIdentity.hero.subtitle')"
       bg-image="/images/visual-identity/hero.jpg"
+      bg-image-position="left center"
+      bg-image-position-mobile="left center"
     >
       <template #cta>
         <AppCtaButton variant="primary" :to="localePath('/contact')" :show-icon="true">

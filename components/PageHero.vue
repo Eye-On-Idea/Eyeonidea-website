@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, toRefs } from "vue";
 import { useWindowScroll, usePreferredReducedMotion } from "@vueuse/core";
 
 interface Props {
@@ -9,13 +9,34 @@ interface Props {
   subtitle: string;
   bgImage?: string;
   bgImageAlt?: string;
+  bgImagePosition?: string;
+  bgImagePositionMobile?: string;
 }
 
-defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), {
+  bgImagePosition: "center",
+  bgImagePositionMobile: "center",
+});
+
+const {
+  headingId,
+  badge,
+  title,
+  subtitle,
+  bgImage,
+  bgImageAlt,
+  bgImagePosition,
+  bgImagePositionMobile,
+} = toRefs(props);
 
 const { y: scrollY } = useWindowScroll();
 const reducedMotion = usePreferredReducedMotion();
 const prefersReduced = computed(() => reducedMotion.value === "reduce");
+
+const heroImageStyle = computed(() => ({
+  "--hero-image-position": bgImagePosition.value,
+  "--hero-image-position-mobile": bgImagePositionMobile.value,
+}));
 
 const bgStyle = computed(() =>
   prefersReduced.value
@@ -31,6 +52,7 @@ const bgStyle = computed(() =>
       v-if="bgImage"
       :src="bgImage"
       :alt="bgImageAlt || ''"
+      :style="heroImageStyle"
       class="hero-image"
       aria-hidden="true"
       width="1920"
@@ -126,8 +148,15 @@ const bgStyle = computed(() =>
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center right;
+  object-position: var(--hero-image-position, center);
   z-index: 0;
+}
+
+/* Mobile + tablet: always center hero images regardless of per-page overrides */
+@media (max-width: 1023px) {
+  .hero-image {
+    object-position: var(--hero-image-position-mobile, center);
+  }
 }
 
 /* Gradient overlay: dark left (text) → lighter right (image shows) */

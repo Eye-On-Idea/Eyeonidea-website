@@ -10,6 +10,8 @@ const localePath = useLocalePath();
     :title="t('process.hero.title')"
     :subtitle="t('process.hero.subtitle')"
     bg-image="/images/process/hero.jpg"
+    bg-image-position="right center"
+    bg-image-position-mobile="right center"
   >
     <template #cta>
       <AppCtaButton variant="primary" :to="localePath('/contact')" :show-icon="true">

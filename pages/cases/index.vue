@@ -389,8 +389,15 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center right;
+  object-position: center;
   z-index: 0;
+}
+
+/* Mobile: left-align hero image */
+@media (max-width: 767px) {
+  .hero-image {
+    object-position: left center;
+  }
 }
 
 /* Gradient overlay: dark left (text) → lighter right (image shows) */

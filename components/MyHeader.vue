@@ -504,21 +504,28 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
 .header-outer {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   z-index: 50;
   width: 100%;
   max-width: 100vw;
 
   @media (min-width: 640px) {
-    top: 2.75rem;
+    top: 4rem;
   }
 
   @media (min-width: 1024px) {
     left: 50%;
-    transform: translateX(-50%);
-    width: 98%;
-    min-width: 80%;
-    max-width: 90rem;
+    transform: translateY(-50%);
+    width: 90%;
+    min-width: 70%;
+    max-width: 1920px;
+  }
+  @media (min-width: 1921px) {
+    left: 50%;
+    transform: translateY(-50%);
+    width: 75%;
+    min-width: 70%;
+    max-width: 1920px;
   }
 }
 
