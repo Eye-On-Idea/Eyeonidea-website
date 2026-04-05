@@ -515,14 +515,16 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
 
   @media (min-width: 1024px) {
     left: 50%;
-    transform: translateY(-50%);
+    right: auto;
+    transform: translateX(-50%);
     width: 90%;
     min-width: 70%;
     max-width: 1920px;
   }
   @media (min-width: 1921px) {
     left: 50%;
-    transform: translateY(-50%);
+    right: auto;
+    transform: translateX(-50%);
     width: 75%;
     min-width: 70%;
     max-width: 1920px;
