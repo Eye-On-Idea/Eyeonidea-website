@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Eye On Idea – Digitalagentur für B2B-Marken",
-    "description": "Eye On Idea hilft europäischen B2B-Unternehmen beim Aufbau ihrer vollständigen digitalen Präsenz – Websites, Markenidentität, Content, SEO, E-Mail, Domain und Qualitätssicherung."
+    "title": "B2B Website-Agentur für Unternehmen | Eye On Idea",
+    "description": "Wir helfen B2B-Unternehmen, eine überzeugende digitale Präsenz aufzubauen — professionelle Websites, visuelle Identität und laufende Betreuung."
   },
   "hero": {
     "headline": "Ihre digitale Präsenz",
@@ -41,22 +41,22 @@
     "categories": {
       "websites": {
         "title": "Websites",
-        "orbNote": "Ihr erster ernsthafter digitaler Auftritt.",
-        "need": "Ihr Unternehmen braucht eine professionelle Online-Präsenz, die Vertrauen aufbaut und Besucher konvertiert.",
+        "orbNote": "Starke Websites.",
+        "need": "Sie brauchen eine professionelle Website, die vom ersten Besuch an Vertrauen schafft.",
         "skill": "Wir gestalten und entwickeln schnelle, zugängliche Websites, die auf Ihre Marke und Geschäftsziele zugeschnitten sind.",
         "cta": "Website-Pakete erkunden"
       },
       "identity": {
-        "title": "Visuelle Identität & Design",
-        "orbNote": "Eine Website, die mit Ihrem Wachstum Schritt hält.",
-        "need": "Inkonsistente Grafiken beschädigen die Glaubwürdigkeit, bevor ein einziges Wort gelesen wird.",
+        "title": "Identität",
+        "orbNote": "Klare Identität.",
+        "need": "Sie brauchen eine visuelle Identität, die klar, konsistent und sofort erkennbar ist.",
         "skill": "Wir erstellen Logos, Farbpaletten, Typografie und Markenrichtlinien für digitale Medien.",
         "cta": "Identitätsservices anzeigen"
       },
       "content": {
-        "title": "Content-Erstellung",
-        "orbNote": "Laufende Markenführung, monatlich.",
-        "need": "Leere Seiten und generische Texte vermitteln nicht, warum Sie wichtig sind.",
+        "title": "Content",
+        "orbNote": "Aktiver Content.",
+        "need": "Sie brauchen klare, regelmäßige Inhalte, die Ihren Wert erklären und Ihre Marke aktiv halten.",
         "skill": "Wir schreiben und strukturieren Inhalte, die Ihre Zielgruppe in jeder Sprache klar ansprechen.",
         "cta": "Content-Services"
       },
@@ -130,17 +130,20 @@
       {
         "icon": "i-heroicons-building-storefront",
         "heading": "Sie sind Ihrer aktuellen digitalen Präsenz entwachsen",
-        "body": "Inhabergeführte oder schlanke B2B-Unternehmen, die sich auf eine Platzhalterseite, ein DIY-Setup oder kein echtes Markensystem verlassen haben. Sie brauchen Ihre erste ernsthafte Grundlage, etwas, das bewusst aussieht, Vertrauen schafft und die Qualität Ihrer tatsächlichen Arbeit widerspiegelt."
+        "body": "Inhabergeführte oder schlanke B2B-Unternehmen, die sich auf eine Platzhalterseite, ein DIY-Setup oder kein echtes Markensystem verlassen haben. Sie brauchen Ihre erste ernsthafte Grundlage, etwas, das bewusst aussieht, Vertrauen schafft und die Qualität Ihrer tatsächlichen Arbeit widerspiegelt.",
+        "imageAlt": "Redaktionelle Studiodarstellung eines Unternehmens beim Aufbau einer neuen Website"
       },
       {
         "icon": "i-heroicons-arrow-trending-down",
         "heading": "Ihre Website oder Marke spiegelt nicht mehr wider, wer Sie sind",
-        "body": "Ihr Unternehmen ist gewachsen und hat sich verbessert, aber Ihre Online-Präsenz hat nicht Schritt gehalten. Was Sie online haben, lässt Sie weniger glaubwürdig erscheinen, als Sie wirklich sind, und Sie wissen, dass es Sie Chancen kostet."
+        "body": "Ihr Unternehmen ist gewachsen und hat sich verbessert, aber Ihre Online-Präsenz hat nicht Schritt gehalten. Was Sie online haben, lässt Sie weniger glaubwürdig erscheinen, als Sie wirklich sind, und Sie wissen, dass es Sie Chancen kostet.",
+        "imageAlt": "Markenidentitätsmaterialien im Kontrast zwischen veralteter und moderner visueller Gestaltung"
       },
       {
         "icon": "i-heroicons-chart-bar-square",
         "heading": "Sie benötigen mehr als einen einmaligen Build",
-        "body": "Wachsende Unternehmen, die Struktur, klarere Inhalte und einen langfristigen digitalen Partner suchen. Sie suchen keinen Freelancer zur einmaligen Übergabe, sondern jemanden, der dranbleibt und Ihre digitale Präsenz laufend verbessert."
+        "body": "Wachsende Unternehmen, die Struktur, klarere Inhalte und einen langfristigen digitalen Partner suchen. Sie suchen keinen Freelancer zur einmaligen Übergabe, sondern jemanden, der dranbleibt und Ihre digitale Präsenz laufend verbessert.",
+        "imageAlt": "Modulare Projektboards als Symbol einer langfristigen digitalen Partnerschaft"
       }
     ]
   },

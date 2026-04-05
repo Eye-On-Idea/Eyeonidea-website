@@ -114,6 +114,20 @@ onMounted(() => {
       class="cases-hero"
       aria-labelledby="cases-hero-heading"
     >
+      <NuxtImg
+        src="/images/cases/hero.jpg"
+        alt=""
+        class="hero-image"
+        aria-hidden="true"
+        width="1920"
+        height="1080"
+        format="webp"
+        quality="82"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="hero-image-overlay" aria-hidden="true" />
+
       <div class="hero-bg" aria-hidden="true" />
 
       <!-- Art deco corner brackets — full viewport edges like PageHero -->
@@ -177,7 +191,7 @@ onMounted(() => {
                 <img
                   v-if="cs.thumbnail"
                   :src="cs.thumbnail"
-                  :alt="`${cs.title} preview`"
+                  :alt="t('cases.imageAlts.preview', { title: cs.title })"
                   class="card-visual__image"
                 />
                 <span class="card-badge">{{ cs.company }}</span>
@@ -246,7 +260,7 @@ onMounted(() => {
                 <img
                   v-if="cs.thumbnail"
                   :src="cs.thumbnail"
-                  :alt="`${cs.title} preview`"
+                  :alt="t('cases.imageAlts.preview', { title: cs.title })"
                   class="card-visual__image"
                 />
                 <span class="card-badge card-badge--brand">
@@ -356,6 +370,7 @@ onMounted(() => {
   position: relative;
   background: #0d0908;
   overflow: hidden;
+  min-height: 72vh;
   min-height: 72dvh;
   display: flex;
   flex-direction: column;
@@ -367,10 +382,38 @@ onMounted(() => {
   }
 }
 
+/* Hero photo background */
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  z-index: 0;
+}
+
+/* Gradient overlay: dark left (text) → lighter right (image shows) */
+.hero-image-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to right,
+      rgba(13, 9, 8, 0.88) 0%,
+      rgba(13, 9, 8, 0.62) 40%,
+      rgba(13, 9, 8, 0.32) 65%,
+      rgba(13, 9, 8, 0.12) 100%
+    ),
+    linear-gradient(to bottom, rgba(13, 9, 8, 0.25) 0%, transparent 40%, rgba(13, 9, 8, 0.4) 100%);
+  z-index: 1;
+}
+
 /* Parallax ambient layer — matches PageHero */
 .hero-bg {
   position: absolute;
   inset: -10% 0;
+  z-index: 2;
   background:
     radial-gradient(
       ellipse 75% 55% at 18% 45%,
@@ -396,7 +439,7 @@ onMounted(() => {
 /* Max-width content container — left-aligned like PageHero */
 .hero-container {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   max-width: 90rem;
   width: 100%;
   margin: 0 auto;
@@ -954,58 +997,9 @@ html:not(.dark) {
   .cases-page {
     background: var(--color-section-light);
   }
+  // cases-hero has a bg image + dark overlay — keep dark colors regardless of mode
   .cases-hero {
-    background: var(--color-hero-bg);
-  }
-
-  .hero-bg {
-    background:
-      radial-gradient(
-        ellipse 75% 55% at 18% 45%,
-        rgba(153, 82, 38, 0.07) 0%,
-        transparent 60%
-      ),
-      radial-gradient(
-        ellipse 55% 40% at 80% 85%,
-        rgba(153, 82, 38, 0.03) 0%,
-        transparent 55%
-      );
-  }
-
-  .corner {
-    border-color: rgba(153, 82, 38, 0.18);
-    &::after {
-      border-color: rgba(153, 82, 38, 0.08);
-    }
-  }
-
-  .label-line {
-    background: var(--deco-line);
-  }
-  .label-diamond {
-    background: var(--deco-diamond);
-  }
-  .label-text {
-    color: var(--deco-text);
-  }
-
-  .hero-heading {
-    color: #441a08;
-  }
-  .div-line {
-    background: var(--deco-line);
-  }
-  .div-diamond {
-    background: var(--deco-diamond);
-    &--sm {
-      background: var(--deco-diamond-sm);
-    }
-  }
-  .hero-subtitle {
-    color: var(--color-primary-600);
-  }
-  .hero-description {
-    color: var(--color-text-subtle);
+    background: #0d0908;
   }
 
   /* Grid section */

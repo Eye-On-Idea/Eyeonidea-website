@@ -1,8 +1,8 @@
 {
   "websitePackages": {
     "meta": {
-      "title": "Hjemmesidepakker | Eye On Idea",
-      "description": "Tre hjemmesidepakker bygget op omkring det sted, hvor din virksomhed er lige nu. Klare priser, ærligt omfang og ingen unødvendige ekstraudstyr. Sammenlign lancering, vækst og platform."
+      "title": "Hjemmesidepakker med Priser til B2B | Eye On Idea",
+      "description": "Tre hjemmesidepakker til B2B-virksomheder — Lancering fra €1.500, Vækst fra €3.000, Brand Partner fra €5.000. Klare priser, intet unødvendigt."
     },
     "hero": {
       "badge": "Hjemmesidepakker",
@@ -57,8 +57,8 @@
   },
   "visualIdentity": {
     "meta": {
-      "title": "Visuel identitet | Eye On Idea",
-      "description": "Logo, farve, typografi og brandretningslinjer for virksomheder, der ønsker at se troværdige og konsekvente ud. Visuel identitetsdesign fra Eye On Idea i Aalborg."
+      "title": "Brandidentitet & Logo Design til Virksomheder | Eye On Idea",
+      "description": "Logo, farvepalet, typografi og brandretningslinjer til B2B-virksomheder. Visuel identitet fra €800 — bygget til digital og print."
     },
     "hero": {
       "badge": "Visuel identitet",
@@ -182,8 +182,8 @@
   },
   "additionalServices": {
     "meta": {
-      "title": "Yderligere tjenester | Eye On Idea",
-      "description": "Domæne, e-mail, copywriting, SEO og løbende supportplaner. Alt omkring din hjemmeside, håndteret ét sted af Eye On Idea i Aalborg."
+      "title": "Domæne, E-mail og SEO til Din Virksomhed | Eye On Idea",
+      "description": "Domæneregistrering, professionel e-mail, SEO-rådgivning og løbende supportplaner. Alt du behøver omkring din hjemmeside, samlet ét sted."
     },
     "hero": {
       "badge": "Yderligere tjenester",

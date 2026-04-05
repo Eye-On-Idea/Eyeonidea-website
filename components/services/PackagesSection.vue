@@ -167,8 +167,10 @@ const packages = [
   font-family: var(--font-text);
   font-size: 0.75rem;
   color: rgba(255, 237, 223, 0.3);
-  flex-shrink: 0;
-  white-space: nowrap;
+  flex-shrink: 1;
+  white-space: normal;
+  text-align: center;
+  min-width: 0;
 }
 
 /* ── Light mode overrides ─────────────────────────────────────── */

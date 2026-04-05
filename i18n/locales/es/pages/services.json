@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Servicios | Eye On Idea",
-    "description": "Paquetes de sitios web profesionales, identidad visual, soluciones CMS y soporte continuo. Soluciones digitales a medida para empresas B2B de toda Europa."
+    "title": "Paquetes Web para Empresas B2B | Eye On Idea",
+    "description": "Tres niveles de paquetes web para PYMES B2B — Foundation, Growth y Brand Partner. La base digital adecuada para su empresa."
   },
   "hero": {
     "badge": "Nuestros Servicios",
@@ -26,7 +26,8 @@
         "body": "No es una plantilla ajustada a la medida, sino un sitio web adaptado al lugar donde se encuentra su empresa en este momento. Ya sea que necesite una primera presencia sólida o una plataforma diseñada para crecer con usted, determinamos el alcance correcto antes de construir algo.",
         "linkText": "Explorar paquetes",
         "linkHref": "/solutions/website-packages",
-        "icon": "i-heroicons-computer-desktop"
+        "icon": "i-heroicons-computer-desktop",
+        "imageAlt": "Configuración de planificación web con wireframes estructurados y un prototipo de pantalla refinado"
       },
       {
         "id": "overview-identity",
@@ -35,7 +36,8 @@
         "body": "Tu logotipo, colores y tipografía suelen ser lo primero por lo que la gente te juzga. Diseñamos identidades visuales que se mantienen en su sitio web, presentaciones e impresiones, para que su marca parezca intencional dondequiera que aparezca.",
         "linkText": "Vea nuestro enfoque",
         "linkHref": "/solutions/visual-identity",
-        "icon": "i-heroicons-swatch"
+        "icon": "i-heroicons-swatch",
+        "imageAlt": "Disposición de estudio de marca con placas de logotipo, muestras de tipografía y paletas de colores"
       },
       {
         "id": "overview-additional",
@@ -44,7 +46,8 @@
         "body": "Registro de dominio, correo electrónico profesional, copia de sitios web, revisiones SEO y sesiones de asesoramiento. Estos son los servicios que rodean su sitio web y hacen que todo funcione correctamente, disponibles individualmente o como parte de un proyecto.",
         "linkText": "Ver todos los servicios",
         "linkHref": "/solutions/additional-services",
-        "icon": "i-heroicons-puzzle-piece"
+        "icon": "i-heroicons-puzzle-piece",
+        "imageAlt": "Kit de herramientas digitales modulares para dominio, email, contenido y servicios SEO"
       },
       {
         "id": "overview-support",
@@ -53,7 +56,8 @@
         "body": "Después del lanzamiento, la cosa cambia. El contenido necesita actualización, surgen preguntas y el sitio debe seguir mejorando. Nuestros planes de soporte le brindan una línea directa y una cantidad de tiempo determinada cada mes, para que nunca se quede solo resolviendo las cosas.",
         "linkText": "Ver planes de soporte",
         "linkHref": "/solutions/additional-services#support-plans",
-        "icon": "i-heroicons-shield-check"
+        "icon": "i-heroicons-shield-check",
+        "imageAlt": "Espacio de trabajo oscuro con paneles de monitoreo que representan soporte continuo de sitio web"
       }
     ]
   },

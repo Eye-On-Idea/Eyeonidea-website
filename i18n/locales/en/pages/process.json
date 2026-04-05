@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "How Projects Work - Eye On Idea",
-    "description": "A complete walkthrough of how Eye On Idea scopes, builds, and launches projects — including payment stages, approval checkpoints, and what happens after launch."
+    "title": "How We Work — Website Projects Explained | Eye On Idea",
+    "description": "How Eye On Idea scopes, builds, and launches website projects — payment stages, approval checkpoints, and post-launch support explained."
   },
   "hero": {
     "badge": "How We Work",
@@ -23,6 +23,7 @@
           "Meeting can be physical or online (Teams, Zoom, etc.)",
           "You choose the time and date that works for you"
         ],
+        "imageAlt": "Inbox view with meeting invitation and project note cards representing the initial contact phase",
         "cta": {
           "label": "Get in Touch",
           "to": "/contact"
@@ -37,7 +38,8 @@
           "Audit existing assets (logos, content, domains, hosting)",
           "Identify what needs to be created or sourced",
           "Discuss timeline and any specific launch requirements"
-        ]
+        ],
+        "imageAlt": "Discovery workshop materials with audience profile cards, asset audit checklist, and timeline worksheet"
       },
       "proposal": {
         "number": "03",
@@ -51,6 +53,7 @@
           "Accepting the proposal includes GDPR consent for data handling as outlined"
         ],
         "note": "The proposal clearly states what personal data will be processed, for what purpose, and under which legal basis, in compliance with GDPR. Your data is never shared with third parties beyond what the project requires.",
+        "imageAlt": "Finalized proposal pack with scope map, deliverable matrix, pricing summary, and GDPR compliance note",
         "cta": {
           "label": "View Our Packages",
           "to": "/solutions#packages-section"
@@ -64,7 +67,8 @@
           "Project typically takes 2–4 weeks depending on scope",
           "Optional weekly or monthly check-in meetings",
           "Dedicated communication channel for questions and updates"
-        ]
+        ],
+        "imageAlt": "Project board setup with sprint calendar and communication channels representing the project kickoff"
       },
       "development": {
         "number": "05",
@@ -76,6 +80,7 @@
           "May incur an additional fee (requires regular codebase maintenance for proper uploads)"
         ],
         "note": "Early dev server access is an optional add-on. It requires more frequent deployment and maintenance, which is why it's offered as a separate service.",
+        "imageAlt": "Staged website interface build with version notes and optional preview server indicator",
         "cta": {
           "label": "See Add-ons & Extras",
           "to": "/solutions#addons-section"
@@ -90,7 +95,8 @@
           "Opportunity to request final edits or adjustments",
           "If CMS is included, you also receive your CMS invitation with instructions and guidance",
           "This preview acts as the final approval before going live"
-        ]
+        ],
+        "imageAlt": "Test URL preview on screen with feedback annotations and final approval checklist"
       },
       "payment": {
         "number": "07",
@@ -101,7 +107,8 @@
           "Payment due on the day of launch",
           "Website goes live on the agreed date",
           "All deliverables are handed over"
-        ]
+        ],
+        "imageAlt": "Final invoice card with go-live checklist and deployment confirmation markers"
       },
       "postlaunch": {
         "number": "08",
@@ -113,7 +120,8 @@
           "Does not include major redesigns or new features",
           "Report any issues within the 2-week window"
         ],
-        "note": "This is a complimentary period to catch anything overlooked before launch. Major changes or new feature requests are handled as separate projects or through a support plan."
+        "note": "This is a complimentary period to catch anything overlooked before launch. Major changes or new feature requests are handled as separate projects or through a support plan.",
+        "imageAlt": "Monitoring dashboard and two-week stability tracker representing the post-launch support phase"
       },
       "handoff": {
         "number": "09",
@@ -125,6 +133,7 @@
           "No further edits included after the 2-week post-launch window",
           "Future projects and services always welcome"
         ],
+        "imageAlt": "Completed project archive with ongoing support plan options and future roadmap cards",
         "cta": {
           "label": "View Support Plans",
           "to": "/solutions#support-plans"

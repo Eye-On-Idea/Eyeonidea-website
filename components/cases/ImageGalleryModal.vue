@@ -76,7 +76,7 @@
               >
                 <img
                   :src="image"
-                  :alt="`${title} - Image ${currentIndex + 1} of ${images.length}`"
+                  :alt="t('cases.imageAlts.gallery', { title, current: currentIndex + 1, total: images.length })"
                   class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
                   @load="handleImageLoad"
                 />
@@ -145,6 +145,8 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n();
+
 const props = defineProps<{
   images: string[]
   title: string

@@ -6,7 +6,7 @@ export default defineNuxtRouteMiddleware((to) => {
 
   // Client-side only: localStorage is not available on the server
   if (import.meta.client) {
-    const acknowledged = localStorage.getItem("client-hub-acknowledged");
+    const acknowledged = sessionStorage.getItem("client-hub-acknowledged");
     if (!acknowledged) {
       return navigateTo(
         localePath("/client-hub/login") +

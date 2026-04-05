@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Eye On Idea – Agenzia digitale per brand B2B",
-    "description": "Eye On Idea aiuta le aziende B2B europee a costruire la loro presenza digitale completa, siti web, identità di marca, contenuti, SEO, email, dominio e garanzia qualità."
+    "title": "Agenzia Web B2B & Identità di Marca | Eye On Idea",
+    "description": "Aiutiamo le aziende B2B a costruire una presenza digitale credibile — siti web professionali, identità visiva e supporto continuativo."
   },
   "hero": {
     "headline": "La tua presenza digitale",
@@ -41,22 +41,22 @@
     "categories": {
       "websites": {
         "title": "Siti web",
-        "orbNote": "La tua prima presenza digitale seria.",
-        "need": "La tua azienda ha bisogno di una presenza online professionale che generi fiducia e converta i visitatori.",
+        "orbNote": "Siti affidabili.",
+        "need": "Hai bisogno di un sito web professionale che ispiri fiducia fin dalla prima visita.",
         "skill": "Progettiamo e sviluppiamo siti web veloci e accessibili, su misura per il tuo brand e i tuoi obiettivi.",
         "cta": "Esplora i pacchetti web"
       },
       "identity": {
-        "title": "Identità visiva & Design",
-        "orbNote": "Un sito web che tiene il passo con la tua crescita.",
-        "need": "Un'immagine incoerente mina la credibilità prima ancora che si legga una parola.",
+        "title": "Identità",
+        "orbNote": "Identità chiara.",
+        "need": "Hai bisogno di un'identità visiva chiara, coerente e facile da riconoscere.",
         "skill": "Creiamo loghi, palette di colori, tipografie e linee guida del brand pensati per il digitale.",
         "cta": "Servizi di identità"
       },
       "content": {
-        "title": "Creazione di contenuti",
-        "orbNote": "Gestione continuativa del brand, ogni mese.",
-        "need": "Pagine vuote e testi generici non comunicano perché sei rilevante.",
+        "title": "Contenuti",
+        "orbNote": "Contenuti attivi.",
+        "need": "Hai bisogno di contenuti chiari e costanti che spieghino il tuo valore e mantengano attivo il tuo brand.",
         "skill": "Scriviamo e strutturiamo contenuti che parlano chiaramente al tuo pubblico in qualsiasi lingua.",
         "cta": "Servizi di contenuto"
       },
@@ -130,17 +130,20 @@
       {
         "icon": "i-heroicons-building-storefront",
         "heading": "Hai superato la tua attuale presenza digitale",
-        "body": "Aziende B2B guidate dal proprietario o snelle che hanno fatto affidamento su un sito segnaposto, una configurazione fai-da-te o nessun vero sistema di marchio. Hai bisogno delle tue prime fondamenta serie: qualcosa che sembri intenzionale, guadagni fiducia e rifletta la qualità del tuo lavoro reale."
+        "body": "Aziende B2B guidate dal proprietario o snelle che hanno fatto affidamento su un sito segnaposto, una configurazione fai-da-te o nessun vero sistema di marchio. Hai bisogno delle tue prime fondamenta serie: qualcosa che sembri intenzionale, guadagni fiducia e rifletta la qualità del tuo lavoro reale.",
+        "imageAlt": "Scena di studio editoriale con un'azienda che costruisce la propria presenza web"
       },
       {
         "icon": "i-heroicons-arrow-trending-down",
         "heading": "Il tuo sito web o il tuo marchio non riflettono più chi sei",
-        "body": "La tua attività è cresciuta e migliorata, ma la tua presenza online non ha tenuto il passo. Ciò che hai online ti fa sembrare meno credibile di quanto sei in realtà e sai che ti costa opportunità."
+        "body": "La tua attività è cresciuta e migliorata, ma la tua presenza online non ha tenuto il passo. Ciò che hai online ti fa sembrare meno credibile di quanto sei in realtà e sai che ti costa opportunità.",
+        "imageAlt": "Materiali di identità del marchio a confronto tra una presentazione obsoleta e un sistema visivo moderno"
       },
       {
         "icon": "i-heroicons-chart-bar-square",
         "heading": "Hai bisogno di più di una build una tantum",
-        "body": "Aziende in crescita che desiderano struttura, contenuti più chiari e un partner digitale a lungo termine. Non stai cercando un libero professionista a cui affidarti: vuoi qualcuno che rimanga coinvolto e aiuti la tua presenza digitale a migliorare nel tempo."
+        "body": "Aziende in crescita che desiderano struttura, contenuti più chiari e un partner digitale a lungo termine. Non stai cercando un libero professionista a cui affidarti: vuoi qualcuno che rimanga coinvolto e aiuti la tua presenza digitale a migliorare nel tempo.",
+        "imageAlt": "Bacheche di progetto modulari che rappresentano una partnership digitale a lungo termine"
       }
     ]
   },

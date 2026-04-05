@@ -1,8 +1,8 @@
 {
   "websitePackages": {
     "meta": {
-      "title": "Pacchetti sito web | Eye On Idea",
-      "description": "Tre pacchetti di siti web costruiti in base al luogo in cui si trova la tua attività in questo momento. Prezzi chiari, portata onesta e nessun extra non necessario. Confronta lancio, crescita e piattaforma."
+      "title": "Pacchetti Web B2B con Prezzi | Eye On Idea",
+      "description": "Tre pacchetti web B2B — Foundation da €1.500, Growth da €3.000, Brand Partner da €5.000. Prezzi chiari, nessun extra inutile."
     },
     "hero": {
       "badge": "Pacchetti sito web",
@@ -57,8 +57,8 @@
   },
   "visualIdentity": {
     "meta": {
-      "title": "Identità Visiva | Eye On Idea",
-      "description": "Logo, colore, tipografia e linee guida del marchio per le aziende che vogliono apparire credibili e coerenti. Progettazione dell'identità visiva da Eye On Idea ad Aalborg."
+      "title": "Identità di Marca & Logo per Aziende B2B | Eye On Idea",
+      "description": "Logo, palette di colori, tipografia e brand guidelines per aziende B2B. Identità visiva da €800 — pensata per il digitale e la stampa."
     },
     "hero": {
       "badge": "Identità visiva",
@@ -182,8 +182,8 @@
   },
   "additionalServices": {
     "meta": {
-      "title": "Servizi aggiuntivi | Eye On Idea",
-      "description": "Dominio, e-mail, copywriting, SEO e piani di supporto continuativi. Tutto ciò che riguarda il tuo sito web, gestito in un unico posto da Eye On Idea ad Aalborg."
+      "title": "Dominio, Email & SEO per la Tua Azienda | Eye On Idea",
+      "description": "Registrazione dominio, email professionale, consulenza SEO e piani di supporto web. Tutto ciò che serve intorno al tuo sito, gestito da Eye On Idea."
     },
     "hero": {
       "badge": "Servizi aggiuntivi",

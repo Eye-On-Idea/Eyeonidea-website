@@ -1,6 +1,6 @@
 {
-  "metaTitle": "Unsere Arbeit | Eye On Idea",
-  "metaDescription": "Entdecken Sie, wie Eye On Idea Websites für kleine und mittlere Unternehmen entwirft und erstellt – von der Strategie und der visuellen Identität bis hin zur Einführung und dem laufenden Support.",
+  "metaTitle": "B2B Website-Portfolio & Fallstudien | Eye On Idea",
+  "metaDescription": "B2B Website-Fallstudien von Eye On Idea — sehen Sie, wie wir Unternehmen beim Aufbau überzeugender Websites und Markenidentitäten geholfen haben.",
   "hero": {
     "title": "Unsere Arbeit",
     "subtitle": "Strategie, Design und Entwicklung – geliefert.",
@@ -52,6 +52,11 @@
     "backToCases": "Zurück zu unserer Arbeit",
     "nextCase": "Nächste Fallstudie",
     "previousCase": "Vorherige Fallstudie"
+  },
+
+  "imageAlts": {
+    "preview": "{title} – Fallstudie Vorschau",
+    "gallery": "{title} – Bild {current} von {total}"
   },
   "contact": {
     "title": "Sind Sie bereit, Ihr Projekt zu starten?",

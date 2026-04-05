@@ -202,6 +202,7 @@ useHead({
   justify-content: center;
   text-align: center;
 
+  min-height: 60vh;
   min-height: 60svh;
   padding: 3rem 1.5rem 5rem;
 
@@ -209,6 +210,7 @@ useHead({
 
   @media (min-width: 640px) {
     margin: -1.5rem -1.5rem 0;
+    min-height: calc(100vh - 4rem);
     min-height: calc(100svh - 4rem);
     padding: 4rem 2rem 6rem;
   }

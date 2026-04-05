@@ -182,6 +182,7 @@ function formatEventDate(dateString: string) {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   border-radius: 9999px;
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
 

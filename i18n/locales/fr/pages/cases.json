@@ -1,6 +1,6 @@
 {
-  "metaTitle": "Notre travail | Eye On Idea",
-  "metaDescription": "Découvrez comment Eye On Idea conçoit et crée des sites Web pour les petites et moyennes entreprises, de la stratégie et de l'identité visuelle au lancement et au support continu.",
+  "metaTitle": "Portfolio Web B2B & Études de Cas | Eye On Idea",
+  "metaDescription": "Études de cas de sites web B2B par Eye On Idea — découvrez comment nous avons aidé des entreprises à créer des sites et identités de marque crédibles.",
   "hero": {
     "title": "Notre travail",
     "subtitle": "Stratégie, conception et développement, livrés.",
@@ -52,6 +52,11 @@
     "backToCases": "Retour à notre travail",
     "nextCase": "Étude de cas suivante",
     "previousCase": "Étude de cas précédente"
+  },
+
+  "imageAlts": {
+    "preview": "{title} – aperçu de l'étude de cas",
+    "gallery": "{title} – image {current} sur {total}"
   },
   "contact": {
     "title": "Prêt à démarrer votre projet ?",

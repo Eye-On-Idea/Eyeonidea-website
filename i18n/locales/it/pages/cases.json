@@ -1,6 +1,6 @@
 {
-  "metaTitle": "Il nostro lavoro | Eye On Idea",
-  "metaDescription": "Scopri come Eye On Idea progetta e realizza siti web per le piccole e medie imprese: dalla strategia e identità visiva al lancio e al supporto continuo.",
+  "metaTitle": "Portfolio Web B2B & Casi Studio | Eye On Idea",
+  "metaDescription": "Casi studio di design web B2B da Eye On Idea — scopri come abbiamo aiutato aziende a costruire siti web credibili e identità di marca solide.",
   "hero": {
     "title": "Il nostro lavoro",
     "subtitle": "Strategia, progettazione e sviluppo, consegnati.",
@@ -52,6 +52,11 @@
     "backToCases": "Torniamo al nostro lavoro",
     "nextCase": "Prossimo caso di studio",
     "previousCase": "Caso di studio precedente"
+  },
+
+  "imageAlts": {
+    "preview": "{title} – anteprima del caso studio",
+    "gallery": "{title} – immagine {current} di {total}"
   },
   "contact": {
     "title": "Pronto per iniziare il tuo progetto?",

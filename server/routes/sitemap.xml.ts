@@ -1,78 +1,54 @@
 import { $fetch } from "ofetch";
 
-const STATIC_URLS = `
+const BASE = "https://eyeonidea.com";
+const LASTMOD = "2026-04-05";
+
+// Locale prefixes: '' = English (default, no prefix), others get /locale/ prefix
+const LOCALE_PREFIXES = ["", "dk", "de", "fr", "es", "it"];
+
+interface StaticPage {
+  path: string;
+  priority: string;
+  changefreq: string;
+}
+
+const STATIC_PAGES: StaticPage[] = [
+  { path: "/", priority: "1.0", changefreq: "monthly" },
+  { path: "/solutions", priority: "0.9", changefreq: "monthly" },
+  { path: "/solutions/website-packages", priority: "0.8", changefreq: "monthly" },
+  { path: "/solutions/visual-identity", priority: "0.8", changefreq: "monthly" },
+  { path: "/solutions/additional-services", priority: "0.8", changefreq: "monthly" },
+  { path: "/solutions/process", priority: "0.7", changefreq: "monthly" },
+  { path: "/about", priority: "0.7", changefreq: "monthly" },
+  { path: "/contact", priority: "0.8", changefreq: "monthly" },
+  { path: "/cases", priority: "0.8", changefreq: "monthly" },
+  { path: "/cases/herqulez", priority: "0.7", changefreq: "monthly" },
+  { path: "/cases/tegetec", priority: "0.7", changefreq: "monthly" },
+  { path: "/news", priority: "0.7", changefreq: "weekly" },
+];
+
+function buildLocaleUrl(prefix: string, page: StaticPage): string {
+  const loc =
+    page.path === "/"
+      ? prefix
+        ? `${BASE}/${prefix}/`
+        : `${BASE}/`
+      : prefix
+        ? `${BASE}/${prefix}${page.path}`
+        : `${BASE}${page.path}`;
+
+  return `
   <url>
-    <loc>https://eyeonidea.com/</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://eyeonidea.com/solutions</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://eyeonidea.com/solutions/website-packages</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://eyeonidea.com/solutions/visual-identity</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://eyeonidea.com/solutions/additional-services</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://eyeonidea.com/solutions/process</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://eyeonidea.com/about</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://eyeonidea.com/contact</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://eyeonidea.com/cases</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://eyeonidea.com/cases/herqulez</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://eyeonidea.com/cases/tegetec</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://eyeonidea.com/news</loc>
-    <lastmod>2026-03-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <loc>${loc}</loc>
+    <lastmod>${LASTMOD}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
   </url>`;
+}
+
+const STATIC_URLS = STATIC_PAGES.flatMap((page) =>
+  LOCALE_PREFIXES.map((prefix) => buildLocaleUrl(prefix, page)),
+).join("");
 
 interface SanityPost {
   slug: string;
@@ -111,7 +87,7 @@ export default defineEventHandler(async () => {
               .split("T")[0];
             return `
   <url>
-    <loc>https://eyeonidea.com/news/${post.slug}</loc>
+    <loc>${BASE}/news/${post.slug}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>

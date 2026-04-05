@@ -1,6 +1,6 @@
 {
-  "metaTitle": "Vores arbejde | Eye On Idea",
-  "metaDescription": "Udforsk, hvordan Eye On Idea designer og bygger hjemmesider til små og mellemstore virksomheder, fra strategi og visuel identitet til lancering og løbende support.",
+  "metaTitle": "B2B Hjemmeside Portfolio & Cases | Eye On Idea",
+  "metaDescription": "Se vores cases og hjemmeside portfolio — B2B-virksomheder der har fået professionel hjemmeside og brandidentitet fra Eye On Idea.",
   "hero": {
     "title": "Vores arbejde",
     "subtitle": "Strategi, design og udvikling, leveret.",
@@ -52,6 +52,11 @@
     "backToCases": "Tilbage til vores arbejde",
     "nextCase": "Næste casestudie",
     "previousCase": "Tidligere casestudie"
+  },
+
+  "imageAlts": {
+    "preview": "{title} – casestudie forhåndsvisning",
+    "gallery": "{title} – billede {current} af {total}"
   },
   "contact": {
     "title": "Klar til at starte dit projekt?",

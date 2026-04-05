@@ -597,6 +597,7 @@ const searchGroups = computed(() => {
   /* left is set per-level via --flyout-left */
   left: var(--flyout-left, 16rem);
   width: 14rem;
+  height: 100vh;
   height: 100dvh;
   z-index: 40;
   display: flex;
@@ -628,6 +629,7 @@ const searchGroups = computed(() => {
   left: calc(var(--ui-dashboard-sidebar-width, 16rem) + 14rem);
   top: 0;
   width: 15rem; /* slightly wider — article titles can be longer */
+  height: 100vh;
   height: 100dvh;
   z-index: 41;
   display: flex;

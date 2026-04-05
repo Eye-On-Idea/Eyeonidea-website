@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Prestations | Eye On Idea",
-    "description": "Forfaits de sites Web professionnels, identité visuelle, solutions CMS et support continu. Solutions numériques sur mesure pour les entreprises B2B à travers l'Europe."
+    "title": "Forfaits Web pour Entreprises B2B | Eye On Idea",
+    "description": "Trois niveaux de forfaits web pour les PME B2B — Foundation, Growth et Brand Partner. La base numérique adaptée à votre entreprise."
   },
   "hero": {
     "badge": "Nos prestations",
@@ -26,7 +26,8 @@
         "body": "Il ne s'agit pas d'un modèle adapté, mais d'un site Web adapté à la situation actuelle de votre entreprise. Que vous ayez besoin d'une première présence solide ou d'une plateforme conçue pour évoluer avec vous, nous déterminons la bonne portée avant que quoi que ce soit ne soit construit.",
         "linkText": "Explorer les forfaits",
         "linkHref": "/solutions/website-packages",
-        "icon": "i-heroicons-computer-desktop"
+        "icon": "i-heroicons-computer-desktop",
+        "imageAlt": "Configuration de planification de site web avec wireframes structurés et prototype d'écran raffiné"
       },
       {
         "id": "overview-identity",
@@ -35,7 +36,8 @@
         "body": "Votre logo, vos couleurs et votre typographie sont souvent la première chose sur laquelle les gens vous jugent. Nous concevons des identités visuelles qui tiennent sur votre site Web, vos présentations et vos imprimés, afin que votre marque ait l'air intentionnelle partout où elle apparaît.",
         "linkText": "Voir notre approche",
         "linkHref": "/solutions/visual-identity",
-        "icon": "i-heroicons-swatch"
+        "icon": "i-heroicons-swatch",
+        "imageAlt": "Arrangement de studio de marque avec plaques de logo, spécimens de typographie et échantillons de couleurs"
       },
       {
         "id": "overview-additional",
@@ -44,7 +46,8 @@
         "body": "Enregistrement de domaine, courrier électronique professionnel, copie de site Web, évaluations SEO et séances de conseil. Ce sont les services qui entourent votre site Web et permettent à l’ensemble de fonctionner correctement, disponibles individuellement ou dans le cadre d’un projet.",
         "linkText": "Voir toutes les prestations",
         "linkHref": "/solutions/additional-services",
-        "icon": "i-heroicons-puzzle-piece"
+        "icon": "i-heroicons-puzzle-piece",
+        "imageAlt": "Boîte à outils numérique modulaire représentant les services de domaine, e-mail, contenu et SEO"
       },
       {
         "id": "overview-support",
@@ -53,7 +56,8 @@
         "body": "Après le lancement, les choses changent. Le contenu doit être mis à jour, des questions surviennent et le site devrait continuer à s'améliorer. Nos plans d'assistance vous offrent une ligne directe et une durée définie chaque mois, afin que vous ne soyez jamais laissé seul.",
         "linkText": "Afficher les plans d'assistance",
         "linkHref": "/solutions/additional-services#support-plans",
-        "icon": "i-heroicons-shield-check"
+        "icon": "i-heroicons-shield-check",
+        "imageAlt": "Espace de travail sombre avec tableaux de bord de surveillance représentant le support continu de site web"
       }
     ]
   },

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Acerca de | Eye On Idea",
-    "description": "Conozca más sobre Eye On Idea, una consultoría digital danesa fundada por Rune M. P. Pjetursson. Ayudamos a las empresas B2B a construir una presencia digital clara y profesional en toda Europa."
+    "title": "Sobre Eye On Idea | Agencia Web B2B de Dinamarca",
+    "description": "Eye On Idea es una agencia digital danesa especializada en B2B — ayudamos a PYMES a construir sitios web creíbles e identidad de marca duradera."
   },
   "hero": {
     "badge": "Sobre nosotros",
@@ -11,6 +11,7 @@
   "story": {
     "badge": "Nuestra historia",
     "title": "De la idea a la realidad",
+    "imageAlt": "Elementos de marca y sitio web convergiendo desde la fragmentación hacia un sistema de identidad coherente y estructurado",
     "paragraphs": [
       "Eye On Idea se fundó en 2025 con una creencia simple. Toda empresa merece una presencia digital que refleje quiénes son y qué ofrecen.",
       "Muchas empresas terminan con sitios web que no se adaptan a su negocio, son difíciles de actualizar o su mantenimiento resulta costoso con el tiempo.",

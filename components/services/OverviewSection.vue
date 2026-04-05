@@ -13,6 +13,7 @@ const services = computed(
       linkText: string;
       linkHref: string;
       id: string;
+      imageAlt: string;
     }>,
 );
 
@@ -55,13 +56,6 @@ const serviceImages = [
   "/images/solutions/overview-visual-identity.jpg",
   "/images/solutions/overview-additional-services.jpg",
   "/images/solutions/overview-ongoing-support.jpg",
-];
-
-const serviceImageAlts = [
-  "Custom website planning setup with structured wireframes, content architecture notes, and a refined screen prototype",
-  "Brand studio arrangement with logo plates, typography specimens, colour swatches, and material samples",
-  "Modular digital operations toolkit representing domain, email, content, and SEO services around a central website",
-  "Dark workspace with monitoring dashboards, maintenance notes, and iterative improvement markers representing ongoing website support",
 ];
 </script>
 
@@ -123,7 +117,7 @@ const serviceImageAlts = [
         <div class="section-visual">
           <NuxtImg
             :src="serviceImages[index % serviceImages.length]"
-            :alt="serviceImageAlts[index % serviceImageAlts.length]"
+            :alt="service.imageAlt ?? ''"
             class="visual-image"
             width="960"
             height="720"

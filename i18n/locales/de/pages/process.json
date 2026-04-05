@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Unser Prozess – Eye On Idea",
-    "description": "Vom ersten Kontakt bis zur Markteinführung und darüber hinaus. Erfahren Sie, wie Eye On Idea professionelle Website-Projekte mit klaren Zeitplänen, transparenten Preisen und fortlaufendem Support liefert."
+    "title": "So Arbeiten Wir — Webprojekte Erklärt | Eye On Idea",
+    "description": "Wie Eye On Idea Website-Projekte plant, entwickelt und launcht — Zahlungsphasen, Freigaben und Support nach dem Launch."
   },
   "hero": {
     "badge": "Unser Prozess",
@@ -23,6 +23,7 @@
           "Das Treffen kann physisch oder online stattfinden (Teams, Zoom usw.)",
           "Sie wählen die Uhrzeit und das Datum, die für Sie am besten geeignet sind"
         ],
+        "imageAlt": "Posteingang mit Besprechungseinladung zur Erstkontaktphase",
         "cta": {
           "label": "Nehmen Sie Kontakt auf",
           "to": "/contact"
@@ -37,7 +38,8 @@
           "Prüfen Sie vorhandene Assets (Logos, Inhalte, Domains, Hosting)",
           "Identifizieren Sie, was erstellt oder beschafft werden muss",
           "Besprechen Sie den Zeitplan und alle spezifischen Startanforderungen"
-        ]
+        ],
+        "imageAlt": "Discovery-Workshop-Materialien mit Zielgruppen- und Asset-Audit-Checkliste"
       },
       "proposal": {
         "number": "03",
@@ -51,6 +53,7 @@
           "Die Annahme des Vorschlags beinhaltet die DSGVO-Zustimmung zur Datenverarbeitung wie beschrieben"
         ],
         "note": "Im Vorschlag wird klar dargelegt, welche personenbezogenen Daten zu welchem Zweck und auf welcher Rechtsgrundlage im Einklang mit der DSGVO verarbeitet werden. Ihre Daten werden niemals über die Projektanforderungen hinaus an Dritte weitergegeben.",
+        "imageAlt": "Finalisiertes Angebotsdokument mit Projektumfang, Liefermatrix und DSGVO-Hinweis",
         "cta": {
           "label": "Sehen Sie sich unsere Pakete an",
           "to": "/solutions#packages-section"
@@ -64,7 +67,8 @@
           "Das Projekt dauert je nach Umfang in der Regel 2–4 Wochen",
           "Optionale wöchentliche oder monatliche Check-in-Meetings",
           "Spezieller Kommunikationskanal für Fragen und Updates"
-        ]
+        ],
+        "imageAlt": "Projektboard-Setup mit Sprint-Kalender für den Projektstart"
       },
       "development": {
         "number": "05",
@@ -76,6 +80,7 @@
           "Es kann eine zusätzliche Gebühr anfallen (erfordert regelmäßige Wartung der Codebasis für ordnungsgemäße Uploads)"
         ],
         "note": "Der frühe Zugriff auf den Entwicklungsserver ist ein optionales Add-on. Es erfordert eine häufigere Bereitstellung und Wartung, weshalb es als separater Service angeboten wird.",
+        "imageAlt": "Stufenweiser Website-Aufbau mit Versionshinweisen und Vorschau-Server",
         "cta": {
           "label": "Siehe Add-ons und Extras",
           "to": "/solutions#addons-section"
@@ -90,7 +95,8 @@
           "Möglichkeit, letzte Bearbeitungen oder Anpassungen anzufordern",
           "Wenn CMS enthalten ist, erhalten Sie auch Ihre CMS-Einladung mit Anweisungen und Anleitungen",
           "Diese Vorschau dient als endgültige Genehmigung vor der Veröffentlichung"
-        ]
+        ],
+        "imageAlt": "Vorschau-URL auf dem Bildschirm mit Feedback-Anmerkungen und Freigabe-Checkliste"
       },
       "payment": {
         "number": "07",
@@ -101,7 +107,8 @@
           "Die Zahlung ist am Tag der Markteinführung fällig",
           "Zum vereinbarten Termin geht die Website online",
           "Alle Liefergegenstände werden übergeben"
-        ]
+        ],
+        "imageAlt": "Schlussrechnung mit Go-Live-Checkliste und Deployment-Bestätigung"
       },
       "postlaunch": {
         "number": "08",
@@ -113,7 +120,8 @@
           "Enthält keine größeren Neugestaltungen oder neuen Funktionen",
           "Melden Sie alle Probleme innerhalb des 2-Wochen-Fensters"
         ],
-        "note": "Dies ist ein kostenloser Zeitraum, um vor dem Start alles zu fangen, was übersehen wurde. Größere Änderungen oder neue Funktionsanfragen werden als separate Projekte oder über einen Supportplan behandelt."
+        "note": "Dies ist ein kostenloser Zeitraum, um vor dem Start alles zu fangen, was übersehen wurde. Größere Änderungen oder neue Funktionsanfragen werden als separate Projekte oder über einen Supportplan behandelt.",
+        "imageAlt": "Überwachungs-Dashboard für die zweiwöchige Post-Launch-Supportphase"
       },
       "handoff": {
         "number": "09",
@@ -125,6 +133,7 @@
           "Nach dem zweiwöchigen Post-Launch-Fenster sind keine weiteren Änderungen enthalten",
           "Zukünftige Projekte und Dienstleistungen sind jederzeit willkommen"
         ],
+        "imageAlt": "Abgeschlossenes Projektarchiv mit Support-Plan-Optionen und zukünftiger Roadmap",
         "cta": {
           "label": "Supportpläne anzeigen",
           "to": "/solutions#support-plans"

@@ -1,8 +1,8 @@
 {
   "websitePackages": {
     "meta": {
-      "title": "Website Packages - Eye On Idea",
-      "description": "Three website packages built around where your business is right now. Foundation, Growth, and Brand Partner — clear pricing, honest scope, and no unnecessary extras."
+      "title": "B2B Website Packages with Pricing | Eye On Idea",
+      "description": "Three B2B website packages — Foundation from €1,500, Growth from €3,000, Brand Partner from €5,000. Clear scope, transparent pricing, nothing unnecessary."
     },
     "hero": {
       "badge": "Website Packages",
@@ -57,8 +57,8 @@
   },
   "visualIdentity": {
     "meta": {
-      "title": "Visual Identity - Eye On Idea",
-      "description": "Logo, colour, typography, and brand guidelines for companies that want to look credible and consistent. Visual identity design from Eye On Idea in Aalborg."
+      "title": "Brand Identity Design for B2B Companies | Eye On Idea",
+      "description": "Logo, colour palette, typography, and brand guidelines for B2B companies. Visual identity from €800 — built for digital and print use."
     },
     "hero": {
       "badge": "Visual Identity",
@@ -182,8 +182,8 @@
   },
   "additionalServices": {
     "meta": {
-      "title": "Additional Services - Eye On Idea",
-      "description": "Domain, email, copywriting, SEO, and ongoing support plans. Everything around your website, handled in one place by Eye On Idea in Aalborg."
+      "title": "Domain, Email & SEO Services for B2B | Eye On Idea",
+      "description": "Domain registration, professional email, SEO consulting, and website support plans. Everything around your website, handled by Eye On Idea."
     },
     "hero": {
       "badge": "Additional Services",

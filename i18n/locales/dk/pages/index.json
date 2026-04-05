@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Eye On Idea – Digitalt bureau for B2B-brands",
-    "description": "Eye On Idea hjælper europæiske B2B-virksomheder med at opbygge deres samlede digitale tilstedeværelse, hjemmesider, brandidentitet, indhold, SEO, e-mail, domæne og kvalitetssikring."
+    "title": "Professionel Hjemmeside til B2B-virksomheder | Eye On Idea",
+    "description": "Vi hjælper B2B-virksomheder med at bygge en troværdig digital tilstedeværelse — professionelle hjemmesider, visuel identitet og løbende support."
   },
   "hero": {
     "headline": "Din digitale tilstedeværelse",
@@ -41,22 +41,22 @@
     "categories": {
       "websites": {
         "title": "Hjemmesider",
-        "orbNote": "Din første seriøse digitale tilstedeværelse.",
-        "need": "Din virksomhed har brug for en professionel online tilstedeværelse, der skaber tillid og konverterer besøgende.",
+        "orbNote": "Stærke hjemmesider.",
+        "need": "Du har brug for en professionel hjemmeside, der skaber tillid fra første besøg.",
         "skill": "Vi designer og udvikler hurtige, tilgængelige hjemmesider, der er skræddersyet til dit brand og dine forretningsmål.",
         "cta": "Udforsk hjemmesidepakker"
       },
       "identity": {
-        "title": "Visuel identitet & Design",
-        "orbNote": "En hjemmeside, der holder trit, mens du vokser.",
-        "need": "Inkonsekvent visuel identitet underminerer troværdighed, før et eneste ord er læst.",
+        "title": "Identitet",
+        "orbNote": "Tydelig identitet.",
+        "need": "Du har brug for en visuel identitet, der er tydelig, konsekvent og let at genkende.",
         "skill": "Vi skaber logoer, farvepaletter, typografi og brandretningslinjer bygget til digitale medier.",
         "cta": "Se identitetstjenester"
       },
       "content": {
-        "title": "Indholdsskabelse",
-        "orbNote": "Løbende brandstyring, månedligt.",
-        "need": "Tomme sider og generisk tekst formår ikke at kommunikere, hvorfor du er relevant.",
+        "title": "Indhold",
+        "orbNote": "Aktivt indhold.",
+        "need": "Du har brug for klart, løbende indhold, der forklarer din værdi og holder dit brand aktivt.",
         "skill": "Vi skriver og strukturerer indhold, der taler klart til din målgruppe på ethvert sprog.",
         "cta": "Indholdstjenester"
       },
@@ -130,17 +130,20 @@
       {
         "icon": "i-heroicons-building-storefront",
         "heading": "Du er vokset fra din nuværende digitale tilstedeværelse",
-        "body": "Ejerledede eller små B2B-virksomheder, som har været afhængige af en midlertidig hjemmeside, en gør-det-selv-løsning eller mangler et rigtigt brandsystem. I har brug for et seriøst fundament, noget der virker gennemtænkt, skaber tillid og afspejler kvaliteten af jeres arbejde."
+        "body": "Ejerledede eller små B2B-virksomheder, som har været afhængige af en midlertidig hjemmeside, en gør-det-selv-løsning eller mangler et rigtigt brandsystem. I har brug for et seriøst fundament, noget der virker gennemtænkt, skaber tillid og afspejler kvaliteten af jeres arbejde.",
+        "imageAlt": "Redaktionel studioscene med en virksomhed, der opbygger sin første hjemmeside"
       },
       {
         "icon": "i-heroicons-arrow-trending-down",
         "heading": "Dit websted eller dit brand afspejler ikke længere, hvem du er",
-        "body": "Din virksomhed er vokset og forbedret, men din online tilstedeværelse har ikke holdt trit. Det, du har online, får dig til at se mindre troværdig ud, end du i virkeligheden er, og du ved, at det koster dig muligheder."
+        "body": "Din virksomhed er vokset og forbedret, men din online tilstedeværelse har ikke holdt trit. Det, du har online, får dig til at se mindre troværdig ud, end du i virkeligheden er, og du ved, at det koster dig muligheder.",
+        "imageAlt": "Brandmaterialer i kontrast mellem forældet og moderne visuel identitet"
       },
       {
         "icon": "i-heroicons-chart-bar-square",
         "heading": "Du har brug for mere end en engangsopbygning",
-        "body": "Voksende virksomheder, der ønsker struktur, tydeligere indhold og en langsigtet digital partner. Du leder ikke efter en freelancer til en hurtig overlevering, men en samarbejdspartner, der bliver involveret og hjælper din digitale tilstedeværelse med at blive bedre over tid."
+        "body": "Voksende virksomheder, der ønsker struktur, tydeligere indhold og en langsigtet digital partner. Du leder ikke efter en freelancer til en hurtig overlevering, men en samarbejdspartner, der bliver involveret og hjælper din digitale tilstedeværelse med at blive bedre over tid.",
+        "imageAlt": "Modulære projektboards, der illustrerer et langsigtet digitalt partnerskab"
       }
     ]
   },

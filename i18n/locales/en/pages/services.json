@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Solutions & Packages - Eye On Idea",
-    "description": "Three tiers of website-led brand presence — Foundation, Growth, and Brand Partner. Eye On Idea helps SMB B2B companies build a credible digital foundation with supporting identity, content, SEO, and ongoing management."
+    "title": "Website Packages for B2B Companies | Eye On Idea",
+    "description": "Three website package tiers for SMB B2B companies — Foundation, Growth, and Brand Partner. Choose the right digital foundation for your business."
   },
   "hero": {
     "badge": "Our Solutions",
@@ -26,7 +26,8 @@
         "body": "Not a template adjusted to fit, but a website scoped to where your company is right now. Whether you need a solid first presence or a platform built to grow with you, we work out the right scope before anything gets built.",
         "linkText": "Explore packages",
         "linkHref": "/solutions/website-packages",
-        "icon": "i-heroicons-computer-desktop"
+        "icon": "i-heroicons-computer-desktop",
+        "imageAlt": "Custom website planning setup with structured wireframes, content architecture notes, and a refined screen prototype"
       },
       {
         "id": "overview-identity",
@@ -35,7 +36,8 @@
         "body": "Your logo, colours, and typography are often the first thing people judge you on. We design visual identities that hold up across your website, presentations, and print, so your brand looks intentional wherever it appears.",
         "linkText": "See our approach",
         "linkHref": "/solutions/visual-identity",
-        "icon": "i-heroicons-swatch"
+        "icon": "i-heroicons-swatch",
+        "imageAlt": "Brand studio arrangement with logo plates, typography specimens, colour swatches, and material samples"
       },
       {
         "id": "overview-additional",
@@ -44,7 +46,8 @@
         "body": "Domain registration, professional email, website copy, SEO reviews, and advisory sessions. These are the services that sit around your website and make the whole thing work properly, available individually or as part of a project.",
         "linkText": "See all services",
         "linkHref": "/solutions/additional-services",
-        "icon": "i-heroicons-puzzle-piece"
+        "icon": "i-heroicons-puzzle-piece",
+        "imageAlt": "Modular digital operations toolkit representing domain, email, content, and SEO services around a central website"
       },
       {
         "id": "overview-support",
@@ -53,7 +56,8 @@
         "body": "After launch, things change. Content needs updating, questions come up, and the site should keep improving. Our support plans give you a direct line and a set amount of time each month, so you are never left figuring things out alone.",
         "linkText": "View support plans",
         "linkHref": "/solutions/additional-services#support-plans",
-        "icon": "i-heroicons-shield-check"
+        "icon": "i-heroicons-shield-check",
+        "imageAlt": "Dark workspace with monitoring dashboards, maintenance notes, and iterative improvement markers representing ongoing website support"
       }
     ]
   },

@@ -396,6 +396,47 @@ html:not(.dark) #hero-section .app-cta--secondary:hover {
 }
 
 /* =========================
+   PageHero — Always Dark (has bg image + dark overlay in both modes)
+   Targets all shared PageHero instances: services, about, process, cases, etc.
+   Specificity: html:not(.dark) (0,1,1) + .page-hero (0,1,0) + .app-cta--X (0,1,0) = (0,3,1)
+   Beats AppCtaButton's scoped html:not(.dark) { .app-cta--X } at (0,2,1).
+   ========================= */
+html:not(.dark) .page-hero .word-amber {
+  color: rgba(223, 175, 133, 0.85) !important;
+}
+html:not(.dark) .page-hero .app-cta--primary {
+  border-color: rgba(223, 175, 133, 0.6) !important;
+  background: linear-gradient(
+    156deg,
+    rgba(223, 175, 133, 0.22) 0%,
+    rgba(255, 237, 223, 0.1) 50%,
+    rgba(223, 175, 133, 0.22) 100%
+  ) !important;
+  color: #ffeddf !important;
+}
+html:not(.dark) .page-hero .app-cta--primary:hover {
+  background: linear-gradient(
+    156deg,
+    rgba(223, 175, 133, 0.35) 0%,
+    rgba(255, 237, 223, 0.16) 50%,
+    rgba(223, 175, 133, 0.35) 100%
+  ) !important;
+  border-color: rgba(223, 175, 133, 0.85) !important;
+  box-shadow: 0 8px 28px rgba(223, 175, 133, 0.18) !important;
+  color: #ffeddf !important;
+}
+html:not(.dark) .page-hero .app-cta--secondary {
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  color: rgba(255, 237, 223, 0.75) !important;
+  background: transparent !important;
+}
+html:not(.dark) .page-hero .app-cta--secondary:hover {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  color: #ffeddf !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* =========================
    About Section (Landing) — Always Dark Buttons
    Has a background image + dark overlay in both modes.
    ========================= */
@@ -639,6 +680,7 @@ main {
   margin: 0 auto;
   width: 100%;
   min-width: 320px;
+  min-height: 99vh;
   min-height: 99lvh;
 }
 

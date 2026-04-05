@@ -166,7 +166,7 @@ const scrollToChapter = (targetIdx: number) => {
     class="services-journey"
     aria-labelledby="services-heading"
   >
-    <div class="sticky top-0 h-dvh overflow-hidden">
+    <div class="sticky top-0 overflow-hidden journey-panel">
       <!-- Section background -->
       <div class="journey-bg" aria-hidden="true" />
       <!-- Left vignette for text contrast -->
@@ -280,6 +280,12 @@ const scrollToChapter = (targetIdx: number) => {
 /* ── Scroll container — 7 chapters × ~114vh each ─────────────── */
 .services-journey {
   height: 800vh;
+}
+
+/* ── Sticky viewport panel — dvh with vh fallback ─────────────── */
+.journey-panel {
+  height: 100vh;
+  height: 100dvh;
 }
 
 /* ── Static section background ────────────────────────────────── */

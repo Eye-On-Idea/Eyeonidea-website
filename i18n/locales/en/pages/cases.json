@@ -1,6 +1,6 @@
 {
-  "metaTitle": "Our Work | Eye On Idea",
-  "metaDescription": "Explore how Eye On Idea designs and builds websites for small and mid-sized businesses - from strategy and visual identity to launch and ongoing support.",
+  "metaTitle": "B2B Website Design Portfolio & Case Studies | Eye On Idea",
+  "metaDescription": "B2B website design case studies from Eye On Idea — see how we helped companies build credible websites and brand identity from concept to launch.",
 
   "hero": {
     "title": "Our Work",
@@ -60,6 +60,11 @@
     "backToCases": "Back to Our Work",
     "nextCase": "Next Case Study",
     "previousCase": "Previous Case Study"
+  },
+
+  "imageAlts": {
+    "preview": "{title} – case study preview",
+    "gallery": "{title} – image {current} of {total}"
   },
 
   "contact": {

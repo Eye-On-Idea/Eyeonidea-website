@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "About Eye On Idea",
-    "description": "Eye On Idea is a Danish digital consultancy run by Rune M. P. Pjetursson. We help SMB B2B companies build a credible digital foundation — website-led, brand-managed, and built for the long term."
+    "title": "About Eye On Idea — B2B Digital Agency, Denmark",
+    "description": "Eye On Idea is a Danish B2B digital agency — we help SMB companies build credible websites and brand presence, built for the long term."
   },
   "hero": {
     "badge": "About Eye On Idea",
@@ -11,6 +11,7 @@
   "story": {
     "badge": "Why We Exist",
     "title": "The problem most agencies don't solve",
+    "imageAlt": "Brand and website elements converging from fragmentation into a cohesive, structured identity system",
     "paragraphs": [
       "Most SMB B2B companies don't have a digital presence problem in isolation. They have a fragmentation problem: a website that doesn't reflect the quality of the business, a brand that feels inconsistent, content that doesn't explain what they actually do, and no clear owner for any of it.",
       "Eye On Idea was founded in 2025 to fix that from the ground up. Not with a broad agency approach, but with a focused, package-structured model that maps to where a business actually is and what it genuinely needs.",

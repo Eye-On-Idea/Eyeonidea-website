@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Om | Eye On Idea",
-    "description": "Lær om Eye On Idea, et dansk digitalt konsulentfirma grundlagt af Rune M. P. Pjetursson. Vi hjælper B2B-virksomheder med at opbygge en klar og professionel digital tilstedeværelse på tværs af Europa."
+    "title": "Om Eye On Idea | Dansk B2B Webbureau",
+    "description": "Eye On Idea er et dansk webbureau til B2B-virksomheder. Vi bygger professionelle hjemmesider, visuel identitet og digitale løsninger med langsigtet fokus."
   },
   "hero": {
     "badge": "Om os",
@@ -11,6 +11,7 @@
   "story": {
     "badge": "Vores historie",
     "title": "Fra idé til virkelighed",
+    "imageAlt": "Brand- og websiteelementer, der samles fra fragmentering til et sammenhængende, struktureret identitetssystem",
     "paragraphs": [
       "Eye On Idea blev grundlagt i 2025 med en simpel overbevisning. Enhver virksomhed fortjener en digital tilstedeværelse, der afspejler, hvem de er, og hvad de tilbyder.",
       "Mange virksomheder ender med hjemmesider, der ikke passer til deres forretning, er svære at opdatere eller bliver dyre at vedligeholde med tiden.",

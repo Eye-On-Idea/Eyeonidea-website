@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Vores proces | Eye On Idea",
-    "description": "Fra første kontakt til lancering og videre. Lær, hvordan Eye On Idea leverer professionelle webstedsprojekter med klare tidslinjer, gennemsigtige priser og løbende support."
+    "title": "Sådan Arbejder Vi med Hjemmesideprojekter | Eye On Idea",
+    "description": "Lær hvordan Eye On Idea leverer hjemmesideprojekter — klare tidslinjer, gennemsigtige priser og løbende support fra første kontakt til lancering."
   },
   "hero": {
     "badge": "Vores proces",
@@ -23,6 +23,7 @@
           "Mødet kan være fysisk eller online (teams, zoom osv.)",
           "Du vælger det tidspunkt og den dato, der passer dig"
         ],
+        "imageAlt": "Indbakkevisning med mødeindkaldelse til den indledende kontaktfase",
         "cta": {
           "label": "Tag kontakt",
           "to": "/contact"
@@ -37,7 +38,8 @@
           "Revidere eksisterende aktiver (logoer, indhold, domæner, hosting)",
           "Identificer, hvad der skal oprettes eller hentes",
           "Diskuter tidslinje og eventuelle specifikke lanceringskrav"
-        ]
+        ],
+        "imageAlt": "Discovery-workshop-materialer med målgruppeprofiler og aktivkontrolliste"
       },
       "proposal": {
         "number": "03",
@@ -51,6 +53,7 @@
           "Accept af forslaget omfatter GDPR-samtykke til datahåndtering som skitseret"
         ],
         "note": "Forslaget angiver klart, hvilke personoplysninger der vil blive behandlet, til hvilket formål og under hvilket retsgrundlag, i overensstemmelse med GDPR. Dine data deles aldrig med tredjeparter ud over, hvad projektet kræver.",
+        "imageAlt": "Afsluttet tilbudsmappe med projektomfang, leverancematrix og GDPR-note",
         "cta": {
           "label": "Se vores pakker",
           "to": "/solutions#packages-section"
@@ -64,7 +67,8 @@
           "Projektet tager typisk 2-4 uger afhængig af omfang",
           "Valgfri ugentlige eller månedlige check-in møder",
           "Dedikeret kommunikationskanal for spørgsmål og opdateringer"
-        ]
+        ],
+        "imageAlt": "Projektboard-opsætning med sprintkalender til projektstarten"
       },
       "development": {
         "number": "05",
@@ -76,6 +80,7 @@
           "Kan medføre et ekstra gebyr (kræver regelmæssig kodebasevedligeholdelse for korrekte uploads)"
         ],
         "note": "Tidlig dev-serveradgang er en valgfri tilføjelse. Det kræver hyppigere implementering og vedligeholdelse, hvorfor det tilbydes som en separat service.",
+        "imageAlt": "Trinvis hjemmesideudvikling med versionsnoter og forhåndsvisningsserver",
         "cta": {
           "label": "Se Tilføjelser og ekstramateriale",
           "to": "/solutions#addons-section"
@@ -90,7 +95,8 @@
           "Mulighed for at anmode om endelige redigeringer eller justeringer",
           "Hvis CMS er inkluderet, modtager du også din CMS-invitation med instruktioner og vejledning",
           "Denne forhåndsvisning fungerer som den endelige godkendelse, inden den går live"
-        ]
+        ],
+        "imageAlt": "Forhåndsvisnings-URL på skærmen med feedbackannotationer og godkendelsesliste"
       },
       "payment": {
         "number": "07",
@@ -101,7 +107,8 @@
           "Betaling forfalder på lanceringsdagen",
           "Hjemmesiden går live på den aftalte dato",
           "Alle leverancer afleveres"
-        ]
+        ],
+        "imageAlt": "Slutfaktura med go-live-tjekliste og implementeringsbekræftelse"
       },
       "postlaunch": {
         "number": "08",
@@ -113,7 +120,8 @@
           "Indeholder ikke større redesigns eller nye funktioner",
           "Rapporter eventuelle problemer inden for 2-ugers vinduet"
         ],
-        "note": "Dette er en gratis periode til at fange alt, der er overset før lanceringen. Større ændringer eller anmodninger om nye funktioner håndteres som separate projekter eller gennem en supportplan."
+        "note": "Dette er en gratis periode til at fange alt, der er overset før lanceringen. Større ændringer eller anmodninger om nye funktioner håndteres som separate projekter eller gennem en supportplan.",
+        "imageAlt": "Overvågningsdashboard for to-ugers post-launch-supportfase"
       },
       "handoff": {
         "number": "09",
@@ -125,6 +133,7 @@
           "Ingen yderligere redigeringer inkluderet efter 2-ugers efter-lancering",
           "Fremtidige projekter og tjenester er altid velkomne"
         ],
+        "imageAlt": "Afsluttet projektarkiv med supportplanmuligheder og fremtidig køreplan",
         "cta": {
           "label": "Se supportplaner",
           "to": "/solutions#support-plans"

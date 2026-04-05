@@ -106,6 +106,7 @@ const bgStyle = computed(() =>
 /* ── Section ──────────────────────────────────────────────────── */
 .page-hero {
   position: relative;
+  min-height: 85vh;
   min-height: 85dvh;
   display: flex;
   background: #0d0908;
@@ -321,9 +322,7 @@ const bgStyle = computed(() =>
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
-/* Hero sections have background images — always render dark regardless of mode */
-
-/* Lifted outside nesting — Vue scoped compiler requires :deep() at top level */
-/* .word-amber light mode color is handled globally in main.css */
+/* Hero sections have background images — always render dark regardless of mode.
+   Button + word-amber overrides are in main.css with !important to beat
+   AppCtaButton's scoped light-mode styles. */
 </style>

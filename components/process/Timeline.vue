@@ -33,18 +33,6 @@ const stepImages: Record<string, string> = {
   handoff:     "/images/process/step-handoff-beyond.jpg",
 };
 
-const stepImageAlts: Record<string, string> = {
-  contact:     "Step 1 — inbox view with meeting invitation and project note cards representing the initial contact phase",
-  discovery:   "Step 2 — discovery workshop materials with audience profile cards, asset audit checklist, and timeline worksheet",
-  proposal:    "Step 3 — finalized proposal pack with scope map, deliverable matrix, pricing summary, and GDPR compliance note",
-  kickoff:     "Step 4 — project board setup with sprint calendar and communication channels representing the project kickoff",
-  development: "Step 5 — staged website interface build with version notes and optional preview server indicator",
-  preview:     "Step 6 — test URL preview on screen with feedback annotations and final approval checklist",
-  payment:     "Step 7 — final invoice card with go-live checklist and deployment confirmation markers",
-  postlaunch:  "Step 8 — monitoring dashboard and two-week stability tracker representing the post-launch support phase",
-  handoff:     "Step 9 — completed project archive with ongoing support plan options and future roadmap cards",
-};
-
 interface StepCTA {
   label: string;
   to: string;
@@ -57,6 +45,7 @@ interface Step {
   details: string[];
   note?: string;
   cta?: StepCTA;
+  imageAlt?: string;
 }
 
 const steps = computed(() =>
@@ -214,7 +203,7 @@ onMounted(() => {
             <div class="step-image-wrap">
               <NuxtImg
                 :src="stepImages[step.key]"
-                :alt="stepImageAlts[step.key]"
+                :alt="step.imageAlt ?? ''"
                 class="step-image"
                 width="960"
                 height="540"

@@ -31,6 +31,7 @@ const situations = computed(
       icon: string;
       heading: string;
       body: string;
+      imageAlt: string;
     }>,
 );
 
@@ -38,12 +39,6 @@ const audienceImages = [
   "/images/landing/audience-outgrown.jpg",
   "/images/landing/audience-brand-misalignment.jpg",
   "/images/landing/audience-long-term-partnership.jpg",
-];
-
-const audienceAlts = [
-  "Editorial studio scene showing a business transitioning from rough website sketches to a polished screen mockup",
-  "Brand print set contrasted with a modern cohesive identity system, illustrating a mismatch between company quality and current presentation",
-  "Modular project boards and timeline cards arranged as an ongoing system, representing a long-term digital partnership",
 ];
 
 const panelAccents = [
@@ -113,7 +108,7 @@ const numerals = ["I", "II", "III"];
           <!-- Editorial row image -->
           <NuxtImg
             :src="audienceImages[i]"
-            :alt="audienceAlts[i]"
+            :alt="situations[i]?.imageAlt ?? ''"
             class="row-bg-image"
             width="960"
             height="540"

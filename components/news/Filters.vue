@@ -196,6 +196,7 @@ function clearAll() {
   z-index: 40;
   border-bottom: 1px solid var(--color-border);
   padding: 1rem 0;
+  -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
   @media (min-width: 768px) {
     padding: 1.25rem 0;

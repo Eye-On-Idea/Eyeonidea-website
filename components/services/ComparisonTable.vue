@@ -113,7 +113,10 @@ onMounted(() => {
       </div>
 
       <!-- DESKTOP TABLE -->
-      <div class="table-wrapper desktop-only" :class="{ 'animate-in': isVisible }">
+      <div
+        class="table-wrapper desktop-only"
+        :class="{ 'animate-in': isVisible }"
+      >
         <div class="table-container">
           <table class="comparison-table" role="grid">
             <thead class="table-header">
@@ -134,8 +137,12 @@ onMounted(() => {
                     </span>
                     <span class="package-name">{{ getPackageName(pkg) }}</span>
                     <div class="package-price">
-                      <span class="price-currency">{{ getPackageCurrency(pkg) }}</span>
-                      <span class="price-amount">{{ getPackagePrice(pkg) }}</span>
+                      <span class="price-currency">{{
+                        getPackageCurrency(pkg)
+                      }}</span>
+                      <span class="price-amount">{{
+                        getPackagePrice(pkg)
+                      }}</span>
                     </div>
                   </div>
                 </th>
@@ -145,7 +152,11 @@ onMounted(() => {
             <tbody>
               <template v-for="category in categories" :key="category.key">
                 <tr class="category-row">
-                  <th :colspan="packages.length + 1" class="category-header" scope="colgroup">
+                  <th
+                    :colspan="packages.length + 1"
+                    class="category-header"
+                    scope="colgroup"
+                  >
                     <button
                       type="button"
                       class="category-toggle"
@@ -157,9 +168,12 @@ onMounted(() => {
                       {{ category.title }}
                       <span
                         class="cat-chevron"
-                        :class="{ 'cat-chevron--open': isCategoryExpanded(category.key) }"
+                        :class="{
+                          'cat-chevron--open': isCategoryExpanded(category.key),
+                        }"
                         aria-hidden="true"
-                      >▾</span>
+                        >▾</span
+                      >
                     </button>
                   </th>
                 </tr>
@@ -174,7 +188,9 @@ onMounted(() => {
                     <button
                       type="button"
                       class="feature-name-button"
-                      :aria-expanded="activeTooltip === `${category.key}-${fIndex}`"
+                      :aria-expanded="
+                        activeTooltip === `${category.key}-${fIndex}`
+                      "
                       @click="toggleTooltip(`${category.key}-${fIndex}`)"
                     >
                       <span>{{ feature.name }}</span>
@@ -197,10 +213,18 @@ onMounted(() => {
                     class="feature-cell"
                     :class="{ 'feature-cell--featured': pkg === 'growth' }"
                   >
-                    <span v-if="getFeatureValue(feature, pkg) === true" class="feature-check" aria-label="Included">
+                    <span
+                      v-if="getFeatureValue(feature, pkg) === true"
+                      class="feature-check"
+                      aria-label="Included"
+                    >
                       <span class="check-diamond" aria-hidden="true" />
                     </span>
-                    <span v-else-if="getFeatureValue(feature, pkg) === false" class="feature-dash" aria-label="Not included">
+                    <span
+                      v-else-if="getFeatureValue(feature, pkg) === false"
+                      class="feature-dash"
+                      aria-label="Not included"
+                    >
                       <span class="dash-line" aria-hidden="true" />
                     </span>
                     <span v-else class="feature-partial">
@@ -235,7 +259,10 @@ onMounted(() => {
       </div>
 
       <!-- MOBILE ACCORDION -->
-      <div class="mobile-comparison mobile-only" :class="{ 'animate-in': isVisible }">
+      <div
+        class="mobile-comparison mobile-only"
+        :class="{ 'animate-in': isVisible }"
+      >
         <div class="mobile-pkg-header">
           <div
             v-for="pkg in packages"
@@ -248,8 +275,12 @@ onMounted(() => {
             </span>
             <span class="mobile-pkg-name">{{ getPackageName(pkg) }}</span>
             <div class="mobile-pkg-price">
-              <span class="mobile-price-currency">{{ getPackageCurrency(pkg) }}</span>
-              <span class="mobile-price-amount">{{ getPackagePrice(pkg) }}</span>
+              <span class="mobile-price-currency">{{
+                getPackageCurrency(pkg)
+              }}</span>
+              <span class="mobile-price-amount">{{
+                getPackagePrice(pkg)
+              }}</span>
             </div>
           </div>
         </div>
@@ -259,7 +290,9 @@ onMounted(() => {
             v-for="category in categories"
             :key="category.key"
             class="mobile-category"
-            :class="{ 'mobile-category--expanded': isCategoryExpanded(category.key) }"
+            :class="{
+              'mobile-category--expanded': isCategoryExpanded(category.key),
+            }"
           >
             <button
               type="button"
@@ -269,18 +302,29 @@ onMounted(() => {
               @click="toggleCategory(category.key)"
             >
               <span class="mobile-category__title">{{ category.title }}</span>
-              <span class="mobile-category__count">{{ category.features.length }}</span>
+              <span class="mobile-category__count">{{
+                category.features.length
+              }}</span>
               <span
                 class="mobile-category__chevron"
-                :class="{ 'mobile-category__chevron--open': isCategoryExpanded(category.key) }"
+                :class="{
+                  'mobile-category__chevron--open': isCategoryExpanded(
+                    category.key,
+                  ),
+                }"
                 aria-hidden="true"
-              >▾</span>
+                >▾</span
+              >
             </button>
 
             <div
               :id="`mobile-cat-${category.key}`"
               class="mobile-category__panel"
-              :class="{ 'mobile-category__panel--open': isCategoryExpanded(category.key) }"
+              :class="{
+                'mobile-category__panel--open': isCategoryExpanded(
+                  category.key,
+                ),
+              }"
               role="region"
               :aria-label="category.title"
             >
@@ -294,7 +338,9 @@ onMounted(() => {
                   <button
                     type="button"
                     class="mobile-feature__info"
-                    :aria-expanded="activeTooltip === `m-${category.key}-${fIndex}`"
+                    :aria-expanded="
+                      activeTooltip === `m-${category.key}-${fIndex}`
+                    "
                     :aria-label="`Info: ${feature.name}`"
                     @click.stop="toggleTooltip(`m-${category.key}-${fIndex}`)"
                   >
@@ -317,13 +363,25 @@ onMounted(() => {
                     v-for="pkg in packages"
                     :key="pkg"
                     class="mobile-feature__value"
-                    :class="{ 'mobile-feature__value--featured': pkg === 'growth' }"
+                    :class="{
+                      'mobile-feature__value--featured': pkg === 'growth',
+                    }"
                   >
-                    <span class="mobile-feature__pkg-label">{{ getPackageName(pkg) }}</span>
-                    <span v-if="getFeatureValue(feature, pkg) === true" class="feature-check feature-check--sm" aria-label="Included">
+                    <span class="mobile-feature__pkg-label">{{
+                      getPackageName(pkg)
+                    }}</span>
+                    <span
+                      v-if="getFeatureValue(feature, pkg) === true"
+                      class="feature-check feature-check--sm"
+                      aria-label="Included"
+                    >
                       <span class="check-diamond" aria-hidden="true" />
                     </span>
-                    <span v-else-if="getFeatureValue(feature, pkg) === false" class="feature-dash feature-dash--sm" aria-label="Not included">
+                    <span
+                      v-else-if="getFeatureValue(feature, pkg) === false"
+                      class="feature-dash feature-dash--sm"
+                      aria-label="Not included"
+                    >
                       <span class="dash-line" aria-hidden="true" />
                     </span>
                     <span v-else class="feature-partial feature-partial--sm">
@@ -337,6 +395,7 @@ onMounted(() => {
         </div>
 
         <div class="mobile-cta-row">
+          <!-- buttons
           <AppCtaButton
             v-for="pkg in packages"
             :key="pkg"
@@ -345,7 +404,7 @@ onMounted(() => {
             class="mobile-cta-pkg-btn"
           >
             {{ getPackageName(pkg) }}
-          </AppCtaButton>
+          </AppCtaButton>-->
         </div>
       </div>
 
@@ -450,12 +509,16 @@ onMounted(() => {
 /* ── Desktop / Mobile breakpoints ────────────────────────────── */
 .desktop-only {
   display: none;
-  @media (min-width: 768px) { display: block; }
+  @media (min-width: 768px) {
+    display: block;
+  }
 }
 
 .mobile-only {
   display: block;
-  @media (min-width: 768px) { display: none; }
+  @media (min-width: 768px) {
+    display: none;
+  }
 }
 
 /* ── Table wrapper ────────────────────────────────────────────── */
@@ -591,7 +654,9 @@ onMounted(() => {
   min-height: 44px;
   transition: color 0.2s ease;
 
-  &:hover { color: rgba(223, 175, 133, 0.8); }
+  &:hover {
+    color: rgba(223, 175, 133, 0.8);
+  }
 
   &:focus-visible {
     outline: 2px solid rgba(223, 175, 133, 0.45);
@@ -616,13 +681,18 @@ onMounted(() => {
   transition: transform 0.25s ease;
   line-height: 1;
 
-  &--open { transform: rotate(180deg); }
+  &--open {
+    transform: rotate(180deg);
+  }
 }
 
 /* ── Feature rows ─────────────────────────────────────────────── */
 .feature-row {
   &:hover {
-    .feature-name, .feature-cell { background: rgba(223, 175, 133, 0.02); }
+    .feature-name,
+    .feature-cell {
+      background: rgba(223, 175, 133, 0.02);
+    }
   }
 }
 
@@ -690,7 +760,9 @@ onMounted(() => {
 
 .tooltip-enter-active,
 .tooltip-leave-active {
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 .tooltip-enter-from,
@@ -731,7 +803,8 @@ onMounted(() => {
   vertical-align: middle;
 }
 
-.feature-check, .feature-dash {
+.feature-check,
+.feature-dash {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -799,7 +872,9 @@ onMounted(() => {
   text-align: center;
   border-right: 1px solid rgba(223, 175, 133, 0.08);
 
-  &:last-child { border-right: none; }
+  &:last-child {
+    border-right: none;
+  }
 
   &--featured {
     background: rgba(223, 175, 133, 0.04);
@@ -860,7 +935,9 @@ onMounted(() => {
 .mobile-category {
   border-bottom: 1px solid rgba(223, 175, 133, 0.08);
 
-  &:last-child { border-bottom: none; }
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .mobile-category__trigger {
@@ -904,7 +981,9 @@ onMounted(() => {
   transition: transform 0.25s ease;
   line-height: 1;
 
-  &--open { transform: rotate(180deg); }
+  &--open {
+    transform: rotate(180deg);
+  }
 }
 
 .mobile-category__panel {
@@ -912,14 +991,18 @@ onMounted(() => {
   overflow: hidden;
   transition: max-height 0.4s var(--ease-smooth);
 
-  &--open { max-height: 3000px; }
+  &--open {
+    max-height: 3000px;
+  }
 }
 
 .mobile-feature {
   padding: 1rem 1.25rem;
   border-bottom: 1px solid rgba(223, 175, 133, 0.05);
 
-  &:last-child { border-bottom: none; }
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .mobile-feature__name {
@@ -1003,7 +1086,8 @@ onMounted(() => {
   color: rgba(255, 237, 223, 0.3);
 }
 
-.feature-check--sm, .feature-dash--sm {
+.feature-check--sm,
+.feature-dash--sm {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1095,14 +1179,26 @@ onMounted(() => {
 /* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   /* Section background + separator */
-  .comparison-section { background: var(--color-section-light); }
+  .comparison-section {
+    background: var(--color-section-light);
+  }
 
-  .sep-line    { background: var(--deco-line); }
-  .sep-diamond { background: var(--deco-diamond); }
-  .sep-text    { color: var(--deco-text); }
+  .sep-line {
+    background: var(--deco-line);
+  }
+  .sep-diamond {
+    background: var(--deco-diamond);
+  }
+  .sep-text {
+    color: var(--deco-text);
+  }
 
-  .section-title    { color: var(--color-text-primary); }
-  .section-subtitle { color: var(--color-text-secondary); }
+  .section-title {
+    color: var(--color-text-primary);
+  }
+  .section-subtitle {
+    color: var(--color-text-secondary);
+  }
 
   /* ── Desktop table ────────────────────────────── */
   .table-container {
@@ -1132,9 +1228,15 @@ html:not(.dark) {
     border-color: rgba(153, 82, 38, 0.35);
   }
 
-  .package-name    { color: var(--color-text-primary); }
-  .price-currency  { color: var(--color-primary-600); }
-  .price-amount    { color: var(--color-primary-800); }
+  .package-name {
+    color: var(--color-text-primary);
+  }
+  .price-currency {
+    color: var(--color-primary-600);
+  }
+  .price-amount {
+    color: var(--color-primary-800);
+  }
 
   .category-row .category-header {
     background: #faf6f2;
@@ -1144,16 +1246,27 @@ html:not(.dark) {
 
   .category-toggle {
     color: var(--color-primary-600);
-    &:hover { color: var(--color-primary-800); }
-    &:focus-visible { outline-color: rgba(153, 82, 38, 0.45); }
+    &:hover {
+      color: var(--color-primary-800);
+    }
+    &:focus-visible {
+      outline-color: rgba(153, 82, 38, 0.45);
+    }
   }
 
-  .cat-diamond  { background: rgba(153, 82, 38, 0.45); }
-  .cat-chevron  { color: rgba(153, 82, 38, 0.5); }
+  .cat-diamond {
+    background: rgba(153, 82, 38, 0.45);
+  }
+  .cat-chevron {
+    color: rgba(153, 82, 38, 0.5);
+  }
 
   .feature-row {
     &:hover {
-      .feature-name, .feature-cell { background: rgba(153, 82, 38, 0.025); }
+      .feature-name,
+      .feature-cell {
+        background: rgba(153, 82, 38, 0.025);
+      }
     }
   }
 
@@ -1165,7 +1278,9 @@ html:not(.dark) {
   .feature-name-button {
     color: var(--color-text-secondary);
 
-    &:focus-visible { outline-color: rgba(153, 82, 38, 0.45); }
+    &:focus-visible {
+      outline-color: rgba(153, 82, 38, 0.45);
+    }
   }
 
   .info-icon {
@@ -1192,9 +1307,15 @@ html:not(.dark) {
     }
   }
 
-  .check-diamond { background: rgba(153, 82, 38, 0.65); }
-  .dash-line     { background: rgba(153, 82, 38, 0.2); }
-  .feature-partial { color: var(--color-primary-700); }
+  .check-diamond {
+    background: rgba(153, 82, 38, 0.65);
+  }
+  .dash-line {
+    background: rgba(153, 82, 38, 0.2);
+  }
+  .feature-partial {
+    color: var(--color-primary-700);
+  }
 
   .cta-spacer {
     background: #fff;
@@ -1222,13 +1343,23 @@ html:not(.dark) {
   .mobile-pkg-col {
     border-right-color: rgba(153, 82, 38, 0.08);
 
-    &--featured { background: rgba(255, 228, 207, 0.35); }
+    &--featured {
+      background: rgba(255, 228, 207, 0.35);
+    }
   }
 
-  .mobile-popular         { color: var(--color-primary-700); }
-  .mobile-pkg-name        { color: var(--color-text-primary); }
-  .mobile-price-currency  { color: var(--color-primary-600); }
-  .mobile-price-amount    { color: var(--color-primary-800); }
+  .mobile-popular {
+    color: var(--color-primary-700);
+  }
+  .mobile-pkg-name {
+    color: var(--color-text-primary);
+  }
+  .mobile-price-currency {
+    color: var(--color-primary-600);
+  }
+  .mobile-price-amount {
+    color: var(--color-primary-800);
+  }
 
   .mobile-categories {
     border-color: rgba(153, 82, 38, 0.12);
@@ -1242,18 +1373,28 @@ html:not(.dark) {
   .mobile-category__trigger {
     background: #faf6f2;
 
-    &:focus-visible { outline-color: rgba(153, 82, 38, 0.45); }
+    &:focus-visible {
+      outline-color: rgba(153, 82, 38, 0.45);
+    }
   }
 
-  .mobile-category__title   { color: var(--color-primary-600); }
-  .mobile-category__count   { color: var(--color-text-muted); }
-  .mobile-category__chevron { color: rgba(153, 82, 38, 0.5); }
+  .mobile-category__title {
+    color: var(--color-primary-600);
+  }
+  .mobile-category__count {
+    color: var(--color-text-muted);
+  }
+  .mobile-category__chevron {
+    color: rgba(153, 82, 38, 0.5);
+  }
 
   .mobile-feature {
     border-bottom-color: rgba(153, 82, 38, 0.05);
   }
 
-  .mobile-feature__name { color: var(--color-text-secondary); }
+  .mobile-feature__name {
+    color: var(--color-text-secondary);
+  }
 
   .mobile-info-icon {
     border-color: rgba(153, 82, 38, 0.25);
@@ -1275,11 +1416,20 @@ html:not(.dark) {
     }
   }
 
-  .mobile-feature__pkg-label { color: var(--color-text-muted); }
-  .feature-partial--sm       { color: var(--color-primary-700); }
+  .mobile-feature__pkg-label {
+    color: var(--color-text-muted);
+  }
+  .feature-partial--sm {
+    color: var(--color-primary-700);
+  }
 
   /* ── Legend ───────────────────────────────────── */
-  .legend       { border-top-color: var(--deco-line); }
-  .legend-item  { color: var(--color-text-subtle); opacity: 0.8; }
+  .legend {
+    border-top-color: var(--deco-line);
+  }
+  .legend-item {
+    color: var(--color-text-subtle);
+    opacity: 0.8;
+  }
 }
 </style>

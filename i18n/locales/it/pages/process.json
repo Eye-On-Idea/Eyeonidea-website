@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Il nostro processo: Eye On Idea",
-    "description": "Dal primo contatto al lancio e oltre. Scopri come Eye On Idea offre progetti di siti Web professionali con tempistiche chiare, prezzi trasparenti e supporto continuo."
+    "title": "Come Lavoriamo — Progetti Web Spiegati | Eye On Idea",
+    "description": "Come Eye On Idea pianifica, sviluppa e lancia progetti web — fasi di pagamento, approvazioni e supporto post-lancio spiegati."
   },
   "hero": {
     "badge": "Il nostro processo",
@@ -23,6 +23,7 @@
           "La riunione può essere fisica o online (Teams, Zoom, ecc.)",
           "Scegli l'ora e la data che funzionano per te"
         ],
+        "imageAlt": "Vista della posta in arrivo con invito a riunione per la fase di contatto iniziale",
         "cta": {
           "label": "Mettiti in contatto",
           "to": "/contact"
@@ -37,7 +38,8 @@
           "Controlla le risorse esistenti (loghi, contenuti, domini, hosting)",
           "Identificare ciò che deve essere creato o procurato",
           "Discutere la tempistica e gli eventuali requisiti di lancio specifici"
-        ]
+        ],
+        "imageAlt": "Materiali del workshop di scoperta con profili del pubblico e lista di controllo dell’audit"
       },
       "proposal": {
         "number": "03",
@@ -51,6 +53,7 @@
           "L'accettazione della proposta include il consenso GDPR per il trattamento dei dati come indicato"
         ],
         "note": "La proposta indica chiaramente quali dati personali saranno trattati, per quale scopo e in base a quale base giuridica, in conformità con il GDPR. I tuoi dati non vengono mai condivisi con terze parti oltre quanto richiesto dal progetto.",
+        "imageAlt": "Pacchetto di proposta finalizzato con mappa dell'ambito, matrice dei deliverable e nota GDPR",
         "cta": {
           "label": "Visualizza i nostri pacchetti",
           "to": "/solutions#packages-section"
@@ -64,7 +67,8 @@
           "Il progetto richiede in genere 2-4 settimane a seconda dell'ambito",
           "Riunioni di check-in settimanali o mensili facoltative",
           "Canale di comunicazione dedicato per domande e aggiornamenti"
-        ]
+        ],
+        "imageAlt": "Configurazione del pannello di progetto con calendario sprint per l'avvio"
       },
       "development": {
         "number": "05",
@@ -76,6 +80,7 @@
           "Potrebbe comportare un costo aggiuntivo (richiede una manutenzione regolare della base di codice per caricamenti corretti)"
         ],
         "note": "L'accesso anticipato al server di sviluppo è un componente aggiuntivo facoltativo. Richiede implementazione e manutenzione più frequenti, motivo per cui viene offerto come servizio separato.",
+        "imageAlt": "Costruzione dell'interfaccia web a fasi con note di versione e indicatore del server di anteprima",
         "cta": {
           "label": "Vedi Componenti aggiuntivi ed extra",
           "to": "/solutions#addons-section"
@@ -90,7 +95,8 @@
           "Possibilità di richiedere modifiche o aggiustamenti finali",
           "Se CMS è incluso, riceverai anche il tuo invito CMS con istruzioni e guida",
           "Questa anteprima funge da approvazione finale prima della pubblicazione"
-        ]
+        ],
+        "imageAlt": "Anteprima URL di test sullo schermo con annotazioni di feedback e lista di approvazione finale"
       },
       "payment": {
         "number": "07",
@@ -101,7 +107,8 @@
           "Pagamento dovuto il giorno del lancio",
           "Il sito web sarà attivo nella data concordata",
           "Tutti i risultati finali vengono consegnati"
-        ]
+        ],
+        "imageAlt": "Fattura finale con checklist di go-live e conferme di deployment"
       },
       "postlaunch": {
         "number": "08",
@@ -113,7 +120,8 @@
           "Non include importanti riprogettazioni o nuove funzionalità",
           "Segnala eventuali problemi entro la finestra di 2 settimane"
         ],
-        "note": "Questo è un periodo gratuito per cogliere qualsiasi cosa trascurata prima del lancio. Modifiche importanti o richieste di nuove funzionalità vengono gestite come progetti separati o tramite un piano di supporto."
+        "note": "Questo è un periodo gratuito per cogliere qualsiasi cosa trascurata prima del lancio. Modifiche importanti o richieste di nuove funzionalità vengono gestite come progetti separati o tramite un piano di supporto.",
+        "imageAlt": "Dashboard di monitoraggio per la fase di supporto post-lancio"
       },
       "handoff": {
         "number": "09",
@@ -125,6 +133,7 @@
           "Non sono state incluse ulteriori modifiche dopo la finestra di 2 settimane post-lancio",
           "Progetti e servizi futuri sono sempre benvenuti"
         ],
+        "imageAlt": "Archivio di progetto completato con opzioni del piano di supporto e roadmap futura",
         "cta": {
           "label": "Visualizza i piani di supporto",
           "to": "/solutions#support-plans"

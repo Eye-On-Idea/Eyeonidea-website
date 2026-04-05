@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Notre processus | Eye On Idea",
-    "description": "Du premier contact au lancement et au-delà. Découvrez comment Eye On Idea réalise des projets de sites Web professionnels avec des délais clairs, des prix transparents et une assistance continue."
+    "title": "Comment Nous Travaillons — Projets Web Expliqués | Eye On Idea",
+    "description": "Comment Eye On Idea planifie, développe et lance des projets web — phases de paiement, points de validation et support post-lancement."
   },
   "hero": {
     "badge": "Notre processus",
@@ -23,6 +23,7 @@
           "La réunion peut être physique ou en ligne (Teams, Zoom, etc.)",
           "Vous choisissez l'heure et la date qui vous conviennent"
         ],
+        "imageAlt": "Vue de la boîte de réception avec invitation à une réunion représentant la phase de contact initial",
         "cta": {
           "label": "Entrez en contact",
           "to": "/contact"
@@ -37,7 +38,8 @@
           "Auditer les actifs existants (logos, contenu, domaines, hébergement)",
           "Identifier ce qui doit être créé ou sourcé",
           "Discutez du calendrier et de toute exigence spécifique de lancement"
-        ]
+        ],
+        "imageAlt": "Matériaux d’atelier de découverte avec profils d’audience et liste de contrôle d’audit"
       },
       "proposal": {
         "number": "03",
@@ -51,6 +53,7 @@
           "L'acceptation de la proposition inclut le consentement RGPD pour le traitement des données comme indiqué"
         ],
         "note": "La proposition indique clairement quelles données personnelles seront traitées, dans quel but et sur quelle base juridique, conformément au RGPD. Vos données ne sont jamais partagées avec des tiers au-delà de ce que nécessite le projet.",
+        "imageAlt": "Pack de proposition finalisé avec carte de portée, matrice de livrables et note RGPD",
         "cta": {
           "label": "Voir nos forfaits",
           "to": "/solutions#packages-section"
@@ -62,9 +65,10 @@
         "description": "Une fois l’acompte reçu, les travaux commencent. Nous mettrons en place l’environnement du projet et commencerons à construire en fonction de la portée convenue.",
         "details": [
           "Le projet prend généralement 2 à 4 semaines selon la portée",
-          "Réunions d'enregistrement hebdomadaires ou mensuelles facultatives",
+          "Réunions d’enregistrement hebdomadaires ou mensuelles facultatives",
           "Canal de communication dédié pour les questions et les mises à jour"
-        ]
+        ],
+        "imageAlt": "Configuration du tableau de projet avec calendrier de sprint pour le lancement"
       },
       "development": {
         "number": "05",
@@ -76,6 +80,7 @@
           "Peut entraîner des frais supplémentaires (nécessite une maintenance régulière de la base de code pour des téléchargements corrects)"
         ],
         "note": "L'accès anticipé au serveur de développement est un module complémentaire facultatif. Il nécessite un déploiement et une maintenance plus fréquents, c'est pourquoi il est proposé en tant que service distinct.",
+        "imageAlt": "Construction d'interface web par étapes avec notes de version et indicateur de serveur de prévisualisation",
         "cta": {
           "label": "Voir les modules complémentaires et extras",
           "to": "/solutions#addons-section"
@@ -90,7 +95,8 @@
           "Possibilité de demander des modifications ou des ajustements finaux",
           "Si le CMS est inclus, vous recevez également votre invitation CMS avec des instructions et des conseils",
           "Cet aperçu constitue l'approbation finale avant la mise en ligne."
-        ]
+        ],
+        "imageAlt": "Prévisualisation de l'URL de test avec annotations et liste d'approbation finale"
       },
       "payment": {
         "number": "07",
@@ -101,7 +107,8 @@
           "Paiement dû le jour du lancement",
           "Le site est mis en ligne à la date convenue",
           "Tous les livrables sont remis"
-        ]
+        ],
+        "imageAlt": "Facture finale avec liste de contrôle de mise en ligne et confirmations de déploiement"
       },
       "postlaunch": {
         "number": "08",
@@ -113,7 +120,8 @@
           "N'inclut pas de refontes majeures ni de nouvelles fonctionnalités",
           "Signalez tout problème dans un délai de 2 semaines"
         ],
-        "note": "Il s’agit d’une période gratuite pour détecter tout ce qui a été négligé avant le lancement. Les modifications majeures ou les demandes de nouvelles fonctionnalités sont traitées sous forme de projets distincts ou via un plan de support."
+        "note": "Il s’agit d’une période gratuite pour détecter tout ce qui a été négligé avant le lancement. Les modifications majeures ou les demandes de nouvelles fonctionnalités sont traitées sous forme de projets distincts ou via un plan de support.",
+        "imageAlt": "Tableau de bord de surveillance pour la phase de support post-lancement"
       },
       "handoff": {
         "number": "09",
@@ -125,6 +133,7 @@
           "Aucune autre modification n'est incluse après la fenêtre de 2 semaines post-lancement",
           "Les projets et services futurs sont toujours les bienvenus"
         ],
+        "imageAlt": "Archive de projet complété avec options de plan de support et feuille de route future",
         "cta": {
           "label": "Voir les plans d'assistance",
           "to": "/solutions#support-plans"

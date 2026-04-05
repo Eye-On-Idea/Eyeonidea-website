@@ -64,7 +64,7 @@ onMounted(() => {
       <div class="story-image-wrap">
         <NuxtImg
           src="/images/about/story.jpg"
-          alt="Brand and website elements converging from fragmentation into a cohesive, structured identity system"
+          :alt="t('about.story.imageAlt')"
           class="story-image"
           width="1920"
           height="640"

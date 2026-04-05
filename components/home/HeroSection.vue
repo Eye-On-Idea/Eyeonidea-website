@@ -184,24 +184,39 @@ const scrollMotion = withDelay("fadeIn", 1200);
 <style lang="scss" scoped>
 /* ── Section ──────────────────────────────────────────────────── */
 .hero-section {
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 0;
   min-height: 95dvh;
-  overflow: hidden;
   background: transparent;
+
+  @media (min-width: 640px) {
+    position: sticky;
+    min-height: 95vh;
+    min-height: 95dvh;
+    overflow: hidden;
+  }
 }
 
 /* ── Fade wrapper — covers all visible hero content ──────────── */
 .hero-fade-wrap {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  width: 100%;
+  min-height: 95dvh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding: 7rem 1.5rem 6rem;
+  padding: calc(5.5rem + env(safe-area-inset-top, 0px)) 1.5rem 5rem;
   will-change: opacity;
+
+  @media (min-width: 640px) {
+    position: absolute;
+    inset: 0;
+    min-height: unset;
+    justify-content: center;
+    padding: 7rem 1.5rem 6rem;
+  }
 }
 
 /* ── Background layers ────────────────────────────────────────── */

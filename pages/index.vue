@@ -1,12 +1,15 @@
 <script setup lang="ts">
-const { t } = useI18n();
+const { t, locale } = useI18n();
+
+// Map i18n locale codes to cookie-control ISO 639-1 codes (dk → da)
+const cookieLocale = computed(() =>
+  locale.value === "dk" ? "da" : locale.value,
+);
 
 useSeo({
   title: t("landing.meta.title"),
   description: t("landing.meta.description"),
-  image: "/public-material/company-page-banner.png",
-  imageWidth: 1200,
-  imageHeight: 630,
+  image: "/images/og-image.png",
   url: "/",
   canonical: "https://eyeonidea.com/",
   type: "website",
@@ -102,7 +105,7 @@ useSeo({
          transparent sections let it show through as ambient atmosphere. -->
     <div class="homepage-bg" aria-hidden="true">
       <img
-        src="/images/landing/hero.jpg"
+        src="/images/landing/hero.webp"
         alt=""
         class="homepage-bg-img"
         loading="eager"
@@ -120,7 +123,7 @@ useSeo({
     <HomeCTASection />
 
     <!-- Cookie Control -->
-    <CookieControl locale="en" />
+    <CookieControl :locale="cookieLocale" />
   </div>
 </template>
 

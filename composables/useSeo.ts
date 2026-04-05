@@ -121,7 +121,7 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
     baseUrl,
   );
   const defaultImage = resolveUrl(
-    publicConfig.ogImage || "/public-material/company-page-banner.png",
+    publicConfig.ogImage || "/images/og-image.png",
     baseUrl,
   );
   const siteTwitter = publicConfig.twitterHandle || "@eyeonidea";
@@ -398,7 +398,7 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
       },
     ];
 
-    organizationSchema.foundingDate = "2024";
+    organizationSchema.foundingDate = "2025";
     organizationSchema.industry = industry;
     organizationSchema.areaServed = [
       "Denmark",

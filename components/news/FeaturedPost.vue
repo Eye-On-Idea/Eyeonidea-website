@@ -179,6 +179,7 @@ const formattedDate = computed(() => {
   font-weight: 500;
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.15);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
