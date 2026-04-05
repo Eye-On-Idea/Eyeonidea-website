@@ -436,50 +436,12 @@ const quickFacts = computed(
 }
 
 /* ── Light mode overrides ─────────────────────────────────────── */
+/* Location section has a background image with dark overlay —
+   always renders dark regardless of colour mode.               */
 html:not(.dark) {
-  .about-location { background: var(--color-section-light); }
+  .sep-line    { background: rgba(223, 175, 133, 0.15); }
+  .sep-diamond { background: rgba(223, 175, 133, 0.4); }
+  .sep-text    { color: rgba(223, 175, 133, 0.5); }
 
-  /* Lighten overlay so map image reads through in light mode */
-  .location-overlay {
-    background:
-      radial-gradient(
-        ellipse 90% 70% at 50% 50%,
-        rgba(250, 247, 244, 0.45) 0%,
-        rgba(250, 247, 244, 0.78) 100%
-      ),
-      linear-gradient(
-        to bottom,
-        rgba(250, 247, 244, 0.35) 0%,
-        rgba(250, 247, 244, 0.2) 50%,
-        rgba(250, 247, 244, 0.55) 100%
-      );
-  }
-
-  .sep-line    { background: var(--deco-line); }
-  .sep-diamond { background: var(--deco-diamond); }
-  .sep-text    { color: var(--deco-text); }
-
-  .section-title        { color: var(--color-text-primary); }
-  .location-description { color: var(--color-text-subtle); }
-
-  .location-details { border-top-color: var(--deco-line); }
-  .detail-row       { border-bottom-color: var(--deco-line); }
-  .detail-label     { color: var(--color-primary-500); opacity: 0.6; }
-  .detail-diamond   { background: var(--deco-diamond-sm); }
-  .detail-value     { color: var(--color-text-secondary); }
-
-  .process-link {
-    color: var(--color-primary-600);
-    &:hover { color: var(--color-primary-700); }
-    &:focus-visible { outline-color: var(--color-primary-500); }
-  }
-
-  .facts-rule  { background: var(--deco-line); }
-  .facts-label { color: var(--deco-text); opacity: 0.6; }
-  .facts-list  { border-top-color: var(--deco-line); }
-  .fact-row    { border-bottom-color: var(--deco-line); }
-  .fact-numeral { color: rgba(153, 82, 38, 0.30); }
-  .fact-value  { color: var(--color-text-primary); }
-  .fact-label  { color: var(--color-primary-500); opacity: 0.5; }
 }
 </style>

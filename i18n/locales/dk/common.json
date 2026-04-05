@@ -19,7 +19,7 @@
   "contact": {
     "title": "Kom i",
     "titleHighlight": "kontakt",
-    "email": "E-mail",
+    "email": "Email",
     "phone": "Telefon",
     "openPanel": "Åbn kontaktpanelet",
     "closePanel": "Luk kontaktpanelet"
@@ -35,7 +35,8 @@
   "accessibility": {
     "scrollProgress": "Sidens rullefremskridt",
     "selectLanguage": "Vælg sprog",
-    "toggleColorMode": "Skift farvetilstand"
+    "toggleColorMode": "Skift farvetilstand",
+    "externalLink": "Åbner i ny fane"
   },
   "colorMode": {
     "light": "Lys tilstand",

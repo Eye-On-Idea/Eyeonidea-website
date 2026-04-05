@@ -1,11 +1,11 @@
 {
-  "title": "Notizie e approfondimenti",
+  "title": "News e approfondimenti",
   "seo": {
-    "title": "Notizie e Approfondimenti - Eye On Idea",
+    "title": "News e Approfondimenti | Eye On Idea",
     "description": "Rimani aggiornato con le ultime notizie, approfondimenti e aggiornamenti da Eye On Idea. Tendenze di sviluppo web, notizie sulle agenzie digitali e approfondimenti del settore."
   },
   "hero": {
-    "title": "Notizie e approfondimenti",
+    "title": "News e approfondimenti",
     "subtitle": "Rimani aggiornato con le ultime novità di Eye On Idea"
   },
   "filters": {
@@ -13,7 +13,7 @@
     "searchLabel": "Cerca",
     "filterByType": "Filtra per tipo",
     "allTypes": "Tutti i tipi",
-    "news": "Novità",
+    "news": "News",
     "article": "Articolo",
     "announcement": "Annuncio",
     "caseStudy": "Caso di studio",
@@ -33,7 +33,7 @@
     "loading": "Caricamento articolo...",
     "notFound": "Articolo non trovato",
     "notFoundText": "L'articolo che stai cercando non esiste o è stato rimosso.",
-    "backToNews": "Torna alle notizie",
+    "backToNews": "Torna alle News",
     "defaultTitle": "Articolo",
     "share": "Condividi questo articolo",
     "shareLinkedIn": "Condividi su LinkedIn",
@@ -47,9 +47,26 @@
     "viewAll": "Visualizza tutti gli articoli"
   },
   "categories": {
-    "news": "Novità",
+    "news": "News",
     "article": "Articolo",
     "announcement": "Annuncio",
     "caseStudy": "Caso di studio"
+  },
+  "postTypes": {
+    "news": "News",
+    "article": "Articolo",
+    "announcement": "Annuncio",
+    "caseStudy": "Caso di studio",
+    "event": "Evento",
+    "product_update": "Aggiornamento del prodotto",
+    "press_release": "Comunicato stampa"
+  },
+  "postsList": {
+    "noResults": "Nessun articolo trovato",
+    "noResultsText": "Prova a modificare la ricerca o i filtri",
+    "loadMore": "Carica più articoli",
+    "loading": "Caricamento articoli...",
+    "allLoaded": "Tutti gli articoli caricati",
+    "showingCount": "Visualizzazione di {shown} di {total} articoli"
   }
 }

@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Eye On Idea – Agenzia digitale per brand B2B",
-    "description": "Eye On Idea aiuta le aziende B2B europee a costruire la loro presenza digitale completa — siti web, identità di marca, contenuti, SEO, email, dominio e quality assurance."
+    "description": "Eye On Idea aiuta le aziende B2B europee a costruire la loro presenza digitale completa, siti web, identità di marca, contenuti, SEO, email, dominio e garanzia qualità."
   },
   "hero": {
     "headline": "La tua presenza digitale",
@@ -11,7 +11,8 @@
       "primary": "Inizia il tuo progetto",
       "secondary": "Esplora i servizi"
     },
-    "scrollIndicator": "Scorri per esplorare"
+    "scrollIndicator": "Scorri per esplorare",
+    "orbLabel": "I nostri servizi, passa il mouse per esplorare"
   },
   "about": {
     "badge": "Chi siamo",
@@ -36,48 +37,55 @@
   "services": {
     "badge": "Cosa facciamo",
     "title": "Tutto ciò di cui il tuo brand ha bisogno online",
-    "subtitle": "Un unico partner per la tua presenza digitale completa — dalla prima impressione alla crescita continuativa.",
+    "subtitle": "Un unico partner per la tua presenza digitale completa, dalla prima impressione alla crescita continuativa.",
     "categories": {
       "websites": {
         "title": "Siti web",
+        "orbNote": "La tua prima presenza digitale seria.",
         "need": "La tua azienda ha bisogno di una presenza online professionale che generi fiducia e converta i visitatori.",
         "skill": "Progettiamo e sviluppiamo siti web veloci e accessibili, su misura per il tuo brand e i tuoi obiettivi.",
         "cta": "Esplora i pacchetti web"
       },
       "identity": {
         "title": "Identità visiva & Design",
+        "orbNote": "Un sito web che tiene il passo con la tua crescita.",
         "need": "Un'immagine incoerente mina la credibilità prima ancora che si legga una parola.",
         "skill": "Creiamo loghi, palette di colori, tipografie e linee guida del brand pensati per il digitale.",
         "cta": "Servizi di identità"
       },
       "content": {
         "title": "Creazione di contenuti",
+        "orbNote": "Gestione continuativa del brand, ogni mese.",
         "need": "Pagine vuote e testi generici non comunicano perché sei rilevante.",
         "skill": "Scriviamo e strutturiamo contenuti che parlano chiaramente al tuo pubblico in qualsiasi lingua.",
         "cta": "Servizi di contenuto"
       },
       "seo": {
         "title": "SEO & Social media",
+        "orbNote": "Fatti trovare dai clienti che contano.",
         "need": "Un ottimo lavoro rimane invisibile senza una strategia per la ricerca e i social.",
         "skill": "Ottimizziamo la tua visibilità sui motori di ricerca e costruiamo la tua presenza dove si trovano i tuoi clienti.",
         "cta": "Servizi SEO & Social"
       },
       "email": {
         "title": "Email professionale",
+        "orbNote": "L'email brandizzata rafforza la credibilità B2B.",
         "need": "Gli indirizzi email gratuiti segnalano scarsa professionalità ai clienti B2B.",
         "skill": "Configuriamo email aziendali sicure e brandizzate che rafforzano la tua identità professionale.",
         "cta": "Configurazione email"
       },
       "domain": {
         "title": "Gestione del dominio",
-        "need": "Il tuo dominio è il tuo indirizzo digitale — deve essere registrato, protetto e configurato correttamente.",
+        "orbNote": "Possiedi e proteggi il tuo indirizzo digitale.",
+        "need": "Il tuo dominio è il tuo indirizzo digitale, deve essere registrato, protetto e configurato correttamente.",
         "skill": "Registriamo, proteggiamo e gestiamo il tuo dominio affinché tu non perda mai il controllo del tuo brand.",
         "cta": "Servizi di dominio"
       },
       "qa": {
-        "title": "Quality Assurance",
+        "title": "Garanzia qualità",
+        "orbNote": "Individua i problemi prima che lo facciano i tuoi clienti.",
         "need": "Flussi rotti, pagine lente e problemi di accessibilità ti costano clienti in silenzio.",
-        "skill": "Facciamo audit e test end-to-end di prodotti digitali — individuando i problemi prima che li incontrino i tuoi utenti.",
+        "skill": "Facciamo audit e test end-to-end di prodotti digitali, individuando i problemi prima che li incontrino i tuoi utenti.",
         "cta": "Consulenza QA"
       }
     },
@@ -113,6 +121,113 @@
     "description": "Che tu stia iniziando qualcosa di nuovo, migliorando ciò che hai o hai bisogno di una seconda opinione, siamo qui per aiutarti.",
     "primary": "Inizia una conversazione",
     "secondary": "Visualizza il nostro lavoro"
+  },
+  "audience": {
+    "badge": "Per chi è questo",
+    "title": "Eye On Idea è pensato per le aziende B2B PMI che necessitano di una presenza digitale più chiara e credibile.",
+    "subtitle": "Probabilmente sei in linea con noi se la tua azienda si trova in una di queste situazioni.",
+    "situations": [
+      {
+        "icon": "i-heroicons-building-storefront",
+        "heading": "Hai superato la tua attuale presenza digitale",
+        "body": "Aziende B2B guidate dal proprietario o snelle che hanno fatto affidamento su un sito segnaposto, una configurazione fai-da-te o nessun vero sistema di marchio. Hai bisogno delle tue prime fondamenta serie: qualcosa che sembri intenzionale, guadagni fiducia e rifletta la qualità del tuo lavoro reale."
+      },
+      {
+        "icon": "i-heroicons-arrow-trending-down",
+        "heading": "Il tuo sito web o il tuo marchio non riflettono più chi sei",
+        "body": "La tua attività è cresciuta e migliorata, ma la tua presenza online non ha tenuto il passo. Ciò che hai online ti fa sembrare meno credibile di quanto sei in realtà e sai che ti costa opportunità."
+      },
+      {
+        "icon": "i-heroicons-chart-bar-square",
+        "heading": "Hai bisogno di più di una build una tantum",
+        "body": "Aziende in crescita che desiderano struttura, contenuti più chiari e un partner digitale a lungo termine. Non stai cercando un libero professionista a cui affidarti: vuoi qualcuno che rimanga coinvolto e aiuti la tua presenza digitale a migliorare nel tempo."
+      }
+    ]
+  },
+  "packages": {
+    "badge": "Cosa offriamo",
+    "title": "Trova il tuo punto di partenza",
+    "subtitle": "Ogni attività è diversa. Questi tre pacchetti sono il punto di partenza: ognuno mirato e personalizzato in base al luogo in cui ti trovi in ​​questo momento.",
+    "items": [
+      {
+        "numeral": "I",
+        "name": "Inizia",
+        "tagline": "Il tuo sito web e il tuo logo, realizzati fin dal primo giorno.",
+        "description": "Per le nuove imprese e chiunque stia costruendo la sua prima seria presenza digitale. Ottieni un sito Web e un logo dal design professionale: tutto ciò di cui hai bisogno per apparire, apparire credibile e iniziare ad acquisire clienti.",
+        "includes": [
+          "Progettazione del logo",
+          "Sito web: fino a 5 pagine",
+          "Tavolozza dei colori e tipografia del marchio",
+          "Configurazione della posta elettronica professionale",
+          "Build adattabile ai dispositivi mobili",
+          "Configurazione SEO di base"
+        ],
+        "price": "1,500",
+        "currency": "€",
+        "priceNote": "escl. I.V.A."
+      },
+      {
+        "numeral": "II",
+        "name": "Presentati al meglio",
+        "tagline": "Un marchio che rispecchia la qualità del tuo lavoro.",
+        "description": "Per aziende già esistenti ma che sembrano incoerenti o datate. Ricostruiamo la tua identità visiva: logo, colori, tipografia e i materiali per mettere tutto in pratica.",
+        "includes": [
+          "Progettazione o riprogettazione del logo",
+          "Tavolozza dei colori e sistema tipografico",
+          "Documento sulle linee guida del marchio",
+          "Modelli per biglietti da visita e carta intestata",
+          "Risorse del profilo dei social media"
+        ],
+        "price": "2,000",
+        "currency": "€",
+        "priceNote": "escl. I.V.A."
+      },
+      {
+        "numeral": "III",
+        "name": "Resta avanti",
+        "tagline": "Il tuo marchio, mantenuto attuale. Ogni mese.",
+        "description": "Per le aziende che desiderano un supporto continuo, non solo un progetto una tantum. Rimaniamo coinvolti, creiamo contenuti e ci assicuriamo che tutto ciò che hai continui a funzionare così come il giorno in cui è stato lanciato.",
+        "includes": [
+          "Creazione mensile di contenuti",
+          "Aggiornamenti e miglioramenti continui del sito web",
+          "Verifiche di coerenza del marchio",
+          "Strategia e risorse sui social media",
+          "Supporto prioritario",
+          "Direzione trimestrale del marchio"
+        ],
+        "price": "1,200",
+        "currency": "€",
+        "pricePer": "/mo",
+        "priceNote": "escl. I.V.A."
+      }
+    ],
+    "cta": "Inizia una conversazione",
+    "ctaHref": "/contact",
+    "footerCta": "Vedi tutti i servizi",
+    "footerCtaHref": "/solutions"
+  },
+  "cases": {
+    "badge": "Casi di studio",
+    "title": "Lavoro vero. Risultati misurabili.",
+    "subtitle": "Una selezione di aziende a cui Eye On Idea ha contribuito a dare una presenza digitale più credibile e strutturata.",
+    "featured": [
+      {
+        "title": "Tegetec",
+        "category": "Riprogettazione Web B2B",
+        "year": "2025",
+        "outcome": "Fornitore di attrezzature industriali ricostruito con una presenza pulita e strutturata in termini di SEO che comunica credibilità agli acquirenti professionisti.",
+        "slug": "tegetec"
+      },
+      {
+        "title": "Herqulez",
+        "category": "Marchio e web",
+        "year": "2025",
+        "outcome": "Piattaforma di fitness modulare costruita da zero: identità, architettura e infrastruttura di contenuti complete.",
+        "slug": "herqulez"
+      }
+    ],
+    "cta": "Visualizza tutto il nostro lavoro",
+    "ctaHref": "/cases"
   },
   "stats": {
     "clients": {

@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "Klienthub",
+    "title": "Client Hub",
     "description": "Vejledninger og ressourcer til at hjælpe dig med at administrere din hjemmeside, e-mail, domæne, hosting og brandidentitet"
   },
   "login": {
-    "title": "Klienthub",
+    "title": "Client Hub",
     "subtitle": "Indtast din adgangskode for at få adgang til vejledninger og ressourcer",
     "passwordLabel": "Adgangskode",
     "passwordPlaceholder": "Indtast din adgangskode",
@@ -16,7 +16,7 @@
     "helpText": "Hvis du ikke har en adgangskode, skal du kontakte din Eye On Idea-projektleder."
   },
   "nav": {
-    "hubTitle": "Klienthub",
+    "hubTitle": "Client Hub",
     "backToSite": "Tilbage til hovedsiden",
     "logout": "Log ud",
     "home": "Hub Hjem",
@@ -26,14 +26,14 @@
     "allServices": "Alle tjenester"
   },
   "hub": {
-    "welcomeTitle": "Velkommen til din klienthub",
+    "welcomeTitle": "Welcome to your Client Hub",
     "welcomeDescription": "Find vejledninger og ressourcer til de tjenester, vi leverer. Vælg en tjeneste nedenfor for at komme i gang.",
     "servicesTitle": "Gennemse efter tjeneste",
     "gettingStartedHighlight": "Ny her? Start med onboarding-guiden ovenfor for at forstå, hvad du kan forvente.",
-    "heroTagline": "Alt hvad du behoever for at styre din hjemmeside, dit brand og din digitale tilstedevaerelse - samlet eet sted.",
+    "heroTagline": "Alt hvad du behoever for at styre din hjemmeside, dit brand og din digitale tilstedevaerelse, samlet eet sted.",
     "heroCta1": "Start onboarding",
     "heroCta2": "Udforsk guider",
-    "introTitle": "Hvad er Klienthub'et?",
+    "introTitle": "What is the Client Hub?",
     "introBody": "Denne hub er dit private ressourcecenter. Her finder du trin-for-trin guider til alle de services Eye On Idea leverer, fra styring af dit webindhold og domæne til arbejdet med din visuelle identitet. Brug sidebjælken til at navigere efter emne, eller søg med Cmd+K.",
     "contactTitle": "Brug for hjælp?",
     "contactBody": "Kontakt din Eye On Idea projektleder i Aalborg direkte.",
@@ -41,9 +41,9 @@
     "contactPhone": "Ring til os"
   },
   "onboarding": {
-    "title": "Kom godt i gang  -  Onboarding Guide",
+    "title": "Kom godt i gang, Onboarding Guide",
     "description": "Vigtig information om dit websteds lancering, adgang og hvad du kan forvente.",
-    "ctaDescription": "Alt hvad du behøver at vide før og efter dit websteds lancering - tidslinje, adgang, juridisk, support og overdragelse.",
+    "ctaDescription": "Alt hvad du behøver at vide før og efter dit websteds lancering, tidslinje, adgang, juridisk, support og overdragelse.",
     "ctaButton": "Læs onboarding guide",
     "backToHub": "Tilbage til Hub",
     "collapseLabel": "Skjul onboarding-guiden",
@@ -114,7 +114,7 @@
       "icon": "i-heroicons-globe-alt"
     },
     "email": {
-      "title": "E-mail",
+      "title": "Email",
       "description": "Opsætning og administration af dine professionelle e-mail-konti med Zimbra.",
       "icon": "i-heroicons-envelope"
     },
@@ -156,7 +156,7 @@
       "icon": "i-heroicons-magnifying-glass"
     },
     "news-and-posts": {
-      "title": "Nyheder og indlæg",
+      "title": "News og indlæg",
       "description": "Opret, formater og udgiv nyhedsartikler eller blogindlæg.",
       "icon": "i-heroicons-newspaper"
     },
@@ -415,7 +415,7 @@
         "introTitle": "At finde det, du har brug for",
         "introText": "De fleste studier har en menu til venstre med indholdstyper. Disse omfatter typisk:",
         "contentType1": "Sider",
-        "contentType2": "Nyheder / Indlæg",
+        "contentType2": "News / Indlæg",
         "contentType3": "Indstillinger",
         "contentType4": "Navigation",
         "contentType5": "SEO",
@@ -440,7 +440,7 @@
         "publishTitle": "Udgivelse",
         "publishStep1": "Klik på Udgiv, når du er klar",
         "publishStep2": "Bekræft, hvis du bliver bedt om det",
-        "publishStep3": "Hjemmesiden opdateres automatisk - det kan tage kort tid, før ændringer vises",
+        "publishStep3": "Hjemmesiden opdateres automatisk, det kan tage kort tid, før ændringer vises",
         "checkTitle": "Tjek resultatet",
         "checkText": "Efter udgivelsen skal du åbne siden på dit live-websted og bekræfte:",
         "check1": "Tekstflow og læsbarhed",
@@ -454,10 +454,10 @@
         "introTitle": "Hvad er SEO-felter?",
         "introText": "SEO-felter styrer, hvordan dine sider vises i søgemaskineresultater og forhåndsvisninger på sociale medier. De ændrer ikke synlig hjemmesidetekst.",
         "fieldsTitle": "Hvad du kan kontrollere",
-        "field1": "SEO-titel  -  sidetitlen vist i Google-resultater",
-        "field2": "Metabeskrivelse  -  den korte tekst under titlen i Google",
+        "field1": "SEO-titel, sidetitlen vist i Google-resultater",
+        "field2": "Metabeskrivelse, den korte tekst under titlen i Google",
         "field3": "Socialt delbillede (hvis inkluderet i dit projekt)",
-        "field4": "Slug  -  sidens URL",
+        "field4": "Slug, sidens URL",
         "titleTitle": "At skrive SEO-titlen",
         "titleText": "SEO-titlen vises i Googles søgeresultater. Hold det 50-60 tegn, klart og specifikt, og medtag dit hovedemne.",
         "titleExample": "Eksempel: \"Kommerciel tagdækning i Aarhus\"",
@@ -486,7 +486,7 @@
         "introText": "Din nyheds- eller indlægssektion giver dig mulighed for at dele opdateringer, udgive artikler, forbedre synlighed i søgemaskiner og holde dit websted aktivt. Hvert indlæg bliver sin egen side.",
         "createTitle": "Opret et nyt indlæg",
         "createStep1": "Åbn studiet",
-        "createStep2": "Klik på Nyheder eller Indlæg i navigationen",
+        "createStep2": "Klik på News eller Indlæg i navigationen",
         "createStep3": "Klik på Opret ny",
         "titleSectionTitle": "Tilføj en titel",
         "titleText": "Skriv en klar, kort og specifik titel. Undgå meget lange titler, store bogstaver eller nøgleordsfyld.",
@@ -514,7 +514,7 @@
       },
       "imageBestPractices": {
         "introTitle": "Hvorfor billedkvalitet betyder noget",
-        "introText": "Gode billeder får din hjemmeside til at se professionel ud. Dårlige billeder kan bremse det eller få det til at se uklart ud. Studiet viser anbefalede størrelser - følg dem.",
+        "introText": "Gode billeder får din hjemmeside til at se professionel ud. Dårlige billeder kan bremse det eller få det til at se uklart ud. Studiet viser anbefalede størrelser, følg dem.",
         "prepareTitle": "Forbered dit billede før upload",
         "prepare1": "Brug JPG til billeder",
         "prepare2": "Brug kun PNG, hvis du har brug for gennemsigtighed",
@@ -673,9 +673,9 @@
         "q4": "Kan jeg opgradere postkasselager?",
         "a4": "Ja. Lageropgraderinger kan arrangeres efter behov.",
         "mistakesTitle": "Almindelige fejl",
-        "mistake1": "Ikke at ændre den oprindelige adgangskode - skift den altid med det samme",
-        "mistake2": "Brug af POP i stedet for IMAP  -  IMAP holder enheder synkroniseret",
-        "mistake3": "Deling af adgangskoder via e-mail - send aldrig adgangskoder via usikrede kanaler"
+        "mistake1": "Ikke at ændre den oprindelige adgangskode, skift den altid med det samme",
+        "mistake2": "Brug af POP i stedet for IMAP, IMAP holder enheder synkroniseret",
+        "mistake3": "Deling af adgangskoder via e-mail, send aldrig adgangskoder via usikrede kanaler"
       },
       "domainOwnership": {
         "introTitle": "Dit domæne",
@@ -704,11 +704,11 @@
         "expirationText": "I den sidste måned før udløb sendes der ugentlige rykkere. Kontaktforsøg kan omfatte telefon og e-mail.",
         "warning": "Hvis der ikke modtages noget svar inden udløbet, kan domænet udløbe, blive offentligt tilgængeligt, og dit websted og din e-mail holder muligvis op med at fungere. Eye On Idea bevarer ikke ejerskabet af udløbne domæner.",
         "lifecycleTitle": "Domænets livscyklus",
-        "lifecycle1": "Aktiv - dit domæne fungerer normalt",
-        "lifecycle2": "Udløbet  -  domænet holder op med at fungere",
-        "lifecycle3": "Henstandsperiode  -  kan stadig være tilbagebetalt",
-        "lifecycle4": "Indløsningsperiode  -  inddrivelse medfører yderligere gebyrer",
-        "lifecycle5": "Frigivet - domænet bliver tilgængeligt for alle at registrere",
+        "lifecycle1": "Aktiv, dit domæne fungerer normalt",
+        "lifecycle2": "Udløbet, domænet holder op med at fungere",
+        "lifecycle3": "Henstandsperiode, kan stadig være tilbagebetalt",
+        "lifecycle4": "Indløsningsperiode, inddrivelse medfører yderligere gebyrer",
+        "lifecycle5": "Frigivet, domænet bliver tilgængeligt for alle at registrere",
         "tip": "For at undgå enhver risiko, forny altid før udløb."
       },
       "domainTransfer": {
@@ -821,12 +821,12 @@
       "logoUsage": {
         "versionsTitle": "Logo versioner",
         "versionsText": "Du har muligvis modtaget flere logoversioner:",
-        "version1": "Primært logo - brug dette som standard",
-        "version2": "Vandret version  -  til store rum",
-        "version3": "Stablet version  -  til lodrette rum",
-        "version4": "Ikonversion  -  til profilbilleder på sociale medier og små rum",
-        "version5": "Lys version  -  til mørke baggrunde",
-        "version6": "Mørk version  -  til lyse baggrunde",
+        "version1": "Primært logo, brug dette som standard",
+        "version2": "Vandret version, til store rum",
+        "version3": "Stablet version, til lodrette rum",
+        "version4": "Ikonversion, til profilbilleder på sociale medier og små rum",
+        "version5": "Lys version, til mørke baggrunde",
+        "version6": "Mørk version, til lyse baggrunde",
         "rulesTitle": "Brugsregler",
         "rulesText": "Brug det primære logo som standard. Brug kun variationer, når pladsen er begrænset, baggrunden kræver kontrast, eller et profilbillede på sociale medier har brug for ikonversionen.",
         "doNotTitle": "Gør det ikke",
@@ -881,10 +881,10 @@
         "q4": "Hvad hvis jeg mister filerne?",
         "a4": "Kontakt Eye On Idea for omlevering.",
         "mistakesTitle": "Almindelige fejl",
-        "mistake1": "Sender JPG til printeren  -  brug vektorfiler eller printklare PDF'er",
-        "mistake2": "Brug af et skærmbillede af logoet - brug aldrig skærmbilleder",
-        "mistake3": "Blande mærkefarver med tilfældige nuancer - hold dig til den definerede palet",
-        "mistake4": "Upload af lavkvalitetslogo til sociale medier - brug den medfølgende PNG i høj opløsning"
+        "mistake1": "Sender JPG til printeren, brug vektorfiler eller printklare PDF'er",
+        "mistake2": "Brug af et skærmbillede af logoet, brug aldrig skærmbilleder",
+        "mistake3": "Blande mærkefarver med tilfældige nuancer, hold dig til den definerede palet",
+        "mistake4": "Upload af lavkvalitetslogo til sociale medier, brug den medfølgende PNG i høj opløsning"
       }
     }
   },
@@ -893,13 +893,13 @@
     "browse": "Gennemse guider"
   },
   "breadcrumb": {
-    "hub": "Klienthub"
+    "hub": "Client Hub"
   },
   "disclaimer": {
     "title": "Privat klientområde",
     "subtitle": "Dette område er udelukkende beregnet til Eye On Idea-klienter.",
     "body": "Ressourcerne her stilles til rådighed som en del af din serviceaftale. Del venligst ikke links til dette område med andre.",
-    "continueButton": "Fortsæt til klienthub",
+    "continueButton": "Continue to Client Hub",
     "backToSite": "Tilbage til webstedet"
   }
 }

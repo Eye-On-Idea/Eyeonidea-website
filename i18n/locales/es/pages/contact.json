@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Contacto - Eye On Idea",
+    "title": "Contacto | Eye On Idea",
     "description": "Póngase en contacto con Eye On Idea. Analicemos las necesidades de su proyecto digital: sitios web, identidad visual, soluciones CMS o soporte continuo."
   },
   "hero": {
@@ -15,7 +15,7 @@
       "placeholder": "Tu nombre completo"
     },
     "email": {
-      "label": "Correo electrónico",
+      "label": "Email",
       "placeholder": "tu{'@'}correo electrónico.com"
     },
     "phone": {
@@ -59,7 +59,7 @@
       "description": "¿Prefieres una conversación directa? Comuníquese por correo electrónico o por teléfono."
     },
     "email": {
-      "label": "Correo electrónico",
+      "label": "Email",
       "value": "hola{'@'}eyeonidea.com"
     },
     "phone": {
@@ -73,7 +73,7 @@
     },
     "hours": {
       "title": "Horario comercial",
-      "weekdays": "Lunes - Viernes: 9:00 - 17:00 CET",
+      "weekdays": "Lunes, Viernes: 9:00, 17:00 CET",
       "response": "Normalmente respondemos dentro de las 24 horas."
     },
     "social": {

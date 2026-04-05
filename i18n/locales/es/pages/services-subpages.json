@@ -1,7 +1,7 @@
 {
   "websitePackages": {
     "meta": {
-      "title": "Paquetes de sitios web - Eye On Idea",
+      "title": "Paquetes de sitios web | Eye On Idea",
       "description": "Tres paquetes de sitios web creados en torno a dónde se encuentra su empresa en este momento. Precios claros, alcance honesto y sin extras innecesarios. Compare lanzamiento, crecimiento y plataforma."
     },
     "hero": {
@@ -57,7 +57,7 @@
   },
   "visualIdentity": {
     "meta": {
-      "title": "Identidad Visual - Eye On Idea",
+      "title": "Identidad Visual | Eye On Idea",
       "description": "Logotipo, color, tipografía y pautas de marca para empresas que desean parecer creíbles y consistentes. Diseño de identidad visual de Eye On Idea en Aalborg."
     },
     "hero": {
@@ -139,7 +139,7 @@
       "vatNote": "Todos los precios excl. IVA",
       "startsAt": "desde",
       "introTitle": "Como funciona",
-      "introBody": "Cada proyecto de identidad visual comienza con su empresa. Algunas empresas necesitan un logotipo enfocado y un sistema de colores. Otras necesitan una base de marca completa con directrices y activos listos para usar que respalden el crecimiento a largo plazo.\n\nLos precios que se muestran aqui comienzan en la cantidad indicada y reflejan el alcance minimo de cada servicio. La inversion final depende de sus objetivos, cronograma y nivel de detalle. Todo el trabajo esta basado en proyectos y claramente definido, por lo que recibe una identidad visual estructurada construida para apoyar su negocio ahora y a medida que crece.",
+      "introBody": "Cada proyecto de identidad visual comienza con su empresa. Algunas empresas necesitan un logotipo enfocado y un sistema de colores. Otras necesitan una base de marca completa con directrices y activos listos para usar que respalden el crecimiento a largo plazo. Los precios que se muestran aqui comienzan en la cantidad indicada y reflejan el alcance minimo de cada servicio. La inversion final depende de sus objetivos, cronograma y nivel de detalle. Todo el trabajo esta basado en proyectos y claramente definido, por lo que recibe una identidad visual estructurada construida para apoyar su negocio ahora y a medida que crece.",
       "footnote": "* Todos los proyectos de identidad visual incluyen un numero definido de rondas de revision. Las revisiones adicionales o los cambios significativos mas alla del alcance acordado pueden afectar el precio final. Si no se puede llegar a un acuerdo dentro del marco acordado, se puede proponer un nuevo alcance o el proyecto puede concluirse en base al trabajo completado.",
       "highlights": [
         {
@@ -182,7 +182,7 @@
   },
   "additionalServices": {
     "meta": {
-      "title": "Servicios adicionales - Eye On Idea",
+      "title": "Servicios adicionales | Eye On Idea",
       "description": "Dominio, correo electrónico, redacción publicitaria, SEO y planes de soporte continuo. Todo lo relacionado con su sitio web, gestionado en un solo lugar por Eye On Idea en Aalborg."
     },
     "hero": {
@@ -198,7 +198,7 @@
       "intro": "Descripción general",
       "content": "Contenido",
       "domain": "Dominio",
-      "email": "Correo electrónico",
+      "email": "Email",
       "seoConsulting": "SEO y Consultoría",
       "support": "Planes de soporte"
     },
@@ -218,7 +218,7 @@
         },
         {
           "icon": "i-heroicons-envelope",
-          "title": "Correo electrónico",
+          "title": "Email",
           "body": "Correo electrónico profesional en su propio dominio. Alojado en la UE, filtrado y listo para usar."
         },
         {
@@ -297,8 +297,8 @@
         ]
       },
       "email": {
-        "badge": "Correo electrónico",
-        "title": "Correo electrónico",
+        "badge": "Email",
+        "title": "Email",
         "intro": [
           "Una dirección de correo electrónico profesional en su propio dominio es una de las formas más sencillas de parecer creíble. Configuramos y gestionamos el correo electrónico empresarial en una infraestructura con sede en la UE.",
           "Ambos planes utilizan su dominio (usted{'@'}yourcompany.com) e incluyen funciones estándar: acceso al correo web, filtrado de spam y funcionalidad básica de calendario."

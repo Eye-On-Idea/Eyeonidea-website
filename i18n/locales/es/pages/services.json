@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Servicios - Eye On Idea",
+    "title": "Servicios | Eye On Idea",
     "description": "Paquetes de sitios web profesionales, identidad visual, soluciones CMS y soporte continuo. Soluciones digitales a medida para empresas B2B de toda Europa."
   },
   "hero": {
@@ -185,7 +185,7 @@
             "platform": true
           },
           {
-            "name": "Blog / Sección de noticias",
+            "name": "Blog / Sección de News",
             "tooltip": "Publicar artículos, noticias y actualizaciones.",
             "launch": false,
             "growth": true,
@@ -337,7 +337,7 @@
       },
       "email": {
         "id": "email-section",
-        "title": "Correo electrónico",
+        "title": "Email",
         "description": "Direcciones de correo electrónico profesionales en su propio dominio. Alojado en infraestructura de la UE.",
         "items": [
           {
@@ -548,7 +548,7 @@
     "subtitle": "La diferencia entre un sitio modelo y una presencia digital creada profesionalmente, medida en las métricas que importan.",
     "sliderLabel": "Arrastre para comparar métricas de antes y después",
     "beforeLabel": "antes",
-    "afterLabel": "Después - con Eye On Idea",
+    "afterLabel": "Después, con Eye On Idea",
     "metrics": [
       {
         "label": "Puntuación del faro",

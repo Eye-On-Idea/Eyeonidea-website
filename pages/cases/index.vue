@@ -108,7 +108,6 @@ onMounted(() => {
 
 <template>
   <div class="cases-page">
-
     <!-- ── Hero ──────────────────────────────────────────────── -->
     <section
       ref="heroRef"
@@ -127,16 +126,6 @@ onMounted(() => {
 
       <div class="hero-container">
         <div class="hero-content" :class="{ 'animate-in': isHeroVisible }">
-
-          <!-- Label row — left-anchored like PageHero -->
-          <div class="hero-label-row" aria-hidden="true">
-            <span class="label-line" />
-            <span class="label-diamond" />
-            <span class="label-text">{{ t("cases.hero.badge") }}</span>
-            <span class="label-diamond" />
-            <span class="label-line label-line--trail" />
-          </div>
-
           <h1 id="cases-hero-heading" class="hero-heading">
             {{ t("cases.hero.title") }}
           </h1>
@@ -160,7 +149,6 @@ onMounted(() => {
     <!-- ── Cases Grid ─────────────────────────────────────────── -->
     <section ref="gridRef" class="cases-grid-section" aria-label="Case studies">
       <div class="section-container">
-
         <!-- Client Work -->
         <div
           v-if="groupedCases.clientWork.length > 0"
@@ -204,14 +192,17 @@ onMounted(() => {
                 </div>
 
                 <h3 class="card-title">{{ cs.title }}</h3>
-                <p v-if="cs.subtitle" class="card-subtitle">{{ cs.subtitle }}</p>
+                <p v-if="cs.subtitle" class="card-subtitle">
+                  {{ cs.subtitle }}
+                </p>
 
                 <div v-if="cs.tags?.length" class="card-tags">
                   <span
                     v-for="tag in cs.tags.slice(0, 3)"
                     :key="tag"
                     class="card-tag"
-                  >{{ tag }}</span>
+                    >{{ tag }}</span
+                  >
                 </div>
 
                 <div class="card-footer">
@@ -235,7 +226,9 @@ onMounted(() => {
           <div class="category-label-row" aria-hidden="true">
             <span class="cat-line" />
             <span class="cat-diamond" />
-            <span class="cat-text">{{ t("cases.categories.myCompanies") }}</span>
+            <span class="cat-text">{{
+              t("cases.categories.myCompanies")
+            }}</span>
             <span class="cat-diamond" />
             <span class="cat-line" />
           </div>
@@ -268,14 +261,17 @@ onMounted(() => {
                 </div>
 
                 <h3 class="card-title">{{ cs.title }}</h3>
-                <p v-if="cs.subtitle" class="card-subtitle">{{ cs.subtitle }}</p>
+                <p v-if="cs.subtitle" class="card-subtitle">
+                  {{ cs.subtitle }}
+                </p>
 
                 <div v-if="cs.tags?.length" class="card-tags">
                   <span
                     v-for="tag in cs.tags.slice(0, 3)"
                     :key="tag"
                     class="card-tag"
-                  >{{ tag }}</span>
+                    >{{ tag }}</span
+                  >
                 </div>
 
                 <div class="card-footer">
@@ -294,7 +290,6 @@ onMounted(() => {
           <span class="empty-diamond" aria-hidden="true" />
           <p class="cases-empty__text">No case studies available yet.</p>
         </div>
-
       </div>
     </section>
 
@@ -346,7 +341,6 @@ onMounted(() => {
         </div>
       </div>
     </section>
-
   </div>
 </template>
 
@@ -378,8 +372,16 @@ onMounted(() => {
   position: absolute;
   inset: -10% 0;
   background:
-    radial-gradient(ellipse 75% 55% at 18% 45%, rgba(223, 175, 133, 0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 55% 40% at 80% 85%, rgba(223, 175, 133, 0.03) 0%, transparent 55%);
+    radial-gradient(
+      ellipse 75% 55% at 18% 45%,
+      rgba(223, 175, 133, 0.08) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 55% 40% at 80% 85%,
+      rgba(223, 175, 133, 0.03) 0%,
+      transparent 55%
+    );
   pointer-events: none;
 }
 
@@ -423,7 +425,9 @@ onMounted(() => {
   inset: 0.75rem;
   pointer-events: none;
 
-  &--card { inset: 0.5rem; }
+  &--card {
+    inset: 0.5rem;
+  }
 }
 
 .corner {
@@ -442,10 +446,46 @@ onMounted(() => {
     border-color: rgba(223, 175, 133, 0.1);
   }
 
-  &--tl { top: 0; left: 0; border-width: 1px 0 0 1px; &::after { top: 5px; left: 5px; border-width: 1px 0 0 1px; } }
-  &--tr { top: 0; right: 0; border-width: 1px 1px 0 0; &::after { top: 5px; right: 5px; border-width: 1px 1px 0 0; } }
-  &--bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; &::after { bottom: 5px; left: 5px; border-width: 0 0 1px 1px; } }
-  &--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; &::after { bottom: 5px; right: 5px; border-width: 0 1px 1px 0; } }
+  &--tl {
+    top: 0;
+    left: 0;
+    border-width: 1px 0 0 1px;
+    &::after {
+      top: 5px;
+      left: 5px;
+      border-width: 1px 0 0 1px;
+    }
+  }
+  &--tr {
+    top: 0;
+    right: 0;
+    border-width: 1px 1px 0 0;
+    &::after {
+      top: 5px;
+      right: 5px;
+      border-width: 1px 1px 0 0;
+    }
+  }
+  &--bl {
+    bottom: 0;
+    left: 0;
+    border-width: 0 0 1px 1px;
+    &::after {
+      bottom: 5px;
+      left: 5px;
+      border-width: 0 0 1px 1px;
+    }
+  }
+  &--br {
+    bottom: 0;
+    right: 0;
+    border-width: 0 1px 1px 0;
+    &::after {
+      bottom: 5px;
+      right: 5px;
+      border-width: 0 1px 1px 0;
+    }
+  }
 }
 
 /* ── Label rows ───────────────────────────────────────────────── */
@@ -463,7 +503,9 @@ onMounted(() => {
   height: 1px;
   background: rgba(223, 175, 133, 0.2);
 
-  &--trail { flex: 1; }
+  &--trail {
+    flex: 1;
+  }
 }
 
 .label-diamond {
@@ -509,7 +551,9 @@ onMounted(() => {
   height: 1px;
   background: rgba(223, 175, 133, 0.14);
 
-  &--inner { flex: 0 0 0.875rem; }
+  &--inner {
+    flex: 0 0 0.875rem;
+  }
 }
 
 .div-diamond {
@@ -566,7 +610,9 @@ onMounted(() => {
     opacity 0.6s var(--ease-smooth),
     transform 0.6s var(--ease-smooth);
 
-  &:last-child { margin-bottom: 0; }
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   &.animate-in {
     opacity: 1;
@@ -656,8 +702,16 @@ onMounted(() => {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 80% at 30% 40%, rgba(223, 175, 133, 0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 60% at 70% 70%, rgba(223, 175, 133, 0.04) 0%, transparent 50%);
+    radial-gradient(
+      ellipse 80% 80% at 30% 40%,
+      rgba(223, 175, 133, 0.08) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 60% 60% at 70% 70%,
+      rgba(223, 175, 133, 0.04) 0%,
+      transparent 50%
+    );
 }
 
 .card-visual__image {
@@ -897,36 +951,77 @@ onMounted(() => {
 /* ── Light mode ───────────────────────────────────────────────── */
 html:not(.dark) {
   /* Page & hero */
-  .cases-page    { background: var(--color-section-light); }
-  .cases-hero    { background: var(--color-hero-bg); }
+  .cases-page {
+    background: var(--color-section-light);
+  }
+  .cases-hero {
+    background: var(--color-hero-bg);
+  }
 
   .hero-bg {
     background:
-      radial-gradient(ellipse 75% 55% at 18% 45%, rgba(153, 82, 38, 0.07) 0%, transparent 60%),
-      radial-gradient(ellipse 55% 40% at 80% 85%, rgba(153, 82, 38, 0.03) 0%, transparent 55%);
+      radial-gradient(
+        ellipse 75% 55% at 18% 45%,
+        rgba(153, 82, 38, 0.07) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 55% 40% at 80% 85%,
+        rgba(153, 82, 38, 0.03) 0%,
+        transparent 55%
+      );
   }
 
   .corner {
     border-color: rgba(153, 82, 38, 0.18);
-    &::after { border-color: rgba(153, 82, 38, 0.08); }
+    &::after {
+      border-color: rgba(153, 82, 38, 0.08);
+    }
   }
 
-  .label-line    { background: var(--deco-line); }
-  .label-diamond { background: var(--deco-diamond); }
-  .label-text    { color: var(--deco-text); }
+  .label-line {
+    background: var(--deco-line);
+  }
+  .label-diamond {
+    background: var(--deco-diamond);
+  }
+  .label-text {
+    color: var(--deco-text);
+  }
 
-  .hero-heading    { color: #441a08; }
-  .div-line        { background: var(--deco-line); }
-  .div-diamond     { background: var(--deco-diamond); &--sm { background: var(--deco-diamond-sm); } }
-  .hero-subtitle   { color: var(--color-primary-600); }
-  .hero-description { color: var(--color-text-subtle); }
+  .hero-heading {
+    color: #441a08;
+  }
+  .div-line {
+    background: var(--deco-line);
+  }
+  .div-diamond {
+    background: var(--deco-diamond);
+    &--sm {
+      background: var(--deco-diamond-sm);
+    }
+  }
+  .hero-subtitle {
+    color: var(--color-primary-600);
+  }
+  .hero-description {
+    color: var(--color-text-subtle);
+  }
 
   /* Grid section */
-  .cases-grid-section { background: var(--color-section-light); }
+  .cases-grid-section {
+    background: var(--color-section-light);
+  }
 
-  .cat-line    { background: var(--deco-line); }
-  .cat-diamond { background: var(--deco-diamond); }
-  .cat-text    { color: var(--deco-text); }
+  .cat-line {
+    background: var(--deco-line);
+  }
+  .cat-diamond {
+    background: var(--deco-diamond);
+  }
+  .cat-text {
+    color: var(--deco-text);
+  }
 
   /* Case cards */
   .case-card {
@@ -939,15 +1034,27 @@ html:not(.dark) {
       box-shadow: 0 4px 20px rgba(153, 82, 38, 0.1);
     }
 
-    &:focus-visible { outline-color: var(--color-primary-500); }
+    &:focus-visible {
+      outline-color: var(--color-primary-500);
+    }
   }
 
-  .card-visual { background: #f5efe8; }
+  .card-visual {
+    background: #f5efe8;
+  }
 
   .card-visual__gradient {
     background:
-      radial-gradient(ellipse 80% 80% at 30% 40%, rgba(153, 82, 38, 0.06) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 60% at 70% 70%, rgba(153, 82, 38, 0.03) 0%, transparent 50%);
+      radial-gradient(
+        ellipse 80% 80% at 30% 40%,
+        rgba(153, 82, 38, 0.06) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 60% 60% at 70% 70%,
+        rgba(153, 82, 38, 0.03) 0%,
+        transparent 50%
+      );
   }
 
   .card-badge {
@@ -962,21 +1069,37 @@ html:not(.dark) {
     }
   }
 
-  .card-title   { color: var(--color-text-primary); }
-  .card-subtitle { color: var(--color-text-subtle); }
+  .card-title {
+    color: var(--color-text-primary);
+  }
+  .card-subtitle {
+    color: var(--color-text-subtle);
+  }
   .card-tag {
     border-color: var(--deco-line);
     color: var(--color-text-muted);
   }
-  .card-footer  { border-top-color: var(--deco-line); }
-  .card-year    { color: var(--color-primary-500); }
-  .card-cta     { color: var(--color-primary-600); }
+  .card-footer {
+    border-top-color: var(--deco-line);
+  }
+  .card-year {
+    color: var(--color-primary-500);
+  }
+  .card-cta {
+    color: var(--color-primary-600);
+  }
 
-  .case-card:hover .card-title { color: var(--color-primary-700); }
-  .case-card:hover .card-cta  { color: var(--color-primary-800); }
+  .case-card:hover .card-title {
+    color: var(--color-primary-700);
+  }
+  .case-card:hover .card-cta {
+    color: var(--color-primary-800);
+  }
 
   /* CTA section */
-  .cases-cta { background: var(--color-section-alt); }
+  .cases-cta {
+    background: var(--color-section-alt);
+  }
 
   .cta-bg-radial {
     background: radial-gradient(
@@ -986,19 +1109,41 @@ html:not(.dark) {
     );
   }
 
-  .cta-inner     { border-color: var(--deco-line-strong); }
-  .label-line    { background: var(--deco-line); }
-  .label-diamond { background: var(--deco-diamond); }
-  .label-text    { color: var(--deco-text); }
-  .cta-heading   { color: var(--color-text-primary); }
-  .div-line      { background: var(--deco-line); }
-  .div-diamond   { background: var(--deco-diamond); &--sm { background: var(--deco-diamond-sm); } }
-  .cta-description { color: var(--color-text-subtle); }
+  .cta-inner {
+    border-color: var(--deco-line-strong);
+  }
+  .label-line {
+    background: var(--deco-line);
+  }
+  .label-diamond {
+    background: var(--deco-diamond);
+  }
+  .label-text {
+    color: var(--deco-text);
+  }
+  .cta-heading {
+    color: var(--color-text-primary);
+  }
+  .div-line {
+    background: var(--deco-line);
+  }
+  .div-diamond {
+    background: var(--deco-diamond);
+    &--sm {
+      background: var(--deco-diamond-sm);
+    }
+  }
+  .cta-description {
+    color: var(--color-text-subtle);
+  }
 
   /* Empty state */
-  .empty-diamond { background: rgba(153, 82, 38, 0.08); border-color: var(--deco-line); }
-  .cases-empty__text { color: var(--color-text-subtle); }
+  .empty-diamond {
+    background: rgba(153, 82, 38, 0.08);
+    border-color: var(--deco-line);
+  }
+  .cases-empty__text {
+    color: var(--color-text-subtle);
+  }
 }
 </style>
-
-

@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Eye On Idea – Digitalt bureau for B2B-brands",
-    "description": "Eye On Idea hjælper europæiske B2B-virksomheder med at opbygge deres samlede digitale tilstedeværelse — hjemmesider, brandidentitet, indhold, SEO, e-mail, domæne og kvalitetssikring."
+    "description": "Eye On Idea hjælper europæiske B2B-virksomheder med at opbygge deres samlede digitale tilstedeværelse, hjemmesider, brandidentitet, indhold, SEO, e-mail, domæne og kvalitetssikring."
   },
   "hero": {
     "headline": "Din digitale tilstedeværelse",
@@ -11,7 +11,8 @@
       "primary": "Start dit projekt",
       "secondary": "Udforsk tjenester"
     },
-    "scrollIndicator": "Rul for at udforske"
+    "scrollIndicator": "Rul for at udforske",
+    "orbLabel": "Vores tjenester, hold musen over for at udforske"
   },
   "about": {
     "badge": "Hvem vi er",
@@ -36,48 +37,55 @@
   "services": {
     "badge": "Hvad vi gør",
     "title": "Alt hvad dit brand behøver online",
-    "subtitle": "Én partner til din samlede digitale tilstedeværelse — fra første indtryk til vedvarende vækst.",
+    "subtitle": "Én partner til din samlede digitale tilstedeværelse, fra første indtryk til vedvarende vækst.",
     "categories": {
       "websites": {
         "title": "Hjemmesider",
+        "orbNote": "Din første seriøse digitale tilstedeværelse.",
         "need": "Din virksomhed har brug for en professionel online tilstedeværelse, der skaber tillid og konverterer besøgende.",
         "skill": "Vi designer og udvikler hurtige, tilgængelige hjemmesider, der er skræddersyet til dit brand og dine forretningsmål.",
         "cta": "Udforsk hjemmesidepakker"
       },
       "identity": {
         "title": "Visuel identitet & Design",
+        "orbNote": "En hjemmeside, der holder trit, mens du vokser.",
         "need": "Inkonsekvent visuel identitet underminerer troværdighed, før et eneste ord er læst.",
         "skill": "Vi skaber logoer, farvepaletter, typografi og brandretningslinjer bygget til digitale medier.",
         "cta": "Se identitetstjenester"
       },
       "content": {
         "title": "Indholdsskabelse",
+        "orbNote": "Løbende brandstyring, månedligt.",
         "need": "Tomme sider og generisk tekst formår ikke at kommunikere, hvorfor du er relevant.",
         "skill": "Vi skriver og strukturerer indhold, der taler klart til din målgruppe på ethvert sprog.",
         "cta": "Indholdstjenester"
       },
       "seo": {
         "title": "SEO & Sociale medier",
+        "orbNote": "Bliv fundet af de kunder, der betyder noget.",
         "need": "Godt arbejde forbliver uset uden en strategi for søgning og sociale medier.",
         "skill": "Vi optimerer din synlighed på søgemaskiner og opbygger din tilstedeværelse, hvor dine kunder befinder sig.",
         "cta": "SEO & Social-tjenester"
       },
       "email": {
         "title": "Professionel e-mail",
+        "orbNote": "Branded e-mail opbygger B2B-troværdighed.",
         "need": "Gratis e-mailadresser signalerer manglende seriøsitet over for B2B-kunder.",
         "skill": "Vi opsætter branded, sikre virksomhedse-mails, der styrker din professionelle identitet.",
         "cta": "E-mail opsætning"
       },
       "domain": {
         "title": "Domænestyring",
-        "need": "Dit domæne er din digitale adresse — det skal ejes, beskyttes og konfigureres korrekt.",
+        "orbNote": "Eje og beskyt din digitale adresse.",
+        "need": "Dit domæne er din digitale adresse, det skal ejes, beskyttes og konfigureres korrekt.",
         "skill": "Vi registrerer, sikrer og administrerer dit domæne, så du aldrig mister kontrollen over dit brand online.",
         "cta": "Domænetjenester"
       },
       "qa": {
         "title": "Kvalitetssikring",
+        "orbNote": "Fang problemer, før dine kunder gør det.",
         "need": "Brudte flows, langsomme sider og tilgængelhedsfejl koster dig stille og roligt kunder.",
-        "skill": "Vi auditerer og tester digitale produkter fra ende til ende — og identificerer problemer, før dine brugere gør det.",
+        "skill": "Vi auditerer og tester digitale produkter fra ende til ende, og identificerer problemer, før dine brugere gør det.",
         "cta": "QA-rådgivning"
       }
     },
@@ -95,7 +103,7 @@
       },
       "design": {
         "title": "Design",
-        "description": "Vi skaber en løsning, der er skræddersyet til dine behov - ingen skabeloner, ingen one-size-fits-all."
+        "description": "Vi skaber en løsning, der er skræddersyet til dine behov, ingen skabeloner, ingen one-size-fits-all."
       },
       "develop": {
         "title": "Udvikle",
@@ -103,16 +111,123 @@
       },
       "support": {
         "title": "Støtte",
-        "description": "Vi er her efter lanceringen - for opdateringer, forbedringer og løbende partnerskab."
+        "description": "Vi er her efter lanceringen, for opdateringer, forbedringer og løbende partnerskab."
       }
     }
   },
   "cta": {
     "badge": "Klar til at starte?",
     "title": "Lad os bygge noget fantastisk sammen",
-    "description": "Uanset om du starter noget nyt, forbedrer det, du har, eller har brug for en second opinion - vi er her for at hjælpe.",
+    "description": "Uanset om du starter noget nyt, forbedrer det, du har, eller har brug for en second opinion, vi er her for at hjælpe.",
     "primary": "Start en samtale",
     "secondary": "Se vores arbejde"
+  },
+  "audience": {
+    "badge": "Hvem er dette til",
+    "title": "Eye On Idea er bygget til SMB B2B-virksomheder, der har brug for en klarere og mere troværdig digital tilstedeværelse.",
+    "subtitle": "Du er sandsynligvis et godt match, hvis din virksomhed står i en af disse situationer.",
+    "situations": [
+      {
+        "icon": "i-heroicons-building-storefront",
+        "heading": "Du er vokset fra din nuværende digitale tilstedeværelse",
+        "body": "Ejerledede eller små B2B-virksomheder, som har været afhængige af en midlertidig hjemmeside, en gør-det-selv-løsning eller mangler et rigtigt brandsystem. I har brug for et seriøst fundament, noget der virker gennemtænkt, skaber tillid og afspejler kvaliteten af jeres arbejde."
+      },
+      {
+        "icon": "i-heroicons-arrow-trending-down",
+        "heading": "Dit websted eller dit brand afspejler ikke længere, hvem du er",
+        "body": "Din virksomhed er vokset og forbedret, men din online tilstedeværelse har ikke holdt trit. Det, du har online, får dig til at se mindre troværdig ud, end du i virkeligheden er, og du ved, at det koster dig muligheder."
+      },
+      {
+        "icon": "i-heroicons-chart-bar-square",
+        "heading": "Du har brug for mere end en engangsopbygning",
+        "body": "Voksende virksomheder, der ønsker struktur, tydeligere indhold og en langsigtet digital partner. Du leder ikke efter en freelancer til en hurtig overlevering, men en samarbejdspartner, der bliver involveret og hjælper din digitale tilstedeværelse med at blive bedre over tid."
+      }
+    ]
+  },
+  "packages": {
+    "badge": "Hvad vi tilbyder",
+    "title": "Find dit udgangspunkt",
+    "subtitle": "Hver virksomhed er anderledes. Disse tre pakker er der, hvor vi starter, hver enkelt afgrænset og skræddersyet til, hvor du er lige nu.",
+    "items": [
+      {
+        "numeral": "I",
+        "name": "Kom i gang",
+        "tagline": "Din hjemmeside og dit logo, udført lige fra dag ét.",
+        "description": "Til nye virksomheder og alle, der bygger deres første seriøse digitale tilstedeværelse. Du får et professionelt designet websted og logo, alt hvad du behøver for at dukke op, se troværdigt ud og begynde at vinde kunder.",
+        "includes": [
+          "Logo design",
+          "Hjemmeside, op til 5 sider",
+          "Brandfarvepalette og typografi",
+          "Professionel e-mail opsætning",
+          "Mobilvenlig opbygning",
+          "Grundlæggende SEO opsætning"
+        ],
+        "price": "1,500",
+        "currency": "€",
+        "priceNote": "ekskl. moms"
+      },
+      {
+        "numeral": "II",
+        "name": "Se professionel ud",
+        "tagline": "Et brand, der afspejler kvaliteten af ​​dit arbejde.",
+        "description": "For virksomheder, der allerede eksisterer, men som ser inkonsekvente eller daterede ud. Vi genopbygger din visuelle identitet, logo, farver, typografi og materialerne for at tage det hele i brug.",
+        "includes": [
+          "Logo design eller redesign",
+          "Farvepalet & typografisystem",
+          "Brand retningslinjer dokument",
+          "Skabeloner til visitkort og brevpapir",
+          "Profilaktiver på sociale medier"
+        ],
+        "price": "2,000",
+        "currency": "€",
+        "priceNote": "ekskl. moms"
+      },
+      {
+        "numeral": "III",
+        "name": "Bliv foran konkurrenterne",
+        "tagline": "Dit brand, holdt opdateret. Hver måned.",
+        "description": "For virksomheder, der ønsker løbende support, ikke kun et enkeltstående projekt. Vi forbliver involveret, skaber indhold og sørger for, at alt, hvad du har, fortsætter med at fungere lige så godt som den dag, det blev lanceret.",
+        "includes": [
+          "Månedlig indholdsoprettelse",
+          "Løbende hjemmesideopdateringer og forbedringer",
+          "Brandkonsistenstjek",
+          "Sociale medier strategi & aktiver",
+          "Prioriteret støtte",
+          "Kvartalsvis brandretning"
+        ],
+        "price": "1,200",
+        "currency": "€",
+        "pricePer": "/mo",
+        "priceNote": "ekskl. moms"
+      }
+    ],
+    "cta": "Start en samtale",
+    "ctaHref": "/contact",
+    "footerCta": "Se alle tjenester",
+    "footerCtaHref": "/solutions"
+  },
+  "cases": {
+    "badge": "Casestudier",
+    "title": "Rigtigt arbejde. Målbare resultater.",
+    "subtitle": "Et udvalg af virksomheder Eye On Idea har hjulpet med at opbygge en mere troværdig, struktureret digital tilstedeværelse.",
+    "featured": [
+      {
+        "title": "Tegetec",
+        "category": "B2B Web Redesign",
+        "year": "2025",
+        "outcome": "Udbyder af industrielt udstyr genopbygget med en ren, SEO-struktureret tilstedeværelse, der kommunikerer troværdighed til professionelle købere.",
+        "slug": "tegetec"
+      },
+      {
+        "title": "Herqulez",
+        "category": "Brand & Web",
+        "year": "2025",
+        "outcome": "Modulær fitnessplatform bygget fra bunden, fuld identitet, arkitektur og indholdsinfrastruktur.",
+        "slug": "herqulez"
+      }
+    ],
+    "cta": "Se alt vores arbejde",
+    "ctaHref": "/cases"
   },
   "stats": {
     "clients": {

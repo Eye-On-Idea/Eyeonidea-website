@@ -97,6 +97,20 @@ useSeo({
 
 <template>
   <div class="homepage">
+    <!-- Fixed background image — sits beneath every section at z-index -1.
+         Sections with solid/semi-transparent backgrounds naturally cover it;
+         transparent sections let it show through as ambient atmosphere. -->
+    <div class="homepage-bg" aria-hidden="true">
+      <img
+        src="/images/landing/hero.jpg"
+        alt=""
+        class="homepage-bg-img"
+        loading="eager"
+        fetchpriority="high"
+        decoding="sync"
+      />
+    </div>
+
     <HomeHeroSection />
     <HomeAudienceSection />
     <HomePackagesSection />
@@ -114,5 +128,28 @@ useSeo({
 .homepage {
   overflow-x: clip;
   position: relative;
+}
+
+/* Fixed hero image — always visible behind transparent sections */
+.homepage-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* Fallback colour fills any edges beyond max image dimensions */
+  background: #0d0908;
+}
+
+.homepage-bg-img {
+  width: 100%;
+  height: 100%;
+  max-width: 2560px;
+  max-height: 1440px;
+  object-fit: cover;
+  object-position: center;
 }
 </style>

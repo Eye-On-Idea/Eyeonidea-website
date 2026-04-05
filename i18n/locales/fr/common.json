@@ -19,7 +19,7 @@
   "contact": {
     "title": "Prenez",
     "titleHighlight": "contact",
-    "email": "E-mail",
+    "email": "Email",
     "phone": "Téléphone",
     "openPanel": "Ouvrir le panneau de contact",
     "closePanel": "Fermer le panneau de contact"
@@ -35,7 +35,8 @@
   "accessibility": {
     "scrollProgress": "Progression du défilement de la page",
     "selectLanguage": "Sélectionner la langue",
-    "toggleColorMode": "Changer le mode de couleur"
+    "toggleColorMode": "Changer le mode de couleur",
+    "externalLink": "Ouvre dans un nouvel onglet"
   },
   "colorMode": {
     "light": "Mode clair",

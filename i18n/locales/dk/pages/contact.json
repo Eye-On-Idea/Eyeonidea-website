@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Kontakt - Eye On Idea",
+    "title": "Kontakt | Eye On Idea",
     "description": "Kom i kontakt med Eye On Idea. Lad os diskutere dine digitale projektbehov – hjemmesider, visuel identitet, CMS-løsninger eller løbende support."
   },
   "hero": {
@@ -15,7 +15,7 @@
       "placeholder": "Dit fulde navn"
     },
     "email": {
-      "label": "E-mail",
+      "label": "Email",
       "placeholder": "din{'@'}email.com"
     },
     "phone": {
@@ -59,7 +59,7 @@
       "description": "Foretrækker du en direkte samtale? Kontakt via e-mail eller telefon."
     },
     "email": {
-      "label": "E-mail",
+      "label": "Email",
       "value": "hej{'@'}eyeonidea.com"
     },
     "phone": {
@@ -73,7 +73,7 @@
     },
     "hours": {
       "title": "Åbningstider",
-      "weekdays": "Mandag - fredag: 9:00 - 17:00 CET",
+      "weekdays": "Mandag, fredag: 9:00, 17:00 CET",
       "response": "Vi svarer typisk inden for 24 timer."
     },
     "social": {

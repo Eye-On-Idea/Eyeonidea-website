@@ -36,25 +36,20 @@ const values = ["clarity", "partnership", "quality"] as const;
     class="about-section"
     aria-labelledby="about-heading"
   >
-    <!-- Right-bleed split background: full-width top band on mobile,
-         right-half viewport fill on desktop                         -->
-    <div class="about-split-bg" aria-hidden="true">
-      <NuxtImg
+    <!-- Full-section background image -->
+    <div class="about-bg" aria-hidden="true">
+      <img
         src="/images/landing/about-panel.jpg"
         alt=""
-        class="about-split-img"
-        width="1280"
-        height="960"
-        format="webp"
-        quality="80"
+        class="about-bg-img"
         loading="lazy"
-        sizes="100vw md:50vw"
+        decoding="async"
       />
-      <!-- Overlay: fades bottom-to-top on mobile; left-to-right on desktop -->
-      <div class="about-split-overlay" />
     </div>
+    <!-- Multi-layer overlay: heavy left for text, lighter right for atmosphere -->
+    <div class="about-overlay" aria-hidden="true" />
 
-    <!-- All content sits above the split background -->
+    <!-- All content sits above the background -->
     <div class="about-content-wrap">
 
       <!-- Section separator / label -->
@@ -98,7 +93,7 @@ const values = ["clarity", "partnership", "quality"] as const;
           </AppCtaButton>
         </div>
 
-        <!-- Right column: values list — sits over the image panel -->
+        <!-- Right column: values list in a framed dark panel -->
         <div
           class="about-right"
           :key="`about-right-${visible}`"
@@ -106,22 +101,30 @@ const values = ["clarity", "partnership", "quality"] as const;
           :initial="rightMotion.initial"
           :enter="visible ? rightMotion.visible : rightMotion.initial"
         >
-          <ul class="values-list" role="list">
-            <li
-              v-for="key in values"
-              :key="key"
-              class="value-item"
-            >
-              <div class="value-marker" aria-hidden="true">
-                <span class="marker-rule" />
-                <span class="marker-diamond" />
-              </div>
-              <div class="value-content">
-                <h3 class="value-title">{{ t(`landing.about.values.${key}.title`) }}</h3>
-                <p class="value-body">{{ t(`landing.about.values.${key}.description`) }}</p>
-              </div>
-            </li>
-          </ul>
+          <div class="values-panel">
+            <!-- Art deco corner brackets -->
+            <span class="vp-corner vp-corner--tl" aria-hidden="true" />
+            <span class="vp-corner vp-corner--tr" aria-hidden="true" />
+            <span class="vp-corner vp-corner--bl" aria-hidden="true" />
+            <span class="vp-corner vp-corner--br" aria-hidden="true" />
+
+            <ul class="values-list" role="list">
+              <li
+                v-for="key in values"
+                :key="key"
+                class="value-item"
+              >
+                <div class="value-marker" aria-hidden="true">
+                  <span class="marker-rule" />
+                  <span class="marker-diamond" />
+                </div>
+                <div class="value-content">
+                  <h3 class="value-title">{{ t(`landing.about.values.${key}.title`) }}</h3>
+                  <p class="value-body">{{ t(`landing.about.values.${key}.description`) }}</p>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -139,87 +142,54 @@ const values = ["clarity", "partnership", "quality"] as const;
 /* ── Section ──────────────────────────────────────────────────── */
 .about-section {
   position: relative;
+  z-index: 1;
   background: #0d0908;
   padding-bottom: 0;
   overflow: hidden;
 }
 
-/* ── Split background panel ───────────────────────────────────── */
-/*
- * Mobile: sits in normal flow as a full-width image band (~300px),
- *         scrolls with content, fades to dark at the bottom.
- * Desktop (≥1024px): becomes position:absolute covering the right
- *         half of the viewport, from top to bottom of the section.
- *         This means the image bleeds to the right viewport edge
- *         regardless of max-width constraints.
- */
-.about-split-bg {
-  position: relative;
-  width: 100%;
-  height: clamp(240px, 40vw, 340px);
-  overflow: hidden;
-
-  @media (min-width: 1024px) {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 50%;
-    height: auto;
-    width: auto;
-  }
+/* ── Full-section background image ───────────────────────────── */
+.about-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
-.about-split-img {
-  display: block;
+.about-bg-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* On mobile: show top-centre of image (workspace tabletop area) */
-  object-position: center 30%;
-
-  @media (min-width: 1024px) {
-    /* On desktop: show left edge of image (text-friendly composition side) */
-    object-position: left center;
-  }
+  object-position: center 35%;
 }
 
-/*
- * Mobile overlay: transparent top → dark bottom, so the image
- *   fades into the section background as content appears below.
- * Desktop overlay: dark left edge → transparent right, so the
- *   image transitions cleanly from the left text column.
- */
-.about-split-overlay {
+/* Multi-layer overlay:
+   - Left side heavily darkened so title + description always readable
+   - Right side moderately dark — image atmosphere shows through
+   - Top/bottom edges grounded */
+.about-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 20%,
-    rgba(13, 9, 8, 0.65) 70%,
-    rgba(13, 9, 8, 0.95) 100%
-  );
-
-  @media (min-width: 1024px) {
-    background:
-      /* Left-to-right fade for the text/image column transition */
-      linear-gradient(
-        to right,
-        rgba(13, 9, 8, 0.92) 0%,
-        rgba(13, 9, 8, 0.45) 35%,
-        rgba(13, 9, 8, 0.12) 70%,
-        transparent 100%
-      ),
-      /* Subtle bottom darkening for grounding */
-      linear-gradient(
-        to bottom,
-        transparent 60%,
-        rgba(13, 9, 8, 0.35) 100%
-      );
-  }
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to right,
+      rgba(13, 9, 8, 0.96) 0%,
+      rgba(13, 9, 8, 0.82) 40%,
+      rgba(13, 9, 8, 0.60) 70%,
+      rgba(13, 9, 8, 0.50) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(13, 9, 8, 0.45) 0%,
+      rgba(13, 9, 8, 0.10) 30%,
+      rgba(13, 9, 8, 0.10) 70%,
+      rgba(13, 9, 8, 0.55) 100%
+    );
 }
 
-/* ── Content layer (sits above split background) ──────────────── */
+/* ── Content layer ────────────────────────────────────────────── */
 .about-content-wrap {
   position: relative;
   z-index: 1;
@@ -232,12 +202,7 @@ const values = ["clarity", "partnership", "quality"] as const;
   gap: 1rem;
   max-width: 80rem;
   margin: 0 auto;
-  /* Mobile: reduced top padding — image band provides visual above */
-  padding: 2.5rem 2rem 2.5rem;
-
-  @media (min-width: 1024px) {
-    padding: 5rem 2rem 3.5rem;
-  }
+  padding: 5rem 2rem 3.5rem;
 }
 
 .sep-line {
@@ -275,8 +240,8 @@ const values = ["clarity", "partnership", "quality"] as const;
 
   @media (min-width: 1024px) {
     grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: start;
+    gap: 5rem;
+    align-items: center;
   }
 }
 
@@ -291,9 +256,10 @@ const values = ["clarity", "partnership", "quality"] as const;
   font-weight: 700;
   font-size: clamp(2rem, 3.5vw, 2.75rem);
   line-height: 1.15;
-  color: #fff;
+  color: #ffeddf;
   margin: 0 0 1.5rem;
   letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 .about-deco-divider {
@@ -322,18 +288,41 @@ const values = ["clarity", "partnership", "quality"] as const;
   font-weight: 300;
   font-size: clamp(0.95rem, 1.1vw, 1.05rem);
   line-height: 1.75;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 237, 223, 0.60);
   margin: 0 0 2.5rem;
+  max-width: 42ch;
 }
 
 .about-cta {
   align-self: flex-start;
 }
 
-/* ── Right column — floats over the image panel ───────────────── */
+/* ── Right column ─────────────────────────────────────────────── */
 .about-right {
   display: flex;
   flex-direction: column;
+}
+
+/* ── Values panel — framed dark card floating over the image ──── */
+.values-panel {
+  position: relative;
+  background: rgba(13, 9, 8, 0.62);
+  border: 1px solid rgba(223, 175, 133, 0.10);
+  padding: 2rem 2rem 0.5rem;
+}
+
+/* Art deco corner brackets */
+.vp-corner {
+  position: absolute;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-color: rgba(223, 175, 133, 0.30);
+  border-style: solid;
+
+  &--tl { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+  &--tr { top: -1px; right: -1px; border-width: 1px 1px 0 0; }
+  &--bl { bottom: -1px; left: -1px; border-width: 0 0 1px 1px; }
+  &--br { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
 }
 
 /* ── Values list ──────────────────────────────────────────────── */
@@ -349,10 +338,11 @@ const values = ["clarity", "partnership", "quality"] as const;
   display: flex;
   gap: 1.25rem;
   padding: 1.5rem 0;
-  border-top: 1px solid rgba(223, 175, 133, 0.12);
+  border-top: 1px solid rgba(223, 175, 133, 0.10);
 
   &:last-child {
-    border-bottom: 1px solid rgba(223, 175, 133, 0.12);
+    border-bottom: 1px solid rgba(223, 175, 133, 0.10);
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -397,7 +387,7 @@ const values = ["clarity", "partnership", "quality"] as const;
   font-weight: 300;
   font-size: 0.875rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 237, 223, 0.55);
   margin: 0;
 }
 
@@ -421,60 +411,11 @@ const values = ["clarity", "partnership", "quality"] as const;
 
 /* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .about-split-img {
-    will-change: auto;
-  }
+  .about-bg-img { will-change: auto; }
 }
 
 /* ── Light mode overrides ─────────────────────────────────────── */
-html:not(.dark) {
-  .about-section {
-    background: var(--color-section-light);
-  }
-
-  /* Lighten overlay so image reads through in light mode */
-  .about-split-overlay {
-    background: linear-gradient(
-      to bottom,
-      transparent 20%,
-      rgba(250, 247, 244, 0.6) 70%,
-      rgba(250, 247, 244, 0.95) 100%
-    );
-
-    @media (min-width: 1024px) {
-      background:
-        linear-gradient(
-          to right,
-          rgba(250, 247, 244, 0.95) 0%,
-          rgba(250, 247, 244, 0.5) 35%,
-          rgba(250, 247, 244, 0.15) 70%,
-          transparent 100%
-        ),
-        linear-gradient(
-          to bottom,
-          transparent 60%,
-          rgba(250, 247, 244, 0.35) 100%
-        );
-    }
-  }
-
-  .sep-line        { background: var(--deco-line); }
-  .sep-diamond     { background: var(--deco-diamond); }
-  .sep-text        { color: var(--deco-text); }
-  .about-title     { color: var(--color-text-primary); }
-  .about-description { color: var(--color-text-subtle); }
-  .deco-line       { background: var(--deco-line); }
-  .deco-diamond    { background: var(--deco-diamond); }
-
-  .value-item {
-    border-top-color: var(--deco-line);
-    &:last-child { border-bottom-color: var(--deco-line); }
-  }
-
-  .marker-rule     { background: var(--deco-line-strong); }
-  .marker-diamond  { background: var(--deco-diamond); }
-  .value-title     { color: var(--color-text-primary); }
-  .value-body      { color: var(--color-text-subtle); }
-  .sep-diamond-lg  { background: var(--deco-diamond-sm); }
-}
+/* About section has a background image with dark overlay —
+   always renders dark regardless of colour mode.
+   Button overrides are handled globally in main.css via #about-section. */
 </style>

@@ -1,7 +1,7 @@
 {
   "websitePackages": {
     "meta": {
-      "title": "Website-Pakete - Eye On Idea",
+      "title": "Website-Pakete | Eye On Idea",
       "description": "Drei Website-Pakete, die darauf ausgerichtet sind, wo Ihr Unternehmen gerade steht. Klare Preisgestaltung, ehrlicher Umfang und keine unnötigen Extras. Vergleichen Sie Einführung, Wachstum und Plattform."
     },
     "hero": {
@@ -80,7 +80,7 @@
     "intro": {
       "eyebrow": "Visuelle Identität",
       "heading": "Ihre Marke spricht, bevor Sie es tun.",
-      "body": "Ein gut gestaltetes Logo, eine konsistente Farbpalette und klare Typografie signalisieren Professionalität und schaffen Vertrauen, das auf anderem Wege kaum zu erreichen ist. Bei Eye On Idea verstehen wir visuelle Identität als praktisches Fundament - und liefern ein vollständiges, einsetzbares System, das konsistent auf Ihrer Website, Ihren Druckmaterialien und überall dort funktioniert, wo Ihr Publikum Sie findet."
+      "body": "Ein gut gestaltetes Logo, eine konsistente Farbpalette und klare Typografie signalisieren Professionalität und schaffen Vertrauen, das auf anderem Wege kaum zu erreichen ist. Bei Eye On Idea verstehen wir visuelle Identität als praktisches Fundament, und liefern ein vollständiges, einsetzbares System, das konsistent auf Ihrer Website, Ihren Druckmaterialien und überall dort funktioniert, wo Ihr Publikum Sie findet."
     },
     "deliverables": {
       "badge": "Was Sie bekommen",
@@ -139,7 +139,7 @@
       "vatNote": "Alle Preise zzgl. MwSt",
       "startsAt": "ab",
       "introTitle": "So funktioniert es",
-      "introBody": "Jedes Projekt zur visuellen Identität beginnt mit Ihrem Unternehmen. Manche Unternehmen benoetigen ein fokussiertes Logo und Farbsystem. Andere benoetigen ein vollstaendiges Markenfundament mit Richtlinien und sofort einsetzbaren Assets, die langfristiges Wachstum unterstuetzen.\n\nDie hier gezeigten Preise beginnen beim angegebenen Betrag und spiegeln den Mindestumfang jedes Dienstes wider. Die endgueltige Investition haengt von Ihren Zielen, dem Zeitrahmen und dem Detailgrad ab. Alle Arbeiten sind projektbasiert und klar definiert, sodass Sie eine strukturierte visuelle Identitaet erhalten, die Ihr Unternehmen jetzt und in Zukunft unterstuetzt.",
+      "introBody": "Jedes Projekt zur visuellen Identität beginnt mit Ihrem Unternehmen. Manche Unternehmen benoetigen ein fokussiertes Logo und Farbsystem. Andere benoetigen ein vollstaendiges Markenfundament mit Richtlinien und sofort einsetzbaren Assets, die langfristiges Wachstum unterstuetzen. Die hier gezeigten Preise beginnen beim angegebenen Betrag und spiegeln den Mindestumfang jedes Dienstes wider. Die endgueltige Investition haengt von Ihren Zielen, dem Zeitrahmen und dem Detailgrad ab. Alle Arbeiten sind projektbasiert und klar definiert, sodass Sie eine strukturierte visuelle Identitaet erhalten, die Ihr Unternehmen jetzt und in Zukunft unterstuetzt.",
       "footnote": "* Alle Projekte zur visuellen Identitaet beinhalten eine definierte Anzahl von Revisionsrunden. Zusaetzliche Revisionen oder wesentliche Aenderungen ueber den vereinbarten Umfang hinaus koennen den Endpreis beeinflussen. Falls innerhalb des vereinbarten Rahmens keine Einigung erzielt werden kann, kann ein neuer Umfang vorgeschlagen oder das Projekt auf Basis der abgeschlossenen Arbeiten beendet werden.",
       "highlights": [
         {
@@ -182,7 +182,7 @@
   },
   "additionalServices": {
     "meta": {
-      "title": "Zusätzliche Dienste - Eye On Idea",
+      "title": "Zusätzliche Dienste | Eye On Idea",
       "description": "Domain, E-Mail, Texterstellung, SEO und laufende Supportpläne. Alles rund um Ihre Website wird von Eye On Idea in Aalborg an einem Ort erledigt."
     },
     "hero": {
@@ -198,7 +198,7 @@
       "intro": "Übersicht",
       "content": "Inhalt",
       "domain": "Domäne",
-      "email": "E-Mail",
+      "email": "Email",
       "seoConsulting": "SEO und Beratung",
       "support": "Support-Pläne"
     },
@@ -218,7 +218,7 @@
         },
         {
           "icon": "i-heroicons-envelope",
-          "title": "E-Mail",
+          "title": "Email",
           "body": "Professionelle E-Mail auf Ihrer eigenen Domain. EU-gehostet, spam-gefiltert und einsatzbereit."
         },
         {
@@ -297,8 +297,8 @@
         ]
       },
       "email": {
-        "badge": "E-Mail",
-        "title": "E-Mail",
+        "badge": "Email",
+        "title": "Email",
         "intro": [
           "Eine professionelle E-Mail-Adresse auf Ihrer eigenen Domain ist eine der einfachsten Möglichkeiten, glaubwürdig zu wirken. Wir richten geschäftliche E-Mails auf einer EU-basierten Infrastruktur ein und verwalten diese.",
           "Beide Pläne nutzen Ihre Domain (you{'@'}yourcompany.com) und umfassen Standardfunktionen: Webmail-Zugriff, Spam-Filterung und grundlegende Kalenderfunktionen."

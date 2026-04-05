@@ -207,7 +207,9 @@ const panelGradients = [
 <style lang="scss" scoped>
 /* ── Section ──────────────────────────────────────────────────── */
 .packages-section {
-  background: var(--color-section-light);
+  position: relative;
+  z-index: 1;
+  background: transparent;
   border-top: 1px solid var(--color-border);
 }
 
@@ -727,6 +729,15 @@ const panelGradients = [
 
 /* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
+  /* Header sits over the dark background image — keep text light */
+  .packages-title   { color: #ffeddf; }
+  .packages-subtitle { color: rgba(255, 237, 223, 0.60); }
+  .section-badge {
+    color: #dfaf85;
+    border-color: rgba(223, 175, 133, 0.30);
+    background: rgba(223, 175, 133, 0.08);
+  }
+
   /* Panel base — white glass card */
   .pkg-panel {
     background: rgba(255, 255, 255, 0.92);

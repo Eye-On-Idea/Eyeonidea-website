@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "Centro clienti",
+    "title": "Client Hub",
     "description": "Guide e risorse per aiutarti a gestire il tuo sito web, la posta elettronica, il dominio, l'hosting e l'identità del marchio"
   },
   "login": {
-    "title": "Centro clienti",
+    "title": "Client Hub",
     "subtitle": "Inserisci la tua password per accedere a guide e risorse",
     "passwordLabel": "Parola d'ordine",
     "passwordPlaceholder": "Inserisci la tua password di accesso",
@@ -16,7 +16,7 @@
     "helpText": "Se non disponi di una password, contatta il tuo project manager Eye On Idea."
   },
   "nav": {
-    "hubTitle": "Centro clienti",
+    "hubTitle": "Client Hub",
     "backToSite": "Torna al sito principale",
     "logout": "Esci",
     "home": "Casa dell'Hub",
@@ -26,14 +26,14 @@
     "allServices": "Tutti i servizi"
   },
   "hub": {
-    "welcomeTitle": "Benvenuto nel tuo hub clienti",
+    "welcomeTitle": "Benvenuto nel tuo Client Hubi",
     "welcomeDescription": "Trova guide e risorse per i servizi che forniamo. Scegli un servizio qui sotto per iniziare.",
     "servicesTitle": "Sfoglia per servizio",
     "gettingStartedHighlight": "Nuovo qui? Inizia con la guida onboarding qui sopra per capire cosa aspettarti.",
-    "heroTagline": "Tutto quello che ti serve per gestire il tuo sito web, il tuo brand e la tua presenza digitale - tutto in un posto.",
+    "heroTagline": "Tutto quello che ti serve per gestire il tuo sito web, il tuo brand e la tua presenza digitale, tutto in un posto.",
     "heroCta1": "Inizia onboarding",
     "heroCta2": "Esplora le guide",
-    "introTitle": "Cos'e l'hub clienti?",
+    "introTitle": "Cos'e l'Client Hubi?",
     "introBody": "Questo hub e il tuo centro risorse privato. Troverai guide passo dopo passo per ogni servizio offerto da Eye On Idea, dalla gestione dei contenuti del sito e del dominio al lavoro con la tua identita visiva. Usa la barra laterale per navigare per argomento o cerca con Cmd+K.",
     "contactTitle": "Hai bisogno di aiuto?",
     "contactBody": "Contatta direttamente il tuo project manager Eye On Idea ad Aalborg.",
@@ -114,7 +114,7 @@
       "icon": "i-heroicons-globe-alt"
     },
     "email": {
-      "title": "E-mail",
+      "title": "Email",
       "description": "Configura e gestisci i tuoi account di posta elettronica professionali con Zimbra.",
       "icon": "i-heroicons-envelope"
     },
@@ -156,7 +156,7 @@
       "icon": "i-heroicons-magnifying-glass"
     },
     "news-and-posts": {
-      "title": "Notizie e post",
+      "title": "News e post",
       "description": "Crea, formatta e pubblica articoli di notizie o post di blog.",
       "icon": "i-heroicons-newspaper"
     },
@@ -415,7 +415,7 @@
         "introTitle": "Trovare ciò di cui hai bisogno",
         "introText": "La maggior parte degli studi dispone di un menu sul lato sinistro con i tipi di contenuto. Questi in genere includono:",
         "contentType1": "Pagine",
-        "contentType2": "Notizie/post",
+        "contentType2": "News/post",
         "contentType3": "Impostazioni",
         "contentType4": "Navigazione",
         "contentType5": "SEO",
@@ -486,7 +486,7 @@
         "introText": "La sezione notizie o post ti consente di condividere aggiornamenti, pubblicare articoli, migliorare la visibilità nei motori di ricerca e mantenere attivo il tuo sito web. Ogni post diventa la sua pagina.",
         "createTitle": "Crea un nuovo messaggio",
         "createStep1": "Apri lo Studio",
-        "createStep2": "Fai clic su Notizie o Post nella navigazione",
+        "createStep2": "Fai clic su News o Post nella navigazione",
         "createStep3": "Fare clic su Crea nuovo",
         "titleSectionTitle": "Aggiungi un titolo",
         "titleText": "Scrivi un titolo chiaro, breve e specifico. Evita titoli molto lunghi, tutto maiuscolo o parole chiave in eccesso.",
@@ -822,7 +822,7 @@
         "versionsTitle": "Versioni del logo",
         "versionsText": "Potresti aver ricevuto diverse versioni del logo:",
         "version1": "Logo principale: utilizzalo per impostazione predefinita",
-        "version2": "Versione orizzontale  -  per ampi spazi",
+        "version2": "Versione orizzontale, per ampi spazi",
         "version3": "Versione impilata – per spazi verticali",
         "version4": "Versione solo icone: per immagini del profilo dei social media e piccoli spazi",
         "version5": "Versione chiara: per sfondi scuri",
@@ -893,13 +893,13 @@
     "browse": "Sfoglia le guide"
   },
   "breadcrumb": {
-    "hub": "Centro clienti"
+    "hub": "Client Hub"
   },
   "disclaimer": {
     "title": "Area clienti privata",
     "subtitle": "Questa sezione è destinata esclusivamente ai clienti di Eye On Idea.",
     "body": "Le risorse qui presenti sono fornite nell'ambito del tuo accordo di servizio. Si prega di non condividere i link a quest'area con altri.",
-    "continueButton": "Accedi al centro clienti",
+    "continueButton": "Accedi al Client Hub",
     "backToSite": "Torna al sito"
   }
 }

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Prestations - Eye On Idea",
+    "title": "Prestations | Eye On Idea",
     "description": "Forfaits de sites Web professionnels, identité visuelle, solutions CMS et support continu. Solutions numériques sur mesure pour les entreprises B2B à travers l'Europe."
   },
   "hero": {
@@ -185,7 +185,7 @@
             "platform": true
           },
           {
-            "name": "Rubrique Blogue / Actualités",
+            "name": "Rubrique Blogue / News",
             "tooltip": "Publier des articles, des actualités et des mises à jour",
             "launch": false,
             "growth": true,
@@ -337,7 +337,7 @@
       },
       "email": {
         "id": "email-section",
-        "title": "E-mail",
+        "title": "Email",
         "description": "Adresses e-mail professionnelles sur votre propre domaine. Hébergé sur l’infrastructure de l’UE.",
         "items": [
           {
@@ -548,7 +548,7 @@
     "subtitle": "La différence entre un site modèle et une présence numérique construite par des professionnels, mesurée par les mesures qui comptent.",
     "sliderLabel": "Faites glisser pour comparer les métriques avant et après",
     "beforeLabel": "Avant",
-    "afterLabel": "Après - avec Eye On Idea",
+    "afterLabel": "Après, avec Eye On Idea",
     "metrics": [
       {
         "label": "Score phare",

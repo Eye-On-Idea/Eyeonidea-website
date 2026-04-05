@@ -1,7 +1,7 @@
 {
   "websitePackages": {
     "meta": {
-      "title": "Hjemmesidepakker - Eye On Idea",
+      "title": "Hjemmesidepakker | Eye On Idea",
       "description": "Tre hjemmesidepakker bygget op omkring det sted, hvor din virksomhed er lige nu. Klare priser, ærligt omfang og ingen unødvendige ekstraudstyr. Sammenlign lancering, vækst og platform."
     },
     "hero": {
@@ -57,7 +57,7 @@
   },
   "visualIdentity": {
     "meta": {
-      "title": "Visuel identitet - Eye On Idea",
+      "title": "Visuel identitet | Eye On Idea",
       "description": "Logo, farve, typografi og brandretningslinjer for virksomheder, der ønsker at se troværdige og konsekvente ud. Visuel identitetsdesign fra Eye On Idea i Aalborg."
     },
     "hero": {
@@ -80,7 +80,7 @@
     "intro": {
       "eyebrow": "Visuel identitet",
       "heading": "Dit brand taler, inden du gør det.",
-      "body": "Et veldesignet logo, en konsistent farvepalette og klar typografi signalerer professionalisme og opbygger tillid, som er svær at opnå på andre måder. Hos Eye On Idea tilgår vi visuel identitet som et praktisk fundament - og leverer et komplet, brugbart system, der fungerer konsistent på din hjemmeside, dine trykte materialer og overalt, hvor dit publikum finder dig."
+      "body": "Et veldesignet logo, en konsistent farvepalette og klar typografi signalerer professionalisme og opbygger tillid, som er svær at opnå på andre måder. Hos Eye On Idea tilgår vi visuel identitet som et praktisk fundament, og leverer et komplet, brugbart system, der fungerer konsistent på din hjemmeside, dine trykte materialer og overalt, hvor dit publikum finder dig."
     },
     "deliverables": {
       "badge": "Hvad du får",
@@ -139,7 +139,7 @@
       "vatNote": "Alle priser ekskl. moms",
       "startsAt": "fra",
       "introTitle": "Saadan virker det",
-      "introBody": "Hvert visuel identitetsprojekt tager udgangspunkt i din virksomhed. Nogle virksomheder har brug for et fokuseret logo og farvesystem. Andre har brug for et fuldt brandfundament med retningslinjer og klar-til-brug aktiver, der understotter langsigtet vaekst.\n\nPriserne vist her starter ved det angivne belob og afspejler minimumsomfanget af hver service. Den endelige investering afhaenger af dine mal, tidsplan og detaljeniveau. Alt arbejde er projektbaseret og tydeligt defineret, saa du modtager en struktureret visuel identitet, der er bygget til at understotte din virksomhed nu og i fremtiden.",
+      "introBody": "Hvert visuel identitetsprojekt tager udgangspunkt i din virksomhed. Nogle virksomheder har brug for et fokuseret logo og farvesystem. Andre har brug for et fuldt brandfundament med retningslinjer og klar-til-brug aktiver, der understotter langsigtet vaekst. Priserne vist her starter ved det angivne belob og afspejler minimumsomfanget af hver service. Den endelige investering afhaenger af dine mal, tidsplan og detaljeniveau. Alt arbejde er projektbaseret og tydeligt defineret, saa du modtager en struktureret visuel identitet, der er bygget til at understotte din virksomhed nu og i fremtiden.",
       "footnote": "* Alle visuelle identitetsprojekter inkluderer et defineret antal revisionsrunder. Yderligere revisioner eller vaesentlige aendringer ud over det aftalte omfang kan pavirke den endelige pris. Hvis godkendelse ikke kan opnaas inden for den aftalte ramme, kan et nyt omfang foreslas, eller projektet kan afsluttes baseret pa det udforte arbejde.",
       "highlights": [
         {
@@ -182,7 +182,7 @@
   },
   "additionalServices": {
     "meta": {
-      "title": "Yderligere tjenester - Eye On Idea",
+      "title": "Yderligere tjenester | Eye On Idea",
       "description": "Domæne, e-mail, copywriting, SEO og løbende supportplaner. Alt omkring din hjemmeside, håndteret ét sted af Eye On Idea i Aalborg."
     },
     "hero": {
@@ -198,7 +198,7 @@
       "intro": "Oversigt",
       "content": "Indhold",
       "domain": "Domæne",
-      "email": "E-mail",
+      "email": "Email",
       "seoConsulting": "SEO og rådgivning",
       "support": "Supportplaner"
     },
@@ -218,7 +218,7 @@
         },
         {
           "icon": "i-heroicons-envelope",
-          "title": "E-mail",
+          "title": "Email",
           "body": "Professionel e-mail på dit eget domæne. EU-hostet, spamfiltreret og klar til brug."
         },
         {
@@ -238,7 +238,7 @@
         "badge": "Indhold & Sprog",
         "title": "Indhold & Sprog",
         "intro": [
-          "Godt indhold handler ikke kun om at fylde sider. Det handler om at være overskuelig, direkte og nem at scanne - på hver enhed, på alle sprog, du skal nå.",
+          "Godt indhold handler ikke kun om at fylde sider. Det handler om at være overskuelig, direkte og nem at scanne, på hver enhed, på alle sprog, du skal nå.",
           "Vi skriver, redigerer og udarbejder hjemmesidetekst, der passer til designet og kommunikerer, hvad din virksomhed rent faktisk laver. Vi hjælper også, når et websted skal fungere på mere end ét sprog."
         ],
         "items": [
@@ -280,7 +280,7 @@
             "name": "Yderligere domæneregistrering",
             "price": "15-50",
             "unit": "om året",
-            "description": "Registrer et ekstra domæne - nyttigt til brandbeskyttelse, regionale varianter eller omdirigeringer."
+            "description": "Registrer et ekstra domæne, nyttigt til brandbeskyttelse, regionale varianter eller omdirigeringer."
           },
           {
             "name": "Hjælp til domæneoverførsel",
@@ -297,8 +297,8 @@
         ]
       },
       "email": {
-        "badge": "E-mail",
-        "title": "E-mail",
+        "badge": "Email",
+        "title": "Email",
         "intro": [
           "En professionel e-mailadresse på dit eget domæne er en af de enkleste måder at se troværdig ud på. Vi opsætter og administrerer virksomheds-e-mail på EU-baseret infrastruktur.",
           "Begge planer bruger dit domæne (dig{'@'}dinvirksomhed.com) og inkluderer standardfunktioner: webmailadgang, spamfiltrering og grundlæggende kalenderfunktionalitet."

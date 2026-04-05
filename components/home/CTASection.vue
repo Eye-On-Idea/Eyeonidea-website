@@ -117,7 +117,8 @@ const cardMotion = withDelay("fadeInUp", 80);
 /* ── Section ──────────────────────────────────────────────────── */
 .cta-section {
   position: relative;
-  background: #0d0908;
+  z-index: 1;
+  background: transparent;
   padding: 8rem 1.5rem;
   overflow: hidden;
 
@@ -130,7 +131,12 @@ const cardMotion = withDelay("fadeInUp", 80);
 .cta-bg-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, #0a0706 0%, #0d0908 50%, #0a0706 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 7, 6, 0.78) 0%,
+    rgba(13, 9, 8, 0.72) 50%,
+    rgba(10, 7, 6, 0.78) 100%
+  );
   pointer-events: none;
 }
 

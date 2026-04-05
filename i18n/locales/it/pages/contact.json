@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Contatto - Eye On Idea",
+    "title": "Contatto | Eye On Idea",
     "description": "Entra in contatto con Eye On Idea. Parliamo delle esigenze dei tuoi progetti digitali: siti web, identità visiva, soluzioni CMS o supporto continuo."
   },
   "hero": {
@@ -15,7 +15,7 @@
       "placeholder": "Il tuo nome completo"
     },
     "email": {
-      "label": "E-mail",
+      "label": "Email",
       "placeholder": "tuo{'@'}email.com"
     },
     "phone": {
@@ -59,7 +59,7 @@
       "description": "Preferisci una conversazione diretta? Contattarci tramite e-mail o telefono."
     },
     "email": {
-      "label": "E-mail",
+      "label": "Email",
       "value": "ciao{'@'}eyeonidea.com"
     },
     "phone": {

@@ -101,7 +101,9 @@ const steps = [
 <style lang="scss" scoped>
 /* ── Section ──────────────────────────────────────────────────── */
 .process-section {
-  background: #0d0908;
+  position: relative;
+  z-index: 1;
+  background: rgba(13, 9, 8, 0.80);
   padding-bottom: 0;
 }
 

@@ -17,7 +17,7 @@ onMounted(() => {
         observer.value?.disconnect();
       }
     },
-    { threshold: 0.1 }
+    { threshold: 0.1 },
   );
   if (sectionRef.value) observer.value.observe(sectionRef.value);
 });
@@ -28,13 +28,14 @@ const rowMotion = (i: number) => withDelay("fadeInUp", 160 + i * 100);
 const footerMotion = withDelay("fadeInUp", 360);
 
 const featuredCases = computed(
-  () => tm("landing.cases.featured") as Array<{
-    title: string;
-    category: string;
-    year: string;
-    outcome: string;
-    slug: string;
-  }>
+  () =>
+    tm("landing.cases.featured") as Array<{
+      title: string;
+      category: string;
+      year: string;
+      outcome: string;
+      slug: string;
+    }>,
 );
 
 const caseGradients = [
@@ -143,7 +144,9 @@ const caseGradients = [
 <style lang="scss" scoped>
 /* ── Section ──────────────────────────────────────────────────── */
 .cases-section {
-  background: #0d0908;
+  position: relative;
+  z-index: 1;
+  background: rgba(13, 9, 8, 0.923);
   padding-bottom: 4rem;
 }
 
@@ -280,10 +283,26 @@ const caseGradients = [
   border-color: rgba(223, 175, 133, 0.3);
   border-style: solid;
 
-  &--tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
-  &--tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
-  &--bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
-  &--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+  &--tl {
+    top: 0;
+    left: 0;
+    border-width: 1px 0 0 1px;
+  }
+  &--tr {
+    top: 0;
+    right: 0;
+    border-width: 1px 1px 0 0;
+  }
+  &--bl {
+    bottom: 0;
+    left: 0;
+    border-width: 0 0 1px 1px;
+  }
+  &--br {
+    bottom: 0;
+    right: 0;
+    border-width: 0 1px 1px 0;
+  }
 }
 
 /* ── Row left ─────────────────────────────────────────────────── */
@@ -370,7 +389,9 @@ const caseGradients = [
 .case-arrow {
   font-size: 1.2rem;
   color: rgba(223, 175, 133, 0.38);
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
   flex-shrink: 0;
   font-family: var(--font-heading);
 }
@@ -478,5 +499,3 @@ html:not(.dark) {
   }
 }
 </style>
-
-

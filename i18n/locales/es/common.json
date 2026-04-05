@@ -19,7 +19,7 @@
   "contact": {
     "title": "Póngase en",
     "titleHighlight": "contacto",
-    "email": "Correo electrónico",
+    "email": "Email",
     "phone": "Teléfono",
     "openPanel": "Abrir panel de contacto",
     "closePanel": "Cerrar panel de contacto"
@@ -35,7 +35,8 @@
   "accessibility": {
     "scrollProgress": "Progreso de desplazamiento de la página",
     "selectLanguage": "Seleccionar idioma",
-    "toggleColorMode": "Cambiar modo de color"
+    "toggleColorMode": "Cambiar modo de color",
+    "externalLink": "Se abre en una nueva pestaña"
   },
   "colorMode": {
     "light": "Modo claro",

@@ -1,12 +1,12 @@
 {
   "meta": {
-    "title": "Ydelser - Eye On Idea",
+    "title": "Ydelser | Eye On Idea",
     "description": "Professionelle hjemmesidepakker, visuel identitet, CMS-løsninger og løbende support. Skræddersyede digitale løsninger til B2B-virksomheder i hele Europa."
   },
   "hero": {
     "badge": "Vores tjenester",
     "title": "Digitale løsninger, der vokser med dig",
-    "subtitle": "Eye On Idea hjælper virksomheder med at etablere og udvikle en klar, professionel digital tilstedeværelse. Alle projekter scopes individuelt, baseret på reelle behov - ikke skabeloner."
+    "subtitle": "Eye On Idea hjælper virksomheder med at etablere og udvikle en klar, professionel digital tilstedeværelse. Alle projekter scopes individuelt, baseret på reelle behov, ikke skabeloner."
   },
   "overview": {
     "title": "Hvad vi gør",
@@ -185,7 +185,7 @@
             "platform": true
           },
           {
-            "name": "Blog / Nyhedssektion",
+            "name": "Blog / News section",
             "tooltip": "Udgiv artikler, nyheder og opdateringer",
             "launch": false,
             "growth": true,
@@ -337,7 +337,7 @@
       },
       "email": {
         "id": "email-section",
-        "title": "E-mail",
+        "title": "Email",
         "description": "Professionelle e-mailadresser på dit eget domæne. Hostet på EU-infrastruktur.",
         "items": [
           {
@@ -538,7 +538,7 @@
   "cta": {
     "badge": "Klar til at starte?",
     "title": "Lad os finde den rigtige løsning",
-    "description": "Ethvert projekt starter med at forstå, hvad din virksomhed faktisk har brug for. Ingen foruddefinerede løsninger - kun en samtale om dine mål.",
+    "description": "Ethvert projekt starter med at forstå, hvad din virksomhed faktisk har brug for. Ingen foruddefinerede løsninger, kun en samtale om dine mål.",
     "primary": "Start en samtale",
     "secondary": "Se vores arbejde"
   },
@@ -548,7 +548,7 @@
     "subtitle": "Forskellen mellem et skabelonwebsted og en professionelt bygget digital tilstedeværelse, målt i de målinger, der betyder noget.",
     "sliderLabel": "Træk for at sammenligne før og efter metrics",
     "beforeLabel": "før",
-    "afterLabel": "Efter - med Eye On Idea",
+    "afterLabel": "Efter, med Eye On Idea",
     "metrics": [
       {
         "label": "Lighthouse Score",

@@ -141,6 +141,8 @@ const numerals = ["I", "II", "III"];
 <style lang="scss" scoped>
 /* ── Section ──────────────────────────────────────────────────── */
 .audience-section {
+  position: relative;
+  z-index: 1;
   background: #1a0904;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   overflow: hidden;

@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "Centro de clientes",
+    "title": "Client Hub",
     "description": "Guías y recursos para ayudarle a administrar su sitio web, correo electrónico, dominio, alojamiento e identidad de marca."
   },
   "login": {
-    "title": "Centro de clientes",
+    "title": "Client Hub",
     "subtitle": "Ingrese su contraseña para acceder a guías y recursos",
     "passwordLabel": "Contraseña",
     "passwordPlaceholder": "Introduce tu contraseña de acceso",
@@ -16,7 +16,7 @@
     "helpText": "Si no tiene una contraseña, comuníquese con su gerente de proyecto de Eye On Idea."
   },
   "nav": {
-    "hubTitle": "Centro de clientes",
+    "hubTitle": "Client Hub",
     "backToSite": "Volver al sitio principal",
     "logout": "Cerrar sesión",
     "home": "Inicio del centro",
@@ -26,14 +26,14 @@
     "allServices": "Todos los servicios"
   },
   "hub": {
-    "welcomeTitle": "Bienvenido a su Centro de Clientes",
+    "welcomeTitle": "Bienvenido a su Client Hub",
     "welcomeDescription": "Encuentre guías y recursos para los servicios que brindamos. Elija un servicio a continuación para comenzar.",
     "servicesTitle": "Navegar por servicio",
     "gettingStartedHighlight": "¿Nuevo aquí? Comience con la guía de incorporación anterior para comprender qué esperar.",
     "heroTagline": "Todo lo que necesita para administrar su sitio web, su marca y su presencia digital, todo en un solo lugar.",
     "heroCta1": "Iniciar la incorporación",
     "heroCta2": "Explorar guías",
-    "introTitle": "¿Qué es el Centro de Clientes?",
+    "introTitle": "¿Qué es el Client Hub?",
     "introBody": "Este centro es su centro de recursos privado. Encontrará guías paso a paso para cada servicio que ofrece Eye On Idea, desde administrar el contenido y el dominio de su sitio web hasta trabajar con su identidad visual. Utilice la barra lateral para navegar por tema o busque con Cmd+K.",
     "contactTitle": "¿Necesitas ayuda?",
     "contactBody": "Comuníquese directamente con su Eye On Idea gerente de proyecto en Aalborg.",
@@ -114,7 +114,7 @@
       "icon": "i-heroicons-globe-alt"
     },
     "email": {
-      "title": "Correo electrónico",
+      "title": "Email",
       "description": "Configurar y administrar tus cuentas de correo electrónico profesionales con Zimbra.",
       "icon": "i-heroicons-envelope"
     },
@@ -156,7 +156,7 @@
       "icon": "i-heroicons-magnifying-glass"
     },
     "news-and-posts": {
-      "title": "Noticias y publicaciones",
+      "title": "News y publicaciones",
       "description": "Cree, formatee y publique artículos de noticias o publicaciones de blog.",
       "icon": "i-heroicons-newspaper"
     },
@@ -415,7 +415,7 @@
         "introTitle": "Encontrar lo que necesitas",
         "introText": "La mayoría de los estudios tienen un menú del lado izquierdo con tipos de contenido. Estos suelen incluir:",
         "contentType1": "paginas",
-        "contentType2": "Noticias / Publicaciones",
+        "contentType2": "News / Publicaciones",
         "contentType3": "Configuración",
         "contentType4": "Navegación",
         "contentType5": "SEO",
@@ -486,7 +486,7 @@
         "introText": "Su sección de noticias o publicaciones le permite compartir actualizaciones, publicar artículos, mejorar la visibilidad en los motores de búsqueda y mantener activo su sitio web. Cada publicación se convierte en su propia página.",
         "createTitle": "Crear una nueva publicación",
         "createStep1": "abrir el estudio",
-        "createStep2": "Haga clic en Noticias o Publicaciones en la navegación.",
+        "createStep2": "Haga clic en News o Publicaciones en la navegación.",
         "createStep3": "Haga clic en Crear nuevo",
         "titleSectionTitle": "Añadir un título",
         "titleText": "Escribe un título claro, breve y específico. Evite títulos muy largos, todo en mayúsculas o exceso de palabras clave.",
@@ -893,13 +893,13 @@
     "browse": "Explorar guías"
   },
   "breadcrumb": {
-    "hub": "Centro de clientes"
+    "hub": "Client Hub"
   },
   "disclaimer": {
     "title": "Área privada de clientes",
     "subtitle": "Esta sección está destinada exclusivamente a los clientes de Eye On Idea.",
     "body": "Los recursos aquí proporcionados forman parte de su acuerdo de servicio. Por favor, no comparta enlaces a esta área con terceros.",
-    "continueButton": "Acceder al centro de clientes",
+    "continueButton": "Acceder al Client Hub",
     "backToSite": "Volver al sitio"
   }
 }

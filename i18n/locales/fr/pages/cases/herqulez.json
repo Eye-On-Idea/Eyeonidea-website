@@ -7,7 +7,7 @@
   "projectType": "Site Web de marketing pour les startups de technologies de la santé",
   "year": "2025",
   "role": "Conception Web, développement, référencement, hébergement",
-  "duration": "Novembre 2025 - En cours",
+  "duration": "Novembre 2025 à aujourd'hui",
   "url": "https://herqulez.com",
   "thumbnail": "/images/cases/herqulez/squared-dark-yellow.png",
   "hero": "/images/cases/herqulez/herq-landing.png",
@@ -25,7 +25,7 @@
     "Gestionnaire de balises Google"
   ],
   "overview": {
-    "challenge": "Herqulez est une plateforme de fitness modulaire couvrant six domaines : Core Fitness, Nutrition, Sommeil/Récupération, Habitudes, Sport et Voyage - chacun avec sa propre identité de produit. Le site Web marketing devait communiquer clairement sur un écosystème complexe et multi-modules sans surcharger les visiteurs, tout en établissant la confiance avant le lancement de l'application.",
+    "challenge": "Herqulez est une plateforme de fitness modulaire couvrant six domaines : Core Fitness, Nutrition, Sommeil/Récupération, Habitudes, Sport et Voyage, chacun avec sa propre identité de produit. Le site Web marketing devait communiquer clairement sur un écosystème complexe et multi-modules sans surcharger les visiteurs, tout en établissant la confiance avant le lancement de l'application.",
     "solution": "Nous avons conçu et construit un site Web marketing performant avec Nuxt 4 qui présente l'écosystème Herqulez de manière claire et visuellement attrayante. L'architecture donne la priorité aux performances et au référencement, avec une prise en charge multilingue (anglais et danois en direct, avec d'autres prévues) et une configuration d'analyse conforme au RGPD via le mode consentement GTM.",
     "outcome": "Le site marketing a obtenu les scores Lighthouse de 99 (performance), 93 (accessibilité), 96 (meilleures pratiques) et 100 (SEO). Il positionne Herqulez pour le lancement prévu de MVP début 2026, avec une base évolutive prête pour des langues et du contenu supplémentaires."
   },

@@ -11,7 +11,8 @@
       "primary": "Starten Sie Ihr Projekt",
       "secondary": "Entdecken Sie Dienstleistungen"
     },
-    "scrollIndicator": "Scrollen Sie zum Erkunden"
+    "scrollIndicator": "Scrollen Sie zum Erkunden",
+    "orbLabel": "Unsere Leistungen, zum Erkunden mit der Maus darüberfahren"
   },
   "about": {
     "badge": "Wer wir sind",
@@ -40,42 +41,49 @@
     "categories": {
       "websites": {
         "title": "Websites",
+        "orbNote": "Ihr erster ernsthafter digitaler Auftritt.",
         "need": "Ihr Unternehmen braucht eine professionelle Online-Präsenz, die Vertrauen aufbaut und Besucher konvertiert.",
         "skill": "Wir gestalten und entwickeln schnelle, zugängliche Websites, die auf Ihre Marke und Geschäftsziele zugeschnitten sind.",
         "cta": "Website-Pakete erkunden"
       },
       "identity": {
         "title": "Visuelle Identität & Design",
+        "orbNote": "Eine Website, die mit Ihrem Wachstum Schritt hält.",
         "need": "Inkonsistente Grafiken beschädigen die Glaubwürdigkeit, bevor ein einziges Wort gelesen wird.",
         "skill": "Wir erstellen Logos, Farbpaletten, Typografie und Markenrichtlinien für digitale Medien.",
         "cta": "Identitätsservices anzeigen"
       },
       "content": {
         "title": "Content-Erstellung",
+        "orbNote": "Laufende Markenführung, monatlich.",
         "need": "Leere Seiten und generische Texte vermitteln nicht, warum Sie wichtig sind.",
         "skill": "Wir schreiben und strukturieren Inhalte, die Ihre Zielgruppe in jeder Sprache klar ansprechen.",
         "cta": "Content-Services"
       },
       "seo": {
         "title": "SEO & Social Media",
+        "orbNote": "Werden Sie von den Kunden gefunden, die Ihnen wichtig sind.",
         "need": "Gute Arbeit bleibt ungesehen ohne eine Strategie für Suche und Social-Media-Präsenz.",
         "skill": "Wir optimieren Ihre Sichtbarkeit in Suchmaschinen und bauen Ihre Präsenz dort auf, wo Ihre Kunden sind.",
         "cta": "SEO & Social Services"
       },
       "email": {
         "title": "Professionelle E-Mail",
+        "orbNote": "Marken-E-Mails stärken die Glaubwürdigkeit im B2B-Bereich.",
         "need": "Kostenlose E-Mail-Adressen signalisieren B2B-Kunden mangelnde Professionalität.",
         "skill": "Wir richten sichere, markengebundene Geschäfts-E-Mails ein, die Ihre professionelle Identität stärken.",
         "cta": "E-Mail einrichten"
       },
       "domain": {
         "title": "Domain-Verwaltung",
+        "orbNote": "Besitzen und schützen Sie Ihre digitale Adresse.",
         "need": "Ihre Domain ist Ihre digitale Adresse – sie muss gesichert und richtig konfiguriert sein.",
         "skill": "Wir registrieren, sichern und verwalten Ihre Domain, damit Sie die Kontrolle über Ihre Marke behalten.",
         "cta": "Domain-Services"
       },
       "qa": {
         "title": "Qualitätssicherung",
+        "orbNote": "Erkennen Sie Probleme, bevor Ihre Kunden es tun.",
         "need": "Fehlerhafte Abläufe, langsame Seiten und Barrierefreiheitsprobleme kosten Sie still Kunden.",
         "skill": "Wir prüfen und testen digitale Produkte von Anfang bis Ende – bevor Ihre Nutzer Probleme bemerken.",
         "cta": "QA-Beratung"
@@ -113,6 +121,113 @@
     "description": "Egal, ob Sie etwas Neues beginnen, Bestehendes verbessern oder eine zweite Meinung benötigen – wir sind für Sie da.",
     "primary": "Starten Sie ein Gespräch",
     "secondary": "Sehen Sie sich unsere Arbeit an"
+  },
+  "audience": {
+    "badge": "Für wen das ist",
+    "title": "Eye On Idea wurde für KMU-B2B-Unternehmen entwickelt, die eine klarere, glaubwürdigere digitale Präsenz benötigen.",
+    "subtitle": "Sie passen wahrscheinlich gut zu uns, wenn sich Ihr Unternehmen in einer dieser Situationen befindet.",
+    "situations": [
+      {
+        "icon": "i-heroicons-building-storefront",
+        "heading": "Sie sind Ihrer aktuellen digitalen Präsenz entwachsen",
+        "body": "Inhabergeführte oder schlanke B2B-Unternehmen, die sich auf eine Platzhalterseite, ein DIY-Setup oder kein echtes Markensystem verlassen haben. Sie brauchen Ihre erste ernsthafte Grundlage, etwas, das bewusst aussieht, Vertrauen schafft und die Qualität Ihrer tatsächlichen Arbeit widerspiegelt."
+      },
+      {
+        "icon": "i-heroicons-arrow-trending-down",
+        "heading": "Ihre Website oder Marke spiegelt nicht mehr wider, wer Sie sind",
+        "body": "Ihr Unternehmen ist gewachsen und hat sich verbessert, aber Ihre Online-Präsenz hat nicht Schritt gehalten. Was Sie online haben, lässt Sie weniger glaubwürdig erscheinen, als Sie wirklich sind, und Sie wissen, dass es Sie Chancen kostet."
+      },
+      {
+        "icon": "i-heroicons-chart-bar-square",
+        "heading": "Sie benötigen mehr als einen einmaligen Build",
+        "body": "Wachsende Unternehmen, die Struktur, klarere Inhalte und einen langfristigen digitalen Partner suchen. Sie suchen keinen Freelancer zur einmaligen Übergabe, sondern jemanden, der dranbleibt und Ihre digitale Präsenz laufend verbessert."
+      }
+    ]
+  },
+  "packages": {
+    "badge": "Was wir anbieten",
+    "title": "Finden Sie Ihren Ausgangspunkt",
+    "subtitle": "Jedes Unternehmen ist anders. Diese drei Pakete sind unser Startpunkt, jeweils passend zu Ihrer aktuellen Situation.",
+    "items": [
+      {
+        "numeral": "I",
+        "name": "Legen Sie los",
+        "tagline": "Ihre Website und Ihr Logo, vom ersten Tag an.",
+        "description": "Für neue Unternehmen und alle, die ihre erste ernsthafte digitale Präsenz aufbauen. Sie erhalten eine professionell gestaltete Website und ein Logo, alles, was Sie brauchen, um aufzutreten, glaubwürdig zu wirken und Kunden zu gewinnen.",
+        "includes": [
+          "Logo-Design",
+          "Website, bis zu 5 Seiten",
+          "Farbpalette und Typografie der Marke",
+          "Professionelle E-Mail-Einrichtung",
+          "Responsive Umsetzung für Mobilgeräte",
+          "Grundlegendes SEO-Setup"
+        ],
+        "price": "1,500",
+        "currency": "€",
+        "priceNote": "exkl. MwSt"
+      },
+      {
+        "numeral": "II",
+        "name": "Mit dem richtigen Auftritt",
+        "tagline": "Eine Marke, die die Qualität Ihrer Arbeit widerspiegelt.",
+        "description": "Für Unternehmen, die bereits existieren, aber inkonsistent oder veraltet aussehen. Wir bauen Ihre visuelle Identität neu auf, Logo, Farben, Typografie und die Materialien, um alles zu nutzen.",
+        "includes": [
+          "Logo-Design oder Redesign",
+          "Farbpalette und Typografiesystem",
+          "Dokument mit Markenrichtlinien",
+          "Vorlagen für Visitenkarten und Briefköpfe",
+          "Social-Media-Profil-Assets"
+        ],
+        "price": "2,000",
+        "currency": "€",
+        "priceNote": "exkl. MwSt"
+      },
+      {
+        "numeral": "III",
+        "name": "Voraus bleiben",
+        "tagline": "Ihre Marke, aktuell gehalten. Jeden Monat.",
+        "description": "Für Unternehmen, die fortlaufende Unterstützung wünschen, nicht nur ein einmaliges Projekt. Wir bleiben beteiligt, erstellen Inhalte und stellen sicher, dass alles, was Sie haben, weiterhin so funktioniert wie am Tag seiner Einführung.",
+        "includes": [
+          "Monatliche Content-Erstellung",
+          "Laufende Website-Updates und -Verbesserungen",
+          "Überprüfung der Markenkonsistenz",
+          "Social-Media-Strategie und -Assets",
+          "Vorrangiger Support",
+          "Vierteljährliche Markenausrichtung"
+        ],
+        "price": "1,200",
+        "currency": "€",
+        "pricePer": "/mo",
+        "priceNote": "exkl. MwSt"
+      }
+    ],
+    "cta": "Starten Sie ein Gespräch",
+    "ctaHref": "/contact",
+    "footerCta": "Alle Dienste anzeigen",
+    "footerCtaHref": "/solutions"
+  },
+  "cases": {
+    "badge": "Fallstudien",
+    "title": "Echte Arbeit. Messbare Ergebnisse.",
+    "subtitle": "Eine Auswahl von Unternehmen, denen Eye On Idea geholfen hat, eine glaubwürdigere und besser strukturierte digitale Präsenz aufzubauen.",
+    "featured": [
+      {
+        "title": "Tegetec",
+        "category": "B2B-Web-Redesign",
+        "year": "2025",
+        "outcome": "Neu aufgebauter Industrieausrüstungsanbieter mit einem sauberen, SEO-strukturierten Auftritt, der professionellen Käufern Glaubwürdigkeit vermittelt.",
+        "slug": "tegetec"
+      },
+      {
+        "title": "Herqulez",
+        "category": "Marke & Web",
+        "year": "2025",
+        "outcome": "Von Grund auf neu entwickelte modulare Fitnessplattform, vollständige Identität, Architektur und Inhaltsinfrastruktur.",
+        "slug": "herqulez"
+      }
+    ],
+    "cta": "Sehen Sie sich alle unsere Arbeiten an",
+    "ctaHref": "/cases"
   },
   "stats": {
     "clients": {

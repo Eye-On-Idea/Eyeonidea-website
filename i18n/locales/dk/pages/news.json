@@ -1,11 +1,11 @@
 {
-  "title": "Nyheder og indsigt",
+  "title": "News og indsigt",
   "seo": {
-    "title": "Nyheder og indsigt - Eye On Idea",
+    "title": "News og indsigt | Eye On Idea",
     "description": "Hold dig opdateret med de seneste nyheder, indsigter og opdateringer fra Eye On Idea. Webudviklingstendenser, nyheder om digitale bureauer og brancheindsigt."
   },
   "hero": {
-    "title": "Nyheder og indsigt",
+    "title": "News og indsigt",
     "subtitle": "Hold dig opdateret med det seneste fra Eye On Idea"
   },
   "filters": {
@@ -13,7 +13,7 @@
     "searchLabel": "Søg",
     "filterByType": "Filtrer efter type",
     "allTypes": "Alle typer",
-    "news": "Nyheder",
+    "news": "News",
     "article": "Artikel",
     "announcement": "Meddelelse",
     "caseStudy": "Casestudie",
@@ -33,7 +33,7 @@
     "loading": "Indlæser artikel...",
     "notFound": "Artikel ikke fundet",
     "notFoundText": "Den artikel, du leder efter, findes ikke eller er blevet fjernet.",
-    "backToNews": "Tilbage til Nyheder",
+    "backToNews": "Tilbage til News",
     "defaultTitle": "Artikel",
     "share": "Del denne artikel",
     "shareLinkedIn": "Del på LinkedIn",
@@ -47,9 +47,26 @@
     "viewAll": "Se alle artikler"
   },
   "categories": {
-    "news": "Nyheder",
+    "news": "News",
     "article": "Artikel",
     "announcement": "Meddelelse",
     "caseStudy": "Casestudie"
+  },
+  "postTypes": {
+    "news": "News",
+    "article": "Artikel",
+    "announcement": "Annonce",
+    "caseStudy": "Casestudie",
+    "event": "Begivenhed",
+    "product_update": "Produktopdatering",
+    "press_release": "Pressemeddelelse"
+  },
+  "postsList": {
+    "noResults": "Ingen artikler fundet",
+    "noResultsText": "Prøv at justere din søgning eller dine filtre",
+    "loadMore": "Indlæs flere artikler",
+    "loading": "Indlæser artikler...",
+    "allLoaded": "Alle artikler er indlæst",
+    "showingCount": "Viser {shown} af {total} artikler"
   }
 }

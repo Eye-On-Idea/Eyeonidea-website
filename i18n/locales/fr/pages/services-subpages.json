@@ -1,7 +1,7 @@
 {
   "websitePackages": {
     "meta": {
-      "title": "Forfaits Web - Eye On Idea",
+      "title": "Forfaits Web | Eye On Idea",
       "description": "Trois packages de sites Web construits autour de la situation actuelle de votre entreprise. Des prix clairs, une portée honnête et aucun extra inutile. Comparez le lancement, la croissance et la plate-forme."
     },
     "hero": {
@@ -57,7 +57,7 @@
   },
   "visualIdentity": {
     "meta": {
-      "title": "Identité visuelle - Eye On Idea",
+      "title": "Identité visuelle | Eye On Idea",
       "description": "Logo, couleur, typographie et directives de marque pour les entreprises qui souhaitent paraître crédibles et cohérentes. Conception d'identité visuelle de Eye On Idea à Aalborg."
     },
     "hero": {
@@ -80,7 +80,7 @@
     "intro": {
       "eyebrow": "Identité visuelle",
       "heading": "Votre marque parle avant vous.",
-      "body": "Un logo bien conçu, une palette de couleurs cohérente et une typographie claire signalent un professionnalisme et établissent une confiance difficile à atteindre autrement. Chez Eye On Idea, nous abordons l'identité visuelle comme une base pratique - en fournissant un système complet et utilisable qui fonctionne de manière cohérente sur votre site Web, vos documents imprimés et partout où votre public vous trouve."
+      "body": "Un logo bien conçu, une palette de couleurs cohérente et une typographie claire signalent un professionnalisme et établissent une confiance difficile à atteindre autrement. Chez Eye On Idea, nous abordons l'identité visuelle comme une base pratique, en fournissant un système complet et utilisable qui fonctionne de manière cohérente sur votre site Web, vos documents imprimés et partout où votre public vous trouve."
     },
     "deliverables": {
       "badge": "Ce que vous obtenez",
@@ -139,7 +139,7 @@
       "vatNote": "Tous les prix excl. TVA",
       "startsAt": "à partir de",
       "introTitle": "Comment ça fonctionne",
-      "introBody": "Chaque projet d'identité visuelle part de votre entreprise. Certaines entreprises ont besoin d'un logo ciblé et d'un système de couleurs. D'autres ont besoin d'une base de marque complète avec des directives et des actifs prêts à l'emploi qui soutiennent la croissance à long terme.\n\nLes prix indiqués ici commencent au montant indiqué et reflètent le périmètre minimum de chaque service. L'investissement final dépend de vos objectifs, de votre calendrier et du niveau de détail. Tout le travail est basé sur des projets et clairement défini, de sorte que vous recevez une identité visuelle structurée conçue pour soutenir votre entreprise maintenant et à mesure qu'elle se développe.",
+      "introBody": "Chaque projet d'identité visuelle part de votre entreprise. Certaines entreprises ont besoin d'un logo ciblé et d'un système de couleurs. D'autres ont besoin d'une base de marque complète avec des directives et des actifs prêts à l'emploi qui soutiennent la croissance à long terme. Les prix indiqués ici commencent au montant indiqué et reflètent le périmètre minimum de chaque service. L'investissement final dépend de vos objectifs, de votre calendrier et du niveau de détail. Tout le travail est basé sur des projets et clairement défini, de sorte que vous recevez une identité visuelle structurée conçue pour soutenir votre entreprise maintenant et à mesure qu'elle se développe.",
       "footnote": "* Tous les projets d'identité visuelle comprennent un nombre défini de tours de révision. Des révisions supplémentaires ou des modifications importantes dépassant le périmètre convenu peuvent affecter le prix final. Si un accord ne peut être atteint dans le cadre convenu, un nouveau périmètre peut être proposé ou le projet peut être conclu sur la base des travaux réalisés.",
       "highlights": [
         {
@@ -182,7 +182,7 @@
   },
   "additionalServices": {
     "meta": {
-      "title": "Services supplémentaires - Eye On Idea",
+      "title": "Services supplémentaires | Eye On Idea",
       "description": "Domaines, e-mails, rédaction, référencement et plans d'assistance continue. Tout autour de votre site Web, géré en un seul endroit par Eye On Idea à Aalborg."
     },
     "hero": {
@@ -198,7 +198,7 @@
       "intro": "Aperçu",
       "content": "Contenu",
       "domain": "Domaine",
-      "email": "E-mail",
+      "email": "Email",
       "seoConsulting": "Référencement et conseil",
       "support": "Plans d’assistance"
     },
@@ -218,7 +218,7 @@
         },
         {
           "icon": "i-heroicons-envelope",
-          "title": "E-mail",
+          "title": "Email",
           "body": "E-mail professionnel sur votre propre domaine. Hébergé en UE, filtré contre le spam et prêt à l’emploi."
         },
         {
@@ -280,7 +280,7 @@
             "name": "Enregistrement de domaine supplémentaire",
             "price": "15-50",
             "unit": "par an",
-            "description": "Enregistrez un domaine supplémentaire - utile pour la protection de la marque, les variantes régionales ou les redirections."
+            "description": "Enregistrez un domaine supplémentaire, utile pour la protection de la marque, les variantes régionales ou les redirections."
           },
           {
             "name": "Aide au transfert de domaine",
@@ -297,8 +297,8 @@
         ]
       },
       "email": {
-        "badge": "E-mail",
-        "title": "E-mail",
+        "badge": "Email",
+        "title": "Email",
         "intro": [
           "Une adresse e-mail professionnelle sur votre propre domaine est l’un des moyens les plus simples de paraître crédible. Nous mettons en place et gérons la messagerie professionnelle sur une infrastructure basée dans l'UE.",
           "Les deux forfaits utilisent votre domaine (vous{'@'}votreentreprise.com) et incluent des fonctionnalités standard : accès à la messagerie Web, filtrage du spam et fonctionnalités de calendrier de base."

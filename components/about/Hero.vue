@@ -213,29 +213,5 @@ const bgStyle = computed(() =>
   .hero-bg { will-change: auto; transform: none !important; }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
-html:not(.dark) {
-  .about-hero {
-    background: var(--color-section-light);
-  }
-
-  .hero-bg {
-    background:
-      radial-gradient(ellipse 70% 60% at 50% 0%, rgba(153, 82, 38, 0.05) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(153, 82, 38, 0.02) 0%, transparent 50%);
-  }
-
-  .label-line  { background: var(--deco-line); }
-  .label-diamond { background: var(--deco-diamond); }
-  .label-text  { color: var(--deco-text); }
-
-  .hero-title  { color: #441a08; } /* primary-900 — word spans handled globally in main.css */
-
-  .div-line    { background: var(--deco-line); }
-  .div-diamond { background: var(--deco-diamond);
-    &--sm { background: var(--deco-diamond-sm); }
-  }
-
-  .hero-subtitle { color: var(--color-text-subtle); }
-}
+/* Hero sections have background images — always render dark regardless of mode */
 </style>

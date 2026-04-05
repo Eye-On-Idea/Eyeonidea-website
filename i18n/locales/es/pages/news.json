@@ -1,11 +1,11 @@
 {
-  "title": "Noticias y perspectivas",
+  "title": "News y perspectivas",
   "seo": {
-    "title": "Noticias y perspectivas: Eye On Idea",
+    "title": "News y perspectivas: Eye On Idea",
     "description": "Manténgase actualizado con las últimas noticias, conocimientos y actualizaciones de Eye On Idea. Tendencias de desarrollo web, noticias de agencias digitales y conocimientos de la industria."
   },
   "hero": {
-    "title": "Noticias y perspectivas",
+    "title": "News y perspectivas",
     "subtitle": "Manténgase actualizado con lo último de Eye On Idea"
   },
   "filters": {
@@ -13,7 +13,7 @@
     "searchLabel": "Buscar",
     "filterByType": "Filtrar por tipo",
     "allTypes": "Todos los tipos",
-    "news": "Noticias",
+    "news": "News",
     "article": "Artículo",
     "announcement": "Anuncio",
     "caseStudy": "Estudio de caso",
@@ -33,7 +33,7 @@
     "loading": "Cargando artículo...",
     "notFound": "Artículo no encontrado",
     "notFoundText": "El artículo que buscas no existe o ha sido eliminado.",
-    "backToNews": "Volver a Noticias",
+    "backToNews": "Volver a News",
     "defaultTitle": "Artículo",
     "share": "Comparte este artículo",
     "shareLinkedIn": "Compartir en LinkedIn",
@@ -47,9 +47,26 @@
     "viewAll": "Ver todos los artículos"
   },
   "categories": {
-    "news": "Noticias",
+    "news": "News",
     "article": "Artículo",
     "announcement": "Anuncio",
     "caseStudy": "Estudio de caso"
+  },
+  "postTypes": {
+    "news": "News",
+    "article": "Artículo",
+    "announcement": "Anuncio",
+    "caseStudy": "Estudio de caso",
+    "event": "Evento",
+    "product_update": "Actualización del producto",
+    "press_release": "Comunicado de prensa"
+  },
+  "postsList": {
+    "noResults": "No se encontraron artículos",
+    "noResultsText": "Intente ajustar su búsqueda o filtros",
+    "loadMore": "Cargar más artículos",
+    "loading": "Cargando artículos...",
+    "allLoaded": "Todos los artículos cargados",
+    "showingCount": "Mostrando {shown} de {total} artículos"
   }
 }

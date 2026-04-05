@@ -103,7 +103,7 @@
     {
       "title": "Gør tekniske specifikationer tilgængelige for købere",
       "problem": "Tegetecs udstyrssider skal betjene to målgrupper på én gang: ingeniører, der ønsker detaljerede specifikationer, og indkøbskøbere, der skal forstå værdi og hurtigt passe.",
-      "solution": "Vi anvendte progressiv afsløring hele vejen igennem - harmonika- og bordmønstre til dybe specifikationer, kortlayouts og procesflow-steppere til oversigter på højt niveau. Købere kan navigere trygt uden at blive konfronteret med teknisk dybde, de ikke har brug for."
+      "solution": "Vi anvendte progressiv afsløring hele vejen igennem, harmonika- og bordmønstre til dybe specifikationer, kortlayouts og procesflow-steppere til oversigter på højt niveau. Købere kan navigere trygt uden at blive konfronteret med teknisk dybde, de ikke har brug for."
     },
     {
       "title": "GDPR Overholdelse uden kompleksitet",
@@ -130,7 +130,7 @@
   ],
   "beforeAfter": {
     "title": "Den målbare forskel",
-    "subtitle": "Fra et forældet statisk websted til en moderne, effektiv B2B-platform - her er, hvad der ændrede sig.",
+    "subtitle": "Fra et forældet statisk websted til en moderne, effektiv B2B-platform, her er, hvad der ændrede sig.",
     "beforeLabel": "før",
     "afterLabel": "Efter",
     "metrics": [

@@ -1,0 +1,2085 @@
+{
+  "terminologyFixes": [
+    {
+      "locale": "de",
+      "file": "common.json",
+      "keyPath": "contact.email",
+      "original": "E-Mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "de",
+      "file": "footer.json",
+      "keyPath": "siteNav.news",
+      "original": "Nachrichten",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "de",
+      "file": "nav.json",
+      "keyPath": "news",
+      "original": "Nachrichten",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "de",
+      "file": "nav.json",
+      "keyPath": "clientHub",
+      "original": "Kundenportal",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "de",
+      "file": "pages/client-hub.json",
+      "keyPath": "meta.title",
+      "original": "Kunden-Hub",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "de",
+      "file": "pages/client-hub.json",
+      "keyPath": "login.title",
+      "original": "Kunden-Hub",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "de",
+      "file": "pages/client-hub.json",
+      "keyPath": "nav.hubTitle",
+      "original": "Kunden-Hub",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "de",
+      "file": "pages/client-hub.json",
+      "keyPath": "hub.welcomeTitle",
+      "original": "Willkommen in Ihrem Kunden-Hub",
+      "corrected": "Willkommen in Ihrem Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "de",
+      "file": "pages/client-hub.json",
+      "keyPath": "hub.introTitle",
+      "original": "Was ist der Kunden-Hub?",
+      "corrected": "Was ist der Client Hub?",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "de",
+      "file": "pages/client-hub.json",
+      "keyPath": "services.email.title",
+      "original": "E-Mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "de",
+      "file": "pages/client-hub.json",
+      "keyPath": "categories.news-and-posts.title",
+      "original": "Nachrichten und Beiträge",
+      "corrected": "News und Beiträge",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "de",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.studioNavigation.contentType2",
+      "original": "Nachrichten / Beiträge",
+      "corrected": "News / Beiträge",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "de",
+      "file": "pages/client-hub.json",
+      "keyPath": "breadcrumb.hub",
+      "original": "Kunden-Hub",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "de",
+      "file": "pages/client-hub.json",
+      "keyPath": "disclaimer.continueButton",
+      "original": "Weiter zum Kunden-Hub",
+      "corrected": "Weiter zum Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "de",
+      "file": "pages/contact.json",
+      "keyPath": "form.email.label",
+      "original": "E-Mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "de",
+      "file": "pages/contact.json",
+      "keyPath": "info.email.label",
+      "original": "E-Mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "de",
+      "file": "pages/news.json",
+      "keyPath": "title",
+      "original": "Neuigkeiten und Einblicke",
+      "corrected": "News und Einblicke",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "de",
+      "file": "pages/news.json",
+      "keyPath": "seo.title",
+      "original": "Neuigkeiten und Einblicke – Eye On Idea",
+      "corrected": "News und Einblicke – Eye On Idea",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "de",
+      "file": "pages/news.json",
+      "keyPath": "hero.title",
+      "original": "Neuigkeiten und Einblicke",
+      "corrected": "News und Einblicke",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "de",
+      "file": "pages/news.json",
+      "keyPath": "filters.news",
+      "original": "Nachrichten",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "de",
+      "file": "pages/news.json",
+      "keyPath": "article.backToNews",
+      "original": "Zurück zu den Neuigkeiten",
+      "corrected": "Zurück zu den News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "de",
+      "file": "pages/news.json",
+      "keyPath": "categories.news",
+      "original": "Nachrichten",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "de",
+      "file": "pages/news.json",
+      "keyPath": "postTypes.news",
+      "original": "Nachricht",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "de",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.nav.email",
+      "original": "E-Mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "de",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.intro.tiles[2].title",
+      "original": "E-Mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "de",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.sections.email.badge",
+      "original": "E-Mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "de",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.sections.email.title",
+      "original": "E-Mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "de",
+      "file": "pages/services.json",
+      "keyPath": "addons.sections.email.title",
+      "original": "E-Mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "dk",
+      "file": "common.json",
+      "keyPath": "contact.email",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "dk",
+      "file": "footer.json",
+      "keyPath": "siteNav.news",
+      "original": "Nyheder",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "nav.json",
+      "keyPath": "news",
+      "original": "Nyheder",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "nav.json",
+      "keyPath": "clientHub",
+      "original": "Kundehub",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "meta.title",
+      "original": "Klienthub",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "login.title",
+      "original": "Klienthub",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "nav.hubTitle",
+      "original": "Klienthub",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "hub.welcomeTitle",
+      "original": "Velkommen til din klienthub",
+      "corrected": "Welcome to your Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "hub.introTitle",
+      "original": "Hvad er Klienthub'et?",
+      "corrected": "What is the Client Hub?",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "services.email.title",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "categories.news-and-posts.title",
+      "original": "Nyheder og indlæg",
+      "corrected": "News og indlæg",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.studioNavigation.contentType2",
+      "original": "Nyheder / Indlæg",
+      "corrected": "News / Indlæg",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.creatingAPost.createStep2",
+      "original": "Klik på Nyheder eller Indlæg i navigationen",
+      "corrected": "Klik på News eller Indlæg i navigationen",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "breadcrumb.hub",
+      "original": "Klienthub",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "disclaimer.continueButton",
+      "original": "Fortsæt til klienthub",
+      "corrected": "Continue to Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/contact.json",
+      "keyPath": "form.email.label",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/contact.json",
+      "keyPath": "info.email.label",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/news.json",
+      "keyPath": "title",
+      "original": "Nyheder og indsigt",
+      "corrected": "News og indsigt",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/news.json",
+      "keyPath": "seo.title",
+      "original": "Nyheder og indsigt - Eye On Idea",
+      "corrected": "News og indsigt - Eye On Idea",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/news.json",
+      "keyPath": "hero.title",
+      "original": "Nyheder og indsigt",
+      "corrected": "News og indsigt",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/news.json",
+      "keyPath": "filters.news",
+      "original": "Nyheder",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/news.json",
+      "keyPath": "article.backToNews",
+      "original": "Tilbage til Nyheder",
+      "corrected": "Tilbage til News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/news.json",
+      "keyPath": "categories.news",
+      "original": "Nyheder",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/news.json",
+      "keyPath": "postTypes.news",
+      "original": "Nyheder",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.nav.email",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.intro.tiles[2].title",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.sections.email.badge",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.sections.email.title",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/services.json",
+      "keyPath": "comparison.categories.content.features[1].name",
+      "original": "Blog / Nyhedssektion",
+      "corrected": "Blog / News section",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/services.json",
+      "keyPath": "addons.sections.email.title",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "es",
+      "file": "common.json",
+      "keyPath": "contact.email",
+      "original": "Correo electrónico",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "es",
+      "file": "footer.json",
+      "keyPath": "siteNav.news",
+      "original": "Noticias",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "nav.json",
+      "keyPath": "news",
+      "original": "Noticias",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "nav.json",
+      "keyPath": "clientHub",
+      "original": "Portal de clientes",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "pages/client-hub.json",
+      "keyPath": "meta.title",
+      "original": "Centro de clientes",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "pages/client-hub.json",
+      "keyPath": "login.title",
+      "original": "Centro de clientes",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "pages/client-hub.json",
+      "keyPath": "nav.hubTitle",
+      "original": "Centro de clientes",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "pages/client-hub.json",
+      "keyPath": "hub.welcomeTitle",
+      "original": "Bienvenido a su Centro de Clientes",
+      "corrected": "Bienvenido a su Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "pages/client-hub.json",
+      "keyPath": "hub.introTitle",
+      "original": "¿Qué es el Centro de Clientes?",
+      "corrected": "¿Qué es el Client Hub?",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "pages/client-hub.json",
+      "keyPath": "services.email.title",
+      "original": "Correo electrónico",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "es",
+      "file": "pages/client-hub.json",
+      "keyPath": "categories.news-and-posts.title",
+      "original": "Noticias y publicaciones",
+      "corrected": "News y publicaciones",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.studioNavigation.contentType2",
+      "original": "Noticias / Publicaciones",
+      "corrected": "News / Publicaciones",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.creatingAPost.createStep2",
+      "original": "Haga clic en Noticias o Publicaciones en la navegación.",
+      "corrected": "Haga clic en News o Publicaciones en la navegación.",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "pages/client-hub.json",
+      "keyPath": "breadcrumb.hub",
+      "original": "Centro de clientes",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "pages/client-hub.json",
+      "keyPath": "disclaimer.continueButton",
+      "original": "Acceder al centro de clientes",
+      "corrected": "Acceder al Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "pages/contact.json",
+      "keyPath": "form.email.label",
+      "original": "Correo electrónico",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "es",
+      "file": "pages/contact.json",
+      "keyPath": "info.email.label",
+      "original": "Correo electrónico",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "es",
+      "file": "pages/news.json",
+      "keyPath": "title",
+      "original": "Noticias y perspectivas",
+      "corrected": "News y perspectivas",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "pages/news.json",
+      "keyPath": "seo.title",
+      "original": "Noticias y perspectivas: Eye On Idea",
+      "corrected": "News y perspectivas: Eye On Idea",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "pages/news.json",
+      "keyPath": "hero.title",
+      "original": "Noticias y perspectivas",
+      "corrected": "News y perspectivas",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "pages/news.json",
+      "keyPath": "filters.news",
+      "original": "Noticias",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "pages/news.json",
+      "keyPath": "article.backToNews",
+      "original": "Volver a Noticias",
+      "corrected": "Volver a News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "pages/news.json",
+      "keyPath": "categories.news",
+      "original": "Noticias",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "pages/news.json",
+      "keyPath": "postTypes.news",
+      "original": "Noticias",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.nav.email",
+      "original": "Correo electrónico",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "es",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.intro.tiles[2].title",
+      "original": "Correo electrónico",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "es",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.sections.email.badge",
+      "original": "Correo electrónico",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "es",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.sections.email.title",
+      "original": "Correo electrónico",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "es",
+      "file": "pages/services.json",
+      "keyPath": "comparison.categories.content.features[1].name",
+      "original": "Blog / Sección de noticias",
+      "corrected": "Blog / Sección de News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "es",
+      "file": "pages/services.json",
+      "keyPath": "addons.sections.email.title",
+      "original": "Correo electrónico",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "fr",
+      "file": "common.json",
+      "keyPath": "contact.email",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "fr",
+      "file": "footer.json",
+      "keyPath": "siteNav.news",
+      "original": "Actualités",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "nav.json",
+      "keyPath": "news",
+      "original": "Actualités",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "nav.json",
+      "keyPath": "clientHub",
+      "original": "Espace client",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/client-hub.json",
+      "keyPath": "meta.title",
+      "original": "Centre client",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/client-hub.json",
+      "keyPath": "login.title",
+      "original": "Centre client",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/client-hub.json",
+      "keyPath": "nav.hubTitle",
+      "original": "Centre client",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/client-hub.json",
+      "keyPath": "hub.welcomeTitle",
+      "original": "Bienvenue dans votre Espace Client",
+      "corrected": "Welcome to your Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/client-hub.json",
+      "keyPath": "hub.introTitle",
+      "original": "Qu'est-ce que le Hub Client ?",
+      "corrected": "Qu'est-ce que le Client Hub ?",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/client-hub.json",
+      "keyPath": "services.email.title",
+      "original": "Courriel",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/client-hub.json",
+      "keyPath": "categories.news-and-posts.title",
+      "original": "Actualités et publications",
+      "corrected": "News et publications",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.studioNavigation.contentType2",
+      "original": "Actualités / Articles",
+      "corrected": "News / Articles",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/client-hub.json",
+      "keyPath": "breadcrumb.hub",
+      "original": "Centre client",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/client-hub.json",
+      "keyPath": "disclaimer.continueButton",
+      "original": "Accéder au centre client",
+      "corrected": "Accéder au Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/contact.json",
+      "keyPath": "form.email.label",
+      "original": "Courriel",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/contact.json",
+      "keyPath": "info.email.label",
+      "original": "Courriel",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/news.json",
+      "keyPath": "title",
+      "original": "Actualités et informations",
+      "corrected": "News et informations",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/news.json",
+      "keyPath": "seo.title",
+      "original": "Actualités et perspectives - Eye On Idea",
+      "corrected": "News et perspectives - Eye On Idea",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/news.json",
+      "keyPath": "hero.title",
+      "original": "Actualités et informations",
+      "corrected": "News et informations",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/news.json",
+      "keyPath": "filters.news",
+      "original": "Actualités",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/news.json",
+      "keyPath": "article.backToNews",
+      "original": "Retour aux Actualités",
+      "corrected": "Retour aux News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/news.json",
+      "keyPath": "categories.news",
+      "original": "Actualités",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/news.json",
+      "keyPath": "postTypes.news",
+      "original": "Actualités",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.nav.email",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.intro.tiles[2].title",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.sections.email.badge",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.sections.email.title",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/services.json",
+      "keyPath": "comparison.categories.content.features[1].name",
+      "original": "Rubrique Blogue / Actualités",
+      "corrected": "Rubrique Blogue / News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/services.json",
+      "keyPath": "addons.sections.email.title",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "it",
+      "file": "common.json",
+      "keyPath": "contact.email",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "it",
+      "file": "footer.json",
+      "keyPath": "siteNav.news",
+      "original": "Notizie",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "nav.json",
+      "keyPath": "news",
+      "original": "Notizie",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "nav.json",
+      "keyPath": "clientHub",
+      "original": "Area clienti",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "pages/client-hub.json",
+      "keyPath": "meta.title",
+      "original": "Centro clienti",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "pages/client-hub.json",
+      "keyPath": "login.title",
+      "original": "Centro clienti",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "pages/client-hub.json",
+      "keyPath": "nav.hubTitle",
+      "original": "Centro clienti",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "pages/client-hub.json",
+      "keyPath": "hub.welcomeTitle",
+      "original": "Benvenuto nel tuo hub clienti",
+      "corrected": "Benvenuto nel tuo Client Hubi",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "pages/client-hub.json",
+      "keyPath": "hub.introTitle",
+      "original": "Cos'e l'hub clienti?",
+      "corrected": "Cos'e l'Client Hubi?",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "pages/client-hub.json",
+      "keyPath": "services.email.title",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "it",
+      "file": "pages/client-hub.json",
+      "keyPath": "categories.news-and-posts.title",
+      "original": "Notizie e post",
+      "corrected": "News e post",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.studioNavigation.contentType2",
+      "original": "Notizie/post",
+      "corrected": "News/post",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.creatingAPost.createStep2",
+      "original": "Fai clic su Notizie o Post nella navigazione",
+      "corrected": "Fai clic su News o Post nella navigazione",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "pages/client-hub.json",
+      "keyPath": "breadcrumb.hub",
+      "original": "Centro clienti",
+      "corrected": "Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "pages/client-hub.json",
+      "keyPath": "disclaimer.continueButton",
+      "original": "Accedi al centro clienti",
+      "corrected": "Accedi al Client Hub",
+      "reason": "Client Hub is a product/interface term that should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "pages/contact.json",
+      "keyPath": "form.email.label",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "it",
+      "file": "pages/contact.json",
+      "keyPath": "info.email.label",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "it",
+      "file": "pages/news.json",
+      "keyPath": "title",
+      "original": "Notizie e approfondimenti",
+      "corrected": "News e approfondimenti",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "pages/news.json",
+      "keyPath": "seo.title",
+      "original": "Notizie e Approfondimenti - Eye On Idea",
+      "corrected": "News e Approfondimenti - Eye On Idea",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "pages/news.json",
+      "keyPath": "hero.title",
+      "original": "Notizie e approfondimenti",
+      "corrected": "News e approfondimenti",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "pages/news.json",
+      "keyPath": "filters.news",
+      "original": "Novità",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "pages/news.json",
+      "keyPath": "article.backToNews",
+      "original": "Torna alle notizie",
+      "corrected": "Torna alle News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "pages/news.json",
+      "keyPath": "categories.news",
+      "original": "Novità",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "pages/news.json",
+      "keyPath": "postTypes.news",
+      "original": "Notizie",
+      "corrected": "News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.nav.email",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "it",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.intro.tiles[2].title",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "it",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.sections.email.badge",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "it",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.sections.email.title",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    },
+    {
+      "locale": "it",
+      "file": "pages/services.json",
+      "keyPath": "comparison.categories.content.features[1].name",
+      "original": "Sezione blog/notizie",
+      "corrected": "Sezione blog/News",
+      "reason": "News is a globally recognized digital content term and should remain in English."
+    },
+    {
+      "locale": "it",
+      "file": "pages/services.json",
+      "keyPath": "addons.sections.email.title",
+      "original": "E-mail",
+      "corrected": "Email",
+      "reason": "Email label should remain in English for terminology consistency."
+    }
+  ],
+  "dashFixes": [
+    {
+      "locale": "de",
+      "file": "pages/about.json",
+      "keyPath": "meta.title",
+      "original": "Über - Eye On Idea",
+      "corrected": "Über | Eye On Idea"
+    },
+    {
+      "locale": "de",
+      "file": "pages/client-hub.json",
+      "keyPath": "hub.heroTagline",
+      "original": "Alles, was Sie benoetigen, um Ihre Website, Ihre Marke und Ihre digitale Praesenz zu verwalten - an einem Ort.",
+      "corrected": "Alles, was Sie benoetigen, um Ihre Website, Ihre Marke und Ihre digitale Praesenz zu verwalten, an einem Ort."
+    },
+    {
+      "locale": "de",
+      "file": "pages/contact.json",
+      "keyPath": "meta.title",
+      "original": "Kontakt - Eye On Idea",
+      "corrected": "Kontakt | Eye On Idea"
+    },
+    {
+      "locale": "de",
+      "file": "pages/index.json",
+      "keyPath": "audience.situations[0].body",
+      "original": "Inhabergeführte oder schlanke B2B-Unternehmen, die sich auf eine Platzhalterseite, ein DIY-Setup oder kein echtes Markensystem verlassen haben. Sie brauchen Ihre erste ernsthafte Grundlage - etwas, das bewusst aussieht, Vertrauen schafft und die Qualität Ihrer tatsächlichen Arbeit widerspiegelt.",
+      "corrected": "Inhabergeführte oder schlanke B2B-Unternehmen, die sich auf eine Platzhalterseite, ein DIY-Setup oder kein echtes Markensystem verlassen haben. Sie brauchen Ihre erste ernsthafte Grundlage, etwas, das bewusst aussieht, Vertrauen schafft und die Qualität Ihrer tatsächlichen Arbeit widerspiegelt."
+    },
+    {
+      "locale": "de",
+      "file": "pages/index.json",
+      "keyPath": "audience.situations[1].body",
+      "original": "Ihr Unternehmen ist gewachsen und hat sich verbessert, aber Ihre Online-Präsenz hat nicht Schritt gehalten. Was Sie online haben, lässt Sie weniger glaubwürdig erscheinen, als Sie wirklich sind - und Sie wissen, dass es Sie Chancen kostet.",
+      "corrected": "Ihr Unternehmen ist gewachsen und hat sich verbessert, aber Ihre Online-Präsenz hat nicht Schritt gehalten. Was Sie online haben, lässt Sie weniger glaubwürdig erscheinen, als Sie wirklich sind, und Sie wissen, dass es Sie Chancen kostet."
+    },
+    {
+      "locale": "de",
+      "file": "pages/index.json",
+      "keyPath": "packages.items[0].description",
+      "original": "Für neue Unternehmen und alle, die ihre erste ernsthafte digitale Präsenz aufbauen. Sie erhalten eine professionell gestaltete Website und ein Logo - alles, was Sie brauchen, um aufzutreten, glaubwürdig zu wirken und Kunden zu gewinnen.",
+      "corrected": "Für neue Unternehmen und alle, die ihre erste ernsthafte digitale Präsenz aufbauen. Sie erhalten eine professionell gestaltete Website und ein Logo, alles, was Sie brauchen, um aufzutreten, glaubwürdig zu wirken und Kunden zu gewinnen."
+    },
+    {
+      "locale": "de",
+      "file": "pages/index.json",
+      "keyPath": "packages.items[0].includes[1]",
+      "original": "Website - bis zu 5 Seiten",
+      "corrected": "Website, bis zu 5 Seiten"
+    },
+    {
+      "locale": "de",
+      "file": "pages/index.json",
+      "keyPath": "packages.items[1].description",
+      "original": "Für Unternehmen, die bereits existieren, aber inkonsistent oder veraltet aussehen. Wir bauen Ihre visuelle Identität neu auf - Logo, Farben, Typografie und die Materialien, um alles zu nutzen.",
+      "corrected": "Für Unternehmen, die bereits existieren, aber inkonsistent oder veraltet aussehen. Wir bauen Ihre visuelle Identität neu auf, Logo, Farben, Typografie und die Materialien, um alles zu nutzen."
+    },
+    {
+      "locale": "de",
+      "file": "pages/index.json",
+      "keyPath": "packages.items[2].description",
+      "original": "Für Unternehmen, die fortlaufende Unterstützung wünschen - nicht nur ein einmaliges Projekt. Wir bleiben beteiligt, erstellen Inhalte und stellen sicher, dass alles, was Sie haben, weiterhin so funktioniert wie am Tag seiner Einführung.",
+      "corrected": "Für Unternehmen, die fortlaufende Unterstützung wünschen, nicht nur ein einmaliges Projekt. Wir bleiben beteiligt, erstellen Inhalte und stellen sicher, dass alles, was Sie haben, weiterhin so funktioniert wie am Tag seiner Einführung."
+    },
+    {
+      "locale": "de",
+      "file": "pages/index.json",
+      "keyPath": "cases.featured[1].outcome",
+      "original": "Von Grund auf neu entwickelte modulare Fitnessplattform - vollständige Identität, Architektur und Inhaltsinfrastruktur.",
+      "corrected": "Von Grund auf neu entwickelte modulare Fitnessplattform, vollständige Identität, Architektur und Inhaltsinfrastruktur."
+    },
+    {
+      "locale": "de",
+      "file": "pages/services-subpages.json",
+      "keyPath": "websitePackages.meta.title",
+      "original": "Website-Pakete - Eye On Idea",
+      "corrected": "Website-Pakete | Eye On Idea"
+    },
+    {
+      "locale": "de",
+      "file": "pages/services-subpages.json",
+      "keyPath": "visualIdentity.intro.body",
+      "original": "Ein gut gestaltetes Logo, eine konsistente Farbpalette und klare Typografie signalisieren Professionalität und schaffen Vertrauen, das auf anderem Wege kaum zu erreichen ist. Bei Eye On Idea verstehen wir visuelle Identität als praktisches Fundament - und liefern ein vollständiges, einsetzbares System, das konsistent auf Ihrer Website, Ihren Druckmaterialien und überall dort funktioniert, wo Ihr Publikum Sie findet.",
+      "corrected": "Ein gut gestaltetes Logo, eine konsistente Farbpalette und klare Typografie signalisieren Professionalität und schaffen Vertrauen, das auf anderem Wege kaum zu erreichen ist. Bei Eye On Idea verstehen wir visuelle Identität als praktisches Fundament, und liefern ein vollständiges, einsetzbares System, das konsistent auf Ihrer Website, Ihren Druckmaterialien und überall dort funktioniert, wo Ihr Publikum Sie findet."
+    },
+    {
+      "locale": "de",
+      "file": "pages/services-subpages.json",
+      "keyPath": "visualIdentity.pricing.introBody",
+      "original": "Jedes Projekt zur visuellen Identität beginnt mit Ihrem Unternehmen. Manche Unternehmen benoetigen ein fokussiertes Logo und Farbsystem. Andere benoetigen ein vollstaendiges Markenfundament mit Richtlinien und sofort einsetzbaren Assets, die langfristiges Wachstum unterstuetzen.\n\nDie hier gezeigten Preise beginnen beim angegebenen Betrag und spiegeln den Mindestumfang jedes Dienstes wider. Die endgueltige Investition haengt von Ihren Zielen, dem Zeitrahmen und dem Detailgrad ab. Alle Arbeiten sind projektbasiert und klar definiert, sodass Sie eine strukturierte visuelle Identitaet erhalten, die Ihr Unternehmen jetzt und in Zukunft unterstuetzt.",
+      "corrected": "Jedes Projekt zur visuellen Identität beginnt mit Ihrem Unternehmen. Manche Unternehmen benoetigen ein fokussiertes Logo und Farbsystem. Andere benoetigen ein vollstaendiges Markenfundament mit Richtlinien und sofort einsetzbaren Assets, die langfristiges Wachstum unterstuetzen. Die hier gezeigten Preise beginnen beim angegebenen Betrag und spiegeln den Mindestumfang jedes Dienstes wider. Die endgueltige Investition haengt von Ihren Zielen, dem Zeitrahmen und dem Detailgrad ab. Alle Arbeiten sind projektbasiert und klar definiert, sodass Sie eine strukturierte visuelle Identitaet erhalten, die Ihr Unternehmen jetzt und in Zukunft unterstuetzt."
+    },
+    {
+      "locale": "de",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.meta.title",
+      "original": "Zusätzliche Dienste - Eye On Idea",
+      "corrected": "Zusätzliche Dienste | Eye On Idea"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/about.json",
+      "keyPath": "meta.title",
+      "original": "Om - Eye On Idea",
+      "corrected": "Om | Eye On Idea"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/cases/herqulez.json",
+      "keyPath": "duration",
+      "original": "november 2025 - Igangværende",
+      "corrected": "november 2025 til nu"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/cases/herqulez.json",
+      "keyPath": "overview.challenge",
+      "original": "Herqulez er en modulær fitnessplatform, der dækker seks områder - Core Fitness, Nutrition, Sleep/Recovery, Habits, Sport og Travel - hver med sin egen produktidentitet. Markedsføringswebstedet skulle kommunikere et komplekst økosystem med flere moduler klart uden at overvælde besøgende, og samtidig etablere tillid forud for applanceringen.",
+      "corrected": "Herqulez er en modulær fitnessplatform, der dækker seks områder, Core Fitness, Nutrition, Sleep/Recovery, Habits, Sport og Travel, hver med sin egen produktidentitet. Markedsføringswebstedet skulle kommunikere et komplekst økosystem med flere moduler klart uden at overvælde besøgende, og samtidig etablere tillid forud for applanceringen."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/cases/herqulez.json",
+      "keyPath": "learnings[1]",
+      "original": "Flersproget arkitektur planlægges bedst fra starten - at eftermontere den senere er betydeligt mere arbejde",
+      "corrected": "Flersproget arkitektur planlægges bedst fra starten, at eftermontere den senere er betydeligt mere arbejde"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/cases/tegetec.json",
+      "keyPath": "challenges[1].solution",
+      "original": "Vi anvendte progressiv afsløring hele vejen igennem - harmonika- og bordmønstre til dybe specifikationer, kortlayouts og procesflow-steppere til oversigter på højt niveau. Købere kan navigere trygt uden at blive konfronteret med teknisk dybde, de ikke har brug for.",
+      "corrected": "Vi anvendte progressiv afsløring hele vejen igennem, harmonika- og bordmønstre til dybe specifikationer, kortlayouts og procesflow-steppere til oversigter på højt niveau. Købere kan navigere trygt uden at blive konfronteret med teknisk dybde, de ikke har brug for."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/cases/tegetec.json",
+      "keyPath": "beforeAfter.subtitle",
+      "original": "Fra et forældet statisk websted til en moderne, effektiv B2B-platform - her er, hvad der ændrede sig.",
+      "corrected": "Fra et forældet statisk websted til en moderne, effektiv B2B-platform, her er, hvad der ændrede sig."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/cases.json",
+      "keyPath": "metaDescription",
+      "original": "Udforsk, hvordan Eye On Idea designer og bygger hjemmesider til små og mellemstore virksomheder - fra strategi og visuel identitet til lancering og løbende support.",
+      "corrected": "Udforsk, hvordan Eye On Idea designer og bygger hjemmesider til små og mellemstore virksomheder, fra strategi og visuel identitet til lancering og løbende support."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/cases.json",
+      "keyPath": "hero.subtitle",
+      "original": "Strategi, design og udvikling - leveret.",
+      "corrected": "Strategi, design og udvikling, leveret."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "hub.heroTagline",
+      "original": "Alt hvad du behoever for at styre din hjemmeside, dit brand og din digitale tilstedevaerelse - samlet eet sted.",
+      "corrected": "Alt hvad du behoever for at styre din hjemmeside, dit brand og din digitale tilstedevaerelse, samlet eet sted."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "onboarding.title",
+      "original": "Kom godt i gang  -  Onboarding Guide",
+      "corrected": "Kom godt i gang, Onboarding Guide"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "onboarding.ctaDescription",
+      "original": "Alt hvad du behøver at vide før og efter dit websteds lancering - tidslinje, adgang, juridisk, support og overdragelse.",
+      "corrected": "Alt hvad du behøver at vide før og efter dit websteds lancering, tidslinje, adgang, juridisk, support og overdragelse."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.draftsAndPublishing.publishStep3",
+      "original": "Hjemmesiden opdateres automatisk - det kan tage kort tid, før ændringer vises",
+      "corrected": "Hjemmesiden opdateres automatisk, det kan tage kort tid, før ændringer vises"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.seoBasics.field1",
+      "original": "SEO-titel  -  sidetitlen vist i Google-resultater",
+      "corrected": "SEO-titel, sidetitlen vist i Google-resultater"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.seoBasics.field2",
+      "original": "Metabeskrivelse  -  den korte tekst under titlen i Google",
+      "corrected": "Metabeskrivelse, den korte tekst under titlen i Google"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.seoBasics.field4",
+      "original": "Slug  -  sidens URL",
+      "corrected": "Slug, sidens URL"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.imageBestPractices.introText",
+      "original": "Gode billeder får din hjemmeside til at se professionel ud. Dårlige billeder kan bremse det eller få det til at se uklart ud. Studiet viser anbefalede størrelser - følg dem.",
+      "corrected": "Gode billeder får din hjemmeside til at se professionel ud. Dårlige billeder kan bremse det eller få det til at se uklart ud. Studiet viser anbefalede størrelser, følg dem."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.emailFaq.mistake1",
+      "original": "Ikke at ændre den oprindelige adgangskode - skift den altid med det samme",
+      "corrected": "Ikke at ændre den oprindelige adgangskode, skift den altid med det samme"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.emailFaq.mistake2",
+      "original": "Brug af POP i stedet for IMAP  -  IMAP holder enheder synkroniseret",
+      "corrected": "Brug af POP i stedet for IMAP, IMAP holder enheder synkroniseret"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.emailFaq.mistake3",
+      "original": "Deling af adgangskoder via e-mail - send aldrig adgangskoder via usikrede kanaler",
+      "corrected": "Deling af adgangskoder via e-mail, send aldrig adgangskoder via usikrede kanaler"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.domainRenewal.lifecycle1",
+      "original": "Aktiv - dit domæne fungerer normalt",
+      "corrected": "Aktiv, dit domæne fungerer normalt"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.domainRenewal.lifecycle2",
+      "original": "Udløbet  -  domænet holder op med at fungere",
+      "corrected": "Udløbet, domænet holder op med at fungere"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.domainRenewal.lifecycle3",
+      "original": "Henstandsperiode  -  kan stadig være tilbagebetalt",
+      "corrected": "Henstandsperiode, kan stadig være tilbagebetalt"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.domainRenewal.lifecycle4",
+      "original": "Indløsningsperiode  -  inddrivelse medfører yderligere gebyrer",
+      "corrected": "Indløsningsperiode, inddrivelse medfører yderligere gebyrer"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.domainRenewal.lifecycle5",
+      "original": "Frigivet - domænet bliver tilgængeligt for alle at registrere",
+      "corrected": "Frigivet, domænet bliver tilgængeligt for alle at registrere"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.logoUsage.version1",
+      "original": "Primært logo - brug dette som standard",
+      "corrected": "Primært logo, brug dette som standard"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.logoUsage.version2",
+      "original": "Vandret version  -  til store rum",
+      "corrected": "Vandret version, til store rum"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.logoUsage.version3",
+      "original": "Stablet version  -  til lodrette rum",
+      "corrected": "Stablet version, til lodrette rum"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.logoUsage.version4",
+      "original": "Ikonversion  -  til profilbilleder på sociale medier og små rum",
+      "corrected": "Ikonversion, til profilbilleder på sociale medier og små rum"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.logoUsage.version5",
+      "original": "Lys version  -  til mørke baggrunde",
+      "corrected": "Lys version, til mørke baggrunde"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.logoUsage.version6",
+      "original": "Mørk version  -  til lyse baggrunde",
+      "corrected": "Mørk version, til lyse baggrunde"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.visualIdentityFaq.mistake1",
+      "original": "Sender JPG til printeren  -  brug vektorfiler eller printklare PDF'er",
+      "corrected": "Sender JPG til printeren, brug vektorfiler eller printklare PDF'er"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.visualIdentityFaq.mistake2",
+      "original": "Brug af et skærmbillede af logoet - brug aldrig skærmbilleder",
+      "corrected": "Brug af et skærmbillede af logoet, brug aldrig skærmbilleder"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.visualIdentityFaq.mistake3",
+      "original": "Blande mærkefarver med tilfældige nuancer - hold dig til den definerede palet",
+      "corrected": "Blande mærkefarver med tilfældige nuancer, hold dig til den definerede palet"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.visualIdentityFaq.mistake4",
+      "original": "Upload af lavkvalitetslogo til sociale medier - brug den medfølgende PNG i høj opløsning",
+      "corrected": "Upload af lavkvalitetslogo til sociale medier, brug den medfølgende PNG i høj opløsning"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/contact.json",
+      "keyPath": "meta.title",
+      "original": "Kontakt - Eye On Idea",
+      "corrected": "Kontakt | Eye On Idea"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/contact.json",
+      "keyPath": "info.hours.weekdays",
+      "original": "Mandag - fredag: 9:00 - 17:00 CET",
+      "corrected": "Mandag, fredag: 9:00, 17:00 CET"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/index.json",
+      "keyPath": "process.steps.design.description",
+      "original": "Vi skaber en løsning, der er skræddersyet til dine behov - ingen skabeloner, ingen one-size-fits-all.",
+      "corrected": "Vi skaber en løsning, der er skræddersyet til dine behov, ingen skabeloner, ingen one-size-fits-all."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/index.json",
+      "keyPath": "process.steps.support.description",
+      "original": "Vi er her efter lanceringen - for opdateringer, forbedringer og løbende partnerskab.",
+      "corrected": "Vi er her efter lanceringen, for opdateringer, forbedringer og løbende partnerskab."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/index.json",
+      "keyPath": "cta.description",
+      "original": "Uanset om du starter noget nyt, forbedrer det, du har, eller har brug for en second opinion - vi er her for at hjælpe.",
+      "corrected": "Uanset om du starter noget nyt, forbedrer det, du har, eller har brug for en second opinion, vi er her for at hjælpe."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/index.json",
+      "keyPath": "audience.situations[1].body",
+      "original": "Din virksomhed er vokset og forbedret, men din online tilstedeværelse har ikke holdt trit. Det, du har online, får dig til at se mindre troværdig ud, end du i virkeligheden er - og du ved, at det koster dig muligheder.",
+      "corrected": "Din virksomhed er vokset og forbedret, men din online tilstedeværelse har ikke holdt trit. Det, du har online, får dig til at se mindre troværdig ud, end du i virkeligheden er, og du ved, at det koster dig muligheder."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/index.json",
+      "keyPath": "packages.subtitle",
+      "original": "Hver virksomhed er anderledes. Disse tre pakker er der, hvor vi starter - hver enkelt afgrænset og skræddersyet til, hvor du er lige nu.",
+      "corrected": "Hver virksomhed er anderledes. Disse tre pakker er der, hvor vi starter, hver enkelt afgrænset og skræddersyet til, hvor du er lige nu."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/index.json",
+      "keyPath": "packages.items[0].description",
+      "original": "Til nye virksomheder og alle, der bygger deres første seriøse digitale tilstedeværelse. Du får et professionelt designet websted og logo - alt hvad du behøver for at dukke op, se troværdigt ud og begynde at vinde kunder.",
+      "corrected": "Til nye virksomheder og alle, der bygger deres første seriøse digitale tilstedeværelse. Du får et professionelt designet websted og logo, alt hvad du behøver for at dukke op, se troværdigt ud og begynde at vinde kunder."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/index.json",
+      "keyPath": "packages.items[0].includes[1]",
+      "original": "Hjemmeside - op til 5 sider",
+      "corrected": "Hjemmeside, op til 5 sider"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/index.json",
+      "keyPath": "packages.items[1].description",
+      "original": "For virksomheder, der allerede eksisterer, men som ser inkonsekvente eller daterede ud. Vi genopbygger din visuelle identitet - logo, farver, typografi og materialerne for at tage det hele i brug.",
+      "corrected": "For virksomheder, der allerede eksisterer, men som ser inkonsekvente eller daterede ud. Vi genopbygger din visuelle identitet, logo, farver, typografi og materialerne for at tage det hele i brug."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/index.json",
+      "keyPath": "packages.items[2].description",
+      "original": "For virksomheder, der ønsker løbende support - ikke kun et enkeltstående projekt. Vi forbliver involveret, skaber indhold og sørger for, at alt, hvad du har, fortsætter med at fungere lige så godt som den dag, det blev lanceret.",
+      "corrected": "For virksomheder, der ønsker løbende support, ikke kun et enkeltstående projekt. Vi forbliver involveret, skaber indhold og sørger for, at alt, hvad du har, fortsætter med at fungere lige så godt som den dag, det blev lanceret."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/index.json",
+      "keyPath": "cases.featured[1].outcome",
+      "original": "Modulær fitnessplatform bygget fra bunden - fuld identitet, arkitektur og indholdsinfrastruktur.",
+      "corrected": "Modulær fitnessplatform bygget fra bunden, fuld identitet, arkitektur og indholdsinfrastruktur."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/legal.json",
+      "keyPath": "meta.title",
+      "original": "Servicevilkår - Eye On Idea",
+      "corrected": "Servicevilkår | Eye On Idea"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/news.json",
+      "keyPath": "seo.title",
+      "original": "News og indsigt - Eye On Idea",
+      "corrected": "News og indsigt | Eye On Idea"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/policies.json",
+      "keyPath": "meta.title",
+      "original": "Privatlivs- og cookiepolitik - Eye On Idea",
+      "corrected": "Privatlivs- og cookiepolitik | Eye On Idea"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/process.json",
+      "keyPath": "meta.title",
+      "original": "Vores proces - Eye On Idea",
+      "corrected": "Vores proces | Eye On Idea"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/services-subpages.json",
+      "keyPath": "websitePackages.meta.title",
+      "original": "Hjemmesidepakker - Eye On Idea",
+      "corrected": "Hjemmesidepakker | Eye On Idea"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/services-subpages.json",
+      "keyPath": "visualIdentity.meta.title",
+      "original": "Visuel identitet - Eye On Idea",
+      "corrected": "Visuel identitet | Eye On Idea"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/services-subpages.json",
+      "keyPath": "visualIdentity.intro.body",
+      "original": "Et veldesignet logo, en konsistent farvepalette og klar typografi signalerer professionalisme og opbygger tillid, som er svær at opnå på andre måder. Hos Eye On Idea tilgår vi visuel identitet som et praktisk fundament - og leverer et komplet, brugbart system, der fungerer konsistent på din hjemmeside, dine trykte materialer og overalt, hvor dit publikum finder dig.",
+      "corrected": "Et veldesignet logo, en konsistent farvepalette og klar typografi signalerer professionalisme og opbygger tillid, som er svær at opnå på andre måder. Hos Eye On Idea tilgår vi visuel identitet som et praktisk fundament, og leverer et komplet, brugbart system, der fungerer konsistent på din hjemmeside, dine trykte materialer og overalt, hvor dit publikum finder dig."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/services-subpages.json",
+      "keyPath": "visualIdentity.pricing.introBody",
+      "original": "Hvert visuel identitetsprojekt tager udgangspunkt i din virksomhed. Nogle virksomheder har brug for et fokuseret logo og farvesystem. Andre har brug for et fuldt brandfundament med retningslinjer og klar-til-brug aktiver, der understotter langsigtet vaekst.\n\nPriserne vist her starter ved det angivne belob og afspejler minimumsomfanget af hver service. Den endelige investering afhaenger af dine mal, tidsplan og detaljeniveau. Alt arbejde er projektbaseret og tydeligt defineret, saa du modtager en struktureret visuel identitet, der er bygget til at understotte din virksomhed nu og i fremtiden.",
+      "corrected": "Hvert visuel identitetsprojekt tager udgangspunkt i din virksomhed. Nogle virksomheder har brug for et fokuseret logo og farvesystem. Andre har brug for et fuldt brandfundament med retningslinjer og klar-til-brug aktiver, der understotter langsigtet vaekst. Priserne vist her starter ved det angivne belob og afspejler minimumsomfanget af hver service. Den endelige investering afhaenger af dine mal, tidsplan og detaljeniveau. Alt arbejde er projektbaseret og tydeligt defineret, saa du modtager en struktureret visuel identitet, der er bygget til at understotte din virksomhed nu og i fremtiden."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.meta.title",
+      "original": "Yderligere tjenester - Eye On Idea",
+      "corrected": "Yderligere tjenester | Eye On Idea"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.sections.content.intro[0]",
+      "original": "Godt indhold handler ikke kun om at fylde sider. Det handler om at være overskuelig, direkte og nem at scanne - på hver enhed, på alle sprog, du skal nå.",
+      "corrected": "Godt indhold handler ikke kun om at fylde sider. Det handler om at være overskuelig, direkte og nem at scanne, på hver enhed, på alle sprog, du skal nå."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.sections.domain.items[0].description",
+      "original": "Registrer et ekstra domæne - nyttigt til brandbeskyttelse, regionale varianter eller omdirigeringer.",
+      "corrected": "Registrer et ekstra domæne, nyttigt til brandbeskyttelse, regionale varianter eller omdirigeringer."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/services.json",
+      "keyPath": "meta.title",
+      "original": "Ydelser - Eye On Idea",
+      "corrected": "Ydelser | Eye On Idea"
+    },
+    {
+      "locale": "dk",
+      "file": "pages/services.json",
+      "keyPath": "hero.subtitle",
+      "original": "Eye On Idea hjælper virksomheder med at etablere og udvikle en klar, professionel digital tilstedeværelse. Alle projekter scopes individuelt, baseret på reelle behov - ikke skabeloner.",
+      "corrected": "Eye On Idea hjælper virksomheder med at etablere og udvikle en klar, professionel digital tilstedeværelse. Alle projekter scopes individuelt, baseret på reelle behov, ikke skabeloner."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/services.json",
+      "keyPath": "cta.description",
+      "original": "Ethvert projekt starter med at forstå, hvad din virksomhed faktisk har brug for. Ingen foruddefinerede løsninger - kun en samtale om dine mål.",
+      "corrected": "Ethvert projekt starter med at forstå, hvad din virksomhed faktisk har brug for. Ingen foruddefinerede løsninger, kun en samtale om dine mål."
+    },
+    {
+      "locale": "dk",
+      "file": "pages/services.json",
+      "keyPath": "beforeAfter.afterLabel",
+      "original": "Efter - med Eye On Idea",
+      "corrected": "Efter, med Eye On Idea"
+    },
+    {
+      "locale": "es",
+      "file": "pages/about.json",
+      "keyPath": "meta.title",
+      "original": "Acerca de - Eye On Idea",
+      "corrected": "Acerca de | Eye On Idea"
+    },
+    {
+      "locale": "es",
+      "file": "pages/cases/herqulez.json",
+      "keyPath": "duration",
+      "original": "Noviembre de 2025 - En curso",
+      "corrected": "Noviembre de 2025 a la actualidad"
+    },
+    {
+      "locale": "es",
+      "file": "pages/contact.json",
+      "keyPath": "meta.title",
+      "original": "Contacto - Eye On Idea",
+      "corrected": "Contacto | Eye On Idea"
+    },
+    {
+      "locale": "es",
+      "file": "pages/contact.json",
+      "keyPath": "info.hours.weekdays",
+      "original": "Lunes - Viernes: 9:00 - 17:00 CET",
+      "corrected": "Lunes, Viernes: 9:00, 17:00 CET"
+    },
+    {
+      "locale": "es",
+      "file": "pages/legal.json",
+      "keyPath": "meta.title",
+      "original": "Términos de servicio - Eye On Idea",
+      "corrected": "Términos de servicio | Eye On Idea"
+    },
+    {
+      "locale": "es",
+      "file": "pages/policies.json",
+      "keyPath": "meta.title",
+      "original": "Política de privacidad y cookies - Eye On Idea",
+      "corrected": "Política de privacidad y cookies | Eye On Idea"
+    },
+    {
+      "locale": "es",
+      "file": "pages/process.json",
+      "keyPath": "meta.title",
+      "original": "Nuestro proceso - Eye On Idea",
+      "corrected": "Nuestro proceso | Eye On Idea"
+    },
+    {
+      "locale": "es",
+      "file": "pages/services-subpages.json",
+      "keyPath": "websitePackages.meta.title",
+      "original": "Paquetes de sitios web - Eye On Idea",
+      "corrected": "Paquetes de sitios web | Eye On Idea"
+    },
+    {
+      "locale": "es",
+      "file": "pages/services-subpages.json",
+      "keyPath": "visualIdentity.meta.title",
+      "original": "Identidad Visual - Eye On Idea",
+      "corrected": "Identidad Visual | Eye On Idea"
+    },
+    {
+      "locale": "es",
+      "file": "pages/services-subpages.json",
+      "keyPath": "visualIdentity.pricing.introBody",
+      "original": "Cada proyecto de identidad visual comienza con su empresa. Algunas empresas necesitan un logotipo enfocado y un sistema de colores. Otras necesitan una base de marca completa con directrices y activos listos para usar que respalden el crecimiento a largo plazo.\n\nLos precios que se muestran aqui comienzan en la cantidad indicada y reflejan el alcance minimo de cada servicio. La inversion final depende de sus objetivos, cronograma y nivel de detalle. Todo el trabajo esta basado en proyectos y claramente definido, por lo que recibe una identidad visual estructurada construida para apoyar su negocio ahora y a medida que crece.",
+      "corrected": "Cada proyecto de identidad visual comienza con su empresa. Algunas empresas necesitan un logotipo enfocado y un sistema de colores. Otras necesitan una base de marca completa con directrices y activos listos para usar que respalden el crecimiento a largo plazo. Los precios que se muestran aqui comienzan en la cantidad indicada y reflejan el alcance minimo de cada servicio. La inversion final depende de sus objetivos, cronograma y nivel de detalle. Todo el trabajo esta basado en proyectos y claramente definido, por lo que recibe una identidad visual estructurada construida para apoyar su negocio ahora y a medida que crece."
+    },
+    {
+      "locale": "es",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.meta.title",
+      "original": "Servicios adicionales - Eye On Idea",
+      "corrected": "Servicios adicionales | Eye On Idea"
+    },
+    {
+      "locale": "es",
+      "file": "pages/services.json",
+      "keyPath": "meta.title",
+      "original": "Servicios - Eye On Idea",
+      "corrected": "Servicios | Eye On Idea"
+    },
+    {
+      "locale": "es",
+      "file": "pages/services.json",
+      "keyPath": "beforeAfter.afterLabel",
+      "original": "Después - con Eye On Idea",
+      "corrected": "Después, con Eye On Idea"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/about.json",
+      "keyPath": "meta.title",
+      "original": "À propos - Eye On Idea",
+      "corrected": "À propos | Eye On Idea"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/cases/herqulez.json",
+      "keyPath": "duration",
+      "original": "Novembre 2025 - En cours",
+      "corrected": "Novembre 2025 à aujourd'hui"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/cases/herqulez.json",
+      "keyPath": "overview.challenge",
+      "original": "Herqulez est une plateforme de fitness modulaire couvrant six domaines : Core Fitness, Nutrition, Sommeil/Récupération, Habitudes, Sport et Voyage - chacun avec sa propre identité de produit. Le site Web marketing devait communiquer clairement sur un écosystème complexe et multi-modules sans surcharger les visiteurs, tout en établissant la confiance avant le lancement de l'application.",
+      "corrected": "Herqulez est une plateforme de fitness modulaire couvrant six domaines : Core Fitness, Nutrition, Sommeil/Récupération, Habitudes, Sport et Voyage, chacun avec sa propre identité de produit. Le site Web marketing devait communiquer clairement sur un écosystème complexe et multi-modules sans surcharger les visiteurs, tout en établissant la confiance avant le lancement de l'application."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/cases.json",
+      "keyPath": "metaDescription",
+      "original": "Découvrez comment Eye On Idea conçoit et crée des sites Web pour les petites et moyennes entreprises - de la stratégie et de l'identité visuelle au lancement et au support continu.",
+      "corrected": "Découvrez comment Eye On Idea conçoit et crée des sites Web pour les petites et moyennes entreprises, de la stratégie et de l'identité visuelle au lancement et au support continu."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/cases.json",
+      "keyPath": "hero.subtitle",
+      "original": "Stratégie, conception et développement - livrés.",
+      "corrected": "Stratégie, conception et développement, livrés."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.seoBasics.field4",
+      "original": "Slug - l'URL de la page",
+      "corrected": "Slug, l'URL de la page"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.emailFaq.mistake2",
+      "original": "Utiliser POP au lieu d'IMAP  -  IMAP maintient les appareils synchronisés",
+      "corrected": "Utiliser POP au lieu d'IMAP, IMAP maintient les appareils synchronisés"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.logoUsage.version2",
+      "original": "Version horizontale  -  pour les grands espaces",
+      "corrected": "Version horizontale, pour les grands espaces"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.logoUsage.version3",
+      "original": "Version empilée  -  pour les espaces verticaux",
+      "corrected": "Version empilée, pour les espaces verticaux"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.logoUsage.version5",
+      "original": "Version claire  -  pour les arrière-plans sombres",
+      "corrected": "Version claire, pour les arrière-plans sombres"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.logoUsage.version6",
+      "original": "Version sombre  -  pour les arrière-plans clairs",
+      "corrected": "Version sombre, pour les arrière-plans clairs"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.visualIdentityFaq.mistake4",
+      "original": "Téléchargement d'un logo de mauvaise qualité sur les réseaux sociaux - utilisez le PNG haute résolution fourni",
+      "corrected": "Téléchargement d'un logo de mauvaise qualité sur les réseaux sociaux, utilisez le PNG haute résolution fourni"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/contact.json",
+      "keyPath": "meta.title",
+      "original": "Contacter - Eye On Idea",
+      "corrected": "Contacter | Eye On Idea"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/index.json",
+      "keyPath": "packages.subtitle",
+      "original": "Chaque entreprise est différente. Ces trois forfaits sont notre point de départ - chacun étant défini et adapté à votre situation actuelle.",
+      "corrected": "Chaque entreprise est différente. Ces trois forfaits sont notre point de départ, chacun étant défini et adapté à votre situation actuelle."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/index.json",
+      "keyPath": "packages.items[0].includes[1]",
+      "original": "Site Web - jusqu'à 5 pages",
+      "corrected": "Site Web, jusqu'à 5 pages"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/legal.json",
+      "keyPath": "meta.title",
+      "original": "Conditions d'utilisation - Eye On Idea",
+      "corrected": "Conditions d'utilisation | Eye On Idea"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/news.json",
+      "keyPath": "seo.title",
+      "original": "News et perspectives - Eye On Idea",
+      "corrected": "News et perspectives | Eye On Idea"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/policies.json",
+      "keyPath": "meta.title",
+      "original": "Politique de confidentialité et de cookies - Eye On Idea",
+      "corrected": "Politique de confidentialité et de cookies | Eye On Idea"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/process.json",
+      "keyPath": "meta.title",
+      "original": "Notre processus - Eye On Idea",
+      "corrected": "Notre processus | Eye On Idea"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/services-subpages.json",
+      "keyPath": "websitePackages.meta.title",
+      "original": "Forfaits Web - Eye On Idea",
+      "corrected": "Forfaits Web | Eye On Idea"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/services-subpages.json",
+      "keyPath": "visualIdentity.meta.title",
+      "original": "Identité visuelle - Eye On Idea",
+      "corrected": "Identité visuelle | Eye On Idea"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/services-subpages.json",
+      "keyPath": "visualIdentity.intro.body",
+      "original": "Un logo bien conçu, une palette de couleurs cohérente et une typographie claire signalent un professionnalisme et établissent une confiance difficile à atteindre autrement. Chez Eye On Idea, nous abordons l'identité visuelle comme une base pratique - en fournissant un système complet et utilisable qui fonctionne de manière cohérente sur votre site Web, vos documents imprimés et partout où votre public vous trouve.",
+      "corrected": "Un logo bien conçu, une palette de couleurs cohérente et une typographie claire signalent un professionnalisme et établissent une confiance difficile à atteindre autrement. Chez Eye On Idea, nous abordons l'identité visuelle comme une base pratique, en fournissant un système complet et utilisable qui fonctionne de manière cohérente sur votre site Web, vos documents imprimés et partout où votre public vous trouve."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/services-subpages.json",
+      "keyPath": "visualIdentity.pricing.introBody",
+      "original": "Chaque projet d'identité visuelle part de votre entreprise. Certaines entreprises ont besoin d'un logo ciblé et d'un système de couleurs. D'autres ont besoin d'une base de marque complète avec des directives et des actifs prêts à l'emploi qui soutiennent la croissance à long terme.\n\nLes prix indiqués ici commencent au montant indiqué et reflètent le périmètre minimum de chaque service. L'investissement final dépend de vos objectifs, de votre calendrier et du niveau de détail. Tout le travail est basé sur des projets et clairement défini, de sorte que vous recevez une identité visuelle structurée conçue pour soutenir votre entreprise maintenant et à mesure qu'elle se développe.",
+      "corrected": "Chaque projet d'identité visuelle part de votre entreprise. Certaines entreprises ont besoin d'un logo ciblé et d'un système de couleurs. D'autres ont besoin d'une base de marque complète avec des directives et des actifs prêts à l'emploi qui soutiennent la croissance à long terme. Les prix indiqués ici commencent au montant indiqué et reflètent le périmètre minimum de chaque service. L'investissement final dépend de vos objectifs, de votre calendrier et du niveau de détail. Tout le travail est basé sur des projets et clairement défini, de sorte que vous recevez une identité visuelle structurée conçue pour soutenir votre entreprise maintenant et à mesure qu'elle se développe."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.meta.title",
+      "original": "Services supplémentaires - Eye On Idea",
+      "corrected": "Services supplémentaires | Eye On Idea"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.sections.domain.items[0].description",
+      "original": "Enregistrez un domaine supplémentaire - utile pour la protection de la marque, les variantes régionales ou les redirections.",
+      "corrected": "Enregistrez un domaine supplémentaire, utile pour la protection de la marque, les variantes régionales ou les redirections."
+    },
+    {
+      "locale": "fr",
+      "file": "pages/services.json",
+      "keyPath": "meta.title",
+      "original": "Prestations - Eye On Idea",
+      "corrected": "Prestations | Eye On Idea"
+    },
+    {
+      "locale": "fr",
+      "file": "pages/services.json",
+      "keyPath": "beforeAfter.afterLabel",
+      "original": "Après - avec Eye On Idea",
+      "corrected": "Après, avec Eye On Idea"
+    },
+    {
+      "locale": "it",
+      "file": "pages/cases/herqulez.json",
+      "keyPath": "duration",
+      "original": "Novembre 2025 - In corso",
+      "corrected": "Novembre 2025 a oggi"
+    },
+    {
+      "locale": "it",
+      "file": "pages/cases.json",
+      "keyPath": "hero.subtitle",
+      "original": "Strategia, progettazione e sviluppo - consegnati.",
+      "corrected": "Strategia, progettazione e sviluppo, consegnati."
+    },
+    {
+      "locale": "it",
+      "file": "pages/client-hub.json",
+      "keyPath": "hub.heroTagline",
+      "original": "Tutto quello che ti serve per gestire il tuo sito web, il tuo brand e la tua presenza digitale - tutto in un posto.",
+      "corrected": "Tutto quello che ti serve per gestire il tuo sito web, il tuo brand e la tua presenza digitale, tutto in un posto."
+    },
+    {
+      "locale": "it",
+      "file": "pages/client-hub.json",
+      "keyPath": "article.content.logoUsage.version2",
+      "original": "Versione orizzontale  -  per ampi spazi",
+      "corrected": "Versione orizzontale, per ampi spazi"
+    },
+    {
+      "locale": "it",
+      "file": "pages/contact.json",
+      "keyPath": "meta.title",
+      "original": "Contatto - Eye On Idea",
+      "corrected": "Contatto | Eye On Idea"
+    },
+    {
+      "locale": "it",
+      "file": "pages/legal.json",
+      "keyPath": "meta.title",
+      "original": "Termini di servizio - Eye On Idea",
+      "corrected": "Termini di servizio | Eye On Idea"
+    },
+    {
+      "locale": "it",
+      "file": "pages/news.json",
+      "keyPath": "seo.title",
+      "original": "News e Approfondimenti - Eye On Idea",
+      "corrected": "News e Approfondimenti | Eye On Idea"
+    },
+    {
+      "locale": "it",
+      "file": "pages/policies.json",
+      "keyPath": "meta.title",
+      "original": "Politica sulla privacy e sui cookie - Eye On Idea",
+      "corrected": "Politica sulla privacy e sui cookie | Eye On Idea"
+    },
+    {
+      "locale": "it",
+      "file": "pages/services-subpages.json",
+      "keyPath": "websitePackages.meta.title",
+      "original": "Pacchetti sito web - Eye On Idea",
+      "corrected": "Pacchetti sito web | Eye On Idea"
+    },
+    {
+      "locale": "it",
+      "file": "pages/services-subpages.json",
+      "keyPath": "visualIdentity.meta.title",
+      "original": "Identità Visiva - Eye On Idea",
+      "corrected": "Identità Visiva | Eye On Idea"
+    },
+    {
+      "locale": "it",
+      "file": "pages/services-subpages.json",
+      "keyPath": "visualIdentity.pricing.introBody",
+      "original": "Ogni progetto di identità visiva parte dalla tua azienda. Alcune aziende hanno bisogno di un logo mirato e di un sistema di colori. Altre hanno bisogno di una base di brand completa con linee guida e asset pronti all'uso che supportano la crescita a lungo termine.\n\nI prezzi mostrati qui partono dall'importo indicato e riflettono l'ambito minimo di ciascun servizio. L'investimento finale dipende dai tuoi obiettivi, dalla tempistica e dal livello di dettaglio. Tutto il lavoro e basato su progetti e chiaramente definito, in modo che tu riceva un'identita visiva strutturata costruita per supportare la tua attivita ora e man mano che cresce.",
+      "corrected": "Ogni progetto di identità visiva parte dalla tua azienda. Alcune aziende hanno bisogno di un logo mirato e di un sistema di colori. Altre hanno bisogno di una base di brand completa con linee guida e asset pronti all'uso che supportano la crescita a lungo termine. I prezzi mostrati qui partono dall'importo indicato e riflettono l'ambito minimo di ciascun servizio. L'investimento finale dipende dai tuoi obiettivi, dalla tempistica e dal livello di dettaglio. Tutto il lavoro e basato su progetti e chiaramente definito, in modo che tu riceva un'identita visiva strutturata costruita per supportare la tua attivita ora e man mano che cresce."
+    },
+    {
+      "locale": "it",
+      "file": "pages/services-subpages.json",
+      "keyPath": "additionalServices.meta.title",
+      "original": "Servizi aggiuntivi - Eye On Idea",
+      "corrected": "Servizi aggiuntivi | Eye On Idea"
+    },
+    {
+      "locale": "it",
+      "file": "pages/services.json",
+      "keyPath": "meta.title",
+      "original": "Servizi - Eye On Idea",
+      "corrected": "Servizi | Eye On Idea"
+    },
+    {
+      "locale": "it",
+      "file": "pages/services.json",
+      "keyPath": "beforeAfter.afterLabel",
+      "original": "Dopo - con Eye On Idea",
+      "corrected": "Dopo, con Eye On Idea"
+    }
+  ]
+}

@@ -19,7 +19,7 @@
   "contact": {
     "title": "Nehmen Sie",
     "titleHighlight": "Kontakt auf",
-    "email": "E-Mail",
+    "email": "Email",
     "phone": "Telefon",
     "openPanel": "Kontaktfeld öffnen",
     "closePanel": "Kontaktfeld schließen"
@@ -35,7 +35,8 @@
   "accessibility": {
     "scrollProgress": "Scroll-Fortschritt der Seite",
     "selectLanguage": "Sprache auswählen",
-    "toggleColorMode": "Farbmodus umschalten"
+    "toggleColorMode": "Farbmodus umschalten",
+    "externalLink": "Öffnet in neuem Tab"
   },
   "colorMode": {
     "light": "Heller Modus",

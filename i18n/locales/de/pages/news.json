@@ -1,11 +1,11 @@
 {
-  "title": "Neuigkeiten und Einblicke",
+  "title": "News und Einblicke",
   "seo": {
-    "title": "Neuigkeiten und Einblicke – Eye On Idea",
+    "title": "News und Einblicke – Eye On Idea",
     "description": "Bleiben Sie mit den neuesten Nachrichten, Erkenntnissen und Updates von Eye On Idea auf dem Laufenden. Webentwicklungstrends, Neuigkeiten von Digitalagenturen und Brancheneinblicke."
   },
   "hero": {
-    "title": "Neuigkeiten und Einblicke",
+    "title": "News und Einblicke",
     "subtitle": "Bleiben Sie mit den neuesten Informationen von Eye On Idea auf dem Laufenden"
   },
   "filters": {
@@ -13,7 +13,7 @@
     "searchLabel": "Suchen",
     "filterByType": "Nach Typ filtern",
     "allTypes": "Alle Typen",
-    "news": "Nachrichten",
+    "news": "News",
     "article": "Artikel",
     "announcement": "Ankündigung",
     "caseStudy": "Fallstudie",
@@ -33,7 +33,7 @@
     "loading": "Artikel wird geladen...",
     "notFound": "Artikel nicht gefunden",
     "notFoundText": "Der gesuchte Artikel existiert nicht oder wurde entfernt.",
-    "backToNews": "Zurück zu den Neuigkeiten",
+    "backToNews": "Zurück zu den News",
     "defaultTitle": "Artikel",
     "share": "Teilen Sie diesen Artikel",
     "shareLinkedIn": "Auf LinkedIn teilen",
@@ -47,9 +47,26 @@
     "viewAll": "Alle Artikel ansehen"
   },
   "categories": {
-    "news": "Nachrichten",
+    "news": "News",
     "article": "Artikel",
     "announcement": "Ankündigung",
     "caseStudy": "Fallstudie"
+  },
+  "postTypes": {
+    "news": "News",
+    "article": "Artikel",
+    "announcement": "Ankündigung",
+    "caseStudy": "Fallstudie",
+    "event": "Veranstaltung",
+    "product_update": "Produktaktualisierung",
+    "press_release": "Pressemitteilung"
+  },
+  "postsList": {
+    "noResults": "Keine Artikel gefunden",
+    "noResultsText": "Versuchen Sie, Ihre Suche oder Filter anzupassen",
+    "loadMore": "Weitere Artikel laden",
+    "loading": "Artikel werden geladen...",
+    "allLoaded": "Alle Artikel geladen",
+    "showingCount": "Es werden {shown} von {total} Artikeln angezeigt"
   }
 }

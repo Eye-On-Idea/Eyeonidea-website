@@ -1,7 +1,7 @@
 {
   "websitePackages": {
     "meta": {
-      "title": "Pacchetti sito web - Eye On Idea",
+      "title": "Pacchetti sito web | Eye On Idea",
       "description": "Tre pacchetti di siti web costruiti in base al luogo in cui si trova la tua attività in questo momento. Prezzi chiari, portata onesta e nessun extra non necessario. Confronta lancio, crescita e piattaforma."
     },
     "hero": {
@@ -57,7 +57,7 @@
   },
   "visualIdentity": {
     "meta": {
-      "title": "Identità Visiva - Eye On Idea",
+      "title": "Identità Visiva | Eye On Idea",
       "description": "Logo, colore, tipografia e linee guida del marchio per le aziende che vogliono apparire credibili e coerenti. Progettazione dell'identità visiva da Eye On Idea ad Aalborg."
     },
     "hero": {
@@ -139,7 +139,7 @@
       "vatNote": "Tutti i prezzi escl. IVA",
       "startsAt": "a partire da",
       "introTitle": "Come funziona",
-      "introBody": "Ogni progetto di identità visiva parte dalla tua azienda. Alcune aziende hanno bisogno di un logo mirato e di un sistema di colori. Altre hanno bisogno di una base di brand completa con linee guida e asset pronti all'uso che supportano la crescita a lungo termine.\n\nI prezzi mostrati qui partono dall'importo indicato e riflettono l'ambito minimo di ciascun servizio. L'investimento finale dipende dai tuoi obiettivi, dalla tempistica e dal livello di dettaglio. Tutto il lavoro e basato su progetti e chiaramente definito, in modo che tu riceva un'identita visiva strutturata costruita per supportare la tua attivita ora e man mano che cresce.",
+      "introBody": "Ogni progetto di identità visiva parte dalla tua azienda. Alcune aziende hanno bisogno di un logo mirato e di un sistema di colori. Altre hanno bisogno di una base di brand completa con linee guida e asset pronti all'uso che supportano la crescita a lungo termine. I prezzi mostrati qui partono dall'importo indicato e riflettono l'ambito minimo di ciascun servizio. L'investimento finale dipende dai tuoi obiettivi, dalla tempistica e dal livello di dettaglio. Tutto il lavoro e basato su progetti e chiaramente definito, in modo che tu riceva un'identita visiva strutturata costruita per supportare la tua attivita ora e man mano che cresce.",
       "footnote": "* Tutti i progetti di identita visiva includono un numero definito di cicli di revisione. Revisioni aggiuntive o modifiche significative oltre l'ambito concordato possono influire sul prezzo finale. Se non e possibile raggiungere un accordo entro il quadro concordato, puo essere proposto un nuovo ambito o il progetto puo essere concluso in base al lavoro completato.",
       "highlights": [
         {
@@ -182,7 +182,7 @@
   },
   "additionalServices": {
     "meta": {
-      "title": "Servizi aggiuntivi - Eye On Idea",
+      "title": "Servizi aggiuntivi | Eye On Idea",
       "description": "Dominio, e-mail, copywriting, SEO e piani di supporto continuativi. Tutto ciò che riguarda il tuo sito web, gestito in un unico posto da Eye On Idea ad Aalborg."
     },
     "hero": {
@@ -198,7 +198,7 @@
       "intro": "Panoramica",
       "content": "Contenuto",
       "domain": "Dominio",
-      "email": "E-mail",
+      "email": "Email",
       "seoConsulting": "SEO e consulenza",
       "support": "Piani di supporto"
     },
@@ -218,7 +218,7 @@
         },
         {
           "icon": "i-heroicons-envelope",
-          "title": "E-mail",
+          "title": "Email",
           "body": "Email professionale sul tuo dominio. Ospitata in UE, filtrata dallo spam e pronta all'uso."
         },
         {
@@ -297,8 +297,8 @@
         ]
       },
       "email": {
-        "badge": "E-mail",
-        "title": "E-mail",
+        "badge": "Email",
+        "title": "Email",
         "intro": [
           "Un indirizzo email professionale sul tuo dominio è uno dei modi più semplici per apparire credibili. Impostiamo e gestiamo la posta elettronica aziendale su un'infrastruttura basata nell'UE.",
           "Entrambi i piani utilizzano il tuo dominio (tu{'@'}tuaazienda.com) e includono funzionalità standard: accesso alla webmail, filtro antispam e funzionalità di base del calendario."

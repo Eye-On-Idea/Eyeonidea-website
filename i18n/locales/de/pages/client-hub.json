@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "Kunden-Hub",
+    "title": "Client Hub",
     "description": "Leitfäden und Ressourcen, die Ihnen bei der Verwaltung Ihrer Website, E-Mail, Domain, Ihres Hostings und Ihrer Markenidentität helfen"
   },
   "login": {
-    "title": "Kunden-Hub",
+    "title": "Client Hub",
     "subtitle": "Geben Sie Ihr Passwort ein, um auf Leitfäden und Ressourcen zuzugreifen",
     "passwordLabel": "Passwort",
     "passwordPlaceholder": "Geben Sie Ihr Zugangspasswort ein",
@@ -16,7 +16,7 @@
     "helpText": "Wenn Sie kein Passwort haben, wenden Sie sich an Ihren Eye On Idea-Projektmanager."
   },
   "nav": {
-    "hubTitle": "Kunden-Hub",
+    "hubTitle": "Client Hub",
     "backToSite": "Zurück zur Hauptseite",
     "logout": "Abmelden",
     "home": "Hub-Startseite",
@@ -26,14 +26,14 @@
     "allServices": "Alle Dienstleistungen"
   },
   "hub": {
-    "welcomeTitle": "Willkommen in Ihrem Kunden-Hub",
+    "welcomeTitle": "Willkommen in Ihrem Client Hub",
     "welcomeDescription": "Hier finden Sie Leitfäden und Ressourcen für die von uns angebotenen Dienste. Wählen Sie unten einen Dienst aus, um loszulegen.",
     "servicesTitle": "Nach Dienst durchsuchen",
     "gettingStartedHighlight": "Neu hier? Beginnen Sie mit dem Onboarding-Leitfaden oben, um zu verstehen, was Sie erwartet.",
-    "heroTagline": "Alles, was Sie benoetigen, um Ihre Website, Ihre Marke und Ihre digitale Praesenz zu verwalten - an einem Ort.",
+    "heroTagline": "Alles, was Sie benoetigen, um Ihre Website, Ihre Marke und Ihre digitale Praesenz zu verwalten, an einem Ort.",
     "heroCta1": "Onboarding starten",
     "heroCta2": "Leitfaeden erkunden",
-    "introTitle": "Was ist der Kunden-Hub?",
+    "introTitle": "Was ist der Client Hub?",
     "introBody": "Dieser Hub ist Ihr privates Ressourcenzentrum. Sie finden hier Schritt-fuer-Schritt-Anleitungen fuer alle Dienste von Eye On Idea, von der Verwaltung Ihrer Website-Inhalte und Domaene bis hin zur Arbeit mit Ihrer visuellen Identitaet. Nutzen Sie die Seitenleiste zur Navigation nach Thema oder suchen Sie mit Cmd+K.",
     "contactTitle": "Brauchen Sie Hilfe?",
     "contactBody": "Wenden Sie sich direkt an Ihren Eye On Idea Projektmanager in Aalborg.",
@@ -114,7 +114,7 @@
       "icon": "i-heroicons-globe-alt"
     },
     "email": {
-      "title": "E-Mail",
+      "title": "Email",
       "description": "Einrichten und Verwalten Ihrer professionellen E-Mail-Konten mit Zimbra.",
       "icon": "i-heroicons-envelope"
     },
@@ -156,7 +156,7 @@
       "icon": "i-heroicons-magnifying-glass"
     },
     "news-and-posts": {
-      "title": "Nachrichten und Beiträge",
+      "title": "News und Beiträge",
       "description": "Erstellen, formatieren und veröffentlichen Sie Nachrichtenartikel oder Blogbeiträge.",
       "icon": "i-heroicons-newspaper"
     },
@@ -415,7 +415,7 @@
         "introTitle": "Finden, was Sie brauchen",
         "introText": "Die meisten Studios verfügen über ein Menü auf der linken Seite mit Inhaltstypen. Dazu gehören typischerweise:",
         "contentType1": "Seiten",
-        "contentType2": "Nachrichten / Beiträge",
+        "contentType2": "News / Beiträge",
         "contentType3": "Einstellungen",
         "contentType4": "Navigation",
         "contentType5": "SEO",
@@ -893,13 +893,13 @@
     "browse": "Durchsuchen Sie Reiseführer"
   },
   "breadcrumb": {
-    "hub": "Kunden-Hub"
+    "hub": "Client Hub"
   },
   "disclaimer": {
     "title": "Privater Kundenbereich",
     "subtitle": "Dieser Bereich ist ausschließlich für Kunden von Eye On Idea bestimmt.",
     "body": "Diese Ressourcen werden im Rahmen Ihres Servicevertrags bereitgestellt. Bitte teilen Sie Links zu diesem Bereich nicht mit anderen.",
-    "continueButton": "Weiter zum Kunden-Hub",
+    "continueButton": "Weiter zum Client Hub",
     "backToSite": "Zurück zur Website"
   }
 }

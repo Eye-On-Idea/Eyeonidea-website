@@ -322,35 +322,7 @@ const bgStyle = computed(() =>
 }
 
 /* ── Light mode overrides ─────────────────────────────────────── */
-html:not(.dark) {
-  .page-hero { background: var(--color-hero-bg); }
-
-  .hero-bg {
-    background:
-      radial-gradient(ellipse 75% 55% at 18% 45%, rgba(153, 82, 38, 0.07) 0%, transparent 60%),
-      radial-gradient(ellipse 55% 40% at 80% 85%, rgba(153, 82, 38, 0.03) 0%, transparent 55%);
-  }
-
-  .corner {
-    border-color: rgba(153, 82, 38, 0.18);
-
-    &::after { border-color: rgba(153, 82, 38, 0.08); }
-  }
-
-  .label-line    { background: var(--deco-line); }
-  .label-diamond { background: var(--deco-diamond); }
-  .label-text    { color: var(--deco-text); }
-
-  .hero-title { color: #441a08; } /* primary-900 — word spans handled globally in main.css */
-
-  .div-line    { background: var(--deco-line); }
-  .div-diamond {
-    background: var(--deco-diamond);
-    &--sm { background: var(--deco-diamond-sm); }
-  }
-
-  .hero-subtitle { color: var(--color-text-subtle); }
-}
+/* Hero sections have background images — always render dark regardless of mode */
 
 /* Lifted outside nesting — Vue scoped compiler requires :deep() at top level */
 /* .word-amber light mode color is handled globally in main.css */

@@ -1,11 +1,11 @@
 {
-  "title": "Actualités et informations",
+  "title": "News et informations",
   "seo": {
-    "title": "Actualités et perspectives - Eye On Idea",
+    "title": "News et perspectives | Eye On Idea",
     "description": "Restez à jour avec les dernières nouvelles, informations et mises à jour d'Eye On Idea. Tendances du développement Web, actualités des agences numériques et informations sur le secteur."
   },
   "hero": {
-    "title": "Actualités et informations",
+    "title": "News et informations",
     "subtitle": "Restez à jour avec les dernières nouveautés d'Eye On Idea"
   },
   "filters": {
@@ -13,7 +13,7 @@
     "searchLabel": "Rechercher",
     "filterByType": "Filtrer par type",
     "allTypes": "Tous types",
-    "news": "Actualités",
+    "news": "News",
     "article": "Articles",
     "announcement": "Annonce",
     "caseStudy": "Étude de cas",
@@ -33,7 +33,7 @@
     "loading": "Chargement de l'article...",
     "notFound": "Article introuvable",
     "notFoundText": "L'article que vous recherchez n'existe pas ou a été supprimé.",
-    "backToNews": "Retour aux Actualités",
+    "backToNews": "Retour aux News",
     "defaultTitle": "Articles",
     "share": "Partagez cet article",
     "shareLinkedIn": "Partager sur LinkedIn",
@@ -47,9 +47,26 @@
     "viewAll": "Voir tous les articles"
   },
   "categories": {
-    "news": "Actualités",
+    "news": "News",
     "article": "Articles",
     "announcement": "Annonce",
     "caseStudy": "Étude de cas"
+  },
+  "postTypes": {
+    "news": "News",
+    "article": "Article",
+    "announcement": "Annonce",
+    "caseStudy": "Étude de cas",
+    "event": "Événement",
+    "product_update": "Mise à jour du produit",
+    "press_release": "Communiqué de presse"
+  },
+  "postsList": {
+    "noResults": "Aucun article trouvé",
+    "noResultsText": "Essayez d'ajuster votre recherche ou vos filtres",
+    "loadMore": "Charger plus d'articles",
+    "loading": "Chargement des articles...",
+    "allLoaded": "Tous les articles chargés",
+    "showingCount": "Affichage de {shown} articles sur {total}"
   }
 }

@@ -28,26 +28,10 @@ export default defineNuxtConfig({
     storage: "localStorage", // Persist user preference
     storageKey: "color-mode",
   },
-  // SSR configuration — Cloudflare Pages with selective prerendering
+  // Static generation — output to .output/public, deploy via FTP
   ssr: true,
   nitro: {
-    preset: "cloudflare-pages",
-    prerender: {
-      routes: [
-        "/",
-        "/solutions",
-        "/solutions/process",
-        "/about",
-        "/about/legal",
-        "/about/policies",
-        "/contact",
-        "/cases",
-        "/cases/herqulez",
-        "/cases/tegetec",
-      ],
-      failOnError: false,
-      crawlLinks: true,
-    },
+    preset: "static",
   },
   icon: {
     serverBundle: "local",
@@ -349,7 +333,7 @@ export default defineNuxtConfig({
     "/cases/**": { prerender: true },
     "/news": { prerender: true },
     "/news/**": { prerender: true },
-    // Client Hub requires SSR for session-based auth
-    "/client-hub/**": { ssr: true },
+    // Client Hub — excluded from prerender (no SSR on static host)
+    "/client-hub/**": { prerender: false },
   },
 });

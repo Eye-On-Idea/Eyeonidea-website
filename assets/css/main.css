@@ -396,6 +396,21 @@ html:not(.dark) #hero-section .app-cta--secondary:hover {
 }
 
 /* =========================
+   About Section (Landing) — Always Dark Buttons
+   Has a background image + dark overlay in both modes.
+   ========================= */
+html:not(.dark) #about-section .app-cta--secondary {
+  border-color: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 237, 223, 0.75);
+  background: transparent;
+}
+html:not(.dark) #about-section .app-cta--secondary:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffeddf;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* =========================
    Dark Mode Overrides
    Applied via .dark class from @nuxtjs/color-mode
    Using html.dark for higher specificity

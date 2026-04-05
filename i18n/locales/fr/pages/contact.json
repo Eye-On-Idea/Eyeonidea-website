@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Contacter - Eye On Idea",
+    "title": "Contacter | Eye On Idea",
     "description": "Contactez Eye On Idea. Discutons des besoins de votre projet numérique : sites Web, identité visuelle, solutions CMS ou assistance continue."
   },
   "hero": {
@@ -15,7 +15,7 @@
       "placeholder": "Votre nom complet"
     },
     "email": {
-      "label": "Courriel",
+      "label": "Email",
       "placeholder": "votre{'@'}email.com"
     },
     "phone": {
@@ -59,7 +59,7 @@
       "description": "Vous préférez une conversation directe? Contactez-nous par e-mail ou par téléphone."
     },
     "email": {
-      "label": "Courriel",
+      "label": "Email",
       "value": "bonjour{'@'}eyeonidea.com"
     },
     "phone": {

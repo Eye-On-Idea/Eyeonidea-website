@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "Centre client",
+    "title": "Client Hub",
     "description": "Guides et ressources pour vous aider à gérer votre site Web, votre messagerie électronique, votre domaine, votre hébergement et votre identité de marque"
   },
   "login": {
-    "title": "Centre client",
+    "title": "Client Hub",
     "subtitle": "Entrez votre mot de passe pour accéder aux guides et ressources",
     "passwordLabel": "Mot de passe",
     "passwordPlaceholder": "Entrez votre mot de passe d'accès",
@@ -16,7 +16,7 @@
     "helpText": "Si vous n'avez pas de mot de passe, contactez votre chef de projet Eye On Idea."
   },
   "nav": {
-    "hubTitle": "Centre client",
+    "hubTitle": "Client Hub",
     "backToSite": "Retour au site principal",
     "logout": "Se déconnecter",
     "home": "Accueil du hub",
@@ -26,14 +26,14 @@
     "allServices": "Tous les services"
   },
   "hub": {
-    "welcomeTitle": "Bienvenue dans votre Espace Client",
+    "welcomeTitle": "Welcome to your Client Hub",
     "welcomeDescription": "Trouvez des guides et des ressources pour les services que nous proposons. Choisissez un service ci-dessous pour commencer.",
     "servicesTitle": "Parcourir par service",
     "gettingStartedHighlight": "Nouveau ici ? Commencez par le guide d’intégration ci-dessus pour comprendre à quoi vous attendre.",
     "heroTagline": "Tout ce dont vous avez besoin pour gérer votre site Web, votre marque et votre présence numérique, le tout au même endroit.",
     "heroCta1": "Commencer l'intégration",
     "heroCta2": "Explorer les guides",
-    "introTitle": "Qu'est-ce que le Hub Client ?",
+    "introTitle": "Qu'est-ce que le Client Hub ?",
     "introBody": "Ce hub est votre centre de ressources privé. Vous trouverez des guides étape par étape pour chaque service proposé par Eye On Idea, de la gestion du contenu et du domaine de votre site Web à l'utilisation de votre identité visuelle. Utilisez la barre latérale pour naviguer par sujet ou effectuez une recherche avec Cmd+K.",
     "contactTitle": "Besoin d'aide ?",
     "contactBody": "Contactez directement votre chef de projet Eye On Idea à Aalborg.",
@@ -114,7 +114,7 @@
       "icon": "i-heroicons-globe-alt"
     },
     "email": {
-      "title": "Courriel",
+      "title": "Email",
       "description": "Configuration et gestion de vos comptes de messagerie professionnels avec Zimbra.",
       "icon": "i-heroicons-envelope"
     },
@@ -156,7 +156,7 @@
       "icon": "i-heroicons-magnifying-glass"
     },
     "news-and-posts": {
-      "title": "Actualités et publications",
+      "title": "News et publications",
       "description": "Créez, formatez et publiez des articles d'actualité ou des billets de blog.",
       "icon": "i-heroicons-newspaper"
     },
@@ -415,7 +415,7 @@
         "introTitle": "Trouver ce dont vous avez besoin",
         "introText": "La plupart des studios disposent d'un menu de gauche avec les types de contenu. Ceux-ci incluent généralement :",
         "contentType1": "Pages",
-        "contentType2": "Actualités / Articles",
+        "contentType2": "News / Articles",
         "contentType3": "Paramètres",
         "contentType4": "Navigation",
         "contentType5": "Référencement",
@@ -457,7 +457,7 @@
         "field1": "Titre SEO – le titre de la page affiché dans les résultats Google",
         "field2": "Meta Description – le texte court sous le titre dans Google",
         "field3": "Image de partage social (si incluse dans votre projet)",
-        "field4": "Slug - l'URL de la page",
+        "field4": "Slug, l'URL de la page",
         "titleTitle": "Rédaction du titre SEO",
         "titleText": "Le titre SEO apparaît dans les résultats de recherche Google. Gardez-le entre 50 et 60 caractères, clairs et précis, et incluez votre sujet principal.",
         "titleExample": "Exemple : « Services de toiture commerciale à Aarhus »",
@@ -674,7 +674,7 @@
         "a4": "Oui. Des mises à niveau de stockage peuvent être organisées si nécessaire.",
         "mistakesTitle": "Erreurs courantes",
         "mistake1": "Ne pas changer le mot de passe initial – changez-le toujours immédiatement",
-        "mistake2": "Utiliser POP au lieu d'IMAP  -  IMAP maintient les appareils synchronisés",
+        "mistake2": "Utiliser POP au lieu d'IMAP, IMAP maintient les appareils synchronisés",
         "mistake3": "Partager des mots de passe par e-mail : n'envoyez jamais de mots de passe via des canaux non sécurisés"
       },
       "domainOwnership": {
@@ -822,11 +822,11 @@
         "versionsTitle": "Versions des logos",
         "versionsText": "Vous avez peut-être reçu plusieurs versions de logo :",
         "version1": "Logo principal : utilisez-le par défaut",
-        "version2": "Version horizontale  -  pour les grands espaces",
-        "version3": "Version empilée  -  pour les espaces verticaux",
+        "version2": "Version horizontale, pour les grands espaces",
+        "version3": "Version empilée, pour les espaces verticaux",
         "version4": "Version avec icônes uniquement – pour les photos de profil sur les réseaux sociaux et les petits espaces",
-        "version5": "Version claire  -  pour les arrière-plans sombres",
-        "version6": "Version sombre  -  pour les arrière-plans clairs",
+        "version5": "Version claire, pour les arrière-plans sombres",
+        "version6": "Version sombre, pour les arrière-plans clairs",
         "rulesTitle": "Règles d'utilisation",
         "rulesText": "Utilisez le logo principal par défaut. Utilisez des variantes uniquement lorsque l'espace est limité, que l'arrière-plan nécessite du contraste ou qu'une photo de profil sur un réseau social nécessite la version avec icônes uniquement.",
         "doNotTitle": "Ne",
@@ -884,7 +884,7 @@
         "mistake1": "Envoi de JPG à l'imprimante : utilisez des fichiers vectoriels ou des PDF prêts à imprimer",
         "mistake2": "Utiliser une capture d'écran du logo – n'utilisez jamais de captures d'écran",
         "mistake3": "Mélanger les couleurs de la marque avec des nuances aléatoires – respectez la palette définie",
-        "mistake4": "Téléchargement d'un logo de mauvaise qualité sur les réseaux sociaux - utilisez le PNG haute résolution fourni"
+        "mistake4": "Téléchargement d'un logo de mauvaise qualité sur les réseaux sociaux, utilisez le PNG haute résolution fourni"
       }
     }
   },
@@ -893,13 +893,13 @@
     "browse": "Parcourir les guides"
   },
   "breadcrumb": {
-    "hub": "Centre client"
+    "hub": "Client Hub"
   },
   "disclaimer": {
     "title": "Espace client privé",
     "subtitle": "Cette section est réservée exclusivement aux clients d'Eye On Idea.",
     "body": "Les ressources ici sont fournies dans le cadre de votre accord de service. Veuillez ne pas partager les liens vers cet espace avec d'autres personnes.",
-    "continueButton": "Accéder au centre client",
+    "continueButton": "Accéder au Client Hub",
     "backToSite": "Retour au site"
   }
 }

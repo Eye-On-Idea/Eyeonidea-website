@@ -1,10 +1,21 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import { useWindowScroll, useWindowSize } from "@vueuse/core";
 import { withDelay } from "~/composables/useAccessibleMotion";
 
 const { t, locale } = useI18n();
 const localePath = useLocalePath();
 const highlightWords = new Set(["business", "brand", "presence", "trust"]);
+
+// Fade out all hero content + overlays as the user scrolls away.
+// The background image persists from the fixed global layer in index.vue.
+const { y: scrollY } = useWindowScroll();
+const { height: windowHeight } = useWindowSize();
+// Fade starts at 80vh of scroll, completes over the next 300px
+const heroFade = computed(() => {
+  const start = windowHeight.value * 0.8;
+  return Math.max(0, 1 - Math.max(0, scrollY.value - start) / 300);
+});
 
 const normalizeWord = (word: string) =>
   word.toLowerCase().replace(/[^a-z0-9]/gi, "");
@@ -37,123 +48,125 @@ const scrollMotion = withDelay("fadeIn", 1200);
     class="hero-section"
     aria-labelledby="hero-heading"
   >
-    <!-- ── Background layers ─────────────────────────────────────────── -->
-    <!-- Photo layer — sits beneath all gradient overlays -->
-    <img
-      src="/images/landing/hero.jpg"
-      alt=""
-      class="hero-bg-image"
-      aria-hidden="true"
-      loading="eager"
-      fetchpriority="high"
-      decoding="sync"
-    />
-    <!-- Directional dark overlay: heavy left (text) → lighter right (image) -->
-    <div class="hero-bg-gradient" aria-hidden="true" />
-    <div class="hero-bg-radial" aria-hidden="true" />
+    <!-- ── Fading hero content — disappears as user scrolls ─────────── -->
+    <!-- opacity driven by scrollY so content vanishes before transparent
+         sections expose the sticky hero behind them                      -->
+    <div
+      class="hero-fade-wrap"
+      :style="{ opacity: heroFade }"
+      aria-hidden="false"
+    >
+      <!-- ── Background layers ─────────────────────────────────────────── -->
+      <!-- Photo is provided by the global fixed layer in index.vue.
+         These gradient overlays dress it for the hero context. -->
+      <!-- Directional dark overlay: heavy left (text) → lighter right (image) -->
+      <div class="hero-bg-gradient" aria-hidden="true" />
+      <div class="hero-bg-radial" aria-hidden="true" />
 
-    <!-- ── Art deco corner frame ─────────────────────────────────────── -->
-    <div class="deco-frame" aria-hidden="true">
-      <span class="corner corner--tl" />
-      <span class="corner corner--tr" />
-      <span class="corner corner--bl" />
-      <span class="corner corner--br" />
-    </div>
-
-    <!-- ── Art deco bottom ornament ──────────────────────────────────── -->
-    <div class="hero-bottom-ornament" aria-hidden="true">
-      <span class="ornament-line" />
-      <span class="ornament-diamond ornament-diamond--sm" />
-      <span class="ornament-line ornament-line--inner" />
-      <span class="ornament-diamond" />
-      <span class="ornament-line ornament-line--inner" />
-      <span class="ornament-diamond ornament-diamond--sm" />
-      <span class="ornament-line" />
-    </div>
-
-    <!-- ── Two-column layout ─────────────────────────────────────────── -->
-    <div class="hero-layout">
-      <!-- Left column: wordmark → headline → sub → CTAs -->
-      <div class="hero-left">
-        <!-- ② Headline -->
-        <div
-          v-motion
-          :initial="headingMotion.initial"
-          :enter="headingMotion.visible"
-        >
-          <h1 id="hero-heading" class="hero-headline">
-            <span class="hero-line">
-              <span
-                v-for="(word, index) in headlineWords"
-                :key="`headline-${index}`"
-                :class="[
-                  'hero-word',
-                  { 'hero-word--highlight': isHighlightedWord(word) },
-                ]"
-                >{{ word
-                }}{{ index < headlineWords.length - 1 ? " " : "" }}</span
-              >
-            </span>
-            <span class="hero-line hero-line--accent">
-              <span
-                v-for="(word, index) in headlineAccentWords"
-                :key="`headline-accent-${index}`"
-                :class="[
-                  'hero-word',
-                  { 'hero-word--highlight': isHighlightedWord(word) },
-                ]"
-                >{{ word
-                }}{{ index < headlineAccentWords.length - 1 ? " " : "" }}</span
-              >
-            </span>
-          </h1>
-        </div>
-
-        <!-- ③ Subheadline -->
-        <p
-          class="hero-sub"
-          v-motion
-          :initial="subMotion.initial"
-          :enter="subMotion.visible"
-        >
-          {{ t("landing.hero.subheadline") }}
-        </p>
-
-        <!-- ④ CTAs -->
-        <div
-          class="hero-ctas"
-          v-motion
-          :initial="ctaMotion.initial"
-          :enter="ctaMotion.visible"
-        >
-          <AppCtaButton
-            v-magnetic
-            :to="localePath('/solutions/website-packages')"
-            variant="primary"
-            :show-icon="true"
-          >
-            {{ t("landing.hero.cta.primary") }}
-          </AppCtaButton>
-          <AppCtaButton
-            v-magnetic
-            :to="localePath('/cases')"
-            variant="secondary"
-          >
-            {{ t("landing.hero.cta.secondary") }}
-          </AppCtaButton>
-        </div>
+      <!-- ── Art deco corner frame ─────────────────────────────────────── -->
+      <div class="deco-frame" aria-hidden="true">
+        <span class="corner corner--tl" />
+        <span class="corner corner--tr" />
+        <span class="corner corner--bl" />
+        <span class="corner corner--br" />
       </div>
 
-      <!-- Right column: interactive service orb -->
-      <div
-        class="hero-right"
-        v-motion
-        :initial="orbMotion.initial"
-        :enter="orbMotion.visible"
-      >
-        <ServiceOrb />
+      <!-- ── Art deco bottom ornament ──────────────────────────────────── -->
+      <div class="hero-bottom-ornament" aria-hidden="true">
+        <span class="ornament-line" />
+        <span class="ornament-diamond ornament-diamond--sm" />
+        <span class="ornament-line ornament-line--inner" />
+        <span class="ornament-diamond" />
+        <span class="ornament-line ornament-line--inner" />
+        <span class="ornament-diamond ornament-diamond--sm" />
+        <span class="ornament-line" />
       </div>
-      <!-- Right column: interactive service orb 
+
+      <!-- ── Two-column layout ─────────────────────────────────────────── -->
+      <div class="hero-layout">
+        <!-- Left column: wordmark → headline → sub → CTAs -->
+        <div class="hero-left">
+          <!-- ② Headline -->
+          <div
+            v-motion
+            :initial="headingMotion.initial"
+            :enter="headingMotion.visible"
+          >
+            <h1 id="hero-heading" class="hero-headline">
+              <span class="hero-line">
+                <span
+                  v-for="(word, index) in headlineWords"
+                  :key="`headline-${index}`"
+                  :class="[
+                    'hero-word',
+                    { 'hero-word--highlight': isHighlightedWord(word) },
+                  ]"
+                  >{{ word
+                  }}{{ index < headlineWords.length - 1 ? " " : "" }}</span
+                >
+              </span>
+              <span class="hero-line hero-line--accent">
+                <span
+                  v-for="(word, index) in headlineAccentWords"
+                  :key="`headline-accent-${index}`"
+                  :class="[
+                    'hero-word',
+                    { 'hero-word--highlight': isHighlightedWord(word) },
+                  ]"
+                  >{{ word
+                  }}{{
+                    index < headlineAccentWords.length - 1 ? " " : ""
+                  }}</span
+                >
+              </span>
+            </h1>
+          </div>
+
+          <!-- ③ Subheadline -->
+          <p
+            class="hero-sub"
+            v-motion
+            :initial="subMotion.initial"
+            :enter="subMotion.visible"
+          >
+            {{ t("landing.hero.subheadline") }}
+          </p>
+
+          <!-- ④ CTAs -->
+          <div
+            class="hero-ctas"
+            v-motion
+            :initial="ctaMotion.initial"
+            :enter="ctaMotion.visible"
+          >
+            <AppCtaButton
+              v-magnetic
+              :to="localePath('/solutions/website-packages')"
+              variant="primary"
+              :show-icon="true"
+            >
+              {{ t("landing.hero.cta.primary") }}
+            </AppCtaButton>
+            <AppCtaButton
+              v-magnetic
+              :to="localePath('/cases')"
+              variant="secondary"
+            >
+              {{ t("landing.hero.cta.secondary") }}
+            </AppCtaButton>
+          </div>
+        </div>
+
+        <!-- Right column: interactive service orb -->
+        <div
+          class="hero-right"
+          v-motion
+          :initial="orbMotion.initial"
+          :enter="orbMotion.visible"
+        >
+          <ServiceOrb />
+        </div>
+        <!-- Right column: interactive service orb 
       <div
         v-motion
         :initial="logoMotion.initial"
@@ -162,35 +175,36 @@ const scrollMotion = withDelay("fadeIn", 1200);
       >
         <img src="/public-material/logo-center-shadow.svg" alt="" />
       </div>-->
+      </div>
     </div>
+    <!-- end .hero-fade-wrap -->
   </section>
 </template>
 
 <style lang="scss" scoped>
 /* ── Section ──────────────────────────────────────────────────── */
 .hero-section {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 0;
   min-height: 95dvh;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* ── Fade wrapper — covers all visible hero content ──────────── */
+.hero-fade-wrap {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
   padding: 7rem 1.5rem 6rem;
-  background: #0d0908;
+  will-change: opacity;
 }
 
 /* ── Background layers ────────────────────────────────────────── */
-.hero-bg-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  z-index: 0;
-}
-
 .hero-bg-gradient {
   position: absolute;
   inset: 0;
