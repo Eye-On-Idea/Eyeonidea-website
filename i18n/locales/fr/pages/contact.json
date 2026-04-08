@@ -49,7 +49,7 @@
     "submit": "Envoyer un message",
     "submitting": "Envoi...",
     "successMessage": "Merci! Votre message a été envoyé. Nous vous répondrons dans les 24 heures.",
-    "errorMessage": "Quelque chose s'est mal passé. Veuillez réessayer ou contactez-nous directement à hello@eyeonidea.com.",
+    "errorMessage": "Quelque chose s'est mal passé. Veuillez réessayer ou contactez-nous directement à",
     "gdprNotice": "En contactant Eye On Idea, vous acceptez d'être contacté via les informations fournies concernant votre demande. Conformément au règlement RGPD de l'UE, vos données ne seront utilisées qu'à des fins de communication liées à votre demande et ne seront jamais partagées avec des tiers."
   },
   "info": {

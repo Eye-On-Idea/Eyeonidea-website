@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const { t } = useI18n();
-const localePath = useLocalePath();
 
 // All orbs use 'circle' shape for visual consistency.
 // Positions are percentages [x, y] of the component container.
@@ -25,6 +24,16 @@ const hoveredKey = ref<ServiceKey | null>(null);
 
 const isActive = (key: ServiceKey) => hoveredKey.value === key;
 const isDimmed  = (key: ServiceKey) => hoveredKey.value !== null && hoveredKey.value !== key;
+
+// Scale font size based on character count of the active locale string.
+// Range: 50 chars → 3.4cqmin (short/large), 105 chars → 2.4cqmin (long/small).
+const descFontSize = computed(() => {
+  if (!hoveredKey.value) return '2.9cqmin';
+  const text = t(`landing.services.categories.${hoveredKey.value}.need`);
+  const len = text.length;
+  const size = Math.max(2.4, Math.min(3.4, 3.4 - (len - 50) * (1 / 55)));
+  return `${size.toFixed(2)}cqmin`;
+});
 </script>
 
 <template>
@@ -62,7 +71,7 @@ const isDimmed  = (key: ServiceKey) => hoveredKey.value !== null && hoveredKey.v
             <span class="service-view__title">
               {{ t(`landing.services.categories.${hoveredKey}.title`) }}
             </span>
-            <p class="service-view__desc">
+            <p class="service-view__desc" :style="{ fontSize: descFontSize }">
               {{ t(`landing.services.categories.${hoveredKey}.need`) }}
             </p>
           </div>
@@ -77,23 +86,20 @@ const isDimmed  = (key: ServiceKey) => hoveredKey.value !== null && hoveredKey.v
       so icons always face upright regardless of orbit position.
     -->
     <div class="orb-track" :class="{ 'is-paused': hoveredKey !== null }">
-      <NuxtLink
+      <div
         v-for="svc in services"
         :key="svc.key"
-        :to="localePath(svc.href)"
         class="orb"
         :class="{ 'orb--active': isActive(svc.key), 'orb--dim': isDimmed(svc.key) }"
         :style="{ left: `${svc.x}%`, top: `${svc.y}%` }"
         :aria-label="t(`landing.services.categories.${svc.key}.title`)"
         @mouseenter="hoveredKey = svc.key"
         @mouseleave="hoveredKey = null"
-        @focus="hoveredKey = svc.key"
-        @blur="hoveredKey = null"
       >
         <span class="orb-counter">
           <UIcon :name="svc.icon" class="orb-icon" />
         </span>
-      </NuxtLink>
+      </div>
     </div>
   </div>
 </template>
@@ -262,6 +268,7 @@ const isDimmed  = (key: ServiceKey) => hoveredKey.value !== null && hoveredKey.v
   justify-content: center;
   gap: 2cqmin;
   width: 100%;
+  overflow: hidden;
 }
 
 /* 14px / 340 = 4.1 → 4cqmin */
@@ -277,17 +284,12 @@ const isDimmed  = (key: ServiceKey) => hoveredKey.value !== null && hoveredKey.v
   display: block;
 }
 
-/* 11px / 340 = 3.2cqmin */
+/* font-size is set dynamically via :style binding based on string length */
 .service-view__desc {
   font-family: var(--font-text);
-  font-size: 3.2cqmin;
   font-weight: 300;
   color: rgba(223, 175, 133, 0.82);
-  line-height: 1.5;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  line-height: 1.4;
   margin: 0;
 }
 

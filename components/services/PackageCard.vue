@@ -19,6 +19,7 @@ const includes = computed(
 const price = computed(() => ({
   amount: t(`services.packages.${props.packageKey}.price.amount`),
   currency: t(`services.packages.${props.packageKey}.price.currency`),
+  unit: t(`services.packages.${props.packageKey}.price.unit`),
   prefix: t(`services.packages.${props.packageKey}.price.prefix`),
   vatNote: t(`services.packages.${props.packageKey}.price.vatNote`),
 }));
@@ -83,8 +84,9 @@ const price = computed(() => ({
       <div class="pricing-rule" aria-hidden="true" />
       <div class="price-row">
         <span class="price-prefix">{{ price.prefix }}</span>
-        <span class="mb-auto">{{ price.currency }}</span>
+        <span class="price-currency">{{ price.currency }}</span>
         <span class="price-amount">{{ price.amount }}</span>
+        <span class="price-unit">{{ price.unit }}</span>
       </div>
       <span class="price-vat">{{ price.vatNote }}</span>
     </div>
@@ -352,7 +354,7 @@ const price = computed(() => ({
 .price-row {
   display: flex;
   align-items: baseline;
-  gap: 0.375rem;
+  gap: 0.45rem;
   margin-bottom: 0.25rem;
 }
 
@@ -363,6 +365,12 @@ const price = computed(() => ({
   font-weight: 400;
 }
 
+.price-currency {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  color: rgba(223, 175, 133, 0.65);
+}
+
 .price-amount {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 3vw, 2.5rem);
@@ -370,6 +378,12 @@ const price = computed(() => ({
   color: #ffeddf;
   letter-spacing: 0.02em;
   line-height: 1;
+}
+
+.price-unit {
+  font-family: var(--font-text);
+  font-size: 0.75rem;
+  color: rgba(255, 237, 223, 0.5);
 }
 
 .price-vat {
@@ -417,7 +431,9 @@ html:not(.dark) {
     .include-diamond  { background: rgba(153, 82, 38, 0.5); }
     .pricing-rule     { background: var(--deco-line); }
     .price-prefix     { color: var(--color-text-subtle); }
+    .price-currency   { color: var(--color-primary-600); }
     .price-amount     { color: var(--color-text-primary); }
+    .price-unit       { color: var(--color-text-subtle); }
     .price-vat        { color: var(--color-text-muted); }
 
     /* Hover overlay — warm brand tint instead of dark gradient */
@@ -461,7 +477,9 @@ html:not(.dark) {
     .include-diamond  { background: rgba(153, 82, 38, 0.55); }
     .pricing-rule     { background: rgba(153, 82, 38, 0.15); }
     .price-prefix     { color: var(--color-text-subtle); }
+    .price-currency   { color: var(--color-primary-600); }
     .price-amount     { color: #441a08; }
+    .price-unit       { color: var(--color-text-subtle); }
     .price-vat        { color: var(--color-text-muted); }
 
     .panel-gradient-layer {

@@ -165,9 +165,10 @@
           "Build adattabile ai dispositivi mobili",
           "Configurazione SEO di base"
         ],
-        "price": "1,500",
+        "price": "2,000",
         "currency": "€",
-        "priceNote": "escl. I.V.A."
+        "priceNote": "escl. I.V.A.",
+        "pricePer": "una tantum"
       },
       {
         "numeral": "II",
@@ -181,9 +182,10 @@
           "Modelli per biglietti da visita e carta intestata",
           "Risorse del profilo dei social media"
         ],
-        "price": "2,000",
+        "price": "2,400",
         "currency": "€",
-        "priceNote": "escl. I.V.A."
+        "priceNote": "escl. I.V.A.",
+        "pricePer": "una tantum"
       },
       {
         "numeral": "III",
@@ -198,10 +200,14 @@
           "Supporto prioritario",
           "Direzione trimestrale del marchio"
         ],
-        "price": "1,200",
+        "price": "500",
         "currency": "€",
-        "pricePer": "/mo",
-        "priceNote": "escl. I.V.A."
+        "pricePer": "/mese",
+        "priceNote": "escl. I.V.A.",
+        "priceLabel": "Abbonamento mensile",
+        "setupFeeLabel": "Costo di configurazione",
+        "setupFee": "1,300",
+        "setupFeePer": "una tantum"
       }
     ],
     "cta": "Inizia una conversazione",

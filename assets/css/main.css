@@ -437,6 +437,24 @@ html:not(.dark) .page-hero .app-cta--secondary:hover {
 }
 
 /* =========================
+   About Page Hero — Always Dark (has bg image + dark overlay in both modes)
+   Mirrors the .page-hero pattern for the custom about-hero component.
+   Specificity: html:not(.dark) (0,1,1) + .about-hero (0,1,0) = (0,2,1)
+   ========================= */
+html:not(.dark) .about-hero .hero-title {
+  color: #ffeddf !important;
+}
+html:not(.dark) .about-hero .word-amber {
+  color: rgba(223, 175, 133, 0.85) !important;
+}
+html:not(.dark) .about-hero .hero-subtitle {
+  color: rgba(255, 237, 223, 0.5) !important;
+}
+html:not(.dark) .about-hero .label-text {
+  color: rgba(223, 175, 133, 0.55) !important;
+}
+
+/* =========================
    About Section (Landing) — Always Dark Buttons
    Has a background image + dark overlay in both modes.
    ========================= */

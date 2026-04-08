@@ -378,6 +378,7 @@ onMounted(() => {
                   <span class="price-row__starts-at">{{ t("servicesSubpages.visualIdentity.pricing.startsAt") }}</span>
                   <span class="price-row__currency">{{ t("servicesSubpages.visualIdentity.pricing.currency") }}</span>
                   <span class="price-row__value">{{ item.price }}</span>
+                  <span class="price-row__unit">/ {{ item.unit }}</span>
                 </span>
               </li>
             </ul>
@@ -824,7 +825,7 @@ onMounted(() => {
 .price-row__price {
   display: flex;
   align-items: baseline;
-  gap: 0.2rem;
+  gap: 0.35rem;
   flex-shrink: 0;
 }
 
@@ -849,6 +850,12 @@ onMounted(() => {
   font-weight: 700;
   color: #dfaf85;
   font-variant-numeric: tabular-nums;
+}
+
+.price-row__unit {
+  font-family: var(--font-text);
+  font-size: 0.72rem;
+  color: rgba(255, 237, 223, 0.4);
 }
 
 .pricing-footer {
@@ -1017,6 +1024,7 @@ html:not(.dark) {
   .price-row__name     { color: #481f0a; }
   .price-row__currency { color: #7d3412; }
   .price-row__value    { color: #67280e; }
+  .price-row__unit     { color: rgba(103, 40, 14, 0.7); }
   .price-row__starts-at { color: rgba(103, 40, 14, 0.55); }
 
   .pricing-footer { border-top-color: rgba(153, 82, 38, 0.10); }

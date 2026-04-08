@@ -78,10 +78,11 @@
         "Configurazione SEO di base"
       ],
       "price": {
-        "amount": "1,500",
+        "amount": "2,000",
         "currency": "€",
         "prefix": "Da",
-        "vatNote": "escl. IVA"
+        "vatNote": "escl. IVA",
+        "unit": "una tantum"
       }
     },
     "growth": {
@@ -99,10 +100,11 @@
         "Supporto al flusso di lavoro editoriale"
       ],
       "price": {
-        "amount": "3,000",
+        "amount": "2,400",
         "currency": "€",
         "prefix": "Da",
-        "vatNote": "escl. IVA"
+        "vatNote": "escl. IVA",
+        "unit": "una tantum"
       }
     },
     "platform": {
@@ -119,10 +121,11 @@
         "Funzionalità CMS avanzate"
       ],
       "price": {
-        "amount": "5,000",
+        "amount": "4,700",
         "currency": "€",
         "prefix": "Da",
-        "vatNote": "escl. IVA"
+        "vatNote": "escl. IVA",
+        "unit": "una tantum"
       }
     },
     "cta": "Ottieni un preventivo",
@@ -346,12 +349,12 @@
         "items": [
           {
             "name": "Email Starter (15 GB per account)",
-            "price": "1",
+            "price": "3",
             "unit": "per account/mese"
           },
           {
             "name": "Email Pro (50 GB per account)",
-            "price": "4",
+            "price": "9",
             "unit": "per account/mese"
           }
         ]
@@ -363,12 +366,12 @@
         "items": [
           {
             "name": "Revisione della struttura SEO",
-            "price": "200",
+            "price": "500",
             "unit": "una volta"
           },
           {
             "name": "Ottimizzazione dei metadati",
-            "price": "150",
+            "price": "400",
             "unit": "una volta"
           },
           {
@@ -416,7 +419,8 @@
       "amount": "800",
       "currency": "€",
       "prefix": "Da",
-      "vatNote": "escl. IVA"
+      "vatNote": "escl. IVA",
+      "unit": "una tantum"
     },
     "cta": "Discuti del tuo marchio",
     "carousel": {
@@ -467,7 +471,7 @@
         "price": {
           "amount": "99",
           "currency": "€",
-          "unit": "/month",
+          "unit": "/mese",
           "vatNote": "escl. IVA"
         }
       },
@@ -485,7 +489,7 @@
         "price": {
           "amount": "249",
           "currency": "€",
-          "unit": "/month",
+          "unit": "/mese",
           "vatNote": "escl. IVA"
         }
       },
@@ -503,7 +507,7 @@
         "price": {
           "amount": "499",
           "currency": "€",
-          "unit": "/month",
+          "unit": "/mese",
           "vatNote": "escl. IVA"
         }
       }

@@ -78,10 +78,11 @@
         "Grundlæggende SEO opsætning"
       ],
       "price": {
-        "amount": "1,500",
-        "currency": "€",
+        "amount": "15.000",
+        "currency": "DKK",
         "prefix": "Fra",
-        "vatNote": "ekskl. moms"
+        "vatNote": "ekskl. moms",
+        "unit": "én gang"
       }
     },
     "growth": {
@@ -99,10 +100,11 @@
         "Redaktionel workflow support"
       ],
       "price": {
-        "amount": "3,000",
-        "currency": "€",
+        "amount": "18.000",
+        "currency": "DKK",
         "prefix": "Fra",
-        "vatNote": "ekskl. moms"
+        "vatNote": "ekskl. moms",
+        "unit": "én gang"
       }
     },
     "platform": {
@@ -119,10 +121,11 @@
         "Avancerede CMS-funktioner"
       ],
       "price": {
-        "amount": "5,000",
-        "currency": "€",
+        "amount": "35.000",
+        "currency": "DKK",
         "prefix": "Fra",
-        "vatNote": "ekskl. moms"
+        "vatNote": "ekskl. moms",
+        "unit": "én gang"
       }
     },
     "cta": "Få et tilbud",
@@ -296,22 +299,22 @@
         "items": [
           {
             "name": "Tekstforfatning på hjemmesiden",
-            "price": "100",
+            "price": "750",
             "unit": "per side"
           },
           {
             "name": "Indholdsredigering og forfining",
-            "price": "75",
+            "price": "600",
             "unit": "i timen"
           },
           {
             "name": "Flersproget opsætning (2 sprog)",
-            "price": "350",
+            "price": "2.700",
             "unit": "én gang"
           },
           {
             "name": "Yderligere sprogversion",
-            "price": "125",
+            "price": "950",
             "unit": "pr. sprog"
           }
         ]
@@ -324,17 +327,17 @@
         "items": [
           {
             "name": "Yderligere domæneregistrering",
-            "price": "15-50",
+            "price": "150-400",
             "unit": "om året"
           },
           {
             "name": "Hjælp til domæneoverførsel",
-            "price": "50",
+            "price": "400",
             "unit": "én gang"
           },
           {
             "name": "Domænefornyelse (efter år 1)",
-            "price": "15-50",
+            "price": "150-400",
             "unit": "om året"
           }
         ]
@@ -346,12 +349,12 @@
         "items": [
           {
             "name": "E-mail starter (15 GB pr. konto)",
-            "price": "1",
+            "price": "25",
             "unit": "pr konto/måned"
           },
           {
             "name": "Email Pro (50 GB pr. konto)",
-            "price": "4",
+            "price": "65",
             "unit": "pr konto/måned"
           }
         ]
@@ -363,43 +366,43 @@
         "items": [
           {
             "name": "SEO struktur gennemgang",
-            "price": "200",
+            "price": "3.500",
             "unit": "én gang"
           },
           {
             "name": "Metadata optimering",
-            "price": "150",
+            "price": "3.000",
             "unit": "én gang"
           },
           {
             "name": "Intern koblingsstrategi",
-            "price": "150",
+            "price": "1.100",
             "unit": "én gang"
           },
           {
             "name": "Rådgivningsmøde (1 time)",
-            "price": "100",
+            "price": "750",
             "unit": "pr session"
           },
           {
             "name": "Teknisk revision",
-            "price": "300",
+            "price": "2.300",
             "unit": "én gang"
           },
           {
             "name": "Gennemgang af QA før lancering",
-            "price": "200",
+            "price": "1.500",
             "unit": "én gang"
           },
           {
             "name": "Second opinion review",
-            "price": "150",
+            "price": "1.100",
             "unit": "én gang"
           }
         ]
       }
     },
-    "currency": "€",
+    "currency": "DKK",
     "vatNote": "Alle priser ekskl. moms"
   },
   "identity": {
@@ -413,10 +416,11 @@
       "Visuel retning for digitale platforme"
     ],
     "price": {
-      "amount": "800",
-      "currency": "€",
+      "amount": "6.000",
+      "currency": "DKK",
       "prefix": "Fra",
-      "vatNote": "ekskl. moms"
+      "vatNote": "ekskl. moms",
+      "unit": "én gang"
     },
     "cta": "Diskuter dit brand",
     "carousel": {
@@ -465,9 +469,9 @@
           "Rådgivende støtte"
         ],
         "price": {
-          "amount": "99",
-          "currency": "€",
-          "unit": "/month",
+          "amount": "750",
+          "currency": "DKK",
+          "unit": "/måned",
           "vatNote": "ekskl. moms"
         }
       },
@@ -483,9 +487,9 @@
           "Præstationsjusteringer"
         ],
         "price": {
-          "amount": "249",
-          "currency": "€",
-          "unit": "/month",
+          "amount": "1.900",
+          "currency": "DKK",
+          "unit": "/måned",
           "vatNote": "ekskl. moms"
         }
       },
@@ -501,9 +505,9 @@
           "Løbende optimering"
         ],
         "price": {
-          "amount": "499",
-          "currency": "€",
-          "unit": "/month",
+          "amount": "3.800",
+          "currency": "DKK",
+          "unit": "/måned",
           "vatNote": "ekskl. moms"
         }
       }

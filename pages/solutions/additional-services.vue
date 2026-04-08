@@ -124,17 +124,8 @@ onMounted(() => {
 
 // ─── Helpers ─────────────────────────────────────────────────────
 const formatUnit = (unit: string): string => {
-  const map: Record<string, string> = {
-    "one-time": "",
-    "per page": "/ page",
-    "per hour": "/ hr",
-    "per language": "/ language",
-    "per year": "/ year",
-    "per month": "/ mo",
-    "per account / month": "/ account / mo",
-    "per session": "/ session",
-  };
-  return map[unit] ?? unit;
+  if (!unit) return "";
+  return `/ ${unit}`;
 };
 </script>
 
@@ -259,7 +250,8 @@ const formatUnit = (unit: string): string => {
               <div class="price-row__top">
                 <span class="price-row__name">{{ item.name }}</span>
                 <span class="price-row__price">
-                  <span class="price-row__value">{{ currency }}{{ item.price }}</span>
+                  <span class="price-row__currency">{{ currency }}</span>
+                  <span class="price-row__value">{{ item.price }}</span>
                   <span v-if="formatUnit(item.unit)" class="price-row__unit">
                     {{ formatUnit(item.unit) }}
                   </span>
@@ -579,9 +571,15 @@ const formatUnit = (unit: string): string => {
 .price-row__price {
   display: flex;
   align-items: baseline;
-  gap: 0.25rem;
+  gap: 0.35rem;
   flex-shrink: 0;
   text-align: right;
+}
+
+.price-row__currency {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  color: rgba(255, 237, 223, 0.55);
 }
 
 .price-row__value {
@@ -680,6 +678,7 @@ html:not(.dark) {
   }
 
   .price-row__name        { color: var(--color-text-secondary); }
+  .price-row__currency    { color: var(--color-primary-600); }
   .price-row__value       { color: var(--color-primary-700); }
   .price-row__unit        { color: var(--color-text-subtle); }
   .price-row__description { color: var(--color-text-subtle); }

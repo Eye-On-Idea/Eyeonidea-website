@@ -78,10 +78,11 @@
         "Basic SEO setup"
       ],
       "price": {
-        "amount": "1,500",
+        "amount": "2,000",
         "currency": "€",
         "prefix": "From",
-        "vatNote": "excl. VAT"
+        "vatNote": "excl. VAT",
+        "unit": "one-time"
       }
     },
     "growth": {
@@ -99,10 +100,11 @@
         "Editorial workflow support"
       ],
       "price": {
-        "amount": "3,000",
+        "amount": "2,400",
         "currency": "€",
         "prefix": "From",
-        "vatNote": "excl. VAT"
+        "vatNote": "excl. VAT",
+        "unit": "one-time"
       }
     },
     "platform": {
@@ -119,10 +121,11 @@
         "Long-term partnership for refinement and digital continuity"
       ],
       "price": {
-        "amount": "5,000",
+        "amount": "4,700",
         "currency": "€",
         "prefix": "From",
-        "vatNote": "excl. VAT"
+        "vatNote": "excl. VAT",
+        "unit": "one-time"
       }
     },
     "cta": "Get a Quote",
@@ -132,7 +135,11 @@
     "badge": "Compare Packages",
     "title": "What's Included",
     "subtitle": "A detailed breakdown of features across all website packages",
-    "packages": ["Foundation", "Growth", "Brand Partner"],
+    "packages": [
+      "Foundation",
+      "Growth",
+      "Brand Partner"
+    ],
     "categories": {
       "core": {
         "title": "Core Features",
@@ -342,12 +349,12 @@
         "items": [
           {
             "name": "Email Starter (15 GB per account)",
-            "price": "1",
+            "price": "3",
             "unit": "per account / month"
           },
           {
             "name": "Email Pro (50 GB per account)",
-            "price": "4",
+            "price": "9",
             "unit": "per account / month"
           }
         ]
@@ -359,12 +366,12 @@
         "items": [
           {
             "name": "SEO structure review",
-            "price": "200",
+            "price": "500",
             "unit": "one-time"
           },
           {
             "name": "Metadata optimisation",
-            "price": "150",
+            "price": "400",
             "unit": "one-time"
           },
           {
@@ -412,7 +419,8 @@
       "amount": "800",
       "currency": "€",
       "prefix": "From",
-      "vatNote": "excl. VAT"
+      "vatNote": "excl. VAT",
+      "unit": "one-time"
     },
     "cta": "Discuss Your Brand",
     "carousel": {

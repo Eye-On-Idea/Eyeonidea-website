@@ -165,9 +165,10 @@
           "Mobile-responsive build",
           "Basic SEO setup"
         ],
-        "price": "1,500",
+        "price": "2,000",
         "currency": "€",
-        "priceNote": "excl. VAT"
+        "priceNote": "excl. VAT",
+        "pricePer": "one-time"
       },
       {
         "numeral": "II",
@@ -181,9 +182,10 @@
           "Business card & letterhead templates",
           "Social media profile assets"
         ],
-        "price": "2,000",
+        "price": "2,400",
         "currency": "€",
-        "priceNote": "excl. VAT"
+        "priceNote": "excl. VAT",
+        "pricePer": "one-time"
       },
       {
         "numeral": "III",
@@ -198,10 +200,14 @@
           "Priority support",
           "Quarterly brand direction"
         ],
-        "price": "1,200",
+        "price": "500",
         "currency": "€",
         "pricePer": "/mo",
-        "priceNote": "excl. VAT"
+        "priceNote": "excl. VAT",
+        "priceLabel": "Monthly subscription",
+        "setupFeeLabel": "Setup fee",
+        "setupFee": "1,300",
+        "setupFeePer": "one-time"
       }
     ],
     "cta": "Start a Conversation",

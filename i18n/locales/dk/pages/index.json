@@ -124,7 +124,7 @@
   },
   "audience": {
     "badge": "Hvem er dette til",
-    "title": "Eye On Idea er bygget til SMB B2B-virksomheder, der har brug for en klarere og mere troværdig digital tilstedeværelse.",
+    "title": "Eye On Idea er bygget til SMV B2B-virksomheder, der har brug for en klarere og mere troværdig digital tilstedeværelse.",
     "subtitle": "Du er sandsynligvis et godt match, hvis din virksomhed står i en af disse situationer.",
     "situations": [
       {
@@ -165,9 +165,10 @@
           "Mobilvenlig opbygning",
           "Grundlæggende SEO opsætning"
         ],
-        "price": "1,500",
-        "currency": "€",
-        "priceNote": "ekskl. moms"
+        "price": "15.000",
+        "currency": "DKK",
+        "priceNote": "ekskl. moms",
+        "pricePer": "én gang"
       },
       {
         "numeral": "II",
@@ -181,9 +182,10 @@
           "Skabeloner til visitkort og brevpapir",
           "Profilaktiver på sociale medier"
         ],
-        "price": "2,000",
-        "currency": "€",
-        "priceNote": "ekskl. moms"
+        "price": "18.000",
+        "currency": "DKK",
+        "priceNote": "ekskl. moms",
+        "pricePer": "én gang"
       },
       {
         "numeral": "III",
@@ -198,10 +200,14 @@
           "Prioriteret støtte",
           "Kvartalsvis brandretning"
         ],
-        "price": "1,200",
-        "currency": "€",
-        "pricePer": "/mo",
-        "priceNote": "ekskl. moms"
+        "price": "3.800",
+        "currency": "DKK",
+        "pricePer": "/md",
+        "priceNote": "ekskl. moms",
+        "priceLabel": "Månedligt abonnement",
+        "setupFeeLabel": "Opsætningsgebyr",
+        "setupFee": "10.000",
+        "setupFeePer": "én gang"
       }
     ],
     "cta": "Start en samtale",

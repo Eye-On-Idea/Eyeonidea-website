@@ -229,10 +229,6 @@ const serviceImages = [
   transition:
     opacity 0.7s var(--ease-smooth) 0.1s,
     transform 0.7s var(--ease-smooth) 0.1s;
-
-  @media (max-width: 1023px) {
-    display: none;
-  }
 }
 
 .animate-in {
@@ -300,14 +296,22 @@ const serviceImages = [
   aspect-ratio: 4 / 3;
   border-radius: 2px;
   overflow: hidden;
+
+  /* NuxtImg renders <img> inside a component — :deep ensures styles
+     penetrate the scoped boundary and fill the container correctly */
+  :deep(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 .visual-image {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
 }
 
 .visual-deco-frame {

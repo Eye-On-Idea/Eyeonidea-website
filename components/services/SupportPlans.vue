@@ -375,7 +375,7 @@ const plans = [
 .plan-pricing {
   display: flex;
   align-items: baseline;
-  gap: 0.2rem;
+  gap: 0.35rem;
   margin-bottom: 0.25rem;
 }
 

@@ -2,7 +2,7 @@
   "websitePackages": {
     "meta": {
       "title": "B2B Website Packages with Pricing | Eye On Idea",
-      "description": "Three B2B website packages — Foundation from €1,500, Growth from €3,000, Brand Partner from €5,000. Clear scope, transparent pricing, nothing unnecessary."
+      "description": "Three B2B website packages — Foundation from €2,000, Growth from €2,400, Brand Partner from €4,700. Clear scope, transparent pricing, nothing unnecessary."
     },
     "hero": {
       "badge": "Website Packages",
@@ -144,12 +144,12 @@
       "highlights": [
         {
           "name": "Logo design (primary and variations)",
-          "price": "500",
+          "price": "1,200",
           "unit": "one-time"
         },
         {
           "name": "Colour palette and typography",
-          "price": "250",
+          "price": "500",
           "unit": "one-time"
         },
         {
@@ -306,13 +306,13 @@
         "items": [
           {
             "name": "Email Starter (15 GB per account)",
-            "price": "1",
+            "price": "3",
             "unit": "per account / month",
             "description": "A clean, professional email address on your domain. Suitable for most small teams."
           },
           {
             "name": "Email Pro (50 GB per account)",
-            "price": "4",
+            "price": "9",
             "unit": "per account / month",
             "description": "More storage and additional features for teams that use email heavily."
           }
@@ -328,13 +328,13 @@
         "items": [
           {
             "name": "SEO structure review",
-            "price": "200",
+            "price": "500",
             "unit": "one-time",
             "description": "A review of how your site is organised for search: heading hierarchy, URL structure, internal linking, and crawlability."
           },
           {
             "name": "Metadata optimisation",
-            "price": "150",
+            "price": "400",
             "unit": "one-time",
             "description": "We review and rewrite your page titles and meta descriptions to improve click-through rate in search results."
           },

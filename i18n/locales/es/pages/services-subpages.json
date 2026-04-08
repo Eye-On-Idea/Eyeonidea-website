@@ -2,7 +2,7 @@
   "websitePackages": {
     "meta": {
       "title": "Paquetes Web B2B con Precios | Eye On Idea",
-      "description": "Tres paquetes web B2B — Foundation desde €1.500, Growth desde €3.000, Brand Partner desde €5.000. Precios claros, sin extras innecesarios."
+      "description": "Tres paquetes web B2B — Foundation desde €2.000, Growth desde €2.400, Brand Partner desde €4.700. Precios claros, sin extras innecesarios."
     },
     "hero": {
       "badge": "Paquetes de sitios web",
@@ -144,12 +144,12 @@
       "highlights": [
         {
           "name": "Diseño de logotipo (principal y variaciones)",
-          "price": "500",
+          "price": "1,200",
           "unit": "una sola vez"
         },
         {
           "name": "Paleta de colores y tipografía.",
-          "price": "250",
+          "price": "500",
           "unit": "una sola vez"
         },
         {
@@ -306,13 +306,13 @@
         "items": [
           {
             "name": "Correo electrónico inicial (15 GB por cuenta)",
-            "price": "1",
+            "price": "3",
             "unit": "por cuenta / mes",
             "description": "Una dirección de correo electrónico limpia y profesional en su dominio. Adecuado para la mayoría de equipos pequeños."
           },
           {
             "name": "Email Pro (50 GB por cuenta)",
-            "price": "4",
+            "price": "9",
             "unit": "por cuenta / mes",
             "description": "Más almacenamiento y funciones adicionales para equipos que utilizan mucho el correo electrónico."
           }
@@ -328,13 +328,13 @@
         "items": [
           {
             "name": "SEO revisión de estructura",
-            "price": "200",
+            "price": "500",
             "unit": "una sola vez",
             "description": "Una revisión de cómo está organizado su sitio para la búsqueda: jerarquía de encabezados, estructura de URL, enlaces internos y capacidad de rastreo."
           },
           {
             "name": "Optimización de metadatos",
-            "price": "150",
+            "price": "400",
             "unit": "una sola vez",
             "description": "Revisamos y reescribimos los títulos de sus páginas y las meta descripciones para mejorar la tasa de clics en los resultados de búsqueda."
           },

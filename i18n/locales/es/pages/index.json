@@ -165,9 +165,10 @@
           "Construcción adaptada a dispositivos móviles",
           "Configuración básica de SEO"
         ],
-        "price": "1,500",
+        "price": "2,000",
         "currency": "€",
-        "priceNote": "sin IVA"
+        "priceNote": "sin IVA",
+        "pricePer": "pago único"
       },
       {
         "numeral": "II",
@@ -181,9 +182,10 @@
           "Plantillas para tarjetas de presentación y membretes",
           "Activos del perfil de redes sociales"
         ],
-        "price": "2,000",
+        "price": "2,400",
         "currency": "€",
-        "priceNote": "sin IVA"
+        "priceNote": "sin IVA",
+        "pricePer": "pago único"
       },
       {
         "numeral": "III",
@@ -198,10 +200,14 @@
           "Apoyo prioritario",
           "Dirección de marca trimestral"
         ],
-        "price": "1,200",
+        "price": "500",
         "currency": "€",
-        "pricePer": "/mo",
-        "priceNote": "sin IVA"
+        "pricePer": "/mes",
+        "priceNote": "sin IVA",
+        "priceLabel": "Suscripción mensual",
+        "setupFeeLabel": "Tarifa de configuración",
+        "setupFee": "1,300",
+        "setupFeePer": "pago único"
       }
     ],
     "cta": "Iniciar una conversación",

@@ -49,7 +49,7 @@
     "submit": "Send besked",
     "submitting": "Sender...",
     "successMessage": "Tak! Din besked er blevet sendt. Vi vender tilbage til dig inden for 24 timer.",
-    "errorMessage": "Noget gik galt. Prøv venligst igen eller kontakt os direkte på hello@eyeonidea.com.",
+    "errorMessage": "Noget gik galt. Prøv venligst igen, eller kontakt os direkte på",
     "gdprNotice": "Ved at kontakte Eye On Idea giver du dit samtykke til at blive kontaktet via de oplyste oplysninger vedrørende din henvendelse. I henhold til EU's GDPR-forordning vil dine data kun blive brugt til kommunikation relateret til din forespørgsel og vil aldrig blive delt med tredjeparter."
   },
   "info": {

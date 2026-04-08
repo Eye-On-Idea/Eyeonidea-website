@@ -4,29 +4,33 @@ import { ref, computed, onMounted, onUnmounted, nextTick } from "vue";
 const { t } = useI18n();
 
 const sectionRef = ref<HTMLElement | null>(null);
+const formRef = ref<HTMLElement | null>(null);
 const isVisible = ref(false);
 const isSubmitting = ref(false);
 const submitSuccess = ref(false);
 const submitError = ref(false);
 
+let visibilityObserver: IntersectionObserver | null = null;
+
 onMounted(() => {
-  if (!sectionRef.value) return;
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const entry = entries[0];
-      if (entry?.isIntersecting) {
-        isVisible.value = true;
-        observer.disconnect();
-      }
-    },
-    { threshold: 0.05 },
-  );
-  observer.observe(sectionRef.value);
+  if (sectionRef.value) {
+    visibilityObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          isVisible.value = true;
+          visibilityObserver?.disconnect();
+        }
+      },
+      { threshold: 0.05 },
+    );
+    visibilityObserver.observe(sectionRef.value);
+  }
   document.addEventListener("click", handleClickOutside);
-  onUnmounted(() => {
-    observer.disconnect();
-    document.removeEventListener("click", handleClickOutside);
-  });
+});
+
+onUnmounted(() => {
+  visibilityObserver?.disconnect();
+  document.removeEventListener("click", handleClickOutside);
 });
 
 // Form data
@@ -140,9 +144,20 @@ const handleClickOutside = (event: MouseEvent) => {
 };
 
 // Form submission
+const requiredFields: (keyof typeof formData.value)[] = ["name", "email", "subject", "message"];
+
 const handleSubmit = async (event: Event) => {
   event.preventDefault();
   if (isSubmitting.value) return;
+
+  // Manual validation (novalidate disables native browser validation)
+  const missing = requiredFields.some((f) => !formData.value[f].trim());
+  if (missing) {
+    submitError.value = true;
+    submitSuccess.value = false;
+    nextTick(() => formRef.value?.scrollIntoView({ behavior: "smooth", block: "start" }));
+    return;
+  }
 
   isSubmitting.value = true;
   submitSuccess.value = false;
@@ -150,24 +165,39 @@ const handleSubmit = async (event: Event) => {
 
   try {
     const form = event.target as HTMLFormElement;
-    const data = new FormData(form);
+    // FormSubmit AJAX expects JSON — FormData triggers CORS preflight which fails
+    const payload: Record<string, string> = {
+      name: formData.value.name,
+      email: formData.value.email,
+      subject: formData.value.subject,
+      message: formData.value.message,
+      _replyto: formData.value.email,
+      _subject: formData.value.subject
+        ? `Contact: ${formData.value.subject} — Eye On Idea`
+        : "New Contact Form Submission — Eye On Idea",
+      _captcha: "false",
+      _template: "table",
+    };
+    if (formData.value.phone)   payload.phone   = formData.value.phone;
+    if (formData.value.company) payload.company = formData.value.company;
+    if (formData.value.interest) payload.interest = formData.value.interest;
+
     const response = await fetch(form.action, {
       method: "POST",
-      body: data,
-      headers: { Accept: "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(payload),
     });
 
-    if (response.ok) {
+    // FormSubmit returns JSON body — check success field, not just HTTP status
+    const json = await response.json().catch(() => ({}));
+    const succeeded = response.ok && (json.success === "true" || json.success === true);
+
+    if (succeeded) {
       submitSuccess.value = true;
-      formData.value = {
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        interest: "",
-        subject: "",
-        message: "",
-      };
+      formData.value = { name: "", email: "", phone: "", company: "", interest: "", subject: "", message: "" };
     } else {
       submitError.value = true;
     }
@@ -175,6 +205,7 @@ const handleSubmit = async (event: Event) => {
     submitError.value = true;
   } finally {
     isSubmitting.value = false;
+    nextTick(() => formRef.value?.scrollIntoView({ behavior: "smooth", block: "start" }));
   }
 };
 </script>
@@ -196,11 +227,25 @@ const handleSubmit = async (event: Event) => {
 
     <div class="section-container">
       <div class="form-wrapper" :class="{ 'animate-in': isVisible }">
+        <!-- Shown only when JavaScript is disabled or blocked entirely -->
+        <noscript>
+          <div class="form-alert form-alert--error noscript-notice" role="note">
+            <span class="alert-icon" aria-hidden="true">✕</span>
+            <span>
+              This form requires JavaScript. Please email us directly at
+              <a href="mailto:hello@eyeonidea.com" class="alert-link">hello@eyeonidea.com</a>
+              or call <a href="tel:+4529930583" class="alert-link">+45 29 93 05 83</a>.
+            </span>
+          </div>
+        </noscript>
+
         <form
           id="contact-form"
+          ref="formRef"
           class="contact-form"
           action="https://formsubmit.co/ajax/hello@eyeonidea.com"
           method="POST"
+          novalidate
           @submit="handleSubmit"
         >
           <!-- Success Message -->
@@ -215,7 +260,10 @@ const handleSubmit = async (event: Event) => {
           <Transition name="alert">
             <div v-if="submitError" class="form-alert form-alert--error" role="alert">
               <span class="alert-icon" aria-hidden="true">✕</span>
-              <span>{{ t("contact.form.errorMessage") }}</span>
+              <span>
+                {{ t("contact.form.errorMessage") }}
+                <a href="mailto:hello@eyeonidea.com" class="alert-link">hello@eyeonidea.com</a>.
+              </span>
             </div>
           </Transition>
 
@@ -383,10 +431,9 @@ const handleSubmit = async (event: Event) => {
             ></textarea>
           </div>
 
-          <!-- Hidden fields for FormSubmit -->
-          <input type="hidden" name="_subject" value="New Contact Form Submission - Eye On Idea" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="table" />
+          <!-- Honeypot: bots fill this, humans don't — catches spam without captcha -->
+          <!-- Note: other FormSubmit fields (_replyto, _subject, etc.) are sent in the JSON payload -->
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 
           <!-- Submit Button -->
           <div class="form-actions">
@@ -518,6 +565,19 @@ const handleSubmit = async (event: Event) => {
 .alert-icon {
   font-size: 0.9rem;
   flex-shrink: 0;
+}
+
+.alert-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  opacity: 0.85;
+
+  &:hover { opacity: 1; }
+}
+
+.noscript-notice {
+  margin-bottom: 1.5rem;
 }
 
 /* ── Alert transitions ────────────────────────────────────────── */

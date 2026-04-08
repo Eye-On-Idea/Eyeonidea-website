@@ -55,6 +55,8 @@ const getPackagePrice = (key: string) =>
   t(`services.packages.${key}.price.amount`);
 const getPackageCurrency = (key: string) =>
   t(`services.packages.${key}.price.currency`);
+const getPackageUnit = (key: string) =>
+  t(`services.packages.${key}.price.unit`);
 
 const toggleTooltip = (featureKey: string) => {
   activeTooltip.value = activeTooltip.value === featureKey ? null : featureKey;
@@ -144,6 +146,9 @@ onMounted(() => {
                         getPackagePrice(pkg)
                       }}</span>
                     </div>
+                    <span class="price-unit">{{
+                      getPackageUnit(pkg)
+                    }}</span>
                   </div>
                 </th>
               </tr>
@@ -282,6 +287,9 @@ onMounted(() => {
                 getPackagePrice(pkg)
               }}</span>
             </div>
+            <span class="mobile-price-unit">{{
+              getPackageUnit(pkg)
+            }}</span>
           </div>
         </div>
 
@@ -607,7 +615,7 @@ onMounted(() => {
 .package-price {
   display: flex;
   align-items: baseline;
-  gap: 0.1rem;
+  gap: 0.3rem;
   justify-content: center;
 }
 
@@ -625,6 +633,13 @@ onMounted(() => {
   font-weight: 700;
   color: #dfaf85;
   letter-spacing: -0.02em;
+}
+
+.price-unit {
+  font-family: var(--font-text);
+  font-size: 0.62rem;
+  color: rgba(255, 237, 223, 0.45);
+  letter-spacing: 0.02em;
 }
 
 /* ── Category row ─────────────────────────────────────────────── */
@@ -905,7 +920,7 @@ onMounted(() => {
 .mobile-pkg-price {
   display: flex;
   align-items: baseline;
-  gap: 0.1rem;
+  gap: 0.25rem;
   justify-content: center;
   margin-top: 0.25rem;
 }
@@ -924,6 +939,14 @@ onMounted(() => {
   font-weight: 700;
   color: #dfaf85;
   letter-spacing: -0.02em;
+}
+
+.mobile-price-unit {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--font-text);
+  font-size: 0.55rem;
+  color: rgba(255, 237, 223, 0.4);
 }
 
 /* Mobile categories */
@@ -1237,6 +1260,9 @@ html:not(.dark) {
   .price-amount {
     color: var(--color-primary-800);
   }
+  .price-unit {
+    color: var(--color-text-subtle);
+  }
 
   .category-row .category-header {
     background: #faf6f2;
@@ -1359,6 +1385,9 @@ html:not(.dark) {
   }
   .mobile-price-amount {
     color: var(--color-primary-800);
+  }
+  .mobile-price-unit {
+    color: var(--color-text-subtle);
   }
 
   .mobile-categories {

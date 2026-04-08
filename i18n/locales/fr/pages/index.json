@@ -165,9 +165,10 @@
           "Construction adaptée aux mobiles",
           "Configuration de base du référencement"
         ],
-        "price": "1,500",
+        "price": "2,000",
         "currency": "€",
-        "priceNote": "hors TVA"
+        "priceNote": "hors TVA",
+        "pricePer": "paiement unique"
       },
       {
         "numeral": "II",
@@ -181,9 +182,10 @@
           "Modèles de cartes de visite et de papier à en-tête",
           "Actifs de profil de médias sociaux"
         ],
-        "price": "2,000",
+        "price": "2,400",
         "currency": "€",
-        "priceNote": "hors TVA"
+        "priceNote": "hors TVA",
+        "pricePer": "paiement unique"
       },
       {
         "numeral": "III",
@@ -198,10 +200,14 @@
           "Assistance prioritaire",
           "Direction de la marque trimestrielle"
         ],
-        "price": "1,200",
+        "price": "500",
         "currency": "€",
-        "pricePer": "/mo",
-        "priceNote": "hors TVA"
+        "pricePer": "/mois",
+        "priceNote": "hors TVA",
+        "priceLabel": "Abonnement mensuel",
+        "setupFeeLabel": "Frais d'installation",
+        "setupFee": "1,300",
+        "setupFeePer": "paiement unique"
       }
     ],
     "cta": "Démarrer une conversation",

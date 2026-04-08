@@ -50,6 +50,25 @@ const bgStyle = computed(() =>
       </div>
 
       <p class="hero-subtitle">{{ t("contact.hero.subtitle") }}</p>
+
+      <div class="hero-logo-wrap" aria-hidden="true">
+        <img
+          src="/public-material/logo-center-shadow.svg"
+          alt=""
+          class="hero-logo hero-logo--dark"
+          width="120"
+          height="120"
+          draggable="false"
+        />
+        <img
+          src="/public-material/img/logo-nobg_dark.png"
+          alt=""
+          class="hero-logo hero-logo--light"
+          width="120"
+          height="120"
+          draggable="false"
+        />
+      </div>
     </div>
   </section>
 </template>
@@ -63,10 +82,10 @@ const bgStyle = computed(() =>
   justify-content: center;
   overflow: hidden;
   background: #0d0908;
-  padding: 10rem 2rem 7rem;
+  padding: 8rem 2rem 3rem;
 
   @media (min-width: 768px) {
-    padding: 12rem 2rem 9rem;
+    padding: 12rem 2rem 3rem;
   }
 }
 
@@ -74,8 +93,16 @@ const bgStyle = computed(() =>
   position: absolute;
   inset: -20% 0;
   background:
-    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(223, 175, 133, 0.07) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 40% at 80% 80%, rgba(223, 175, 133, 0.03) 0%, transparent 50%);
+    radial-gradient(
+      ellipse 70% 60% at 50% 0%,
+      rgba(223, 175, 133, 0.07) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 40% 40% at 80% 80%,
+      rgba(223, 175, 133, 0.03) 0%,
+      transparent 50%
+    );
   will-change: transform;
   pointer-events: none;
 }
@@ -148,7 +175,9 @@ const bgStyle = computed(() =>
   height: 1px;
   background: rgba(223, 175, 133, 0.12);
 
-  &--inner { flex: 0 0 0.75rem; }
+  &--inner {
+    flex: 0 0 0.75rem;
+  }
 }
 
 .div-diamond {
@@ -176,8 +205,43 @@ const bgStyle = computed(() =>
   margin: 0 auto;
 }
 
+/* ── Logo ─────────────────────────────────────────────────────── */
+.hero-logo-wrap {
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+}
+
+.hero-logo {
+  width: clamp(4.5rem, 8vw, 7rem);
+  height: auto;
+  opacity: 0.6;
+  filter: drop-shadow(0 6px 24px rgba(223, 175, 133, 0.12));
+  transition:
+    opacity 0.35s ease,
+    filter 0.35s ease;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* dark mode: show SVG, hide PNG */
+.hero-logo--light { display: none; }
+
+/* light mode: hide SVG, show PNG */
+html:not(.dark) {
+  .hero-logo--dark  { display: none; }
+  .hero-logo--light {
+    display: block;
+    opacity: 0.7;
+    filter: drop-shadow(0 6px 24px rgba(153, 82, 38, 0.1));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hero-bg { will-change: auto; transform: none !important; }
+  .hero-bg {
+    will-change: auto;
+    transform: none !important;
+  }
 }
 
 /* ── Light mode overrides ─────────────────────────────────────── */
@@ -188,22 +252,44 @@ html:not(.dark) {
 
   .hero-bg {
     background:
-      radial-gradient(ellipse 70% 60% at 50% 0%, rgba(153, 82, 38, 0.06) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 40% at 80% 80%, rgba(153, 82, 38, 0.03) 0%, transparent 50%);
+      radial-gradient(
+        ellipse 70% 60% at 50% 0%,
+        rgba(153, 82, 38, 0.06) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 40% 40% at 80% 80%,
+        rgba(153, 82, 38, 0.03) 0%,
+        transparent 50%
+      );
   }
 
-  .label-line    { background: var(--deco-line); }
-  .label-diamond { background: var(--deco-diamond); }
-  .label-text    { color: var(--deco-text); }
+  .label-line {
+    background: var(--deco-line);
+  }
+  .label-diamond {
+    background: var(--deco-diamond);
+  }
+  .label-text {
+    color: var(--deco-text);
+  }
 
-  .hero-title { color: #441a08; } /* primary-900 — word spans handled globally in main.css */
+  .hero-title {
+    color: #441a08;
+  } /* primary-900 — word spans handled globally in main.css */
 
-  .div-line    { background: var(--deco-line); }
+  .div-line {
+    background: var(--deco-line);
+  }
   .div-diamond {
     background: var(--deco-diamond);
-    &--sm { background: var(--deco-diamond-sm); }
+    &--sm {
+      background: var(--deco-diamond-sm);
+    }
   }
 
-  .hero-subtitle { color: var(--color-text-subtle); }
+  .hero-subtitle {
+    color: var(--color-text-subtle);
+  }
 }
 </style>

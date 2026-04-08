@@ -49,7 +49,7 @@
     "submit": "Start the Conversation",
     "submitting": "Sending...",
     "successMessage": "Message received — thank you. We'll review it and get back to you within one business day with a clear next step.",
-    "errorMessage": "Something went wrong. Please try again or contact us directly at hello@eyeonidea.com.",
+    "errorMessage": "Something went wrong. Please try again, or reach us directly at",
     "gdprNotice": "By contacting Eye On Idea, you consent to be contacted via the information provided regarding your inquiry. Under the EU's GDPR regulation, your data will only be used for communication related to your inquiry and will never be shared with third parties."
   },
   "info": {

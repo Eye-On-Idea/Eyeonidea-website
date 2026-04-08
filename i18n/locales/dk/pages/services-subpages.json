@@ -2,7 +2,7 @@
   "websitePackages": {
     "meta": {
       "title": "Hjemmesidepakker med Priser til B2B | Eye On Idea",
-      "description": "Tre hjemmesidepakker til B2B-virksomheder — Lancering fra €1.500, Vækst fra €3.000, Brand Partner fra €5.000. Klare priser, intet unødvendigt."
+      "description": "Tre hjemmesidepakker til B2B-virksomheder — Lancering fra 15.000 DKK, Vækst fra 18.000 DKK, Brand Partner fra 35.000 DKK. Klare priser, intet unødvendigt."
     },
     "hero": {
       "badge": "Hjemmesidepakker",
@@ -28,14 +28,14 @@
       "hostingCard": {
         "badge": "EU Hosting",
         "title": "Pålidelig EU-baseret hosting",
-        "description": "Pålidelig EU-baseret hosting. Pris fra €20 pr. måned.",
+        "description": "Pålidelig EU-baseret hosting. Pris fra 150 DKK pr. måned.",
         "bullets": [
           "EU-baseret infrastruktur",
           "Overvågning og grundlæggende vedligeholdelse",
           "Sikkerhedskopier tilgængelige afhængigt af opsætning"
         ],
-        "price": "20",
-        "currency": "€",
+        "price": "150",
+        "currency": "DKK",
         "unit": "om måneden",
         "vatNote": "ekskl. moms"
       },
@@ -58,7 +58,7 @@
   "visualIdentity": {
     "meta": {
       "title": "Brandidentitet & Logo Design til Virksomheder | Eye On Idea",
-      "description": "Logo, farvepalet, typografi og brandretningslinjer til B2B-virksomheder. Visuel identitet fra €800 — bygget til digital og print."
+      "description": "Logo, farvepalet, typografi og brandretningslinjer til B2B-virksomheder. Visuel identitet fra 6.000 DKK — bygget til digital og print."
     },
     "hero": {
       "badge": "Visuel identitet",
@@ -135,7 +135,7 @@
       "badge": "Prissætning",
       "title": "Hvad det koster",
       "subtitle": "Prisen afhænger af omfanget af dit projekt. Nedenfor er de mest almindelige udgangspunkter.",
-      "currency": "€",
+      "currency": "DKK",
       "vatNote": "Alle priser ekskl. moms",
       "startsAt": "fra",
       "introTitle": "Saadan virker det",
@@ -144,27 +144,27 @@
       "highlights": [
         {
           "name": "Logodesign (primært og variationer)",
-          "price": "500",
+          "price": "9.000",
           "unit": "én gang"
         },
         {
           "name": "Farvepalet og typografi",
-          "price": "250",
+          "price": "3.500",
           "unit": "én gang"
         },
         {
           "name": "Brand retningslinjer dokument",
-          "price": "400",
+          "price": "3.000",
           "unit": "én gang"
         },
         {
           "name": "Sociale mediers brandaktiver",
-          "price": "200",
+          "price": "1.500",
           "unit": "én gang"
         },
         {
           "name": "Præsentations skabeloner",
-          "price": "300",
+          "price": "2.300",
           "unit": "én gang"
         }
       ],
@@ -244,25 +244,25 @@
         "items": [
           {
             "name": "Tekstforfatning på hjemmesiden",
-            "price": "100",
+            "price": "750",
             "unit": "per side",
             "description": "Side for side kopi skrevet til at passe til din struktur og tone. Inkluderer en revisionsrunde."
           },
           {
             "name": "Indholdsredigering og forfining",
-            "price": "75",
+            "price": "600",
             "unit": "i timen",
             "description": "Du har udkast til tekst, der skal strammes, omstruktureres eller tilpasses til nettet. Vi arbejder igennem det sammen med dig."
           },
           {
             "name": "Flersproget opsætning (2 sprog)",
-            "price": "350",
+            "price": "2.700",
             "unit": "én gang",
             "description": "Teknisk opsætning af et tosproget websted: routing, skift af landestandard og CMS-konfiguration for to sprog."
           },
           {
             "name": "Yderligere sprogversion",
-            "price": "125",
+            "price": "950",
             "unit": "pr. sprog",
             "description": "Udvid en eksisterende flersproget opsætning til at dække et ekstra sprog."
           }
@@ -278,19 +278,19 @@
         "items": [
           {
             "name": "Yderligere domæneregistrering",
-            "price": "15-50",
+            "price": "150-400",
             "unit": "om året",
             "description": "Registrer et ekstra domæne, nyttigt til brandbeskyttelse, regionale varianter eller omdirigeringer."
           },
           {
             "name": "Hjælp til domæneoverførsel",
-            "price": "50",
+            "price": "400",
             "unit": "én gang",
             "description": "Vi håndterer overførselsprocessen, hvis du flytter et eksisterende domæne fra en anden registrator."
           },
           {
             "name": "Domænefornyelse (efter år 1)",
-            "price": "15-50",
+            "price": "150-400",
             "unit": "om året",
             "description": "Årlig fornyelse for ethvert domæne, der er registreret gennem os. Håndteres på dine vegne med forudgående varsel før fornyelse."
           }
@@ -306,13 +306,13 @@
         "items": [
           {
             "name": "E-mail starter (15 GB pr. konto)",
-            "price": "1",
+            "price": "25",
             "unit": "pr konto/måned",
             "description": "En ren, professionel e-mailadresse på dit domæne. Velegnet til de fleste små hold."
           },
           {
             "name": "Email Pro (50 GB pr. konto)",
-            "price": "4",
+            "price": "65",
             "unit": "pr konto/måned",
             "description": "Mere lagerplads og yderligere funktioner til teams, der bruger e-mail i høj grad."
           }
@@ -328,43 +328,43 @@
         "items": [
           {
             "name": "SEO struktur gennemgang",
-            "price": "200",
+            "price": "3.500",
             "unit": "én gang",
             "description": "En gennemgang af, hvordan dit websted er organiseret til søgning: overskriftshierarki, URL-struktur, interne links og crawlbarhed."
           },
           {
             "name": "Metadata optimering",
-            "price": "150",
+            "price": "3.000",
             "unit": "én gang",
             "description": "Vi gennemgår og omskriver dine sidetitler og metabeskrivelser for at forbedre klikfrekvensen i søgeresultaterne."
           },
           {
             "name": "Intern koblingsstrategi",
-            "price": "150",
+            "price": "1.100",
             "unit": "én gang",
             "description": "En plan for, hvordan sider på dit websted skal linke til hinanden for at give autoritet og hjælpe besøgende med at finde det, de har brug for."
           },
           {
             "name": "Rådgivningsmøde (1 time)",
-            "price": "100",
+            "price": "750",
             "unit": "pr session",
             "description": "En fokuseret samtale om alt, hvad du tænker på: strategi, retning, en beslutning, du vægter, eller et problem, du ikke kan løse."
           },
           {
             "name": "Teknisk revision",
-            "price": "300",
+            "price": "2.300",
             "unit": "én gang",
             "description": "En struktureret gennemgang af ydeevne, tilgængelighed og teknisk SEO. Leveres som en prioriteret liste over problemstillinger og anbefalinger."
           },
           {
             "name": "Gennemgang af QA før lancering",
-            "price": "200",
+            "price": "1.500",
             "unit": "én gang",
             "description": "Et tjek før lancering på tværs af browsere, enheder og nøglebrugerrejser. Vi leder efter ødelagte links, layoutproblemer og alt, hvad der bør rettes, før det går live."
           },
           {
             "name": "Second opinion review",
-            "price": "150",
+            "price": "1.100",
             "unit": "én gang",
             "description": "Ikke sikker på en designbeslutning, en CMS-struktur eller en teknisk tilgang? Vi gennemgår, hvad du har, og giver dig en direkte, ærlig vurdering."
           }

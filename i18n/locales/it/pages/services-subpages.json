@@ -2,7 +2,7 @@
   "websitePackages": {
     "meta": {
       "title": "Pacchetti Web B2B con Prezzi | Eye On Idea",
-      "description": "Tre pacchetti web B2B — Foundation da €1.500, Growth da €3.000, Brand Partner da €5.000. Prezzi chiari, nessun extra inutile."
+      "description": "Tre pacchetti web B2B — Foundation da €2.000, Growth da €2.400, Brand Partner da €4.700. Prezzi chiari, nessun extra inutile."
     },
     "hero": {
       "badge": "Pacchetti sito web",
@@ -144,12 +144,12 @@
       "highlights": [
         {
           "name": "Design del logo (principale e varianti)",
-          "price": "500",
+          "price": "1,200",
           "unit": "una volta"
         },
         {
           "name": "Tavolozza dei colori e tipografia",
-          "price": "250",
+          "price": "500",
           "unit": "una volta"
         },
         {
@@ -306,13 +306,13 @@
         "items": [
           {
             "name": "Email Starter (15 GB per account)",
-            "price": "1",
+            "price": "3",
             "unit": "per account/mese",
             "description": "Un indirizzo email pulito e professionale sul tuo dominio. Adatto per la maggior parte delle piccole squadre."
           },
           {
             "name": "Email Pro (50 GB per account)",
-            "price": "4",
+            "price": "9",
             "unit": "per account/mese",
             "description": "Più spazio di archiviazione e funzionalità aggiuntive per i team che utilizzano molto la posta elettronica."
           }
@@ -328,13 +328,13 @@
         "items": [
           {
             "name": "Revisione della struttura SEO",
-            "price": "200",
+            "price": "500",
             "unit": "una volta",
             "description": "Un'analisi del modo in cui il tuo sito è organizzato per la ricerca: gerarchia delle intestazioni, struttura dell'URL, collegamenti interni e possibilità di scansione."
           },
           {
             "name": "Ottimizzazione dei metadati",
-            "price": "150",
+            "price": "400",
             "unit": "una volta",
             "description": "Esaminiamo e riscriviamo i titoli delle pagine e le meta descrizioni per migliorare la percentuale di clic nei risultati di ricerca."
           },

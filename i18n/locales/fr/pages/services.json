@@ -78,10 +78,11 @@
         "Configuration de base du référencement"
       ],
       "price": {
-        "amount": "1,500",
+        "amount": "2,000",
         "currency": "€",
         "prefix": "De",
-        "vatNote": "excl. TVA"
+        "vatNote": "excl. TVA",
+        "unit": "paiement unique"
       }
     },
     "growth": {
@@ -99,10 +100,11 @@
         "Prise en charge du flux de travail éditorial"
       ],
       "price": {
-        "amount": "3,000",
+        "amount": "2,400",
         "currency": "€",
         "prefix": "De",
-        "vatNote": "excl. TVA"
+        "vatNote": "excl. TVA",
+        "unit": "paiement unique"
       }
     },
     "platform": {
@@ -119,10 +121,11 @@
         "Capacités CMS avancées"
       ],
       "price": {
-        "amount": "5,000",
+        "amount": "4,700",
         "currency": "€",
         "prefix": "De",
-        "vatNote": "excl. TVA"
+        "vatNote": "excl. TVA",
+        "unit": "paiement unique"
       }
     },
     "cta": "Obtenez un devis",
@@ -346,12 +349,12 @@
         "items": [
           {
             "name": "Email Starter (15 Go par compte)",
-            "price": "1",
+            "price": "3",
             "unit": "par compte / mois"
           },
           {
             "name": "Email Pro (50 Go par compte)",
-            "price": "4",
+            "price": "9",
             "unit": "par compte / mois"
           }
         ]
@@ -363,12 +366,12 @@
         "items": [
           {
             "name": "Révision de la structure SEO",
-            "price": "200",
+            "price": "500",
             "unit": "une fois"
           },
           {
             "name": "Optimisation des métadonnées",
-            "price": "150",
+            "price": "400",
             "unit": "une fois"
           },
           {
@@ -416,7 +419,8 @@
       "amount": "800",
       "currency": "€",
       "prefix": "De",
-      "vatNote": "excl. TVA"
+      "vatNote": "excl. TVA",
+      "unit": "paiement unique"
     },
     "cta": "Discutez de votre marque",
     "carousel": {
@@ -467,7 +471,7 @@
         "price": {
           "amount": "99",
           "currency": "€",
-          "unit": "/month",
+          "unit": "/mois",
           "vatNote": "excl. TVA"
         }
       },
@@ -485,7 +489,7 @@
         "price": {
           "amount": "249",
           "currency": "€",
-          "unit": "/month",
+          "unit": "/mois",
           "vatNote": "excl. TVA"
         }
       },
@@ -503,7 +507,7 @@
         "price": {
           "amount": "499",
           "currency": "€",
-          "unit": "/month",
+          "unit": "/mois",
           "vatNote": "excl. TVA"
         }
       }

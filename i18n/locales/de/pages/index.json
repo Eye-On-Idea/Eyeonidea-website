@@ -165,9 +165,10 @@
           "Responsive Umsetzung für Mobilgeräte",
           "Grundlegendes SEO-Setup"
         ],
-        "price": "1,500",
+        "price": "2,000",
         "currency": "€",
-        "priceNote": "exkl. MwSt"
+        "priceNote": "exkl. MwSt",
+        "pricePer": "einmalig"
       },
       {
         "numeral": "II",
@@ -181,9 +182,10 @@
           "Vorlagen für Visitenkarten und Briefköpfe",
           "Social-Media-Profil-Assets"
         ],
-        "price": "2,000",
+        "price": "2,400",
         "currency": "€",
-        "priceNote": "exkl. MwSt"
+        "priceNote": "exkl. MwSt",
+        "pricePer": "einmalig"
       },
       {
         "numeral": "III",
@@ -198,10 +200,14 @@
           "Vorrangiger Support",
           "Vierteljährliche Markenausrichtung"
         ],
-        "price": "1,200",
+        "price": "500",
         "currency": "€",
-        "pricePer": "/mo",
-        "priceNote": "exkl. MwSt"
+        "pricePer": "/Monat",
+        "priceNote": "exkl. MwSt",
+        "priceLabel": "Monatliches Abonnement",
+        "setupFeeLabel": "Einrichtungsgebühr",
+        "setupFee": "1,300",
+        "setupFeePer": "einmalig"
       }
     ],
     "cta": "Starten Sie ein Gespräch",

@@ -2,7 +2,7 @@
   "websitePackages": {
     "meta": {
       "title": "Forfaits Web B2B avec Tarifs | Eye On Idea",
-      "description": "Trois forfaits web B2B — Foundation à partir de 1 500 €, Growth à partir de 3 000 €, Brand Partner à partir de 5 000 €. Tarifs clairs, sans extras inutiles."
+      "description": "Trois forfaits web B2B — Foundation à partir de 2 000 €, Growth à partir de 2 400 €, Brand Partner à partir de 4 700 €. Tarifs clairs, sans extras inutiles."
     },
     "hero": {
       "badge": "Forfaits Site Web",
@@ -144,12 +144,12 @@
       "highlights": [
         {
           "name": "Création de logo (primaire et variantes)",
-          "price": "500",
+          "price": "1,200",
           "unit": "une fois"
         },
         {
           "name": "Palette de couleurs et typographie",
-          "price": "250",
+          "price": "500",
           "unit": "une fois"
         },
         {
@@ -306,13 +306,13 @@
         "items": [
           {
             "name": "Email Starter (15 Go par compte)",
-            "price": "1",
+            "price": "3",
             "unit": "par compte / mois",
             "description": "Une adresse e-mail propre et professionnelle sur votre domaine. Convient à la plupart des petites équipes."
           },
           {
             "name": "Email Pro (50 Go par compte)",
-            "price": "4",
+            "price": "9",
             "unit": "par compte / mois",
             "description": "Plus de stockage et des fonctionnalités supplémentaires pour les équipes qui utilisent beaucoup le courrier électronique."
           }
@@ -328,13 +328,13 @@
         "items": [
           {
             "name": "Révision de la structure SEO",
-            "price": "200",
+            "price": "500",
             "unit": "une fois",
             "description": "Un examen de la façon dont votre site est organisé pour la recherche : hiérarchie des titres, structure des URL, liens internes et capacité d'exploration."
           },
           {
             "name": "Optimisation des métadonnées",
-            "price": "150",
+            "price": "400",
             "unit": "une fois",
             "description": "Nous examinons et réécrivons les titres de vos pages et les méta descriptions pour améliorer le taux de clics dans les résultats de recherche."
           },

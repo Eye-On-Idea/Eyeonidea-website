@@ -38,6 +38,10 @@ const packages = computed(
       price: string;
       currency: string;
       pricePer?: string;
+      priceLabel?: string;
+      setupFee?: string;
+      setupFeePer?: string;
+      setupFeeLabel?: string;
       priceNote: string;
       featured?: string;
     }>,
@@ -146,15 +150,45 @@ const panelGradients = [
               <span class="deco-line" />
             </div>
             <div class="price-block">
-              <span class="price-from">From</span>
-              <div class="price-main">
-                <span class="price-currency">{{ pkg.currency }}</span>
-                <span class="price-amount">{{ pkg.price }}</span>
-                <span v-if="pkg.pricePer" class="price-per">{{
-                  pkg.pricePer
-                }}</span>
-              </div>
-              <span class="price-note">{{ pkg.priceNote }}</span>
+              <!-- Single-price layout (packages I & II) -->
+              <template v-if="!pkg.setupFee">
+                <span class="price-from">{{ t("services.packages.launch.price.prefix") }}</span>
+                <div class="price-main">
+                  <span class="price-currency">{{ pkg.currency }}</span>
+                  <span class="price-amount">{{ pkg.price }}</span>
+                  <span v-if="pkg.pricePer" class="price-per">{{ pkg.pricePer }}</span>
+                </div>
+                <span class="price-note">{{ pkg.priceNote }}</span>
+              </template>
+
+              <!-- Dual-price layout (package III: monthly + setup fee) -->
+              <template v-else>
+                <div class="price-tier">
+                  <span class="price-tier-label">{{ pkg.priceLabel }}</span>
+                  <div class="price-main">
+                    <span class="price-currency">{{ pkg.currency }}</span>
+                    <span class="price-amount">{{ pkg.price }}</span>
+                    <span v-if="pkg.pricePer" class="price-per">{{ pkg.pricePer }}</span>
+                  </div>
+                </div>
+
+                <div class="price-separator" aria-hidden="true">
+                  <span class="price-sep-line" />
+                  <span class="price-sep-diamond" />
+                  <span class="price-sep-line" />
+                </div>
+
+                <div class="price-tier price-tier--secondary">
+                  <span class="price-tier-label">{{ pkg.setupFeeLabel }}</span>
+                  <div class="price-main price-main--secondary">
+                    <span class="price-currency price-currency--secondary">{{ pkg.currency }}</span>
+                    <span class="price-amount price-amount--secondary">{{ pkg.setupFee }}</span>
+                    <span v-if="pkg.setupFeePer" class="price-per price-per--secondary">{{ pkg.setupFeePer }}</span>
+                  </div>
+                </div>
+
+                <span class="price-note">{{ pkg.priceNote }}</span>
+              </template>
             </div>
             <AppCtaButton
               :to="localePath(t('landing.packages.ctaHref'))"
@@ -573,11 +607,60 @@ const panelGradients = [
   color: rgba(255, 255, 255, 0.35);
 }
 
+/* ── Dual-price tier ────────── */
+.price-tier {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  width: 100%;
+}
+
+.price-tier--secondary {
+  opacity: 0.8;
+}
+
+.price-tier-label {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(223, 175, 133, 0.5);
+}
+
+/* ── Diamond separator between the two tiers ── */
+.price-separator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin: 0.6rem 0;
+}
+
+.price-sep-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(223, 175, 133, 0.15);
+}
+
+.price-sep-diamond {
+  width: 5px;
+  height: 5px;
+  background: rgba(223, 175, 133, 0.35);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* ── Price main row ─────────── */
 .price-main {
   display: flex;
   align-items: flex-start;
-  gap: 0.2rem;
+  gap: 0.35rem;
   line-height: 1;
+}
+
+.price-main--secondary {
+  align-items: baseline;
 }
 
 .price-currency {
@@ -586,6 +669,12 @@ const panelGradients = [
   font-weight: 600;
   color: #dfaf85;
   margin-top: 0.45rem;
+}
+
+.price-currency--secondary {
+  font-size: 0.85rem;
+  margin-top: 0;
+  color: rgba(223, 175, 133, 0.6);
 }
 
 .price-amount {
@@ -597,6 +686,13 @@ const panelGradients = [
   transition: color 0.4s ease;
 }
 
+.price-amount--secondary {
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: -0.01em;
+}
+
 .price-per {
   font-family: var(--font-heading);
   font-size: 1.1rem;
@@ -606,12 +702,19 @@ const panelGradients = [
   margin-bottom: 0.3rem;
 }
 
+.price-per--secondary {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 0;
+  align-self: baseline;
+}
+
 .price-note {
   font-family: var(--font-text);
   font-size: 0.72rem;
   color: rgba(255, 255, 255, 0.3);
   font-weight: 400;
-  margin-top: 0.15rem;
+  margin-top: 0.35rem;
 }
 
 /* ── CTA — AppCtaButton override for full width ───────────────── */
@@ -814,11 +917,17 @@ html:not(.dark) {
   .pkg-panel:hover .includes-text    { color: var(--color-text-primary); }
 
   /* Price block */
-  .price-from    { color: var(--color-text-subtle); }
-  .price-currency { color: var(--color-primary-600); }
-  .price-amount  { color: var(--color-text-secondary); }
-  .price-per     { color: var(--color-text-subtle); }
-  .price-note    { color: var(--color-text-subtle); }
+  .price-from           { color: var(--color-text-subtle); }
+  .price-tier-label     { color: var(--color-primary-500); opacity: 0.65; }
+  .price-sep-line       { background: var(--deco-line); }
+  .price-sep-diamond    { background: var(--deco-diamond); }
+  .price-currency       { color: var(--color-primary-600); }
+  .price-currency--secondary { color: var(--color-primary-400); }
+  .price-amount         { color: var(--color-text-secondary); }
+  .price-amount--secondary   { color: var(--color-text-subtle); }
+  .price-per            { color: var(--color-text-subtle); }
+  .price-per--secondary { color: var(--color-text-subtle); opacity: 0.7; }
+  .price-note           { color: var(--color-text-subtle); }
 
   /* Footer strip */
   .packages-footer-strip {
@@ -844,5 +953,3 @@ html:not(.dark) {
   .footer-strip-label { color: var(--color-primary-600); }
 }
 </style>
-
-

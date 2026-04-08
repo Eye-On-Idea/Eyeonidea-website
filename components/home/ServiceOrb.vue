@@ -64,15 +64,6 @@ const onLeave = () => {
   hoveredKey.value = null;
 };
 
-// Mobile: tap toggles; @click.stop on the button prevents any bubble
-const onTap = (key: ServiceKey) => {
-  hoveredKey.value = hoveredKey.value === key ? null : key;
-};
-
-// Clicking the root background (not an orb) dismisses
-const onRootClick = () => {
-  hoveredKey.value = null;
-};
 </script>
 
 <template>
@@ -80,7 +71,6 @@ const onRootClick = () => {
     class="orb-root"
     role="group"
     :aria-label="t('landing.hero.orbLabel')"
-    @click.self="onRootClick"
   >
     <!-- ── Decorative orbit rings ───────────────────────────────────── -->
     <svg
@@ -162,10 +152,8 @@ const onRootClick = () => {
       ]"
       :style="{ left: `${svc.x}%`, top: `${svc.y}%` }"
       :aria-label="t(`landing.services.categories.${svc.key}.title`)"
-      :aria-pressed="isActive(svc.key)"
       @mouseenter="onEnter(svc.key)"
       @mouseleave="onLeave()"
-      @click.stop="onTap(svc.key)"
     >
       <UIcon :name="svc.icon" class="orb-icon" />
     </button>

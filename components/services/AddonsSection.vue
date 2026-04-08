@@ -94,17 +94,8 @@ const toggleAll = () => {
 const isSectionExpanded = (key: string) => expandedSections.value.has(key);
 
 const formatUnit = (unit: string): string => {
-  const map: Record<string, string> = {
-    "one-time": "",
-    "per page": "/ page",
-    "per hour": "/ hr",
-    "per language": "/ language",
-    "per year": "/ year",
-    "per month": "/ mo",
-    "per account / month": "/ account / mo",
-    "per session": "/ session",
-  };
-  return map[unit] ?? unit;
+  if (!unit) return "";
+  return `/ ${unit}`;
 };
 </script>
 
@@ -190,7 +181,8 @@ const formatUnit = (unit: string): string => {
               >
                 <span class="price-row__name">{{ item.name }}</span>
                 <span class="price-row__price">
-                  <span class="price-row__value">{{ currency }}{{ item.price }}</span>
+                  <span class="price-row__currency">{{ currency }}</span>
+                  <span class="price-row__value">{{ item.price }}</span>
                   <span v-if="formatUnit(item.unit)" class="price-row__unit">
                     {{ formatUnit(item.unit) }}
                   </span>
@@ -457,9 +449,14 @@ const formatUnit = (unit: string): string => {
 .price-row__price {
   display: flex;
   align-items: baseline;
-  gap: 0.25rem;
+  gap: 0.35rem;
   flex-shrink: 0;
   text-align: right;
+}
+
+.price-row__currency {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
 }
 
 .price-row__value {
@@ -502,6 +499,10 @@ const formatUnit = (unit: string): string => {
 
   .addon-section__header:hover {
     background: color-mix(in srgb, var(--color-primary-900) 30%, var(--card-bg));
+  }
+
+  .price-row__currency {
+    color: var(--color-primary-300);
   }
 
   .price-row__value {

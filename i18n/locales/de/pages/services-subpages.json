@@ -2,7 +2,7 @@
   "websitePackages": {
     "meta": {
       "title": "B2B Website-Pakete mit Preisen | Eye On Idea",
-      "description": "Drei B2B Website-Pakete — Foundation ab €1.500, Growth ab €3.000, Brand Partner ab €5.000. Klare Preise, kein unnötiger Aufwand."
+      "description": "Drei B2B Website-Pakete — Foundation ab €2.000, Growth ab €2.400, Brand Partner ab €4.700. Klare Preise, kein unnötiger Aufwand."
     },
     "hero": {
       "badge": "Website-Pakete",
@@ -144,12 +144,12 @@
       "highlights": [
         {
           "name": "Logo-Design (primär und Variationen)",
-          "price": "500",
+          "price": "1,200",
           "unit": "einmalig"
         },
         {
           "name": "Farbpalette und Typografie",
-          "price": "250",
+          "price": "500",
           "unit": "einmalig"
         },
         {
@@ -306,13 +306,13 @@
         "items": [
           {
             "name": "E-Mail-Starter (15 GB pro Konto)",
-            "price": "1",
+            "price": "3",
             "unit": "pro Konto/Monat",
             "description": "Eine saubere, professionelle E-Mail-Adresse auf Ihrer Domain. Geeignet für die meisten kleinen Teams."
           },
           {
             "name": "Email Pro (50 GB pro Konto)",
-            "price": "4",
+            "price": "9",
             "unit": "pro Konto/Monat",
             "description": "Mehr Speicherplatz und zusätzliche Funktionen für Teams, die E-Mails intensiv nutzen."
           }
@@ -328,13 +328,13 @@
         "items": [
           {
             "name": "Überprüfung der SEO-Struktur",
-            "price": "200",
+            "price": "500",
             "unit": "einmalig",
             "description": "Eine Überprüfung, wie Ihre Website für die Suche organisiert ist: Überschriftenhierarchie, URL-Struktur, interne Verlinkung und Crawlbarkeit."
           },
           {
             "name": "Metadatenoptimierung",
-            "price": "150",
+            "price": "400",
             "unit": "einmalig",
             "description": "Wir überprüfen und schreiben Ihre Seitentitel und Meta-Beschreibungen neu, um die Klickrate in den Suchergebnissen zu verbessern."
           },
