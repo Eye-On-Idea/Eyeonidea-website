@@ -1,25 +1,18 @@
 import { ref, onMounted, onUnmounted, type Ref } from "vue";
 import { STAGGER_ICON } from "~/composables/useAccessibleMotion";
 
-/**
- * Composable that animates SVG stroke-dashoffset on icon elements
- * when they enter the viewport. Works with UIcon's rendered SVGs.
- *
- * @param containerRef - Ref to the parent element containing SVG icons
- * @param options - Configuration for delay, stagger, and duration
- */
 export function useStrokeDraw(
   containerRef: Ref<HTMLElement | null>,
   options: {
-    /** Delay before animation starts (ms) */
+
     delay?: number;
-    /** Stagger between each icon (ms) */
+
     stagger?: number;
-    /** Animation duration (ms) */
+
     duration?: number;
-    /** CSS easing function */
+
     easing?: string;
-    /** Selector for icon wrapper elements */
+
     selector?: string;
   } = {}
 ) {
@@ -43,17 +36,15 @@ export function useStrokeDraw(
       );
 
       paths.forEach((path) => {
-        // Get the total length of the path for stroke-dash animation
+
         if (typeof path.getTotalLength !== "function") return;
 
         const length = path.getTotalLength();
 
-        // Set initial state: fully hidden stroke
         path.style.strokeDasharray = `${length}`;
         path.style.strokeDashoffset = `${length}`;
         path.style.transition = `stroke-dashoffset ${duration}ms ${easing} ${delay + index * stagger}ms`;
 
-        // Trigger the draw on next frame
         requestAnimationFrame(() => {
           path.style.strokeDashoffset = "0";
         });
@@ -93,5 +84,4 @@ export function useStrokeDraw(
 
   return { isDrawn };
 }
-
 

@@ -22,7 +22,6 @@ const handleContinue = () => {
 <template>
   <div class="construction-page">
 
-    <!-- ── Background image + overlay ── -->
     <div class="construction-page__bg" aria-hidden="true">
       <img
         src="/images/nanobanana/process-hero-clear-project-journey.jpg"
@@ -32,17 +31,14 @@ const handleContinue = () => {
       <div class="construction-page__bg-overlay" />
     </div>
 
-    <!-- ── Animated orbs (decorative) ── -->
     <div class="construction-page__orbs" aria-hidden="true">
       <div class="construction-orb construction-orb--1" />
       <div class="construction-orb construction-orb--2" />
       <div class="construction-orb construction-orb--3" />
     </div>
 
-    <!-- ── Main content ── -->
     <div class="construction-page__inner">
 
-      <!-- Logo -->
       <NuxtLink :to="localePath('/')" class="construction-page__logo" aria-label="Back to Eye On Idea homepage">
         <img
           src="/public-material/logo-center-shadow.svg"
@@ -51,23 +47,18 @@ const handleContinue = () => {
         />
       </NuxtLink>
 
-      <!-- Card -->
       <div class="construction-card" role="main">
 
-        <!-- Icon badge -->
         <div class="construction-card__icon-wrap" aria-hidden="true">
           <UIcon name="i-heroicons-wrench-screwdriver" class="w-7 h-7" />
         </div>
 
-        <!-- Eyebrow -->
         <p class="construction-card__eyebrow">Client Hub</p>
 
-        <!-- Headline -->
         <h1 class="construction-card__title">
           Currently Under<br />Construction
         </h1>
 
-        <!-- Body -->
         <div class="construction-card__body">
           <p>
             We're actively building the Client Hub — a dedicated space where Eye On Idea clients can find guides, resources, and everything needed to manage their digital presence with confidence.
@@ -77,13 +68,11 @@ const handleContinue = () => {
           </p>
         </div>
 
-        <!-- Beta notice pill -->
         <div class="construction-card__pill" aria-label="Beta version available">
           <span class="construction-card__pill-dot" aria-hidden="true" />
           Beta version live — updated regularly
         </div>
 
-        <!-- CTA -->
         <button
           type="button"
           class="construction-card__cta"
@@ -95,7 +84,6 @@ const handleContinue = () => {
 
       </div>
 
-      <!-- Back to site -->
       <NuxtLink
         :to="localePath('/')"
         class="construction-page__back"
@@ -110,10 +98,6 @@ const handleContinue = () => {
 
 <style lang="scss" scoped>
 
-/* ════════════════════════════════════════════════════════
-   PAGE SHELL
-════════════════════════════════════════════════════════ */
-
 .construction-page {
   position: relative;
   min-height: 100vh;
@@ -125,8 +109,6 @@ const handleContinue = () => {
   padding: 2rem 1rem;
   overflow: hidden;
 }
-
-/* ── Background ── */
 
 .construction-page__bg {
   position: absolute;
@@ -152,8 +134,6 @@ const handleContinue = () => {
     rgba(26, 22, 20, 0.88) 100%
   );
 }
-
-/* ── Orbs ── */
 
 .construction-page__orbs {
   position: absolute;
@@ -217,8 +197,6 @@ const handleContinue = () => {
   50%       { transform: translate(-15px, -22px) scale(1.05); }
 }
 
-/* ── Inner layout ── */
-
 .construction-page__inner {
   position: relative;
   z-index: 2;
@@ -229,8 +207,6 @@ const handleContinue = () => {
   align-items: center;
   gap: 1.75rem;
 }
-
-/* ── Logo ── */
 
 .construction-page__logo {
   display: flex;
@@ -247,10 +223,6 @@ const handleContinue = () => {
     border-radius: 4px;
   }
 }
-
-/* ════════════════════════════════════════════════════════
-   CARD
-════════════════════════════════════════════════════════ */
 
 .construction-card {
   width: 100%;
@@ -274,8 +246,6 @@ const handleContinue = () => {
   }
 }
 
-/* ── Icon badge ── */
-
 .construction-card__icon-wrap {
   display: flex;
   align-items: center;
@@ -289,8 +259,6 @@ const handleContinue = () => {
   margin-bottom: 0.25rem;
 }
 
-/* ── Eyebrow ── */
-
 .construction-card__eyebrow {
   font-size: 0.6875rem;
   font-weight: 700;
@@ -299,8 +267,6 @@ const handleContinue = () => {
   color: #64c6b7;
   margin: 0;
 }
-
-/* ── Title ── */
 
 .construction-card__title {
   font-size: 1.75rem;
@@ -314,8 +280,6 @@ const handleContinue = () => {
     font-size: 2rem;
   }
 }
-
-/* ── Body text ── */
 
 .construction-card__body {
   display: flex;
@@ -335,8 +299,6 @@ const handleContinue = () => {
     font-weight: 600;
   }
 }
-
-/* ── Beta pill ── */
 
 .construction-card__pill {
   display: inline-flex;
@@ -365,8 +327,6 @@ const handleContinue = () => {
   0%, 100% { opacity: 1; transform: scale(1); }
   50%       { opacity: 0.5; transform: scale(0.75); }
 }
-
-/* ── CTA button ── */
 
 .construction-card__cta {
   display: inline-flex;
@@ -405,8 +365,6 @@ const handleContinue = () => {
   }
 }
 
-/* ── Back link ── */
-
 .construction-page__back {
   display: inline-flex;
   align-items: center;
@@ -426,10 +384,6 @@ const handleContinue = () => {
     border-radius: 4px;
   }
 }
-
-/* ════════════════════════════════════════════════════════
-   REDUCED MOTION
-════════════════════════════════════════════════════════ */
 
 @media (prefers-reduced-motion: reduce) {
   .construction-orb { animation: none; }

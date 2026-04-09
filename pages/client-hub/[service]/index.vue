@@ -11,7 +11,6 @@ const { getService } = useClientHub();
 const serviceSlug = computed(() => route.params.service as string);
 const service = computed(() => getService(serviceSlug.value));
 
-// 404 if service doesn't exist or is coming soon
 if (!service.value || service.value.comingSoon) {
   throw createError({
     statusCode: 404,
@@ -27,7 +26,7 @@ useHead({
 <template>
   <div class="service-page" v-if="service">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-      <!-- Service header -->
+
       <div class="flex items-start gap-4">
         <div class="p-3 rounded-xl bg-primary-500/10">
           <Icon
@@ -46,7 +45,6 @@ useHead({
         </div>
       </div>
 
-      <!-- Categories grid -->
       <div class="mt-8">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <ClientHubCategoryCard

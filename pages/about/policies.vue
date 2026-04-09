@@ -4,7 +4,6 @@ import { animationPresets, withDelay } from "~/composables/useAccessibleMotion";
 const { t, tm } = useI18n();
 const localePath = useLocalePath();
 
-// v-motion presets
 const heroMotion = animationPresets.fadeInUp;
 const contentMotion = withDelay("fadeInUp", 200);
 
@@ -46,7 +45,7 @@ const cookieSectionKeys = ["what", "types", "specific", "manage", "thirdParty"];
 
 <template>
   <div class="policies-page">
-    <!-- Hero -->
+
     <section class="page-hero" aria-labelledby="policies-heading">
       <div class="hero-background" aria-hidden="true">
         <div class="bg-gradient" />
@@ -60,12 +59,10 @@ const cookieSectionKeys = ["what", "types", "specific", "manage", "thirdParty"];
       </div>
     </section>
 
-    <!-- Content -->
     <section class="page-content">
       <div class="content-container" v-motion :initial="contentMotion.initial" :visible-once="contentMotion.visible">
         <p class="last-updated">{{ t("policies.lastUpdated") }}</p>
 
-        <!-- Table of Contents -->
         <nav class="toc" aria-label="Table of contents">
           <h2 class="toc-title">Contents</h2>
           <ul class="toc-list">
@@ -74,7 +71,6 @@ const cookieSectionKeys = ["what", "types", "specific", "manage", "thirdParty"];
           </ul>
         </nav>
 
-        <!-- Privacy Policy -->
         <div id="privacy-policy" class="policy-section">
           <h2 class="policy-title">{{ t("policies.privacy.title") }}</h2>
 
@@ -94,7 +90,6 @@ const cookieSectionKeys = ["what", "types", "specific", "manage", "thirdParty"];
           </div>
         </div>
 
-        <!-- Cookie Policy -->
         <div id="cookie-policy" class="policy-section">
           <h2 class="policy-title">{{ t("policies.cookies.title") }}</h2>
 
@@ -102,7 +97,6 @@ const cookieSectionKeys = ["what", "types", "specific", "manage", "thirdParty"];
             <div class="content-section">
               <h3 class="section-title">{{ t(`policies.cookies.sections.${key}.title`) }}</h3>
 
-              <!-- Regular content -->
               <template v-if="key !== 'specific'">
                 <p
                   v-for="(paragraph, index) in (tm(`policies.cookies.sections.${key}.content`) as string[])"
@@ -113,7 +107,6 @@ const cookieSectionKeys = ["what", "types", "specific", "manage", "thirdParty"];
                 </p>
               </template>
 
-              <!-- Cookie table -->
               <template v-else>
                 <div class="cookie-table-wrapper">
                   <table class="cookie-table">
@@ -147,20 +140,17 @@ const cookieSectionKeys = ["what", "types", "specific", "manage", "thirdParty"];
           </template>
         </div>
 
-        <!-- Policy Updates -->
         <div class="content-section">
           <h3 class="section-title">{{ t("policies.changes.title") }}</h3>
           <p class="section-paragraph">{{ t("policies.changes.content") }}</p>
         </div>
 
-        <!-- Contact -->
         <div class="content-section contact-section">
           <h3 class="section-title">{{ t("policies.contact.title") }}</h3>
           <p class="section-paragraph">{{ t("policies.contact.content") }}</p>
           <p class="section-paragraph">{{ t("policies.contact.complaints") }}</p>
         </div>
 
-        <!-- Back Link -->
         <div class="back-link-wrapper">
           <NuxtLink :to="localePath('/about')" class="back-link">
             <UIcon name="i-heroicons-arrow-left" class="back-icon" aria-hidden="true" />
@@ -428,7 +418,6 @@ const cookieSectionKeys = ["what", "types", "specific", "manage", "thirdParty"];
   height: 1rem;
 }
 
-// Dark mode
 :root.dark {
   .page-content {
     background: var(--color-section-dark);
@@ -482,5 +471,4 @@ const cookieSectionKeys = ["what", "types", "specific", "manage", "thirdParty"];
   }
 }
 
-// prefers-reduced-motion handled by v-motion / useAccessibleMotion
 </style>

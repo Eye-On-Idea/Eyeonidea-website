@@ -1,12 +1,4 @@
-/**
- * v-magnetic directive
- * Applies a subtle scale effect when the cursor is near the element.
- * Desktop only, respects prefers-reduced-motion.
- * Registered universally so SSR doesn't fail, but logic only runs client-side.
- *
- * Usage: <button v-magnetic>Click me</button>
- *        <button v-magnetic="{ scale: 1.03, radius: 120 }">Custom</button>
- */
+
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive("magnetic", {
     getSSRProps() {

@@ -47,7 +47,7 @@ onMounted(() => {
     class="identity-section"
     aria-labelledby="identity-heading"
   >
-    <!-- Section label row -->
+
     <div class="section-label-row" aria-hidden="true">
       <span class="sep-line" />
       <span class="sep-diamond" />
@@ -58,13 +58,12 @@ onMounted(() => {
 
     <div class="section-container">
       <div class="content-grid" :class="{ 'animate-in': isVisible }">
-        <!-- Left: text content -->
+
         <div class="main-content">
           <h2 id="identity-heading" class="section-title">
             {{ t("services.identity.title") }}
           </h2>
 
-          <!-- Deco divider -->
           <div class="deco-divider" aria-hidden="true">
             <span class="deco-line" />
             <span class="deco-diamond" />
@@ -73,7 +72,6 @@ onMounted(() => {
 
           <p class="section-description">{{ t("services.identity.description") }}</p>
 
-          <!-- Includes list -->
           <div class="includes-block">
             <ul class="includes-list">
               <li
@@ -97,10 +95,9 @@ onMounted(() => {
           </AppCtaButton>
         </div>
 
-        <!-- Right: carousel -->
         <div class="carousel-panel">
           <div class="carousel-frame">
-            <!-- Corner frame -->
+
             <div class="deco-frame" aria-hidden="true">
               <span class="corner corner--tl" />
               <span class="corner corner--tr" />
@@ -147,13 +144,12 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .identity-section {
   background: #0d0908;
   padding-bottom: 0;
 }
 
-/* ── Section label row ────────────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -187,14 +183,12 @@ onMounted(() => {
   flex-shrink: 0;
 }
 
-/* ── Container ────────────────────────────────────────────────── */
 .section-container {
   max-width: 80rem;
   margin: 0 auto;
   padding: 0 2rem 5rem;
 }
 
-/* ── Two-column grid ──────────────────────────────────────────── */
 .content-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -217,7 +211,6 @@ onMounted(() => {
   }
 }
 
-/* ── Text column ──────────────────────────────────────────────── */
 .main-content {
   display: flex;
   flex-direction: column;
@@ -233,7 +226,6 @@ onMounted(() => {
   margin: 0 0 1.25rem;
 }
 
-/* ── Deco divider ─────────────────────────────────────────────── */
 .deco-divider {
   display: flex;
   align-items: center;
@@ -265,7 +257,6 @@ onMounted(() => {
   margin: 0 0 2rem;
 }
 
-/* ── Includes block ───────────────────────────────────────────── */
 .includes-block {
   margin-bottom: 2.25rem;
 }
@@ -297,7 +288,6 @@ onMounted(() => {
   transform: rotate(45deg);
 }
 
-/* ── Carousel panel ───────────────────────────────────────────── */
 .carousel-panel {
   @media (min-width: 1024px) {
     position: sticky;
@@ -314,7 +304,6 @@ onMounted(() => {
   padding: 1.5rem;
 }
 
-/* ── Corner frame ─────────────────────────────────────────────── */
 .deco-frame {
   position: absolute;
   inset: 0.75rem;
@@ -385,7 +374,6 @@ onMounted(() => {
   }
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .content-grid {
     opacity: 1;
@@ -398,7 +386,6 @@ onMounted(() => {
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .identity-section { background: var(--color-section-alt); }
 

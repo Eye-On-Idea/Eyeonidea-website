@@ -1,7 +1,7 @@
 <template>
   <div class="portable-text">
     <template v-for="(group, index) in renderedGroups" :key="index">
-      <!-- Headings -->
+
       <h2 v-if="group.type === 'h2'" class="pt-h2">
         <span v-for="(child, i) in group.block!.children" :key="i">{{ child.text }}</span>
       </h2>
@@ -12,12 +12,10 @@
         <span v-for="(child, i) in group.block!.children" :key="i">{{ child.text }}</span>
       </h4>
 
-      <!-- Blockquote -->
       <blockquote v-else-if="group.type === 'blockquote'" class="pt-blockquote">
         <span v-for="(child, i) in group.block!.children" :key="i">{{ child.text }}</span>
       </blockquote>
 
-      <!-- Normal paragraph -->
       <p v-else-if="group.type === 'paragraph'" class="pt-paragraph">
         <template v-for="(child, i) in group.block!.children" :key="i">
           <a
@@ -41,7 +39,6 @@
         </template>
       </p>
 
-      <!-- Image -->
       <figure v-else-if="group.type === 'image'" class="pt-figure">
         <img
           v-if="group.block!.url || group.block!.asset"
@@ -53,21 +50,18 @@
         <figcaption v-if="group.block!.caption" class="pt-caption">{{ group.block!.caption }}</figcaption>
       </figure>
 
-      <!-- Bullet list - grouped consecutive items into one ul -->
       <ul v-else-if="group.type === 'bullet'" class="pt-list">
         <li v-for="(item, i) in group.items" :key="i">
           <span v-for="(child, j) in item.children" :key="j">{{ child.text }}</span>
         </li>
       </ul>
 
-      <!-- Numbered list - grouped consecutive items into one ol -->
       <ol v-else-if="group.type === 'number'" class="pt-list pt-list-ordered">
         <li v-for="(item, i) in group.items" :key="i">
           <span v-for="(child, j) in item.children" :key="j">{{ child.text }}</span>
         </li>
       </ol>
 
-      <!-- Code block -->
       <pre v-else-if="group.type === 'code'" class="pt-code-block"><code :class="group.block!.language ? `language-${group.block!.language}` : ''">{{ group.block!.code }}</code></pre>
     </template>
   </div>
@@ -90,13 +84,13 @@ interface PortableTextBlock {
   children?: PortableTextChild[];
   listItem?: string;
   markDefs?: Array<{ _key: string; _type: string; href?: string }>;
-  // Image fields
+
   url?: string;
   asset?: { _ref?: string; url?: string };
   alt?: string;
   caption?: string;
   dimensions?: { width: number; height: number };
-  // Code block fields
+
   code?: string;
   language?: string;
 }
@@ -109,7 +103,6 @@ const props = defineProps<{
   blocks: PortableTextBlock[];
 }>();
 
-// Group consecutive list blocks so they render in a single ul/ol
 const renderedGroups = computed((): RenderedGroup[] => {
   const groups: RenderedGroup[] = [];
 
@@ -284,7 +277,6 @@ function getImageUrl(block: PortableTextBlock): string {
   }
 }
 
-/* Dark mode */
 :global(.dark) .portable-text {
   color: var(--color-primary-200);
 }

@@ -57,7 +57,7 @@ onUnmounted(() => {
         borderRadius: borderRadius || '0.75rem',
       }"
     >
-      <!-- Skeleton placeholder (shown when no src, loading, or error) -->
+
       <div
         v-if="!hasSrc || !loaded || hasError"
         class="article-image__skeleton"
@@ -75,7 +75,6 @@ onUnmounted(() => {
         </span>
       </div>
 
-      <!-- Clickable image with expand affordance -->
       <button
         v-if="hasSrc && !hasError"
         type="button"
@@ -96,7 +95,6 @@ onUnmounted(() => {
           @error="onError"
         />
 
-        <!-- Expand hint icon -->
         <div
           v-if="loaded"
           class="article-image__expand-hint"
@@ -112,7 +110,6 @@ onUnmounted(() => {
     </figcaption>
   </figure>
 
-  <!-- Lightbox -->
   <Teleport to="body">
     <Transition
       enter-active-class="transition-opacity duration-300 ease-out"
@@ -133,7 +130,7 @@ onUnmounted(() => {
         @click="closeLightbox"
         @keydown.escape="closeLightbox"
       >
-        <!-- Close button -->
+
         <button
           type="button"
           class="article-image__lightbox-close"
@@ -143,7 +140,6 @@ onUnmounted(() => {
           <UIcon name="i-lucide-x" class="w-5 h-5" />
         </button>
 
-        <!-- Full-size image -->
         <div class="article-image__lightbox-inner" @click.stop>
           <NuxtImg
             :src="src"
@@ -255,7 +251,6 @@ onUnmounted(() => {
   text-align: center;
 }
 
-/* Lightbox */
 .article-image__lightbox {
   position: fixed;
   inset: 0;

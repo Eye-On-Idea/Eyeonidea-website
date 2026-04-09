@@ -1,7 +1,4 @@
-/**
- * SEO composable tailored for eyeonidea.com.
- * Generates meta tags, canonical URLs, Open Graph/Twitter, and JSON-LD.
- */
+
 import type { MaybeRefOrGetter as VueMaybeRefOrGetter } from "vue";
 
 type SchemaNode = Record<string, unknown>;
@@ -55,7 +52,7 @@ interface SeoOptions {
     | undefined;
   includeOrganizationSchema?: boolean | undefined;
   includeWebSiteSchema?: boolean | undefined;
-  // Article-specific fields for enhanced SEO
+
   articleSection?: string | undefined;
   articleTags?: string[] | undefined;
   wordCount?: number | undefined;
@@ -137,8 +134,6 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
     const pageUrl = resolveUrl(routePath, baseUrl);
     const canonicalUrl = resolveUrl(resolved.canonical || pageUrl, baseUrl);
 
-    // Resolve title and description — they may be getter functions when passed
-    // as reactive i18n values (e.g. `title: () => t("page.meta.title")`)
     const titleRaw =
       typeof resolved.title === "function"
         ? resolved.title()
@@ -318,7 +313,6 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
               },
             ]
           : []),
-        // Article-specific Open Graph tags for better social sharing
         ...(resolved.type === "article" && resolved.author
           ? [{ property: "article:author", content: resolved.author }]
           : []),
@@ -509,17 +503,14 @@ export const useSeo = (options: MaybeRefOrGetter<SeoOptions>) => {
         isPartOf: { "@id": `${baseUrl}/#website` },
       };
 
-      // Add article section if provided
       if (resolved.articleSection) {
         articleSchema.articleSection = resolved.articleSection;
       }
 
-      // Add keywords/tags if provided
       if (resolved.articleTags?.length) {
         articleSchema.keywords = resolved.articleTags.join(", ");
       }
 
-      // Add word count if provided (helps with content categorization)
       if (resolved.wordCount) {
         articleSchema.wordCount = resolved.wordCount;
       }

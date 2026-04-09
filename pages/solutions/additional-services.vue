@@ -30,7 +30,6 @@ const navSections = computed<SectionNavItem[]>(() => [
   { id: "support-plans",          label: t("servicesSubpages.additionalServices.nav.support") },
 ]);
 
-// ─── Intro tiles ─────────────────────────────────────────────────
 interface IntroTile {
   icon: string;
   title: string;
@@ -41,7 +40,6 @@ const introTiles = computed(
   () => tm("servicesSubpages.additionalServices.intro.tiles") as IntroTile[],
 );
 
-// ─── Section data ─────────────────────────────────────────────────
 interface SectionItem {
   name: string;
   price: string;
@@ -84,7 +82,6 @@ const sections = computed(() =>
 const currency = computed(() => t("services.addons.currency"));
 const vatNote = computed(() => t("services.addons.vatNote"));
 
-// ─── Mobile collapse ─────────────────────────────────────────────
 const expandedSections = ref<Set<SectionKey>>(new Set(sectionKeys));
 const isSectionExpanded = (key: SectionKey) => expandedSections.value.has(key);
 const toggleSection = (key: SectionKey) => {
@@ -93,7 +90,6 @@ const toggleSection = (key: SectionKey) => {
   expandedSections.value = next;
 };
 
-// ─── Visibility observers ─────────────────────────────────────────
 const visibleSections = ref(new Set<SectionKey>());
 const sectionRefs = ref<Partial<Record<SectionKey, HTMLElement>>>({});
 const setSectionRef = (el: unknown, key: SectionKey) => {
@@ -122,7 +118,6 @@ onMounted(() => {
   onUnmounted(() => observers.forEach((o) => o.disconnect()));
 });
 
-// ─── Helpers ─────────────────────────────────────────────────────
 const formatUnit = (unit: string): string => {
   if (!unit) return "";
   return `/ ${unit}`;
@@ -132,7 +127,6 @@ const formatUnit = (unit: string): string => {
 <template>
   <div class="additional-services-page">
 
-    <!-- ── Hero ──────────────────────────────────────── -->
     <PageHero
       heading-id="addons-hero-heading"
       :badge="t('servicesSubpages.additionalServices.hero.badge')"
@@ -150,13 +144,11 @@ const formatUnit = (unit: string): string => {
       </template>
     </PageHero>
 
-    <!-- ── Sticky nav ─────────────────────────────────── -->
     <ServicesSectionNav
       :sections="navSections"
       :aria-label="t('servicesSubpages.additionalServices.hero.badge')"
     />
 
-    <!-- ── Intro tiles ────────────────────────────────── -->
     <section id="addons-intro-section" class="addons-intro-section" aria-labelledby="addons-intro-heading">
       <div class="section-label-row" aria-hidden="true">
         <span class="sep-line" />
@@ -185,7 +177,6 @@ const formatUnit = (unit: string): string => {
       </div>
     </section>
 
-    <!-- ── Service sections ───────────────────────────── -->
     <section
       v-for="section in sections"
       :key="section.key"
@@ -195,7 +186,7 @@ const formatUnit = (unit: string): string => {
       :ref="(el) => setSectionRef(el, section.key)"
       :aria-labelledby="`section-heading-${section.key}`"
     >
-      <!-- Section label row -->
+
       <div class="section-label-row" aria-hidden="true">
         <span class="sep-line" />
         <span class="sep-diamond" />
@@ -205,7 +196,7 @@ const formatUnit = (unit: string): string => {
       </div>
 
       <div class="service-inner">
-        <!-- Left column -->
+
         <div class="service-left">
           <button
             type="button"
@@ -235,7 +226,6 @@ const formatUnit = (unit: string): string => {
           </div>
         </div>
 
-        <!-- Right column: price list -->
         <div
           :id="`section-body-${section.key}`"
           class="service-right"
@@ -264,18 +254,14 @@ const formatUnit = (unit: string): string => {
       </div>
     </section>
 
-    <!-- ── VAT note ───────────────────────────────────── -->
     <div class="vat-note-wrapper">
       <p class="vat-note">{{ vatNote }}</p>
     </div>
 
-    <!-- ── Support Plans ──────────────────────────────── -->
     <ServicesSupportPlans />
 
-    <!-- ── FAQ ───────────────────────────────────────── -->
     <ProcessFAQ />
 
-    <!-- ── CTA ───────────────────────────────────────── -->
     <ServicesCTA />
   </div>
 </template>
@@ -286,7 +272,6 @@ const formatUnit = (unit: string): string => {
   background: #0d0908;
 }
 
-/* Scroll margin */
 #addons-intro-section,
 #content-section,
 #domain-section,
@@ -296,8 +281,6 @@ const formatUnit = (unit: string): string => {
   scroll-margin-top: 136px;
 }
 
-
-/* ── Section label row ────────────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -307,7 +290,6 @@ const formatUnit = (unit: string): string => {
   padding: 5rem 2rem 3rem;
 }
 
-/* ── Shared title ─────────────────────────────────────────────── */
 .section-title {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -318,7 +300,6 @@ const formatUnit = (unit: string): string => {
   letter-spacing: -0.02em;
 }
 
-/* ── Intro tiles ──────────────────────────────────────────────── */
 .addons-intro-section {
   background: #0d0908;
   padding-bottom: 0;
@@ -404,7 +385,6 @@ const formatUnit = (unit: string): string => {
   margin: 0;
 }
 
-/* ── Service sections ─────────────────────────────────────────── */
 .service-section {
   background: #0d0908;
   padding-bottom: 0;
@@ -435,7 +415,6 @@ const formatUnit = (unit: string): string => {
   }
 }
 
-/* ── Service left ─────────────────────────────────────────────── */
 .service-left {
   @media (min-width: 1024px) {
     position: sticky;
@@ -508,7 +487,6 @@ const formatUnit = (unit: string): string => {
   margin: 0;
 }
 
-/* ── Service right ────────────────────────────────────────────── */
 .service-right {
   max-height: 0;
   overflow: hidden;
@@ -522,7 +500,6 @@ const formatUnit = (unit: string): string => {
   }
 }
 
-/* ── Price list ───────────────────────────────────────────────── */
 .price-list {
   list-style: none;
   padding: 0;
@@ -605,7 +582,6 @@ const formatUnit = (unit: string): string => {
   margin: 0;
 }
 
-/* ── VAT note ─────────────────────────────────────────────────── */
 .vat-note-wrapper {
   background: #0d0908;
   padding: 0 2rem 4rem;
@@ -622,7 +598,6 @@ const formatUnit = (unit: string): string => {
   margin: 0;
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .service-section {
     opacity: 1;
@@ -636,18 +611,15 @@ const formatUnit = (unit: string): string => {
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .additional-services-page { background: var(--color-section-light); }
 
-  /* Shared separator rows */
   .sep-line    { background: var(--deco-line); }
   .sep-diamond { background: var(--deco-diamond); }
   .sep-text    { color: var(--deco-text); }
 
   .section-title { color: var(--color-text-primary); }
 
-  /* Intro tiles section — alt gradient for variety */
   .addons-intro-section { background: var(--color-section-alt); }
 
   .intro-tiles {
@@ -664,14 +636,12 @@ html:not(.dark) {
   .tile-title   { color: var(--color-text-primary); }
   .tile-body    { color: var(--color-text-subtle); }
 
-  /* Individual service sections */
   .service-section { background: var(--color-section-light); }
 
   .service-title      { color: var(--color-text-primary); }
   .section-chevron    { color: rgba(153, 82, 38, 0.4); }
   .service-intro__para { color: var(--color-text-subtle); }
 
-  /* Price rows */
   .price-row {
     border-bottom-color: var(--deco-line);
     &:first-child { border-top-color: var(--deco-line); }
@@ -683,7 +653,6 @@ html:not(.dark) {
   .price-row__unit        { color: var(--color-text-subtle); }
   .price-row__description { color: var(--color-text-subtle); }
 
-  /* VAT note */
   .vat-note-wrapper { background: var(--color-section-light); }
   .vat-note {
     color: var(--color-text-muted);

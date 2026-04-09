@@ -11,11 +11,6 @@ const props = defineProps<{
 
 const emit = defineEmits<{ assemblyComplete: [] }>();
 
-// ──────────────────────────────────────────────────────────────────────────────
-// SVG source — logo_svg.svg inlined so no runtime file fetch is needed
-// path-a (fill #DFAF85): O N I D EA A — bottom half (letters ONIДEA)
-// path-b (fill #FFEDDF): left-E Y right-E — top half (EYE wordmark)
-// ──────────────────────────────────────────────────────────────────────────────
 const SVG_SOURCE = `<svg viewBox="0 0 704 427" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M28.8208 419.02C37.7261 424.036 47.7648 426.463 58.9369 426.463C69.9471 426.463 79.9858 424.036 89.0531 419.02C97.9584 414.166 104.921 407.208 110.102 398.471C115.283 389.733 117.874 380.025 117.874 369.022C117.874 358.18 115.283 348.31 110.102 339.573C104.921 330.835 97.9584 324.039 89.0531 319.023C79.9858 314.169 69.9471 311.58 58.9369 311.58C47.7648 311.58 37.7261 314.169 28.8208 319.185C19.7535 324.201 12.7913 330.997 7.60999 339.734C2.42871 348.472 0 358.342 0 369.022C0 379.863 2.42871 389.571 7.60999 398.309C12.7913 407.046 19.7535 414.004 28.8208 419.02ZM84.6814 412.386C76.9095 416.755 68.328 418.858 58.9369 418.858C49.3839 418.858 40.8025 416.755 33.0306 412.386C25.2586 408.179 19.2679 402.192 14.8962 394.587C10.3626 386.982 8.2576 378.406 8.2576 369.022C8.2576 359.637 10.3626 351.223 14.8962 343.618C19.2679 336.013 25.2586 330.026 33.0306 325.657C40.8025 321.45 49.3839 319.185 58.9369 319.185C68.328 319.185 76.9095 321.45 84.6814 325.657C92.2915 330.026 98.2822 336.013 102.816 343.618C107.188 351.223 109.454 359.637 109.454 369.022C109.454 378.406 107.188 386.982 102.816 394.587C98.2822 402.192 92.2915 408.179 84.6814 412.386Z" fill="#DFAF85"/>
 <path d="M238.807 312.389H230.549V410.768L153.478 312.389H146.515V425.654H154.773V327.275L232.006 425.654H238.807V312.389Z" fill="#DFAF85"/>
@@ -28,11 +23,6 @@ const SVG_SOURCE = `<svg viewBox="0 0 704 427" fill="none" xmlns="http://www.w3.
 <path d="M703.917 117.23H518.587V133.613H703.917V117.23ZM703.917 0H452.458L440.958 16.8182L703.917 16.7471V0ZM518.587 238.1V254.847H703.917V238.1H518.587Z" fill="#FFEDDF"/>
 </svg>`;
 
-// ──────────────────────────────────────────────────────────────────────────────
-// Materials
-// path-a: warm gold/copper (ONIДEA letters)
-// path-b: bright cream (EYE wordmark)
-// ──────────────────────────────────────────────────────────────────────────────
 const matA = new THREE.MeshPhysicalMaterial({
   color: 0xdfaf85,
   metalness: 0.6,
@@ -53,11 +43,6 @@ const matB = new THREE.MeshPhysicalMaterial({
   opacity: 1,
 });
 
-// ──────────────────────────────────────────────────────────────────────────────
-// Geometry: parse SVG paths → ExtrudeGeometry, transform to Three.js space
-// Scale: 1/70  |  Center: subtract (352, 213.5)  |  Flip Y
-// Depth in SVG units so it is scaled with the rest: 12 SVG units → 0.17 world
-// ──────────────────────────────────────────────────────────────────────────────
 const SCALE = 1 / 110;
 
 const EXTRUDE_SETTINGS: THREE.ExtrudeGeometryOptions = {
@@ -72,7 +57,6 @@ const EXTRUDE_SETTINGS: THREE.ExtrudeGeometryOptions = {
 const loader = new SVGLoader();
 const svgData = loader.parse(SVG_SOURCE);
 
-// Transformation matrix: scale XY by 1/70, flip Y, scale Z for correct depth
 const transformMatrix = new THREE.Matrix4().makeScale(SCALE, -SCALE, SCALE);
 const centerMatrix = new THREE.Matrix4().makeTranslation(
   -352 * SCALE,
@@ -80,12 +64,11 @@ const centerMatrix = new THREE.Matrix4().makeTranslation(
   0
 );
 
-// Meshes are created once — primitive components keep references to them
 const meshes: THREE.Mesh[] = [];
 const geometries: THREE.ExtrudeGeometry[] = [];
 
 svgData.paths.forEach((svgPath, pathIndex) => {
-  const isCream = pathIndex >= 6; // paths 6-8 are EYE (#FFEDDF)
+  const isCream = pathIndex >= 6;
   const shapes = SVGLoader.createShapes(svgPath);
 
   shapes.forEach((shape) => {
@@ -97,10 +80,6 @@ svgData.paths.forEach((svgPath, pathIndex) => {
   });
 });
 
-// ──────────────────────────────────────────────────────────────────────────────
-// Assembly animation: scatter → assembled
-// Scatter positions use golden-angle spread (deterministic, SSR safe)
-// ──────────────────────────────────────────────────────────────────────────────
 const ASSEMBLED_POS = new THREE.Vector3(0, 0, 0);
 const ASSEMBLED_QUAT = new THREE.Quaternion();
 const GOLDEN_RAD = 137.508 * (Math.PI / 180);
@@ -126,15 +105,11 @@ const scatterQuats = meshes.map((_, i) => {
   );
 });
 
-// ──────────────────────────────────────────────────────────────────────────────
-// State
-// ──────────────────────────────────────────────────────────────────────────────
 const groupRef = ref<THREE.Group | null>(null);
 const assemblyDone = ref(false);
 const assemblyStartMs = ref(-1);
 const ASSEMBLY_MS = 1500;
 
-// Mouse parallax
 const mouseTarget = new THREE.Vector2(0, 0);
 const mouseCurrent = new THREE.Vector2(0, 0);
 
@@ -146,7 +121,7 @@ const onMouseMove = (e: MouseEvent) => {
 onMounted(() => {
   window.addEventListener("mousemove", onMouseMove, { passive: true });
   if (props.reducedMotion) {
-    // Show assembled immediately, no scatter
+
     assemblyDone.value = true;
     emit("assemblyComplete");
   }
@@ -159,15 +134,11 @@ onUnmounted(() => {
   matB.dispose();
 });
 
-// ──────────────────────────────────────────────────────────────────────────────
-// Render loop
-// ──────────────────────────────────────────────────────────────────────────────
 const { onBeforeRender } = useLoop();
 
 onBeforeRender(({ delta, elapsed }) => {
   if (!groupRef.value) return;
 
-  // Sync opacity from parent
   const op = props.opacity ?? 1;
   matA.opacity = op;
   matB.opacity = op;
@@ -178,7 +149,7 @@ onBeforeRender(({ delta, elapsed }) => {
       (performance.now() - assemblyStartMs.value) / ASSEMBLY_MS,
       1
     );
-    // Ease-out cubic
+
     const eased = 1 - Math.pow(1 - raw, 3);
 
     meshes.forEach((mesh, i) => {
@@ -199,11 +170,9 @@ onBeforeRender(({ delta, elapsed }) => {
 
   if (props.reducedMotion) return;
 
-  // Idle: gentle float only — no Y rotation (would turn logo edge-on)
   groupRef.value.position.y = Math.sin(elapsed * 0.35) * 0.06;
   groupRef.value.rotation.z = Math.sin(elapsed * 0.22) * 0.012;
 
-  // Mouse parallax tilt
   mouseCurrent.x += (mouseTarget.x - mouseCurrent.x) * 0.04;
   mouseCurrent.y += (mouseTarget.y - mouseCurrent.y) * 0.04;
   groupRef.value.rotation.x = mouseCurrent.y * 0.04;

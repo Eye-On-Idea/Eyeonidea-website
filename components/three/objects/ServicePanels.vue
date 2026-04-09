@@ -4,12 +4,11 @@ import { useLoop } from "@tresjs/core";
 import { MeshPhysicalMaterial, MeshStandardMaterial, EdgesGeometry, BoxGeometry, LineSegments, LineBasicMaterial } from "three";
 
 const props = defineProps<{
-  sectionProgress?: number; // 0–1 across the services section scroll range
+  sectionProgress?: number;
   opacity?: number;
   reducedMotion?: boolean;
 }>();
 
-// Positions shifted right by ~1.5 units for the split layout right column
 const panels = [
   {
     color: 0xd39a69,
@@ -40,7 +39,6 @@ const panels = [
   },
 ];
 
-// Create materials per panel
 const materials = panels.map((p) =>
   new MeshPhysicalMaterial({
     color: p.color,
@@ -55,7 +53,6 @@ const materials = panels.map((p) =>
   })
 );
 
-// Screen face material — simulates a device display
 const screenMat = new MeshStandardMaterial({
   color: 0x1a1a2e,
   emissive: 0x0d0d1a,
@@ -66,7 +63,6 @@ const screenMat = new MeshStandardMaterial({
   opacity: 1,
 });
 
-// Slightly thicker box (0.14) for a device-like feel
 const boxGeo = new BoxGeometry(2.8, 3.8, 0.14);
 const edgesGeo = new EdgesGeometry(boxGeo);
 const edgeMaterials = panels.map((p) =>
@@ -103,7 +99,6 @@ onBeforeRender(({ elapsed, delta }) => {
     const group = groupRef.value;
     if (!group) return;
 
-    // Entrance: panels rise from y=-5 as sectionProgress increases from 0
     const targetY = sp > 0 ? panel.position[1] : panel.position[1] - 5;
     yOffsetRef.value +=
       (targetY - yOffsetRef.value) * (props.reducedMotion ? 1 : 0.06);
@@ -111,7 +106,6 @@ onBeforeRender(({ elapsed, delta }) => {
     group.position.x = panel.position[0];
     group.position.z = panel.position[2];
 
-    // Active panel state: brighter emissive, pushed forward
     const distToActive = Math.abs(sp - panel.activeAt);
     const isActive = distToActive < 0.2;
     const activeFactor = Math.max(0, 1 - distToActive / 0.2);
@@ -123,12 +117,10 @@ onBeforeRender(({ elapsed, delta }) => {
 
     group.position.z += activeFactor * 0.8;
 
-    // Gentle sway
     if (!props.reducedMotion) {
       group.rotation.z = Math.sin(elapsed * 0.4 + i * 1.2) * 0.015;
     }
 
-    // Mount edge lines as children if not yet done
     if (group.children.length < 2) {
       group.add(edgeLine);
     }
@@ -145,12 +137,12 @@ onBeforeRender(({ elapsed, delta }) => {
       :rotation="panel.rotation"
       :scale="panel.scale"
     >
-      <!-- Panel body -->
+
       <TresMesh>
         <TresBoxGeometry :args="[2.8, 3.8, 0.14]" />
         <primitive :object="materials[i] ?? materials[0]" />
       </TresMesh>
-      <!-- Screen face — dark plane on the front face of the panel -->
+
       <TresMesh :position="[0, 0, 0.08]">
         <TresPlaneGeometry :args="[2.3, 3.3]" />
         <primitive :object="screenMat" />

@@ -37,7 +37,7 @@ const plans = [
     class="support-plans"
     aria-labelledby="support-heading"
   >
-    <!-- Section label row -->
+
     <div class="section-label-row" aria-hidden="true">
       <span class="sep-line" />
       <span class="sep-diamond" />
@@ -47,7 +47,7 @@ const plans = [
     </div>
 
     <div class="section-container">
-      <!-- Header -->
+
       <div class="section-header">
         <h2 id="support-heading" class="section-title">
           {{ t("services.support.title") }}
@@ -55,7 +55,6 @@ const plans = [
         <p class="section-subtitle">{{ t("services.support.subtitle") }}</p>
       </div>
 
-      <!-- Plans grid -->
       <div class="plans-grid">
         <article
           v-for="(plan, index) in plans"
@@ -67,10 +66,9 @@ const plans = [
           ]"
           :style="{ transitionDelay: isVisible ? `${index * 100}ms` : '0ms' }"
         >
-          <!-- Hover gradient overlay -->
+
           <div class="panel-gradient-layer" aria-hidden="true" />
 
-          <!-- Corner frame -->
           <div class="deco-frame" aria-hidden="true">
             <span class="corner corner--tl" />
             <span class="corner corner--tr" />
@@ -78,14 +76,12 @@ const plans = [
             <span class="corner corner--br" />
           </div>
 
-          <!-- Plan name -->
           <div class="plan-numeral-row" aria-hidden="true">
             <span class="plan-rule" />
             <span class="plan-key">{{ t(`services.support.plans.${plan.key}.name`) }}</span>
             <span class="plan-rule" />
           </div>
 
-          <!-- Deco divider -->
           <div class="deco-divider" aria-hidden="true">
             <span class="deco-line" />
             <span class="deco-diamond deco-diamond--sm" />
@@ -96,12 +92,10 @@ const plans = [
             <span class="deco-line" />
           </div>
 
-          <!-- Description -->
           <p class="plan-description">
             {{ t(`services.support.plans.${plan.key}.description`) }}
           </p>
 
-          <!-- Pricing -->
           <div class="plan-pricing">
             <span class="price-currency">{{ t(`services.support.plans.${plan.key}.price.currency`) }}</span>
             <span class="price-amount">{{ t(`services.support.plans.${plan.key}.price.amount`) }}</span>
@@ -109,12 +103,10 @@ const plans = [
           </div>
           <span class="price-vat">{{ t(`services.support.plans.${plan.key}.price.vatNote`) }}</span>
 
-          <!-- Best for -->
           <p class="plan-best-for">
             {{ t(`services.support.plans.${plan.key}.bestFor`) }}
           </p>
 
-          <!-- Includes -->
           <ul class="plan-includes" role="list">
             <li
               v-for="(item, i) in (tm(`services.support.plans.${plan.key}.includes`) as string[])"
@@ -126,7 +118,6 @@ const plans = [
             </li>
           </ul>
 
-          <!-- CTA -->
           <div class="plan-cta-wrapper">
             <AppCtaButton
               :variant="plan.featured ? 'primary' : 'secondary'"
@@ -139,7 +130,6 @@ const plans = [
         </article>
       </div>
 
-      <!-- Billing note -->
       <p class="billing-note" :class="{ 'animate-in': isVisible }">
         {{ t("services.support.billing") }}
       </p>
@@ -148,13 +138,12 @@ const plans = [
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .support-plans {
   background: #0d0908;
   padding-bottom: 0;
 }
 
-/* ── Section label row ────────────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -188,14 +177,12 @@ const plans = [
   flex-shrink: 0;
 }
 
-/* ── Container ────────────────────────────────────────────────── */
 .section-container {
   max-width: 80rem;
   margin: 0 auto;
   padding: 0 2rem 5rem;
 }
 
-/* ── Header ───────────────────────────────────────────────────── */
 .section-header {
   margin-bottom: 3rem;
 }
@@ -220,7 +207,6 @@ const plans = [
   margin: 0;
 }
 
-/* ── Plans grid ───────────────────────────────────────────────── */
 .plans-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -236,7 +222,6 @@ const plans = [
   }
 }
 
-/* ── Plan panel ───────────────────────────────────────────────── */
 .plan-panel {
   position: relative;
   display: flex;
@@ -271,7 +256,6 @@ const plans = [
   }
 }
 
-/* ── Hover overlay ────────────────────────────────────────────── */
 .panel-gradient-layer {
   position: absolute;
   inset: 0;
@@ -285,7 +269,6 @@ const plans = [
   pointer-events: none;
 }
 
-/* ── Corner frame ─────────────────────────────────────────────── */
 .deco-frame {
   position: absolute;
   inset: 0.875rem;
@@ -306,7 +289,6 @@ const plans = [
   &--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
 }
 
-/* ── Plan name row ────────────────────────────────────────────── */
 .plan-numeral-row {
   display: flex;
   align-items: center;
@@ -331,7 +313,6 @@ const plans = [
   white-space: nowrap;
 }
 
-/* ── Deco divider ─────────────────────────────────────────────── */
 .deco-divider {
   display: flex;
   align-items: center;
@@ -361,7 +342,6 @@ const plans = [
   }
 }
 
-/* ── Plan description ─────────────────────────────────────────── */
 .plan-description {
   font-family: var(--font-text);
   font-weight: 300;
@@ -371,7 +351,6 @@ const plans = [
   margin: 0 0 1.5rem;
 }
 
-/* ── Pricing ──────────────────────────────────────────────────── */
 .plan-pricing {
   display: flex;
   align-items: baseline;
@@ -413,7 +392,6 @@ const plans = [
   border-bottom: 1px solid rgba(223, 175, 133, 0.1);
 }
 
-/* ── Best for ─────────────────────────────────────────────────── */
 .plan-best-for {
   font-family: var(--font-text);
   font-size: 0.8rem;
@@ -426,7 +404,6 @@ const plans = [
   background: rgba(223, 175, 133, 0.03);
 }
 
-/* ── Includes list ────────────────────────────────────────────── */
 .plan-includes {
   list-style: none;
   padding: 0;
@@ -454,7 +431,6 @@ const plans = [
   transform: rotate(45deg);
 }
 
-/* ── CTA ──────────────────────────────────────────────────────── */
 .plan-cta-wrapper {
   margin-top: 2rem;
 }
@@ -464,7 +440,6 @@ const plans = [
   justify-content: center;
 }
 
-/* ── Billing note ─────────────────────────────────────────────── */
 .billing-note {
   text-align: center;
   font-family: var(--font-text);
@@ -482,7 +457,6 @@ const plans = [
   }
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .plan-panel,
   .billing-note {
@@ -497,7 +471,6 @@ const plans = [
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .support-plans { background: var(--color-section-alt); }
 
@@ -508,7 +481,6 @@ html:not(.dark) {
   .section-title    { color: var(--color-text-primary); }
   .section-subtitle { color: var(--color-text-subtle); }
 
-  /* Regular plan panels — warm white cards */
   .plan-panel {
     background: linear-gradient(175deg, #ffffff 0%, #fff7f0 100%);
     border-color: var(--deco-line);
@@ -544,7 +516,6 @@ html:not(.dark) {
     &:hover .corner { border-color: rgba(153, 82, 38, 0.3); }
   }
 
-  /* Featured plan (Growth) — subtle cream tint, slightly warmer than regular panels */
   .plan-panel--featured {
     background: linear-gradient(175deg, #ffe4cf 0%, #ffeddf 60%, #faf7f4 100%);
     border-color: rgba(153, 82, 38, 0.28);
@@ -583,5 +554,4 @@ html:not(.dark) {
   .billing-note { color: var(--color-text-subtle); opacity: 0.7; }
 }
 </style>
-
 

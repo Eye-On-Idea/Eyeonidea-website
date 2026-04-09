@@ -33,7 +33,7 @@ const numerals = ["I", "II", "III", "IV"];
     class="cms-section"
     aria-labelledby="cms-heading"
   >
-    <!-- Section label row -->
+
     <div class="section-label-row" aria-hidden="true">
       <span class="sep-line" />
       <span class="sep-diamond" />
@@ -42,7 +42,6 @@ const numerals = ["I", "II", "III", "IV"];
       <span class="sep-line" />
     </div>
 
-    <!-- Header -->
     <div class="section-header">
       <h2 id="cms-heading" class="section-title">
         {{ t("services.cms.title") }}
@@ -50,7 +49,6 @@ const numerals = ["I", "II", "III", "IV"];
       <p class="section-description">{{ t("services.cms.description") }}</p>
     </div>
 
-    <!-- Features grid -->
     <ol class="features-grid" role="list">
       <li
         v-for="(feature, index) in (tm('services.cms.features') as { title: string; description: string }[])"
@@ -59,14 +57,13 @@ const numerals = ["I", "II", "III", "IV"];
         :class="{ 'animate-in': isVisible }"
         :style="{ transitionDelay: isVisible ? `${index * 80}ms` : '0ms' }"
       >
-        <!-- Numeral row -->
+
         <div class="numeral-row" aria-hidden="true">
           <span class="numeral-rule" />
           <span class="numeral">{{ numerals[index] }}</span>
           <span class="numeral-rule" />
         </div>
 
-        <!-- Deco divider -->
         <div class="deco-divider" aria-hidden="true">
           <span class="deco-line" />
           <span class="deco-diamond" />
@@ -78,7 +75,6 @@ const numerals = ["I", "II", "III", "IV"];
       </li>
     </ol>
 
-    <!-- Footer CTA strip -->
     <div class="cta-row">
       <AppCtaButton
         variant="primary"
@@ -92,13 +88,12 @@ const numerals = ["I", "II", "III", "IV"];
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .cms-section {
   background: #0d0908;
   padding-bottom: 5rem;
 }
 
-/* ── Section label row ────────────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -132,7 +127,6 @@ const numerals = ["I", "II", "III", "IV"];
   flex-shrink: 0;
 }
 
-/* ── Header ───────────────────────────────────────────────────── */
 .section-header {
   max-width: 80rem;
   margin: 0 auto;
@@ -159,7 +153,6 @@ const numerals = ["I", "II", "III", "IV"];
   margin: 0;
 }
 
-/* ── Features grid ────────────────────────────────────────────── */
 .features-grid {
   list-style: none;
   padding: 0;
@@ -177,7 +170,6 @@ const numerals = ["I", "II", "III", "IV"];
   }
 }
 
-/* ── Feature item ─────────────────────────────────────────────── */
 .feature-item {
   padding: 2.5rem 2rem 3rem;
   border-right: 1px solid rgba(223, 175, 133, 0.08);
@@ -213,7 +205,6 @@ const numerals = ["I", "II", "III", "IV"];
   }
 }
 
-/* ── Numeral row ──────────────────────────────────────────────── */
 .numeral-row {
   display: flex;
   align-items: center;
@@ -238,7 +229,6 @@ const numerals = ["I", "II", "III", "IV"];
   transition: opacity 0.3s ease;
 }
 
-/* ── Deco divider ─────────────────────────────────────────────── */
 .deco-divider {
   display: flex;
   align-items: center;
@@ -261,7 +251,6 @@ const numerals = ["I", "II", "III", "IV"];
   transition: background 0.3s ease;
 }
 
-/* ── Feature text ─────────────────────────────────────────────── */
 .feature-title {
   font-family: var(--font-heading);
   font-weight: 600;
@@ -281,14 +270,12 @@ const numerals = ["I", "II", "III", "IV"];
   margin: 0;
 }
 
-/* ── CTA row ──────────────────────────────────────────────────── */
 .cta-row {
   display: flex;
   justify-content: center;
   padding: 3rem 2rem 0;
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .feature-item {
     opacity: 1;
@@ -297,7 +284,6 @@ const numerals = ["I", "II", "III", "IV"];
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .cms-section { background: var(--color-section-light); }
 
@@ -329,5 +315,4 @@ html:not(.dark) {
   .feature-body  { color: var(--color-text-subtle); }
 }
 </style>
-
 

@@ -1,7 +1,7 @@
 <template>
   <section class="posts-list-section">
     <UContainer class="max-w-[120rem] py-10 md:py-14">
-      <!-- Posts grid -->
+
       <div class="posts-grid" v-if="posts.length > 0">
         <div
           v-for="(post, index) in posts"
@@ -14,7 +14,6 @@
         </div>
       </div>
 
-      <!-- Loading skeleton -->
       <div v-else-if="pending" class="posts-grid">
         <div v-for="n in 6" :key="n" class="post-skeleton">
           <div class="skeleton-image"></div>
@@ -26,7 +25,6 @@
         </div>
       </div>
 
-      <!-- Empty state -->
       <div v-else class="posts-empty">
         <div class="empty-icon">
           <Icon name="i-heroicons-document-magnifying-glass" class="size-16" aria-hidden="true" />
@@ -40,7 +38,6 @@
         </UButton>
       </div>
 
-      <!-- Load more -->
       <div v-if="hasMore && posts.length > 0" class="load-more-container">
         <UButton
           variant="outline"
@@ -57,7 +54,6 @@
         </p>
       </div>
 
-      <!-- All loaded message -->
       <p v-else-if="posts.length > 0 && !hasMore" class="all-loaded">
         {{ t("news.postsList.allLoaded") }}
       </p>
@@ -110,7 +106,6 @@ const motionVariants = {
   }
 }
 
-/* Skeleton */
 .post-skeleton {
   background: var(--color-surface-1);
   border: 1px solid var(--color-border);
@@ -166,7 +161,6 @@ const motionVariants = {
   }
 }
 
-/* Empty state */
 .posts-empty {
   display: flex;
   flex-direction: column;
@@ -201,7 +195,6 @@ const motionVariants = {
   margin-bottom: 1.5rem;
 }
 
-/* Load more */
 .load-more-container {
   display: flex;
   flex-direction: column;
@@ -229,7 +222,6 @@ const motionVariants = {
   border-radius: 12px;
 }
 
-/* Dark mode */
 :global(.dark) .post-skeleton {
   background: var(--color-surface-1);
   border-color: var(--color-border);
@@ -275,7 +267,6 @@ const motionVariants = {
   color: var(--color-primary-400);
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .skeleton-image {
     animation: none;

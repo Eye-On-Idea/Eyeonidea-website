@@ -7,11 +7,9 @@ const { t, locale } = useI18n();
 const localePath = useLocalePath();
 const highlightWords = new Set(["business", "brand", "presence", "trust"]);
 
-// Fade out all hero content + overlays as the user scrolls away.
-// The background image persists from the fixed global layer in index.vue.
 const { y: scrollY } = useWindowScroll();
 const { height: windowHeight } = useWindowSize();
-// Fade starts at 80vh of scroll, completes over the next 300px
+
 const heroFade = computed(() => {
   const start = windowHeight.value * 0.8;
   return Math.max(0, 1 - Math.max(0, scrollY.value - start) / 300);
@@ -33,7 +31,6 @@ const headlineAccentWords = computed(() => {
   return t("landing.hero.headlineAccent").split(/\s+/).filter(Boolean);
 });
 
-// Staggered entrance — logo first, then copy, then CTAs, then orb
 const logoMotion = withDelay("fadeInUp", 200);
 const headingMotion = withDelay("fadeInUp", 380);
 const subMotion = withDelay("fadeInUp", 520);
@@ -48,22 +45,16 @@ const scrollMotion = withDelay("fadeIn", 1200);
     class="hero-section"
     aria-labelledby="hero-heading"
   >
-    <!-- ── Fading hero content — disappears as user scrolls ─────────── -->
-    <!-- opacity driven by scrollY so content vanishes before transparent
-         sections expose the sticky hero behind them                      -->
+
     <div
       class="hero-fade-wrap"
       :style="{ opacity: heroFade }"
       aria-hidden="false"
     >
-      <!-- ── Background layers ─────────────────────────────────────────── -->
-      <!-- Photo is provided by the global fixed layer in index.vue.
-         These gradient overlays dress it for the hero context. -->
-      <!-- Directional dark overlay: heavy left (text) → lighter right (image) -->
+
       <div class="hero-bg-gradient" aria-hidden="true" />
       <div class="hero-bg-radial" aria-hidden="true" />
 
-      <!-- ── Art deco corner frame ─────────────────────────────────────── -->
       <div class="deco-frame" aria-hidden="true">
         <span class="corner corner--tl" />
         <span class="corner corner--tr" />
@@ -71,7 +62,6 @@ const scrollMotion = withDelay("fadeIn", 1200);
         <span class="corner corner--br" />
       </div>
 
-      <!-- ── Art deco bottom ornament ──────────────────────────────────── -->
       <div class="hero-bottom-ornament" aria-hidden="true">
         <span class="ornament-line" />
         <span class="ornament-diamond ornament-diamond--sm" />
@@ -82,11 +72,10 @@ const scrollMotion = withDelay("fadeIn", 1200);
         <span class="ornament-line" />
       </div>
 
-      <!-- ── Two-column layout ─────────────────────────────────────────── -->
       <div class="hero-layout">
-        <!-- Left column: wordmark → headline → sub → CTAs -->
+
         <div class="hero-left">
-          <!-- ② Headline -->
+
           <div
             v-motion
             :initial="headingMotion.initial"
@@ -122,7 +111,6 @@ const scrollMotion = withDelay("fadeIn", 1200);
             </h1>
           </div>
 
-          <!-- ③ Subheadline -->
           <p
             class="hero-sub"
             v-motion
@@ -132,7 +120,6 @@ const scrollMotion = withDelay("fadeIn", 1200);
             {{ t("landing.hero.subheadline") }}
           </p>
 
-          <!-- ④ CTAs -->
           <div
             class="hero-ctas"
             v-motion
@@ -157,7 +144,6 @@ const scrollMotion = withDelay("fadeIn", 1200);
           </div>
         </div>
 
-        <!-- Right column: interactive service orb -->
         <div
           class="hero-right"
           v-motion
@@ -166,23 +152,15 @@ const scrollMotion = withDelay("fadeIn", 1200);
         >
           <ServiceOrb />
         </div>
-        <!-- Right column: interactive service orb 
-      <div
-        v-motion
-        :initial="logoMotion.initial"
-        :enter="logoMotion.visible"
-        class="hero-logo-wrap ml-auto"
-      >
-        <img src="/public-material/logo-center-shadow.svg" alt="" />
-      </div>-->
+
       </div>
     </div>
-    <!-- end .hero-fade-wrap -->
+
   </section>
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .hero-section {
   position: relative;
   top: 0;
@@ -198,7 +176,6 @@ const scrollMotion = withDelay("fadeIn", 1200);
   }
 }
 
-/* ── Fade wrapper — covers all visible hero content ──────────── */
 .hero-fade-wrap {
   position: relative;
   width: 100%;
@@ -219,7 +196,6 @@ const scrollMotion = withDelay("fadeIn", 1200);
   }
 }
 
-/* ── Background layers ────────────────────────────────────────── */
 .hero-bg-gradient {
   position: absolute;
   inset: 0;
@@ -246,7 +222,6 @@ const scrollMotion = withDelay("fadeIn", 1200);
   z-index: 2;
 }
 
-/* ── Two-column layout ────────────────────────────────────────── */
 .hero-layout {
   position: relative;
   z-index: 10;
@@ -254,13 +229,11 @@ const scrollMotion = withDelay("fadeIn", 1200);
   max-width: 82rem;
   margin: 0 auto;
 
-  /* Mobile: single column, centred */
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 3rem;
 
-  /* Desktop: text left, orb right — right column fluid between 300px and 420px */
   @media (min-width: 1024px) {
     display: grid;
     grid-template-columns: 1fr minmax(300px, 420px);
@@ -274,7 +247,6 @@ const scrollMotion = withDelay("fadeIn", 1200);
   }
 }
 
-/* ── Left column ──────────────────────────────────────────────── */
 .hero-left {
   display: flex;
   flex-direction: column;
@@ -289,7 +261,6 @@ const scrollMotion = withDelay("fadeIn", 1200);
   }
 }
 
-/* ── Logo ─────────────────────────────────────────────────────── */
 .hero-logo-wrap {
   display: flex;
 }
@@ -314,7 +285,6 @@ const scrollMotion = withDelay("fadeIn", 1200);
   fill: #ffeddf;
 }
 
-/* ── Headline ─────────────────────────────────────────────────── */
 .hero-headline {
   display: flex;
   flex-direction: column;
@@ -338,7 +308,6 @@ const scrollMotion = withDelay("fadeIn", 1200);
   color: #dfaf85;
 }
 
-/* ── Subheadline ──────────────────────────────────────────────── */
 .hero-sub {
   font-family: var(--font-text);
   font-weight: 300;
@@ -349,7 +318,6 @@ const scrollMotion = withDelay("fadeIn", 1200);
   margin: 0;
 }
 
-/* ── CTAs ─────────────────────────────────────────────────────── */
 .hero-ctas {
   display: flex;
   flex-direction: column;
@@ -367,26 +335,18 @@ const scrollMotion = withDelay("fadeIn", 1200);
   }
 }
 
-/* ── Right column — orb ───────────────────────────────────────── */
 .hero-right {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  /*
-   * Mobile/tablet: constrain width so the orb doesn't span full viewport.
-   * The orb is width:100% aspect-ratio:1 so it fills this container.
-   * WCAG padding: 1.5rem on each side is applied by the parent .hero-section.
-   */
   width: clamp(240px, 72vw, 360px);
 
-  /* Desktop: the grid column defines the width — fill it completely */
   @media (min-width: 1024px) {
     width: 100%;
   }
 }
 
-/* ── Scroll indicator ─────────────────────────────────────────── */
 .scroll-indicator {
   position: absolute;
   bottom: 2rem;
@@ -453,7 +413,6 @@ const scrollMotion = withDelay("fadeIn", 1200);
   }
 }
 
-/* ── Art deco corner frame ────────────────────────────────────── */
 .deco-frame {
   position: absolute;
   inset: 2rem;
@@ -468,7 +427,6 @@ const scrollMotion = withDelay("fadeIn", 1200);
   border-color: rgba(223, 175, 133, 0.2);
   border-style: solid;
 
-  /* Inner concentric bracket */
   &::after {
     content: "";
     position: absolute;
@@ -523,7 +481,6 @@ const scrollMotion = withDelay("fadeIn", 1200);
   }
 }
 
-/* ── Left column ─ vertical rule ─────────────────────────────── */
 .hero-left {
   position: relative;
 
@@ -549,7 +506,6 @@ const scrollMotion = withDelay("fadeIn", 1200);
   }
 }
 
-/* ── Headline topper ──────────────────────────────────────────── */
 .hero-topper {
   display: flex;
   align-items: center;
@@ -590,7 +546,6 @@ const scrollMotion = withDelay("fadeIn", 1200);
   }
 }
 
-/* ── Bottom ornament ──────────────────────────────────────────── */
 .hero-bottom-ornament {
   position: absolute;
   bottom: 3.75rem;
@@ -628,7 +583,6 @@ const scrollMotion = withDelay("fadeIn", 1200);
   }
 }
 
-/* ── Deco divider ─────────────────────────────────────────────── */
 .hero-deco-divider {
   display: flex;
   align-items: center;
@@ -666,12 +620,10 @@ const scrollMotion = withDelay("fadeIn", 1200);
   }
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .scroll-wheel {
     animation: none;
   }
 }
 
-/* Hero section always renders in dark mode — no light mode overrides. */
 </style>

@@ -3,11 +3,11 @@ const { t } = useI18n();
 
 withDefaults(
   defineProps<{
-    /** Short description of the image this placeholder represents */
+
     description: string;
-    /** Aspect ratio class — controls placeholder height */
+
     ratio?: "square" | "video" | "portrait" | "wide";
-    /** Whether to show the description text below the icon */
+
     showDescription?: boolean;
   }>(),
   {

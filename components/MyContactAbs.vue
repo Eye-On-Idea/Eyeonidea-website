@@ -4,10 +4,9 @@
     ref="root"
     class="fixed right-3 top-1/2 -translate-y-1/2 z-60"
   >
-    <!-- Stable anchor so the icon never jumps -->
+
     <div class="relative w-11 h-11 overflow-visible">
 
-      <!-- Panel opens down & left from the trigger -->
       <Transition
         enter-active-class="transition ease-out duration-200"
         enter-from-class="opacity-0 scale-95"
@@ -26,7 +25,7 @@
           tabindex="-1"
           class="contact-panel absolute top-0 right-0 origin-top-right z-60"
         >
-          <!-- Art deco corner frame -->
+
           <div class="deco-frame" aria-hidden="true">
             <span class="corner corner--tl" />
             <span class="corner corner--tr" />
@@ -34,10 +33,8 @@
             <span class="corner corner--br" />
           </div>
 
-          <!-- Space reserved for the overlapping trigger button -->
           <div class="panel-inner">
 
-            <!-- Badge label row -->
             <div class="panel-label-row" aria-hidden="true">
               <span class="panel-rule" />
               <span class="panel-diamond panel-diamond--sm" />
@@ -46,7 +43,6 @@
               <span class="panel-rule" />
             </div>
 
-            <!-- Email -->
             <a href="mailto:hello@eyeonidea.com" class="contact-row" tabindex="0">
               <span class="contact-icon-wrap" aria-hidden="true">
                 <UIcon name="i-heroicons-envelope" class="contact-icon" aria-hidden="true" />
@@ -58,14 +54,12 @@
               <span class="contact-arrow" aria-hidden="true">→</span>
             </a>
 
-            <!-- Diamond separator -->
             <div class="row-separator" aria-hidden="true">
               <span class="sep-line" />
               <span class="sep-diamond" />
               <span class="sep-line" />
             </div>
 
-            <!-- Phone -->
             <a href="tel:+4529930583" class="contact-row" tabindex="0">
               <span class="contact-icon-wrap" aria-hidden="true">
                 <UIcon name="i-heroicons-phone" class="contact-icon" aria-hidden="true" />
@@ -81,7 +75,6 @@
         </div>
       </Transition>
 
-      <!-- Toggle trigger button -->
       <button
         ref="triggerRef"
         @click.stop="toggle"
@@ -191,7 +184,7 @@ const onKey = (e: KeyboardEvent) => {
 };
 
 onMounted(() => {
-  // Use boolean capture flag so removeEventListener matches
+
   document.addEventListener("click", onDocClick, true);
   document.addEventListener("keydown", onKey);
 });
@@ -215,7 +208,7 @@ watch(open, async (isOpen) => {
 </script>
 
 <style lang="scss" scoped>
-/* ── Panel container ──────────────────────────────────────────── */
+
 .contact-panel {
   width: 17rem;
   background: #161210;
@@ -230,7 +223,6 @@ watch(open, async (isOpen) => {
   }
 }
 
-/* ── Art deco corner frame ────────────────────────────────────── */
 .deco-frame {
   position: absolute;
   inset: 0.625rem;
@@ -264,7 +256,6 @@ watch(open, async (isOpen) => {
   }
 }
 
-/* ── Inner content (offset to clear trigger button) ───────────── */
 .panel-inner {
   position: relative;
   z-index: 1;
@@ -274,7 +265,6 @@ watch(open, async (isOpen) => {
   gap: 0;
 }
 
-/* ── Badge label row ──────────────────────────────────────────── */
 .panel-label-row {
   display: flex;
   align-items: center;
@@ -326,7 +316,6 @@ watch(open, async (isOpen) => {
   }
 }
 
-/* ── Contact rows ─────────────────────────────────────────────── */
 .contact-row {
   display: flex;
   align-items: center;
@@ -385,7 +374,7 @@ watch(open, async (isOpen) => {
   color: rgba(223, 175, 133, 0.75);
 
   html:not(.dark) .contact-row & {
-    color: #7d3412; /* primary-600 — 4.8:1 on white, WCAG AA */
+    color: #7d3412;
   }
 }
 
@@ -406,7 +395,7 @@ watch(open, async (isOpen) => {
   color: rgba(255, 237, 223, 0.45);
 
   html:not(.dark) .contact-row & {
-    color: #475569; /* neutral-600 — 4.6:1 on white, WCAG AA */
+    color: #475569;
   }
 }
 
@@ -421,7 +410,7 @@ watch(open, async (isOpen) => {
   text-overflow: ellipsis;
 
   html:not(.dark) .contact-row & {
-    color: #1f1f1f; /* neutral-900 — 16:1 on white, WCAG AAA */
+    color: #1f1f1f;
   }
 }
 
@@ -437,7 +426,6 @@ watch(open, async (isOpen) => {
   }
 }
 
-/* ── Diamond row separator ────────────────────────────────────── */
 .row-separator {
   display: flex;
   align-items: center;
@@ -467,14 +455,13 @@ watch(open, async (isOpen) => {
   }
 }
 
-/* ── Trigger button ───────────────────────────────────────────── */
 .contact-trigger {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 2.75rem;
   height: 2.75rem;
-  background: #995226; /* primary-500 — 4.5:1 on dark, WCAG AA */
+  background: #995226;
   color: #ffeddf;
   border: 1px solid rgba(223, 175, 133, 0.3);
   border-radius: 2px;
@@ -483,7 +470,7 @@ watch(open, async (isOpen) => {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 
   &:hover {
-    background: #7d3412; /* primary-600 */
+    background: #7d3412;
     border-color: rgba(223, 175, 133, 0.5);
     transform: scale(1.05);
   }
@@ -516,7 +503,6 @@ watch(open, async (isOpen) => {
   80%       { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), 0 0 0 12px rgba(153, 82, 38, 0); }
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .contact-trigger--pulse { animation: none; }
   .contact-row, .contact-arrow, .contact-icon-wrap, .corner, .contact-trigger { transition: none; }

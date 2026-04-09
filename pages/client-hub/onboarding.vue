@@ -44,10 +44,9 @@ onMounted(() => {
       }
     }
   } catch {
-    // ignore corrupt data
+
   }
 
-  // Deep link via ?step= overrides saved position
   const stepParam = route.query.step as string | undefined;
   if (stepParam) {
     const idx = sections.findIndex((s) => s.key === stepParam);
@@ -69,7 +68,7 @@ watch(
         })
       );
     } catch {
-      // ignore storage errors
+
     }
   },
   { deep: true }
@@ -81,7 +80,7 @@ const toggleCheckItem = (index: number) => {
   } else {
     checkedItems.value.add(index);
   }
-  // trigger reactivity
+
   checkedItems.value = new Set(checkedItems.value);
 };
 
@@ -146,7 +145,6 @@ const stepIcons: Record<string, string> = {
   communication: "i-heroicons-chat-bubble-left-right",
 };
 
-// SEO
 useSeoMeta({
   title: () =>
     `${t("clientHub.onboarding.title")} | ${t("clientHub.meta.title")}`,
@@ -208,7 +206,6 @@ useHead({
   <div class="wizard-page">
     <div class="wizard-container">
 
-      <!-- Page header -->
       <div class="wizard-header">
         <div class="wizard-header__icon" aria-hidden="true">
           <UIcon name="i-heroicons-academic-cap" class="w-6 h-6 text-accent-500" />
@@ -223,11 +220,10 @@ useHead({
         </div>
       </div>
 
-      <!-- Step indicators -->
       <div class="wizard-indicators" role="navigation" aria-label="Onboarding steps">
         <div class="wizard-indicators__track">
           <template v-for="(section, index) in sections" :key="section.key">
-            <!-- Connector line -->
+
             <div
               v-if="index > 0"
               class="wizard-indicators__line"
@@ -235,7 +231,6 @@ useHead({
               aria-hidden="true"
             />
 
-            <!-- Step circle -->
             <button
               type="button"
               class="wizard-step-dot"
@@ -260,7 +255,6 @@ useHead({
           </template>
         </div>
 
-        <!-- Progress bar -->
         <div class="wizard-progress" role="progressbar" aria-label="Onboarding progress" :aria-valuenow="Math.round(progress)" aria-valuemin="0" aria-valuemax="100">
           <div
             class="wizard-progress__fill"
@@ -278,10 +272,8 @@ useHead({
         </div>
       </div>
 
-      <!-- Wizard card -->
       <Transition :name="transitionDirection === 'forward' ? 'slide-forward' : 'slide-back'" mode="out-in">
 
-        <!-- Completion card -->
         <div v-if="wizardComplete" key="complete" class="wizard-card wizard-card--complete">
           <div class="wizard-complete">
             <div class="wizard-complete__icon" aria-hidden="true">
@@ -304,9 +296,8 @@ useHead({
           </div>
         </div>
 
-        <!-- Step card -->
         <div v-else :key="currentIndex" class="wizard-card">
-          <!-- Card header -->
+
           <div class="wizard-card__header">
             <div class="wizard-card__meta">
               <span class="wizard-card__badge">Step {{ currentIndex + 1 }} of {{ sections.length }}</span>
@@ -322,17 +313,14 @@ useHead({
 
           <div class="wizard-card__divider" aria-hidden="true" />
 
-          <!-- Card body: step content -->
           <div class="wizard-card__body">
 
-            <!-- Where We Are Now -->
             <template v-if="currentSection.key === 'whereWeAre'">
               <p class="wizard-text">
                 {{ t("clientHub.onboarding.sections.whereWeAre.content") }}
               </p>
             </template>
 
-            <!-- Launch Timeline -->
             <template v-else-if="currentSection.key === 'launchTimeline'">
               <div class="wizard-info-cards">
                 <div class="wizard-info-card wizard-info-card--before">
@@ -350,7 +338,6 @@ useHead({
               </div>
             </template>
 
-            <!-- Access & Credentials -->
             <template v-else-if="currentSection.key === 'accessCredentials'">
               <div class="wizard-info-cards">
                 <div class="wizard-info-card">
@@ -384,22 +371,18 @@ useHead({
               </div>
             </template>
 
-            <!-- Legal & Compliance -->
             <template v-else-if="currentSection.key === 'legalCompliance'">
               <p class="wizard-text">{{ t("clientHub.onboarding.sections.legalCompliance.content") }}</p>
             </template>
 
-            <!-- SEO & Expectations -->
             <template v-else-if="currentSection.key === 'seoExpectations'">
               <p class="wizard-text">{{ t("clientHub.onboarding.sections.seoExpectations.content") }}</p>
             </template>
 
-            <!-- Monitoring & Maintenance -->
             <template v-else-if="currentSection.key === 'monitoring'">
               <p class="wizard-text">{{ t("clientHub.onboarding.sections.monitoring.content") }}</p>
             </template>
 
-            <!-- Launch Checklist -->
             <template v-else-if="currentSection.key === 'launchChecklist'">
               <p class="wizard-text mb-4">{{ t("clientHub.onboarding.sections.launchChecklist.intro") }}</p>
               <ul class="wizard-checklist" role="list">
@@ -430,17 +413,14 @@ useHead({
               </div>
             </template>
 
-            <!-- Support Window -->
             <template v-else-if="currentSection.key === 'supportWindow'">
               <p class="wizard-text">{{ t("clientHub.onboarding.sections.supportWindow.content") }}</p>
             </template>
 
-            <!-- Handoff & Ownership -->
             <template v-else-if="currentSection.key === 'handoff'">
               <p class="wizard-text">{{ t("clientHub.onboarding.sections.handoff.content") }}</p>
             </template>
 
-            <!-- Communication -->
             <template v-else-if="currentSection.key === 'communication'">
               <p class="wizard-text">{{ t("clientHub.onboarding.sections.communication.content") }}</p>
             </template>
@@ -449,7 +429,6 @@ useHead({
         </div>
       </Transition>
 
-      <!-- Navigation buttons -->
       <div v-if="!wizardComplete" class="wizard-nav">
         <button
           type="button"
@@ -477,7 +456,6 @@ useHead({
         </button>
       </div>
 
-      <!-- Need help callout -->
       <div class="wizard-help">
         <UIcon name="i-heroicons-chat-bubble-left-right" class="w-5 h-5 text-primary-500 shrink-0" aria-hidden="true" />
         <div>
@@ -491,7 +469,7 @@ useHead({
 </template>
 
 <style lang="scss" scoped>
-/* ── Page shell ── */
+
 .wizard-page {
   padding: 2rem 1rem 4rem;
 
@@ -508,7 +486,6 @@ useHead({
   gap: 1.75rem;
 }
 
-/* ── Page header ── */
 .wizard-header {
   display: flex;
   align-items: flex-start;
@@ -546,7 +523,6 @@ useHead({
   max-width: 52ch;
 }
 
-/* ── Step indicators ── */
 .wizard-indicators {
   display: flex;
   flex-direction: column;
@@ -632,7 +608,6 @@ useHead({
   color: white;
 }
 
-/* ── Progress bar ── */
 .wizard-progress {
   height: 3px;
   background: var(--color-surface-3);
@@ -663,7 +638,6 @@ useHead({
   font-weight: 500;
 }
 
-/* ── Card ── */
 .wizard-card {
   background: var(--color-surface-1);
   border: 1px solid var(--glass-border-subtle);
@@ -732,7 +706,6 @@ useHead({
   padding: 1.5rem 1.75rem 1.75rem;
 }
 
-/* ── Completion card ── */
 .wizard-complete {
   padding: 3rem 1.75rem;
   text-align: center;
@@ -774,7 +747,6 @@ useHead({
   margin-top: 0.5rem;
 }
 
-/* ── Step content ── */
 .wizard-text {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
@@ -785,7 +757,6 @@ useHead({
   margin-bottom: 1rem;
 }
 
-/* Info cards (for multi-part steps) */
 .wizard-info-cards {
   display: flex;
   flex-direction: column;
@@ -824,7 +795,6 @@ useHead({
   margin-bottom: 0.5rem;
 }
 
-/* Checklist */
 .wizard-checklist {
   list-style: none;
   padding: 0;
@@ -857,7 +827,6 @@ useHead({
   }
 }
 
-/* Hide native checkbox visually but keep it accessible */
 .wizard-checklist__checkbox {
   position: absolute;
   width: 1px;
@@ -909,7 +878,6 @@ useHead({
   }
 }
 
-/* Note box */
 .wizard-note {
   display: flex;
   align-items: flex-start;
@@ -923,7 +891,6 @@ useHead({
   border: 1px solid color-mix(in srgb, var(--color-primary-500) 15%, transparent);
 }
 
-/* ── Navigation ── */
 .wizard-nav {
   display: flex;
   align-items: center;
@@ -931,7 +898,6 @@ useHead({
   gap: 1rem;
 }
 
-/* ── Buttons ── */
 .wizard-btn {
   display: inline-flex;
   align-items: center;
@@ -996,7 +962,6 @@ useHead({
   }
 }
 
-/* ── Help callout ── */
 .wizard-help {
   display: flex;
   align-items: flex-start;
@@ -1020,7 +985,6 @@ useHead({
   line-height: 1.5;
 }
 
-/* ── Slide transitions ── */
 .slide-forward-enter-active,
 .slide-forward-leave-active,
 .slide-back-enter-active,
@@ -1050,7 +1014,6 @@ useHead({
   transform: translateX(40px);
 }
 
-/* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   .slide-forward-enter-active,
   .slide-forward-leave-active,

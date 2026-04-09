@@ -17,7 +17,7 @@ const bgStyle = computed(() =>
 
 <template>
   <section class="about-hero" aria-labelledby="about-hero-heading">
-    <!-- Hero photo background -->
+
     <NuxtImg
       src="/images/about/hero.jpg"
       alt=""
@@ -30,12 +30,12 @@ const bgStyle = computed(() =>
       loading="eager"
       fetchpriority="high"
     />
-    <!-- Dark overlay for centered text legibility -->
+
     <div class="hero-image-overlay" aria-hidden="true" />
     <div class="hero-bg" aria-hidden="true" :style="bgStyle" />
 
     <div class="hero-content">
-      <!-- Label row -->
+
       <div class="hero-label-row" aria-hidden="true">
         <span class="label-line" />
         <span class="label-diamond" />
@@ -94,7 +94,6 @@ const bgStyle = computed(() =>
   z-index: 0;
 }
 
-/* Even overlay for centered text */
 .hero-image-overlay {
   position: absolute;
   inset: 0;
@@ -120,7 +119,6 @@ const bgStyle = computed(() =>
   text-align: center;
 }
 
-/* ── Label row ────────────────────────────────────────────────── */
 .hero-label-row {
   display: flex;
   align-items: center;
@@ -152,7 +150,6 @@ const bgStyle = computed(() =>
   flex-shrink: 0;
 }
 
-/* ── Title ────────────────────────────────────────────────────── */
 .hero-title {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -168,7 +165,6 @@ const bgStyle = computed(() =>
   color: rgba(223, 175, 133, 0.85);
 }
 
-/* ── Deco divider ─────────────────────────────────────────────── */
 .hero-deco-divider {
   display: flex;
   align-items: center;
@@ -198,7 +194,6 @@ const bgStyle = computed(() =>
   }
 }
 
-/* ── Subtitle ─────────────────────────────────────────────────── */
 .hero-subtitle {
   font-family: var(--font-text);
   font-weight: 300;
@@ -213,5 +208,4 @@ const bgStyle = computed(() =>
   .hero-bg { will-change: auto; transform: none !important; }
 }
 
-/* Hero sections have background images — always render dark regardless of mode */
 </style>

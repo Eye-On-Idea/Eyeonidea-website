@@ -28,6 +28,6 @@ onBeforeRender(() => {
 </script>
 
 <template>
-  <!-- Renderless — only drives camera logic -->
+
   <slot />
 </template>

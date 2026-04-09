@@ -6,7 +6,7 @@ defineProps<{
 
 <template>
   <div class="visual-frame" aria-hidden="true">
-    <!-- ── WEBSITES: Browser + landing page mockup ── -->
+
     <svg
       v-if="serviceKey === 'websites'"
       viewBox="0 0 460 360"
@@ -14,7 +14,7 @@ defineProps<{
       xmlns="http://www.w3.org/2000/svg"
       class="visual-svg"
     >
-      <!-- Card backing -->
+
       <rect
         x="16"
         y="16"
@@ -25,7 +25,7 @@ defineProps<{
         stroke="rgba(255,255,255,0.09)"
         stroke-width="1"
       />
-      <!-- Subtle grid -->
+
       <line
         x1="16"
         y1="130"
@@ -59,7 +59,6 @@ defineProps<{
         stroke-width="1"
       />
 
-      <!-- Browser window -->
       <rect
         x="36"
         y="36"
@@ -70,7 +69,7 @@ defineProps<{
         stroke="rgba(255,255,255,0.10)"
         stroke-width="1"
       />
-      <!-- Chrome bar -->
+
       <rect
         x="36"
         y="36"
@@ -86,11 +85,11 @@ defineProps<{
         height="16"
         fill="rgba(255,255,255,0.06)"
       />
-      <!-- Traffic lights -->
+
       <circle cx="58" cy="53" r="5" fill="rgba(255,80,80,0.55)" />
       <circle cx="74" cy="53" r="5" fill="rgba(255,190,50,0.45)" />
       <circle cx="90" cy="53" r="5" fill="rgba(80,200,80,0.40)" />
-      <!-- URL bar -->
+
       <rect
         x="112"
         y="43"
@@ -112,7 +111,6 @@ defineProps<{
         eyeonidea.com
       </text>
 
-      <!-- Hero band -->
       <rect
         x="50"
         y="82"
@@ -123,7 +121,7 @@ defineProps<{
         stroke="rgba(223,175,133,0.15)"
         stroke-width="0.75"
       />
-      <!-- Headline -->
+
       <rect
         x="68"
         y="104"
@@ -140,7 +138,7 @@ defineProps<{
         rx="3.5"
         fill="rgba(255,255,255,0.28)"
       />
-      <!-- CTA -->
+
       <rect x="68" y="137" width="80" height="24" rx="8" fill="#dfaf85" />
       <text
         x="108"
@@ -153,7 +151,7 @@ defineProps<{
       >
         Explore →
       </text>
-      <!-- Hero image suggestion -->
+
       <rect
         x="300"
         y="86"
@@ -165,7 +163,6 @@ defineProps<{
         stroke-width="0.75"
       />
 
-      <!-- Nav strip -->
       <line
         x1="50"
         y1="188"
@@ -207,7 +204,6 @@ defineProps<{
         fill="rgba(255,255,255,0.16)"
       />
 
-      <!-- Content cards row -->
       <rect
         x="50"
         y="214"
@@ -313,7 +309,6 @@ defineProps<{
         fill="rgba(255,255,255,0.10)"
       />
 
-      <!-- PageSpeed badge -->
       <rect
         x="320"
         y="294"
@@ -338,7 +333,6 @@ defineProps<{
       </text>
     </svg>
 
-    <!-- ── IDENTITY: Brand mark + palette + type ── -->
     <svg
       v-else-if="serviceKey === 'identity'"
       viewBox="0 0 460 360"
@@ -357,7 +351,6 @@ defineProps<{
         stroke-width="1"
       />
 
-      <!-- Wordmark label top -->
       <text
         x="230"
         y="52"
@@ -370,9 +363,8 @@ defineProps<{
         VISUAL IDENTITY SYSTEM
       </text>
 
-      <!-- Central geometric mark -->
       <g transform="translate(230,178)">
-        <!-- Outer orbit ring -->
+
         <circle
           cx="0"
           cy="0"
@@ -382,7 +374,7 @@ defineProps<{
           stroke-width="1"
           stroke-dasharray="4 4"
         />
-        <!-- Mid ring -->
+
         <circle
           cx="0"
           cy="0"
@@ -391,24 +383,24 @@ defineProps<{
           stroke="rgba(255,255,255,0.06)"
           stroke-width="0.75"
         />
-        <!-- Diamond outer -->
+
         <polygon
           points="0,-52 38,0 0,52 -38,0"
           fill="rgba(223,175,133,0.06)"
           stroke="#dfaf85"
           stroke-width="1.5"
         />
-        <!-- Diamond inner -->
+
         <polygon
           points="0,-30 22,0 0,30 -22,0"
           fill="rgba(223,175,133,0.10)"
           stroke="rgba(223,175,133,0.50)"
           stroke-width="1"
         />
-        <!-- Center gem -->
+
         <circle cx="0" cy="0" r="7" fill="#dfaf85" opacity="0.85" />
         <circle cx="0" cy="0" r="12" fill="rgba(223,175,133,0.20)" />
-        <!-- Cardinal ticks -->
+
         <line
           x1="0"
           y1="-74"
@@ -443,7 +435,6 @@ defineProps<{
         />
       </g>
 
-      <!-- Brand name below mark -->
       <text
         x="230"
         y="278"
@@ -457,7 +448,6 @@ defineProps<{
         EYE ON IDEA
       </text>
 
-      <!-- Color palette strip -->
       <g transform="translate(96,306)">
         <rect x="0" y="0" width="46" height="20" rx="5" fill="#1f0f06" />
         <rect x="54" y="0" width="46" height="20" rx="5" fill="#3a2010" />
@@ -471,7 +461,7 @@ defineProps<{
           rx="5"
           fill="rgba(255,255,255,0.80)"
         />
-        <!-- Borders -->
+
         <rect
           x="0"
           y="0"
@@ -525,7 +515,6 @@ defineProps<{
       </g>
     </svg>
 
-    <!-- ── CONTENT: Article card mockup ── -->
     <svg
       v-else-if="serviceKey === 'content'"
       viewBox="0 0 460 360"
@@ -544,7 +533,6 @@ defineProps<{
         stroke-width="1"
       />
 
-      <!-- Featured image area -->
       <rect
         x="32"
         y="32"
@@ -555,7 +543,7 @@ defineProps<{
         stroke="rgba(223,175,133,0.16)"
         stroke-width="0.75"
       />
-      <!-- Landscape horizon lines (image suggestion) -->
+
       <line
         x1="32"
         y1="120"
@@ -588,7 +576,7 @@ defineProps<{
         stroke="rgba(223,175,133,0.16)"
         stroke-width="0.75"
       />
-      <!-- Sun dot -->
+
       <circle
         cx="372"
         cy="58"
@@ -598,7 +586,6 @@ defineProps<{
         stroke-width="0.75"
       />
 
-      <!-- Category pill -->
       <rect
         x="32"
         y="164"
@@ -622,7 +609,6 @@ defineProps<{
         INSIGHT
       </text>
 
-      <!-- Article headline -->
       <rect
         x="32"
         y="192"
@@ -640,7 +626,6 @@ defineProps<{
         fill="rgba(255,255,255,0.52)"
       />
 
-      <!-- Body copy lines -->
       <rect
         x="32"
         y="234"
@@ -666,7 +651,6 @@ defineProps<{
         fill="rgba(255,255,255,0.12)"
       />
 
-      <!-- Divider -->
       <line
         x1="32"
         y1="278"
@@ -676,7 +660,6 @@ defineProps<{
         stroke-width="0.75"
       />
 
-      <!-- Author row -->
       <circle
         cx="48"
         cy="298"
@@ -702,7 +685,6 @@ defineProps<{
         fill="rgba(255,255,255,0.18)"
       />
 
-      <!-- Share + read time right -->
       <rect
         x="330"
         y="291"
@@ -720,7 +702,6 @@ defineProps<{
         fill="rgba(255,255,255,0.12)"
       />
 
-      <!-- Tags -->
       <rect
         x="32"
         y="318"
@@ -783,7 +764,6 @@ defineProps<{
       </text>
     </svg>
 
-    <!-- ── SEO: Rank chart + keyword cluster ── -->
     <svg
       v-else-if="serviceKey === 'seo'"
       viewBox="0 0 460 360"
@@ -808,7 +788,6 @@ defineProps<{
         stroke-width="1"
       />
 
-      <!-- Axis labels -->
       <text
         x="50"
         y="60"
@@ -860,7 +839,6 @@ defineProps<{
         #20
       </text>
 
-      <!-- Grid lines -->
       <line
         x1="58"
         y1="56"
@@ -902,12 +880,11 @@ defineProps<{
         stroke-width="0.75"
       />
 
-      <!-- Trend area -->
       <polygon
         points="70,210 130,195 185,172 235,148 280,118 330,88 385,64 428,56 428,220 70,220"
         fill="url(#seo-area)"
       />
-      <!-- Trend line -->
+
       <polyline
         points="70,210 130,195 185,172 235,148 280,118 330,88 385,64 428,56"
         stroke="#64c6b7"
@@ -915,14 +892,13 @@ defineProps<{
         stroke-linecap="round"
         stroke-linejoin="round"
       />
-      <!-- Endpoint glow -->
+
       <circle cx="428" cy="56" r="5" fill="#64c6b7" />
       <circle cx="428" cy="56" r="10" fill="rgba(100,198,183,0.25)" />
-      <!-- Intermediate dots -->
+
       <circle cx="235" cy="148" r="3.5" fill="#64c6b7" opacity="0.55" />
       <circle cx="330" cy="88" r="3.5" fill="#64c6b7" opacity="0.70" />
 
-      <!-- Keyword chips -->
       <rect
         x="32"
         y="238"
@@ -986,7 +962,6 @@ defineProps<{
         brand design
       </text>
 
-      <!-- Metric badge -->
       <rect
         x="32"
         y="278"
@@ -1018,7 +993,6 @@ defineProps<{
       </text>
     </svg>
 
-    <!-- ── EMAIL: Inbox + campaign preview ── -->
     <svg
       v-else-if="serviceKey === 'email'"
       viewBox="0 0 460 360"
@@ -1037,7 +1011,6 @@ defineProps<{
         stroke-width="1"
       />
 
-      <!-- Inbox sidebar -->
       <rect
         x="32"
         y="32"
@@ -1060,7 +1033,6 @@ defineProps<{
         INBOX
       </text>
 
-      <!-- Inbox item 1 — active -->
       <rect
         x="32"
         y="62"
@@ -1089,7 +1061,6 @@ defineProps<{
         fill="rgba(255,255,255,0.22)"
       />
 
-      <!-- Items 2–4 -->
       <circle cx="51" cy="127" r="9" fill="rgba(255,255,255,0.09)" />
       <rect
         x="66"
@@ -1144,7 +1115,6 @@ defineProps<{
         fill="rgba(255,255,255,0.07)"
       />
 
-      <!-- Vertical divider -->
       <line
         x1="164"
         y1="32"
@@ -1154,8 +1124,6 @@ defineProps<{
         stroke-width="0.75"
       />
 
-      <!-- Campaign preview pane -->
-      <!-- Header banner -->
       <rect
         x="180"
         y="32"
@@ -1179,7 +1147,6 @@ defineProps<{
         EYE ON IDEA
       </text>
 
-      <!-- Subject + preheader -->
       <rect
         x="180"
         y="128"
@@ -1197,7 +1164,6 @@ defineProps<{
         fill="rgba(255,255,255,0.26)"
       />
 
-      <!-- Body lines -->
       <rect
         x="180"
         y="168"
@@ -1223,7 +1189,6 @@ defineProps<{
         fill="rgba(255,255,255,0.10)"
       />
 
-      <!-- CTA button -->
       <rect x="206" y="212" width="136" height="30" rx="9" fill="#dfaf85" />
       <text
         x="274"
@@ -1237,7 +1202,6 @@ defineProps<{
         Read More →
       </text>
 
-      <!-- Metrics row -->
       <line
         x1="180"
         y1="260"
@@ -1308,7 +1272,6 @@ defineProps<{
       </text>
     </svg>
 
-    <!-- ── DOMAIN: Infrastructure chain ── -->
     <svg
       v-else-if="serviceKey === 'domain'"
       viewBox="0 0 460 360"
@@ -1339,7 +1302,6 @@ defineProps<{
         DOMAIN INFRASTRUCTURE
       </text>
 
-      <!-- Node 1: Domain name -->
       <rect
         x="140"
         y="64"
@@ -1372,7 +1334,6 @@ defineProps<{
         Domain Registration
       </text>
 
-      <!-- Connector 1→2 -->
       <line
         x1="230"
         y1="114"
@@ -1384,7 +1345,6 @@ defineProps<{
       />
       <polygon points="230,144 225,136 235,136" fill="rgba(255,255,255,0.18)" />
 
-      <!-- Node 2: DNS -->
       <rect
         x="140"
         y="148"
@@ -1417,7 +1377,6 @@ defineProps<{
         A · CNAME · MX · TXT
       </text>
 
-      <!-- Connector 2→3 -->
       <line
         x1="230"
         y1="198"
@@ -1429,7 +1388,6 @@ defineProps<{
       />
       <polygon points="230,228 225,220 235,220" fill="rgba(255,255,255,0.18)" />
 
-      <!-- Node 3: SSL -->
       <rect
         x="140"
         y="232"
@@ -1474,7 +1432,6 @@ defineProps<{
       </text>
     </svg>
 
-    <!-- ── QA: Audit scorecard ── -->
     <svg
       v-else-if="serviceKey === 'qa'"
       viewBox="0 0 460 360"
@@ -1505,7 +1462,6 @@ defineProps<{
         QUALITY AUDIT REPORT
       </text>
 
-      <!-- Score rows — Performance -->
       <text
         x="36"
         y="86"
@@ -1542,7 +1498,6 @@ defineProps<{
         95
       </text>
 
-      <!-- Accessibility -->
       <text
         x="36"
         y="116"
@@ -1579,7 +1534,6 @@ defineProps<{
         90
       </text>
 
-      <!-- SEO -->
       <text
         x="36"
         y="146"
@@ -1616,7 +1570,6 @@ defineProps<{
         97
       </text>
 
-      <!-- Best Practices -->
       <text
         x="36"
         y="176"
@@ -1653,7 +1606,6 @@ defineProps<{
         92
       </text>
 
-      <!-- Security -->
       <text
         x="36"
         y="206"
@@ -1690,7 +1642,6 @@ defineProps<{
         99
       </text>
 
-      <!-- Divider -->
       <line
         x1="32"
         y1="226"
@@ -1700,7 +1651,6 @@ defineProps<{
         stroke-width="0.75"
       />
 
-      <!-- Checklist items -->
       <circle
         cx="48"
         cy="250"
@@ -1817,7 +1767,6 @@ defineProps<{
         Schema markup valid
       </text>
 
-      <!-- Summary badge -->
       <rect
         x="32"
         y="302"

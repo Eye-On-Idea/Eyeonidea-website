@@ -12,7 +12,6 @@ interface Stat {
 
 const stripRef = ref<HTMLElement | null>(null);
 
-// Parse target values from i18n strings (e.g. "50+" → target 50, suffix "+")
 const parseStatValue = (raw: string): { target: number; suffix: string } => {
   const match = raw.match(/^(\d+)(.*)$/);
   if (!match) {
@@ -46,7 +45,7 @@ const runCounters = () => {
   const tick = (now: number) => {
     const elapsed = now - startMs;
     const rawT = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - rawT, 3); // ease-out cubic
+    const eased = 1 - Math.pow(1 - rawT, 3);
 
     stats.forEach((stat) => {
       stat.count.value = Math.round(eased * stat.target);
@@ -110,7 +109,7 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 .stats-strip {
-  background: var(--color-primary-900); /* intentionally dark in both modes */
+  background: var(--color-primary-900);
   border-top: 1px solid rgba(223, 175, 133, 0.15);
   border-bottom: 1px solid rgba(223, 175, 133, 0.15);
   padding: 3rem 1.5rem;
@@ -131,7 +130,6 @@ onUnmounted(() => {
   align-items: center;
   gap: 0.5rem;
 
-  /* Vertical divider between items */
   &:not(:last-child) {
     border-right: 1px solid rgba(223, 175, 133, 0.2);
   }
@@ -147,7 +145,7 @@ onUnmounted(() => {
 
 .stat-label {
   font-size: var(--text-sm);
-  color: rgba(223, 175, 133, 0.65); /* always on dark bg */
+  color: rgba(223, 175, 133, 0.65);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -167,7 +165,7 @@ onUnmounted(() => {
 
 @media (prefers-reduced-motion: reduce) {
   .stat-value {
-    /* counter animation doesn't run, just shows final value */
+
   }
 }
 </style>

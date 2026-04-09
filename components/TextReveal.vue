@@ -4,19 +4,19 @@ import { STAGGER_TEXT } from "~/composables/useAccessibleMotion";
 
 const props = withDefaults(
   defineProps<{
-    /** The text to reveal word-by-word */
+
     text: string;
-    /** HTML tag to render */
+
     tag?: string;
-    /** Delay before the first word appears (ms) */
+
     delay?: number;
-    /** Delay between each word (ms) */
+
     stagger?: number;
-    /** Whether to trigger on mount vs. on viewport entry */
+
     triggerOnMount?: boolean;
-    /** CSS class to apply to each word span (e.g. for gradient text) */
+
     wordClass?: string;
-    /** External gate: when false, blocks reveal even if in view or mounted */
+
     trigger?: boolean;
   }>(),
   {
@@ -47,7 +47,6 @@ const doReveal = () => {
   }, props.delay);
 };
 
-// When trigger flips to true, fire any pending reveal immediately
 watch(
   () => props.trigger,
   (val) => {
@@ -143,5 +142,4 @@ onUnmounted(() => {
   }
 }
 </style>
-
 

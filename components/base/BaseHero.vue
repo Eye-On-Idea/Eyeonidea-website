@@ -3,21 +3,21 @@ import { animationPresets } from "~/composables/useAccessibleMotion";
 
 withDefaults(
   defineProps<{
-    /** Badge text displayed above the title */
+
     badge?: string;
-    /** Heading text - used with TextReveal when showTextReveal is true */
+
     title?: string;
-    /** Subtitle text below the heading */
+
     subtitle?: string;
-    /** Minimum height of the hero section */
+
     minHeight?: string;
-    /** Whether to wrap the title in TextReveal */
+
     showTextReveal?: boolean;
-    /** Delay for TextReveal animation (ms) */
+
     textRevealDelay?: number;
-    /** aria-labelledby ID for the heading */
+
     headingId?: string;
-    /** Visual variant: dark (default) or light (warm cream bg, dark text) */
+
     variant?: "dark" | "light";
   }>(),
   {
@@ -37,7 +37,7 @@ withDefaults(
     :style="{ minHeight }"
     :aria-labelledby="headingId"
   >
-    <!-- Background -->
+
     <div class="hero-background" aria-hidden="true">
       <div class="bg-gradient" />
       <div class="bg-pattern">
@@ -45,7 +45,6 @@ withDefaults(
       </div>
     </div>
 
-    <!-- Content -->
     <div class="hero-content">
       <div
         class="content-wrapper"

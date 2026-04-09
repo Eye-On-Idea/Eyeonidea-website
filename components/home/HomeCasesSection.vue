@@ -51,7 +51,7 @@ const caseGradients = [
     class="cases-section"
     aria-labelledby="cases-heading"
   >
-    <!-- Section separator / label -->
+
     <div class="section-label-row" aria-hidden="true">
       <span class="sep-line" />
       <span class="sep-diamond" />
@@ -60,7 +60,6 @@ const caseGradients = [
       <span class="sep-line" />
     </div>
 
-    <!-- Header -->
     <div
       class="cases-header"
       :key="`cases-header-${visible}`"
@@ -74,7 +73,6 @@ const caseGradients = [
       <p class="cases-subtitle">{{ t("landing.cases.subtitle") }}</p>
     </div>
 
-    <!-- Case rows -->
     <ul class="cases-list" role="list">
       <li
         v-for="(item, i) in featuredCases"
@@ -88,7 +86,7 @@ const caseGradients = [
           class="case-row"
           :aria-label="`${item.title} — ${item.category}, ${item.year}`"
         >
-          <!-- Deco corner frame (appears on hover) -->
+
           <div class="deco-frame" aria-hidden="true">
             <span class="corner corner--tl" />
             <span class="corner corner--tr" />
@@ -96,7 +94,6 @@ const caseGradients = [
             <span class="corner corner--br" />
           </div>
 
-          <!-- Left: meta + title -->
           <div class="row-left">
             <div class="case-meta">
               <span class="case-category">{{ item.category }}</span>
@@ -106,10 +103,8 @@ const caseGradients = [
             <h3 class="case-title">{{ item.title }}</h3>
           </div>
 
-          <!-- Middle: outcome -->
           <p class="case-outcome">{{ item.outcome }}</p>
 
-          <!-- Right: image placeholder + arrow -->
           <div class="row-right">
             <div
               class="case-image-placeholder"
@@ -122,7 +117,6 @@ const caseGradients = [
       </li>
     </ul>
 
-    <!-- Footer -->
     <div
       class="cases-footer"
       :key="`cases-footer-${visible}`"
@@ -142,7 +136,7 @@ const caseGradients = [
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .cases-section {
   position: relative;
   z-index: 1;
@@ -150,7 +144,6 @@ const caseGradients = [
   padding-bottom: 4rem;
 }
 
-/* ── Section separator / label ────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -184,7 +177,6 @@ const caseGradients = [
   flex-shrink: 0;
 }
 
-/* ── Header ───────────────────────────────────────────────────── */
 .cases-header {
   max-width: 80rem;
   margin: 0 auto;
@@ -211,14 +203,12 @@ const caseGradients = [
   max-width: 36rem;
 }
 
-/* ── Cases list ───────────────────────────────────────────────── */
 .cases-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* ── Case row ─────────────────────────────────────────────────── */
 .case-row {
   position: relative;
   display: flex;
@@ -267,7 +257,6 @@ const caseGradients = [
   }
 }
 
-/* ── Deco corner frame ────────────────────────────────────────── */
 .deco-frame {
   position: absolute;
   inset: 0.5rem 1.25rem;
@@ -305,7 +294,6 @@ const caseGradients = [
   }
 }
 
-/* ── Row left ─────────────────────────────────────────────────── */
 .row-left {
   flex: 0 0 auto;
   width: clamp(180px, 26%, 300px);
@@ -354,7 +342,6 @@ const caseGradients = [
   letter-spacing: -0.01em;
 }
 
-/* ── Outcome ──────────────────────────────────────────────────── */
 .case-outcome {
   flex: 1;
   font-family: var(--font-text);
@@ -365,7 +352,6 @@ const caseGradients = [
   margin: 0;
 }
 
-/* ── Row right ────────────────────────────────────────────────── */
 .row-right {
   flex: 0 0 auto;
   display: flex;
@@ -396,7 +382,6 @@ const caseGradients = [
   font-family: var(--font-heading);
 }
 
-/* ── Footer ───────────────────────────────────────────────────── */
 .cases-footer {
   max-width: 80rem;
   margin: 0 auto;
@@ -404,7 +389,6 @@ const caseGradients = [
   border-top: 1px solid rgba(223, 175, 133, 0.08);
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .case-row,
   .case-title,
@@ -415,7 +399,6 @@ const caseGradients = [
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .cases-section {
     background: var(--color-section-light);
@@ -486,7 +469,7 @@ html:not(.dark) {
   }
 
   .case-image-placeholder {
-    /* gradients are defined inline per-item; reduce opacity looks fine on light */
+
     opacity: 0.5;
   }
 

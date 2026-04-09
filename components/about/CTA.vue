@@ -32,7 +32,7 @@ onMounted(() => {
   >
     <div class="cta-container" :class="{ 'animate-in': isVisible }">
       <div class="cta-panel">
-        <!-- Corner frame -->
+
         <div class="deco-frame" aria-hidden="true">
           <span class="corner corner--tl" />
           <span class="corner corner--tr" />
@@ -40,7 +40,6 @@ onMounted(() => {
           <span class="corner corner--br" />
         </div>
 
-        <!-- Label row -->
         <div class="cta-label-row" aria-hidden="true">
           <span class="label-line" />
           <span class="label-diamond" />
@@ -53,7 +52,6 @@ onMounted(() => {
           {{ t("about.cta.title") }}
         </h2>
 
-        <!-- Deco divider -->
         <div class="cta-divider" aria-hidden="true">
           <span class="div-line" />
           <span class="div-diamond div-diamond--sm" />
@@ -86,13 +84,12 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .about-cta {
   background: #0d0908;
   padding: 6rem 2rem 8rem;
 }
 
-/* ── Container ────────────────────────────────────────────────── */
 .cta-container {
   max-width: 56rem;
   margin: 0 auto;
@@ -108,7 +105,6 @@ onMounted(() => {
   }
 }
 
-/* ── Panel ────────────────────────────────────────────────────── */
 .cta-panel {
   position: relative;
   padding: 4rem 3rem;
@@ -121,7 +117,6 @@ onMounted(() => {
   }
 }
 
-/* ── Corner frame ─────────────────────────────────────────────── */
 .deco-frame {
   position: absolute;
   inset: 0.875rem;
@@ -141,7 +136,6 @@ onMounted(() => {
   &--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
 }
 
-/* ── Label row ────────────────────────────────────────────────── */
 .cta-label-row {
   display: flex;
   align-items: center;
@@ -173,7 +167,6 @@ onMounted(() => {
   flex-shrink: 0;
 }
 
-/* ── Title ────────────────────────────────────────────────────── */
 .cta-title {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -185,7 +178,6 @@ onMounted(() => {
   text-wrap: balance;
 }
 
-/* ── Deco divider ─────────────────────────────────────────────── */
 .cta-divider {
   display: flex;
   align-items: center;
@@ -217,7 +209,6 @@ onMounted(() => {
   }
 }
 
-/* ── Description ──────────────────────────────────────────────── */
 .cta-description {
   font-family: var(--font-text);
   font-weight: 300;
@@ -228,7 +219,6 @@ onMounted(() => {
   margin: 0 auto 2.5rem;
 }
 
-/* ── Actions ──────────────────────────────────────────────────── */
 .cta-actions {
   display: flex;
   flex-wrap: wrap;
@@ -245,7 +235,6 @@ onMounted(() => {
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .about-cta { background: var(--color-section-alt); }
 
@@ -270,5 +259,4 @@ html:not(.dark) {
   .cta-description { color: var(--color-text-subtle); }
 }
 </style>
-
 

@@ -40,7 +40,7 @@ const values = computed(
     class="about-values"
     aria-labelledby="values-heading"
   >
-    <!-- Section label row -->
+
     <div class="section-label-row" aria-hidden="true">
       <span class="sep-line" />
       <span class="sep-diamond" />
@@ -50,14 +50,13 @@ const values = computed(
     </div>
 
     <div class="section-container">
-      <!-- Heading -->
+
       <div class="section-header" :class="{ 'animate-in': isVisible }">
         <h2 id="values-heading" class="section-title">
           {{ t("about.values.title") }}
         </h2>
       </div>
 
-      <!-- Values as editorial rows -->
       <ol class="values-list" :class="{ 'animate-in': isVisible }">
         <li
           v-for="(value, index) in values"
@@ -65,20 +64,18 @@ const values = computed(
           class="value-row"
           :style="{ transitionDelay: `${index * 100}ms` }"
         >
-          <!-- Left: numeral -->
+
           <div class="value-numeral-col" aria-hidden="true">
             <span class="value-rule" />
             <span class="value-numeral">{{ numerals[index] }}</span>
             <span class="value-rule" />
           </div>
 
-          <!-- Center: title + description -->
           <div class="value-body">
             <h3 class="value-title">{{ value.title }}</h3>
             <p class="value-description">{{ value.description }}</p>
           </div>
 
-          <!-- Right: amber diamond accent -->
           <div class="value-accent" aria-hidden="true">
             <span class="accent-diamond" />
           </div>
@@ -89,13 +86,12 @@ const values = computed(
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .about-values {
   background: #0d0908;
   padding-bottom: 0;
 }
 
-/* ── Section label row ────────────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -129,14 +125,12 @@ const values = computed(
   flex-shrink: 0;
 }
 
-/* ── Container ────────────────────────────────────────────────── */
 .section-container {
   max-width: 80rem;
   margin: 0 auto;
   padding: 0 2rem 6rem;
 }
 
-/* ── Header ───────────────────────────────────────────────────── */
 .section-header {
   margin-bottom: 3rem;
   opacity: 0;
@@ -161,7 +155,6 @@ const values = computed(
   margin: 0;
 }
 
-/* ── Values list ──────────────────────────────────────────────── */
 .values-list {
   list-style: none;
   padding: 0;
@@ -201,7 +194,6 @@ const values = computed(
   }
 }
 
-/* ── Numeral column ───────────────────────────────────────────── */
 .value-numeral-col {
   display: flex;
   align-items: center;
@@ -223,7 +215,6 @@ const values = computed(
   flex-shrink: 0;
 }
 
-/* ── Value body ───────────────────────────────────────────────── */
 .value-body {
   display: grid;
   gap: 0.375rem;
@@ -257,7 +248,6 @@ const values = computed(
   margin: 0;
 }
 
-/* ── Right accent ─────────────────────────────────────────────── */
 .value-accent {
   flex-shrink: 0;
 }
@@ -284,7 +274,6 @@ const values = computed(
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .about-values { background: var(--color-section-light); }
 
@@ -315,5 +304,4 @@ html:not(.dark) {
   }
 }
 </style>
-
 

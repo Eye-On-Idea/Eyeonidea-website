@@ -1,9 +1,8 @@
 <template>
   <div class="news-page">
-    <!-- Hero with featured post -->
+
     <NewsHero :featured-post="featuredPost" :pending="pendingFeatured" />
 
-    <!-- Search and filters -->
     <NewsFilters
       :search-query="searchQuery"
       :selected-type="selectedType"
@@ -13,7 +12,6 @@
       @update:selected-type="updateType"
     />
 
-    <!-- Posts list -->
     <NewsPostsList
       :posts="visiblePosts"
       :pending="pendingPosts"
@@ -31,28 +29,27 @@
 import type { PostType, Post } from "~/types/sanity";
 import { useFeaturedPost } from "~/composables/useSanityPosts";
 
-// SEO
 const { t } = useI18n();
 
 const seoData = computed(() => ({
   title: t("news.seo.title"),
   description: t("news.seo.description"),
   keywords: [
-    // Digital agency news terms
+
     "digital agency news",
     "website development updates",
     "web design trends",
     "digital transformation 2025",
-    // Topic areas
+
     "B2B website development",
     "visual identity design",
     "CMS solutions updates",
     "Nordic digital industry",
-    // Company news
+
     "Eye On Idea news updates",
     "web development announcements",
     "digital agency developments",
-    // Event-related
+
     "digital agency insights",
     "web development best practices",
     "digital industry Europe",
@@ -71,7 +68,10 @@ useSeo({
   includeWebSiteSchema: false,
 });
 
-// State for filtering
+useHead({
+  link: [{ rel: "preconnect", href: "https://cdn.sanity.io" }],
+});
+
 const searchQuery = ref("");
 const selectedType = ref<PostType | null>(null);
 const limit = 10;
@@ -81,10 +81,8 @@ const hasActiveFilters = computed(() => {
   return !!searchQuery.value || !!selectedType.value;
 });
 
-// Fetch featured post (composable at top level)
 const { data: featuredPost, pending: pendingFeatured } = useFeaturedPost();
 
-// Post card projection for queries
 const postCardProjection = `{
   _id,
   _type,
@@ -136,32 +134,26 @@ const visiblePosts = computed(() =>
   filteredPosts.value.slice(0, visibleCount.value)
 );
 
-// Total posts count
 const totalPosts = computed(() => filteredPosts.value.length);
 
-// Check if there are more posts to load
 const hasMore = computed(() => visibleCount.value < filteredPosts.value.length);
 
-// Update search
 function updateSearch(query: string) {
   searchQuery.value = query;
   visibleCount.value = limit;
 }
 
-// Update type filter
 function updateType(type: PostType | null) {
   selectedType.value = type;
   visibleCount.value = limit;
 }
 
-// Clear all filters
 function clearFilters() {
   searchQuery.value = "";
   selectedType.value = null;
   visibleCount.value = limit;
 }
 
-// Load more posts (client-side pagination)
 function loadMore() {
   if (loadingMore.value || !hasMore.value) return;
 

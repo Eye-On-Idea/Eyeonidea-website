@@ -1,4 +1,4 @@
-// nuxt.config.ts
+
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
@@ -19,15 +19,14 @@ export default defineNuxtConfig({
     "@tresjs/nuxt",
   ],
 
-  // Color mode configuration (included with @nuxt/ui)
   colorMode: {
-    preference: "system", // Default to system preference
-    fallback: "light", // Fallback if no system preference detected
-    classSuffix: "", // Use '.dark' not '.dark-mode'
-    storage: "localStorage", // Persist user preference
+    preference: "system",
+    fallback: "light",
+    classSuffix: "",
+    storage: "localStorage",
     storageKey: "color-mode",
   },
-  // Static generation — output to .output/public, deploy via FTP
+
   ssr: true,
   nitro: {
     preset: "static",
@@ -36,7 +35,8 @@ export default defineNuxtConfig({
     serverBundle: "local",
     clientBundle: {
       scan: true,
-      sizeLimitKb: 0, // Include all icons in SSR bundle
+      sizeLimitKb: 0,
+      icons: ["lucide:menu"],
     },
   },
 
@@ -107,7 +107,7 @@ export default defineNuxtConfig({
       strictMessage: false,
       escapeHtml: false,
     },
-    // SEO: Enable automatic alternate links for better multilingual SEO
+
     baseUrl: "https://eyeonidea.com",
   },
 
@@ -115,11 +115,11 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
     css: {
-      devSourcemap: false, // Disable for production
+      devSourcemap: false,
     },
     build: {
       cssMinify: "lightningcss",
-      sourcemap: false, // Disable for production
+      sourcemap: false,
     },
   },
   image: { provider: "ipx" },
@@ -151,7 +151,6 @@ export default defineNuxtConfig({
           href: "/apple-touch-icon.png",
         },
         { rel: "manifest", href: "/site.webmanifest" },
-        { rel: "preconnect", href: "https://cdn.sanity.io" },
         { rel: "dns-prefetch", href: "//cdn.sanity.io" },
       ],
       meta: [
@@ -163,7 +162,7 @@ export default defineNuxtConfig({
         { name: "mobile-web-app-capable", content: "yes" },
         { name: "apple-mobile-web-app-capable", content: "yes" },
         { name: "apple-mobile-web-app-status-bar-style", content: "default" },
-        // Global SEO defaults
+
         { name: "author", content: "Eye On Idea" },
         { property: "og:site_name", content: "Eye On Idea" },
         { property: "og:locale", content: "en_US" },
@@ -178,65 +177,64 @@ export default defineNuxtConfig({
     },
   },
 
-  // ---------- Cookie banner ----------
   cookieControl: {
-    // EU Compliance settings
+
     barPosition: "bottom-full",
     isAcceptNecessaryButtonEnabled: true,
     declineAllAcceptsNecessary: true,
     isControlButtonEnabled: true,
-    closeModalOnClickOutside: false, // Prevent accidental consent
+    closeModalOnClickOutside: false,
     isIframeBlocked: true,
-    cookieExpiryOffsetMs: 1000 * 60 * 60 * 24 * 365, // 1 year
+    cookieExpiryOffsetMs: 1000 * 60 * 60 * 24 * 365,
     cookieNameIsConsentGiven: "ncc_c",
     cookieNameCookiesEnabledIds: "ncc_e",
     cookieOptions: { path: "/", sameSite: "strict", secure: true },
 
     colors: {
-      // Cookie bar styling - dark background with brand colors
-      barBackground: "rgba(31, 31, 31, 0.95)", // --color-neutral-900 with transparency
-      barTextColor: "#ffeddf", // --color-brand-50 (light cream)
-      // Accept All button - brand colors, less prominent
-      barButtonBackground: "#dfaf85", // --color-brand-200 (warm tan)
-      barButtonColor: "#1f1f1f", // --color-neutral-900 (dark text)
-      barButtonHoverBackground: "#d39a69", // --color-brand-300
+
+      barBackground: "rgba(31, 31, 31, 0.95)",
+      barTextColor: "#ffeddf",
+
+      barButtonBackground: "#dfaf85",
+      barButtonColor: "#1f1f1f",
+      barButtonHoverBackground: "#d39a69",
       barButtonHoverColor: "#1f1f1f",
-      // Decline All button - more prominent with primary brand color (EU requirement)
-      barButtonDeclineBackground: "#995226", // --color-brand-500 (base brand)
-      barButtonDeclineColor: "#ffeddf", // --color-brand-50 (light text)
-      barButtonDeclineHoverBackground: "#7d3412", // --color-brand-600
+
+      barButtonDeclineBackground: "#995226",
+      barButtonDeclineColor: "#ffeddf",
+      barButtonDeclineHoverBackground: "#7d3412",
       barButtonDeclineHoverColor: "#ffeddf",
-      // Only necessary button - transparent with brand text
+
       barButtonNecessaryBackground: "transparent",
-      barButtonNecessaryColor: "#dfaf85", // --color-brand-200
-      barButtonNecessaryHoverBackground: "rgba(223, 175, 133, 0.1)", // brand-200 with transparency
-      barButtonNecessaryHoverColor: "#ffe4cf", // --color-brand-100
-      // Control button (floating button)
-      controlButtonBackground: "rgba(153, 82, 38, 0.9)", // --color-brand-500 with transparency
-      controlButtonHoverBackground: "#7d3412", // --color-brand-600
-      controlButtonIconColor: "#ffeddf", // --color-brand-50
-      controlButtonIconHoverColor: "#ffe4cf", // --color-brand-100
-      // Modal styling - consistent with bar
-      modalBackground: "#1f1f1f", // --color-neutral-900
-      modalTextColor: "#ffeddf", // --color-brand-50
-      modalButtonBackground: "#995226", // --color-brand-500
-      modalButtonColor: "#ffeddf", // --color-brand-50
-      modalButtonHoverBackground: "#7d3412", // --color-brand-600
-      modalButtonHoverColor: "#ffe4cf", // --color-brand-100
-      // Checkbox colors for cookie selections
-      checkboxActiveBackground: "#995226", // --color-brand-500
-      checkboxActiveCircleBackground: "#ffeddf", // --color-brand-50
-      checkboxInactiveBackground: "#67280e", // --color-brand-700
-      checkboxInactiveCircleBackground: "#ffeddf", // --color-brand-50
-      checkboxDisabledBackground: "#441a08", // --color-brand-900
-      checkboxDisabledCircleBackground: "#dfaf85", // --color-brand-200
-      // Focus and overlay
-      focusRingColor: "#dfaf85", // --color-brand-200 for focus rings
-      modalOverlay: "#1f1f1f", // --color-neutral-900
+      barButtonNecessaryColor: "#dfaf85",
+      barButtonNecessaryHoverBackground: "rgba(223, 175, 133, 0.1)",
+      barButtonNecessaryHoverColor: "#ffe4cf",
+
+      controlButtonBackground: "rgba(153, 82, 38, 0.9)",
+      controlButtonHoverBackground: "#7d3412",
+      controlButtonIconColor: "#ffeddf",
+      controlButtonIconHoverColor: "#ffe4cf",
+
+      modalBackground: "#1f1f1f",
+      modalTextColor: "#ffeddf",
+      modalButtonBackground: "#995226",
+      modalButtonColor: "#ffeddf",
+      modalButtonHoverBackground: "#7d3412",
+      modalButtonHoverColor: "#ffe4cf",
+
+      checkboxActiveBackground: "#995226",
+      checkboxActiveCircleBackground: "#ffeddf",
+      checkboxInactiveBackground: "#67280e",
+      checkboxInactiveCircleBackground: "#ffeddf",
+      checkboxDisabledBackground: "#441a08",
+      checkboxDisabledCircleBackground: "#dfaf85",
+
+      focusRingColor: "#dfaf85",
+      modalOverlay: "#1f1f1f",
       modalOverlayOpacity: 0.8,
-      modalUnsavedColor: "#d39a69", // --color-brand-300 for unsaved indicator
+      modalUnsavedColor: "#d39a69",
     },
-    // Keep locales minimal; only override *known* keys
+
     locales: ["en", "de", "fr", "es", "it", "da"],
     localeTexts: {
       en: {
@@ -363,42 +361,39 @@ export default defineNuxtConfig({
       ],
     },
   },
-  // Build configuration for static deployment
+
   build: {
     transpile: ["@nuxt/ui"],
   },
-  // Experimental features for better static generation
+
   experimental: {
     payloadExtraction: false,
     viewTransition: true,
   },
-  // Compatibility fixes
+
   alias: {
     "@nuxt/kit": "@nuxt/kit",
   },
 
-  // ---------- Link Checker ----------
   linkChecker: {
-    // Only run during build/generate — never in production runtime
+
     runOnBuild: true,
-    // Do not fail the build on broken links (report only).
-    // Set to true once all current issues are resolved.
+
     failOnError: false,
-    // Do not fetch external URLs during CI — avoids rate-limiting and
-    // network-dependent build failures. Review external links manually.
+
     fetchRemoteUrls: false,
-    // Show live inspections in Nuxt DevTools during development
+
     showLiveInspections: true,
-    // Exclude private/auth-gated routes from inspection
+
     excludeLinks: ["/client-hub/**", "/about/legal", "/about/policies"],
-    // Generate a JSON report alongside the build for CI archiving
+
     report: {
       json: true,
     },
   },
 
   routeRules: {
-    // Prerender public marketing pages for performance
+
     "/": { prerender: true },
     "/solutions": { prerender: true },
     "/solutions/**": { prerender: true },
@@ -409,7 +404,7 @@ export default defineNuxtConfig({
     "/cases/**": { prerender: true },
     "/news": { prerender: true },
     "/news/**": { prerender: true },
-    // Client Hub — excluded from prerender (no SSR on static host)
+
     "/client-hub/**": { prerender: false },
   },
 });

@@ -1,6 +1,6 @@
 <template>
   <header class="article-header">
-    <!-- Post type badge -->
+
     <div class="article-meta-top">
       <span :class="['post-type-badge', `badge-${post.postType}`]">
         {{ postTypeLabel }}
@@ -11,20 +11,16 @@
       </span>
     </div>
 
-    <!-- Title -->
     <h1 class="article-title">{{ post.title }}</h1>
 
-    <!-- Excerpt -->
     <p v-if="post.excerpt" class="article-excerpt">{{ post.excerpt }}</p>
 
-    <!-- Meta row -->
     <div class="article-meta">
       <time :datetime="post.publishedAt" class="publish-date">
         <Icon name="i-heroicons-calendar" class="meta-icon" aria-hidden="true" />
         {{ formattedDate }}
       </time>
 
-      <!-- Author -->
       <template v-if="post.author">
         <span class="meta-separator">|</span>
         <span class="author">
@@ -33,7 +29,6 @@
         </span>
       </template>
 
-      <!-- Event info -->
       <template v-if="post.postType === 'event' && post.eventStartDate">
         <span class="meta-separator">|</span>
         <span class="event-date">
@@ -43,7 +38,6 @@
         </span>
       </template>
 
-      <!-- Collaborators -->
       <template v-if="post.collaborators && post.collaborators.length > 0">
         <span class="meta-separator">|</span>
         <span class="collaborators">
@@ -63,7 +57,6 @@
       </template>
     </div>
 
-    <!-- Hero image -->
     <figure v-if="post.heroImage" class="article-hero-image">
       <SanityImage
         :asset-id="post.heroImage.asset?._ref"
@@ -95,12 +88,10 @@ const formattedDate = computed(() => {
   });
 });
 
-// Estimate reading time based on body content or use override
 const readingTime = computed(() => {
   if (props.post.readingTimeOverride) return props.post.readingTimeOverride;
   if (!props.post.body) return null;
 
-  // Rough estimate: count text in blocks
   const text = props.post.body
     .filter((block: any) => block._type === "block")
     .map((block: any) => block.children?.map((c: any) => c.text).join(" ") || "")
@@ -260,7 +251,6 @@ function formatEventDate(start: string, end?: string): string {
   display: block;
 }
 
-/* Dark mode */
 :global(.dark) .post-type-badge {
   background: rgba(64, 150, 255, 0.2);
   color: var(--color-primary-300);
@@ -309,7 +299,6 @@ function formatEventDate(start: string, end?: string): string {
   }
 }
 
-/* Responsive */
 @media (max-width: 640px) {
   .article-meta {
     flex-direction: column;

@@ -5,13 +5,12 @@ import * as THREE from "three";
 import { MeshPhysicalMaterial, MeshStandardMaterial, LineBasicMaterial, BufferGeometry, Float32BufferAttribute, Line } from "three";
 
 const props = defineProps<{
-  sectionProgress?: number; // 0–1 across values section scroll range
+  sectionProgress?: number;
   opacity?: number;
   reducedMotion?: boolean;
   isMobile?: boolean;
 }>();
 
-// Node materials — matching original color intent
 const clarityMat = new MeshPhysicalMaterial({
   transmission: 0.95,
   roughness: 0.02,
@@ -35,21 +34,18 @@ const qualityMat = new MeshStandardMaterial({
   color: 0xd39a69,
 });
 
-// Edge lines connecting the 3 nodes (triangle network)
 const edgeMat = new LineBasicMaterial({
   color: 0x64c6b7,
   transparent: true,
   opacity: 0.45,
 });
 
-// Target positions — shifted ~1 unit right for the split layout right column
 const TARGET_POSITIONS = {
   clarity:     [-0.5, 0.5,  2] as [number, number, number],
   partnership: [ 1.5, 0,    2] as [number, number, number],
   quality:     [ 3.5, -0.3, 2] as [number, number, number],
 };
 
-// Build edge geometries between node pairs: 0-1, 1-2, 0-2
 function buildEdge(
   a: [number, number, number],
   b: [number, number, number]
@@ -69,13 +65,11 @@ const edges = [
   buildEdge(TARGET_POSITIONS.clarity, TARGET_POSITIONS.quality),
 ];
 
-// Refs
 const clarityRef = ref();
 const partnershipRef = ref();
 const qualityRef = ref();
 const groupRef = ref();
 
-// Y positions for entrance animation (start below)
 const clarityY = ref(TARGET_POSITIONS.clarity[1] - 5);
 const partnershipY = ref(TARGET_POSITIONS.partnership[1] - 5);
 const qualityY = ref(TARGET_POSITIONS.quality[1] - 5);
@@ -97,7 +91,6 @@ onBeforeRender(({ elapsed, delta }) => {
   const globalOpacity = props.opacity ?? 1;
   const lerpFactor = props.reducedMotion ? 1 : 0.05;
 
-  // Staggered entrance via sectionProgress thresholds
   const clarityIn     = sp > 0;
   const partnershipIn = sp > 0.1;
   const qualityIn     = sp > 0.2;
@@ -110,7 +103,6 @@ onBeforeRender(({ elapsed, delta }) => {
   partnershipY.value += (targetPY - partnershipY.value) * lerpFactor;
   qualityY.value     += (targetQY - qualityY.value) * lerpFactor;
 
-  // Sync material opacity
   clarityMat.opacity = globalOpacity;
   edgeMat.opacity    = globalOpacity * 0.45;
 
@@ -133,7 +125,6 @@ onBeforeRender(({ elapsed, delta }) => {
     if (qualityRef.value)     qualityRef.value.position.y = qualityY.value;
   }
 
-  // Update edge endpoints to match animated node positions
   if (clarityRef.value && partnershipRef.value && qualityRef.value) {
     const cPos = clarityRef.value.position;
     const pPos = partnershipRef.value.position;
@@ -163,7 +154,7 @@ onBeforeRender(({ elapsed, delta }) => {
 
 <template>
   <TresGroup ref="groupRef">
-    <!-- Clarity node: crystal sphere -->
+
     <TresMesh
       ref="clarityRef"
       :position="[TARGET_POSITIONS.clarity[0], TARGET_POSITIONS.clarity[1] - 5, TARGET_POSITIONS.clarity[2]]"
@@ -172,7 +163,6 @@ onBeforeRender(({ elapsed, delta }) => {
       <primitive :object="clarityMat" />
     </TresMesh>
 
-    <!-- Partnership node: metallic sphere -->
     <TresMesh
       ref="partnershipRef"
       :position="[TARGET_POSITIONS.partnership[0], TARGET_POSITIONS.partnership[1] - 5, TARGET_POSITIONS.partnership[2]]"
@@ -181,7 +171,6 @@ onBeforeRender(({ elapsed, delta }) => {
       <primitive :object="partnershipMat" />
     </TresMesh>
 
-    <!-- Quality node: gold sphere -->
     <TresMesh
       ref="qualityRef"
       :position="[TARGET_POSITIONS.quality[0], TARGET_POSITIONS.quality[1] - 5, TARGET_POSITIONS.quality[2]]"
@@ -190,7 +179,6 @@ onBeforeRender(({ elapsed, delta }) => {
       <primitive :object="qualityMat" />
     </TresMesh>
 
-    <!-- Triangle edge connectors -->
     <primitive v-for="(edge, i) in edges" :key="i" :object="edge" />
   </TresGroup>
 </template>

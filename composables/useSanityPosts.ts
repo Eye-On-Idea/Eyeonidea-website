@@ -1,9 +1,8 @@
-// /composables/useSanityPosts.ts
+
 import { groq } from "#imports";
 import { useSanityFetch } from "./useSanityFetch";
 import type { Post, PostType } from "~/types/sanity";
 
-// Projection for card view (lightweight)
 const postCardProjection = groq`
 {
   _id,
@@ -29,7 +28,6 @@ const postCardProjection = groq`
 }
 `;
 
-// Full projection for single post view (includes body)
 const postFullProjection = groq`
 {
   _id,
@@ -83,9 +81,6 @@ const postFullProjection = groq`
 }
 `;
 
-/**
- * Fetch a single post by slug with full content
- */
 export function usePostBySlug(slug: string) {
   const query = groq`
     *[_type == "post" && slug.current == $slug][0]
@@ -94,9 +89,6 @@ export function usePostBySlug(slug: string) {
   return useSanityFetch<Post | null>(query, { slug });
 }
 
-/**
- * Fetch all post slugs for static generation
- */
 export function useAllPostSlugs() {
   const query = groq`
     *[_type == "post" && defined(slug.current)]{
@@ -106,9 +98,6 @@ export function useAllPostSlugs() {
   return useSanityFetch<{ slug: string }[]>(query);
 }
 
-/**
- * Fetch paginated posts list with optional filtering
- */
 export function usePostsList(params?: {
   postType?: PostType | null;
   limit?: number;
@@ -120,7 +109,6 @@ export function usePostsList(params?: {
   const offset = params?.offset ?? 0;
   const end = offset + limit;
 
-  // Build dynamic filter conditions
   const query = groq`
     *[
       _type == "post"
@@ -143,9 +131,6 @@ export function usePostsList(params?: {
   });
 }
 
-/**
- * Get total count of posts (for pagination info)
- */
 export function usePostsCount(params?: {
   postType?: PostType | null;
   searchQuery?: string;
@@ -166,9 +151,6 @@ export function usePostsCount(params?: {
   });
 }
 
-/**
- * Fetch featured post (most recent one marked as featured)
- */
 export function useFeaturedPost() {
   const query = groq`
     *[
@@ -192,9 +174,6 @@ export function useFeaturedPost() {
   });
 }
 
-/**
- * Fetch recent posts excluding a specific post (for related/more posts)
- */
 export function useRecentPostsExcluding(excludeId: string, limit = 3) {
   const query = groq`
     *[
@@ -210,9 +189,6 @@ export function useRecentPostsExcluding(excludeId: string, limit = 3) {
   return useSanityFetch<Post[]>(query, { excludeId, limit });
 }
 
-/**
- * Fetch posts related by collaborator
- */
 export function usePostsByCollaboratorSlug(
   collaboratorSlug: string,
   limit = 20
@@ -230,9 +206,6 @@ export function usePostsByCollaboratorSlug(
   return useSanityFetch<Post[]>(query, { collaboratorSlug, limit });
 }
 
-/**
- * Get unique post types for filter dropdown
- */
 export function usePostTypes() {
   const postTypes: { value: PostType; label: string }[] = [
     { value: "news", label: "News" },

@@ -3,7 +3,6 @@ import { $fetch } from "ofetch";
 const BASE = "https://eyeonidea.com";
 const LASTMOD = "2026-04-05";
 
-// Locale prefixes: '' = English (default, no prefix), others get /locale/ prefix
 const LOCALE_PREFIXES = ["", "dk", "de", "fr", "es", "it"];
 
 interface StaticPage {
@@ -96,7 +95,6 @@ export default defineEventHandler(async () => {
           .join("");
       }
     } catch {
-      // Graceful degradation — static pages still get indexed
     }
   }
 

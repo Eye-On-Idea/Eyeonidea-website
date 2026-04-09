@@ -44,7 +44,7 @@ const steps = computed(
     class="how-we-work-section"
     aria-labelledby="how-we-work-heading"
   >
-    <!-- Section separator / label -->
+
     <div class="section-label-row" aria-hidden="true">
       <span class="sep-line" />
       <span class="sep-diamond" />
@@ -53,7 +53,6 @@ const steps = computed(
       <span class="sep-line" />
     </div>
 
-    <!-- Header -->
     <div
       class="section-header"
       :key="`hww-header-${visible}`"
@@ -66,7 +65,6 @@ const steps = computed(
       </h2>
     </div>
 
-    <!-- Steps grid -->
     <ol class="steps-grid" role="list">
       <li
         v-for="(step, index) in steps"
@@ -76,14 +74,13 @@ const steps = computed(
         :initial="stepMotion(index).initial"
         :enter="visible ? stepMotion(index).visible : stepMotion(index).initial"
       >
-        <!-- Numeral row -->
+
         <div class="step-numeral-row" aria-hidden="true">
           <span class="step-rule" />
           <span class="step-numeral">{{ numerals[index] }}</span>
           <span class="step-rule" />
         </div>
 
-        <!-- Deco divider -->
         <div class="step-deco-divider" aria-hidden="true">
           <span class="deco-line" />
           <span class="deco-diamond" />
@@ -95,7 +92,6 @@ const steps = computed(
       </li>
     </ol>
 
-    <!-- Footer strip CTA -->
     <NuxtLink
       :to="localePath('/solutions/process')"
       class="footer-strip"
@@ -127,13 +123,12 @@ const steps = computed(
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .how-we-work-section {
   background: #0d0908;
   padding-bottom: 0;
 }
 
-/* ── Section separator / label ────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -167,7 +162,6 @@ const steps = computed(
   flex-shrink: 0;
 }
 
-/* ── Header ───────────────────────────────────────────────────── */
 .section-header {
   max-width: 80rem;
   margin: 0 auto;
@@ -184,7 +178,6 @@ const steps = computed(
   letter-spacing: -0.02em;
 }
 
-/* ── Steps grid ───────────────────────────────────────────────── */
 .steps-grid {
   list-style: none;
   padding: 0;
@@ -202,7 +195,6 @@ const steps = computed(
   }
 }
 
-/* ── Step item ────────────────────────────────────────────────── */
 .step-item {
   padding: 2.5rem 2rem 3rem;
   border-right: 1px solid rgba(223, 175, 133, 0.08);
@@ -229,7 +221,6 @@ const steps = computed(
   }
 }
 
-/* ── Numeral row ──────────────────────────────────────────────── */
 .step-numeral-row {
   display: flex;
   align-items: center;
@@ -254,7 +245,6 @@ const steps = computed(
   transition: opacity 0.3s ease;
 }
 
-/* ── Deco divider ─────────────────────────────────────────────── */
 .step-deco-divider {
   display: flex;
   align-items: center;
@@ -277,7 +267,6 @@ const steps = computed(
   transition: background 0.3s ease;
 }
 
-/* ── Step content ─────────────────────────────────────────────── */
 .step-heading {
   font-family: var(--font-heading);
   font-weight: 600;
@@ -297,7 +286,6 @@ const steps = computed(
   margin: 0;
 }
 
-/* ── Footer strip ─────────────────────────────────────────────── */
 .footer-strip {
   display: flex;
   align-items: center;
@@ -381,7 +369,6 @@ const steps = computed(
   transition: transform 0.25s ease;
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .step-item,
   .step-numeral,
@@ -394,7 +381,6 @@ const steps = computed(
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .how-we-work-section { background: var(--color-section-alt); }
 
@@ -448,5 +434,4 @@ html:not(.dark) {
   .strip-label   { color: var(--color-primary-600); }
 }
 </style>
-
 

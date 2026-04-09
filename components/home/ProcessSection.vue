@@ -40,7 +40,7 @@ const steps = [
     class="process-section"
     aria-labelledby="process-heading"
   >
-    <!-- Section separator / label -->
+
     <div class="section-label-row" aria-hidden="true">
       <span class="sep-line" />
       <span class="sep-diamond" />
@@ -49,7 +49,6 @@ const steps = [
       <span class="sep-line" />
     </div>
 
-    <!-- Header -->
     <div
       class="process-header"
       :key="`process-header-${visible}`"
@@ -62,7 +61,6 @@ const steps = [
       </h2>
     </div>
 
-    <!-- Steps -->
     <ol class="steps-grid" role="list">
       <li
         v-for="(step, i) in steps"
@@ -72,21 +70,19 @@ const steps = [
         :initial="stepMotion(i).initial"
         :enter="visible ? stepMotion(i).visible : stepMotion(i).initial"
       >
-        <!-- Numeral row -->
+
         <div class="step-numeral-row" aria-hidden="true">
           <span class="step-rule" />
           <span class="step-numeral">{{ step.numeral }}</span>
           <span class="step-rule" />
         </div>
 
-        <!-- Deco divider -->
         <div class="step-deco-divider" aria-hidden="true">
           <span class="deco-line" />
           <span class="deco-diamond" />
           <span class="deco-line" />
         </div>
 
-        <!-- Content -->
         <h3 class="step-heading">
           {{ t(`landing.process.steps.${step.key}.title`) }}
         </h3>
@@ -99,7 +95,7 @@ const steps = [
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .process-section {
   position: relative;
   z-index: 1;
@@ -107,7 +103,6 @@ const steps = [
   padding-bottom: 0;
 }
 
-/* ── Section separator / label ────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -141,7 +136,6 @@ const steps = [
   flex-shrink: 0;
 }
 
-/* ── Header ───────────────────────────────────────────────────── */
 .process-header {
   max-width: 80rem;
   margin: 0 auto;
@@ -158,7 +152,6 @@ const steps = [
   letter-spacing: -0.02em;
 }
 
-/* ── Steps grid ───────────────────────────────────────────────── */
 .steps-grid {
   list-style: none;
   padding: 0;
@@ -176,7 +169,6 @@ const steps = [
   }
 }
 
-/* ── Step item ────────────────────────────────────────────────── */
 .step-item {
   padding: 2.5rem 2rem 3rem;
   border-right: 1px solid rgba(223, 175, 133, 0.08);
@@ -212,7 +204,6 @@ const steps = [
   }
 }
 
-/* ── Numeral row ──────────────────────────────────────────────── */
 .step-numeral-row {
   display: flex;
   align-items: center;
@@ -237,7 +228,6 @@ const steps = [
   transition: opacity 0.3s ease;
 }
 
-/* ── Deco divider ─────────────────────────────────────────────── */
 .step-deco-divider {
   display: flex;
   align-items: center;
@@ -260,7 +250,6 @@ const steps = [
   transition: background 0.3s ease;
 }
 
-/* ── Step content ─────────────────────────────────────────────── */
 .step-heading {
   font-family: var(--font-heading);
   font-weight: 600;
@@ -280,7 +269,6 @@ const steps = [
   margin: 0;
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .step-item,
   .step-numeral,
@@ -289,7 +277,6 @@ const steps = [
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .process-section {
     background: var(--color-section-alt);
@@ -354,5 +341,4 @@ html:not(.dark) {
   }
 }
 </style>
-
 

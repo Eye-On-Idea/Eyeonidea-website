@@ -58,11 +58,6 @@ export function useScrollProgress() {
     if (rafId !== null) cancelAnimationFrame(rafId);
   });
 
-  /**
-   * Returns a computed 0–1 value representing progress through a sub-range of the page.
-   * @param start - fraction of total page where this range begins (0–1)
-   * @param end   - fraction of total page where this range ends (0–1)
-   */
   const sectionProgress = (start: number, end: number) =>
     computed(() => {
       const p = smoothedProgress.value;

@@ -96,7 +96,7 @@ onMounted(() => {
     class="comparison-section"
     aria-labelledby="comparison-heading"
   >
-    <!-- Section label row -->
+
     <div class="section-label-row" aria-hidden="true">
       <span class="sep-line" />
       <span class="sep-diamond" />
@@ -106,7 +106,7 @@ onMounted(() => {
     </div>
 
     <div class="section-container">
-      <!-- Header -->
+
       <div class="section-header" :class="{ 'animate-in': isVisible }">
         <h2 id="comparison-heading" class="section-title">
           {{ t("services.comparison.title") }}
@@ -114,7 +114,6 @@ onMounted(() => {
         <p class="section-subtitle">{{ t("services.comparison.subtitle") }}</p>
       </div>
 
-      <!-- DESKTOP TABLE -->
       <div
         class="table-wrapper desktop-only"
         :class="{ 'animate-in': isVisible }"
@@ -263,7 +262,6 @@ onMounted(() => {
         </div>
       </div>
 
-      <!-- MOBILE ACCORDION -->
       <div
         class="mobile-comparison mobile-only"
         :class="{ 'animate-in': isVisible }"
@@ -403,20 +401,10 @@ onMounted(() => {
         </div>
 
         <div class="mobile-cta-row">
-          <!-- buttons
-          <AppCtaButton
-            v-for="pkg in packages"
-            :key="pkg"
-            :variant="pkg === 'growth' ? 'primary' : 'secondary'"
-            :to="localePath('/contact')"
-            class="mobile-cta-pkg-btn"
-          >
-            {{ getPackageName(pkg) }}
-          </AppCtaButton>-->
+
         </div>
       </div>
 
-      <!-- Legend -->
       <div class="legend" :class="{ 'animate-in': isVisible }">
         <div class="legend-item">
           <span class="check-diamond legend-check-diamond" aria-hidden="true" />
@@ -432,13 +420,12 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .comparison-section {
   background: #0d0908;
   padding-bottom: 0;
 }
 
-/* ── Section label row ────────────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -472,14 +459,12 @@ onMounted(() => {
   flex-shrink: 0;
 }
 
-/* ── Container ────────────────────────────────────────────────── */
 .section-container {
   max-width: 80rem;
   margin: 0 auto;
   padding: 0 2rem 5rem;
 }
 
-/* ── Header ───────────────────────────────────────────────────── */
 .section-header {
   margin-bottom: 3rem;
   opacity: 0;
@@ -514,7 +499,6 @@ onMounted(() => {
   margin: 0;
 }
 
-/* ── Desktop / Mobile breakpoints ────────────────────────────── */
 .desktop-only {
   display: none;
   @media (min-width: 768px) {
@@ -529,7 +513,6 @@ onMounted(() => {
   }
 }
 
-/* ── Table wrapper ────────────────────────────────────────────── */
 .table-wrapper {
   opacity: 0;
   transform: translateY(20px);
@@ -555,7 +538,6 @@ onMounted(() => {
   min-width: 600px;
 }
 
-/* ── Table header ─────────────────────────────────────────────── */
 .table-header {
   position: sticky;
   top: 0;
@@ -642,7 +624,6 @@ onMounted(() => {
   letter-spacing: 0.02em;
 }
 
-/* ── Category row ─────────────────────────────────────────────── */
 .category-row .category-header {
   background: #120f0d;
   padding: 0;
@@ -701,7 +682,6 @@ onMounted(() => {
   }
 }
 
-/* ── Feature rows ─────────────────────────────────────────────── */
 .feature-row {
   &:hover {
     .feature-name,
@@ -801,7 +781,6 @@ onMounted(() => {
   }
 }
 
-/* ── Check / Dash indicators ──────────────────────────────────── */
 .check-diamond {
   display: inline-block;
   width: 8px;
@@ -833,7 +812,6 @@ onMounted(() => {
   line-height: 1.3;
 }
 
-/* ── CTA footer ───────────────────────────────────────────────── */
 .cta-spacer {
   background: #0d0908;
   border-top: 1px solid rgba(223, 175, 133, 0.1);
@@ -860,7 +838,6 @@ onMounted(() => {
   font-size: 0.75rem;
 }
 
-/* ── Mobile comparison ────────────────────────────────────────── */
 .mobile-comparison {
   opacity: 0;
   transform: translateY(20px);
@@ -949,7 +926,6 @@ onMounted(() => {
   color: rgba(255, 237, 223, 0.4);
 }
 
-/* Mobile categories */
 .mobile-categories {
   border: 1px solid rgba(223, 175, 133, 0.1);
   border-top: none;
@@ -1123,7 +1099,6 @@ onMounted(() => {
   text-align: center;
 }
 
-/* Mobile CTA */
 .mobile-cta-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1137,7 +1112,6 @@ onMounted(() => {
   justify-content: center;
 }
 
-/* ── Legend ───────────────────────────────────────────────────── */
 .legend {
   display: flex;
   align-items: center;
@@ -1174,7 +1148,6 @@ onMounted(() => {
   flex-shrink: 0;
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .section-header,
   .table-wrapper,
@@ -1199,9 +1172,8 @@ onMounted(() => {
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
-  /* Section background + separator */
+
   .comparison-section {
     background: var(--color-section-light);
   }
@@ -1223,7 +1195,6 @@ html:not(.dark) {
     color: var(--color-text-secondary);
   }
 
-  /* ── Desktop table ────────────────────────────── */
   .table-container {
     border-color: rgba(153, 82, 38, 0.14);
     background: #fff;
@@ -1360,7 +1331,6 @@ html:not(.dark) {
     }
   }
 
-  /* ── Mobile accordion ─────────────────────────── */
   .mobile-pkg-header {
     background: linear-gradient(175deg, #ffffff 0%, #fff7f0 100%);
     border-color: rgba(153, 82, 38, 0.14);
@@ -1452,7 +1422,6 @@ html:not(.dark) {
     color: var(--color-primary-700);
   }
 
-  /* ── Legend ───────────────────────────────────── */
   .legend {
     border-top-color: var(--deco-line);
   }

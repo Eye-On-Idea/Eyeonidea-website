@@ -17,8 +17,7 @@ const cc = useCookieControl() as {
   acceptNecessary?: () => void;
   accept?: (cookies: string[]) => void;
 };
-// These method names are stable across versions; if TS complains,
-// fallback to cc.toggle and cc.accept/cc.decline patterns your version exposes.
+
 const acceptAll = () => cc.acceptAll?.();
 const rejectAll = () => cc.declineAll?.();
 const acceptOnlyNecessary = () =>

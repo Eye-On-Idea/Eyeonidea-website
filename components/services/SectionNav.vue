@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, nextTick, watch } from "vue";
-// Always visible — uses position:sticky to snap below header on scroll
 
 const { t } = useI18n();
 
@@ -12,9 +11,9 @@ export interface SectionNavItem {
 
 const props = withDefaults(
   defineProps<{
-    /** Override the default section list. Defaults to the full /solutions index sections. */
+
     sections?: SectionNavItem[];
-    /** aria-label for the nav element */
+
     ariaLabel?: string;
   }>(),
   {
@@ -23,7 +22,6 @@ const props = withDefaults(
   },
 );
 
-// Default section definitions for /solutions index — order matches page layout
 const defaultSections = computed<SectionNavItem[]>(() => [
   { id: "overview-websites", label: t("services.overview.nav.websites") },
   { id: "overview-identity", label: t("services.overview.nav.identity") },
@@ -70,7 +68,6 @@ const updatePill = () => {
     width: `${buttonRect.width}px`,
   };
 
-  // Scroll active item into view on mobile
   activeButton.scrollIntoView({
     inline: "center",
     block: "nearest",
@@ -89,13 +86,11 @@ const scrollToSection = (sectionId: string) => {
   isScrolling.value = true;
   activeId.value = sectionId;
 
-  // Account for header + this nav bar so the section isn't hidden behind them
   const navHeight = navRef.value?.offsetHeight ?? 0;
   const offset = stickyTop.value + navHeight;
   const top = element.getBoundingClientRect().top + window.scrollY - offset;
   window.scrollTo({ top, behavior: "smooth" });
 
-  // Re-enable observer-based tracking after scroll settles
   setTimeout(() => {
     isScrolling.value = false;
   }, 1000);
@@ -132,11 +127,9 @@ const handleKeydown = (event: KeyboardEvent, index: number) => {
 };
 
 onMounted(() => {
-  // Measure header bottom so sticky nav snaps directly below the floating header
   nextTick(measureHeaderBottom);
   window.addEventListener("resize", measureHeaderBottom);
 
-  // Observe each section for active tracking
   sectionObservers = new IntersectionObserver(
     (entries) => {
       if (isScrolling.value) return;
@@ -158,7 +151,6 @@ onMounted(() => {
     if (el) sectionObservers!.observe(el);
   });
 
-  // Update pill position on resize
   window.addEventListener("resize", updatePill);
 });
 
@@ -184,7 +176,7 @@ onUnmounted(() => {
         role="tablist"
         :aria-label="navAriaLabel"
       >
-        <!-- Animated pill indicator -->
+
         <span class="section-nav__pill" :style="pillStyle" aria-hidden="true" />
 
         <button
@@ -209,24 +201,19 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-/* ── Outer wrapper — just handles sticky positioning ────────────── */
+
 .section-nav {
   position: sticky;
-  top: 0; /* overridden dynamically via inline style to match floating header bottom */
+  top: 0;
   z-index: 40;
   display: flex;
   justify-content: center;
-  /*
-   * Thin full-width backdrop so wide viewports don't expose the raw body
-   * behind the left/right edges of the inner container.
-   * The fixed html ambient gradient shows through here at the sides.
-   */
+
   background: rgba(13, 9, 8, 0.45);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
 
-/* ── Inner container — the pill extension that visually attaches to the header ── */
 .section-nav__container {
   width: 90%;
   max-width: 1260px;
@@ -234,32 +221,20 @@ onUnmounted(() => {
   padding: 0 1.5rem;
   position: relative;
 
-  /* Same glassmorphism background as the header */
   background: color-mix(in srgb, #0d0908 72%, transparent);
   backdrop-filter: blur(18px) saturate(180%);
   -webkit-backdrop-filter: blur(18px) saturate(180%);
 
-  /*
-   * Amber ring matching the header:
-   *   layer 1 — 1px amber border ring (same opacity as header's 0 0 0 1px)
-   *   layer 2 — 3px outer amber glow  (same opacity as header's 0 0 0 3px)
-   *   layer 3 — drop shadow
-   * The top portion of the ring is hidden behind the header (z-index 50 > 40),
-   * so only the sides and bottom of the ring are visible — a clean flush join.
-   */
   box-shadow:
     0 0 0 1px rgba(223, 175, 133, 0.25),
     0 0 0 4px rgba(223, 175, 133, 0.07),
     0 6px 24px rgba(0, 0, 0, 0.35);
 
-  /* Round the bottom corners to mirror the header pill */
   border-radius: 0 0 1.5rem 1.5rem;
 
-  /* Clip nav content to the rounded corners */
   overflow: hidden;
 }
 
-/* ── Scroll track ────────────────────────────────────────────────── */
 .section-nav__scroll {
   position: relative;
   display: flex;
@@ -269,7 +244,7 @@ onUnmounted(() => {
   overflow-y: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  /* Top padding creates breathing room below the header bottom edge */
+
   padding: 6px 0 10px;
 }
 
@@ -277,7 +252,6 @@ onUnmounted(() => {
   display: none;
 }
 
-/* ── Active underline indicator ──────────────────────────────────── */
 .section-nav__pill {
   position: absolute;
   bottom: 4px;
@@ -300,7 +274,6 @@ onUnmounted(() => {
   border: none;
 }
 
-/* ── Nav items ───────────────────────────────────────────────────── */
 .section-nav__item {
   position: relative;
   z-index: 1;
@@ -337,19 +310,16 @@ onUnmounted(() => {
   color: rgba(223, 175, 133, 0.75);
 }
 
-/* Active state */
 .section-nav__item--active .section-nav__label {
   color: #dfaf85;
 }
 
-/* ── Centred tabs on wide screens ─────────────────────────────── */
 @media (min-width: 1024px) {
   .section-nav__scroll {
     justify-content: center;
   }
 }
 
-/* ── Right fade on mobile to hint overflow ──────────────────────── */
 @media (max-width: 1023px) {
   .section-nav__container::after {
     content: "";
@@ -358,7 +328,7 @@ onUnmounted(() => {
     right: 0;
     bottom: 0;
     width: 3rem;
-    /* Fade to match the container background */
+
     background: linear-gradient(to right, transparent, rgba(13, 9, 8, 0.85));
     pointer-events: none;
     z-index: 2;
@@ -366,7 +336,6 @@ onUnmounted(() => {
   }
 }
 
-/* ── Reduced motion ──────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .section-nav__pill,
   .section-nav__label {
@@ -374,7 +343,6 @@ onUnmounted(() => {
   }
 }
 
-/* ── Reduced transparency ────────────────────────────────────────── */
 @media (prefers-reduced-transparency: reduce) {
   .section-nav__container {
     background: #0d0908;
@@ -383,7 +351,6 @@ onUnmounted(() => {
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) .section-nav {
   background: rgba(250, 247, 244, 0.6);
 }

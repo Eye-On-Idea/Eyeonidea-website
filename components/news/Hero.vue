@@ -5,7 +5,7 @@
 
     <UContainer class="max-w-480 relative z-10">
       <div class="hero-content">
-        <!-- Header -->
+
         <div
           v-motion
           :initial="motionVariants.fadeInUp.initial"
@@ -24,7 +24,6 @@
           </p>
         </div>
 
-        <!-- Featured Post -->
         <div
           v-if="featuredPost"
           v-motion
@@ -38,7 +37,6 @@
           <NewsFeaturedPost :post="featuredPost" />
         </div>
 
-        <!-- Skeleton for loading -->
         <div v-else-if="pending" class="featured-skeleton">
           <div class="skeleton-image"></div>
           <div class="skeleton-content">
@@ -145,7 +143,6 @@ const motionVariants = {
   width: 100%;
 }
 
-/* Skeleton loading */
 .featured-skeleton {
   position: relative;
   border-radius: 20px;
@@ -210,7 +207,6 @@ const motionVariants = {
   }
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .skeleton-image {
     animation: none;

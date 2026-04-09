@@ -52,11 +52,8 @@ const sections = computed(() => {
 
 const currency = computed(() => t("services.addons.currency"));
 
-// Mobile: track which sections are expanded
-// Default: all open
 const expandedSections = ref<Set<string>>(new Set());
 
-// Initialise all sections as expanded once we know the keys
 const allExpanded = ref(true);
 
 const initExpanded = () => {
@@ -108,7 +105,6 @@ const formatUnit = (unit: string): string => {
   >
     <div class="section-container">
 
-      <!-- Section Header -->
       <div class="section-header" :class="{ 'animate-in': isVisible }">
         <SectionHeader
           :badge="t('services.addons.badge')"
@@ -118,7 +114,6 @@ const formatUnit = (unit: string): string => {
           align="center"
         />
 
-        <!-- Mobile: toggle all -->
         <button
           type="button"
           class="toggle-all-btn"
@@ -134,7 +129,6 @@ const formatUnit = (unit: string): string => {
         </button>
       </div>
 
-      <!-- Named Add-on Sections -->
       <div class="addons-sections" :class="{ 'animate-in': isVisible }">
         <div
           v-for="(section, sectionIndex) in sections"
@@ -143,7 +137,7 @@ const formatUnit = (unit: string): string => {
           class="addon-section"
           :class="`stagger-${sectionIndex + 1}`"
         >
-          <!-- Section heading row — acts as mobile toggle -->
+
           <button
             type="button"
             class="addon-section__header"
@@ -163,7 +157,6 @@ const formatUnit = (unit: string): string => {
             />
           </button>
 
-          <!-- Price list -->
           <div
             :id="`addon-body-${section.key}`"
             class="addon-section__body"
@@ -193,7 +186,6 @@ const formatUnit = (unit: string): string => {
         </div>
       </div>
 
-      <!-- VAT Note -->
       <p class="vat-note" :class="{ 'animate-in': isVisible }">
         {{ t("services.addons.vatNote") }}
       </p>
@@ -221,8 +213,6 @@ const formatUnit = (unit: string): string => {
   margin: 0 auto;
 }
 
-// ─── Header ──────────────────────────────────────────────────────────────────
-
 .section-header {
   opacity: 0;
   transform: translateY(24px);
@@ -236,7 +226,6 @@ const formatUnit = (unit: string): string => {
   }
 }
 
-// Mobile-only toggle all
 .toggle-all-btn {
   display: inline-flex;
   align-items: center;
@@ -264,7 +253,6 @@ const formatUnit = (unit: string): string => {
     outline-offset: 2px;
   }
 
-  // Hidden on desktop — all sections always open
   @media (min-width: 768px) {
     display: none;
   }
@@ -274,8 +262,6 @@ const formatUnit = (unit: string): string => {
   width: 16px;
   height: 16px;
 }
-
-// ─── Sections list ───────────────────────────────────────────────────────────
 
 .addons-sections {
   display: flex;
@@ -303,14 +289,11 @@ const formatUnit = (unit: string): string => {
     border-bottom: none;
   }
 
-  // Stagger entrance
   &.stagger-1 { transition-delay: 120ms; }
   &.stagger-2 { transition-delay: 200ms; }
   &.stagger-3 { transition-delay: 280ms; }
   &.stagger-4 { transition-delay: 360ms; }
 }
-
-// ─── Section header (button) ─────────────────────────────────────────────────
 
 .addon-section__header {
   display: flex;
@@ -335,7 +318,6 @@ const formatUnit = (unit: string): string => {
     outline-offset: -2px;
   }
 
-  // On desktop, not interactive (content always shown)
   @media (min-width: 768px) {
     cursor: default;
     pointer-events: none;
@@ -365,7 +347,6 @@ const formatUnit = (unit: string): string => {
   color: var(--color-text-muted);
   margin: 0;
 
-  // Hide description on mobile (saves space in collapsed state)
   @media (max-width: 767px) {
     display: none;
   }
@@ -382,16 +363,12 @@ const formatUnit = (unit: string): string => {
     transform: rotate(180deg);
   }
 
-  // Hidden on desktop
   @media (min-width: 768px) {
     display: none;
   }
 }
 
-// ─── Section body ────────────────────────────────────────────────────────────
-
 .addon-section__body {
-  // Mobile: collapsed by default, opens via JS class
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.35s var(--ease-smooth);
@@ -400,7 +377,6 @@ const formatUnit = (unit: string): string => {
     max-height: 600px;
   }
 
-  // Desktop: always visible, no animation needed
   @media (min-width: 768px) {
     max-height: none !important;
     overflow: visible;
@@ -413,8 +389,6 @@ const formatUnit = (unit: string): string => {
   color: var(--color-text-subtle);
   font-style: italic;
 }
-
-// ─── Price list ──────────────────────────────────────────────────────────────
 
 .price-list {
   list-style: none;
@@ -471,8 +445,6 @@ const formatUnit = (unit: string): string => {
   color: var(--color-text-muted);
 }
 
-// ─── VAT note ────────────────────────────────────────────────────────────────
-
 .vat-note {
   text-align: center;
   font-size: var(--text-sm);
@@ -489,8 +461,6 @@ const formatUnit = (unit: string): string => {
     transform: translateY(0);
   }
 }
-
-// ─── Dark mode ───────────────────────────────────────────────────────────────
 
 :root.dark {
   .addons-section {
@@ -509,8 +479,6 @@ const formatUnit = (unit: string): string => {
     color: var(--color-primary-300);
   }
 }
-
-// ─── Reduced motion ──────────────────────────────────────────────────────────
 
 @media (prefers-reduced-motion: reduce) {
   .section-header,

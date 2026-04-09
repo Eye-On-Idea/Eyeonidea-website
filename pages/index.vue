@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const { t, locale } = useI18n();
 
-// Map i18n locale codes to cookie-control ISO 639-1 codes (dk → da)
 const cookieLocale = computed(() =>
   locale.value === "dk" ? "da" : locale.value,
 );
@@ -100,9 +99,7 @@ useSeo({
 
 <template>
   <div class="homepage">
-    <!-- Fixed background image — sits beneath every section at z-index -1.
-         Sections with solid/semi-transparent backgrounds naturally cover it;
-         transparent sections let it show through as ambient atmosphere. -->
+
     <div class="homepage-bg" aria-hidden="true">
       <img
         src="/images/landing/hero.webp"
@@ -122,7 +119,6 @@ useSeo({
     <HomeAboutSection />
     <HomeCTASection />
 
-    <!-- Cookie Control -->
     <CookieControl :locale="cookieLocale" />
   </div>
 </template>
@@ -133,7 +129,6 @@ useSeo({
   position: relative;
 }
 
-/* Fixed hero image — always visible behind transparent sections */
 .homepage-bg {
   position: fixed;
   inset: 0;
@@ -143,7 +138,7 @@ useSeo({
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  /* Fallback colour fills any edges beyond max image dimensions */
+
   background: #0d0908;
 }
 

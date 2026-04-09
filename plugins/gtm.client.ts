@@ -11,14 +11,13 @@ export default defineNuxtPlugin(() => {
   let loaded = false;
 
   const ensureDataLayer = () => {
-    // @ts-expect-error
+
     window.dataLayer = window.dataLayer || [];
   };
 
   const pushDefaultConsent = () => {
     ensureDataLayer();
-    // Default denied BEFORE GTM loads
-    // @ts-expect-error
+
     window.dataLayer.push({
       event: "default_consent",
       ad_user_data: "denied",
@@ -32,7 +31,7 @@ export default defineNuxtPlugin(() => {
     if (loaded || !hasGTM()) return;
     loaded = true;
     pushDefaultConsent();
-    // Inject GTM
+
     const s = document.createElement("script");
     s.async = true;
     s.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(
@@ -45,9 +44,7 @@ export default defineNuxtPlugin(() => {
     if (!loaded) return;
     const allowContainer = hasGTM();
     const allowAnalytics = hasGA();
-    // Update Consent Mode
     ensureDataLayer();
-    // @ts-expect-error
     window.dataLayer?.push({
       event: "consent_update",
       ad_user_data: "denied",
@@ -55,8 +52,6 @@ export default defineNuxtPlugin(() => {
       ad_storage: allowContainer ? "granted" : "denied",
       analytics_storage: allowAnalytics ? "granted" : "denied",
     });
-    // Optional: custom event for GTM triggers
-    // @ts-expect-error
     window.dataLayer?.push({
       event: "cookie_preferences_changed",
       cookiesEnabledIds: cookiesEnabledIds.value ? [...cookiesEnabledIds.value] : [],

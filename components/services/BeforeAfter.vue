@@ -77,7 +77,7 @@ onMounted(() => {
     class="before-after"
     aria-labelledby="before-after-heading"
   >
-    <!-- Section label row -->
+
     <div class="section-label-row" aria-hidden="true">
       <span class="sep-line" />
       <span class="sep-diamond" />
@@ -87,7 +87,7 @@ onMounted(() => {
     </div>
 
     <div class="section-container">
-      <!-- Header -->
+
       <div class="section-header" :class="{ 'animate-in': isVisible }">
         <h2 id="before-after-heading" class="section-title">
           {{ t("services.beforeAfter.title") }}
@@ -95,7 +95,6 @@ onMounted(() => {
         <p class="section-subtitle">{{ t("services.beforeAfter.subtitle") }}</p>
       </div>
 
-      <!-- Comparison slider -->
       <div
         ref="sliderRef"
         class="comparison-slider"
@@ -112,7 +111,7 @@ onMounted(() => {
         @pointercancel="onPointerUp"
         @keydown="onKeyDown"
       >
-        <!-- Before panel -->
+
         <div class="panel panel--before">
           <div class="panel__label">{{ t("services.beforeAfter.beforeLabel") }}</div>
           <div class="panel__metrics">
@@ -123,7 +122,6 @@ onMounted(() => {
           </div>
         </div>
 
-        <!-- After panel (clipped by slider) -->
         <div
           class="panel panel--after"
           :style="{
@@ -140,7 +138,6 @@ onMounted(() => {
           </div>
         </div>
 
-        <!-- Slider handle -->
         <div class="slider-handle" :style="{ left: `${sliderPosition}%` }" aria-hidden="true">
           <div class="slider-line" />
           <div class="slider-grip">
@@ -153,13 +150,12 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .before-after {
   background: #0d0908;
   padding-bottom: 0;
 }
 
-/* ── Section label row ────────────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -193,14 +189,12 @@ onMounted(() => {
   flex-shrink: 0;
 }
 
-/* ── Container ────────────────────────────────────────────────── */
 .section-container {
   max-width: 56rem;
   margin: 0 auto;
   padding: 0 2rem 5rem;
 }
 
-/* ── Header ───────────────────────────────────────────────────── */
 .section-header {
   margin-bottom: 2.5rem;
   opacity: 0;
@@ -235,7 +229,6 @@ onMounted(() => {
   margin: 0;
 }
 
-/* ── Slider wrapper ───────────────────────────────────────────── */
 .comparison-slider {
   position: relative;
   border: 1px solid rgba(223, 175, 133, 0.12);
@@ -261,7 +254,6 @@ onMounted(() => {
   }
 }
 
-/* ── Panels ───────────────────────────────────────────────────── */
 .panel {
   padding: 2.5rem 2rem;
   min-height: 300px;
@@ -303,7 +295,6 @@ onMounted(() => {
   color: rgba(223, 175, 133, 0.8);
 }
 
-/* ── Metrics ──────────────────────────────────────────────────── */
 .panel__metrics {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -346,7 +337,6 @@ onMounted(() => {
   letter-spacing: 0.08em;
 }
 
-/* ── Slider handle ────────────────────────────────────────────── */
 .slider-handle {
   position: absolute;
   top: 0;
@@ -391,7 +381,6 @@ onMounted(() => {
   line-height: 1;
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .section-header,
   .comparison-slider {
@@ -401,7 +390,6 @@ onMounted(() => {
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .before-after { background: var(--color-section-alt); }
 
@@ -412,9 +400,7 @@ html:not(.dark) {
   .section-title    { color: var(--color-text-primary); }
   .section-subtitle { color: var(--color-text-subtle); }
 
-  /* The comparison slider widget stays dark — it's a functional demo element */
   .comparison-slider { border-color: var(--deco-line); }
 }
 </style>
-
 

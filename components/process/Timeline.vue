@@ -65,7 +65,6 @@ onMounted(() => {
     "(prefers-reduced-motion: reduce)",
   ).matches;
 
-  // Section visibility
   const sectionObs = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -79,7 +78,6 @@ onMounted(() => {
   );
   sectionObs.observe(sectionRef.value);
 
-  // Individual step stagger animation (one-time reveal)
   stepObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -93,7 +91,6 @@ onMounted(() => {
     { threshold: 0.15, rootMargin: "0px 0px -50px 0px" },
   );
 
-  // Active step tracking (continuous — highlights current step)
   if (!prefersReduced) {
     activeObserver = new IntersectionObserver(
       (entries) => {
@@ -129,7 +126,7 @@ onMounted(() => {
     class="process-timeline"
     aria-labelledby="timeline-heading"
   >
-    <!-- Section label row -->
+
     <div class="section-label-row" aria-hidden="true">
       <span class="sep-line" />
       <span class="sep-diamond" />
@@ -139,7 +136,7 @@ onMounted(() => {
     </div>
 
     <div class="section-container">
-      <!-- Header -->
+
       <div class="section-header" :class="{ 'animate-in': isVisible }">
         <h2 id="timeline-heading" class="section-title">
           {{ t("process.timeline.title") }}
@@ -147,7 +144,6 @@ onMounted(() => {
         <p class="section-intro">{{ t("process.intro.text") }}</p>
       </div>
 
-      <!-- Timeline -->
       <div class="timeline">
         <article
           v-for="(step, index) in steps"
@@ -164,7 +160,7 @@ onMounted(() => {
           }"
           :style="{ transitionDelay: visibleSteps.has(step.key) ? `${index * 60}ms` : '0ms' }"
         >
-          <!-- Left rail: connector line + badge -->
+
           <div class="timeline-connector" aria-hidden="true">
             <div class="connector-line">
               <div class="connector-line__fill" />
@@ -177,9 +173,8 @@ onMounted(() => {
             </div>
           </div>
 
-          <!-- Step card -->
           <div class="step-card">
-            <!-- Corner frame -->
+
             <div class="deco-frame" aria-hidden="true">
               <span class="corner corner--tl" />
               <span class="corner corner--tr" />
@@ -187,7 +182,6 @@ onMounted(() => {
               <span class="corner corner--br" />
             </div>
 
-            <!-- Card header -->
             <div class="step-card__header">
               <div class="step-numeral-row" aria-hidden="true">
                 <span class="step-rule" />
@@ -199,7 +193,6 @@ onMounted(() => {
 
             <p class="step-description">{{ step.description }}</p>
 
-            <!-- Step visual -->
             <div class="step-image-wrap">
               <NuxtImg
                 :src="stepImages[step.key]"
@@ -219,7 +212,6 @@ onMounted(() => {
               </div>
             </div>
 
-            <!-- Details list -->
             <ul class="step-details" role="list">
               <li
                 v-for="(detail, dIndex) in step.details"
@@ -231,12 +223,10 @@ onMounted(() => {
               </li>
             </ul>
 
-            <!-- Optional note -->
             <div v-if="step.note" class="step-note">
               <p>{{ step.note }}</p>
             </div>
 
-            <!-- Optional CTA -->
             <div v-if="step.cta" class="step-cta-wrapper">
               <AppCtaButton
                 variant="secondary"
@@ -254,13 +244,12 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .process-timeline {
   background: #0d0908;
   padding-bottom: 0;
 }
 
-/* ── Section label row ────────────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -294,14 +283,12 @@ onMounted(() => {
   flex-shrink: 0;
 }
 
-/* ── Container ────────────────────────────────────────────────── */
 .section-container {
   max-width: 52rem;
   margin: 0 auto;
   padding: 0 2rem 5rem;
 }
 
-/* ── Header ───────────────────────────────────────────────────── */
 .section-header {
   margin-bottom: 3.5rem;
   opacity: 0;
@@ -336,7 +323,6 @@ onMounted(() => {
   margin: 0;
 }
 
-/* ── Timeline ─────────────────────────────────────────────────── */
 .timeline {
   position: relative;
   display: flex;
@@ -344,7 +330,6 @@ onMounted(() => {
   gap: 0;
 }
 
-/* ── Step ─────────────────────────────────────────────────────── */
 .timeline-step {
   display: grid;
   grid-template-columns: 2.5rem 1fr;
@@ -366,7 +351,6 @@ onMounted(() => {
   }
 }
 
-/* ── Left connector rail ──────────────────────────────────────── */
 .timeline-connector {
   display: flex;
   flex-direction: column;
@@ -431,7 +415,6 @@ onMounted(() => {
   color: rgba(223, 175, 133, 0.55);
 }
 
-/* Active step highlights */
 .timeline-step--active .connector-badge {
   border-color: rgba(223, 175, 133, 0.5);
   background: rgba(223, 175, 133, 0.1);
@@ -449,7 +432,6 @@ onMounted(() => {
   background: rgba(223, 175, 133, 0.45);
 }
 
-/* ── Step card ────────────────────────────────────────────────── */
 .step-card {
   position: relative;
   background: #161210;
@@ -466,7 +448,6 @@ onMounted(() => {
   }
 }
 
-/* ── Corner frame ─────────────────────────────────────────────── */
 .deco-frame {
   position: absolute;
   inset: 0.75rem;
@@ -486,7 +467,6 @@ onMounted(() => {
   &--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
 }
 
-/* ── Card header ──────────────────────────────────────────────── */
 .step-card__header {
   margin-bottom: 0.875rem;
 }
@@ -521,7 +501,6 @@ onMounted(() => {
   letter-spacing: -0.01em;
 }
 
-/* ── Description ──────────────────────────────────────────────── */
 .step-description {
   font-family: var(--font-text);
   font-weight: 300;
@@ -531,7 +510,6 @@ onMounted(() => {
   margin: 0 0 1.25rem;
 }
 
-/* ── Details list ─────────────────────────────────────────────── */
 .step-details {
   list-style: none;
   padding: 0;
@@ -559,7 +537,6 @@ onMounted(() => {
   transform: rotate(45deg);
 }
 
-/* ── Note callout ─────────────────────────────────────────────── */
 .step-note {
   padding: 0.875rem 1rem;
   border-left: 2px solid rgba(223, 175, 133, 0.3);
@@ -576,12 +553,10 @@ onMounted(() => {
   }
 }
 
-/* ── Step CTA ─────────────────────────────────────────────────── */
 .step-cta-wrapper {
   margin-top: 0.5rem;
 }
 
-/* ── Step image ───────────────────────────────────────────────── */
 .step-image-wrap {
   position: relative;
   width: 100%;
@@ -618,7 +593,6 @@ onMounted(() => {
   &--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .section-header,
   .timeline-step {
@@ -638,7 +612,6 @@ onMounted(() => {
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .process-timeline { background: var(--color-section-light); }
 

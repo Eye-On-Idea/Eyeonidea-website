@@ -79,7 +79,6 @@ const getBadgeLabel = (company: string) => {
   return company;
 };
 
-// Scroll-reveal
 const heroRef = ref<HTMLElement | null>(null);
 const gridRef = ref<HTMLElement | null>(null);
 const isHeroVisible = ref(false);
@@ -108,7 +107,7 @@ onMounted(() => {
 
 <template>
   <div class="cases-page">
-    <!-- ── Hero ──────────────────────────────────────────────── -->
+
     <section
       ref="heroRef"
       class="cases-hero"
@@ -130,7 +129,6 @@ onMounted(() => {
 
       <div class="hero-bg" aria-hidden="true" />
 
-      <!-- Art deco corner brackets — full viewport edges like PageHero -->
       <div class="deco-frame deco-frame--page" aria-hidden="true">
         <span class="corner corner--tl" />
         <span class="corner corner--tr" />
@@ -160,10 +158,9 @@ onMounted(() => {
       </div>
     </section>
 
-    <!-- ── Cases Grid ─────────────────────────────────────────── -->
     <section ref="gridRef" class="cases-grid-section" aria-label="Case studies">
       <div class="section-container">
-        <!-- Client Work -->
+
         <div
           v-if="groupedCases.clientWork.length > 0"
           class="cases-category"
@@ -185,7 +182,7 @@ onMounted(() => {
               class="case-card"
               :style="{ transitionDelay: `${i * 60}ms` }"
             >
-              <!-- Image / gradient area -->
+
               <div class="card-visual">
                 <div class="card-visual__gradient" aria-hidden="true" />
                 <img
@@ -197,9 +194,8 @@ onMounted(() => {
                 <span class="card-badge">{{ cs.company }}</span>
               </div>
 
-              <!-- Body -->
               <div class="card-body">
-                <!-- Corner frame -->
+
                 <div class="deco-frame deco-frame--card" aria-hidden="true">
                   <span class="corner corner--tl" />
                   <span class="corner corner--br" />
@@ -230,7 +226,6 @@ onMounted(() => {
           </div>
         </div>
 
-        <!-- Our Brands -->
         <div
           v-if="groupedCases.myCompanies.length > 0"
           class="cases-category"
@@ -299,7 +294,6 @@ onMounted(() => {
           </div>
         </div>
 
-        <!-- Empty state -->
         <div v-if="caseStudies.length === 0" class="cases-empty">
           <span class="empty-diamond" aria-hidden="true" />
           <p class="cases-empty__text">No case studies available yet.</p>
@@ -307,7 +301,6 @@ onMounted(() => {
       </div>
     </section>
 
-    <!-- ── CTA ────────────────────────────────────────────────── -->
     <section class="cases-cta" aria-labelledby="cases-cta-heading">
       <div class="cta-bg-radial" aria-hidden="true" />
       <div class="cta-container">
@@ -359,13 +352,12 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-/* ── Page ─────────────────────────────────────────────────────── */
+
 .cases-page {
   min-height: 100vh;
   background: #0d0908;
 }
 
-/* ── Hero ─────────────────────────────────────────────────────── */
 .cases-hero {
   position: relative;
   background: #0d0908;
@@ -382,7 +374,6 @@ onMounted(() => {
   }
 }
 
-/* Hero photo background */
 .hero-image {
   position: absolute;
   inset: 0;
@@ -393,14 +384,12 @@ onMounted(() => {
   z-index: 0;
 }
 
-/* Mobile: left-align hero image */
 @media (max-width: 767px) {
   .hero-image {
     object-position: left center;
   }
 }
 
-/* Gradient overlay: dark left (text) → lighter right (image shows) */
 .hero-image-overlay {
   position: absolute;
   inset: 0;
@@ -416,7 +405,6 @@ onMounted(() => {
   z-index: 1;
 }
 
-/* Parallax ambient layer — matches PageHero */
 .hero-bg {
   position: absolute;
   inset: -10% 0;
@@ -435,7 +423,6 @@ onMounted(() => {
   pointer-events: none;
 }
 
-/* Art deco corner brackets — full section edges */
 .deco-frame--page {
   position: absolute;
   inset: 2rem;
@@ -443,7 +430,6 @@ onMounted(() => {
   z-index: 5;
 }
 
-/* Max-width content container — left-aligned like PageHero */
 .hero-container {
   position: relative;
   z-index: 3;
@@ -469,7 +455,6 @@ onMounted(() => {
   }
 }
 
-/* ── Corner frame (shared card + page variants) ───────────────── */
 .deco-frame {
   position: absolute;
   inset: 0.75rem;
@@ -538,7 +523,6 @@ onMounted(() => {
   }
 }
 
-/* ── Label rows ───────────────────────────────────────────────── */
 .hero-label-row,
 .cta-label-row {
   display: flex;
@@ -576,7 +560,6 @@ onMounted(() => {
   flex-shrink: 0;
 }
 
-/* ── Hero text ────────────────────────────────────────────────── */
 .hero-heading {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -587,7 +570,6 @@ onMounted(() => {
   margin: 0 0 1.75rem;
 }
 
-/* ── Deco divider ─────────────────────────────────────────────── */
 .hero-deco-divider {
   display: flex;
   align-items: center;
@@ -639,7 +621,6 @@ onMounted(() => {
   margin: 0;
 }
 
-/* ── Grid section ─────────────────────────────────────────────── */
 .cases-grid-section {
   background: #0d0908;
   padding: 5rem 0 7rem;
@@ -651,7 +632,6 @@ onMounted(() => {
   padding: 0 2rem;
 }
 
-/* ── Category block ───────────────────────────────────────────── */
 .cases-category {
   margin-bottom: 5rem;
   opacity: 0;
@@ -701,7 +681,6 @@ onMounted(() => {
   flex-shrink: 0;
 }
 
-/* ── Cases grid ───────────────────────────────────────────────── */
 .cases-grid {
   display: grid;
   gap: 1.25rem;
@@ -716,7 +695,6 @@ onMounted(() => {
   }
 }
 
-/* ── Case card ────────────────────────────────────────────────── */
 .case-card {
   display: flex;
   flex-direction: column;
@@ -740,7 +718,6 @@ onMounted(() => {
   }
 }
 
-/* ── Card visual area ─────────────────────────────────────────── */
 .card-visual {
   position: relative;
   aspect-ratio: 16 / 9;
@@ -803,7 +780,6 @@ onMounted(() => {
   }
 }
 
-/* ── Card body ────────────────────────────────────────────────── */
 .card-body {
   position: relative;
   padding: 1.5rem;
@@ -835,7 +811,6 @@ onMounted(() => {
   margin: 0 0 1rem;
 }
 
-/* ── Tags ─────────────────────────────────────────────────────── */
 .card-tags {
   display: flex;
   flex-wrap: wrap;
@@ -852,7 +827,6 @@ onMounted(() => {
   letter-spacing: 0.03em;
 }
 
-/* ── Card footer ──────────────────────────────────────────────── */
 .card-footer {
   display: flex;
   align-items: center;
@@ -892,7 +866,6 @@ onMounted(() => {
   }
 }
 
-/* ── Empty state ──────────────────────────────────────────────── */
 .cases-empty {
   text-align: center;
   padding: 5rem 1rem;
@@ -914,7 +887,6 @@ onMounted(() => {
   color: rgba(255, 237, 223, 0.35);
 }
 
-/* ── CTA section ──────────────────────────────────────────────── */
 .cases-cta {
   position: relative;
   background: #0d0908;
@@ -979,7 +951,6 @@ onMounted(() => {
   justify-content: center;
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .hero-content,
   .cases-category {
@@ -998,18 +969,15 @@ onMounted(() => {
   }
 }
 
-/* ── Light mode ───────────────────────────────────────────────── */
 html:not(.dark) {
-  /* Page & hero */
+
   .cases-page {
     background: var(--color-section-light);
   }
-  // cases-hero has a bg image + dark overlay — keep dark colors regardless of mode
   .cases-hero {
     background: #0d0908;
   }
 
-  /* Grid section */
   .cases-grid-section {
     background: var(--color-section-light);
   }
@@ -1024,7 +992,6 @@ html:not(.dark) {
     color: var(--deco-text);
   }
 
-  /* Case cards */
   .case-card {
     background: linear-gradient(175deg, #ffffff 0%, #fff7f0 100%);
     border-color: var(--deco-line);
@@ -1097,7 +1064,6 @@ html:not(.dark) {
     color: var(--color-primary-800);
   }
 
-  /* CTA section */
   .cases-cta {
     background: var(--color-section-alt);
   }
@@ -1138,7 +1104,6 @@ html:not(.dark) {
     color: var(--color-text-subtle);
   }
 
-  /* Empty state */
   .empty-diamond {
     background: rgba(153, 82, 38, 0.08);
     border-color: var(--deco-line);

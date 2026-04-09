@@ -29,7 +29,7 @@ onMounted(() => {
     class="about-story"
     aria-labelledby="story-heading"
   >
-    <!-- Section label row -->
+
     <div class="section-label-row" aria-hidden="true">
       <span class="sep-line" />
       <span class="sep-diamond" />
@@ -40,14 +40,13 @@ onMounted(() => {
 
     <div class="section-container">
       <div class="story-grid" :class="{ 'animate-in': isVisible }">
-        <!-- Left: heading (sticky) -->
+
         <div class="story-heading-col">
           <h2 id="story-heading" class="section-title">
             {{ t("about.story.title") }}
           </h2>
         </div>
 
-        <!-- Right: paragraphs -->
         <div class="story-content-col">
           <p
             v-for="(paragraph, index) in tm('about.story.paragraphs') as string[]"
@@ -60,7 +59,6 @@ onMounted(() => {
         </div>
       </div>
 
-      <!-- Story wide image -->
       <div class="story-image-wrap">
         <NuxtImg
           src="/images/about/story.jpg"
@@ -84,13 +82,12 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .about-story {
   background: #0d0908;
   padding-bottom: 0;
 }
 
-/* ── Section label row ────────────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -124,14 +121,12 @@ onMounted(() => {
   flex-shrink: 0;
 }
 
-/* ── Container ────────────────────────────────────────────────── */
 .section-container {
   max-width: 80rem;
   margin: 0 auto;
   padding: 0 2rem 6rem;
 }
 
-/* ── Story grid ───────────────────────────────────────────────── */
 .story-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -155,7 +150,6 @@ onMounted(() => {
   }
 }
 
-/* ── Left: sticky heading ─────────────────────────────────────── */
 .story-heading-col {
   @media (min-width: 768px) {
     position: sticky;
@@ -173,7 +167,6 @@ onMounted(() => {
   margin: 0;
 }
 
-/* ── Right: content col ───────────────────────────────────────── */
 .story-content-col {
   display: flex;
   flex-direction: column;
@@ -214,7 +207,6 @@ onMounted(() => {
   }
 }
 
-/* ── Story wide image ─────────────────────────────────────────── */
 .story-image-wrap {
   position: relative;
   width: 100%;
@@ -235,7 +227,6 @@ onMounted(() => {
   object-position: center;
 }
 
-/* ── Corner frame ─────────────────────────────────────────────── */
 .deco-frame {
   position: absolute;
   inset: 0.75rem;
@@ -264,7 +255,6 @@ onMounted(() => {
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .about-story { background: var(--color-section-light); }
 
@@ -299,5 +289,4 @@ html:not(.dark) {
   .corner { border-color: var(--deco-border); }
 }
 </style>
-
 

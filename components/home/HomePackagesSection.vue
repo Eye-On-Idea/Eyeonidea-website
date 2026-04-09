@@ -61,7 +61,7 @@ const panelGradients = [
     class="packages-section"
     aria-labelledby="packages-heading"
   >
-    <!-- Header -->
+
     <div
       class="packages-header"
       :key="`packages-header-${visible}`"
@@ -75,7 +75,6 @@ const panelGradients = [
       <p class="packages-subtitle">{{ t("landing.packages.subtitle") }}</p>
     </div>
 
-    <!-- Panels -->
     <ul class="panels-grid" role="list">
       <li
         v-for="(pkg, i) in packages"
@@ -87,10 +86,9 @@ const panelGradients = [
         :initial="panelMotion(i).initial"
         :enter="visible ? panelMotion(i).visible : panelMotion(i).initial"
       >
-        <!-- Gradient layer — fades in on hover -->
+
         <div class="panel-gradient-layer" aria-hidden="true" />
 
-        <!-- Featured badge -->
         <div
           v-if="pkg.featured"
           class="featured-badge"
@@ -99,7 +97,6 @@ const panelGradients = [
           {{ pkg.featured }}
         </div>
 
-        <!-- Art deco corner frame -->
         <div class="deco-frame" aria-hidden="true">
           <span class="corner corner--tl" />
           <span class="corner corner--tr" />
@@ -107,9 +104,8 @@ const panelGradients = [
           <span class="corner corner--br" />
         </div>
 
-        <!-- Panel content -->
         <div class="panel-body">
-          <!-- Top: numeral + name + tagline -->
+
           <div class="panel-top">
             <div class="deco-numeral-row" aria-hidden="true">
               <span class="deco-rule" />
@@ -120,17 +116,14 @@ const panelGradients = [
             <p class="panel-tagline">{{ pkg.tagline }}</p>
           </div>
 
-          <!-- Art deco divider -->
           <div class="deco-divider" aria-hidden="true">
             <span class="deco-line" />
             <span class="deco-diamond" />
             <span class="deco-line" />
           </div>
 
-          <!-- Description -->
           <p class="panel-description">{{ pkg.description }}</p>
 
-          <!-- Includes list -->
           <ul class="includes-list" role="list">
             <li
               v-for="(item, j) in pkg.includes"
@@ -142,7 +135,6 @@ const panelGradients = [
             </li>
           </ul>
 
-          <!-- Bottom: price + CTA -->
           <div class="panel-bottom">
             <div class="deco-divider deco-divider--subtle" aria-hidden="true">
               <span class="deco-line" />
@@ -150,7 +142,7 @@ const panelGradients = [
               <span class="deco-line" />
             </div>
             <div class="price-block">
-              <!-- Single-price layout (packages I & II) -->
+
               <template v-if="!pkg.setupFee">
                 <span class="price-from">{{ t("services.packages.launch.price.prefix") }}</span>
                 <div class="price-main">
@@ -161,7 +153,6 @@ const panelGradients = [
                 <span class="price-note">{{ pkg.priceNote }}</span>
               </template>
 
-              <!-- Dual-price layout (package III: monthly + setup fee) -->
               <template v-else>
                 <div class="price-tier">
                   <span class="price-tier-label">{{ pkg.priceLabel }}</span>
@@ -203,7 +194,6 @@ const panelGradients = [
       </li>
     </ul>
 
-    <!-- Footer strip -->
     <NuxtLink
       :to="localePath(t('landing.packages.footerCtaHref'))"
       class="packages-footer-strip"
@@ -239,7 +229,7 @@ const panelGradients = [
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .packages-section {
   position: relative;
   z-index: 1;
@@ -247,7 +237,6 @@ const panelGradients = [
   border-top: 1px solid var(--color-border);
 }
 
-/* ── Header ───────────────────────────────────────────────────── */
 .packages-header {
   max-width: 48rem;
   margin: 0 auto;
@@ -299,7 +288,6 @@ const panelGradients = [
   margin: 0;
 }
 
-/* ── Panels grid ──────────────────────────────────────────────── */
 .panels-grid {
   list-style: none;
   padding: 0;
@@ -312,14 +300,12 @@ const panelGradients = [
   }
 }
 
-/* ── Panel ────────────────────────────────────────────────────── */
 .pkg-panel {
   position: relative;
   display: flex;
   flex-direction: column;
   min-height: clamp(480px, 68vh, 660px);
 
-  /* Neutral dark base — always visible */
   background: #161210;
 
   @media (min-width: 768px) {
@@ -334,7 +320,6 @@ const panelGradients = [
     }
   }
 
-  /* Reveal gradient and corner ornaments on hover */
   &:hover .panel-gradient-layer {
     opacity: 1;
   }
@@ -356,7 +341,6 @@ const panelGradients = [
   }
 }
 
-/* ── Gradient reveal layer ────────────────────────────────────── */
 .panel-gradient-layer {
   position: absolute;
   inset: 0;
@@ -367,9 +351,8 @@ const panelGradients = [
   z-index: 0;
 }
 
-/* ── Featured state ───────────────────────────────────────────── */
 .pkg-panel--featured {
-  /* Show a hint of warmth even when not hovered */
+
   background: #1e1410;
 
   .panel-gradient-layer {
@@ -397,7 +380,6 @@ const panelGradients = [
   clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
 }
 
-/* ── Art deco corner frame ────────────────────────────────────── */
 .deco-frame {
   position: absolute;
   inset: 1.5rem;
@@ -435,7 +417,6 @@ const panelGradients = [
   }
 }
 
-/* ── Panel body ───────────────────────────────────────────────── */
 .panel-body {
   position: relative;
   z-index: 2;
@@ -449,7 +430,6 @@ const panelGradients = [
   }
 }
 
-/* ── Top block ────────────────────────────────────────────────── */
 .panel-top {
   margin-bottom: 1.75rem;
 }
@@ -499,7 +479,6 @@ const panelGradients = [
   transition: color 0.4s ease;
 }
 
-/* ── Art deco divider ─────────────────────────────────────────── */
 .deco-divider {
   display: flex;
   align-items: center;
@@ -531,7 +510,6 @@ const panelGradients = [
   }
 }
 
-/* ── Description ──────────────────────────────────────────────── */
 .panel-description {
   font-family: var(--font-text);
   font-size: clamp(0.85rem, 0.95vw, 0.9rem);
@@ -541,7 +519,6 @@ const panelGradients = [
   margin: 0;
 }
 
-/* ── Includes list ────────────────────────────────────────────── */
 .includes-list {
   list-style: none;
   padding: 0;
@@ -585,7 +562,6 @@ const panelGradients = [
   }
 }
 
-/* ── Bottom block ─────────────────────────────────────────────── */
 .panel-bottom {
   margin-top: 2rem;
 }
@@ -607,7 +583,6 @@ const panelGradients = [
   color: rgba(255, 255, 255, 0.35);
 }
 
-/* ── Dual-price tier ────────── */
 .price-tier {
   display: flex;
   flex-direction: column;
@@ -628,7 +603,6 @@ const panelGradients = [
   color: rgba(223, 175, 133, 0.5);
 }
 
-/* ── Diamond separator between the two tiers ── */
 .price-separator {
   display: flex;
   align-items: center;
@@ -651,7 +625,6 @@ const panelGradients = [
   flex-shrink: 0;
 }
 
-/* ── Price main row ─────────── */
 .price-main {
   display: flex;
   align-items: flex-start;
@@ -717,12 +690,10 @@ const panelGradients = [
   margin-top: 0.35rem;
 }
 
-/* ── CTA — AppCtaButton override for full width ───────────────── */
 .panel-cta-btn {
   width: 100%;
 }
 
-/* ── Footer strip ─────────────────────────────────────────────── */
 .packages-footer-strip {
   display: flex;
   align-items: center;
@@ -811,7 +782,6 @@ const panelGradients = [
   }
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .panel-gradient-layer,
   .corner,
@@ -830,9 +800,8 @@ const panelGradients = [
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
-  /* Header sits over the dark background image — keep text light */
+
   .packages-title   { color: #ffeddf; }
   .packages-subtitle { color: rgba(255, 237, 223, 0.60); }
   .section-badge {
@@ -841,7 +810,6 @@ html:not(.dark) {
     background: rgba(223, 175, 133, 0.08);
   }
 
-  /* Panel base — white glass card */
   .pkg-panel {
     background: rgba(255, 255, 255, 0.92);
     border: 1px solid var(--deco-line);
@@ -864,13 +832,11 @@ html:not(.dark) {
     }
   }
 
-  /* Featured panel — warm cream tint */
   .pkg-panel--featured {
     background: rgba(255, 243, 233, 0.96);
     border-color: var(--deco-line-strong);
   }
 
-  /* Gradient hover layer — warm mid-to-dark brand tint */
   .panel-gradient-layer {
     background: linear-gradient(
       155deg,
@@ -889,34 +855,28 @@ html:not(.dark) {
     );
   }
 
-  /* Corner frame */
   .corner {
     border-color: var(--deco-border);
   }
 
-  /* Numeral row */
   .deco-rule    { background: var(--deco-line); }
   .deco-numeral { color: var(--color-primary-500); opacity: 0.55; }
 
   .pkg-panel:hover .deco-numeral { opacity: 1; }
 
-  /* Panel text */
   .panel-name        { color: var(--color-text-primary); }
   .panel-tagline     { color: var(--color-text-subtle); }
   .panel-description { color: var(--color-text-subtle); }
 
-  /* Deco dividers */
   .deco-line    { background: var(--deco-line); }
   .deco-diamond { background: var(--deco-diamond); }
 
-  /* Includes list */
   .includes-diamond { background: var(--deco-diamond-sm); }
   .includes-text    { color: var(--color-text-secondary); }
 
   .pkg-panel:hover .includes-diamond { background: var(--deco-diamond); }
   .pkg-panel:hover .includes-text    { color: var(--color-text-primary); }
 
-  /* Price block */
   .price-from           { color: var(--color-text-subtle); }
   .price-tier-label     { color: var(--color-primary-500); opacity: 0.65; }
   .price-sep-line       { background: var(--deco-line); }
@@ -929,7 +889,6 @@ html:not(.dark) {
   .price-per--secondary { color: var(--color-text-subtle); opacity: 0.7; }
   .price-note           { color: var(--color-text-subtle); }
 
-  /* Footer strip */
   .packages-footer-strip {
     background: rgba(153, 82, 38, 0.06);
     border-top: 1px solid var(--deco-line);

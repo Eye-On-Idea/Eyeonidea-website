@@ -57,7 +57,7 @@ const textSizeClasses = computed(() => {
       { 'inline-flex items-center gap-3': !center },
     ]"
   >
-    <!-- Herqulez Branded Spinner -->
+
     <div
       v-if="variant === 'herqulez'"
       :class="[sizeClasses, 'herqulez-spinner']"
@@ -69,7 +69,6 @@ const textSizeClasses = computed(() => {
       }}</span>
     </div>
 
-    <!-- Default Spinner -->
     <div
       v-else-if="variant === 'default'"
       :class="[sizeClasses, 'spinner']"
@@ -82,7 +81,6 @@ const textSizeClasses = computed(() => {
       <span class="sr-only">{{ text || "Loading..." }}</span>
     </div>
 
-    <!-- Loading Dots -->
     <div
       v-else-if="variant === 'dots'"
       class="flex items-center gap-2"
@@ -101,7 +99,6 @@ const textSizeClasses = computed(() => {
       <span class="sr-only">{{ text || "Loading..." }}</span>
     </div>
 
-    <!-- Loading Text -->
     <p
       v-if="text && !prefersReducedMotion"
       :class="[textSizeClasses, 'text-gray-700 dark:text-gray-300']"

@@ -38,7 +38,7 @@ const packages = [
     class="packages-section"
     aria-labelledby="packages-heading"
   >
-    <!-- Section separator / label -->
+
     <div class="section-label-row" aria-hidden="true">
       <span class="sep-line" />
       <span class="sep-diamond" />
@@ -47,7 +47,6 @@ const packages = [
       <span class="sep-line" />
     </div>
 
-    <!-- Header -->
     <div
       class="section-header"
       :key="`pkg-header-${visible}`"
@@ -60,7 +59,6 @@ const packages = [
       </h2>
     </div>
 
-    <!-- Packages grid — full-width columns -->
     <div class="packages-grid">
       <ServicesPackageCard
         v-for="(pkg, i) in packages"
@@ -74,7 +72,6 @@ const packages = [
       />
     </div>
 
-    <!-- Footer pricing note -->
     <div class="pricing-note-row" aria-hidden="false">
       <span class="sep-line" />
       <span class="pricing-note">{{ t("services.packages.pricingNote") }}</span>
@@ -84,13 +81,12 @@ const packages = [
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .packages-section {
   background: #0d0908;
   padding-bottom: 0;
 }
 
-/* ── Section separator / label ────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -124,7 +120,6 @@ const packages = [
   flex-shrink: 0;
 }
 
-/* ── Header ───────────────────────────────────────────────────── */
 .section-header {
   max-width: 80rem;
   margin: 0 auto;
@@ -141,7 +136,6 @@ const packages = [
   letter-spacing: -0.02em;
 }
 
-/* ── Packages grid ────────────────────────────────────────────── */
 .packages-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -152,7 +146,6 @@ const packages = [
   }
 }
 
-/* ── Footer note ──────────────────────────────────────────────── */
 .pricing-note-row {
   display: flex;
   align-items: center;
@@ -173,7 +166,6 @@ const packages = [
   min-width: 0;
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .packages-section { background: var(--color-section-light); }
 
@@ -190,5 +182,4 @@ html:not(.dark) {
   .pricing-note { color: var(--color-text-subtle); opacity: 0.6; }
 }
 </style>
-
 

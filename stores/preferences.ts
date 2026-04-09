@@ -43,7 +43,7 @@ export const usePreferencesStore = defineStore("preferences", {
       this.language = language;
 
       if (import.meta.client) {
-        // Store in localStorage for client-side persistence
+
         localStorage.setItem("user_language", language);
       }
     },
@@ -51,11 +51,9 @@ export const usePreferencesStore = defineStore("preferences", {
     async setTheme(theme: "light" | "dark" | "system") {
       this.theme = theme;
 
-      // Update color mode
       const colorMode = useColorMode();
       colorMode.preference = theme;
 
-      // Persist to localStorage
       if (import.meta.client) {
         localStorage.setItem("user_theme", theme);
       }

@@ -1,15 +1,11 @@
-// app.config.ts
+
 export default defineAppConfig({
   ui: {
-    /**
-     * Semantic color aliases used by Nuxt UI components.
-     * primary -> your @theme "primary" scale
-     * neutral -> your @theme "neutral" scale (if registered), otherwise keep "zinc"
-     */
+
     colors: {
       primary: "primary",
-      neutral: "neutral", // <-- if you did NOT register a `neutral` scale in @theme, use "zinc"
-      // Optional but recommended: map your accent scale to secondary
+      neutral: "neutral",
+
       secondary: "accent",
       info: "accent",
       success: "green",
@@ -19,11 +15,6 @@ export default defineAppConfig({
 
     rounded: "md",
 
-    /**
-     * BUTTONS
-     * Goal: consistent font, transitions, focus ring, and default variants across the app.
-     * Nuxt UI Button supports `color`, `variant`, `size` etc. :contentReference[oaicite:3]{index=3}
-     */
     button: {
       defaultVariants: {
         color: "primary",
@@ -68,10 +59,6 @@ export default defineAppConfig({
       },
     },
 
-    /**
-     * LINKS (ULink wrapper around NuxtLink) :contentReference[oaicite:4]{index=4}
-     * Goal: all links follow your --link / --link-hover tokens, consistent focus ring.
-     */
     link: {
       slots: {
         base: [
@@ -83,23 +70,19 @@ export default defineAppConfig({
           "focus-visible:ring-[var(--focus-ring)]",
           "focus-visible:ring-offset-2",
           "focus-visible:ring-offset-[var(--ring-offset)]",
-          // Use your semantic link tokens (light/dark already handled in your CSS)
+
           "text-[color:var(--link)] hover:text-[color:var(--link-hover)]",
           "underline underline-offset-4 decoration-transparent hover:decoration-current",
         ].join(" "),
       },
       variants: {
-        // These are extra “soft defaults” you can toggle with props where supported
+
         disabled: {
           true: { base: "pointer-events-none opacity-60 no-underline" },
         },
       },
     },
 
-    /**
-     * INPUTS
-     * Goal: your borders/background/text tokens + consistent focus ring.
-     */
     input: {
       slots: {
         base: [
@@ -132,10 +115,6 @@ export default defineAppConfig({
       },
     },
 
-    /**
-     * BADGES / TAGS
-     * Goal: default badge styles reflect your AA-safe badge tokens.
-     */
     badge: {
       defaultVariants: {
         color: "primary",
@@ -149,7 +128,7 @@ export default defineAppConfig({
           },
         },
         color: {
-          // allow `color="secondary"` to use your accent badge tokens
+
           secondary: {
             base: "bg-[var(--badge-accent-bg)] text-[var(--badge-accent-text)]",
           },
@@ -157,10 +136,6 @@ export default defineAppConfig({
       },
     },
 
-    /**
-     * CARDS
-     * Goal: align all cards with your surface tokens and glass-friendly borders/shadows.
-     */
     card: {
       slots: {
         base: [
@@ -174,10 +149,6 @@ export default defineAppConfig({
       },
     },
 
-    /**
-     * DASHBOARD SIDEBAR
-     * Glass morphism styling for client-hub sidebar.
-     */
     dashboardSidebar: {
       slots: {
         root: "bg-[var(--color-surface-1)] border-r border-[var(--glass-border-subtle)]",
@@ -186,20 +157,12 @@ export default defineAppConfig({
       },
     },
 
-    /**
-     * DASHBOARD PANEL
-     * Content area background.
-     */
     dashboardPanel: {
       slots: {
         root: "bg-[var(--color-background)]",
       },
     },
 
-    /**
-     * NAVIGATION MENU
-     * Vertical sidebar navigation styling.
-     */
     navigationMenu: {
       slots: {
         link: "transition-colors text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]",

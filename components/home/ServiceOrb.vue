@@ -1,8 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n();
 
-// Hero section is always dark — no color mode observation needed.
-
 const services = [
   {
     key: "qa",
@@ -56,7 +54,6 @@ const isActive = (key: ServiceKey) => hoveredKey.value === key;
 const isDimmed = (key: ServiceKey) =>
   hoveredKey.value !== null && hoveredKey.value !== key;
 
-// Desktop: hover in/out
 const onEnter = (key: ServiceKey) => {
   hoveredKey.value = key;
 };
@@ -72,7 +69,7 @@ const onLeave = () => {
     role="group"
     :aria-label="t('landing.hero.orbLabel')"
   >
-    <!-- ── Decorative orbit rings ───────────────────────────────────── -->
+
     <svg
       class="orbit-svg"
       viewBox="0 0 360 360"
@@ -80,7 +77,7 @@ const onLeave = () => {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      <!-- Outer dashed ring — sits at the orb radius -->
+
       <circle
         cx="180"
         cy="180"
@@ -90,7 +87,7 @@ const onLeave = () => {
         stroke-width="1"
         stroke-dasharray="3 10"
       />
-      <!-- Inner dashed ring — tighter, around the center piece -->
+
       <circle
         cx="180"
         cy="180"
@@ -102,32 +99,22 @@ const onLeave = () => {
       />
     </svg>
 
-    <!-- ── Morphing center piece ────────────────────────────────────── -->
-    <!--
-      Default: rotated 45° square (diamond).
-      Hover: border-radius → 50% + rotation unwound → circle.
-      Content inside is counter-rotated so it stays upright while the
-      shell is a diamond, then the counter-rotation eases back to 0°
-      as it becomes a circle.
-    -->
     <div
       class="center-shell"
       :class="{ 'is-circle': hoveredKey !== null }"
       aria-hidden="true"
     >
-      <!-- Ornamental inner diamond border — fades out when circle -->
+
       <div class="center-ornament" />
 
-      <!-- Counter-rotating content wrapper -->
       <div class="center-body" :class="{ 'is-unrotated': hoveredKey !== null }">
         <Transition name="content-cross" mode="out-in">
-          <!-- Default state: jewel graphic -->
+
           <div v-if="hoveredKey === null" class="jewel-view" key="jewel">
             <div class="jewel-ring" />
             <div class="jewel-dot" />
           </div>
 
-          <!-- Hovered state: service name + short note -->
           <div v-else class="service-view" :key="hoveredKey">
             <span class="service-view__title">
               {{ t(`landing.services.categories.${hoveredKey}.title`) }}
@@ -140,7 +127,6 @@ const onLeave = () => {
       </div>
     </div>
 
-    <!-- ── Service orbs ─────────────────────────────────────────────── -->
     <button
       v-for="svc in services"
       :key="svc.key"
@@ -161,7 +147,7 @@ const onLeave = () => {
 </template>
 
 <style lang="scss" scoped>
-/* ── Root container ────────────────────────────────────────────── */
+
 .orb-root {
   position: relative;
   width: 340px;
@@ -174,7 +160,6 @@ const onLeave = () => {
   }
 }
 
-/* ── Orbit rings SVG ───────────────────────────────────────────── */
 .orbit-svg {
   position: absolute;
   inset: 0;
@@ -190,7 +175,6 @@ const onLeave = () => {
   }
 }
 
-/* ── Center morphing shell ─────────────────────────────────────── */
 .center-shell {
   position: absolute;
   top: 50%;
@@ -244,7 +228,6 @@ const onLeave = () => {
   }
 }
 
-/* ── Inner ornamental diamond border ──────────────────────────── */
 .center-ornament {
   position: absolute;
   inset: 18%;
@@ -259,8 +242,6 @@ const onLeave = () => {
   }
 }
 
-/* ── Counter-rotating content wrapper ─────────────────────────── */
-/* Keeps text upright while shell is rotated as a diamond.        */
 .center-body {
   width: 100%;
   height: 100%;
@@ -275,7 +256,6 @@ const onLeave = () => {
   }
 }
 
-/* ── Default jewel graphic ─────────────────────────────────────── */
 .jewel-view {
   display: flex;
   align-items: center;
@@ -306,7 +286,6 @@ const onLeave = () => {
   box-shadow: 0 0 18px rgba(223, 175, 133, 0.2);
 }
 
-/* ── Hover service info ────────────────────────────────────────── */
 .service-view {
   padding: 10px 14px;
   text-align: center;
@@ -339,10 +318,9 @@ const onLeave = () => {
   margin: 0;
 }
 
-/* ── Service orbs ─────────────────────────────────────────────── */
 .orb {
   position: absolute;
-  /* Centred on its x/y percentage anchor */
+
   transform: translate(-50%, -50%);
   width: 38px;
   height: 38px;
@@ -370,12 +348,10 @@ const onLeave = () => {
     outline-offset: 3px;
   }
 
-  /* Circle orb */
   &--circle {
     border-radius: 50%;
   }
 
-  /* Diamond orb — rotated so the icon stays upright via counter-rotation */
   &--diamond {
     border-radius: 4px;
     transform: translate(-50%, -50%) rotate(45deg);
@@ -385,7 +361,6 @@ const onLeave = () => {
     }
   }
 
-  /* Active (hovered) state */
   &--active {
     background: rgba(223, 175, 133, 0.32);
     border-color: rgba(223, 175, 133, 0.82);
@@ -400,7 +375,6 @@ const onLeave = () => {
     transform: translate(-50%, -50%) rotate(45deg) scale(1.18);
   }
 
-  /* Dimmed — another orb is active */
   &--dim {
     opacity: 0.38;
   }
@@ -418,9 +392,8 @@ const onLeave = () => {
   }
 }
 
-/* ── Content crossfade ─────────────────────────────────────────── */
 .content-cross-enter-active {
-  transition: opacity 0.22s ease 0.12s; /* slight delay = shell finishes rotating first */
+  transition: opacity 0.22s ease 0.12s;
 }
 .content-cross-leave-active {
   transition: opacity 0.15s ease;
@@ -430,10 +403,6 @@ const onLeave = () => {
   opacity: 0;
 }
 
-/* Light-mode colors are handled entirely via Vue :style bindings in the template.
-   The inline bindings directly observe html.dark class and bypass CSS cascade. */
-
-/* ── Reduced motion ────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .center-shell,
   .center-body,

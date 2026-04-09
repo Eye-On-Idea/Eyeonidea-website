@@ -9,13 +9,10 @@ onMounted(() => {
   isMobile.value = window.matchMedia("(max-width: 768px)").matches;
 });
 
-// ── Section progress ranges ───────────────────────────────────────────────────
-// Services gets 50% of total scroll to accommodate 7 chapter panels.
 const servicesProgress = sectionProgress(0.18, 0.68);
 const valuesProgress   = sectionProgress(0.55, 0.78);
 const ctaProgress      = sectionProgress(0.72, 0.90);
 
-// ── Per-scene fade opacities ──────────────────────────────────────────────────
 const servicesOpacity = computed(() => {
   const p = smoothedProgress.value;
   if (p < 0.14) return 0;
@@ -39,8 +36,6 @@ const ctaOpacity = computed(() => {
   return 1;
 });
 
-// Active chapter index is set by ServicesSection.vue (authoritative source).
-// Read from store here to pass into the 3D object.
 const sceneState = useSceneState();
 
 const dpr = computed<[number, number]>(() => isMobile.value ? [1, 1] : [1, 2]);
@@ -63,7 +58,6 @@ const dpr = computed<[number, number]>(() => isMobile.value ? [1, 1] : [1, 2]);
         :reduced-motion="reducedMotion"
       />
 
-      <!-- Lighting -->
       <TresAmbientLight :intensity="0.3" />
       <TresDirectionalLight
         :position="[5, 8, 5]"
@@ -80,7 +74,6 @@ const dpr = computed<[number, number]>(() => isMobile.value ? [1, 1] : [1, 2]);
 
       <Environment preset="city" />
 
-      <!-- 7-chapter service panels — continuous scroll journey -->
       <ThreeObjectsServiceChapters
         :section-progress="servicesProgress"
         :opacity="servicesOpacity"
@@ -88,7 +81,6 @@ const dpr = computed<[number, number]>(() => isMobile.value ? [1, 1] : [1, 2]);
         :reduced-motion="reducedMotion"
       />
 
-      <!-- Values orbs — visible between services and CTA -->
       <ThreeObjectsValuesOrbs
         :section-progress="valuesProgress"
         :opacity="valuesOpacity"
@@ -96,7 +88,6 @@ const dpr = computed<[number, number]>(() => isMobile.value ? [1, 1] : [1, 2]);
         :is-mobile="isMobile"
       />
 
-      <!-- CTA eye shape -->
       <ThreeObjectsCTAShape
         :section-progress="ctaProgress"
         :opacity="ctaOpacity"

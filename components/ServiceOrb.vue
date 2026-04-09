@@ -1,21 +1,13 @@
 <script setup lang="ts">
 const { t } = useI18n();
 
-// All orbs use 'circle' shape for visual consistency.
-// Positions are percentages [x, y] of the component container.
-//
-// 6 orbs placed at 60° intervals on the outer orbit ring.
-// Ring radius = 168 / 180 = 93.3% of half-container = 46.67% of full container.
-// Center = (50%, 50%). Angle 0° = top, clockwise.
-// x_i = 50 + 46.67 * cos(-90° + i*60°)
-// y_i = 50 + 46.67 * sin(-90° + i*60°)
 const services = [
-  { key: "qa",       icon: "i-heroicons-shield-check",            href: "/solutions/additional-services#qa",      x: 50.0, y: 3.3  },  // 0° — top
-  { key: "websites", icon: "i-heroicons-globe-alt",               href: "/solutions/website-packages",            x: 90.4, y: 26.7 },  // 60° — top-right
-  { key: "identity", icon: "i-heroicons-paint-brush",             href: "/solutions/visual-identity",             x: 90.4, y: 73.3 },  // 120° — bottom-right
-  { key: "content",  icon: "i-heroicons-pencil-square",           href: "/solutions/additional-services#content", x: 50.0, y: 96.7 },  // 180° — bottom
-  { key: "seo",      icon: "i-heroicons-magnifying-glass-circle", href: "/solutions/additional-services#seo",     x: 9.6,  y: 73.3 },  // 240° — bottom-left
-  { key: "email",    icon: "i-heroicons-envelope",                href: "/solutions/additional-services#email",   x: 9.6,  y: 26.7 },  // 300° — top-left
+  { key: "qa",       icon: "i-heroicons-shield-check",            href: "/solutions/additional-services#qa",      x: 50.0, y: 3.3  },
+  { key: "websites", icon: "i-heroicons-globe-alt",               href: "/solutions/website-packages",            x: 90.4, y: 26.7 },
+  { key: "identity", icon: "i-heroicons-paint-brush",             href: "/solutions/visual-identity",             x: 90.4, y: 73.3 },
+  { key: "content",  icon: "i-heroicons-pencil-square",           href: "/solutions/additional-services#content", x: 50.0, y: 96.7 },
+  { key: "seo",      icon: "i-heroicons-magnifying-glass-circle", href: "/solutions/additional-services#seo",     x: 9.6,  y: 73.3 },
+  { key: "email",    icon: "i-heroicons-envelope",                href: "/solutions/additional-services#email",   x: 9.6,  y: 26.7 },
 ] as const;
 
 type ServiceKey = typeof services[number]["key"];
@@ -25,8 +17,6 @@ const hoveredKey = ref<ServiceKey | null>(null);
 const isActive = (key: ServiceKey) => hoveredKey.value === key;
 const isDimmed  = (key: ServiceKey) => hoveredKey.value !== null && hoveredKey.value !== key;
 
-// Scale font size based on character count of the active locale string.
-// Range: 50 chars → 3.4cqmin (short/large), 105 chars → 2.4cqmin (long/small).
 const descFontSize = computed(() => {
   if (!hoveredKey.value) return '2.9cqmin';
   const text = t(`landing.services.categories.${hoveredKey.value}.need`);
@@ -42,7 +32,7 @@ const descFontSize = computed(() => {
     role="group"
     :aria-label="t('landing.hero.orbLabel')"
   >
-    <!-- ── Decorative orbit rings ───────────────────────────────────── -->
+
     <svg
       class="orbit-svg"
       viewBox="0 0 360 360"
@@ -54,7 +44,6 @@ const descFontSize = computed(() => {
       <circle cx="180" cy="180" r="106" stroke="#dfaf85" stroke-opacity="0.09" stroke-width="1" stroke-dasharray="3 10" />
     </svg>
 
-    <!-- ── Morphing center piece ────────────────────────────────────── -->
     <div
       class="center-shell"
       :class="{ 'is-circle': hoveredKey !== null }"
@@ -79,16 +68,11 @@ const descFontSize = computed(() => {
       </div>
     </div>
 
-    <!-- ── Service orbs — all circles ───────────────────────────────── -->
-    <!--
-      .orb-track rotates clockwise around the center.
-      .orb-counter inside each orb counter-rotates at the same speed
-      so icons always face upright regardless of orbit position.
-    -->
     <div class="orb-track" :class="{ 'is-paused': hoveredKey !== null }">
-      <div
+      <button
         v-for="svc in services"
         :key="svc.key"
+        type="button"
         class="orb"
         :class="{ 'orb--active': isActive(svc.key), 'orb--dim': isDimmed(svc.key) }"
         :style="{ left: `${svc.x}%`, top: `${svc.y}%` }"
@@ -99,34 +83,22 @@ const descFontSize = computed(() => {
         <span class="orb-counter">
           <UIcon :name="svc.icon" class="orb-icon" />
         </span>
-      </div>
+      </button>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-/*
- * All internal sizes are expressed in `cqmin` (container-query min unit).
- * cqmin = min(container-width, container-height).
- * Because .orb-root always has aspect-ratio: 1, cqmin === container-width.
- * This makes every element scale proportionally as the parent resizes.
- *
- * Reference base: 340px (original design size).
- * Formula: value_px / 340 * 100 = value_cqmin
- */
 
-/* ── Root container ────────────────────────────────────────────── */
 .orb-root {
-  /* Fill the parent column; parent controls the max size */
+
   position: relative;
   width: 100%;
   aspect-ratio: 1;
 
-  /* Establish a container-query context so children can use cqmin */
   container-type: size;
 }
 
-/* ── Orbit rings SVG ───────────────────────────────────────────── */
 .orbit-svg {
   position: absolute;
   inset: 0;
@@ -140,8 +112,6 @@ const descFontSize = computed(() => {
   to { transform: rotate(360deg); }
 }
 
-/* ── Center morphing shell ─────────────────────────────────────── */
-/* 168 / 340 = 49.4 → 49cqmin  |  active: 186 / 340 = 54.7 → 55cqmin */
 .center-shell {
   position: absolute;
   top: 50%;
@@ -195,8 +165,6 @@ const descFontSize = computed(() => {
   }
 }
 
-/* ── Inner ornamental diamond border ──────────────────────────── */
-/* inset is already %, stays proportional automatically */
 .center-ornament {
   position: absolute;
   inset: 18%;
@@ -209,7 +177,6 @@ const descFontSize = computed(() => {
   }
 }
 
-/* ── Counter-rotating content wrapper ─────────────────────────── */
 .center-body {
   width: 100%;
   height: 100%;
@@ -224,7 +191,6 @@ const descFontSize = computed(() => {
   }
 }
 
-/* ── Default jewel graphic ─────────────────────────────────────── */
 .jewel-view {
   display: flex;
   align-items: center;
@@ -234,7 +200,6 @@ const descFontSize = computed(() => {
   position: relative;
 }
 
-/* inset 22% scales automatically with the shell */
 .jewel-ring {
   position: absolute;
   inset: 22%;
@@ -242,7 +207,6 @@ const descFontSize = computed(() => {
   border: 1px solid rgba(223, 175, 133, 0.22);
 }
 
-/* 32 / 340 = 9.4 → 9.5cqmin */
 .jewel-dot {
   width: 9.5cqmin;
   height: 9.5cqmin;
@@ -257,8 +221,6 @@ const descFontSize = computed(() => {
   box-shadow: 0 0 24px rgba(223, 175, 133, 0.24);
 }
 
-/* ── Hover service info ────────────────────────────────────────── */
-/* padding 12px/16px → 3.5/4.7cqmin  |  gap 7px → 2cqmin */
 .service-view {
   padding: 3.5cqmin 4.7cqmin;
   text-align: center;
@@ -271,7 +233,6 @@ const descFontSize = computed(() => {
   overflow: hidden;
 }
 
-/* 14px / 340 = 4.1 → 4cqmin */
 .service-view__title {
   font-family: var(--font-heading);
   font-size: 4cqmin;
@@ -284,7 +245,6 @@ const descFontSize = computed(() => {
   display: block;
 }
 
-/* font-size is set dynamically via :style binding based on string length */
 .service-view__desc {
   font-family: var(--font-text);
   font-weight: 300;
@@ -293,15 +253,12 @@ const descFontSize = computed(() => {
   margin: 0;
 }
 
-/* ── Orbiting track ────────────────────────────────────────────── */
-/* Fills the root and rotates all orbs around the center together  */
 .orb-track {
   position: absolute;
   inset: 0;
   animation: trackSpin 55s linear infinite;
   transform-origin: 50% 50%;
 
-  /* Pause both track and all counter-spinners on any orb hover */
   &.is-paused {
     animation-play-state: paused;
 
@@ -315,8 +272,6 @@ const descFontSize = computed(() => {
   to { transform: rotate(360deg); }
 }
 
-/* ── Service orbs (all circles) ────────────────────────────────── */
-/* 46px / 340 = 13.5cqmin */
 .orb {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -329,6 +284,8 @@ const descFontSize = computed(() => {
   justify-content: center;
   text-decoration: none;
   cursor: pointer;
+  appearance: none;
+  padding: 0;
 
   background: rgba(223, 175, 133, 0.14);
   border: 1px solid rgba(223, 175, 133, 0.38);
@@ -359,7 +316,6 @@ const descFontSize = computed(() => {
   }
 }
 
-/* Counter-rotation wrapper — keeps icons upright while track orbits */
 .orb-counter {
   display: flex;
   align-items: center;
@@ -374,7 +330,6 @@ const descFontSize = computed(() => {
   to { transform: rotate(-360deg); }
 }
 
-/* 20px / 340 = 5.9 → 6cqmin */
 .orb-icon {
   width: 6cqmin;
   height: 6cqmin;
@@ -387,7 +342,6 @@ const descFontSize = computed(() => {
   }
 }
 
-/* ── Content crossfade ─────────────────────────────────────────── */
 .content-cross-enter-active {
   transition: opacity 0.22s ease 0.12s;
 }
@@ -399,7 +353,6 @@ const descFontSize = computed(() => {
   opacity: 0;
 }
 
-/* ── Reduced motion ────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .center-shell,
   .center-body,

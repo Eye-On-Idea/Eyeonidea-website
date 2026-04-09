@@ -13,7 +13,6 @@ const buttonRef = ref<HTMLButtonElement | null>(null);
 const panelRef = ref<HTMLElement | null>(null);
 const activeIndex = ref(-1);
 
-// Complete language registry — only those in SUPPORTED_LANGUAGES are shown
 const languageRegistry: Record<
   string,
   { nativeName: string; icon: string; region: string }
@@ -61,7 +60,6 @@ const switchLanguage = async (langCode: SupportedLanguage) => {
   closePanel(true);
 };
 
-// Panel open/close
 const openPanel = (focusIndex = 0) => {
   isOpen.value = true;
   activeIndex.value = focusIndex;
@@ -84,7 +82,6 @@ const togglePanel = () => {
   }
 };
 
-// Focus management
 const getItems = () => {
   if (!panelRef.value) return [];
   return Array.from(
@@ -100,7 +97,6 @@ const focusItem = (index: number) => {
   items[wrappedIndex]?.focus();
 };
 
-// Keyboard: trigger button
 const handleButtonKeydown = (event: KeyboardEvent) => {
   switch (event.key) {
     case "ArrowDown":
@@ -122,12 +118,11 @@ const handleButtonKeydown = (event: KeyboardEvent) => {
   }
 };
 
-// Keyboard: within panel (grid navigation)
 const handlePanelKeydown = (event: KeyboardEvent) => {
   const items = getItems();
   if (items.length === 0) return;
   const current = activeIndex.value;
-  // Calculate columns based on grid layout (2 columns on small, 3 on larger)
+
   const cols = window.innerWidth >= 640 ? 3 : 2;
 
   switch (event.key) {
@@ -162,7 +157,6 @@ const handlePanelKeydown = (event: KeyboardEvent) => {
   }
 };
 
-// Click outside
 const handleClickOutside = (event: MouseEvent) => {
   if (
     containerRef.value &&
@@ -183,7 +177,7 @@ onUnmounted(() => {
 
 <template>
   <div ref="containerRef" class="lang-switcher">
-    <!-- Globe trigger button -->
+
     <button
       ref="buttonRef"
       type="button"
@@ -210,7 +204,6 @@ onUnmounted(() => {
       />
     </button>
 
-    <!-- Flyout panel -->
     <Transition
       enter-active-class="transition-all duration-200 ease-out"
       leave-active-class="transition-all duration-150 ease-in"
@@ -254,7 +247,6 @@ onUnmounted(() => {
   position: relative;
 }
 
-/* ── Trigger button ── */
 .lang-switcher__trigger {
   display: inline-flex;
   align-items: center;
@@ -289,7 +281,6 @@ onUnmounted(() => {
   transform: rotate(180deg);
 }
 
-/* ── Flyout panel ── */
 .lang-switcher__panel {
   position: absolute;
   top: calc(100% + 8px);
@@ -317,7 +308,6 @@ onUnmounted(() => {
   }
 }
 
-/* ── Language item ── */
 .lang-switcher__item {
   display: flex;
   align-items: center;
@@ -377,7 +367,6 @@ onUnmounted(() => {
   font-weight: 700;
 }
 
-/* ── Dark mode ── */
 html.dark .lang-switcher__trigger {
   background: color-mix(in srgb, var(--color-surface-2) 70%, transparent);
 }
@@ -395,7 +384,6 @@ html.dark .lang-switcher__item--active {
   border-color: color-mix(in srgb, var(--color-primary-400) 30%, transparent);
 }
 
-/* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   .lang-switcher__chevron,
   .lang-switcher__trigger,
@@ -404,7 +392,6 @@ html.dark .lang-switcher__item--active {
   }
 }
 
-/* ── Reduced transparency ── */
 @media (prefers-reduced-transparency: reduce) {
   .lang-switcher__trigger {
     background: var(--color-surface-1);

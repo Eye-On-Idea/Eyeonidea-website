@@ -47,7 +47,7 @@ const bgStyle = computed(() =>
 
 <template>
   <section class="page-hero" :aria-labelledby="headingId">
-    <!-- Hero photo background (if provided) -->
+
     <NuxtImg
       v-if="bgImage"
       :src="bgImage"
@@ -63,13 +63,10 @@ const bgStyle = computed(() =>
       fetchpriority="high"
     />
 
-    <!-- Dark directional overlay for text legibility over photo -->
     <div v-if="bgImage" class="hero-image-overlay" aria-hidden="true" />
 
-    <!-- Parallax ambient layer (gradient atmosphere on top of photo) -->
     <div class="hero-bg" aria-hidden="true" :style="bgStyle" />
 
-    <!-- Art deco corner brackets — anchored to section edges like landing page -->
     <div class="deco-frame" aria-hidden="true">
       <span class="corner corner--tl" />
       <span class="corner corner--tr" />
@@ -77,11 +74,10 @@ const bgStyle = computed(() =>
       <span class="corner corner--br" />
     </div>
 
-    <!-- Max-width container -->
     <div class="hero-container">
-      <!-- Left-aligned content -->
+
       <div class="hero-content">
-        <!-- Badge label row -->
+
         <div class="hero-label-row" aria-hidden="true">
           <span class="label-line" />
           <span class="label-diamond" />
@@ -90,7 +86,6 @@ const bgStyle = computed(() =>
           <span class="label-line label-line--trail" />
         </div>
 
-        <!-- Title with staggered word reveal -->
         <h1 :id="headingId" class="hero-title">
           <TextReveal
             :text="title"
@@ -101,7 +96,6 @@ const bgStyle = computed(() =>
           />
         </h1>
 
-        <!-- Art deco divider (left-anchored) -->
         <div class="hero-deco-divider" aria-hidden="true">
           <span class="div-line" />
           <span class="div-diamond div-diamond--sm" />
@@ -112,10 +106,8 @@ const bgStyle = computed(() =>
           <span class="div-line" />
         </div>
 
-        <!-- Subtitle -->
         <p class="hero-subtitle">{{ subtitle }}</p>
 
-        <!-- CTA slot — omit slot wrapper if unused -->
         <div v-if="$slots.cta" class="hero-cta">
           <slot name="cta" />
         </div>
@@ -125,7 +117,7 @@ const bgStyle = computed(() =>
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .page-hero {
   position: relative;
   min-height: 85vh;
@@ -133,7 +125,7 @@ const bgStyle = computed(() =>
   display: flex;
   background: #0d0908;
   overflow: hidden;
-  /* Top padding clears fixed header; bottom gives breathing room before SectionNav */
+
   padding: 9rem 2rem 5rem;
 
   @media (min-width: 768px) {
@@ -141,7 +133,6 @@ const bgStyle = computed(() =>
   }
 }
 
-/* ── Hero photo background ────────────────────────────────────── */
 .hero-image {
   position: absolute;
   inset: 0;
@@ -152,14 +143,12 @@ const bgStyle = computed(() =>
   z-index: 0;
 }
 
-/* Mobile + tablet: always center hero images regardless of per-page overrides */
 @media (max-width: 1023px) {
   .hero-image {
     object-position: var(--hero-image-position-mobile, center);
   }
 }
 
-/* Gradient overlay: dark left (text) → lighter right (image shows) */
 .hero-image-overlay {
   position: absolute;
   inset: 0;
@@ -175,7 +164,6 @@ const bgStyle = computed(() =>
   z-index: 1;
 }
 
-/* ── Parallax background layer ────────────────────────────────── */
 .hero-bg {
   position: absolute;
   inset: -25% 0;
@@ -187,7 +175,6 @@ const bgStyle = computed(() =>
   z-index: 2;
 }
 
-/* ── Container — flex fill + corner frame anchor ──────────────── */
 .hero-container {
   flex: 1;
   max-width: 90rem;
@@ -198,7 +185,6 @@ const bgStyle = computed(() =>
   align-items: center;
 }
 
-/* ── Art deco corner brackets (viewport edges) ────────────────── */
 .deco-frame {
   position: absolute;
   inset: 2rem;
@@ -235,7 +221,6 @@ const bgStyle = computed(() =>
   &--br::after { bottom: 5px; right: 5px; border-width: 0 1px 1px 0; }
 }
 
-/* ── Content (left-aligned) ───────────────────────────────────── */
 .hero-content {
   position: relative;
   z-index: 10;
@@ -243,7 +228,6 @@ const bgStyle = computed(() =>
   padding: 2rem 0;
 }
 
-/* ── Badge label row ──────────────────────────────────────────── */
 .hero-label-row {
   display: flex;
   align-items: center;
@@ -278,7 +262,6 @@ const bgStyle = computed(() =>
   flex-shrink: 0;
 }
 
-/* ── Title ────────────────────────────────────────────────────── */
 .hero-title {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -293,7 +276,6 @@ const bgStyle = computed(() =>
   color: rgba(223, 175, 133, 0.85);
 }
 
-/* ── Deco divider (left-anchored) ─────────────────────────────── */
 .hero-deco-divider {
   display: flex;
   align-items: center;
@@ -324,7 +306,6 @@ const bgStyle = computed(() =>
   }
 }
 
-/* ── Subtitle ─────────────────────────────────────────────────── */
 .hero-subtitle {
   font-family: var(--font-text);
   font-weight: 300;
@@ -335,7 +316,6 @@ const bgStyle = computed(() =>
   margin: 0 0 2.5rem;
 }
 
-/* ── CTA row ──────────────────────────────────────────────────── */
 .hero-cta {
   display: flex;
   align-items: center;
@@ -343,7 +323,6 @@ const bgStyle = computed(() =>
   flex-wrap: wrap;
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .hero-bg {
     will-change: auto;
@@ -351,7 +330,4 @@ const bgStyle = computed(() =>
   }
 }
 
-/* Hero sections have background images — always render dark regardless of mode.
-   Button + word-amber overrides are in main.css with !important to beat
-   AppCtaButton's scoped light-mode styles. */
 </style>

@@ -41,12 +41,11 @@ useHead({
 <template>
   <div class="hub-landing">
 
-    <!-- ─── 1. HERO ──────────────────────────────────────────────────────── -->
     <section
       class="hub-hero"
       aria-labelledby="hub-hero-heading"
     >
-      <!-- Orb layer (purely decorative) -->
+
       <div class="hub-hero__orbs" aria-hidden="true">
         <div class="hub-hero__orb hub-hero__orb--1" />
         <div class="hub-hero__orb hub-hero__orb--2" />
@@ -54,7 +53,6 @@ useHead({
         <div class="hub-hero__orb hub-hero__orb--4" />
       </div>
 
-      <!-- Content -->
       <div class="hub-hero__content">
         <p class="hub-hero__eyebrow">
           {{ t("clientHub.nav.hubTitle") }}
@@ -83,16 +81,13 @@ useHead({
         </div>
       </div>
 
-      <!-- Scroll indicator -->
       <div class="hub-hero__scroll-indicator" aria-hidden="true">
         <UIcon name="i-heroicons-chevron-down" class="w-6 h-6" />
       </div>
     </section>
 
-    <!-- ─── Inner content container ──────────────────────────────────────── -->
     <div class="hub-inner">
 
-      <!-- ─── 2. ONBOARDING FEATURED CARD ──────────────────────────────── -->
       <NuxtLink
         :to="localePath('/client-hub/onboarding')"
         class="hub-onboarding-card group"
@@ -123,7 +118,6 @@ useHead({
         </div>
       </NuxtLink>
 
-      <!-- ─── 3. INTRO ARTICLE BLOCK ──────────────────────────────────── -->
       <div class="hub-intro">
         <h2 class="hub-intro__title">
           {{ t("clientHub.hub.introTitle") }}
@@ -135,12 +129,10 @@ useHead({
 
     </div>
 
-    <!-- ─── 4. PROCESSFAQ (full-bleed) ──────────────────────────────────── -->
     <div class="hub-faq-wrapper">
       <ProcessFAQ />
     </div>
 
-    <!-- ─── 5. CONTACT STRIP (full-bleed) ───────────────────────────────── -->
     <div class="hub-contact">
       <div class="hub-contact__inner">
         <div class="hub-contact__text">
@@ -176,9 +168,6 @@ useHead({
 </template>
 
 <style lang="scss" scoped>
-/* ════════════════════════════════════════════════════════════════
-   LAYOUT ROOT
-════════════════════════════════════════════════════════════════ */
 
 .hub-landing {
   display: flex;
@@ -186,14 +175,10 @@ useHead({
   min-height: 100%;
 }
 
-/* ════════════════════════════════════════════════════════════════
-   HERO
-════════════════════════════════════════════════════════════════ */
-
 .hub-hero {
   position: relative;
   overflow: hidden;
-  /* Escape panel p-4 sm:p-6 padding */
+
   margin: -1rem -1rem 0;
 
   display: flex;
@@ -215,8 +200,6 @@ useHead({
     padding: 4rem 2rem 6rem;
   }
 }
-
-/* ── Orbs ── */
 
 .hub-hero__orbs {
   position: absolute;
@@ -289,8 +272,6 @@ useHead({
   50%       { transform: translate(-18px, -25px) scale(1.06); }
 }
 
-/* ── Hero content ── */
-
 .hub-hero__content {
   position: relative;
   z-index: 1;
@@ -329,8 +310,6 @@ useHead({
   margin: 0;
   max-width: 520px;
 }
-
-/* ── CTA buttons ── */
 
 .hub-hero__ctas {
   display: flex;
@@ -392,8 +371,6 @@ useHead({
   }
 }
 
-/* ── Scroll indicator ── */
-
 .hub-hero__scroll-indicator {
   position: absolute;
   bottom: 1.5rem;
@@ -410,10 +387,6 @@ useHead({
   50%       { transform: translateX(-50%) translateY(6px); }
 }
 
-/* ════════════════════════════════════════════════════════════════
-   INNER CONTENT CONTAINER
-════════════════════════════════════════════════════════════════ */
-
 .hub-inner {
   max-width: 768px;
   margin: 0 auto;
@@ -423,10 +396,6 @@ useHead({
   flex-direction: column;
   gap: 1.5rem;
 }
-
-/* ════════════════════════════════════════════════════════════════
-   ONBOARDING FEATURED CARD
-════════════════════════════════════════════════════════════════ */
 
 .hub-onboarding-card {
   position: relative;
@@ -526,10 +495,6 @@ useHead({
   }
 }
 
-/* ════════════════════════════════════════════════════════════════
-   INTRO BLOCK
-════════════════════════════════════════════════════════════════ */
-
 .hub-intro {
   padding: 1.5rem;
   border-radius: 0.875rem;
@@ -551,11 +516,6 @@ useHead({
   margin: 0;
 }
 
-/* ════════════════════════════════════════════════════════════════
-   FAQ WRAPPER
-   Negative margins escape the panel's p-4 sm:p-6.
-════════════════════════════════════════════════════════════════ */
-
 .hub-faq-wrapper {
   margin-left: -1rem;
   margin-right: -1rem;
@@ -567,10 +527,6 @@ useHead({
     width: calc(100% + 3rem);
   }
 }
-
-/* ════════════════════════════════════════════════════════════════
-   CONTACT STRIP
-════════════════════════════════════════════════════════════════ */
 
 .hub-contact {
   margin-left: -1rem;
@@ -673,10 +629,6 @@ useHead({
     background: color-mix(in srgb, #dfaf85 25%, transparent);
   }
 }
-
-/* ════════════════════════════════════════════════════════════════
-   REDUCED MOTION
-════════════════════════════════════════════════════════════════ */
 
 @media (prefers-reduced-motion: reduce) {
   .hub-hero__orb {

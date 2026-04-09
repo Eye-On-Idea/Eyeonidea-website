@@ -5,9 +5,9 @@ export interface BreadcrumbItem {
 }
 
 defineProps<{
-  /** Ordered list of breadcrumb items. Last item is treated as current page. */
+
   crumbs: BreadcrumbItem[];
-  /** Accessible label for the nav element */
+
   ariaLabel?: string;
 }>();
 </script>

@@ -4,7 +4,6 @@ import { animationPresets, withDelay } from "~/composables/useAccessibleMotion";
 const { t, tm } = useI18n();
 const localePath = useLocalePath();
 
-// v-motion presets
 const heroMotion = animationPresets.fadeInUp;
 const contentMotion = withDelay("fadeInUp", 200);
 
@@ -46,7 +45,7 @@ const sectionKeys = [
 
 <template>
   <div class="legal-page">
-    <!-- Hero -->
+
     <section class="page-hero" aria-labelledby="legal-heading">
       <div class="hero-background" aria-hidden="true">
         <div class="bg-gradient" />
@@ -60,7 +59,6 @@ const sectionKeys = [
       </div>
     </section>
 
-    <!-- Content -->
     <section class="page-content">
       <div class="content-container" v-motion :initial="contentMotion.initial" :visible-once="contentMotion.visible">
         <p class="last-updated">{{ t("legal.lastUpdated") }}</p>
@@ -80,7 +78,6 @@ const sectionKeys = [
           </p>
         </div>
 
-        <!-- Back Link -->
         <div class="back-link-wrapper">
           <NuxtLink :to="localePath('/about')" class="back-link">
             <UIcon name="i-heroicons-arrow-left" class="back-icon" aria-hidden="true" />
@@ -232,7 +229,6 @@ const sectionKeys = [
   height: 1rem;
 }
 
-// Dark mode
 :root.dark {
   .page-content {
     background: var(--color-section-dark);
@@ -247,5 +243,4 @@ const sectionKeys = [
   }
 }
 
-// prefers-reduced-motion handled by v-motion / useAccessibleMotion
 </style>

@@ -71,7 +71,6 @@ const { targetRef, formattedValue } = useScrollTriggeredCounter(props.value, {
   max-width: 18rem;
 }
 
-/* Dark mode adjustments (in case used outside dark hero) */
 :global(.dark) .counter-label {
   color: var(--color-primary-100);
 }
@@ -80,7 +79,6 @@ const { targetRef, formattedValue } = useScrollTriggeredCounter(props.value, {
   color: var(--color-primary-300);
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .counter-value {
     transition: none;

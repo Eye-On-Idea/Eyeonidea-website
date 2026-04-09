@@ -1,7 +1,7 @@
 <template>
   <article v-if="post?.slug?.current" class="featured-post">
     <NuxtLink :to="`/news/${post.slug.current}`" class="featured-post-link">
-      <!-- Image -->
+
       <div class="featured-image-container">
         <SanityImage
           v-if="post.heroImage"
@@ -16,7 +16,6 @@
         <div class="featured-overlay" aria-hidden="true"></div>
       </div>
 
-      <!-- Content overlay -->
       <div class="featured-content">
         <div class="featured-badge">
           <Icon name="i-heroicons-star" class="size-4" aria-hidden="true" />
@@ -242,7 +241,6 @@ const formattedDate = computed(() => {
   transition: transform var(--duration-fast) var(--ease-smooth);
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .featured-post-link:hover .featured-image {
     transform: none;

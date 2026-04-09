@@ -22,7 +22,7 @@ const cardMotion = withDelay("fadeInUp", 80);
         :initial="cardMotion.initial"
         :visible-once="cardMotion.visible"
       >
-        <!-- Art deco corner frame -->
+
         <div class="deco-frame" aria-hidden="true">
           <span class="corner corner--tl" />
           <span class="corner corner--tr" />
@@ -30,10 +30,8 @@ const cardMotion = withDelay("fadeInUp", 80);
           <span class="corner corner--br" />
         </div>
 
-        <!-- Badge -->
         <span class="cta-badge">{{ t("services.cta.badge") }}</span>
 
-        <!-- Deco divider -->
         <div class="cta-deco-divider" aria-hidden="true">
           <span class="deco-line" />
           <span class="deco-diamond deco-diamond--sm" />
@@ -44,15 +42,12 @@ const cardMotion = withDelay("fadeInUp", 80);
           <span class="deco-line" />
         </div>
 
-        <!-- Heading -->
         <h2 id="services-cta-heading" class="cta-heading">
           {{ t("services.cta.title") }}
         </h2>
 
-        <!-- Description -->
         <p class="cta-description">{{ t("services.cta.description") }}</p>
 
-        <!-- Full-width strip CTA -->
         <NuxtLink
           :to="localePath('/contact')"
           class="cta-strip"
@@ -82,7 +77,6 @@ const cardMotion = withDelay("fadeInUp", 80);
           </span>
         </NuxtLink>
 
-        <!-- Secondary link -->
         <div class="cta-secondary-row">
           <AppCtaButton
             variant="secondary"
@@ -97,7 +91,7 @@ const cardMotion = withDelay("fadeInUp", 80);
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .services-cta-section {
   position: relative;
   background: #0d0908;
@@ -116,7 +110,6 @@ const cardMotion = withDelay("fadeInUp", 80);
   pointer-events: none;
 }
 
-/* ── Content wrapper ──────────────────────────────────────────── */
 .cta-inner {
   position: relative;
   z-index: 1;
@@ -124,7 +117,6 @@ const cardMotion = withDelay("fadeInUp", 80);
   margin: 0 auto;
 }
 
-/* ── Glass card ───────────────────────────────────────────────── */
 .cta-glass {
   position: relative;
   border-radius: 2px;
@@ -145,7 +137,6 @@ const cardMotion = withDelay("fadeInUp", 80);
   }
 }
 
-/* ── Corner frame ─────────────────────────────────────────────── */
 .deco-frame {
   position: absolute;
   inset: 1.25rem;
@@ -165,7 +156,6 @@ const cardMotion = withDelay("fadeInUp", 80);
   &--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
 }
 
-/* ── Badge ────────────────────────────────────────────────────── */
 .cta-badge {
   display: inline-block;
   margin-bottom: 1.5rem;
@@ -181,7 +171,6 @@ const cardMotion = withDelay("fadeInUp", 80);
   border: 1px solid rgba(223, 175, 133, 0.3);
 }
 
-/* ── Deco divider ─────────────────────────────────────────────── */
 .cta-deco-divider {
   display: flex;
   align-items: center;
@@ -215,7 +204,6 @@ const cardMotion = withDelay("fadeInUp", 80);
   }
 }
 
-/* ── Text ─────────────────────────────────────────────────────── */
 .cta-heading {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -240,7 +228,6 @@ const cardMotion = withDelay("fadeInUp", 80);
   margin: 0 auto 2.5rem;
 }
 
-/* ── Strip CTA ────────────────────────────────────────────────── */
 .cta-strip {
   display: flex;
   align-items: center;
@@ -336,13 +323,11 @@ const cardMotion = withDelay("fadeInUp", 80);
   transition: transform 0.25s ease;
 }
 
-/* ── Secondary row ────────────────────────────────────────────── */
 .cta-secondary-row {
   display: flex;
   justify-content: center;
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .cta-strip,
   .strip-diamond,
@@ -352,7 +337,6 @@ const cardMotion = withDelay("fadeInUp", 80);
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .services-cta-section { background: var(--color-section-alt); }
 

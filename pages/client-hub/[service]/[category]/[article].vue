@@ -24,7 +24,6 @@ const adjacent = computed(() =>
   getAdjacentArticles(serviceSlug.value, categorySlug.value, articleSlug.value),
 );
 
-// 404 if not found
 if (!service.value || !category.value || !article.value) {
   throw createError({
     statusCode: 404,
@@ -32,7 +31,6 @@ if (!service.value || !category.value || !article.value) {
   });
 }
 
-// Dynamic component mapping: service slug -> article slug -> component name
 const componentMap: Record<string, Record<string, () => Promise<Component>>> = {
   "website-content": {
     "cms-overview": () => import("~/components/client-hub/articles/website-content/CmsOverview.vue"),
@@ -97,7 +95,6 @@ const currentArticleComponent = computed(() => {
 
 const isCmsArticle = computed(() => serviceSlug.value === "website-content");
 
-// SEO
 useSeoMeta({
   title: () => `${t(article.value!.titleKey)} | ${t("clientHub.meta.title")}`,
   description: () => t(article.value!.summaryKey),
@@ -167,7 +164,7 @@ useHead({
 <template>
   <div class="article-page" v-if="service && category && article">
     <div class="max-w-prose mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-      <!-- Article header -->
+
       <div>
         <h1 class="text-2xl sm:text-3xl font-bold text-(--color-text-primary)">
           {{ t(article.titleKey) }}
@@ -177,7 +174,6 @@ useHead({
         </p>
       </div>
 
-      <!-- Studio may differ notice (CMS articles only) -->
       <div
         v-if="isCmsArticle"
         class="mt-6 flex items-start gap-2 p-3 rounded-xl bg-accent-500/5 border border-accent-500/10"
@@ -188,7 +184,6 @@ useHead({
         </p>
       </div>
 
-      <!-- Article content -->
       <div class="mt-8 article-content prose prose-sm max-w-none">
         <component
           :is="currentArticleComponent"
@@ -202,7 +197,6 @@ useHead({
         </div>
       </div>
 
-      <!-- Need help callout -->
       <div class="mt-10 p-4 rounded-xl bg-(--color-surface-2) border border-(--glass-border-subtle)">
         <div class="flex items-start gap-3">
           <Icon name="i-heroicons-chat-bubble-left-right" class="w-5 h-5 text-primary-500 shrink-0 mt-0.5" aria-hidden="true" />
@@ -217,7 +211,6 @@ useHead({
         </div>
       </div>
 
-      <!-- Previous / Next navigation -->
       <div class="mt-8 flex items-center justify-between gap-4">
         <NuxtLink
           v-if="adjacent.previous"

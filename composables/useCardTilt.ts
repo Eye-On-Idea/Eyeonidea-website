@@ -2,17 +2,13 @@ import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { usePreferredReducedMotion } from '@vueuse/core'
 import type { Ref } from 'vue'
 
-/**
- * Composable for 3D card tilt effect based on mouse position
- * Card tilts in 3D space following the cursor
- */
 export function useCardTilt(options: {
-  maxTilt?: number // Maximum tilt in degrees (default: 10)
-  perspective?: number // CSS perspective value (default: 1000)
-  scale?: number // Scale on hover (default: 1.05)
-  speed?: number // Transition speed (default: 400ms)
-  glare?: boolean // Enable glare effect (default: true)
-  gyroscope?: boolean // Enable gyroscope on mobile (default: false)
+  maxTilt?: number
+  perspective?: number
+  scale?: number
+  speed?: number
+  glare?: boolean
+  gyroscope?: boolean
 } = {}) {
   const {
     maxTilt = 10,
@@ -41,19 +37,15 @@ export function useCardTilt(options: {
     const centerX = rect.left + rect.width / 2
     const centerY = rect.top + rect.height / 2
 
-    // Calculate tilt based on mouse position relative to card center
     const mouseX = e.clientX - centerX
     const mouseY = e.clientY - centerY
 
-    // Normalize to -1 to 1 range
     const percentX = mouseX / (rect.width / 2)
     const percentY = mouseY / (rect.height / 2)
 
-    // Apply tilt (inverted for natural feel)
     tiltX.value = -percentY * maxTilt
     tiltY.value = percentX * maxTilt
 
-    // Calculate glare position (0-100%)
     if (glare) {
       glareX.value = ((e.clientX - rect.left) / rect.width) * 100
       glareY.value = ((e.clientY - rect.top) / rect.height) * 100
@@ -88,7 +80,6 @@ export function useCardTilt(options: {
     element.addEventListener('mouseenter', handleMouseEnter)
     element.addEventListener('mouseleave', handleMouseLeave)
 
-    // Optional: Gyroscope support for mobile
     if (gyroscope && 'DeviceOrientationEvent' in window) {
       window.addEventListener('deviceorientation', handleOrientation)
       gyroscopeRegistered = true
@@ -144,10 +135,6 @@ export function useCardTilt(options: {
   }
 }
 
-/**
- * Simpler tilt effect with less parameters
- * Good for quick implementation on cards
- */
 export function useSimpleCardTilt() {
   return useCardTilt({
     maxTilt: 8,

@@ -2,7 +2,6 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import type { SectionNavItem } from "~/components/services/SectionNav.vue";
 
-// ─── Deliverable media ───────────────────────────────────────────
 const logoImages = [
   "/images/visual-identity/logos/logo1.png",
   "/images/visual-identity/logos/logo2.png",
@@ -86,7 +85,6 @@ const pricingHighlights = computed(
   () => tm("servicesSubpages.visualIdentity.pricing.highlights") as PricingHighlight[],
 );
 
-// Intersection observers
 const deliverablesRef = ref<HTMLElement | null>(null);
 const processRef = ref<HTMLElement | null>(null);
 const pricingRef = ref<HTMLElement | null>(null);
@@ -135,7 +133,6 @@ onMounted(() => {
 <template>
   <div class="visual-identity-page">
 
-    <!-- ── Hero ──────────────────────────────────────── -->
     <PageHero
       heading-id="vi-hero-heading"
       :badge="t('servicesSubpages.visualIdentity.hero.badge')"
@@ -155,13 +152,11 @@ onMounted(() => {
       </template>
     </PageHero>
 
-    <!-- ── Sticky nav ─────────────────────────────────── -->
     <ServicesSectionNav
       :sections="navSections"
       :aria-label="t('servicesSubpages.visualIdentity.hero.badge')"
     />
 
-    <!-- ── Deliverables ───────────────────────────────── -->
     <section
       id="deliverables-section"
       ref="deliverablesRef"
@@ -191,7 +186,7 @@ onMounted(() => {
             class="deliverable-card"
             :class="`stagger-${index + 1}`"
           >
-            <!-- Media -->
+
             <div
               v-if="index === 0"
               class="deliverable-image deliverable-carousel"
@@ -281,7 +276,6 @@ onMounted(() => {
       </div>
     </section>
 
-    <!-- ── Process ────────────────────────────────────── -->
     <section
       id="process-section"
       ref="processRef"
@@ -328,7 +322,6 @@ onMounted(() => {
       </div>
     </section>
 
-    <!-- ── Pricing ────────────────────────────────────── -->
     <section
       id="identity-pricing-section"
       ref="pricingRef"
@@ -345,7 +338,7 @@ onMounted(() => {
 
       <div class="inner-container">
         <div class="pricing-layout" :class="{ 'animate-in': pricingVisible }">
-          <!-- Left: intro -->
+
           <div class="pricing-intro">
             <h2 id="vi-pricing-heading" class="section-title">
               {{ t("servicesSubpages.visualIdentity.pricing.introTitle") }}
@@ -365,7 +358,6 @@ onMounted(() => {
             </p>
           </div>
 
-          <!-- Right: price list -->
           <div class="pricing-card">
             <ul class="price-list" role="list">
               <li
@@ -401,12 +393,10 @@ onMounted(() => {
       </div>
     </section>
 
-    <!-- ── FAQ ───────────────────────────────────────── -->
     <div id="identity-faq-section">
       <ProcessFAQ />
     </div>
 
-    <!-- ── CTA ───────────────────────────────────────── -->
     <div id="identity-contact-section">
       <ServicesCTA />
     </div>
@@ -419,7 +409,6 @@ onMounted(() => {
   background: #0d0908;
 }
 
-/* Scroll margin */
 #identity-section,
 #deliverables-section,
 #process-section,
@@ -429,8 +418,6 @@ onMounted(() => {
   scroll-margin-top: 136px;
 }
 
-
-/* ── Section label row ────────────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -440,14 +427,12 @@ onMounted(() => {
   padding: 5rem 2rem 3rem;
 }
 
-/* ── Inner container ──────────────────────────────────────────── */
 .inner-container {
   max-width: 80rem;
   margin: 0 auto;
   padding: 0 2rem 5rem;
 }
 
-/* ── Common section text ──────────────────────────────────────── */
 .section-title {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -468,7 +453,6 @@ onMounted(() => {
   margin: 0 0 2.5rem;
 }
 
-/* ── Deliverables section ─────────────────────────────────────── */
 .deliverables-section {
   background: #0d0908;
   padding-bottom: 0;
@@ -510,7 +494,6 @@ onMounted(() => {
   background: #161210;
 }
 
-/* Carousel */
 .deliverable-carousel {
   position: relative;
   aspect-ratio: 16 / 9;
@@ -564,7 +547,6 @@ onMounted(() => {
   }
 }
 
-/* Static image */
 .deliverable-static-img {
   aspect-ratio: 16 / 9;
 }
@@ -577,7 +559,6 @@ onMounted(() => {
   display: block;
 }
 
-/* Carousel transition */
 .carousel-fade-enter-active,
 .carousel-fade-leave-active {
   transition: opacity 0.5s var(--ease-smooth);
@@ -610,7 +591,6 @@ onMounted(() => {
   margin: 0;
 }
 
-/* ── Identity process ─────────────────────────────────────────── */
 .identity-process-section {
   background: #0d0908;
   padding-bottom: 0;
@@ -723,7 +703,6 @@ onMounted(() => {
   margin: 0;
 }
 
-/* ── Pricing section ──────────────────────────────────────────── */
 .pricing-section {
   background: #0d0908;
   padding-bottom: 0;
@@ -782,7 +761,6 @@ onMounted(() => {
   border-top: 1px solid rgba(223, 175, 133, 0.1);
 }
 
-/* Price list card */
 .pricing-card {
   background: #161210;
   border: 1px solid rgba(223, 175, 133, 0.12);
@@ -914,7 +892,6 @@ onMounted(() => {
   transition: transform 0.25s ease;
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .deliverable-card,
   .process-step,
@@ -936,7 +913,6 @@ onMounted(() => {
   }
 }
 
-/* ── Separator rows — dark mode base (not defined above) ──────── */
 .sep-line {
   flex: 1;
   height: 1px;
@@ -959,26 +935,21 @@ onMounted(() => {
   flex-shrink: 0;
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .visual-identity-page { background: var(--color-section-light); }
 
-  /* Shared separator rows — explicit warm brand values */
   .sep-line    { background: rgba(153, 82, 38, 0.20); }
   .sep-diamond { background: rgba(153, 82, 38, 0.45); }
   .sep-text    { color: rgba(153, 82, 38, 0.65); }
 
-  /* Section headings — dark warm brown */
   .section-title    { color: #441a08; }
   .section-subtitle { color: #67280e; }
 
-  /* Deliverables section */
   .deliverables-section { background: var(--color-section-alt); }
 
   .deliverable-title       { color: #441a08; }
   .deliverable-description { color: #67280e; }
 
-  /* Image containers */
   .deliverable-image {
     background: linear-gradient(145deg, #ffffff 0%, #fffaf7 100%);
     border-color: rgba(153, 82, 38, 0.12);
@@ -989,7 +960,6 @@ html:not(.dark) {
     &--active { background: rgba(153, 82, 38, 0.65); }
   }
 
-  /* Process / How It Works section */
   .identity-process-section { background: var(--color-section-light); }
 
   .process-steps { border-top-color: rgba(153, 82, 38, 0.12); }
@@ -1002,10 +972,9 @@ html:not(.dark) {
   .step-numeral { color: #7d3412; opacity: 0.85; }
   .deco-line    { background: rgba(153, 82, 38, 0.12); }
   .deco-diamond { background: rgba(153, 82, 38, 0.40); }
-  .step-heading { color: #441a08; }  /* primary-900 — deep warm dark */
-  .step-body    { color: #67280e; }  /* primary-700 — readable warm brown */
+  .step-heading { color: #441a08; }
+  .step-body    { color: #67280e; }
 
-  /* Pricing section */
   .pricing-section { background: var(--color-section-alt); }
 
   .pricing-card {

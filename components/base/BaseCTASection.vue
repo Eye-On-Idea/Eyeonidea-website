@@ -7,21 +7,21 @@ import {
 
 withDefaults(
   defineProps<{
-    /** Badge text above the title */
+
     badge?: string;
-    /** CTA heading text */
+
     title?: string;
-    /** Description text below the heading */
+
     description?: string;
-    /** Primary CTA button text */
+
     primaryText?: string;
-    /** Primary CTA button link */
+
     primaryTo?: string;
-    /** Secondary CTA button text */
+
     secondaryText?: string;
-    /** Secondary CTA button link */
+
     secondaryTo?: string;
-    /** aria-labelledby ID for the heading */
+
     headingId?: string;
   }>(),
   {
@@ -137,7 +137,6 @@ withDefaults(
     );
 }
 
-// Scroll-driven background effect (progressive enhancement)
 @supports (animation-timeline: view()) {
   .bg-pattern {
     animation: ctaPatternReveal linear;
@@ -274,7 +273,6 @@ withDefaults(
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .bg-pattern {
     background:

@@ -50,23 +50,18 @@ onBeforeRender(({ delta, elapsed }) => {
 
   time.value = elapsed;
 
-  // Opacity from prop (fade in/out by parent)
   material.opacity = props.opacity ?? 1;
 
-  // Scale entrance: lerp 0 → 1 in first 2s
   const entranceT = Math.min((performance.now() - startTime.value) / 2000, 1);
-  const scale = entranceT < 1 ? entranceT * (2 - entranceT) : 1; // ease-out quad
+  const scale = entranceT < 1 ? entranceT * (2 - entranceT) : 1;
   meshRef.value.scale.setScalar(scale);
 
   if (props.reducedMotion) return;
 
-  // Slow Y rotation
   meshRef.value.rotation.y += delta * 0.15;
 
-  // Gentle float on Y
   meshRef.value.position.y = Math.sin(elapsed * 0.5) * 0.12;
 
-  // Mouse parallax tilt (lerped)
   mouseCurrent.x += (mouseTarget.x - mouseCurrent.x) * 0.04;
   mouseCurrent.y += (mouseTarget.y - mouseCurrent.y) * 0.04;
   meshRef.value.rotation.x = mouseCurrent.y * 0.09;

@@ -1,17 +1,17 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    /** Badge/tag text above the title */
+
     badge?: string;
-    /** Section heading text */
+
     title?: string;
-    /** Subtitle or description below the heading */
+
     subtitle?: string;
-    /** Heading level (rendered as h2 or h3) */
+
     tag?: "h2" | "h3";
-    /** Text alignment */
+
     align?: "left" | "center";
-    /** ID for the heading element (for aria-labelledby) */
+
     headingId?: string;
   }>(),
   {

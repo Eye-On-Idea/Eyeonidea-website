@@ -1,4 +1,4 @@
-<!-- components/MyHeader.vue -->
+
 <script lang="ts" setup>
 import {
   ref,
@@ -35,7 +35,7 @@ const navLinks = computed(() => [
     ],
   },
   { label: t("nav.cases"), to: localePath("/cases") },
-  // { label: t("nav.news"), to: localePath("/news") },
+
   {
     label: t("nav.about"),
     to: localePath("/about"),
@@ -53,11 +53,9 @@ type NavLink = {
   children?: Array<{ label: string; to: string }>;
 };
 
-// ── Desktop dropdown ──────────────────────────────────────────────
 const openDropdown = ref<string | null>(null);
 let closeTimeout: ReturnType<typeof setTimeout> | null = null;
 
-// Derive the active dropdown link object for rendering the panel
 const activeDropdownLink = computed(
   () => navLinks.value.find((l) => l.to === openDropdown.value) ?? null,
 );
@@ -168,7 +166,6 @@ const handleDropdownItemKeydown = (
   }
 };
 
-// ── Mobile ────────────────────────────────────────────────────────
 const isMobileOpen = ref(false);
 const expandedMobile = ref<string | null>(null);
 const headerWrapperRef = ref<HTMLElement | null>(null);
@@ -219,7 +216,7 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
 </script>
 
 <template>
-  <!-- Fixed wrapper: header pill + dropdown panel + mobile panel all share this container -->
+
   <div ref="headerWrapperRef" class="header-outer">
     <UHeader
       class="header-main"
@@ -229,7 +226,7 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
         toggle: 'hidden',
       }"
     >
-      <!-- Art deco edge lines -->
+
       <span class="header-edge-line header-edge-line--top" aria-hidden="true" />
       <span
         class="header-edge-line header-edge-line--bottom"
@@ -245,12 +242,13 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
           <img
             src="/public-material/img/logo-nobg_dark.png"
             alt="Eye On Idea"
+            width="66"
+            height="40"
             class="block h-10 w-auto transition-transform duration-300 group-hover:scale-105 pt-0.5 invert brightness-0"
           />
         </NuxtLink>
       </template>
 
-      <!-- Desktop Navigation -->
       <nav
         class="hidden lg:flex items-center gap-1"
         @mouseleave="closeDropdownMenu"
@@ -258,7 +256,6 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
         <template v-for="(link, index) in navLinks" :key="link.to">
           <span v-if="index > 0" class="nav-sep" aria-hidden="true" />
 
-          <!-- Simple link -->
           <NuxtLink
             v-if="!link.children"
             :to="link.to"
@@ -276,7 +273,6 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
             />
           </NuxtLink>
 
-          <!-- Link with dropdown -->
           <div
             v-else
             data-dropdown-container
@@ -330,7 +326,6 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
           <ColorModeToggle class="color-mode-override" />
           <LanguageSwitcher class="lang-switcher-override" />
 
-          <!-- Custom mobile burger -->
           <button
             type="button"
             class="mob-burger lg:hidden"
@@ -357,7 +352,6 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
       </template>
     </UHeader>
 
-    <!-- ── Desktop dropdown panel — snaps to header bottom ─────── -->
     <Transition name="desk-dropdown">
       <div
         v-if="activeDropdownLink"
@@ -367,7 +361,7 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
         @mouseenter="openDropdownMenu(activeDropdownLink.to)"
         @mouseleave="closeDropdownMenu"
       >
-        <!-- Art deco separator -->
+
         <div class="desk-drop__sep" aria-hidden="true">
           <span class="sep-line" />
           <span class="sep-diamond sep-diamond--sm" />
@@ -398,7 +392,6 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
       </div>
     </Transition>
 
-    <!-- ── Mobile slide-down panel ──────────────────────────────── -->
     <Transition name="mob-panel">
       <nav v-if="isMobileOpen" class="mob-panel" aria-label="Mobile navigation">
         <div class="mob-panel__sep" aria-hidden="true">
@@ -489,15 +482,7 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
 </template>
 
 <style lang="scss" scoped>
-// ── Shared amber tokens ────────────────────────────────────────────
-// dark amber:  rgba(223, 175, 133, X)  — #dfaf85
-// primary-50:  #ffeddf                 — cream white
-// header bg:   #1a1210                 — warm near-black (both modes)
-// panel bg:    #1e1411                 — fractionally lighter
 
-/* ═══════════════════════════════════════════════════════════════════
-   HEADER PILL — always dark regardless of color mode
-   ═══════════════════════════════════════════════════════════════════ */
 :deep(.header-root-bg) {
   background: #1a1210 !important;
 }
@@ -552,9 +537,6 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
   }
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   ART DECO EDGE LINES
-   ═══════════════════════════════════════════════════════════════════ */
 .header-edge-line {
   position: absolute;
   left: 6%;
@@ -578,17 +560,11 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
   }
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   LOGO
-   ═══════════════════════════════════════════════════════════════════ */
 .logo-container {
   border-radius: 8px;
   padding: 0.5rem 0.75rem;
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   DESKTOP NAV — diamond separator
-   ═══════════════════════════════════════════════════════════════════ */
 .nav-sep {
   display: block;
   width: 3px;
@@ -599,9 +575,6 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
   margin: 0 0.25rem;
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   DESKTOP NAV LINKS
-   ═══════════════════════════════════════════════════════════════════ */
 .header-nav-link {
   position: relative;
   display: flex;
@@ -662,9 +635,6 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
   box-shadow: 0 0 7px rgba(223, 175, 133, 0.55);
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   CLIENT HUB PILL
-   ═══════════════════════════════════════════════════════════════════ */
 .header-hub-link {
   align-items: center;
   gap: 0.375rem;
@@ -701,9 +671,6 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
   }
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   COLOR MODE TOGGLE + LANGUAGE SWITCHER — amber override
-   ═══════════════════════════════════════════════════════════════════ */
 .color-mode-override {
   :deep(button) {
     color: rgba(223, 175, 133, 0.65);
@@ -752,20 +719,15 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
   }
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   DESKTOP DROPDOWN PANEL — snapped to header bottom
-   ═══════════════════════════════════════════════════════════════════ */
 .desk-dropdown-panel {
   position: absolute;
-  // Snap flush to header bottom, no gap (border merges visually)
   top: 100%;
-  // Center under the nav area (roughly middle of the pill)
   left: 50%;
   transform: translateX(-50%);
   z-index: 49;
   background: #1a1210;
   border: 1px solid rgba(223, 175, 133, 0.35);
-  border-top: none; // merges with header bottom border
+  border-top: none;
   border-radius: 0 0 1rem 1rem;
   box-shadow:
     0 0 0 4px rgba(223, 175, 133, 0.07),
@@ -787,7 +749,6 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
   padding: 0.375rem 0.5rem 0.75rem;
 }
 
-// Dropdown enter/leave
 .desk-dropdown-enter-active {
   transition:
     opacity 0.2s ease-out,
@@ -804,7 +765,6 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
   transform: translateX(-50%) translateY(-6px);
 }
 
-/* ── Dropdown items ─────────────────────────────────────────────── */
 .dropdown-item {
   display: block;
   padding: 0.6rem 1rem;
@@ -831,9 +791,6 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
   }
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   BURGER BUTTON (mobile only)
-   ═══════════════════════════════════════════════════════════════════ */
 .mob-burger {
   display: flex;
   flex-direction: column;
@@ -881,9 +838,6 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
   }
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   SHARED SEPARATOR ELEMENTS (desktop dropdown + mobile panel)
-   ═══════════════════════════════════════════════════════════════════ */
 .sep-line {
   flex: 1;
   height: 1px;
@@ -908,9 +862,6 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
   }
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   MOBILE SLIDE-DOWN PANEL
-   ═══════════════════════════════════════════════════════════════════ */
 .mob-panel {
   background: #1e1411;
   border-radius: 0 0 1.5rem 1.5rem;
@@ -968,7 +919,6 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
   gap: 0.125rem;
 }
 
-/* ── Mobile nav links ───────────────────────────────────────────── */
 .mob-link {
   display: flex;
   align-items: center;
@@ -1093,10 +1043,6 @@ const isActiveLink = (link: { to: string; children?: { to: string }[] }) => {
   margin: 0.375rem 0.25rem;
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   LIGHT MODE — only mobile panel gets a light background
-   Header pill, dropdown, and all nav elements stay dark
-   ═══════════════════════════════════════════════════════════════════ */
 html:not(.dark) {
   .mob-panel {
     background: #fff4ec;
@@ -1158,9 +1104,6 @@ html:not(.dark) {
   }
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   REDUCED MOTION
-   ═══════════════════════════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
   .mob-panel-enter-active,
   .mob-panel-leave-active,
@@ -1184,9 +1127,6 @@ html:not(.dark) {
   }
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   REDUCED TRANSPARENCY
-   ═══════════════════════════════════════════════════════════════════ */
 @media (prefers-reduced-transparency: reduce) {
   .header-main {
     background: #0f0c0b;

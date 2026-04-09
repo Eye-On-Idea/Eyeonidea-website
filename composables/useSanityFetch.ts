@@ -1,35 +1,22 @@
-// /composables/useSanityFetch.ts
+
 import type { AsyncData } from "#app";
 
 export type SanityFetchOptions = {
-  /**
-   * Stable key for Nuxt AsyncData caching/dedupe.
-   * If omitted, generated from query+params.
-   */
+
   key?: string;
-  /**
-   * If true, query won't run until you call refresh()
-   */
+
   lazy?: boolean;
-  /**
-   * If false, skip server fetch; client relies on payload only.
-   */
+
   server?: boolean;
-  /**
-   * If true, always fetch fresh data on client navigation (bypasses cache).
-   * Useful for frequently updated content like news posts.
-   */
+
   fresh?: boolean;
 };
 
-/**
- * Small hash that works in both server + client (no node:crypto dependency).
- */
 function hashDjb2(input: string) {
   let hash = 5381;
   for (let i = 0; i < input.length; i++)
     hash = (hash * 33) ^ input.charCodeAt(i);
-  // convert to unsigned + base36 for compactness
+
   return (hash >>> 0).toString(36);
 }
 
@@ -37,9 +24,6 @@ function makeKey(query: string, params?: Record<string, unknown>) {
   return `sanity:${hashDjb2(JSON.stringify({ query, params: params ?? {} }))}`;
 }
 
-/**
- * Sanity fetch that avoids browser requests by relying on payloads on client.
- */
 export function useSanityFetch<T>(
   query: string,
   params?: Record<string, unknown>,
@@ -59,7 +43,6 @@ export function useSanityFetch<T>(
           (nuxtApp.static.data[key] ??
             nuxtApp.payload.data[key]) as T | undefined;
 
-        // If fresh option is enabled, fetch directly from API (skip cache)
         if (fresh) {
           try {
             const result = await $fetch<T>("/api/sanity/query", {
@@ -73,7 +56,6 @@ export function useSanityFetch<T>(
               key,
               error,
             });
-            // Fall back to cached data if fresh fetch fails
             const cached = getCached();
             if (cached !== undefined) {
               return cached;
@@ -119,7 +101,6 @@ export function useSanityFetch<T>(
             return payload;
           }, 2, 150);
         } catch {
-          // Handled below with fallback logging.
         }
 
         if (loadedPayload?.data && nuxtApp.static?.data) {
@@ -135,8 +116,6 @@ export function useSanityFetch<T>(
           return cachedAfter;
         }
 
-        // Fallback to API when payload is missing (both dev and production)
-        // This handles client-side navigation when payloadExtraction is disabled
         try {
           const fallbackData = await retry(
             async () => {

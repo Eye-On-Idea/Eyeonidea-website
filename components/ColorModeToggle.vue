@@ -7,50 +7,38 @@ const buttonRef = ref<HTMLButtonElement | null>(null);
 
 const isDark = computed(() => colorMode.value === "dark");
 
-/**
- * Toggle color mode with View Transitions API animation
- * Creates an expanding circle effect from the toggle button
- */
 const toggleColorMode = async (event: MouseEvent) => {
-  // Check for View Transitions API support and reduced motion preference
+
   const isReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches;
   const supportsViewTransitions =
     "startViewTransition" in document && !isReducedMotion;
 
-  // Capture the current state BEFORE toggling
   const isCurrentlyDark = isDark.value;
 
-  // Fallback for browsers without View Transitions API
   if (!supportsViewTransitions) {
     colorMode.preference = isCurrentlyDark ? "light" : "dark";
     return;
   }
 
-  // Get the click position (center of button)
   const button = buttonRef.value;
   const rect = button?.getBoundingClientRect();
   const x = rect ? rect.left + rect.width / 2 : event.clientX;
   const y = rect ? rect.top + rect.height / 2 : event.clientY;
 
-  // Calculate the maximum radius needed to cover the entire screen
   const maxRadius = Math.hypot(
     Math.max(x, window.innerWidth - x),
     Math.max(y, window.innerHeight - y),
   );
 
-  // Start the view transition
   const transition = (document as any).startViewTransition(async () => {
     colorMode.preference = isCurrentlyDark ? "light" : "dark";
     await nextTick();
   });
 
-  // Wait for the transition to be ready
   await transition.ready;
 
-  // Animate the old view shrinking to reveal the new view underneath
-  // This works for both directions since old is always on top (z-index: 9999)
   const animation = document.documentElement.animate(
     {
       clipPath: [
@@ -65,7 +53,6 @@ const toggleColorMode = async (event: MouseEvent) => {
     },
   );
 
-  // Wait for animation to complete to prevent flash at end
   await animation.finished;
 };
 

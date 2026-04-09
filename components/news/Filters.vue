@@ -15,7 +15,7 @@
         :visible-once="motionVariants.fadeInUp.visible"
         class="filters-container"
       >
-        <!-- Search -->
+
         <div class="filter-search">
           <Icon
             name="i-heroicons-magnifying-glass"
@@ -42,7 +42,6 @@
           </button>
         </div>
 
-        <!-- Type filter -->
         <div class="filter-type">
           <label for="post-type-filter" class="filter-label">
             <Icon name="i-heroicons-funnel" class="size-4" aria-hidden="true" />
@@ -65,7 +64,6 @@
           </select>
         </div>
 
-        <!-- Active filter chips -->
         <div v-if="hasActiveFilters" class="active-filters">
           <span class="filter-chip" v-if="searchQuery">
             {{ t("news.filters.searchChip", { query: searchQuery }) }}
@@ -130,7 +128,6 @@ const resultsMessage = computed(() => {
 const localSearch = ref(props.searchQuery);
 const localType = ref(props.selectedType || "");
 
-// Watch for external changes
 watch(
   () => props.searchQuery,
   (val) => {
@@ -153,7 +150,6 @@ function getTypeLabel(type: PostType) {
   return postTypes.value.find((t) => t.value === type)?.label || type;
 }
 
-// Debounced search
 let searchTimeout: ReturnType<typeof setTimeout>;
 function debouncedSearch() {
   clearTimeout(searchTimeout);
@@ -192,7 +188,7 @@ function clearAll() {
 <style lang="scss" scoped>
 .news-filters {
   position: sticky;
-  top: 64px; // Header height
+  top: 64px;
   z-index: 40;
   border-bottom: 1px solid var(--color-border);
   padding: 1rem 0;
@@ -371,7 +367,6 @@ function clearAll() {
   }
 }
 
-/* Dark mode */
 :global(.dark) .news-filters {
   background: var(--color-bg);
 }

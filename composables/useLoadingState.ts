@@ -12,10 +12,6 @@ const globalLoadingState = ref<LoadingState>({
   type: 'spinner'
 })
 
-/**
- * Composable for managing global loading state
- * Useful for page transitions, data fetching, etc.
- */
 export function useLoadingState() {
   const startLoading = (message?: string, type?: LoadingState['type']) => {
     globalLoadingState.value = {
@@ -46,10 +42,6 @@ export function useLoadingState() {
   }
 }
 
-/**
- * Composable for async operations with automatic loading state
- * Wraps an async function with loading state management
- */
 export function useAsyncLoading<T extends (...args: any[]) => Promise<any>>(
   asyncFn: T,
   options?: {
@@ -71,7 +63,7 @@ export function useAsyncLoading<T extends (...args: any[]) => Promise<any>>(
 
       if (options?.successMessage) {
         setLoadingMessage(options.successMessage)
-        // Show success message briefly before stopping
+
         await new Promise(resolve => setTimeout(resolve, 1000))
       }
 

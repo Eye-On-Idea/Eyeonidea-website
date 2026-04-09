@@ -19,7 +19,7 @@ export interface BeforeAfterData {
 
 const props = defineProps<{
   data: BeforeAfterData;
-  isClient?: boolean; // true = accent colors, false = primary colors
+  isClient?: boolean;
 }>();
 
 const sectionRef = ref<HTMLElement | null>(null);
@@ -77,13 +77,12 @@ onMounted(() => {
 
 <template>
   <div ref="sectionRef" class="cs-ba">
-    <!-- Header -->
+
     <div class="cs-ba__header" :class="{ 'cs-ba__header--visible': isVisible }">
       <h2 class="cs-ba__title">{{ data.title }}</h2>
       <p class="cs-ba__subtitle">{{ data.subtitle }}</p>
     </div>
 
-    <!-- Slider -->
     <div
       ref="sliderRef"
       class="cs-ba__slider"
@@ -100,7 +99,7 @@ onMounted(() => {
       @pointercancel="onPointerUp"
       @keydown="onKeyDown"
     >
-      <!-- Before panel -->
+
       <div class="cs-ba__panel cs-ba__panel--before">
         <span class="cs-ba__panel-label">{{ data.beforeLabel }}</span>
         <div class="cs-ba__metrics">
@@ -117,7 +116,6 @@ onMounted(() => {
         </div>
       </div>
 
-      <!-- After panel (clipped) -->
       <div
         class="cs-ba__panel cs-ba__panel--after"
         :style="{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }"
@@ -137,7 +135,6 @@ onMounted(() => {
         </div>
       </div>
 
-      <!-- Drag handle -->
       <div
         class="cs-ba__handle"
         :style="{ left: `${sliderPosition}%` }"
@@ -150,7 +147,6 @@ onMounted(() => {
       </div>
     </div>
 
-    <!-- Hint -->
     <p class="cs-ba__hint" aria-hidden="true">
       <UIcon name="i-heroicons-cursor-arrow-rays" class="w-4 h-4" />
       Drag to compare
@@ -191,7 +187,6 @@ onMounted(() => {
   line-height: 1.6;
 }
 
-// Slider
 .cs-ba__slider {
   position: relative;
   border-radius: 1rem;
@@ -217,7 +212,6 @@ onMounted(() => {
   }
 }
 
-// Panels
 .cs-ba__panel {
   padding: 2rem 1.75rem;
   min-height: 240px;
@@ -302,7 +296,6 @@ onMounted(() => {
   }
 }
 
-// Drag handle
 .cs-ba__handle {
   position: absolute;
   top: 0;
@@ -358,7 +351,6 @@ onMounted(() => {
   color: var(--color-text-muted);
 }
 
-// Dark mode
 :root.dark {
   .cs-ba__panel--before {
     background: color-mix(in srgb, var(--color-surface-2) 60%, var(--color-primary-950));
@@ -390,5 +382,4 @@ onMounted(() => {
   }
 }
 </style>
-
 

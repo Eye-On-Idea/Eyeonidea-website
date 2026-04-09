@@ -56,7 +56,6 @@ interface CaseStudy {
   category?: string;
 }
 
-// Gallery modal state
 const isGalleryOpen = ref(false);
 const selectedImageIndex = ref(0);
 
@@ -69,7 +68,6 @@ const closeGallery = () => {
   isGalleryOpen.value = false;
 };
 
-// Parallax scroll tracking
 const prefersReducedMotion = usePreferredReducedMotion();
 const { y: scrollY } = useWindowScroll();
 const heroParallax = computed(() =>
@@ -79,7 +77,6 @@ const orbParallax = computed(() =>
   prefersReducedMotion.value === "reduce" ? "none" : `translateY(${scrollY.value * -0.12}px)`
 );
 
-// Case data
 const caseStudy = computed<CaseStudy | undefined>(() => {
   const slug = route.params.slug as string;
   const all = tm("caseStudies") as Record<string, unknown>;
@@ -187,19 +184,18 @@ const getBadgeLabel = (company: string) => {
 
   <div v-else class="cs-page">
 
-    <!-- ─── HERO ─────────────────────────────────────────────── -->
     <section class="cs-hero" aria-labelledby="cs-hero-title">
       <div class="cs-hero__bg" aria-hidden="true" :style="{ transform: orbParallax }" />
 
       <UContainer class="max-w-360 cs-hero__container">
-        <!-- Back link -->
+
         <NuxtLink :to="localePath('/cases')" class="cs-back">
           <span aria-hidden="true">←</span>
           {{ t("cases.navigation.backToCases") }}
         </NuxtLink>
 
         <div class="cs-hero__body">
-          <!-- Left: text content -->
+
           <div class="cs-hero__text">
             <div
               v-motion
@@ -234,7 +230,6 @@ const getBadgeLabel = (company: string) => {
               {{ caseStudy.subtitle }}
             </p>
 
-            <!-- Meta row -->
             <div
               class="cs-hero__meta"
               v-motion
@@ -268,7 +263,6 @@ const getBadgeLabel = (company: string) => {
             </div>
           </div>
 
-          <!-- Right: hero image with parallax -->
           <div
             v-if="caseStudy.hero"
             class="cs-hero__visual"
@@ -290,7 +284,6 @@ const getBadgeLabel = (company: string) => {
       </UContainer>
     </section>
 
-    <!-- ─── KEY METRICS ──────────────────────────────────────── -->
     <section
       v-if="caseStudy.keyMetrics?.length"
       class="cs-metrics-strip"
@@ -314,12 +307,10 @@ const getBadgeLabel = (company: string) => {
       </UContainer>
     </section>
 
-    <!-- ─── MAIN CONTENT ─────────────────────────────────────── -->
     <div class="cs-main">
       <UContainer class="max-w-360">
         <div class="cs-layout">
 
-          <!-- ── OVERVIEW ── -->
           <section class="cs-section" aria-labelledby="cs-overview-heading">
             <h2
               id="cs-overview-heading"
@@ -350,7 +341,6 @@ const getBadgeLabel = (company: string) => {
             </div>
           </section>
 
-          <!-- ── TECHNOLOGIES ── -->
           <section
             v-if="caseStudy.technologies?.length"
             class="cs-tech-section"
@@ -369,7 +359,6 @@ const getBadgeLabel = (company: string) => {
             </div>
           </section>
 
-          <!-- ── PROCESS ── -->
           <section
             v-if="caseStudy.process?.length"
             class="cs-section"
@@ -416,7 +405,6 @@ const getBadgeLabel = (company: string) => {
             </div>
           </section>
 
-          <!-- ── CHALLENGES ── -->
           <section
             v-if="caseStudy.challenges?.length"
             class="cs-section"
@@ -457,7 +445,6 @@ const getBadgeLabel = (company: string) => {
             </div>
           </section>
 
-          <!-- ── BEFORE / AFTER ── -->
           <section
             v-if="caseStudy.beforeAfter"
             class="cs-section"
@@ -478,7 +465,6 @@ const getBadgeLabel = (company: string) => {
             />
           </section>
 
-          <!-- ── RESULTS ── -->
           <section
             v-if="caseStudy.results"
             class="cs-section"
@@ -517,7 +503,6 @@ const getBadgeLabel = (company: string) => {
             </div>
           </section>
 
-          <!-- ── GALLERY ── -->
           <section
             v-if="caseStudy.gallery?.length"
             class="cs-section"
@@ -571,7 +556,6 @@ const getBadgeLabel = (company: string) => {
       </UContainer>
     </div>
 
-    <!-- ─── CASE NAVIGATION ──────────────────────────────────── -->
     <nav
       v-if="previousCase && nextCase"
       class="cs-nav"
@@ -597,7 +581,6 @@ const getBadgeLabel = (company: string) => {
       </UContainer>
     </nav>
 
-    <!-- ─── CTA ─────────────────────────────────────────────── -->
     <section class="cs-cta-wrap" aria-labelledby="cs-cta-heading">
       <div class="cta-bg-radial" aria-hidden="true" />
       <div class="cta-container">
@@ -639,7 +622,7 @@ const getBadgeLabel = (company: string) => {
 </template>
 
 <style lang="scss" scoped>
-/* ── Loading ──────────────────────────────────────────────────── */
+
 .cs-loading {
   min-height: 100vh;
   background: #0d0908;
@@ -670,13 +653,11 @@ const getBadgeLabel = (company: string) => {
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ── Page ─────────────────────────────────────────────────────── */
 .cs-page {
   min-height: 100vh;
   background: #0d0908;
 }
 
-/* ── Hero ─────────────────────────────────────────────────────── */
 .cs-hero {
   position: relative;
   background: #0d0908;
@@ -889,7 +870,6 @@ const getBadgeLabel = (company: string) => {
   will-change: transform;
 }
 
-/* ── Metrics strip ────────────────────────────────────────────── */
 .cs-metrics-strip {
   background: #120703;
   border-top: 1px solid rgba(223, 175, 133, 0.08);
@@ -940,7 +920,6 @@ const getBadgeLabel = (company: string) => {
   line-height: 1.4;
 }
 
-/* ── Main content ─────────────────────────────────────────────── */
 .cs-main {
   background: #0d0908;
   padding: 5rem 0 3rem;
@@ -960,7 +939,6 @@ const getBadgeLabel = (company: string) => {
   @media (min-width: 768px) { gap: 6rem; }
 }
 
-/* ── Section eyebrow ──────────────────────────────────────────── */
 .cs-section__eyebrow {
   display: flex;
   align-items: center;
@@ -982,7 +960,6 @@ const getBadgeLabel = (company: string) => {
   }
 }
 
-/* ── Overview ─────────────────────────────────────────────────── */
 .cs-overview {
   display: grid;
   gap: 1rem;
@@ -1027,7 +1004,6 @@ const getBadgeLabel = (company: string) => {
   margin: 0;
 }
 
-/* ── Technologies ─────────────────────────────────────────────── */
 .cs-tech-section {
   display: flex;
   flex-wrap: wrap;
@@ -1068,7 +1044,6 @@ const getBadgeLabel = (company: string) => {
   }
 }
 
-/* ── Process timeline ─────────────────────────────────────────── */
 .cs-process {
   display: flex;
   flex-direction: column;
@@ -1161,7 +1136,6 @@ const getBadgeLabel = (company: string) => {
   transform: rotate(45deg);
 }
 
-/* ── Challenges ───────────────────────────────────────────────── */
 .cs-challenges {
   display: flex;
   flex-direction: column;
@@ -1246,7 +1220,6 @@ const getBadgeLabel = (company: string) => {
   margin: 0;
 }
 
-/* ── Results ──────────────────────────────────────────────────── */
 .cs-results {
   padding: 2.5rem;
   background: #161210;
@@ -1303,7 +1276,6 @@ const getBadgeLabel = (company: string) => {
   transform: rotate(45deg);
 }
 
-/* ── Gallery ──────────────────────────────────────────────────── */
 .cs-gallery {
   display: grid;
   gap: 1rem;
@@ -1372,7 +1344,6 @@ const getBadgeLabel = (company: string) => {
   }
 }
 
-/* ── Case navigation ──────────────────────────────────────────── */
 .cs-nav {
   background: #120703;
   border-top: 1px solid rgba(223, 175, 133, 0.08);
@@ -1446,7 +1417,6 @@ const getBadgeLabel = (company: string) => {
   .cs-nav__link:hover & { color: rgba(223, 175, 133, 0.8); }
 }
 
-/* ── CTA section ──────────────────────────────────────────────── */
 .cs-cta-wrap {
   position: relative;
   background: #0d0908;
@@ -1586,7 +1556,6 @@ const getBadgeLabel = (company: string) => {
   justify-content: center;
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .cs-loading__spinner { animation: none; }
 
@@ -1607,14 +1576,12 @@ const getBadgeLabel = (company: string) => {
   .cs-gallery__expand { opacity: 1; transform: none; }
 }
 
-/* ── Light mode ───────────────────────────────────────────────── */
 html:not(.dark) {
-  /* Page shell */
+
   .cs-loading { background: var(--color-section-light); }
   .cs-loading__text { color: var(--color-text-subtle); }
   .cs-page { background: var(--color-section-light); }
 
-  /* Hero */
   .cs-hero { background: var(--color-hero-bg); }
   .cs-hero__bg {
     background: radial-gradient(ellipse 70% 60% at 65% 0%, rgba(153, 82, 38, 0.06) 0%, transparent 65%);
@@ -1661,7 +1628,6 @@ html:not(.dark) {
     }
   }
 
-  /* Metrics strip */
   .cs-metrics-strip {
     background: linear-gradient(175deg, #ffe4cf 0%, #ffeddf 100%);
     border-top-color: var(--deco-line);
@@ -1672,11 +1638,9 @@ html:not(.dark) {
   .cs-metric-item__label  { color: var(--color-text-subtle); }
   .cs-metric-item__desc   { color: var(--color-text-muted); }
 
-  /* Main content */
   .cs-main { background: var(--color-section-light); }
   .cs-section__eyebrow { color: var(--color-primary-500); &::before, &::after { background: var(--deco-line); } }
 
-  /* Overview cards */
   .cs-overview__card {
     background: linear-gradient(175deg, #ffffff 0%, #fff7f0 100%);
     border-color: var(--deco-line);
@@ -1686,7 +1650,6 @@ html:not(.dark) {
   .cs-overview__heading  { color: var(--color-primary-600); }
   .cs-overview__text     { color: var(--color-text-secondary); }
 
-  /* Technologies */
   .cs-tech-section__label { color: var(--color-text-muted); }
   .cs-tech-tag {
     background: rgba(153, 82, 38, 0.04);
@@ -1695,7 +1658,6 @@ html:not(.dark) {
     &:hover { background: rgba(153, 82, 38, 0.07); border-color: rgba(153, 82, 38, 0.22); }
   }
 
-  /* Process */
   .cs-phase__number {
     background: rgba(153, 82, 38, 0.05);
     border-color: rgba(153, 82, 38, 0.2);
@@ -1711,7 +1673,6 @@ html:not(.dark) {
   }
   .deliverable-diamond { background: rgba(153, 82, 38, 0.4); }
 
-  /* Challenges */
   .cs-challenge {
     background: linear-gradient(175deg, #ffffff 0%, #fff7f0 100%);
     border-color: var(--deco-line);
@@ -1729,7 +1690,6 @@ html:not(.dark) {
   }
   .cs-challenge__block-text { color: var(--color-text-secondary); }
 
-  /* Results */
   .cs-results {
     background: linear-gradient(175deg, #ffe4cf 0%, #ffeddf 60%, #faf7f4 100%);
     border-color: var(--deco-line-strong);
@@ -1739,7 +1699,6 @@ html:not(.dark) {
   .cs-results__item    { color: var(--color-text-secondary); }
   .result-diamond      { background: rgba(153, 82, 38, 0.45); }
 
-  /* Gallery */
   .cs-gallery__item {
     background: #f5efe8;
     border-color: var(--deco-line);
@@ -1747,7 +1706,6 @@ html:not(.dark) {
   }
   .cs-gallery__overlay .cs-gallery__item:hover & { background: rgba(245, 239, 232, 0.55); }
 
-  /* Case nav */
   .cs-nav { background: var(--color-section-alt); border-top-color: var(--deco-line); }
   .cs-nav__link {
     background: linear-gradient(175deg, #ffffff 0%, #fff7f0 100%);
@@ -1759,7 +1717,6 @@ html:not(.dark) {
   .cs-nav__case-title { color: var(--color-text-secondary); }
   .cs-nav__link:hover .cs-nav__case-title { color: var(--color-primary-700); }
 
-  /* CTA */
   .cs-cta-wrap { background: var(--color-section-alt); }
   .cta-bg-radial {
     background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(153, 82, 38, 0.04) 0%, transparent 65%);

@@ -54,8 +54,6 @@ const services: ServiceItem[] = [
 ];
 const firstService = services[0] as ServiceItem;
 
-// Subtle per-service diamond glow tints — shape stays consistent,
-// only the ambient shadow colour shifts.
 const diamondGlow: Record<string, string> = {
   websites: "rgba(223, 175, 133, 0.10)",
   identity: "rgba(200, 155, 110, 0.14)",
@@ -87,7 +85,6 @@ onUnmounted(() => {
   window.removeEventListener("scroll", updateChapter);
 });
 
-// Keep 3-D scene in sync with the active chapter
 watch(chapterIndex, (idx) => sceneState.setActiveService(idx), {
   immediate: true,
 });
@@ -113,7 +110,7 @@ const scrollToChapter = (targetIdx: number) => {
 </script>
 
 <template>
-  <!-- ── STATIC FALLBACK  -->
+
   <section
     v-if="reducedMotion"
     id="services-section"
@@ -158,7 +155,6 @@ const scrollToChapter = (targetIdx: number) => {
     </div>
   </section>
 
-  <!-- ── CINEMATIC SCROLL JOURNEY -->
   <section
     v-else
     ref="sectionRef"
@@ -167,24 +163,23 @@ const scrollToChapter = (targetIdx: number) => {
     aria-labelledby="services-heading"
   >
     <div class="sticky top-0 overflow-hidden journey-panel">
-      <!-- Section background -->
+
       <div class="journey-bg" aria-hidden="true" />
-      <!-- Left vignette for text contrast -->
+
       <div class="journey-vignette" aria-hidden="true" />
-      <!-- Warm radial ambient -->
+
       <div class="journey-radial" aria-hidden="true" />
 
-      <!-- ── Split layout ──────────────────────────────────────────────── -->
       <div class="journey-inner">
         <div class="journey-grid">
-          <!-- LEFT: Chapter content -->
+
           <div
             class="chapter-content"
             :key="chapterIndex"
             role="region"
             :aria-label="`Service ${chapterLabel} of 07: ${t(`landing.services.categories.${currentService.key}.title`)}`"
           >
-            <!-- Counter + badge row -->
+
             <div class="chapter-meta">
               <span class="chapter-count">
                 {{ chapterLabel }}
@@ -196,7 +191,6 @@ const scrollToChapter = (targetIdx: number) => {
               }}</span>
             </div>
 
-            <!-- Service icon -->
             <div class="chapter-icon-wrap">
               <UIcon
                 :name="currentService.icon"
@@ -204,22 +198,18 @@ const scrollToChapter = (targetIdx: number) => {
               />
             </div>
 
-            <!-- Service title -->
             <h2 id="services-heading" class="chapter-title">
               {{ t(`landing.services.categories.${currentService.key}.title`) }}
             </h2>
 
-            <!-- The need — gold accent left-border -->
             <p class="chapter-need">
               {{ t(`landing.services.categories.${currentService.key}.need`) }}
             </p>
 
-            <!-- Our skill — muted secondary -->
             <p class="chapter-skill">
               {{ t(`landing.services.categories.${currentService.key}.skill`) }}
             </p>
 
-            <!-- Chapter CTA -->
             <NuxtLink
               :to="localePath(currentService.href)"
               class="chapter-cta group"
@@ -232,18 +222,14 @@ const scrollToChapter = (targetIdx: number) => {
             </NuxtLink>
           </div>
 
-          <!-- RIGHT: Visual panel inside diamond frame -->
           <div class="chapter-visual" :key="`visual-${chapterIndex}`">
-            <!--
-              Diamond backdrop — large rotated square, dark glass.
-              Per-chapter: only the ambient glow colour shifts subtly.
-            -->
+
             <div
               class="diamond-frame"
               :style="{ '--glow': currentGlow }"
               aria-hidden="true"
             />
-            <!-- Service SVG panel sits above the diamond -->
+
             <HomeServiceVisualPanel
               :service-key="currentService.key"
               class="visual-panel"
@@ -252,7 +238,6 @@ const scrollToChapter = (targetIdx: number) => {
         </div>
       </div>
 
-      <!-- ── Vertical chapter nav  -->
       <nav class="chapter-nav" aria-label="Service chapters">
         <button
           v-for="(service, i) in services"
@@ -265,7 +250,6 @@ const scrollToChapter = (targetIdx: number) => {
         />
       </nav>
 
-      <!-- ── Bottom "see all"  -->
       <div class="journey-footer">
         <NuxtLink :to="localePath('/solutions')" class="footer-link">
           {{ t("landing.services.cta.viewAll") }}
@@ -277,23 +261,20 @@ const scrollToChapter = (targetIdx: number) => {
 </template>
 
 <style lang="scss" scoped>
-/* ── Scroll container — 7 chapters × ~114vh each ─────────────── */
+
 .services-journey {
   height: 800vh;
 }
 
-/* ── Sticky viewport panel — dvh with vh fallback ─────────────── */
 .journey-panel {
   height: 100vh;
   height: 100dvh;
 }
 
-/* ── Static section background ────────────────────────────────── */
 .static-section {
   background: #0d0908;
 }
 
-/* ── Background layers ────────────────────────────────────────── */
 .journey-bg {
   position: absolute;
   inset: 0;
@@ -323,7 +304,6 @@ const scrollToChapter = (targetIdx: number) => {
   pointer-events: none;
 }
 
-/* ── Layout ───────────────────────────────────────────────────── */
 .journey-inner {
   position: relative;
   height: 100%;
@@ -348,7 +328,6 @@ const scrollToChapter = (targetIdx: number) => {
   }
 }
 
-/* ── Chapter entrance animation ───────────────────────────────── */
 .chapter-content {
   padding: 4rem 0;
   animation: chapterIn 0.48s var(--ease-smooth) both;
@@ -369,7 +348,6 @@ const scrollToChapter = (targetIdx: number) => {
   }
 }
 
-/* ── Chapter metadata ─────────────────────────────────────────── */
 .chapter-meta {
   display: flex;
   align-items: center;
@@ -411,7 +389,6 @@ const scrollToChapter = (targetIdx: number) => {
   background: rgba(223, 175, 133, 0.07);
 }
 
-/* ── Chapter icon ─────────────────────────────────────────────── */
 .chapter-icon-wrap {
   width: 3rem;
   height: 3rem;
@@ -424,7 +401,6 @@ const scrollToChapter = (targetIdx: number) => {
   border: 1px solid rgba(223, 175, 133, 0.22);
 }
 
-/* ── Chapter title ────────────────────────────────────────────── */
 .chapter-title {
   font-family: var(--font-heading);
   font-style: normal;
@@ -435,7 +411,6 @@ const scrollToChapter = (targetIdx: number) => {
   margin: 0 0 1.75rem;
 }
 
-/* ── Chapter need — buff accent left-border ───────────────────── */
 .chapter-need {
   font-family: var(--font-text);
   font-weight: 300;
@@ -448,7 +423,6 @@ const scrollToChapter = (targetIdx: number) => {
   max-width: 30rem;
 }
 
-/* ── Chapter skill ────────────────────────────────────────────── */
 .chapter-skill {
   font-family: var(--font-text);
   font-weight: 300;
@@ -459,7 +433,6 @@ const scrollToChapter = (targetIdx: number) => {
   max-width: 30rem;
 }
 
-/* ── Chapter CTA ──────────────────────────────────────────────── */
 .chapter-cta {
   display: inline-flex;
   align-items: center;
@@ -506,7 +479,6 @@ const scrollToChapter = (targetIdx: number) => {
   }
 }
 
-/* ── Visual panel (right column) ─────────────────────────────── */
 .chapter-visual {
   display: none;
   align-items: center;
@@ -518,11 +490,6 @@ const scrollToChapter = (targetIdx: number) => {
   }
 }
 
-/*
-  Diamond frame backdrop.
-  A rotated square with dark glass fill and gold border.
-  The --glow CSS var is set per-chapter for the ambient shadow shift.
-*/
 .diamond-frame {
   --glow: rgba(223, 175, 133, 0.1);
   position: absolute;
@@ -549,7 +516,6 @@ const scrollToChapter = (targetIdx: number) => {
   animation: chapterIn 0.48s var(--ease-smooth) both;
 }
 
-/* ── Dot navigator ────────────────────────────────────────────── */
 .chapter-nav {
   position: absolute;
   right: 1.5rem;
@@ -594,7 +560,6 @@ const scrollToChapter = (targetIdx: number) => {
   }
 }
 
-/* ── Footer link ──────────────────────────────────────────────── */
 .journey-footer {
   position: absolute;
   bottom: 2rem;
@@ -632,7 +597,6 @@ const scrollToChapter = (targetIdx: number) => {
   }
 }
 
-/* ── Static fallback helpers ──────────────────────────────────── */
 .section-badge {
   display: inline-block;
   margin-bottom: 1rem;
@@ -725,9 +689,8 @@ const scrollToChapter = (targetIdx: number) => {
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
-  /* Static fallback */
+
   .static-section {
     background: var(--color-section-light);
   }
@@ -772,7 +735,6 @@ html:not(.dark) {
     }
   }
 
-  /* Cinematic journey */
   .journey-bg {
     background: var(--color-section-light);
   }
@@ -852,7 +814,6 @@ html:not(.dark) {
     }
   }
 
-  /* Diamond frame — light glass */
   .diamond-frame {
     background: rgba(255, 255, 255, 0.6);
     border-color: var(--deco-border);
@@ -862,7 +823,6 @@ html:not(.dark) {
       inset 0 1px 0 rgba(255, 255, 255, 0.9);
   }
 
-  /* Nav dots */
   .chapter-dot {
     background: rgba(0, 0, 0, 0.18);
 
@@ -884,7 +844,6 @@ html:not(.dark) {
     }
   }
 
-  /* Footer link */
   .footer-link {
     color: var(--color-text-muted);
 

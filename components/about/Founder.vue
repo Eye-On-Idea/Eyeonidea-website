@@ -29,7 +29,7 @@ onMounted(() => {
     class="about-founder"
     aria-labelledby="founder-heading"
   >
-    <!-- Section label row -->
+
     <div class="section-label-row" aria-hidden="true">
       <span class="sep-line" />
       <span class="sep-diamond" />
@@ -41,7 +41,6 @@ onMounted(() => {
     <div class="section-container">
       <div class="founder-grid" :class="{ 'animate-in': isVisible }">
 
-        <!-- Left: photo -->
         <div class="photo-side">
           <div class="photo-frame">
             <div class="deco-frame" aria-hidden="true">
@@ -59,7 +58,6 @@ onMounted(() => {
           </div>
         </div>
 
-        <!-- Right: content -->
         <div class="content-side">
           <div class="founder-numeral-row" aria-hidden="true">
             <span class="num-rule" />
@@ -82,7 +80,6 @@ onMounted(() => {
             </p>
           </div>
 
-          <!-- Philosophy blockquote -->
           <blockquote class="philosophy-block">
             <div class="philosophy-label" aria-hidden="true">
               <span class="phi-line" />
@@ -94,7 +91,6 @@ onMounted(() => {
             </p>
           </blockquote>
 
-          <!-- LinkedIn -->
           <a
             href="https://www.linkedin.com/in/rune-pjetursson/"
             target="_blank"
@@ -112,13 +108,12 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .about-founder {
   background: #120703;
   padding-bottom: 0;
 }
 
-/* ── Section label row ────────────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -152,14 +147,12 @@ onMounted(() => {
   flex-shrink: 0;
 }
 
-/* ── Container ────────────────────────────────────────────────── */
 .section-container {
   max-width: 80rem;
   margin: 0 auto;
   padding: 0 2rem 6rem;
 }
 
-/* ── Grid ─────────────────────────────────────────────────────── */
 .founder-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -182,7 +175,6 @@ onMounted(() => {
   }
 }
 
-/* ── Photo side ───────────────────────────────────────────────── */
 .photo-side {
   @media (max-width: 767px) {
     max-width: 20rem;
@@ -238,12 +230,10 @@ onMounted(() => {
   }
 }
 
-/* ── Content side ─────────────────────────────────────────────── */
 .content-side {
   padding-top: 0.5rem;
 }
 
-/* ── Numeral row ──────────────────────────────────────────────── */
 .founder-numeral-row {
   display: flex;
   align-items: center;
@@ -266,7 +256,6 @@ onMounted(() => {
   color: rgba(223, 175, 133, 0.4);
 }
 
-/* ── Name & role ──────────────────────────────────────────────── */
 .founder-name {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -287,7 +276,6 @@ onMounted(() => {
   margin: 0 0 2rem;
 }
 
-/* ── Bio ──────────────────────────────────────────────────────── */
 .bio-content {
   display: flex;
   flex-direction: column;
@@ -306,7 +294,6 @@ onMounted(() => {
   margin: 0;
 }
 
-/* ── Philosophy blockquote ────────────────────────────────────── */
 .philosophy-block {
   margin: 0 0 2.5rem;
   padding: 1.75rem;
@@ -355,7 +342,6 @@ onMounted(() => {
   margin: 0;
 }
 
-/* ── LinkedIn link ────────────────────────────────────────────── */
 .linkedin-link {
   display: inline-flex;
   align-items: center;
@@ -407,7 +393,6 @@ onMounted(() => {
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .about-founder { background: var(--color-section-alt); }
 
@@ -459,5 +444,4 @@ html:not(.dark) {
   }
 }
 </style>
-
 

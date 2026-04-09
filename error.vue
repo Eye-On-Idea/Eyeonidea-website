@@ -1,26 +1,20 @@
-<!-- ~/error.vue -->
+
 <script setup lang="ts">
-/**
- * Nuxt’s global error page. Renders for 404 and other errors.
- * You can customize the copy below (DA/EN), and add your header/footer.
- */
+
 const props = defineProps<{
   error: { statusCode?: number; statusMessage?: string };
 }>();
 const route = useRoute();
 const is404 = props.error?.statusCode === 404;
 
-// Page <title>
 useHead({
   title: is404 ? "404 – Side ikke fundet | Eye on Idea" : "Fejl | Eye on Idea",
 });
 
-// Reset error and go home
 function goHome() {
   clearError({ redirect: "/" });
 }
 
-// Build “report issue” mailto with context
 const mailto = computed(() => {
   const subject = encodeURIComponent(
     `[EOI] ${is404 ? "404" : "Fejl"} på ${route.fullPath}`,
@@ -45,7 +39,7 @@ const mailto = computed(() => {
         <MyHeader></MyHeader>
 
         <div class="space-y-6">
-          <!-- Helpful actions -->
+
           <div class="flex flex-wrap gap-3">
             <UButton color="neutral" icon="i-heroicons-home" @click="goHome">
               Til forsiden
@@ -74,7 +68,6 @@ const mailto = computed(() => {
             </UButton>
           </div>
 
-          <!-- Context (optional) -->
           <UAlert
             icon="i-heroicons-information-circle"
             title="Teknisk info"
@@ -83,7 +76,6 @@ const mailto = computed(() => {
             variant="subtle"
           />
 
-          <!-- EOI details -->
           <div class="border-t border-gray-200 dark:border-gray-800 pt-6">
             <h2
               class="text-sm font-medium text-gray-900 dark:text-gray-100 mb-2"
@@ -135,7 +127,7 @@ const mailto = computed(() => {
 </template>
 
 <style scoped>
-/* Make focus outlines clearly visible for accessibility */
+
 :focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;

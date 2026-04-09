@@ -188,7 +188,6 @@ function formatDate(dateStr?: string): string {
   color: var(--color-primary-500);
 }
 
-/* Dark mode */
 :global(.dark) .related-title {
   color: var(--color-primary-100);
 }
@@ -238,7 +237,6 @@ function formatDate(dateStr?: string): string {
   color: var(--color-primary-400);
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .related-card:hover {
     transform: none;

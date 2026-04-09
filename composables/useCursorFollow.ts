@@ -51,7 +51,7 @@ export function useCursorFollow() {
   };
 
   onMounted(() => {
-    // Don't run on mobile or with reduced motion
+
     const isMobile =
       "ontouchstart" in window ||
       navigator.maxTouchPoints > 0 ||

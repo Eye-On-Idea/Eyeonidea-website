@@ -1,26 +1,17 @@
 import { usePreferredReducedMotion } from "@vueuse/core";
 import { computed } from "vue";
 
-/**
- * Composable for accessible animations that respect user motion preferences
- * Automatically disables animations when prefers-reduced-motion is enabled
- */
 export function useAccessibleMotion() {
-  // Check for reduced motion preference using VueUse core
+
   const reducedMotionPreference = usePreferredReducedMotion();
   const prefersReducedMotion = computed(() => reducedMotionPreference.value === "reduce");
 
-  /**
-   * Returns animation variant or static variant based on motion preference
-   * @param animationVariant - The full animation variant to use
-   * @param staticVariant - Optional static variant for reduced motion (defaults to visible state)
-   */
   const variant = <T extends Record<string, any>>(
     animationVariant: T,
     staticVariant?: Partial<T>
   ): T => {
     if (prefersReducedMotion.value) {
-      // Return static variant (no animation)
+
       return (staticVariant || animationVariant.visible || {}) as T;
     }
     return animationVariant;
@@ -33,25 +24,16 @@ export function useAccessibleMotion() {
   };
 }
 
-/** Stagger timing constants (ms) */
-export const STAGGER_CARD = 100; // Cards, sections, list items
-export const STAGGER_TEXT = 60; // TextReveal word-by-word
-export const STAGGER_ICON = 120; // StrokeDraw SVG icons
+export const STAGGER_CARD = 100;
+export const STAGGER_TEXT = 60;
+export const STAGGER_ICON = 120;
 
-/**
- * Creates a fadeInUp animation variant with staggered delay based on item index.
- * @param index - Item index in the list (0-based)
- * @param baseDelay - Optional base delay in ms before stagger begins
- */
 export function staggeredFadeInUp(index: number, baseDelay = 0) {
   return withDelay("fadeInUp", baseDelay + index * STAGGER_CARD);
 }
 
-/**
- * Reusable animation presets matching the site's design system
- */
 export const animationPresets = {
-  // Entrance animations
+
   fadeInUp: {
     initial: { opacity: 0, y: 40 },
     visible: {
@@ -96,7 +78,6 @@ export const animationPresets = {
     },
   },
 
-  // Combined animations
   fadeInUpScale: {
     initial: { opacity: 0, y: 30, scale: 0.95 },
     visible: {
@@ -107,7 +88,6 @@ export const animationPresets = {
     },
   },
 
-  // Icon animations
   iconHover: {
     initial: { scale: 1, rotate: 0 },
     hover: {
@@ -125,7 +105,6 @@ export const animationPresets = {
     },
   },
 
-  // Button animations
   buttonLift: {
     initial: { y: 0 },
     hover: {
@@ -142,7 +121,6 @@ export const animationPresets = {
     },
   },
 
-  // Form validation animations
   shake: {
     initial: { x: 0 },
     error: {
@@ -159,7 +137,6 @@ export const animationPresets = {
     },
   },
 
-  // Stagger utilities
   staggerContainer: {
     initial: {},
     visible: {
@@ -179,12 +156,6 @@ export const animationPresets = {
   },
 } as const;
 
-/**
- * Helper to create staggered animations for lists
- * @param baseDelay - Base delay in milliseconds
- * @param itemDelay - Delay between items in milliseconds
- * @param index - Item index in the list
- */
 export function getStaggerDelay(
   baseDelay: number = 0,
   itemDelay: number = 100,
@@ -193,11 +164,6 @@ export function getStaggerDelay(
   return baseDelay + index * itemDelay;
 }
 
-/**
- * Creates a custom animation variant with stagger delay
- * @param preset - Animation preset name
- * @param delay - Delay in milliseconds
- */
 export function withDelay(
   preset: keyof typeof animationPresets,
   delay: number
@@ -214,7 +180,7 @@ export function withDelay(
       ...visiblePreset,
       transition: {
         ...("transition" in visiblePreset ? (visiblePreset.transition || {}) : {}),
-        delay: delay / 1000, // Convert to seconds for motion library
+        delay: delay / 1000,
       },
     },
   };

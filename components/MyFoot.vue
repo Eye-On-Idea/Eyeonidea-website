@@ -1,9 +1,9 @@
 <template>
   <footer class="footer-main">
-    <!-- Top row: Brand + Contact cards -->
+
     <UContainer class="max-w-480 pt-16 pb-10">
       <div class="footer-top">
-        <!-- Brand / intro -->
+
         <div class="space-y-5">
           <NuxtLink
             :to="localePath('/')"
@@ -12,6 +12,8 @@
             <img
               src="/public-material/logo-center-shadow.svg"
               alt="Eye On Idea logo"
+              width="64"
+              height="64"
               class="h-16 w-auto transition-transform duration-300 group-hover:scale-105"
             />
             <span class="sr-only">{{ t("footer.goToHomepage") }}</span>
@@ -21,7 +23,6 @@
           </p>
         </div>
 
-        <!-- Contact cards -->
         <div class="footer-cards">
           <div class="office-card">
             <h3 class="text-xl font-semibold text-primary-50 mb-4">
@@ -74,7 +75,6 @@
             </address>
           </div>
 
-          <!-- CEO Card -->
           <div class="office-card">
             <h3 class="text-xl font-semibold text-primary-50 mb-4">
               {{ t("footer.founder.title") }}
@@ -102,22 +102,19 @@
       </div>
     </UContainer>
 
-    <!-- Divider -->
     <div class="footer-divider" aria-hidden="true"></div>
 
-    <!-- Site nav: full-width horizontal columns -->
     <UContainer class="max-w-480 py-10">
       <nav aria-label="footer-nav">
         <p class="footer-nav-heading">{{ t("footer.siteNav.heading") }}</p>
         <div class="footer-nav-grid">
-          <!-- Home -->
+
           <div class="footer-nav-col">
             <NuxtLink class="footer-nav-link footer-nav-link--top" :to="localePath('/')">
               {{ t("footer.siteNav.home") }}
             </NuxtLink>
           </div>
 
-          <!-- Services column -->
           <div class="footer-nav-col">
             <NuxtLink class="footer-nav-link footer-nav-link--top" :to="localePath('/solutions')">
               {{ t("footer.siteNav.services") }}
@@ -146,28 +143,24 @@
             </ul>
           </div>
 
-          <!-- Cases -->
           <div class="footer-nav-col">
             <NuxtLink class="footer-nav-link footer-nav-link--top" :to="localePath('/cases')">
               {{ t("footer.siteNav.cases") }}
             </NuxtLink>
           </div>
 
-          <!-- About -->
           <div class="footer-nav-col">
             <NuxtLink class="footer-nav-link footer-nav-link--top" :to="localePath('/about')">
               {{ t("footer.siteNav.about") }}
             </NuxtLink>
           </div>
 
-          <!-- Contact -->
           <div class="footer-nav-col">
             <NuxtLink class="footer-nav-link footer-nav-link--top" :to="localePath('/contact')">
               {{ t("footer.siteNav.contact") }}
             </NuxtLink>
           </div>
 
-          <!-- Legal column -->
           <div class="footer-nav-col">
             <span class="footer-nav-col-heading">{{ t("footer.siteNav.legalHeading") }}</span>
             <ul class="footer-nav-sub">
@@ -187,7 +180,6 @@
       </nav>
     </UContainer>
 
-    <!-- Bottom: copyright -->
     <div class="footer-bottom">
       <UContainer
         class="max-w-360 py-5 text-sm text-primary-300 flex items-center justify-center gap-4"
@@ -204,7 +196,7 @@ const localePath = useLocalePath();
 </script>
 
 <style lang="scss" scoped>
-/* Footer main styling */
+
 .footer-main {
   background: linear-gradient(
     180deg,
@@ -214,7 +206,6 @@ const localePath = useLocalePath();
   color: var(--color-primary-100);
 }
 
-/* ── Top row: brand left, cards right ── */
 .footer-top {
   display: flex;
   flex-direction: column;
@@ -228,7 +219,6 @@ const localePath = useLocalePath();
   }
 }
 
-/* Cards container — always horizontal, wraps on very narrow screens only */
 .footer-cards {
   display: flex;
   flex-direction: row;
@@ -237,26 +227,22 @@ const localePath = useLocalePath();
   flex: 1;
 }
 
-/* Logo container with dark background for visibility */
 .logo-container {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 12px;
   padding: 1rem;
 }
 
-/* Office cards - no visual card, just spacing */
 .office-card {
   padding: 1.5rem;
   flex: 1 1 240px;
 }
 
-/* Divider between top and nav strip */
 .footer-divider {
   height: 1px;
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* ── Nav strip ── */
 .footer-nav-heading {
   font-size: var(--text-xs);
   font-weight: 600;
@@ -266,7 +252,6 @@ const localePath = useLocalePath();
   margin-bottom: 1.25rem;
 }
 
-/* Horizontal grid of nav columns — auto-fill so it wraps naturally */
 .footer-nav-grid {
   display: flex;
   flex-wrap: wrap;
@@ -284,7 +269,6 @@ const localePath = useLocalePath();
   min-width: 100px;
 }
 
-/* Column heading (non-link, e.g. "Legal") */
 .footer-nav-col-heading {
   font-size: var(--text-sm);
   font-weight: 600;
@@ -298,7 +282,6 @@ const localePath = useLocalePath();
   font-size: var(--text-xs);
 }
 
-/* Sub-link list */
 .footer-nav-sub {
   list-style: none;
   padding: 0;
@@ -308,7 +291,6 @@ const localePath = useLocalePath();
   gap: 0;
 }
 
-/* Footer links (contact cards) */
 .footer-link {
   color: var(--color-primary-200);
   text-decoration: underline;
@@ -320,7 +302,6 @@ const localePath = useLocalePath();
   }
 }
 
-/* Nav top-level links */
 .footer-nav-link {
   color: var(--color-primary-300);
   transition: color var(--duration-fast) var(--ease-smooth);
@@ -372,19 +353,16 @@ const localePath = useLocalePath();
   }
 }
 
-/* Footer bottom bar */
 .footer-bottom {
   background: rgba(0, 0, 0, 0.2);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Address styling */
 address {
   display: flex;
   flex-direction: column;
 }
 
-/* Focus visible */
 :focus-visible {
   outline: 2px solid var(--focus-ring);
   outline-offset: 3px;

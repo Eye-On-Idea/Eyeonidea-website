@@ -27,10 +27,9 @@ const price = computed(() => ({
 
 <template>
   <article class="pkg-panel" :class="{ 'pkg-panel--featured': featured }">
-    <!-- Hover gradient reveal layer -->
+
     <div class="panel-gradient-layer" aria-hidden="true" />
 
-    <!-- Art deco corner frame -->
     <div class="deco-frame" aria-hidden="true">
       <span class="corner corner--tl" />
       <span class="corner corner--tr" />
@@ -38,17 +37,14 @@ const price = computed(() => ({
       <span class="corner corner--br" />
     </div>
 
-    <!-- Numeral row -->
     <div class="numeral-row" aria-hidden="true">
       <span class="num-rule" />
       <span class="num-label">{{ numeral }}</span>
       <span class="num-rule" />
     </div>
 
-    <!-- Package name + tagline -->
     <h3 class="pkg-name">{{ t(`services.packages.${packageKey}.name`) }}</h3>
 
-    <!-- Deco divider -->
     <div class="pkg-deco-divider" aria-hidden="true">
       <span class="deco-line" />
       <span class="deco-diamond" />
@@ -62,13 +58,11 @@ const price = computed(() => ({
       {{ t(`services.packages.${packageKey}.description`) }}
     </p>
 
-    <!-- Ideal for -->
     <p class="pkg-ideal">
       <span class="ideal-label">Ideal for —</span>
       {{ t(`services.packages.${packageKey}.idealFor`) }}
     </p>
 
-    <!-- Includes list -->
     <ul class="pkg-includes" role="list">
       <li v-for="(item, i) in includes" :key="i" class="pkg-include-item">
         <span class="include-diamond" aria-hidden="true" />
@@ -76,10 +70,8 @@ const price = computed(() => ({
       </li>
     </ul>
 
-    <!-- Spacer -->
     <div class="pkg-spacer" />
 
-    <!-- Pricing -->
     <div class="pkg-pricing">
       <div class="pricing-rule" aria-hidden="true" />
       <div class="price-row">
@@ -91,7 +83,6 @@ const price = computed(() => ({
       <span class="price-vat">{{ price.vatNote }}</span>
     </div>
 
-    <!-- CTA -->
     <div class="pkg-cta">
       <AppCtaButton
         :variant="featured ? 'primary' : 'secondary'"
@@ -106,7 +97,7 @@ const price = computed(() => ({
 </template>
 
 <style lang="scss" scoped>
-/* ── Panel base ───────────────────────────────────────────────── */
+
 .pkg-panel {
   position: relative;
   display: flex;
@@ -150,7 +141,6 @@ const price = computed(() => ({
   }
 }
 
-/* ── Gradient hover layer ─────────────────────────────────────── */
 .panel-gradient-layer {
   position: absolute;
   inset: 0;
@@ -160,7 +150,6 @@ const price = computed(() => ({
   pointer-events: none;
 }
 
-/* ── Corner frame ─────────────────────────────────────────────── */
 .deco-frame {
   position: absolute;
   inset: 1rem;
@@ -197,7 +186,6 @@ const price = computed(() => ({
   }
 }
 
-/* ── Numeral row ──────────────────────────────────────────────── */
 .numeral-row {
   position: relative;
   display: flex;
@@ -223,7 +211,6 @@ const price = computed(() => ({
   transition: opacity 0.35s ease;
 }
 
-/* ── Deco divider ─────────────────────────────────────────────── */
 .pkg-deco-divider {
   display: flex;
   align-items: center;
@@ -246,7 +233,6 @@ const price = computed(() => ({
   transition: background 0.35s ease;
 }
 
-/* ── Text ─────────────────────────────────────────────────────── */
 .pkg-name {
   position: relative;
   font-family: var(--font-heading);
@@ -302,7 +288,6 @@ const price = computed(() => ({
   margin-bottom: 0.25rem;
 }
 
-/* ── Includes list ────────────────────────────────────────────── */
 .pkg-includes {
   position: relative;
   list-style: none;
@@ -339,7 +324,6 @@ const price = computed(() => ({
   min-height: 1.5rem;
 }
 
-/* ── Pricing ──────────────────────────────────────────────────── */
 .pkg-pricing {
   position: relative;
   margin-bottom: 1.5rem;
@@ -393,7 +377,6 @@ const price = computed(() => ({
   display: block;
 }
 
-/* ── CTA ──────────────────────────────────────────────────────── */
 .pkg-cta {
   position: relative;
 }
@@ -402,9 +385,6 @@ const price = computed(() => ({
   width: 100%;
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
-/* Regular panels → clean white cards on the warm section gradient */
-/* Featured panel → stays dark for deliberate visual hierarchy     */
 html:not(.dark) {
   .pkg-panel {
     background: linear-gradient(175deg, #ffffff 0%, #fff7f0 100%);
@@ -436,7 +416,6 @@ html:not(.dark) {
     .price-unit       { color: var(--color-text-subtle); }
     .price-vat        { color: var(--color-text-muted); }
 
-    /* Hover overlay — warm brand tint instead of dark gradient */
     .panel-gradient-layer {
       background: linear-gradient(
         160deg,
@@ -452,7 +431,6 @@ html:not(.dark) {
     }
   }
 
-  /* Featured panel — warm cream; subtle differentiation from white panels */
   .pkg-panel--featured {
     background: linear-gradient(175deg, #ffe4cf 0%, #ffeddf 55%, #fff7f0 100%);
     border-right-color: rgba(153, 82, 38, 0.28);

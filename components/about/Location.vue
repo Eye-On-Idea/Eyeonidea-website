@@ -40,7 +40,7 @@ const quickFacts = computed(
     class="about-location"
     aria-labelledby="location-heading"
   >
-    <!-- Full-section background: Denmark/Europe map image -->
+
     <div class="location-bg" aria-hidden="true">
       <img
         src="/images/about/location.jpg"
@@ -51,13 +51,11 @@ const quickFacts = computed(
         fetchpriority="low"
       />
     </div>
-    <!-- Dark overlay: uniform base + subtle vignette -->
+
     <div class="location-overlay" aria-hidden="true" />
 
-    <!-- Content layer -->
     <div class="location-content-wrap">
 
-      <!-- Section label row -->
       <div class="section-label-row" aria-hidden="true">
         <span class="sep-line" />
         <span class="sep-diamond" />
@@ -69,7 +67,6 @@ const quickFacts = computed(
       <div class="section-container" :class="{ 'animate-in': isVisible }">
         <div class="location-grid">
 
-          <!-- Left: location details -->
           <div class="location-col">
             <h2 id="location-heading" class="section-title">
               {{ t("about.location.title") }}
@@ -108,7 +105,6 @@ const quickFacts = computed(
             </NuxtLink>
           </div>
 
-          <!-- Right: quick facts -->
           <div class="facts-col">
             <div class="facts-header" aria-hidden="true">
               <span class="facts-rule" />
@@ -137,7 +133,7 @@ const quickFacts = computed(
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .about-location {
   position: relative;
   background: #120703;
@@ -145,7 +141,6 @@ const quickFacts = computed(
   overflow: hidden;
 }
 
-/* ── Background image ─────────────────────────────────────────── */
 .location-bg {
   position: absolute;
   inset: 0;
@@ -161,11 +156,6 @@ const quickFacts = computed(
   object-position: center;
 }
 
-/*
- * Overlay: dark enough to read all text, light enough to
- * let the amber map lines read through as atmosphere.
- * Vignette (radial) darkens edges, focuses the centre.
- */
 .location-overlay {
   position: absolute;
   inset: 0;
@@ -184,13 +174,11 @@ const quickFacts = computed(
   pointer-events: none;
 }
 
-/* ── Content layer ────────────────────────────────────────────── */
 .location-content-wrap {
   position: relative;
   z-index: 1;
 }
 
-/* ── Section label row ────────────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -224,7 +212,6 @@ const quickFacts = computed(
   flex-shrink: 0;
 }
 
-/* ── Container ────────────────────────────────────────────────── */
 .section-container {
   max-width: 80rem;
   margin: 0 auto;
@@ -241,7 +228,6 @@ const quickFacts = computed(
   }
 }
 
-/* ── Grid ─────────────────────────────────────────────────────── */
 .location-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -254,7 +240,6 @@ const quickFacts = computed(
   }
 }
 
-/* ── Left col ─────────────────────────────────────────────────── */
 .section-title {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -275,7 +260,6 @@ const quickFacts = computed(
   margin: 0 0 2.5rem;
 }
 
-/* ── Detail rows ──────────────────────────────────────────────── */
 .location-details {
   display: flex;
   flex-direction: column;
@@ -321,7 +305,6 @@ const quickFacts = computed(
   color: rgba(255, 237, 223, 0.7);
 }
 
-/* ── Process link ─────────────────────────────────────────────── */
 .process-link {
   display: inline-flex;
   align-items: center;
@@ -349,7 +332,6 @@ const quickFacts = computed(
   .process-link:hover & { transform: translateX(3px); }
 }
 
-/* ── Right col ────────────────────────────────────────────────── */
 .facts-header {
   display: flex;
   align-items: center;
@@ -373,7 +355,6 @@ const quickFacts = computed(
   flex-shrink: 0;
 }
 
-/* ── Fact rows ────────────────────────────────────────────────── */
 .facts-list {
   list-style: none;
   padding: 0;
@@ -425,7 +406,6 @@ const quickFacts = computed(
   color: rgba(223, 175, 133, 0.38);
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .section-container,
   .fact-row {
@@ -435,9 +415,6 @@ const quickFacts = computed(
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
-/* Location section has a background image with dark overlay —
-   always renders dark regardless of colour mode.               */
 html:not(.dark) {
   .sep-line    { background: rgba(223, 175, 133, 0.15); }
   .sep-diamond { background: rgba(223, 175, 133, 0.4); }

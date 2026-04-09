@@ -30,7 +30,7 @@ onMounted(() => {
     class="contact-info"
     aria-labelledby="contact-info-heading"
   >
-    <!-- Section label row -->
+
     <div class="section-label-row" aria-hidden="true">
       <span class="sep-line" />
       <span class="sep-diamond" />
@@ -42,7 +42,6 @@ onMounted(() => {
     <div class="section-container" :class="{ 'animate-in': isVisible }">
       <div class="info-grid">
 
-        <!-- Left: reach us directly -->
         <div class="reach-col">
           <h2 id="contact-info-heading" class="col-title">
             {{ t("contact.info.directContact.title") }}
@@ -69,24 +68,20 @@ onMounted(() => {
           </div>
         </div>
 
-        <!-- Right: quick info -->
         <div class="quick-col">
 
-          <!-- Location -->
           <div class="info-block">
             <h3 class="block-title">{{ t("contact.info.location.title") }}</h3>
             <p class="block-value">{{ t("contact.info.location.address") }}</p>
             <p class="block-note">{{ t("contact.info.location.description") }}</p>
           </div>
 
-          <!-- Hours -->
           <div class="info-block">
             <h3 class="block-title">{{ t("contact.info.hours.title") }}</h3>
             <p class="block-value">{{ t("contact.info.hours.weekdays") }}</p>
             <p class="block-note">{{ t("contact.info.hours.response") }}</p>
           </div>
 
-          <!-- LinkedIn -->
           <div class="info-block">
             <h3 class="block-title">{{ t("contact.info.social.title") }}</h3>
             <a
@@ -105,10 +100,9 @@ onMounted(() => {
 
       </div>
 
-      <!-- Bottom CTA -->
       <div class="bottom-cta" :class="{ 'animate-in': isVisible }">
         <div class="cta-panel">
-          <!-- Corner frame -->
+
           <div class="deco-frame" aria-hidden="true">
             <span class="corner corner--tl" />
             <span class="corner corner--tr" />
@@ -139,13 +133,12 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .contact-info {
   background: #0d0908;
   padding-bottom: 0;
 }
 
-/* ── Section label row ────────────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -179,7 +172,6 @@ onMounted(() => {
   flex-shrink: 0;
 }
 
-/* ── Container ────────────────────────────────────────────────── */
 .section-container {
   max-width: 80rem;
   margin: 0 auto;
@@ -196,7 +188,6 @@ onMounted(() => {
   }
 }
 
-/* ── Info grid ────────────────────────────────────────────────── */
 .info-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -209,7 +200,6 @@ onMounted(() => {
   }
 }
 
-/* ── Left col ─────────────────────────────────────────────────── */
 .col-title {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -229,7 +219,6 @@ onMounted(() => {
   margin: 0 0 2.5rem;
 }
 
-/* ── Contact rows ─────────────────────────────────────────────── */
 .contact-rows {
   display: flex;
   flex-direction: column;
@@ -289,7 +278,6 @@ onMounted(() => {
   }
 }
 
-/* ── Right col ────────────────────────────────────────────────── */
 .quick-col {
   display: flex;
   flex-direction: column;
@@ -329,7 +317,6 @@ onMounted(() => {
   margin: 0;
 }
 
-/* ── LinkedIn link ────────────────────────────────────────────── */
 .linkedin-link {
   display: inline-flex;
   align-items: center;
@@ -373,7 +360,6 @@ onMounted(() => {
   color: rgba(223, 175, 133, 0.65);
 }
 
-/* ── Bottom CTA ───────────────────────────────────────────────── */
 .bottom-cta {
   opacity: 0;
   transform: translateY(20px);
@@ -399,7 +385,6 @@ onMounted(() => {
   }
 }
 
-/* ── Corner frame ─────────────────────────────────────────────── */
 .deco-frame {
   position: absolute;
   inset: 0.875rem;
@@ -419,7 +404,6 @@ onMounted(() => {
   &--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
 }
 
-/* ── CTA label divider ────────────────────────────────────────── */
 .cta-label-row {
   display: flex;
   align-items: center;
@@ -479,7 +463,6 @@ onMounted(() => {
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .contact-info { background: var(--color-section-alt); }
 
@@ -546,5 +529,4 @@ html:not(.dark) {
   .cta-description { color: var(--color-text-subtle); }
 }
 </style>
-
 

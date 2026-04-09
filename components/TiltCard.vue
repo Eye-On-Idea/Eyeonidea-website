@@ -14,10 +14,9 @@ const { cardRef, cardStyle, glareStyle } = useCardTilt({
 
 <template>
   <div ref="cardRef" class="tilt-card-wrapper" :style="cardStyle">
-    <!-- Content slot -->
+
     <slot />
 
-    <!-- Glare overlay -->
     <div v-if="glare !== false" class="tilt-card-glare" :style="glareStyle"></div>
   </div>
 </template>
@@ -36,7 +35,6 @@ const { cardRef, cardStyle, glareStyle } = useCardTilt({
   z-index: 1;
 }
 
-/* Ensure child content has proper z-index */
 .tilt-card-wrapper > :not(.tilt-card-glare) {
   position: relative;
   z-index: 2;

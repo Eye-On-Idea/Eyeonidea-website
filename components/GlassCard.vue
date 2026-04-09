@@ -3,21 +3,21 @@ import { computed } from "vue";
 
 const props = withDefaults(
   defineProps<{
-    /** Card surface variant */
+
     variant?: "glass" | "solid" | "outlined";
-    /** Glass effect intensity (0-1), only applies to glass variant */
+
     glassIntensity?: number;
-    /** Glass tint color, only applies to glass variant */
+
     tintColor?: "light" | "dark" | "brand";
-    /** Hover interaction style */
+
     hoverEffect?: "lift" | "glow" | "none";
-    /** Add gradient border */
+
     gradientBorder?: boolean;
-    /** Extra elevation/shadow */
+
     elevated?: boolean;
-    /** Additional wrapper classes */
+
     wrapperClass?: string | string[];
-    /** Whether to apply internal padding */
+
     padding?: boolean;
   }>(),
   {
@@ -34,7 +34,6 @@ const props = withDefaults(
 const cardClass = computed(() => {
   const classes: string[] = [];
 
-  // Variant class
   if (props.variant === "glass") {
     classes.push("glass-card");
     switch (props.tintColor) {
@@ -55,19 +54,16 @@ const cardClass = computed(() => {
     classes.push("outlined-card");
   }
 
-  // Hover effect
   if (props.hoverEffect === "lift") {
     classes.push("hover-lift");
   } else if (props.hoverEffect === "glow") {
     classes.push("hover-glow");
   }
 
-  // Gradient border
   if (props.gradientBorder) {
     classes.push("gradient-border");
   }
 
-  // Elevated
   if (props.elevated) {
     classes.push("card-elevated");
   }
@@ -96,7 +92,7 @@ const cardStyles = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-/* ── Glass variant ─────────────────────────────── */
+
 .glass-card {
   backdrop-filter: blur(var(--glass-blur-dynamic, var(--glass-blur, 20px)))
     saturate(var(--glass-saturation, 180%));
@@ -108,27 +104,23 @@ const cardStyles = computed(() => {
   box-shadow: var(--glass-shadow, 0 8px 32px rgba(0, 0, 0, 0.1));
 }
 
-/* ── Solid variant ─────────────────────────────── */
 .solid-card {
   background: var(--card-bg, var(--color-surface-1));
   border: 1px solid var(--card-border, var(--color-border));
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
-/* ── Outlined variant ──────────────────────────── */
 .outlined-card {
   background: transparent;
   border: 1px solid var(--card-border, var(--color-border));
   box-shadow: none;
 }
 
-/* ── Elevated ──────────────────────────────────── */
 .card-elevated {
   box-shadow: var(--glass-shadow-elevated, 0 16px 48px rgba(0, 0, 0, 0.15)),
     0 0 40px rgba(64, 150, 255, 0.1);
 }
 
-/* ── Gradient border ───────────────────────────── */
 .gradient-border {
   position: relative;
   border: none;
@@ -154,7 +146,6 @@ const cardStyles = computed(() => {
   }
 }
 
-/* ── Hover states ──────────────────────────────── */
 .hover-lift:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12),
@@ -166,7 +157,6 @@ const cardStyles = computed(() => {
     0 0 40px rgba(64, 150, 255, 0.25);
 }
 
-/* ── Accessibility ─────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .glass-card,
   .solid-card,

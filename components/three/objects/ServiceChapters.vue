@@ -11,15 +11,12 @@ import {
 } from "three";
 
 const props = defineProps<{
-  sectionProgress: number;  // 0–1 across the services scroll range
+  sectionProgress: number;
   opacity: number;
-  activeServiceIndex: number; // -1 to 6
+  activeServiceIndex: number;
   reducedMotion: boolean;
 }>();
 
-// 7 service panels — all clustered in the RIGHT column of world space (x: 1.7–2.2).
-// Camera holds at x≈0.5, z≈4.5 and sweeps its gaze through each panel in turn.
-// Panels recede from front (z≈0.8) to back (z≈-1.4) for natural depth layering.
 const PANELS = [
   { key: "websites", pos: [ 2.0,   0.0,  0.8], baseScale: 1.20, tilt: [0,  0.08, 0] },
   { key: "identity", pos: [ 1.8,   0.3,  0.4], baseScale: 1.00, tilt: [0,  0.12, 0] },
@@ -30,11 +27,9 @@ const PANELS = [
   { key: "qa",       pos: [ 2.0,  -0.3, -1.4], baseScale: 0.85, tilt: [0,  0.06, 0] },
 ] as const;
 
-// Thin glass slab: 2.2 × 1.45 × 0.07
 const slabGeo  = new BoxGeometry(2.2, 1.45, 0.07);
 const edgesGeo = new EdgesGeometry(slabGeo);
 
-// Per-panel glass material — dark amber tint, partially transmissive
 const materials = PANELS.map(() =>
   new MeshPhysicalMaterial({
     color: new Color(0x3a1f0d),
@@ -50,7 +45,6 @@ const materials = PANELS.map(() =>
   })
 );
 
-// Per-panel teal edge accent
 const edgeMaterials = PANELS.map(() =>
   new LineBasicMaterial({ color: 0x64c6b7, transparent: true, opacity: 0.55 })
 );
@@ -87,7 +81,6 @@ onBeforeRender(({ elapsed }) => {
     const group = groupRef.value;
     if (!group) return;
 
-    // ── Entrance: rise from below once sectionProgress > entrance threshold ──
     const entranceStart = i * 0.03;
     const entered       = sp > entranceStart;
     const targetY       = props.reducedMotion || entered
@@ -97,7 +90,6 @@ onBeforeRender(({ elapsed }) => {
     yOffsetRef.value += (targetY - yOffsetRef.value) * lerpFactor;
     group.position.set(panel.pos[0], yOffsetRef.value, panel.pos[2]);
 
-    // ── Active state: scale + emissive + edge brightness ──
     const isActive      = activeIdx === i;
     const targetScale   = isActive ? panel.baseScale * 1.12 : panel.baseScale * 0.94;
     const targetEmissive = isActive ? 0.18 : 0;
@@ -112,12 +104,10 @@ onBeforeRender(({ elapsed }) => {
     edgeMat.opacity +=
       ((targetEdgeOp * globalOpacity) - edgeMat.opacity) * lerpFactor;
 
-    // ── Gentle ambient float (non-active only) ──
     if (!props.reducedMotion && !isActive) {
       group.position.y += Math.sin(elapsed * 0.35 + i * 0.9) * 0.018;
     }
 
-    // ── Attach edge lines once ──
     if (group.children.length < 2) {
       group.add(edgeLine);
     }

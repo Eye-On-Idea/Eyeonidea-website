@@ -50,7 +50,6 @@ onUnmounted(() => {
   observers.forEach((o) => o.disconnect());
 });
 
-// Images mapped to service order: websites, identity, additional, support
 const serviceImages = [
   "/images/solutions/overview-website-packages.jpg",
   "/images/solutions/overview-visual-identity.jpg",
@@ -69,7 +68,7 @@ const serviceImages = [
       class="service-section"
       :aria-labelledby="`overview-heading-${index}`"
     >
-      <!-- Section separator / label -->
+
       <div class="section-label-row" aria-hidden="true">
         <span class="sep-line" />
         <span class="sep-diamond" />
@@ -78,7 +77,6 @@ const serviceImages = [
         <span class="sep-line" />
       </div>
 
-      <!-- Editorial two-column row -->
       <div
         class="section-inner"
         :class="[
@@ -86,7 +84,7 @@ const serviceImages = [
           { 'animate-in': visibleSections.has(index) },
         ]"
       >
-        <!-- Text column -->
+
         <div class="section-text">
           <h2
             :id="`overview-heading-${index}`"
@@ -113,7 +111,6 @@ const serviceImages = [
           </AppCtaButton>
         </div>
 
-        <!-- Service visual image -->
         <div class="section-visual">
           <NuxtImg
             :src="serviceImages[index % serviceImages.length]"
@@ -134,7 +131,6 @@ const serviceImages = [
         </div>
       </div>
 
-      <!-- Bottom rule before next section -->
       <div class="section-bottom-rule" aria-hidden="true">
         <span class="rule-line" />
         <span class="rule-diamond" />
@@ -145,18 +141,16 @@ const serviceImages = [
 </template>
 
 <style lang="scss" scoped>
-/* ── Outer container ──────────────────────────────────────────── */
+
 .overview-sections {
   background: #0d0908;
 }
 
-/* ── Service section ──────────────────────────────────────────── */
 .service-section {
   background: #0d0908;
   padding-bottom: 0;
 }
 
-/* ── Section label row ────────────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -190,7 +184,6 @@ const serviceImages = [
   flex-shrink: 0;
 }
 
-/* ── Editorial inner layout ───────────────────────────────────── */
 .section-inner {
   max-width: 80rem;
   margin: 0 auto;
@@ -205,7 +198,6 @@ const serviceImages = [
     gap: 6rem;
   }
 
-  /* Alternating: image left on odd rows */
   &--rtl {
     @media (min-width: 1024px) {
       .section-text { order: 2; }
@@ -214,7 +206,6 @@ const serviceImages = [
   }
 }
 
-/* ── Entrance animation ───────────────────────────────────────── */
 .section-text {
   opacity: 0;
   transform: translateX(-20px);
@@ -243,7 +234,6 @@ const serviceImages = [
   }
 }
 
-/* ── Text content ─────────────────────────────────────────────── */
 .service-heading {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -289,7 +279,6 @@ const serviceImages = [
   align-self: flex-start;
 }
 
-/* ── Visual image block ───────────────────────────────────────── */
 .section-visual {
   position: relative;
   width: 100%;
@@ -297,8 +286,6 @@ const serviceImages = [
   border-radius: 2px;
   overflow: hidden;
 
-  /* NuxtImg renders <img> inside a component — :deep ensures styles
-     penetrate the scoped boundary and fill the container correctly */
   :deep(img) {
     display: block;
     width: 100%;
@@ -333,7 +320,6 @@ const serviceImages = [
   &--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
 }
 
-/* ── Bottom rule ──────────────────────────────────────────────── */
 .section-bottom-rule {
   display: flex;
   align-items: center;
@@ -357,7 +343,6 @@ const serviceImages = [
   flex-shrink: 0;
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .section-text,
   .section-visual {
@@ -367,7 +352,6 @@ const serviceImages = [
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .overview-sections { background: var(--color-section-light); }
 

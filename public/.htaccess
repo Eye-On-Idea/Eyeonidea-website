@@ -22,7 +22,7 @@ Options -Indexes
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
 
   # Permissions: disable features this site does not use
-  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
 
   # Content Security Policy (permissive but meaningful)
   # - 'unsafe-inline' for scripts: required for Nuxt hydration inline scripts
@@ -30,7 +30,7 @@ Options -Indexes
   # - Google Fonts explicitly allowed
   # - No runtime Sanity calls (content baked in at build time)
   # - No iframes used on this site
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://cdn.sanity.io https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com; frame-src 'none'; object-src 'none'; base-uri 'self';"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://cdn.sanity.io https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://formsubmit.co; frame-src 'none'; object-src 'none'; base-uri 'self';"
 
   # Remove server fingerprinting headers
   Header always unset X-Powered-By

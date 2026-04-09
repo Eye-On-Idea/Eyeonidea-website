@@ -1,12 +1,5 @@
 <script setup lang="ts">
-/**
- * AppCtaButton — art deco dark-background CTA.
- *
- * variant="primary"   Gold glass pill with arrow icon option.
- * variant="secondary" Ghost outline pill (translucent border).
- *
- * Renders as a NuxtLink when `to` is provided, otherwise a <button>.
- */
+
 const props = withDefaults(defineProps<{
   variant?: "primary" | "secondary";
   to?: string;
@@ -49,7 +42,7 @@ const props = withDefaults(defineProps<{
 </template>
 
 <style lang="scss" scoped>
-/* Shared pill base */
+
 .app-cta {
   display: inline-flex;
   align-items: center;
@@ -81,7 +74,6 @@ const props = withDefaults(defineProps<{
   }
 }
 
-/* Primary — gold glass pill */
 .app-cta--primary {
   border: 1px solid rgba(223, 175, 133, 0.60);
   background: linear-gradient(
@@ -107,7 +99,6 @@ const props = withDefaults(defineProps<{
   }
 }
 
-/* Secondary — ghost outline */
 .app-cta--secondary {
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: transparent;
@@ -123,7 +114,6 @@ const props = withDefaults(defineProps<{
   }
 }
 
-/* Icon — shifts right on primary hover */
 .app-cta-icon {
   width: 1.1rem;
   height: 1.1rem;
@@ -145,7 +135,6 @@ const props = withDefaults(defineProps<{
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .app-cta--primary {
     border-color: rgba(153, 82, 38, 0.55);

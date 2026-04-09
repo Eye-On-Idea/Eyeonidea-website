@@ -38,7 +38,7 @@ const toggleItem = (index: number) => {
 
 <template>
   <section ref="sectionRef" class="process-faq" aria-labelledby="faq-heading">
-    <!-- Section label row -->
+
     <div class="section-label-row" aria-hidden="true">
       <span class="sep-line" />
       <span class="sep-diamond" />
@@ -48,14 +48,13 @@ const toggleItem = (index: number) => {
     </div>
 
     <div class="section-container">
-      <!-- Header -->
+
       <div class="section-header" :class="{ 'animate-in': isVisible }">
         <h2 id="faq-heading" class="section-title">
           {{ t("process.faq.subtitle") }}
         </h2>
       </div>
 
-      <!-- Accordion -->
       <div class="faq-list" :class="{ 'animate-in': isVisible }">
         <details
           v-for="(item, index) in items"
@@ -86,13 +85,12 @@ const toggleItem = (index: number) => {
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .process-faq {
   background: #0d0908;
   padding-bottom: 0;
 }
 
-/* ── Section label row ────────────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -126,14 +124,12 @@ const toggleItem = (index: number) => {
   flex-shrink: 0;
 }
 
-/* ── Container ────────────────────────────────────────────────── */
 .section-container {
   max-width: 52rem;
   margin: 0 auto;
   padding: 0 2rem 5rem;
 }
 
-/* ── Header ───────────────────────────────────────────────────── */
 .section-header {
   margin-bottom: 2.5rem;
   opacity: 0;
@@ -158,7 +154,6 @@ const toggleItem = (index: number) => {
   letter-spacing: -0.02em;
 }
 
-/* ── FAQ list ─────────────────────────────────────────────────── */
 .faq-list {
   display: flex;
   flex-direction: column;
@@ -175,7 +170,6 @@ const toggleItem = (index: number) => {
   }
 }
 
-/* ── FAQ item ─────────────────────────────────────────────────── */
 .faq-item {
   border-bottom: 1px solid rgba(223, 175, 133, 0.08);
   transition: background 0.2s ease;
@@ -189,7 +183,6 @@ const toggleItem = (index: number) => {
   }
 }
 
-/* ── Trigger ──────────────────────────────────────────────────── */
 .faq-trigger {
   display: flex;
   align-items: center;
@@ -238,14 +231,6 @@ const toggleItem = (index: number) => {
   }
 }
 
-/* ── Answer panel ─────────────────────────────────────────────── */
-/*
- * Baseline (all browsers incl. Safari):
- * Grid-row expansion trick — forces the wrapper to always render
- * (overriding UA display:none on details:not([open]) children)
- * then animates grid-template-rows 0fr → 1fr for smooth height.
- * The inner <p> fades + slides in separately for a layered feel.
- */
 .faq-answer-wrapper {
   display: grid !important;
   grid-template-rows: 0fr;
@@ -257,7 +242,7 @@ const toggleItem = (index: number) => {
 }
 
 .faq-answer {
-  overflow: hidden; /* required for the grid-row clip */
+  overflow: hidden;
   padding: 0 0 1.5rem;
   font-family: var(--font-text);
   font-weight: 300;
@@ -278,25 +263,16 @@ const toggleItem = (index: number) => {
   }
 }
 
-/*
- * Enhancement (Chrome 129+, Firefox 131+):
- * Uses ::details-content + interpolate-size to animate height: 0 → auto
- * natively, plus content-visibility allow-discrete so the closing
- * fade-out plays before the element disappears.
- * The wrapper div becomes layout-transparent (display: contents).
- */
 @supports (interpolate-size: allow-keywords) {
   :root {
     interpolate-size: allow-keywords;
   }
 
-  /* Neutralise the wrapper — ::details-content takes over layout */
   .faq-answer-wrapper {
     display: contents !important;
     transition: none;
   }
 
-  /* Reset inner text — ::details-content handles opacity now */
   .faq-answer {
     overflow: visible;
     opacity: 1 !important;
@@ -304,7 +280,6 @@ const toggleItem = (index: number) => {
     transition: none !important;
   }
 
-  /* The native pseudo-element: height + opacity + discrete visibility */
   .faq-item::details-content {
     opacity: 0;
     height: 0;
@@ -321,7 +296,6 @@ const toggleItem = (index: number) => {
   }
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .section-header,
   .faq-list {
@@ -334,7 +308,6 @@ const toggleItem = (index: number) => {
     transition: none;
   }
 
-  /* Baseline: snap open, no animation */
   .faq-answer-wrapper {
     transition: none;
   }
@@ -349,7 +322,6 @@ const toggleItem = (index: number) => {
     transition: none;
   }
 
-  /* Enhanced: snap open, no animation */
   @supports (interpolate-size: allow-keywords) {
     .faq-item::details-content {
       transition: none;
@@ -359,7 +331,6 @@ const toggleItem = (index: number) => {
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .process-faq { background: var(--color-section-alt); }
 

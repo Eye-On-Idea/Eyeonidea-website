@@ -9,8 +9,6 @@ useHead({
   meta: [{ name: "robots", content: "noindex, nofollow" }],
 });
 
-// ─── Route-based active state (persists on navigation) ────────────────────────
-
 const activeServiceSlug = computed<string | null>(() => {
   const match = route.path.match(/^(?:\/[a-z]{2})?\/client-hub\/([^/]+)/);
   const slug = match?.[1] ?? null;
@@ -23,8 +21,6 @@ const activeCategorySlug = computed<string | null>(() => {
   const match = route.path.match(/^(?:\/[a-z]{2})?\/client-hub\/[^/]+\/([^/]+)/);
   return match?.[1] ?? null;
 });
-
-// ─── Hover state (drives flyout preview) ──────────────────────────────────────
 
 const hoveredServiceSlug = ref<string | null>(null);
 const hoveredCategorySlug = ref<string | null>(null);
@@ -91,20 +87,10 @@ onUnmounted(() => {
   if (categoryHoverTimer) clearTimeout(categoryHoverTimer);
 });
 
-// ─── Derived display state ────────────────────────────────────────────────────
-//
-// Flyout VISIBILITY is purely hover-driven — the panels only appear while the
-// user is hovering the sidebar area. Route-based active slugs are used solely
-// for item highlighting inside the flyouts, never for showing them.
-
-// Which service's categories to show in the secondary flyout (hover only)
 const displayService = computed(() =>
   hoveredServiceSlug.value ? getService(hoveredServiceSlug.value) : null,
 );
 
-// Which category's articles to show in the tertiary flyout.
-// When a service is hovered: prefer the hovered category, fall back to the
-// active category for that service so the tertiary auto-opens at the right place.
 const displayCategorySlug = computed(() => {
   if (!hoveredServiceSlug.value) return null;
   return (
@@ -124,13 +110,10 @@ const displayCategory = computed(() => {
   );
 });
 
-// Flyouts are visible only while hovering
 const showSecondary = computed(() => !!hoveredServiceSlug.value);
 const showTertiary = computed(
   () => !!hoveredServiceSlug.value && !!displayCategory.value,
 );
-
-// ─── Primary nav items ────────────────────────────────────────────────────────
 
 const fixedNavItems = computed(() => [
   {
@@ -155,8 +138,6 @@ const serviceNavItems = computed(() =>
       to: `/client-hub/${s.slug}`,
     })),
 );
-
-// ─── Command palette ──────────────────────────────────────────────────────────
 
 const searchGroups = computed(() => {
   const services = getServices();
@@ -192,10 +173,9 @@ const searchGroups = computed(() => {
 
 <template>
   <UDashboardGroup storage="cookie" storage-key="client-hub" unit="rem">
-    <!-- Skip link (WCAG 2.4.1) -->
+
     <a href="#hub-main-content" class="skip-link">Skip to content</a>
 
-    <!-- ── Primary sidebar ───────────────────────────────────────────────── -->
     <UDashboardSidebar
       id="hub-sidebar"
       collapsible
@@ -205,7 +185,7 @@ const searchGroups = computed(() => {
       :default-size="16"
       :collapsed-size="4.2"
     >
-      <!-- Logo -->
+
       <template #header="{ collapsed }">
         <NuxtLink
           :to="localePath('/client-hub')"
@@ -231,8 +211,6 @@ const searchGroups = computed(() => {
         </NuxtLink>
       </template>
 
-      <!-- Search + navigation + flyout panels (all inside sidebar slot so
-           panels are children of the sidebar's positioned container) -->
       <template #default="{ collapsed }">
         <UDashboardSearchButton
           :collapsed="collapsed"
@@ -241,7 +219,7 @@ const searchGroups = computed(() => {
         />
 
         <nav class="primary-nav" aria-label="Hub navigation">
-          <!-- Fixed items -->
+
           <ul class="primary-nav__list" role="list">
             <li v-for="item in fixedNavItems" :key="item.to">
               <NuxtLink
@@ -266,7 +244,6 @@ const searchGroups = computed(() => {
 
           <div class="primary-nav__divider" aria-hidden="true" />
 
-          <!-- Service items -->
           <ul class="primary-nav__list" role="list">
             <li
               v-for="service in serviceNavItems"
@@ -307,7 +284,6 @@ const searchGroups = computed(() => {
           </ul>
         </nav>
 
-        <!-- ── Secondary flyout (absolutely positioned off sidebar right edge) -->
         <Transition name="panel-slide">
           <div
             v-if="showSecondary"
@@ -378,7 +354,6 @@ const searchGroups = computed(() => {
               </li>
             </ul>
 
-            <!-- ── Tertiary flyout (off right edge of secondary) -->
             <Transition name="panel-slide">
               <div
                 v-if="showTertiary"
@@ -430,7 +405,6 @@ const searchGroups = computed(() => {
         </Transition>
       </template>
 
-      <!-- Footer -->
       <template #footer="{ collapsed }">
         <div class="flex flex-col gap-1">
           <NuxtLink
@@ -450,7 +424,6 @@ const searchGroups = computed(() => {
       </template>
     </UDashboardSidebar>
 
-    <!-- ── Main content panel (unaffected by flyouts) ────────────────────── -->
     <UDashboardPanel id="hub-main-content">
       <template #header>
         <div class="bg-primary-800 dark:bg-primary-950">
@@ -485,20 +458,16 @@ const searchGroups = computed(() => {
       </template>
     </UDashboardPanel>
 
-    <!-- Command palette (Cmd+K) -->
     <UDashboardSearch :groups="searchGroups" />
   </UDashboardGroup>
 </template>
 
 <style scoped>
-/* ═══════════════════════════════════════════════════════════════════════════
-   PRIMARY NAV
-═══════════════════════════════════════════════════════════════════════════ */
 
 .primary-nav {
   display: flex;
   flex-direction: column;
-  position: relative; /* establishes stacking context so flyouts z-index works */
+  position: relative;
 }
 
 .primary-nav__list {
@@ -579,22 +548,10 @@ const searchGroups = computed(() => {
   opacity: 0.4;
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   FLYOUT PANELS  — absolutely positioned, never affect flex layout
-═══════════════════════════════════════════════════════════════════════════ */
-
-/*
-  The sidebar's #default slot content has `position: relative` from .primary-nav,
-  but the flyout itself needs to escape the sidebar's scrollable overflow.
-  We use `position: fixed` anchored to the sidebar's visual right edge.
-  The sidebar width is a CSS custom property exposed by UDashboardGroup as
-  --sidebar-width (rem).  We fall back to the default 16rem.
-*/
-
 .flyout {
   position: fixed;
   top: 0;
-  /* left is set per-level via --flyout-left */
+
   left: var(--flyout-left, 16rem);
   width: 14rem;
   height: 100vh;
@@ -612,23 +569,15 @@ const searchGroups = computed(() => {
   box-shadow: 4px 0 16px -4px rgba(0, 0, 0, 0.35);
 }
 
-/*
-  Secondary flyout: sits immediately right of the sidebar.
-  We read the sidebar width from the CSS custom property set by UDashboardGroup.
-  UDashboardSidebar exposes its current width on :root as
-  --ui-dashboard-sidebar-width (Nuxt UI v4 naming convention).
-  Fall back to 16rem (default sidebar size).
-*/
 .flyout--secondary {
   left: var(--ui-dashboard-sidebar-width, 16rem);
 }
 
-/* Tertiary flyout: sits right of the secondary (secondary width = 14rem) */
 .flyout--tertiary {
-  position: fixed; /* re-declare for clarity */
+  position: fixed;
   left: calc(var(--ui-dashboard-sidebar-width, 16rem) + 14rem);
   top: 0;
-  width: 15rem; /* slightly wider — article titles can be longer */
+  width: 15rem;
   height: 100vh;
   height: 100dvh;
   z-index: 41;
@@ -728,7 +677,6 @@ const searchGroups = computed(() => {
   outline-offset: 2px;
 }
 
-/* Article items have no icon, so less left padding */
 .flyout__item--article {
   padding-left: 0.875rem;
   font-weight: 400;
@@ -758,7 +706,7 @@ const searchGroups = computed(() => {
 }
 
 .flyout__item--article .flyout__item-label {
-  white-space: normal; /* allow article titles to wrap */
+  white-space: normal;
 }
 
 .flyout__item-chevron {
@@ -767,10 +715,6 @@ const searchGroups = computed(() => {
   flex-shrink: 0;
   opacity: 0.35;
 }
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   SLIDE TRANSITION
-═══════════════════════════════════════════════════════════════════════════ */
 
 .panel-slide-enter-active {
   transition:
@@ -794,10 +738,6 @@ const searchGroups = computed(() => {
   transform: translateX(-12px);
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   FOOTER LINK
-═══════════════════════════════════════════════════════════════════════════ */
-
 .hub-footer-link {
   color: var(--color-text-secondary);
 }
@@ -811,10 +751,6 @@ const searchGroups = computed(() => {
   outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
 }
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   VERSION BADGE
-═══════════════════════════════════════════════════════════════════════════ */
 
 .hub-version {
   position: fixed;
@@ -833,10 +769,6 @@ const searchGroups = computed(() => {
 .hub-version__sep {
   opacity: 0.5;
 }
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   REDUCED MOTION
-═══════════════════════════════════════════════════════════════════════════ */
 
 @media (prefers-reduced-motion: reduce) {
   .panel-slide-enter-active,

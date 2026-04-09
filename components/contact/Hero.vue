@@ -20,7 +20,7 @@ const bgStyle = computed(() =>
     <div class="hero-bg" aria-hidden="true" :style="bgStyle" />
 
     <div class="hero-content">
-      <!-- Label row -->
+
       <div class="hero-label-row" aria-hidden="true">
         <span class="label-line" />
         <span class="label-diamond" />
@@ -38,7 +38,6 @@ const bgStyle = computed(() =>
         />
       </h1>
 
-      <!-- Deco divider -->
       <div class="hero-deco-divider" aria-hidden="true">
         <span class="div-line" />
         <span class="div-diamond div-diamond--sm" />
@@ -114,7 +113,6 @@ const bgStyle = computed(() =>
   text-align: center;
 }
 
-/* ── Label row ────────────────────────────────────────────────── */
 .hero-label-row {
   display: flex;
   align-items: center;
@@ -146,7 +144,6 @@ const bgStyle = computed(() =>
   flex-shrink: 0;
 }
 
-/* ── Title ────────────────────────────────────────────────────── */
 .hero-title {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -162,7 +159,6 @@ const bgStyle = computed(() =>
   color: rgba(223, 175, 133, 0.85);
 }
 
-/* ── Deco divider ─────────────────────────────────────────────── */
 .hero-deco-divider {
   display: flex;
   align-items: center;
@@ -194,7 +190,6 @@ const bgStyle = computed(() =>
   }
 }
 
-/* ── Subtitle ─────────────────────────────────────────────────── */
 .hero-subtitle {
   font-family: var(--font-text);
   font-weight: 300;
@@ -205,7 +200,6 @@ const bgStyle = computed(() =>
   margin: 0 auto;
 }
 
-/* ── Logo ─────────────────────────────────────────────────────── */
 .hero-logo-wrap {
   display: flex;
   justify-content: center;
@@ -224,10 +218,8 @@ const bgStyle = computed(() =>
   pointer-events: none;
 }
 
-/* dark mode: show SVG, hide PNG */
 .hero-logo--light { display: none; }
 
-/* light mode: hide SVG, show PNG */
 html:not(.dark) {
   .hero-logo--dark  { display: none; }
   .hero-logo--light {
@@ -244,7 +236,6 @@ html:not(.dark) {
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .contact-hero {
     background: var(--color-hero-bg);
@@ -276,7 +267,7 @@ html:not(.dark) {
 
   .hero-title {
     color: #441a08;
-  } /* primary-900 — word spans handled globally in main.css */
+  }
 
   .div-line {
     background: var(--deco-line);

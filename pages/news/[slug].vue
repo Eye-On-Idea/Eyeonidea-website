@@ -1,6 +1,6 @@
 <template>
   <div class="article-page">
-    <!-- Loading state -->
+
     <template v-if="pending">
       <UContainer class="max-w-7xl py-8">
         <div aria-live="polite" aria-busy="true">
@@ -22,7 +22,6 @@
       </UContainer>
     </template>
 
-    <!-- Error / Not found -->
     <template v-else-if="!post">
       <UContainer class="max-w-7xl py-16">
         <div class="not-found">
@@ -42,11 +41,10 @@
       </UContainer>
     </template>
 
-    <!-- Article content -->
     <template v-else>
       <article class="article-container">
         <UContainer class="max-w-7xl py-8">
-          <!-- Breadcrumb -->
+
           <BaseBreadcrumb
             v-motion
             :initial="{ opacity: 0, x: -20 }"
@@ -54,7 +52,6 @@
             :crumbs="breadcrumbs"
           />
 
-          <!-- Article header -->
           <div
             v-motion
             :initial="{ opacity: 0, y: 20 }"
@@ -67,7 +64,6 @@
             <NewsArticleHeader :post="post" />
           </div>
 
-          <!-- Article body -->
           <div
             v-if="post.body && post.body.length > 0"
             v-motion
@@ -82,7 +78,6 @@
             <NewsPortableTextRenderer :blocks="post.body" />
           </div>
 
-          <!-- Share and actions -->
           <div
             v-motion
             :initial="{ opacity: 0, y: 20 }"
@@ -128,7 +123,6 @@
             </UButton>
           </div>
 
-          <!-- Related posts -->
           <NewsRelatedPosts
             v-if="relatedPosts && relatedPosts.length > 0"
             :posts="relatedPosts"
@@ -149,7 +143,6 @@ const config = useRuntimeConfig();
 
 const slug = computed(() => route.params.slug as string);
 
-// Fetch post data
 const { data: post, pending } = usePostBySlug(slug.value);
 
 const relatedPostsQuery = `*[
@@ -179,7 +172,6 @@ const { data: relatedPostsData } = useSanityFetch<Post[]>(
 
 const relatedPosts = computed(() => relatedPostsData.value ?? []);
 
-// Breadcrumbs
 const breadcrumbs = computed(() => [
   { label: t("nav.home"), to: "/" },
   { label: t("news.title"), to: "/news" },
@@ -189,7 +181,6 @@ const breadcrumbs = computed(() => [
   },
 ]);
 
-// SEO
 const seoTitle = computed(() => {
   if (pending.value) return t("news.article.defaultTitle");
   if (!post.value) return t("news.article.notFound");
@@ -219,7 +210,7 @@ const seoOptions = computed(() => ({
   description: seoDescription.value,
   image: seoImage.value,
   imageAlt: post.value?.heroImageAlt || post.value?.title || seoTitle.value,
-  // Optimal dimensions for LinkedIn (1.91:1 ratio) and other social platforms
+
   imageWidth: 1200,
   imageHeight: 630,
   url: `/news/${slug.value}`,
@@ -239,7 +230,6 @@ const seoOptions = computed(() => ({
   twitterCard: "summary_large_image" as const,
   schemaType: "ItemPage" as const,
   includeWebSiteSchema: false,
-  // Article-specific metadata for enhanced SEO
   articleSection: post.value?.postType || "News",
   articleTags:
     post.value?.tags
@@ -249,7 +239,10 @@ const seoOptions = computed(() => ({
 
 useSeo(seoOptions);
 
-// Share URLs
+useHead({
+  link: [{ rel: "preconnect", href: "https://cdn.sanity.io" }],
+});
+
 const shareUrl = computed(() => encodeURIComponent(canonicalUrl.value));
 const shareTitle = computed(() => encodeURIComponent(post.value?.title || ""));
 
@@ -315,7 +308,6 @@ const emailShareUrl = computed(
   height: 1.25rem;
 }
 
-/* Loading skeleton */
 .article-skeleton {
   animation: pulse 2s ease-in-out infinite;
 }
@@ -394,7 +386,6 @@ const emailShareUrl = computed(
   }
 }
 
-/* Not found state */
 .not-found {
   text-align: center;
   padding: 3rem 0;
@@ -426,7 +417,6 @@ const emailShareUrl = computed(
   display: inline-flex;
 }
 
-/* Dark mode */
 :global(.dark) .share-label {
   color: var(--color-primary-400);
 }
@@ -453,7 +443,6 @@ const emailShareUrl = computed(
   color: var(--color-primary-400);
 }
 
-/* Responsive */
 @media (max-width: 640px) {
   .article-actions {
     flex-direction: column;

@@ -36,7 +36,7 @@ const values = ["clarity", "partnership", "quality"] as const;
     class="about-section"
     aria-labelledby="about-heading"
   >
-    <!-- Full-section background image -->
+
     <div class="about-bg" aria-hidden="true">
       <img
         src="/images/landing/about-panel.jpg"
@@ -46,13 +46,11 @@ const values = ["clarity", "partnership", "quality"] as const;
         decoding="async"
       />
     </div>
-    <!-- Multi-layer overlay: heavy left for text, lighter right for atmosphere -->
+
     <div class="about-overlay" aria-hidden="true" />
 
-    <!-- All content sits above the background -->
     <div class="about-content-wrap">
 
-      <!-- Section separator / label -->
       <div class="section-label-row" aria-hidden="true">
         <span class="sep-line" />
         <span class="sep-diamond" />
@@ -61,10 +59,8 @@ const values = ["clarity", "partnership", "quality"] as const;
         <span class="sep-line" />
       </div>
 
-      <!-- Two-column layout -->
       <div class="about-inner">
 
-        <!-- Left column: text + CTA — sits on solid dark background -->
         <div
           class="about-left"
           :key="`about-left-${visible}`"
@@ -93,7 +89,6 @@ const values = ["clarity", "partnership", "quality"] as const;
           </AppCtaButton>
         </div>
 
-        <!-- Right column: values list in a framed dark panel -->
         <div
           class="about-right"
           :key="`about-right-${visible}`"
@@ -102,7 +97,7 @@ const values = ["clarity", "partnership", "quality"] as const;
           :enter="visible ? rightMotion.visible : rightMotion.initial"
         >
           <div class="values-panel">
-            <!-- Art deco corner brackets -->
+
             <span class="vp-corner vp-corner--tl" aria-hidden="true" />
             <span class="vp-corner vp-corner--tr" aria-hidden="true" />
             <span class="vp-corner vp-corner--bl" aria-hidden="true" />
@@ -128,7 +123,6 @@ const values = ["clarity", "partnership", "quality"] as const;
         </div>
       </div>
 
-      <!-- Bottom deco rule — transition into next section block -->
       <div class="section-bottom-rule" aria-hidden="true">
         <span class="sep-line" />
         <span class="sep-diamond-lg" />
@@ -139,7 +133,7 @@ const values = ["clarity", "partnership", "quality"] as const;
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .about-section {
   position: relative;
   z-index: 1;
@@ -148,7 +142,6 @@ const values = ["clarity", "partnership", "quality"] as const;
   overflow: hidden;
 }
 
-/* ── Full-section background image ───────────────────────────── */
 .about-bg {
   position: absolute;
   inset: 0;
@@ -164,10 +157,6 @@ const values = ["clarity", "partnership", "quality"] as const;
   object-position: center 35%;
 }
 
-/* Multi-layer overlay:
-   - Left side heavily darkened so title + description always readable
-   - Right side moderately dark — image atmosphere shows through
-   - Top/bottom edges grounded */
 .about-overlay {
   position: absolute;
   inset: 0;
@@ -189,13 +178,11 @@ const values = ["clarity", "partnership", "quality"] as const;
     );
 }
 
-/* ── Content layer ────────────────────────────────────────────── */
 .about-content-wrap {
   position: relative;
   z-index: 1;
 }
 
-/* ── Section separator / label ────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -229,7 +216,6 @@ const values = ["clarity", "partnership", "quality"] as const;
   flex-shrink: 0;
 }
 
-/* ── Inner layout ─────────────────────────────────────────────── */
 .about-inner {
   max-width: 80rem;
   margin: 0 auto;
@@ -245,7 +231,6 @@ const values = ["clarity", "partnership", "quality"] as const;
   }
 }
 
-/* ── Left column ──────────────────────────────────────────────── */
 .about-left {
   display: flex;
   flex-direction: column;
@@ -297,13 +282,11 @@ const values = ["clarity", "partnership", "quality"] as const;
   align-self: flex-start;
 }
 
-/* ── Right column ─────────────────────────────────────────────── */
 .about-right {
   display: flex;
   flex-direction: column;
 }
 
-/* ── Values panel — framed dark card floating over the image ──── */
 .values-panel {
   position: relative;
   background: rgba(13, 9, 8, 0.62);
@@ -311,7 +294,6 @@ const values = ["clarity", "partnership", "quality"] as const;
   padding: 2rem 2rem 0.5rem;
 }
 
-/* Art deco corner brackets */
 .vp-corner {
   position: absolute;
   width: 1.1rem;
@@ -325,7 +307,6 @@ const values = ["clarity", "partnership", "quality"] as const;
   &--br { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
 }
 
-/* ── Values list ──────────────────────────────────────────────── */
 .values-list {
   list-style: none;
   padding: 0;
@@ -391,7 +372,6 @@ const values = ["clarity", "partnership", "quality"] as const;
   margin: 0;
 }
 
-/* ── Bottom deco rule ─────────────────────────────────────────── */
 .section-bottom-rule {
   display: flex;
   align-items: center;
@@ -409,13 +389,8 @@ const values = ["clarity", "partnership", "quality"] as const;
   flex-shrink: 0;
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .about-bg-img { will-change: auto; }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
-/* About section has a background image with dark overlay —
-   always renders dark regardless of colour mode.
-   Button overrides are handled globally in main.css via #about-section. */
 </style>

@@ -33,7 +33,6 @@ onUnmounted(() => {
   document.removeEventListener("click", handleClickOutside);
 });
 
-// Form data
 const formData = ref({
   name: "",
   email: "",
@@ -44,7 +43,6 @@ const formData = ref({
   message: "",
 });
 
-// Interest dropdown
 const interestOptions = computed(() => [
   { value: "website", label: t("contact.form.interest.options.website") },
   { value: "identity", label: t("contact.form.interest.options.identity") },
@@ -143,14 +141,12 @@ const handleClickOutside = (event: MouseEvent) => {
   }
 };
 
-// Form submission
 const requiredFields: (keyof typeof formData.value)[] = ["name", "email", "subject", "message"];
 
 const handleSubmit = async (event: Event) => {
   event.preventDefault();
   if (isSubmitting.value) return;
 
-  // Manual validation (novalidate disables native browser validation)
   const missing = requiredFields.some((f) => !formData.value[f].trim());
   if (missing) {
     submitError.value = true;
@@ -165,7 +161,7 @@ const handleSubmit = async (event: Event) => {
 
   try {
     const form = event.target as HTMLFormElement;
-    // FormSubmit AJAX expects JSON — FormData triggers CORS preflight which fails
+
     const payload: Record<string, string> = {
       name: formData.value.name,
       email: formData.value.email,
@@ -191,7 +187,6 @@ const handleSubmit = async (event: Event) => {
       body: JSON.stringify(payload),
     });
 
-    // FormSubmit returns JSON body — check success field, not just HTTP status
     const json = await response.json().catch(() => ({}));
     const succeeded = response.ok && (json.success === "true" || json.success === true);
 
@@ -216,7 +211,7 @@ const handleSubmit = async (event: Event) => {
     class="contact-form-section"
     aria-labelledby="contact-form-heading"
   >
-    <!-- Section label row -->
+
     <div class="section-label-row" aria-hidden="true">
       <span class="sep-line" />
       <span class="sep-diamond" />
@@ -227,7 +222,7 @@ const handleSubmit = async (event: Event) => {
 
     <div class="section-container">
       <div class="form-wrapper" :class="{ 'animate-in': isVisible }">
-        <!-- Shown only when JavaScript is disabled or blocked entirely -->
+
         <noscript>
           <div class="form-alert form-alert--error noscript-notice" role="note">
             <span class="alert-icon" aria-hidden="true">✕</span>
@@ -248,7 +243,7 @@ const handleSubmit = async (event: Event) => {
           novalidate
           @submit="handleSubmit"
         >
-          <!-- Success Message -->
+
           <Transition name="alert">
             <div v-if="submitSuccess" class="form-alert form-alert--success" role="alert">
               <span class="alert-icon" aria-hidden="true">✓</span>
@@ -256,7 +251,6 @@ const handleSubmit = async (event: Event) => {
             </div>
           </Transition>
 
-          <!-- Error Message -->
           <Transition name="alert">
             <div v-if="submitError" class="form-alert form-alert--error" role="alert">
               <span class="alert-icon" aria-hidden="true">✕</span>
@@ -267,7 +261,6 @@ const handleSubmit = async (event: Event) => {
             </div>
           </Transition>
 
-          <!-- Name & Email Row -->
           <div class="form-row">
             <div class="form-group">
               <label for="contact-name" class="form-label">
@@ -303,7 +296,6 @@ const handleSubmit = async (event: Event) => {
             </div>
           </div>
 
-          <!-- Phone & Company Row -->
           <div class="form-row">
             <div class="form-group">
               <label for="contact-phone" class="form-label">
@@ -335,7 +327,6 @@ const handleSubmit = async (event: Event) => {
             </div>
           </div>
 
-          <!-- Interest Custom Dropdown -->
           <div class="form-group">
             <label id="interest-label" class="form-label">
               {{ t("contact.form.interest.label") }}
@@ -397,7 +388,6 @@ const handleSubmit = async (event: Event) => {
             </div>
           </div>
 
-          <!-- Subject -->
           <div class="form-group">
             <label for="contact-subject" class="form-label">
               {{ t("contact.form.subject.label") }}
@@ -414,7 +404,6 @@ const handleSubmit = async (event: Event) => {
             />
           </div>
 
-          <!-- Message -->
           <div class="form-group">
             <label for="contact-message" class="form-label">
               {{ t("contact.form.message.label") }}
@@ -431,11 +420,8 @@ const handleSubmit = async (event: Event) => {
             ></textarea>
           </div>
 
-          <!-- Honeypot: bots fill this, humans don't — catches spam without captcha -->
-          <!-- Note: other FormSubmit fields (_replyto, _subject, etc.) are sent in the JSON payload -->
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 
-          <!-- Submit Button -->
           <div class="form-actions">
             <button
               type="submit"
@@ -453,7 +439,6 @@ const handleSubmit = async (event: Event) => {
             </button>
           </div>
 
-          <!-- GDPR Notice -->
           <p class="gdpr-notice">
             {{ t("contact.form.gdprNotice") }}
           </p>
@@ -464,13 +449,12 @@ const handleSubmit = async (event: Event) => {
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .contact-form-section {
   background: #120703;
   padding-bottom: 0;
 }
 
-/* ── Section label row ────────────────────────────────────────── */
 .section-label-row {
   display: flex;
   align-items: center;
@@ -504,14 +488,12 @@ const handleSubmit = async (event: Event) => {
   flex-shrink: 0;
 }
 
-/* ── Container ────────────────────────────────────────────────── */
 .section-container {
   max-width: 48rem;
   margin: 0 auto;
   padding: 0 2rem 6rem;
 }
 
-/* ── Form wrapper (animation) ─────────────────────────────────── */
 .form-wrapper {
   opacity: 0;
   transform: translateY(24px);
@@ -525,7 +507,6 @@ const handleSubmit = async (event: Event) => {
   }
 }
 
-/* ── Form panel ───────────────────────────────────────────────── */
 .contact-form {
   padding: 2.5rem 2rem;
   background: rgba(18, 7, 3, 0.5);
@@ -536,7 +517,6 @@ const handleSubmit = async (event: Event) => {
   }
 }
 
-/* ── Alerts ───────────────────────────────────────────────────── */
 .form-alert {
   display: flex;
   align-items: center;
@@ -580,7 +560,6 @@ const handleSubmit = async (event: Event) => {
   margin-bottom: 1.5rem;
 }
 
-/* ── Alert transitions ────────────────────────────────────────── */
 .alert-enter-active,
 .alert-leave-active {
   transition: opacity 0.25s ease, transform 0.25s ease;
@@ -591,7 +570,6 @@ const handleSubmit = async (event: Event) => {
   transform: translateY(-6px);
 }
 
-/* ── Form rows ────────────────────────────────────────────────── */
 .form-row {
   display: grid;
   grid-template-columns: 1fr;
@@ -607,7 +585,6 @@ const handleSubmit = async (event: Event) => {
   margin-bottom: 1.5rem;
 }
 
-/* ── Labels ───────────────────────────────────────────────────── */
 .form-label {
   display: block;
   font-family: var(--font-heading);
@@ -624,7 +601,6 @@ const handleSubmit = async (event: Event) => {
   margin-left: 0.125rem;
 }
 
-/* ── Inputs ───────────────────────────────────────────────────── */
 .form-input,
 .form-textarea {
   width: 100%;
@@ -658,7 +634,6 @@ const handleSubmit = async (event: Event) => {
   min-height: 140px;
 }
 
-/* ── Custom dropdown ──────────────────────────────────────────── */
 .custom-select {
   position: relative;
 }
@@ -761,7 +736,6 @@ const handleSubmit = async (event: Event) => {
   flex-shrink: 0;
 }
 
-/* ── Dropdown transition ──────────────────────────────────────── */
 .dropdown-enter-active,
 .dropdown-leave-active {
   transition: opacity 0.18s ease, transform 0.18s ease;
@@ -773,7 +747,6 @@ const handleSubmit = async (event: Event) => {
   transform: scaleY(0.95) translateY(-4px);
 }
 
-/* ── Submit ───────────────────────────────────────────────────── */
 .form-actions {
   margin-top: 2rem;
   text-align: center;
@@ -850,7 +823,6 @@ const handleSubmit = async (event: Event) => {
   to { transform: rotate(360deg); }
 }
 
-/* ── GDPR notice ──────────────────────────────────────────────── */
 .gdpr-notice {
   margin-top: 2rem;
   padding-top: 1.5rem;
@@ -875,7 +847,6 @@ const handleSubmit = async (event: Event) => {
   }
 }
 
-/* ── Light mode overrides ─────────────────────────────────────── */
 html:not(.dark) {
   .contact-form-section { background: var(--color-section-light); }
 
@@ -969,5 +940,4 @@ html:not(.dark) {
   }
 }
 </style>
-
 

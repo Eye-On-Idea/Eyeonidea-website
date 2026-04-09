@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, shallowRef } from "vue";
 
-// Props for customization
 const props = withDefaults(
   defineProps<{
     particleCount?: number;
@@ -10,8 +9,8 @@ const props = withDefaults(
   }>(),
   {
     particleCount: 80,
-    primaryColor: "rgba(223, 175, 133, 0.6)", // primary-200
-    secondaryColor: "rgba(100, 198, 183, 0.4)", // accent-300
+    primaryColor: "rgba(223, 175, 133, 0.6)",
+    secondaryColor: "rgba(100, 198, 183, 0.4)",
   }
 );
 
@@ -51,7 +50,7 @@ const createParticles = (width: number, height: number): Particle[] => {
 
 const animate = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
   if (prefersReducedMotion.value) {
-    // Static render for reduced motion
+
     ctx.clearRect(0, 0, width, height);
     particles.value.forEach((particle) => {
       ctx.beginPath();
@@ -67,24 +66,21 @@ const animate = (ctx: CanvasRenderingContext2D, width: number, height: number) =
   ctx.clearRect(0, 0, width, height);
 
   particles.value.forEach((particle) => {
-    // Update position with wave motion
+
     particle.x += particle.speedX + Math.sin(Date.now() * 0.001 + particle.y * 0.01) * 0.2;
     particle.y += particle.speedY + Math.cos(Date.now() * 0.001 + particle.x * 0.01) * 0.1;
 
-    // Wrap around edges
     if (particle.x < 0) particle.x = width;
     if (particle.x > width) particle.x = 0;
     if (particle.y < 0) particle.y = height;
     if (particle.y > height) particle.y = 0;
 
-    // Draw particle with glow
     ctx.beginPath();
     ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
     ctx.fillStyle = particle.color;
     ctx.globalAlpha = particle.opacity;
     ctx.fill();
 
-    // Add subtle glow
     ctx.beginPath();
     ctx.arc(particle.x, particle.y, particle.size * 2, 0, Math.PI * 2);
     ctx.fillStyle = particle.color;
@@ -162,12 +158,10 @@ onMounted(() => {
     const rect = canvas.getBoundingClientRect();
     ctx.clearRect(0, 0, rect.width, rect.height);
 
-    // Draw connections first (behind particles)
     if (!prefersReducedMotion.value) {
       drawConnections(ctx);
     }
 
-    // Update and draw particles
     particles.value.forEach((particle) => {
       if (!prefersReducedMotion.value) {
         particle.x += particle.speedX + Math.sin(Date.now() * 0.0008 + particle.y * 0.01) * 0.15;
@@ -179,14 +173,12 @@ onMounted(() => {
         if (particle.y > rect.height) particle.y = 0;
       }
 
-      // Draw particle
       ctx.beginPath();
       ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
       ctx.fillStyle = particle.color;
       ctx.globalAlpha = particle.opacity;
       ctx.fill();
 
-      // Glow effect
       ctx.beginPath();
       ctx.arc(particle.x, particle.y, particle.size * 2.5, 0, Math.PI * 2);
       ctx.fillStyle = particle.color;
@@ -203,7 +195,6 @@ onMounted(() => {
 
   animateWithConnections();
 
-  // Pause animation when tab is hidden to save CPU/battery
   const handleVisibility = () => {
     if (document.hidden) {
       cancelAnimationFrame(animationId.value);

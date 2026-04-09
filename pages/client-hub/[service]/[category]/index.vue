@@ -13,7 +13,6 @@ const categorySlug = computed(() => route.params.category as string);
 const service = computed(() => getService(serviceSlug.value));
 const category = computed(() => getCategory(serviceSlug.value, categorySlug.value));
 
-// 404 if service or category doesn't exist
 if (!service.value || !category.value) {
   throw createError({
     statusCode: 404,
@@ -29,7 +28,7 @@ useHead({
 <template>
   <div class="category-page" v-if="service && category">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-      <!-- Category header -->
+
       <div class="flex items-start gap-4">
         <div class="p-3 rounded-xl bg-primary-500/10">
           <Icon
@@ -48,7 +47,6 @@ useHead({
         </div>
       </div>
 
-      <!-- Articles list -->
       <div class="mt-8 space-y-2 max-w-2xl">
         <ClientHubArticleCard
           v-for="article in category.articles"

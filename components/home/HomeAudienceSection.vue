@@ -57,7 +57,7 @@ const numerals = ["I", "II", "III"];
     class="audience-section"
     aria-labelledby="audience-heading"
   >
-    <!-- Section header -->
+
     <div
       class="audience-header-wrap"
       :key="`audience-header-${visible}`"
@@ -71,7 +71,6 @@ const numerals = ["I", "II", "III"];
       <p class="audience-subtitle">{{ t("landing.audience.subtitle") }}</p>
     </div>
 
-    <!-- Stacked alternating rows -->
     <ul class="audience-rows" role="list">
       <li
         v-for="(item, i) in situations"
@@ -82,7 +81,7 @@ const numerals = ["I", "II", "III"];
         :initial="rowMotion(i).initial"
         :enter="visible ? rowMotion(i).visible : rowMotion(i).initial"
       >
-        <!-- ── Text column ─────────────────────────────── -->
+
         <div class="row-text">
           <div class="row-text__inner">
             <div class="deco-numeral-row" aria-hidden="true">
@@ -100,12 +99,11 @@ const numerals = ["I", "II", "III"];
           </div>
         </div>
 
-        <!-- ── Visual column ──────────────────────────── -->
         <div
           class="row-visual"
           :style="{ '--panel-accent': panelAccents[i] }"
         >
-          <!-- Editorial row image -->
+
           <NuxtImg
             :src="audienceImages[i]"
             :alt="situations[i]?.imageAlt ?? ''"
@@ -115,12 +113,13 @@ const numerals = ["I", "II", "III"];
             format="webp"
             quality="80"
             loading="lazy"
+            sizes="100vw md:50vw"
           />
-          <!-- Dark tint overlay to blend with section atmosphere -->
+
           <div class="row-overlay" aria-hidden="true" />
-          <!-- Ambient glow orb -->
+
           <div class="panel-orb" aria-hidden="true" />
-          <!-- Art deco corner frame -->
+
           <div class="deco-frame" aria-hidden="true">
             <span class="corner corner--tl" />
             <span class="corner corner--tr" />
@@ -134,7 +133,7 @@ const numerals = ["I", "II", "III"];
 </template>
 
 <style lang="scss" scoped>
-/* ── Section ──────────────────────────────────────────────────── */
+
 .audience-section {
   position: relative;
   z-index: 1;
@@ -143,7 +142,6 @@ const numerals = ["I", "II", "III"];
   overflow: hidden;
 }
 
-/* ── Header ───────────────────────────────────────────────────── */
 .audience-header-wrap {
   max-width: 52rem;
   margin: 0 auto;
@@ -174,14 +172,12 @@ const numerals = ["I", "II", "III"];
   margin: 0;
 }
 
-/* ── Rows container ───────────────────────────────────────────── */
 .audience-rows {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* ── Individual row ───────────────────────────────────────────── */
 .audience-row {
   display: grid;
   grid-template-columns: 1fr;
@@ -191,7 +187,6 @@ const numerals = ["I", "II", "III"];
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
 
-  /* Mobile: visual above, text below */
   .row-visual { order: 1; }
   .row-text   { order: 2; }
 
@@ -199,7 +194,6 @@ const numerals = ["I", "II", "III"];
     grid-template-columns: 1fr 1fr;
     min-height: clamp(320px, 44vh, 460px);
 
-    /* Normal: text left, visual right */
     &--normal {
       .row-text   { order: 1; }
       .row-visual {
@@ -209,7 +203,6 @@ const numerals = ["I", "II", "III"];
       }
     }
 
-    /* Reversed: visual left, text right */
     &--reversed {
       .row-visual {
         order: 1;
@@ -221,7 +214,6 @@ const numerals = ["I", "II", "III"];
   }
 }
 
-/* ── Text column ──────────────────────────────────────────────── */
 .row-text {
   display: flex;
   align-items: center;
@@ -241,7 +233,6 @@ const numerals = ["I", "II", "III"];
   max-width: 30rem;
 }
 
-/* Reversed row: nudge text slightly inward from the visual edge */
 .audience-row--reversed .row-text {
   @media (min-width: 768px) {
     padding-left: 3.5rem;
@@ -252,7 +243,6 @@ const numerals = ["I", "II", "III"];
   }
 }
 
-/* ── Deco numeral row ─────────────────────────────────────────── */
 .deco-numeral-row {
   display: flex;
   align-items: center;
@@ -275,7 +265,6 @@ const numerals = ["I", "II", "III"];
   flex-shrink: 0;
 }
 
-/* ── Deco divider ─────────────────────────────────────────────── */
 .deco-divider {
   display: flex;
   align-items: center;
@@ -297,7 +286,6 @@ const numerals = ["I", "II", "III"];
   flex-shrink: 0;
 }
 
-/* ── Row text content ─────────────────────────────────────────── */
 .row-heading {
   font-family: var(--font-heading);
   font-weight: 600;
@@ -317,24 +305,21 @@ const numerals = ["I", "II", "III"];
   margin: 0;
 }
 
-/* ── Visual column ────────────────────────────────────────────── */
 .row-visual {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #1a0904; /* fallback while image loads */
+  background: #1a0904;
   overflow: hidden;
   min-height: 260px;
 
-  /* Mobile: fade bottom edge into the text below */
   @media (max-width: 767px) {
     mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
   }
 }
 
-/* ── Row image ────────────────────────────────────────────────── */
 .row-bg-image {
   position: absolute;
   inset: 0;
@@ -345,7 +330,6 @@ const numerals = ["I", "II", "III"];
   z-index: 0;
 }
 
-/* Dark tint to blend editorial image with dark section palette */
 .row-overlay {
   position: absolute;
   inset: 0;
@@ -353,7 +337,6 @@ const numerals = ["I", "II", "III"];
   z-index: 1;
 }
 
-/* ── Ambient glow orb ─────────────────────────────────────────── */
 .panel-orb {
   position: absolute;
   width: 26rem;
@@ -368,19 +351,16 @@ const numerals = ["I", "II", "III"];
   z-index: 2;
   opacity: 0.55;
 
-  /* Normal row — orb at top-right (away from fade zone) */
   .audience-row--normal & {
     top: -5rem;
     right: -3rem;
   }
 
-  /* Reversed row — orb at top-left (away from fade zone) */
   .audience-row--reversed & {
     top: -5rem;
     left: -3rem;
   }
 
-  /* Mobile: always top-right */
   @media (max-width: 767px) {
     top: -4rem;
     right: -3rem;
@@ -388,7 +368,6 @@ const numerals = ["I", "II", "III"];
   }
 }
 
-/* ── Art deco corner frame ────────────────────────────────────── */
 .deco-frame {
   position: absolute;
   inset: 2rem;
@@ -409,15 +388,10 @@ const numerals = ["I", "II", "III"];
   &--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
 }
 
-/* ── Reduced motion ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .panel-orb { opacity: 0.5; }
 }
 
-/* ── Light mode ───────────────────────────────────────────────── */
-/* Section bg and text switch; visual panels stay dark (they are
-   atmospheric illustrative panels — the mask blend handles the
-   transition to the light section background organically).        */
 html:not(.dark) {
   .audience-section {
     background: var(--color-section-alt);
@@ -439,5 +413,4 @@ html:not(.dark) {
   .row-body        { color: var(--color-text-subtle); }
 }
 </style>
-
 

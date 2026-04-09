@@ -1,7 +1,7 @@
 <template>
   <article v-if="post?.slug?.current" class="post-card" :class="{ 'post-card--featured': featured }">
     <NuxtLink :to="`/news/${post.slug.current}`" class="post-card-link">
-      <!-- Image -->
+
       <div class="post-card-image">
         <SanityImage
           v-if="post.heroImage"
@@ -13,15 +13,14 @@
         <div v-else class="post-image-placeholder">
           <Icon name="i-heroicons-newspaper" class="size-12 text-primary-300" aria-hidden="true" />
         </div>
-        <!-- Post type badge -->
+
         <span class="post-type-badge" :class="`badge-${post.postType}`">
           {{ postTypeLabel }}
         </span>
       </div>
 
-      <!-- Content -->
       <div class="post-card-content">
-        <!-- Meta -->
+
         <div class="post-meta">
           <time :datetime="post.publishedAt" class="post-date">
             <Icon name="i-heroicons-calendar" class="size-4" aria-hidden="true" />
@@ -33,13 +32,10 @@
           </span>
         </div>
 
-        <!-- Title -->
         <h3 class="post-title">{{ post.title }}</h3>
 
-        <!-- Excerpt -->
         <p class="post-excerpt">{{ post.excerpt }}</p>
 
-        <!-- Event info (if event type) -->
         <div v-if="post.postType === 'event' && post.eventStartDate" class="post-event-info">
           <Icon name="i-heroicons-map-pin" class="size-4" aria-hidden="true" />
           <span>{{ post.eventLocation }}</span>
@@ -47,7 +43,6 @@
           <span>{{ formatEventDate(post.eventStartDate) }}</span>
         </div>
 
-        <!-- Read more -->
         <span class="post-read-more">
           {{ t("news.postCard.readMore") }}
           <Icon name="i-heroicons-arrow-right" class="size-4 read-more-icon" aria-hidden="true" />
@@ -80,7 +75,6 @@ const formattedDate = computed(() => {
 
 const readingTime = computed(() => {
   if (props.post.readingTimeOverride) return props.post.readingTimeOverride;
-  // Estimate based on excerpt length (rough estimate)
   const words = props.post.excerpt?.split(/\s+/).length || 0;
   return Math.max(1, Math.ceil(words / 200));
 });
@@ -226,7 +220,7 @@ function formatEventDate(dateString: string) {
   align-items: center;
   gap: 0.375rem;
   font-size: 0.8125rem;
-  color: var(--color-primary-700); /* Improved from primary-500 for WCAG AA contrast */
+  color: var(--color-primary-700);
 }
 
 .post-title {
@@ -280,7 +274,6 @@ function formatEventDate(dateString: string) {
   transition: transform var(--duration-fast) var(--ease-smooth);
 }
 
-/* Dark mode */
 :global(.dark) .post-card {
   background: var(--color-surface-1);
   border-color: var(--color-border);
@@ -315,7 +308,6 @@ function formatEventDate(dateString: string) {
   color: var(--color-accent-400);
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .post-card:hover {
     transform: none;
